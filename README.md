@@ -6,7 +6,7 @@ Wag magcocode dun kasi may chance na mawala dun ang code.
 
 -----------------------------------------------------------
 
-File naming: component_Feature_vN_M.fileextension
+#File naming: component_Feature_vN_M.fileextension
 
 component: front, backFun, backSec
 Feature: TBA
