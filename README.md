@@ -9,8 +9,11 @@ Wag magcocode dun kasi may chance na mawala dun ang code.
 # File naming: component_Feature_vN.M.fileextension
 
 component: front, backFun, backSec
+
 Feature: TBA
+
 N: version number (major changes)
+
 M: version number (minor changes)
 
 -----------------------------------------------------------
