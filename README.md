@@ -15,7 +15,7 @@ M: version number (minor changes)
 Admin Management :
 adAccnts – Admin Accounts |
 schedConfig – Election Scheduler |
-signConfig – Election Configuration |
+signConfig – Signatory Configuration |
 actLogs – Admin Activity Logs
 
 -----------------------------------------------------------
