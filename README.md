@@ -12,7 +12,7 @@ Feature: TBA
 N: version number (major changes)  
 M: version number (minor changes)
 
-Admin Management :
+Admin Management
 adAccnts – Admin Accounts
 schedConfig – Election Scheduler
 signConfig – Election Configuration
@@ -20,6 +20,7 @@ actLogs – Admin Activity Logs
 
 -----------------------------------------------------------
 
-Gdrive links:  
+Links:  
 project ----->> https://drive.google.com/drive/u/1/folders/1cyo_5iGr4_6_7nx1SnbXZE1aHy8X6GDE  
 installers -->> https://drive.google.com/drive/folders/1o0Wh7KJLx3E9oH4lJK4vzAeeIntqc5dr?usp=sharing  
+host -------->> https://my.freenom.com/  
