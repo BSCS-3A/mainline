@@ -12,7 +12,7 @@ Feature: TBA
 N: version number (major changes)  
 M: version number (minor changes)
 
-Admin Management
+Admin Management :
 adAccnts – Admin Accounts
 schedConfig – Election Scheduler
 signConfig – Election Configuration
