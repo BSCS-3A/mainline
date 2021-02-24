@@ -10,7 +10,13 @@ Wag magcocode dun kasi may chance na mawala dun ang code.
 component: front, backFun, backSec  
 Feature: TBA  
 N: version number (major changes)  
-M: version number (minor changes)  
+M: version number (minor changes)
+
+Admin Management
+adAccnts – Admin Accounts
+schedConfig – Election Scheduler
+signConfig – Election Configuration
+actLogs – Admin Activity Logs
 
 -----------------------------------------------------------
 
