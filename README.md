@@ -6,7 +6,6 @@ Wag magcocode dun kasi may chance na mawala dun ang code.
 -----------------------------------------------------------
 
 # File naming: component_Feature_vN_M.fileextension  
-
 component: front, backFun, backSec  
 Feature: TBA  
 N: version number (major changes)  
@@ -20,7 +19,7 @@ actLogs – Admin Activity Logs
 
 -----------------------------------------------------------
 
-Links:  
+# Links:  
 project ----->> https://drive.google.com/drive/u/1/folders/1cyo_5iGr4_6_7nx1SnbXZE1aHy8X6GDE  
 installers -->> https://drive.google.com/drive/folders/1o0Wh7KJLx3E9oH4lJK4vzAeeIntqc5dr?usp=sharing  
 host -------->> https://ph.000webhost.com/  
