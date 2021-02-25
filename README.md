@@ -6,11 +6,11 @@ Wag magcocode dun kasi may chance na mawala dun ang code.
 -----------------------------------------------------------
 
 # File naming: component_Feature_vN_M.fileextension  
-component: front, backFun, backSec 
-N: version number (major changes)  
-M: version number (minor changes)
+component: front, backFun, backSec <br>
+N: version number (major changes)  <br>
+M: version number (minor changes)  <br><br>
 
-Feature:
+Feature: <br>
 Admin Management | Codename
 -----------------|-----------
 adAccnts         | Admin Accounts  
