@@ -45,7 +45,9 @@ empty    | empty
 
 Voting Process     | Codename
 -------------------|-----------
-empty   | empty
+Voting page   | vtPage
+Vote Confirmation | vtConfrim
+Receipt | receipt
 
 <br>
 
@@ -53,10 +55,11 @@ Monitoring         | Codename
 -------------------|-----------
 empty    | empty
 
+
 -----------------------------------------------------------
 
 # Links:  
 project ----->> https://drive.google.com/drive/u/1/folders/1cyo_5iGr4_6_7nx1SnbXZE1aHy8X6GDE  
 installers -->> https://drive.google.com/drive/folders/1o0Wh7KJLx3E9oH4lJK4vzAeeIntqc5dr?usp=sharing  
 host -------->> https://ph.000webhost.com/  
-name -------->> https://my.freenom.com/  
+domain name ->> https://my.freenom.com/  
