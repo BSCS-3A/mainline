@@ -12,6 +12,7 @@ M: version number (minor changes)
 Feature:
 
 *Admin Management*
+---------|-----------
 adAccnts | Admin Accounts  
 schedConfig | Election Scheduler  
 signConfig | Signatory Configuration  
