@@ -9,8 +9,8 @@ Wag magcocode dun kasi may chance na mawala dun ang code.
 component: front, backFun, backSec 
 N: version number (major changes)  
 M: version number (minor changes)
-Feature:
 
+Feature:
 Admin Management | Codename
 -----------------|-----------
 adAccnts         | Admin Accounts  
