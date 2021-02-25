@@ -17,28 +17,38 @@ Admin Accounts      | adAccnt
 Election Scheduler  | schedConfig
 Signatory Configure | signConfig 
 Admin Activity Logs | actLogs 
+
 <br>
+
 Dashboard          | Codename
 -------------------|-----------
 Student Dashboard  | dashStud 
 Admin Dashboard    | dashAdmin 
 Authentication     | Authentication
 Access Logs        | accessLogs
+
 <br>
+
 Student Management | Codename
 -------------------|-----------
 Student Account    | studAcc
 Summary of Votes   | vtSumm
 Message Box        | Mbox
+
 <br>
+
 Candidate Management | Codename
 -------------------|-----------
 empty    | empty
+
 <br>
+
 Voting Process     | Codename
 -------------------|-----------
 empty   | empty
+
 <br>
+
 Monitoring         | Codename
 -------------------|-----------
 empty    | empty
