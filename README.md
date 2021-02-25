@@ -6,16 +6,16 @@ Wag magcocode dun kasi may chance na mawala dun ang code.
 -----------------------------------------------------------
 
 # File naming: component_Feature_vN_M.fileextension  
-component: front, backFun, backSec  
-Feature: TBA  
+component: front, backFun, backSec 
 N: version number (major changes)  
 M: version number (minor changes)
+Feature:
 
-Admin Management :
-adAccnts – Admin Accounts  
-schedConfig – Election Scheduler  
-signConfig – Signatory Configuration  
-actLogs – Admin Activity Logs
+*Admin Management*
+adAccnts | Admin Accounts  
+schedConfig | Election Scheduler  
+signConfig | Signatory Configuration  
+actLogs | Admin Activity Logs
 
 -----------------------------------------------------------
 
