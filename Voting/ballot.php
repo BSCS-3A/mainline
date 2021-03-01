@@ -44,9 +44,13 @@
 		$dbpass = "";
 		$db = "test";
 		$conn = mysqli_connect($dbhost, $dbuser, $dbpass,$db);
+		if ($conn->connect_error) {
+			die("Connection to database failed: " . $conn->connect_error);
+		}
 		$candidates = array(1, 1);
 
 		function showInfo(){
+			
 			$canCtr = 0;
 			$pos_id = 10;
 			while($pos_id < 40){
@@ -91,7 +95,6 @@
 			else{
 				return false;
 			}
-			
 		}
 
 		function sanitize(){
