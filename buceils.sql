@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 25, 2021 at 04:43 AM
+-- Generation Time: Feb 25, 2021 at 06:05 AM
 -- Server version: 10.4.17-MariaDB
 -- PHP Version: 8.0.1
 
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `hhs_buceils`
+-- Database: `buceils`
 --
 
 -- --------------------------------------------------------
@@ -43,7 +43,6 @@ CREATE TABLE `activity_log` (
 
 CREATE TABLE `admin` (
   `admin_id` int(11) NOT NULL,
-  `activity_log_id` int(11) NOT NULL,
   `admin_name` varchar(30) NOT NULL,
   `admin_position` varchar(30) NOT NULL,
   `username` varchar(30) NOT NULL,
@@ -51,6 +50,13 @@ CREATE TABLE `admin` (
   `photo` varchar(30) NOT NULL,
   `reg_date` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `admin`
+--
+
+INSERT INTO `admin` (`admin_id`, `admin_name`, `admin_position`, `username`, `password`, `photo`, `reg_date`) VALUES
+(1, 'john cena', 'wrestler', 'admin', 'admin', '', '2021-02-25 04:42:31');
 
 -- --------------------------------------------------------
 
@@ -101,8 +107,6 @@ CREATE TABLE `candidate_position` (
 
 CREATE TABLE `student` (
   `student_id` int(11) NOT NULL,
-  `candidate_id` int(11) NOT NULL,
-  `vote_log_id` int(11) NOT NULL,
   `name` varchar(30) NOT NULL,
   `gender` varchar(10) NOT NULL,
   `email` varchar(30) NOT NULL,
@@ -140,8 +144,7 @@ ALTER TABLE `activity_log`
 -- Indexes for table `admin`
 --
 ALTER TABLE `admin`
-  ADD PRIMARY KEY (`admin_id`),
-  ADD KEY `activity_log_id` (`activity_log_id`);
+  ADD PRIMARY KEY (`admin_id`);
 
 --
 -- Indexes for table `archive`
@@ -168,9 +171,7 @@ ALTER TABLE `candidate_position`
 -- Indexes for table `student`
 --
 ALTER TABLE `student`
-  ADD PRIMARY KEY (`student_id`),
-  ADD KEY `candidate_id` (`candidate_id`),
-  ADD KEY `vote_log_id` (`vote_log_id`);
+  ADD PRIMARY KEY (`student_id`);
 
 --
 -- Indexes for table `vote_summary`
@@ -194,7 +195,7 @@ ALTER TABLE `activity_log`
 -- AUTO_INCREMENT for table `admin`
 --
 ALTER TABLE `admin`
-  MODIFY `admin_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `admin_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `archive`
@@ -224,7 +225,7 @@ ALTER TABLE `student`
 -- AUTO_INCREMENT for table `vote_summary`
 --
 ALTER TABLE `vote_summary`
-  MODIFY `vote_log_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `vote_log_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- Constraints for dumped tables
@@ -235,12 +236,6 @@ ALTER TABLE `vote_summary`
 --
 ALTER TABLE `activity_log`
   ADD CONSTRAINT `activity_log_ibfk_1` FOREIGN KEY (`admin_id`) REFERENCES `admin` (`admin_id`);
-
---
--- Constraints for table `admin`
---
-ALTER TABLE `admin`
-  ADD CONSTRAINT `admin_ibfk_1` FOREIGN KEY (`activity_log_id`) REFERENCES `activity_log` (`activity_log_id`);
 
 --
 -- Constraints for table `archive`
@@ -254,13 +249,6 @@ ALTER TABLE `archive`
 ALTER TABLE `candidate`
   ADD CONSTRAINT `candidate_ibfk_1` FOREIGN KEY (`student_id`) REFERENCES `student` (`student_id`),
   ADD CONSTRAINT `candidate_ibfk_2` FOREIGN KEY (`position_id`) REFERENCES `candidate_position` (`position_id`);
-
---
--- Constraints for table `student`
---
-ALTER TABLE `student`
-  ADD CONSTRAINT `student_ibfk_1` FOREIGN KEY (`candidate_id`) REFERENCES `candidate` (`candidate_id`),
-  ADD CONSTRAINT `student_ibfk_2` FOREIGN KEY (`vote_log_id`) REFERENCES `vote_summary` (`vote_log_id`);
 
 --
 -- Constraints for table `vote_summary`
