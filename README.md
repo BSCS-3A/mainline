@@ -59,11 +59,14 @@ empty    | empty
 -----------------------------------------------------------
 
 # Links:  
-project ----->> https://drive.google.com/drive/u/1/folders/1cyo_5iGr4_6_7nx1SnbXZE1aHy8X6GDE  
-installers -->> https://drive.google.com/drive/folders/1o0Wh7KJLx3E9oH4lJK4vzAeeIntqc5dr?usp=sharing  
-host -------->> https://ph.000webhost.com/  
-domain name ->> https://my.freenom.com/  
-
+project ------------->> https://drive.google.com/drive/u/1/folders/1cyo_5iGr4_6_7nx1SnbXZE1aHy8X6GDE  
+installers ---------->> https://drive.google.com/drive/folders/1o0Wh7KJLx3E9oH4lJK4vzAeeIntqc5dr?usp=sharing  
+host ---------------->> https://ph.000webhost.com/  
+domain name --------->> https://my.freenom.com/  
+php tutorial -------->> https://www.w3schools.com/php/default.asp
+html tutorial ------->> https://www.w3schools.com/html/html_responsive.asp
+jqury tutorial ------>> https://www.w3schools.com/jquery/default.asp
+javascript tutorial ->> https://www.w3schools.com/js/default.asp
 -----------------------------------------------------------
 
 # Front End CSS Guide 
