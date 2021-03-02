@@ -63,3 +63,16 @@ project ----->> https://drive.google.com/drive/u/1/folders/1cyo_5iGr4_6_7nx1SnbX
 installers -->> https://drive.google.com/drive/folders/1o0Wh7KJLx3E9oH4lJK4vzAeeIntqc5dr?usp=sharing  
 host -------->> https://ph.000webhost.com/  
 domain name ->> https://my.freenom.com/  
+
+-----------------------------------------------------------
+
+# Front End CSS Guide 
+<br>
+Letter  | Feature
+--------|-----------
+A | Dashboard and Authentication
+B | Monitoring
+C | Student Management
+D | Admin Management
+E | Candidate Information Management
+F | Voting Process
