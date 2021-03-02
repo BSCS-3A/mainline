@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 25, 2021 at 06:05 AM
+-- Generation Time: Feb 25, 2021 at 06:34 AM
 -- Server version: 10.4.17-MariaDB
 -- PHP Version: 8.0.1
 
@@ -46,7 +46,7 @@ CREATE TABLE `admin` (
   `admin_name` varchar(30) NOT NULL,
   `admin_position` varchar(30) NOT NULL,
   `username` varchar(30) NOT NULL,
-  `password` varchar(30) NOT NULL,
+  `password` varchar(32) NOT NULL,
   `photo` varchar(30) NOT NULL,
   `reg_date` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -110,7 +110,7 @@ CREATE TABLE `student` (
   `name` varchar(30) NOT NULL,
   `gender` varchar(10) NOT NULL,
   `email` varchar(30) NOT NULL,
-  `password` varchar(30) NOT NULL,
+  `password` varchar(32) NOT NULL,
   `voting_status` varchar(15) NOT NULL,
   `photo` varchar(150) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
