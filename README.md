@@ -68,11 +68,12 @@ domain name ->> https://my.freenom.com/
 
 # Front End CSS Guide 
 <br>
+
 Letter  | Feature
 --------|-----------
-A | Dashboard and Authentication
-B | Monitoring
-C | Student Management
-D | Admin Management
-E | Candidate Information Management
-F | Voting Process
+A       | Dashboard and Authentication
+B       | Monitoring
+C       | Student Management
+D       | Admin Management
+E       | Candidate Information Management
+F       | Voting Process
