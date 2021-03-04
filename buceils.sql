@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Mar 03, 2021 at 10:36 AM
+-- Generation Time: Mar 04, 2021 at 01:16 PM
 -- Server version: 10.3.16-MariaDB
 -- PHP Version: 7.3.23
 
@@ -87,15 +87,16 @@ CREATE TABLE `candidate` (
   `position_id` int(11) NOT NULL,
   `total_votes` int(11) NOT NULL,
   `party_name` varchar(30) NOT NULL,
-  `platform_info` varchar(100) NOT NULL
+  `platform_info` varchar(100) NOT NULL,
+  `photo` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `candidate`
 --
 
-INSERT INTO `candidate` (`candidate_id`, `student_id`, `position_id`, `total_votes`, `party_name`, `platform_info`) VALUES
-(2, 123456126, 1, 0, 'boboydgreat', 'ipakulong si duterte');
+INSERT INTO `candidate` (`candidate_id`, `student_id`, `position_id`, `total_votes`, `party_name`, `platform_info`, `photo`) VALUES
+(2, 123456126, 1, 0, 'boboydgreat', 'ipakulong si duterte', '');
 
 -- --------------------------------------------------------
 
@@ -131,17 +132,16 @@ CREATE TABLE `student` (
   `bumail` varchar(100) NOT NULL,
   `grade_level` int(11) NOT NULL,
   `otp` varchar(6) NOT NULL,
-  `voting_status` tinyint(1) NOT NULL,
-  `photo` varchar(150) NOT NULL
+  `voting_status` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `student`
 --
 
-INSERT INTO `student` (`student_id`, `fname`, `Mname`, `lname`, `gender`, `bumail`, `grade_level`, `otp`, `voting_status`, `photo`) VALUES
-(123456126, 'boboy', 'm', 'pink', 'nogender', 'boboymamamo.pink@bicol-u.edu.ph', 0, 'asdfdf', 0, ''),
-(123456127, 'paul', 'j', 'sta. ana', 'nogender', 'pauljay.sta.ana@bicol-u.edu.ph', 0, 'sdffgd', 0, '');
+INSERT INTO `student` (`student_id`, `fname`, `Mname`, `lname`, `gender`, `bumail`, `grade_level`, `otp`, `voting_status`) VALUES
+(123456126, 'boboy', 'm', 'pink', 'nogender', 'boboymamamo.pink@bicol-u.edu.ph', 0, 'asdfdf', 0),
+(123456127, 'paul', 'j', 'sta. ana', 'nogender', 'pauljay.sta.ana@bicol-u.edu.ph', 0, 'sdffgd', 0);
 
 -- --------------------------------------------------------
 
