@@ -82,7 +82,7 @@ host | https://ph.000webhost.com/
 domain name | https://my.freenom.com/  
 php tutorial | https://www.w3schools.com/php/default.asp
 html tutorial | https://www.w3schools.com/html/html_responsive.asp
-jqury tutorial | https://www.w3schools.com/jquery/default.asp
+jquery tutorial | https://www.w3schools.com/jquery/default.asp
 javascript tutorial | https://www.w3schools.com/js/default.asp
 -----------------------------------------------------------
 
