@@ -10,7 +10,7 @@ component: front, backFun, backSec <br>
 N: version number (major changes)  <br>
 M: version number (minor changes)  <br><br>
 
-Folder Structure to be followed by all groups:  
+# Folder Structure to be followed by all groups:  
 root  
 &nbsp;&nbsp;&nbsp;&nbsp;index.php  
 &nbsp;&nbsp;&nbsp;&nbsp;db  
