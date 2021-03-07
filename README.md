@@ -5,11 +5,6 @@ Wag magcocode dun kasi may chance na mawala dun ang code.
 
 -----------------------------------------------------------
 
-# File naming: component_Feature_vN_M.fileextension  
-component: front, backFun, backSec <br>
-N: version number (major changes)  <br>
-M: version number (minor changes)  <br><br>
-
 # Folder Structure to be followed by all groups:  
 root  
 &nbsp;&nbsp;&nbsp;&nbsp;index.php  
@@ -24,6 +19,10 @@ root
 &nbsp;&nbsp;&nbsp;&nbsp;php  
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;connect.php  
 
+# File naming: component_Feature_vN_M.fileextension  
+component: front, backFun, backSec <br>
+N: version number (major changes)  <br>
+M: version number (minor changes)  <br><br>
 
 Feature: <br>
 Admin Management    | Codename
