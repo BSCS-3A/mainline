@@ -12,17 +12,17 @@ M: version number (minor changes)  <br><br>
 
 Folder Structure to be followed by all groups:
 root  
-	index.php 
-	db  
-		sql files  
-	html  
-		html files  
-	img  
-		logo.jpg  
-	js  
-		java.js  
-	php  
-		connect.php  
+|---index.php 
+|---db  
+    |---sql files  
+|html  
+html files  
+img  
+logo.jpg  
+js  
+java.js  
+php  
+connect.php  
 
 
 Feature: <br>
