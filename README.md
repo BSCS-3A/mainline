@@ -58,9 +58,24 @@ Receipt | receipt
 
 <br>
 
-Monitoring         | Codename
--------------------|-----------
-empty    | empty
+Monitoring                 | Codename
+---------------------------|---------------
+Ongoing Election Status    | Elecstat  
+No On-going Election Status| NoElecStat  
+Election Results           | ElectRes  
+Stud Archives Folders      | ArcFolder  
+Stud ArchivesListofWinners | ArcList  
+Election                   | Election  
+Vote Status Percentage     | VsPercentage  
+Vote Status Grade 7        | VstatG7  
+Vote Status Grade 8        | VstatG8  
+Vote Status Grade 9        | VstatG9  
+Vote Status Grade 10       | VstatG10  
+Vote Status Grade 11       | VstatG11  
+Vote Status Grade 12       | VstatG12  
+Admin Archives Folders     | ArchFolder  
+Admin ArchivesListofWinners| ArchList  
+Election Results Report    | Report
 
 
 -----------------------------------------------------------
