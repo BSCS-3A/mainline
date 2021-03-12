@@ -62,6 +62,7 @@ Monitoring                 | Codename
 ---------------------------|---------------
 Ongoing Election Status    | Elecstat  
 No On-going Election Status| NoElecStat  
+End of Election Status     | EndStat
 Election Results           | ElectRes  
 Stud Archives Folders      | ArcFolder  
 Stud ArchivesListofWinners | ArcList  
