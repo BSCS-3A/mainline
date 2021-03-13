@@ -52,9 +52,13 @@ empty    | empty
 
 Voting Process     | Codename
 -------------------|-----------
-Voting page   | vtPage
+DB Connection | connect
+Voting page   | vtBallot
+Ballot Generation | vtFetch
 Vote Confirmation | vtConfrim
-Receipt | receipt
+Vote Submission | vtSubmit
+Receipt | vtReceipt
+Security | vtValSan
 
 <br>
 
@@ -62,7 +66,7 @@ Monitoring                 | Codename
 ---------------------------|---------------
 Ongoing Election Status    | Elecstat  
 No On-going Election Status| NoElecStat  
-End of Election Status     | EndStat
+End of Election Status     | EndStat  
 Election Results           | ElectRes  
 Stud Archives Folders      | ArcFolder  
 Stud ArchivesListofWinners | ArcList  
@@ -76,7 +80,7 @@ Vote Status Grade 11       | VstatG11
 Vote Status Grade 12       | VstatG12  
 Admin Archives Folders     | ArchFolder  
 Admin ArchivesListofWinners| ArchList  
-Election Results Report    | Report
+Election Results Report    | Report  
 
 
 -----------------------------------------------------------
