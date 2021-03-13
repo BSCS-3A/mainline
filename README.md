@@ -57,6 +57,7 @@ Voting page   | vtBallot
 Ballot Generation | vtFetch
 Vote Confirmation | vtConfrim
 Vote Submission | vtSubmit
+Update VOter Stat | vtStatUpdate
 Receipt | vtReceipt
 Security | vtValSan
 
