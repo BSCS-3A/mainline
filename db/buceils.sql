@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Mar 04, 2021 at 01:16 PM
+-- Generation Time: Mar 08, 2021 at 03:18 PM
 -- Server version: 10.3.16-MariaDB
 -- PHP Version: 7.3.23
 
@@ -59,7 +59,7 @@ CREATE TABLE `admin` (
 --
 
 INSERT INTO `admin` (`admin_id`, `admin_fname`, `admin_mname`, `admin_lname`, `admin_position`, `username`, `password`, `photo`, `reg_date`) VALUES
-(1, '', '', '', 'wrestler', 'admin', 'admin', '', '2021-02-25 04:42:31');
+(1, 'John', 'UCANTSEEME', 'Cena', 'wrestler', 'admin', '21232f297a57a5a743894a0e4a801fc3', '', '2021-03-07 09:32:37');
 
 -- --------------------------------------------------------
 
@@ -106,6 +106,7 @@ INSERT INTO `candidate` (`candidate_id`, `student_id`, `position_id`, `total_vot
 
 CREATE TABLE `candidate_position` (
   `position_id` int(11) NOT NULL,
+  `heirarchy_id` int(30) NOT NULL,
   `position_name` varchar(30) NOT NULL,
   `position_description` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -114,8 +115,9 @@ CREATE TABLE `candidate_position` (
 -- Dumping data for table `candidate_position`
 --
 
-INSERT INTO `candidate_position` (`position_id`, `position_name`, `position_description`) VALUES
-(1, 'President', 'duterte ');
+INSERT INTO `candidate_position` (`position_id`, `heirarchy_id`, `position_name`, `position_description`) VALUES
+(1, 1, 'President', 'duterte '),
+(2, 2, 'Vice President', 'awitsayo ');
 
 -- --------------------------------------------------------
 
@@ -260,7 +262,7 @@ ALTER TABLE `candidate`
 -- AUTO_INCREMENT for table `candidate_position`
 --
 ALTER TABLE `candidate_position`
-  MODIFY `position_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `position_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `student`
