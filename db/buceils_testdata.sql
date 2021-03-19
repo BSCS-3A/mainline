@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Mar 19, 2021 at 06:08 PM
+-- Generation Time: Mar 19, 2021 at 09:35 PM
 -- Server version: 8.0.23-0ubuntu0.20.04.1
 -- PHP Version: 7.4.3
 
@@ -30,15 +30,15 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `admin` (
   `admin_id` int NOT NULL,
-  `admin_fname` varchar(30) NOT NULL,
-  `admin_mname` varchar(30) NOT NULL,
-  `admin_lname` varchar(30) NOT NULL,
-  `admin_position` varchar(30) NOT NULL,
-  `username` varchar(30) NOT NULL,
-  `password` varchar(32) NOT NULL,
-  `photo` varchar(30) NOT NULL,
+  `admin_fname` varchar(30) COLLATE utf8mb4_general_ci NOT NULL,
+  `admin_mname` varchar(30) COLLATE utf8mb4_general_ci NOT NULL,
+  `admin_lname` varchar(30) COLLATE utf8mb4_general_ci NOT NULL,
+  `admin_position` varchar(30) COLLATE utf8mb4_general_ci NOT NULL,
+  `username` varchar(30) COLLATE utf8mb4_general_ci NOT NULL,
+  `password` varchar(32) COLLATE utf8mb4_general_ci NOT NULL,
+  `photo` varchar(30) COLLATE utf8mb4_general_ci NOT NULL,
   `reg_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `admin`
@@ -407,15 +407,15 @@ CREATE TABLE `candidate` (
 
 INSERT INTO `candidate` (`candidate_id`, `student_id`, `position_id`, `total_votes`, `party_name`, `platform_info`, `credentials`, `photo`) VALUES
 (1, 8, 1, 2, 'Run Adrian, Run Partylist', 'I wanna be a billionaire, so freaking bad.', 'Class President for 5 years.', ''),
-(2, 9, 1, 3, 'Dingdong Dantes Supporters', 'Para kay Tatay Digs, I dig.', 'DU30natics since 1999', ''),
-(3, 10, 2, 3, 'Run Adrian, Run Partylist', 'I wanna be a billionaire (2)', 'Tiktoker for 2 years.', ''),
+(2, 9, 1, 4, 'Dingdong Dantes Supporters', 'Para kay Tatay Digs, I dig.', 'DU30natics since 1999', ''),
+(3, 10, 2, 4, 'Run Adrian, Run Partylist', 'I wanna be a billionaire (2)', 'Tiktoker for 2 years.', ''),
 (4, 11, 2, 1, 'Dingdong Dantes Supporters', 'DDS forever.', 'Clowns since birth.', ''),
-(5, 12, 3, 3, 'Run Adrian, Run Partylist', 'Do you want to build a snowman?', 'Elsa\'s sister.', ''),
+(5, 12, 3, 4, 'Run Adrian, Run Partylist', 'Do you want to build a snowman?', 'Elsa\'s sister.', ''),
 (6, 13, 3, 1, 'Dingdong Dantes Supporters', 'I believe in the saying na naniniwala ako sa kasabihan.', 'Sana all may credentials.', ''),
 (7, 14, 3, 0, 'Independent', 'Strong independent woman, kaya ko mag-secretary.', 'Independent for 10 years.', ''),
-(8, 15, 4, 5, 'Dingdong Dantes Supporters', 'Payaman lang ako dito.', 'Kurakot pero cute.', ''),
+(8, 15, 4, 6, 'Dingdong Dantes Supporters', 'Payaman lang ako dito.', 'Kurakot pero cute.', ''),
 (9, 16, 5, 0, 'Independent', 'Isasama kita sa barko ko.', 'I have Noah\'s Arc.\r\nSaving animals for 5 years.', ''),
-(10, 17, 6, 0, 'Dingdong Dantes Supporters', 'Boses ng grade 7, malakas.', 'Pabibo yesterday, oday and tomorrow.', ''),
+(10, 17, 6, 1, 'Dingdong Dantes Supporters', 'Boses ng grade 7, malakas.', 'Pabibo yesterday, oday and tomorrow.', ''),
 (11, 18, 6, 0, 'Run Adrian, Run Partylist', 'Meron akong Martin\'s crackers.', 'Owner of Martin\'s crackers.', ''),
 (12, 19, 7, 1, 'Dingdong Dantes Supporters', 'Kung kailangan mo ng tulang, sabihin mo lang, \"JOSEFA-tulong.\"', 'In the service of grade 8 people...', ''),
 (13, 20, 7, 1, 'Run Adrian, Run Partylist', 'Danilook, may nangangailangan ng tulong.', 'Nakikita niya lahat ng nangangailangan ng tulong.', ''),
@@ -436,9 +436,9 @@ INSERT INTO `candidate` (`candidate_id`, `student_id`, `position_id`, `total_vot
 CREATE TABLE `candidate_position` (
   `position_id` int NOT NULL,
   `heirarchy_id` int NOT NULL,
-  `position_name` varchar(30) NOT NULL,
-  `position_description` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  `position_name` varchar(30) COLLATE utf8mb4_general_ci NOT NULL,
+  `position_description` varchar(100) COLLATE utf8mb4_general_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `candidate_position`
@@ -465,54 +465,54 @@ INSERT INTO `candidate_position` (`position_id`, `heirarchy_id`, `position_name`
 
 CREATE TABLE `student` (
   `student_id` int NOT NULL,
-  `fname` varchar(30) NOT NULL,
-  `Mname` varchar(30) NOT NULL,
-  `lname` varchar(30) NOT NULL,
-  `gender` varchar(10) NOT NULL,
-  `bumail` varchar(100) NOT NULL,
+  `fname` varchar(30) COLLATE utf8mb4_general_ci NOT NULL,
+  `Mname` varchar(30) COLLATE utf8mb4_general_ci NOT NULL,
+  `lname` varchar(30) COLLATE utf8mb4_general_ci NOT NULL,
+  `gender` varchar(10) COLLATE utf8mb4_general_ci NOT NULL,
+  `bumail` varchar(100) COLLATE utf8mb4_general_ci NOT NULL,
   `grade_level` int NOT NULL,
-  `otp` varchar(6) NOT NULL,
+  `otp` varchar(6) COLLATE utf8mb4_general_ci NOT NULL,
   `voting_status` tinyint(1) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `student`
 --
 
 INSERT INTO `student` (`student_id`, `fname`, `Mname`, `lname`, `gender`, `bumail`, `grade_level`, `otp`, `voting_status`) VALUES
-(1, 'Maria', 'Madrona', 'Hanway', 'female', 'dhanjaphetverastigue.ador@bicol-u.edu.ph', 7, 'nxjV5T', 0),
-(2, 'Ariel', 'Bilal', 'Ongpauco', 'male', 'jessicaarimado.ajero@bicol-u.edu.ph', 10, '9Yzp9Q', 1),
-(3, 'Isaak', 'Pildilapil', 'Alba', 'male', 'gaybaraquiel.alarcon@bicol-u.edu.ph', 11, 'z5nZZj', 1),
-(4, 'Braedon', 'Lozo', 'Sibug', 'male', 'johnpaulrenevo.asis@bicol-u.edu.ph', 9, 't3rTNR', 1),
-(5, 'Julien', 'Cader', 'Puno', 'female', 'johnpauljaynario.azore@bicol-u.edu.ph', 9, 'FNPd5T', 0),
-(6, 'John Wesley', '', 'Atega', 'male', 'kayceelanuza.ballesteros@bicol-u.edu.ph', 7, 'ZVBne5', 1),
-(7, 'Jerrald', 'Dura', 'Macatangay', 'male', 'benazirgratela.barrameda@bicol-u.edu.ph', 8, 'ps0dFS', 1),
-(8, 'Adrian', 'Gallora', 'Balangao', 'male', 'stevenandreibansagale.barrios@bicol-u.edu.ph', 11, 'y3t4Sw', 0),
-(9, 'Ken', 'Sison', 'Padilla', 'male', 'kerbymaravilla.bartolay@bicol-u.edu.ph', 11, 'G0styd', 0),
-(10, 'Horencia', 'Lopa', 'Santiago', 'female', 'christopherbariso.belen@bicol-u.edu.ph', 12, 'CG4vtQ', 1),
-(11, 'Mason', 'Felix', 'Montejo', 'male', 'maedeljoicebercasio.castro@bicol-u.edu.ph', 8, 'T7ug0q', 0),
-(12, 'Anna', 'Lacsamana', 'Gevarra', 'female', 'joshuaisaiahmendez.codorniz@bicol-u.edu.ph', 9, 'jQYa5N', 0),
-(13, 'Trevon', 'Daquan', 'Magnaye', 'male', 'janharoldlandicho.delacruz@bicol-u.edu.ph', 7, 'hE8C2Z', 0),
-(14, 'Abigail', 'Subrabas', 'Mipa', 'female', 'josedavidmapusao.delossantos@bicol-u.edu.ph', 10, '9GCx77', 0),
-(15, 'Sasha', 'Macalipay', 'Buenaventura', 'female', 'carlosgabrielendaya.delrosario@bicol-u.edu.ph', 8, '9k73RF', 0),
-(16, 'Noah', 'Moxcir', 'Solas', 'male', 'christianangelodimaano.diesta@bicol-u.edu.ph', 7, 'yUX4se', 0),
-(17, 'Alliah', 'Lanta', 'Bataller', 'female', 'maveronicasequitin.gallos@bicol-u.edu.ph', 7, 'N0DRbp', 0),
-(18, 'Martin', 'Estevan', 'Pamintuan', 'male', 'mikaellalubiano.jarapa@bicol-u.edu.ph', 7, 'txTPy7', 0),
-(19, 'Josefa', 'Talon', 'Vicente', 'female', 'iveelozano.jintalan@bicol-u.edu.ph', 8, '5pPCdv', 0),
-(20, 'Danilo', '', 'Medina', 'male', 'joshuaalexinsuya.llander@bicol-u.edu.ph', 8, 'tP3AF5', 0),
-(21, 'Maurice', 'Clark', 'Madrid', 'female', 'jonjayvegonzales.llaneta@bicol-u.edu.ph', 8, 'z78H0s', 0),
-(22, 'Sebastiano', 'Gubat', 'Etrone', 'male', 'jaydechosa.majadas@bicol-u.edu.ph', 9, 'dSxYm3', 0),
-(23, 'Marvin', 'Cayco', 'Galíndez', 'male', 'allianahgaile.malate@bicol-u.edu.ph', 9, '8E4eP2', 0),
-(24, 'Christy Mae', 'Lotivio', 'Sy', 'female', 'mendrixclarianes.manlangit@bicol-u.edu.ph', 11, 'Fbdda2', 0),
-(25, 'Neo', 'Tuico', 'Hermano', 'female', 'johnkennethestipona.maronilla@bicol-u.edu.ph', 11, 'HUXsE3', 0),
-(26, 'Jazmine', '', 'Lim', 'female', 'darlene.rogero@bicol-u.edu.ph', 12, 'ADEUz3', 0),
-(27, 'Gabriella', 'Regidor', 'Briones', 'female', 'krishalouisesanjose.munoz@bicol-u.edu.ph', 12, 'tbEq02', 0),
-(28, 'Renz', 'Borras', 'Duclayan', 'male', 'alyssamaecezar.olano@bicol-u.edu.ph', 11, 's1EqEY', 0),
-(29, 'Nicole', '', 'Tiansay', 'female', 'keenbarrameda.padilla@bicol-u.edu.ph', 9, 'Xnk84J', 0),
-(30, 'Kai', 'Batumbakal', 'Guiriba', 'male', 'lizellearcos.penarubia@bicol-u.edu.ph', 8, '7kcrPM', 0),
-(31, 'Lila', 'Rodriguez', 'Litana', 'female', 'karlorhommelchua.staana@bicol-u.edu.ph', 10, 'wE676Y', 0),
-(32, 'Rodrigo', 'Bongo', 'Roque', 'male', 'kathrindenisemontallana.taclas@bicol-u.edu.ph', 12, '7BZtCF', 0),
-(33, 'Lil', '', 'Eminem', 'female', 'ricamae.vega@bicol-u.edu.ph', 11, 'sJ1hEH', 0);
+(1, 'Maria', 'Madrona', 'Hanway', 'female', 'dhanjaphetverastigue.ador@bicol-u.edu.ph', 7, '125915', 1),
+(2, 'Ariel', 'Bilal', 'Ongpauco', 'male', 'jessicaarimado.ajero@bicol-u.edu.ph', 10, '124622', 1),
+(3, 'Isaak', 'Pildilapil', 'Alba', 'male', 'gaybaraquiel.alarcon@bicol-u.edu.ph', 11, '235343', 1),
+(4, 'Braedon', 'Lozo', 'Sibug', 'male', 'johnpaulrenevo.asis@bicol-u.edu.ph', 9, '276291', 1),
+(5, 'Julien', 'Cader', 'Puno', 'female', 'johnpauljaynario.azore@bicol-u.edu.ph', 9, '217493', 0),
+(6, 'John Wesley', '', 'Atega', 'male', 'kayceelanuza.ballesteros@bicol-u.edu.ph', 7, '130104', 1),
+(7, 'Jerrald', 'Dura', 'Macatangay', 'male', 'benazirgratela.barrameda@bicol-u.edu.ph', 8, '266719', 1),
+(8, 'Adrian', 'Gallora', 'Balangao', 'male', 'stevenandreibansagale.barrios@bicol-u.edu.ph', 11, '869571', 0),
+(9, 'Ken', 'Sison', 'Padilla', 'male', 'kerbymaravilla.bartolay@bicol-u.edu.ph', 11, '403364', 0),
+(10, 'Horencia', 'Lopa', 'Santiago', 'female', 'christopherbariso.belen@bicol-u.edu.ph', 12, '864223', 1),
+(11, 'Mason', 'Felix', 'Montejo', 'male', 'maedeljoicebercasio.castro@bicol-u.edu.ph', 8, '090126', 0),
+(12, 'Anna', 'Lacsamana', 'Gevarra', 'female', 'joshuaisaiahmendez.codorniz@bicol-u.edu.ph', 9, '825517', 0),
+(13, 'Trevon', 'Daquan', 'Magnaye', 'male', 'janharoldlandicho.delacruz@bicol-u.edu.ph', 7, '927785', 0),
+(14, 'Abigail', 'Subrabas', 'Mipa', 'female', 'josedavidmapusao.delossantos@bicol-u.edu.ph', 10, '267220', 0),
+(15, 'Sasha', 'Macalipay', 'Buenaventura', 'female', 'carlosgabrielendaya.delrosario@bicol-u.edu.ph', 8, '393606', 0),
+(16, 'Noah', 'Moxcir', 'Solas', 'male', 'christianangelodimaano.diesta@bicol-u.edu.ph', 7, '526160', 0),
+(17, 'Alliah', 'Lanta', 'Bataller', 'female', 'maveronicasequitin.gallos@bicol-u.edu.ph', 7, '753110', 0),
+(18, 'Martin', 'Estevan', 'Pamintuan', 'male', 'mikaellalubiano.jarapa@bicol-u.edu.ph', 7, '252909', 0),
+(19, 'Josefa', 'Talon', 'Vicente', 'female', 'iveelozano.jintalan@bicol-u.edu.ph', 8, '072322', 0),
+(20, 'Danilo', '', 'Medina', 'male', 'joshuaalexinsuya.llander@bicol-u.edu.ph', 8, '372533', 0),
+(21, 'Maurice', 'Clark', 'Madrid', 'female', 'jonjayvegonzales.llaneta@bicol-u.edu.ph', 8, '690885', 0),
+(22, 'Sebastiano', 'Gubat', 'Etrone', 'male', 'jaydechosa.majadas@bicol-u.edu.ph', 9, '514101', 0),
+(23, 'Marvin', 'Cayco', 'Galíndez', 'male', 'allianahgaile.malate@bicol-u.edu.ph', 9, '159368', 0),
+(24, 'Christy Mae', 'Lotivio', 'Sy', 'female', 'mendrixclarianes.manlangit@bicol-u.edu.ph', 11, '465982', 0),
+(25, 'Neo', 'Tuico', 'Hermano', 'female', 'johnkennethestipona.maronilla@bicol-u.edu.ph', 11, '619275', 0),
+(26, 'Jazmine', '', 'Lim', 'female', 'darlene.rogero@bicol-u.edu.ph', 12, '595719', 0),
+(27, 'Gabriella', 'Regidor', 'Briones', 'female', 'krishalouisesanjose.munoz@bicol-u.edu.ph', 12, '000474', 0),
+(28, 'Renz', 'Borras', 'Duclayan', 'male', 'alyssamaecezar.olano@bicol-u.edu.ph', 11, '142538', 0),
+(29, 'Nicole', '', 'Tiansay', 'female', 'keenbarrameda.padilla@bicol-u.edu.ph', 9, '841182', 0),
+(30, 'Kai', 'Batumbakal', 'Guiriba', 'male', 'lizellearcos.penarubia@bicol-u.edu.ph', 8, '921319', 0),
+(31, 'Lila', 'Rodriguez', 'Litana', 'female', 'karlorhommelchua.staana@bicol-u.edu.ph', 10, '797244', 0),
+(32, 'Rodrigo', 'Bongo', 'Roque', 'male', 'kathrindenisemontallana.taclas@bicol-u.edu.ph', 12, '503908', 0),
+(33, 'Lil', '', 'Eminem', 'female', 'ricamae.vega@bicol-u.edu.ph', 11, '097588', 0);
 
 -- --------------------------------------------------------
 
@@ -666,7 +666,27 @@ INSERT INTO `vote` (`vote_log_id`, `student_id`, `candidate_id`, `status`, `time
 (117, 10, 17, '0', '2021-03-19 09:01:15'),
 (118, 10, 18, '0', '2021-03-19 09:01:15'),
 (119, 10, 19, '0', '2021-03-19 09:01:15'),
-(120, 10, 20, '1', '2021-03-19 09:01:15');
+(120, 10, 20, '1', '2021-03-19 09:01:15'),
+(121, 1, 1, '0', '2021-03-19 09:01:15'),
+(122, 1, 2, '1', '2021-03-19 09:01:15'),
+(123, 1, 3, '1', '2021-03-19 09:01:15'),
+(124, 1, 4, '0', '2021-03-19 09:01:15'),
+(125, 1, 5, '1', '2021-03-19 09:01:15'),
+(126, 1, 6, '0', '2021-03-19 09:01:15'),
+(127, 1, 7, '0', '2021-03-19 09:01:15'),
+(128, 1, 8, '1', '2021-03-19 09:01:15'),
+(129, 1, 9, '0', '2021-03-19 09:01:15'),
+(130, 1, 10, '1', '2021-03-19 09:01:15'),
+(131, 1, 11, '0', '2021-03-19 09:01:15'),
+(132, 1, 12, '0', '2021-03-19 09:01:15'),
+(133, 1, 13, '0', '2021-03-19 09:01:15'),
+(134, 1, 14, '0', '2021-03-19 09:01:15'),
+(135, 1, 15, '0', '2021-03-19 09:01:15'),
+(136, 1, 16, '0', '2021-03-19 09:01:15'),
+(137, 1, 17, '0', '2021-03-19 09:01:15'),
+(138, 1, 18, '0', '2021-03-19 09:01:15'),
+(139, 1, 19, '0', '2021-03-19 09:01:15'),
+(140, 1, 20, '0', '2021-03-19 09:01:15');
 
 -- --------------------------------------------------------
 
@@ -797,7 +817,7 @@ ALTER TABLE `student`
 -- AUTO_INCREMENT for table `vote`
 --
 ALTER TABLE `vote`
-  MODIFY `vote_log_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=121;
+  MODIFY `vote_log_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=141;
 
 --
 -- AUTO_INCREMENT for table `vote_event`
