@@ -1,6 +1,6 @@
 # Folder Structure to be followed by all groups:  
 root  
-&nbsp;&nbsp;&nbsp;&nbsp;index.php  
+&nbsp;&nbsp;&nbsp;&nbsp;index.php (login page)  
 &nbsp;&nbsp;&nbsp;&nbsp;db  
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;sql files  
 &nbsp;&nbsp;&nbsp;&nbsp;html  
