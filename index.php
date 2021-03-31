@@ -48,7 +48,7 @@
      
 
     <!-- Login Form -->
-    <form action="Student_Login_Button.php" method="post">   
+    <form action="./php/Student_Login_Button.php" method="post">   
         <div class="Acontainer">
             <img src="./img/student.png" alt="Logo" title="Logo" width="138">
             <h1>SIGN IN AS</h1>

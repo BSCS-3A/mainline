@@ -5,32 +5,30 @@ session_start();
 
 if (time()-$_SESSION['timestamp']>$idletime){
     //$_GET['inactivityError'] = "Session ended: You are logged out due to inactivity.";
-    header("Location: Logout.php");
+    header("Location: AdminLogout.php");
 }else{
     $_SESSION['timestamp']=time();
 }
 
  ?>
-
-
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta charset="utf-8">
-    <link rel="icon" href="assets/img/BUHS LOGO.png" type="image/png">
-    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
-    <link rel="stylesheet" href="./css/admin_css/bootstrap4.5.2.cs_adminDash">
-    <link rel="stylesheet" href="./css/admin_css/dataTables.bootstrap4.min.css_adminDash">
-    <link rel="stylesheet" href="./css/admin_css/font-awesome.css_adminDash">
-    <link rel="stylesheet" href="./css/admin_css/jquery.dataTables.min.css_adminDash">
+    <link rel="icon" href="../img/BUHS LOGO.png" type="image/png">
+    <link rel="stylesheet" type="text/css" href="../css/admin_css/style_AdminDash.css">
+    <link rel="stylesheet" href="../css/admin_css/bootstrap4.5.2_AdminDash.css">
+    <link rel="stylesheet" href="../css/admin_css/dataTables.bootstrap4.min_AdminDash.css">
+    <link rel="stylesheet" href="../css/admin_css/font-awesome_AdminDash.css">
+    <link rel="stylesheet" href="../css/admin_css/jquery.dataTables.min_AdminDash.css">
     <!-- <script src="assets/js/a076d05399.js"></script> -->
-    <script src="../js/dataTables.bootstrap4.min.js"></script>
-    <script src="../js/jquery-3.5.1.js"></script>
-    <script src="../js/jquery.dataTables.min.js"></script>
-    <script src="../js/countdown.js"></script>
+    <script src="../js/dataTables.bootstrap4.min_adminDash.js"></script>
+    <script src="../js/jquery-3.5.1_adminDash.js"></script>
+    <script src="../js/jquery.dataTables.min_adminDash.js"></script>
+    <script src="../js/countdown_adminDash.js"></script>
     <script src="https://cdn.datatables.net/fixedheader/3.1.8/js/dataTables.fixedHeader.min.js"></script>
     <title>BUCEILS Voting System</title>
 </head>
@@ -42,7 +40,7 @@ if (time()-$_SESSION['timestamp']>$idletime){
             <h2 class="aLogo-txt1"><a href="AdminDashboard.php">BUCEILS HS</a></h2>
             <h3 class="aLogo-txt2"><a href="AdminDashboard.php">ONLINE VOTING SYSTEM</a></h3>
         </div>
-        <label for="btn" class="icon"><span class="fa fa-bars"></span></label>
+        <label for="btn" class="ADicon"><span class="fa fa-bars"></span></label>
         <input class="nav-toggle2" type="checkbox" id="btn">
         <ul>
             <li>
@@ -87,13 +85,13 @@ if (time()-$_SESSION['timestamp']>$idletime){
             </li>
             <li><a href="#">MESSAGES</a></li>
             <li>
-                <label for="btn-5" class="Ashow">Admin Name</label>
+                <label for="btn-5" class="Ashow"><?php echo $_SESSION['admin_fname']." ".$_SESSION['admin_lname']; ?></label>
                 <a class="user" href="#"><img class="user-profile" src="../img/<?php echo $_SESSION['photo'];?>"></a>
                 <input class="nav-toggle6" type="checkbox" id="btn-5">
                 <ul>
                     <li><a class="username" href="#"><?php echo $_SESSION['admin_fname']." ".$_SESSION['admin_lname']; ?></a></li>
                     <li class="logout">
-                        <span class="fa fa-sign-out"></span><a href="Logout.php">LOGOUT</a></span>
+                        <span class="fa fa-sign-out"></span><a href="AdminLogout.php">LOGOUT</a></span>
                     </li>
                 </ul>
             </li>
@@ -115,40 +113,38 @@ if (time()-$_SESSION['timestamp']>$idletime){
         </article>
     </section>
 
-    <div class="aContainer">
-        <h1 id="aHeadline">ELECTION COUNTDOWN</h1>
-        <div id="countdown">
-            <ul class="aCD-contents">
+     <!--Proxy Countdown-->
+     <aside id="ADaside-container">
+        <h1 id="AD-CD-headline">ELECTION COUNTDOWN</h1>
+        <div id="ADcountdown">
+            <ul id="AD-CD-contents">
                 <li><span id="days">0</span>days</li>
                 <li><span id="hours">0</span>Hours</li>
                 <li><span id="minutes">0</span>Minutes</li>
                 <li><span id="seconds">0</span>Seconds</li>
             </ul>
         </div>
-        <p class="elec-guide-txt">ELECTION GUIDELINES GO HERE
-
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-            sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-            Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-            Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est
-            laborum.
+        <p class="Aelec-guide-txt">ELECTION GUIDELINES GO HERE
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
+            sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
+            Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
+            Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
         </p>
-    </div>
+    </aside>
 
     <div class="footer">
         <p class="footer-txt">BS COMPUTER SCIENCE 3A © 2021</p>
     </div>
 
     <script>
-        $('.icon').click(function () {
+        $('.ADicon').click(function () {
             $('span').toggleClass("cancel");
         });
     </script>
 </body>
 
 </html>
-
 <?php
 }else{
     header("Location: AdminLogin.php");

@@ -9,5 +9,5 @@ mysqli_query($conn, "INSERT INTO activity_log(admin_id,activity_description,acti
 //setcookie("username", "", time() -3600,"/", "buceilsvoting.online", 1);
 session_unset();
 session_destroy();
-header("Location: ..\php\AdminLogin.php");
+header("Location: AdminLogin.php");
 ?>

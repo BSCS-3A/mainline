@@ -19,7 +19,7 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
    }
    else {
      // die('Your account has been logged as a spammer, you cannot continue!');
-     header("Location: StudentLogin.php?error=Oops! It seems like you logged in incorrectly 3 times. Please verify that you are not a bot by clicking the checkbox before logging in.");	
+    header("Location: StudentLogin.php?error=Oops! It seems like you logged in incorrectly 3 times. Please verify that you are not a bot by clicking the checkbox before logging in.");	
      exit();
    }
  }//end captcha code
@@ -35,10 +35,10 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
 	$pass = validate($_POST['password']); //hash here
 
 	if (empty($username)) {
-		header("Location: StudentLogin.php?error=User Name is required");
+		header("Location: ..\index.php?error=User Name is required");
 	    exit();
 	}else if(empty($pass)){
-        header("Location: StudentLogin.php?error=Password is required");
+        header("Location: ..\index.php?error=Password is required");
 	    exit();
 	}else{
 		$sql = "SELECT * FROM student WHERE bumail='$username' AND otp='$pass'";
@@ -58,22 +58,22 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
 				$date = date('Y-m-d');
 				$time = date('H:i:s');
                 mysqli_query($conn, "INSERT INTO student_access_log(student_id,activity_description,date,time) VALUES($student_id,'Login','$date','$time')");
-            	header("Location: ..\..\Student Dashboard\StudentDashboard.php");
+            	header("Location: StudentDashboard.php");
 		        exit();
             }else{
                 $_SESSION['incorrectTry']++;
-				header("Location: StudentLogin.php?error=Incorrect BU mail or Password");
+				header("Location: ..\index.php?error=Incorrect BU mail or Password");
 		        exit();
 			}
 		}else{
 		    $_SESSION['incorrectTry']++;
-			header("Location: StudentLogin.php?error=Incorrect BU mail or Password");
+			header("Location: ..\index.php?error=Incorrect BU mail or Password");
 	        exit();
 		}
 	}
 
 }else{
     $_SESSION['incorrectTry']++;
-	header("Location: ..\Login UI v2\html\StudentLogin.php"); //header("Location: ..\Login UI v2\html\AdminLogin.php");
+	header("Location: ..\index.php"); //header("Location: ..\Login UI v2\html\AdminLogin.php");
 	exit();
 }

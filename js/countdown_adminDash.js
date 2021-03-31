@@ -18,9 +18,9 @@
   
           //do something later when date is reached
           if (distance < 0) {
-            let headline = document.getElementById("headline"),
-                countdown = document.getElementById("countdown"),
-                content = document.getElementById("content");
+            let headline = document.getElementById("AD-CD-headline"),
+                countdown = document.getElementById("ADcountdown"),
+                content = document.getElementById("AD-CD-contents");
   
             headline.innerText = "It's my election day!";
             countdown.style.display = "none";
