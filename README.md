@@ -29,8 +29,8 @@ Admin Activity Logs | actLogs
 
 Dashboard          | Codename
 -------------------|-----------
-Student Dashboard  | dashStud 
-Admin Dashboard    | dashAdmin 
+Student Dashboard  | studDash
+Admin Dashboard    | adminDash 
 Authentication     | Authentication
 Access Logs        | accessLogs
 

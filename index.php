@@ -8,10 +8,10 @@
     }
  if (isset($_SESSION['student_id']) && isset($_SESSION['bumail']))
     {
-        header("Location: ..\..\Student Dashboard\StudentDashboard.php");
+        header("Location: .\php\StudentDashboard.php");
     }
     else if(isset($_SESSION['admin_id'])){
-        header("Location: ..\..\Admin Dashboard\AdminDashboard.php");
+        header("Location: .\php\AdminDashboard.php");
     }
 ?>
 
@@ -21,7 +21,7 @@
 <script src="https://www.google.com/recaptcha/api.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <script type="text/javascript" src="./js/loginLink.js"></script>
-<link rel="stylesheet" type="text/css" href="./css/style.css">
+<link rel="stylesheet" type="text/css" href="./css/style_Login.css">
 <link rel="icon" href="./img/BUHS LOGO.png" type="image/png">  
 <title> BUCEILS Voting System </title>   
 </head>    

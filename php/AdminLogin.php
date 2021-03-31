@@ -27,7 +27,7 @@
 <html>   
 <head>  
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<link rel="stylesheet" type="text/css" href="../css/style.css">
+<link rel="stylesheet" type="text/css" href="../css/style_Login.css">
 <script type="text/javascript" src="../js/loginLink.js"></script>
 <link rel="icon" href="../img/BUHS LOGO.png" type="image/png">  
 <title> BUCEILS Voting System </title> 

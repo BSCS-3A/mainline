@@ -59,7 +59,7 @@ if (isset($_REQUEST['username']) && isset($_REQUEST['password'])) {
 				$time = date('H:i:s');
 				mysqli_query($conn, "INSERT INTO admin_activity_log(admin_id,activity_description,activity_date,activity_time) VALUES('$admin_id','Login','$date','$time')");
 			    
-            	header("Location: ..\..\Admin Dashboard\AdminDashboard.php");
+            	header("Location: AdminDashboard.php");
 		        exit();
             }else{
 				header("Location: AdminLogin.php?error=Incorrect Username or Password");
