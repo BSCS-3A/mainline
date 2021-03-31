@@ -19,7 +19,7 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
    }
    else {
      // die('Your account has been logged as a spammer, you cannot continue!');
-     header("Location: StudentLogin.php?error=Your account has been logged as a spammer, you cannot continue!");	
+     header("Location: StudentLogin.php?error=Oops! It seems like you logged in incorrectly 3 times. Please verify that you are not a bot by clicking the checkbox before logging in.");	
      exit();
    }
  }//end captcha code
@@ -32,7 +32,7 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
 	}
 //gets the input from the textbox in the StudentLogin.php
 	$username = validate($_POST['username']);
-	$pass = validate($_POST['password']);
+	$pass = validate($_POST['password']); //hash here
 
 	if (empty($username)) {
 		header("Location: StudentLogin.php?error=User Name is required");
@@ -52,16 +52,22 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
             	$_SESSION['fname'] = $row['fname'];
 				$_SESSION['lname'] = $row['lname'];
             	$_SESSION['student_id'] = $row['student_id'];
+            	$_SESSION['timestamp']=time(); //added for time session
+				$student_id = $row['student_id'];
+				date_default_timezone_set('Asia/Manila');
+				$date = date('Y-m-d');
+				$time = date('H:i:s');
+                mysqli_query($conn, "INSERT INTO student_access_log(student_id,activity_description,date,time) VALUES($student_id,'Login','$date','$time')");
             	header("Location: ..\..\Student Dashboard\StudentDashboard.php");
 		        exit();
             }else{
                 $_SESSION['incorrectTry']++;
-				header("Location: StudentLogin.php?error=Incorect BU mail or Password");
+				header("Location: StudentLogin.php?error=Incorrect BU mail or Password");
 		        exit();
 			}
 		}else{
 		    $_SESSION['incorrectTry']++;
-			header("Location: StudentLogin.php?error=Incorect BU mail or Password");
+			header("Location: StudentLogin.php?error=Incorrect BU mail or Password");
 	        exit();
 		}
 	}

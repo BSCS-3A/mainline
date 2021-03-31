@@ -14,61 +14,65 @@
         header("Location: ..\..\Admin Dashboard\AdminDashboard.php");
     }
 ?>
-                
 
 <!DOCTYPE html>   
 <html>   
 <head>  
 <script src="https://www.google.com/recaptcha/api.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<script type="text/javascript" src="../js/loginLink.js"></script>
-<link rel="stylesheet" type="text/css" href="../css/style.css">
-<link rel="icon" href="../img/BUHS LOGO.png" type="image/png">  
+<script type="text/javascript" src="./js/loginLink.js"></script>
+<link rel="stylesheet" type="text/css" href="./css/style.css">
+<link rel="icon" href="./img/BUHS LOGO.png" type="image/png">  
 <title> BUCEILS Voting System </title>   
 </head>    
 <body>
-        <div class="welcome-banner">
+    <!-- Login Banner -->
+        <div class="Awelcome-banner">
         <h2>ONLINE</h2>
-        <div class="logo-container">
-        <img class="logos" src="../img/BU logo.png">
-        <img class="logos" src="../img/BUHS LOGO.png">
-        <img class="logos" src="../img/SSG LOGO.png">
+        <div class="Alogo-container">
+        <img class="Alogos" src="./img/BU logo.png">
+        <img class="Alogos" src="./img/BUHS LOGO.png">
+        <img class="Alogos" src="./img/SSG LOGO.png">
         </div>
         <h2>VOTING SYSTEM</h2>
         <p>BICOL UNIVERSITY COLLEGE OF EDUCATION<br>INTEGRATED LABORATORY SCHOOL HIGH SCHOOL DEPT.</p>
         </div>
 
-        <div class="logo-banner">
-            <p class="banner-text">BUCEILS HS ONLINE VOTING SYSTEM</p>
-            <img class="rlogo" src="../img/BU logo.png">
-            <img class="rlogo" src="../img/BUHS LOGO.png">
-            <img class="rlogo" src="../img/SSG LOGO.png">
-        </div> 
+        <div class="Alogo-banner">
+            <p class="Abanner-text">BUCEILS HS ONLINE VOTING SYSTEM</p>
+            <img class="Arlogo" src="./img/BU logo.png">
+            <img class="Arlogo" src="./img/BUHS LOGO.png">
+            <img class="Arlogo" src="./img/SSG LOGO.png">
+        </div>
+    <!-- end Login Banner --> 
      
-    <form action="Student_Login_Button.php" method="post">  
 
-
-        <div class="container">
-            <img src="../img/student.png" alt="Logo" title="Logo" width="138">
+    <!-- Login Form -->
+    <form action="Student_Login_Button.php" method="post">   
+        <div class="Acontainer">
+            <img src="./img/student.png" alt="Logo" title="Logo" width="138">
             <h1>SIGN IN AS</h1>
-                <div class="select">
+                <div class="Aselect">
                     <select name="formal" onchange="javascript:handleSelect(this)">
-                        <option value="StudentLogin">STUDENT</option>
-                        <option value="AdminLogin">ADMINISTRATOR</option>
+                        <option value="index">STUDENT</option>
+                        <option value="./php/AdminLogin">ADMINISTRATOR</option>
                     </select>
                 </div>
-                                        <?php if (isset($_GET['error'])) { ?>
-     		<p class="error" align="center" ><font color="#E42217"  size="3"><?php echo $_GET['error']; ?></font></p>
-     	<?php } ?>
+                <?php if (isset($_GET['error'])) { ?>
+                    <p class="error" align="center" ><font color="#E42217"  size="3"><?php echo $_GET['error']; ?></font></p>
+                <?php } ?>
             <input type="text" placeholder="Enter BU Email" name="username" required>  
-            <input type="password" placeholder="Enter Password" name="password" required>  
+            <input type="password" placeholder="Enter Password" name="password" required>
             <?php 
             if($_SESSION['incorrectTry']>=3){
             echo '<div class="g-recaptcha" data-sitekey="6LflenwaAAAAAAmK_ZEd0aJwcROAUe3gH2Cbmzkg"></div>';
             }
-            ?>
+            ?>  
+            
+
             <button type="submit">LOG IN</button>
         </div>   
-    </form> 
+    </form>
+    <!-- end Login Form --> 
 </body>     
 </html>  

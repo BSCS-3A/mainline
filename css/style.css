@@ -7,18 +7,14 @@ body{
     background-image: url("../img/sample.png");
     background-size: cover;
     background-attachment: fixed;
-    width: 100%;
-    height: 100%;
 }
-
-  img{
+img{
     display: block;
     margin-left: auto;
     margin-right: auto;
     width: 130px;
-  }
-
-  h1{
+}
+h1{
     font-family: Roboto, sans-serif;
     text-align: center;
     margin: 0px auto;
@@ -26,7 +22,7 @@ body{
     font-size: 30px;
     font-weight: 100;
     color: #124254;
-  }
+}
 
 .Awelcome-banner{
         float: left;
@@ -49,6 +45,7 @@ p{
         font-size: 1.5em;
         margin-top: 0px; 
 }
+
  .Acontainer {
         max-width: 350px;
         border-radius: 5px;
@@ -125,27 +122,25 @@ select {
 }
 
 
+/* Mobile CSS */
 @media all and (max-width: 986px){
 
   .Awelcome-banner{
     display: none;
   }
-
   form{
-  position: fixed; /* or absolute */ 
+  position: fixed; 
   top: 80px;
   margin-left: -140px;
   margin-right: 30px;
   }
-
   /*.Acontainer{
     position: fixed; /* or absolute 
-    left: 170px;
-    top: 60px;
-    margin-left: -100px;
-    margin-right: 30px;
+    max-width: 100%;
+    top: 50%;
+    left: 50%;
+     transform: translate(-50%, -50%);
   }*/
-
   .Alogo-banner{
   display: block;
   font-size: 1em;
@@ -154,8 +149,6 @@ select {
   top: 2%;
   left: 15%;
   }
-
-
   .Arlogo{
   display: inline-block;
   position: relative;

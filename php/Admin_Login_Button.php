@@ -31,7 +31,7 @@ if (isset($_REQUEST['username']) && isset($_REQUEST['password'])) {
 	}
 //get  data from the textbox
 	$username = validate($_REQUEST['username']);
-	$pass = md5(validate($_REQUEST['password'])); //md5 hash
+	$pass = validate($_REQUEST['password']); //hash algorithm here
 
 	if (empty($username)) {
 		header("Location: AdminLogin.php?error=User Name is required");
@@ -55,18 +55,19 @@ if (isset($_REQUEST['username']) && isset($_REQUEST['password'])) {
             	$_SESSION['timestamp']=time(); //added for time session
 				$admin_id = $row['admin_id'];
 				date_default_timezone_set('Asia/Manila');
+				$date = date('Y-m-d');
 				$time = date('H:i:s');
-				mysqli_query($conn, "INSERT INTO activity_log(admin_id,activity_description,activity_date,activity_time) VALUES('$admin_id','Login',CURRENT_TIMESTAMP,'$time')");
+				mysqli_query($conn, "INSERT INTO admin_activity_log(admin_id,activity_description,activity_date,activity_time) VALUES('$admin_id','Login','$date','$time')");
 			    
             	header("Location: ..\..\Admin Dashboard\AdminDashboard.php");
 		        exit();
             }else{
-				header("Location: AdminLogin.php?error=Incorect Username or Password");
+				header("Location: AdminLogin.php?error=Incorrect Username or Password");
 				 $_SESSION['incorrectTry']++;
 		        exit();
 			}
 		}else{
-			header("Location: AdminLogin.php?error=Incorect Username or Password");
+			header("Location: AdminLogin.php?error=Incorrect Username or Password");
 			$_SESSION['incorrectTry']++;
 	        exit();
 		}

@@ -1,0 +1,2 @@
+change $_POST with $_REQUEST
+try cookie
