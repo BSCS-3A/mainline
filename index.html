@@ -1,0 +1,50 @@
+<!DOCTYPE html>   
+<html>   
+<head>  
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script type="text/javascript" src="../js/loginLink.js"></script>
+<link rel="stylesheet" type="text/css" href="../css/style.css">
+<link rel="icon" href="../img/BUHS LOGO.png" type="image/png">  
+<title> BUCEILS Voting System </title>   
+</head>    
+<body>
+    <!-- Login Banner -->
+        <div class="Awelcome-banner">
+        <h2>ONLINE</h2>
+        <div class="Alogo-container">
+        <img class="Alogos" src="../img/BU logo.png">
+        <img class="Alogos" src="../img/BUHS LOGO.png">
+        <img class="Alogos" src="../img/SSG LOGO.png">
+        </div>
+        <h2>VOTING SYSTEM</h2>
+        <p>BICOL UNIVERSITY COLLEGE OF EDUCATION<br>INTEGRATED LABORATORY SCHOOL HIGH SCHOOL DEPT.</p>
+        </div>
+
+        <div class="Alogo-banner">
+            <p class="Abanner-text">BUCEILS HS ONLINE VOTING SYSTEM</p>
+            <img class="Arlogo" src="../img/BU logo.png">
+            <img class="Arlogo" src="../img/BUHS LOGO.png">
+            <img class="Arlogo" src="../img/SSG LOGO.png">
+        </div>
+    <!-- end Login Banner --> 
+     
+
+    <!-- Login Form -->
+    <form>  
+        <div class="Acontainer">
+            <img src="../img/student.png" alt="Logo" title="Logo" width="138">
+            <h1>SIGN IN AS</h1>
+                <div class="Aselect">
+                    <select name="formal" onchange="javascript:handleSelect(this)">
+                        <option value="StudentLogin">STUDENT</option>
+                        <option value="AdminLogin">ADMINISTRATOR</option>
+                    </select>
+                </div>
+            <input type="text" placeholder="Enter BU Email" name="username" required>  
+            <input type="password" placeholder="Enter Password" name="password" required>  
+            <button type="submit">LOG IN</button>
+        </div>   
+    </form>
+    <!-- end Login Form --> 
+</body>     
+</html>  
