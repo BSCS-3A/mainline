@@ -52,6 +52,7 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
             	$_SESSION['fname'] = $row['fname'];
 				$_SESSION['lname'] = $row['lname'];
             	$_SESSION['student_id'] = $row['student_id'];
+		$_SESSION['grade_level'] = $row['grade_level']; //added for voting : 03/04/2021 , 11:48am
             	$_SESSION['timestamp']=time(); //added for time session
 				$student_id = $row['student_id'];
 				date_default_timezone_set('Asia/Manila');
