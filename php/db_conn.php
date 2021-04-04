@@ -8,7 +8,7 @@
 $servername = "localhost";
 $username = "root";
 $password = "";
-$dbname = "bucielsv1.5.3";    
+$dbname = "bucielsmain2";    
     
     // Create connection
     $conn = mysqli_connect($servername,$username,$password,$dbname);
