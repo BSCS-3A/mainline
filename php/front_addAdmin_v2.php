@@ -13,7 +13,7 @@
     <script src="../js/jquery-1.11.1.min_addAdmin.js"></script>
     <script src="../js/jquery.dataTables.min_addAdmin.js"></script>
     <script src="../js/dataTables.bootstrap_addAdmin.js"></script>
-    <script src="../js/popper.min.js"></script>
+    <script src="../js/popper.min_addAdmin.js"></script>
     <script src="../js/bootstrap.min_addAdmin.js"></script>
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
     <script src="../js/a076d05399_addAdmin.js"></script>
@@ -27,9 +27,9 @@
         })();
     </script>
     <!--additional scripts-->
-    <script src="../assets/js/bootstrap-show-password.min.js"></script>
+    <script src="../js/bootstrap-show-password.min_addAdmin.js"></script>
     <!--<script src="../assets/js/customized.js"></script>-->
-    <link rel="stylesheet" href="../assets/css/customized.css">
+    <link rel="stylesheet" href="../css/admin_css/customized_addAdmin.css">
 
 
     <title>Add New Account</title>
@@ -39,8 +39,8 @@
     <nav>
         <input id="nav-toggle" type="checkbox">
         <div class="logo">
-            <h2>BUCEILS HS</h2>
-            <h3>ONLINE VOTING SYSTEM</h3>
+            <h2 class="aLogo-txt1"><a href="AdminDashboard.php">BUCEILS HS</a></h2>
+            <h3 class="aLogo-txt2"><a href="AdminDashboard.php">ONLINE VOTING SYSTEM</a></h3>
         </div>
         <label for="btn" class="icon"><span class="fa fa-bars"></span></label>
         <input type="checkbox" id="btn">
@@ -133,11 +133,11 @@
                         <tbody>
                             <?php
                             //Create connection
-                            $connection = mysqli_connect("localhost", "root", "");
-                            $db = mysqli_select_db($connection, 'buceilsmain2');
+                            include 'db_conn.php';
 
-                            $query = "SELECT * FROM admin_table";
-                            $query_run = mysqli_query($connection, $query);
+                            $query = "SELECT * FROM admin";
+                            $query_run = mysqli_query($conn, $query);
+
                             while ($row = mysqli_fetch_array($query_run)) { #START OF FETCHING OF RECORDS FROM DATABASE
                             ?>
                                 <tr>
@@ -173,7 +173,7 @@
                     <h4 class="modal-title custom_align" id="Heading">REGISTER</h4>
                 </div>
 
-                <form action="../php/backFun_adAccnts_v0_1.php" method="POST" enctype="multipart/form-data">
+                <form action="backFun_adAccnts_v0_1.php" method="POST" enctype="multipart/form-data">
                     <div class="modal-body">
                         <div class="form-group">
                             <input class="form-control" name="admin_fname" type="text" placeholder="Firstname" required>
@@ -225,7 +225,7 @@
     <!-- /.modal-dialog -->
     <!--######################################################################################################################################################################################-->
     <!-- EDIT MODAL -->
-    <form action="../php/edit.php" method="POST">
+    <form action="backFun_editAccnts_v0_1.php" method="POST">
         <div class="modal fade" id="edit" tabindex="-1" role="dialog" aria-labelledby="edit" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
@@ -291,7 +291,7 @@
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
                     <h4 class="modal-title custom_align" id="Heading">Delete this entry</h4>
                 </div>
-                <form action="../php/delete.php" method="POST">
+                <form action="backFun_delAccnts_v0_1.php" method="POST">
                     <div class="modal-body">
                         <input type="hidden" name="Delete_ID" id="Delete_ID">
                         <div class="alert alert-danger"><span class="fa fa-exclamation-triangle"></span> Are you sure you want to delete this account?</div>
