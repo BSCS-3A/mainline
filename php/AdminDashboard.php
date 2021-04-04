@@ -49,7 +49,7 @@ if (time()-$_SESSION['timestamp']>$idletime){
                 <input class="nav-toggle3" type="checkbox" id="btn-1">
                 <ul>
                     <li><a href="#">Students</a></li>
-                    <li><a href="#">Admin</a></li>
+                    <li><a href="front_addAdmin_v2.php">Admin</a></li>
                 </ul>
             </li>
             <li>
