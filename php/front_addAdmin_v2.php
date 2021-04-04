@@ -10,13 +10,13 @@
     <link rel="stylesheet" href="../css/admin_css/bootstrap_addAdmin.css">
     <link rel="stylesheet" href="../css/admin_css/dataTables.bootstrap_addAdmin.css">
     <link rel="stylesheet" href="../css/admin_css/font-awesome_addAdmin.css">
-    <script src="../assets/js/jquery-1.11.1.min.js"></script>
-    <script src="../assets/js/jquery.dataTables.min.js"></script>
-    <script src="../assets/js/dataTables.bootstrap.js"></script>
-    <script src="../assets/js/popper.min.js"></script>
-    <script src="../assets/js/bootstrap.min.js"></script>
+    <script src="../js/jquery-1.11.1.min_addAdmin.js"></script>
+    <script src="../js/jquery.dataTables.min_addAdmin.js"></script>
+    <script src="../js/dataTables.bootstrap_addAdmin.js"></script>
+    <script src="../js/popper.min.js"></script>
+    <script src="../js/bootstrap.min_addAdmin.js"></script>
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
-    <script src="../assets/js/a076d05399.js"></script>
+    <script src="../js/a076d05399_addAdmin.js"></script>
     <script type="text/javascript">
         (function() {
             var css = document.createElement('link');
