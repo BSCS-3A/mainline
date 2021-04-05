@@ -35,8 +35,12 @@
     <title>Add New Account</title>
 </head>
 
+        <!-- FIX THIS! -->
+        <!-- navigation, footer, log sessions -->
+        <?php //include "navAdmin.php" ?>
+
 <body>
-    <nav>
+<!--    <nav>
         <input id="nav-toggle" type="checkbox">
         <div class="logo">
             <h2 class="aLogo-txt1"><a href="AdminDashboard.php">BUCEILS HS</a></h2>
@@ -98,8 +102,8 @@
                 </ul>
             </li>
         </ul>
-        <!--end of list-->
-    </nav>
+       
+    </nav> -->
 
     <div class="cheader">
         <h3>ADMINISTRATOR ACCOUNT MANAGEMENT</h3>
@@ -308,9 +312,9 @@
     </div>
 
 
-    <div class="footer">
+    <!-- <div class="footer">
         <p class="footer-txt">BS COMPUTER SCIENCE 3A © 2021</p>
-    </div>
+    </div> -->
 
     <!-- DATATABLES JAVASCRIPT -->
     <script>
