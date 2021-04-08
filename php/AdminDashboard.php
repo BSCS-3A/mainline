@@ -1,17 +1,25 @@
 <!--
-<?php
-//session_start();
-// if (isset($_SESSION['admin_id']) && isset($_SESSION['username'])) 
-{
-//    $idletime=900;//after 15 minutes the user gets logged out
+    Proj Mngr notes:
+    fix responsiveness, especially with election countdown,
+    may certain width sizes kasi na di visible ang election countdown, parang in
+    between regular 16:9 and yung phone version somewhere dun nawawala ang election countdown
+    ,try nyo iPad view ata or iPad pro basta dun nawawala
+-->
 
-//if (time()-$_SESSION['timestamp']>$idletime){
-    //$_GET['inactivityError'] = "Session ended: You are logged out due to inactivity.";
-//    header("Location: AdminLogout.php");
-//}else{
-//    $_SESSION['timestamp']=time();
+
+<?php
+session_start();
+ if (isset($_SESSION['admin_id']) && isset($_SESSION['username'])) 
+{
+    $idletime=900; //after 15 minutes the user gets logged out
+
+if (time()-$_SESSION['timestamp']>$idletime){
+    $_GET['inactivityError'] = "Session ended: You are logged out due to inactivity.";
+   header("Location: AdminLogout.php");
+}else{
+   $_SESSION['timestamp']=time();
 }
- ?> -->
+ ?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -157,11 +165,11 @@
 
 </html>
 
-<!--
+
 <?php
-// }else
+ }else
 {
-//     header("Location: AdminLogin.php");
-//      exit();
+     header("Location: AdminLogin.php");
+      exit();
 }
- ?> -->
+ ?>

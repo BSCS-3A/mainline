@@ -1,3 +1,17 @@
+<?php       // SESSION ISSUE, details at last part
+// session_start();
+//  if (isset($_SESSION['admin_id']) && isset($_SESSION['username'])) 
+// {
+//     $idletime=900;//after 15 minutes the user gets logged out
+
+// if (time()-$_SESSION['timestamp']>$idletime){
+//     $_GET['inactivityError'] = "Session ended: You are logged out due to inactivity.";
+//    header("Location: AdminLogout.php");
+// }else{
+//    $_SESSION['timestamp']=time();
+// }
+ ?>
+
 <!DOCTYPE html>
 <html>
 
@@ -5,11 +19,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta charset="utf-8">
-    <link rel="icon" href="../assets/img/buceils-logo.png">
+    <link rel="icon" href="../img/BUHS LOGO.png">
     <link rel="stylesheet" type="text/css" href="../css/admin_css/style1_addAdmin.css">
     <link rel="stylesheet" href="../css/admin_css/bootstrap_addAdmin.css">
     <link rel="stylesheet" href="../css/admin_css/dataTables.bootstrap_addAdmin.css">
     <link rel="stylesheet" href="../css/admin_css/font-awesome_addAdmin.css">
+
     <script src="../js/jquery-1.11.1.min_addAdmin.js"></script>
     <script src="../js/jquery.dataTables.min_addAdmin.js"></script>
     <script src="../js/dataTables.bootstrap_addAdmin.js"></script>
@@ -35,12 +50,20 @@
     <title>Add New Account</title>
 </head>
 
-        <!-- FIX THIS! -->
+        <!-- 
+            
+        fix need:
+        - icon on add account goes missing when navAdmin included
+        - when adding/ editing / deleting, after click of button, straight to logout
+        ( issue found: navAdmin.php yung else sa pinakababa, tig comment muna para no conflict)
+
+         -->
+         
         <!-- navigation, footer, log sessions -->
-        <?php //include "navAdmin.php" ?>
+        <?php include "navAdmin.php" ?>
 
 <body>
-<!--    <nav>
+    <!-- <nav>
         <input id="nav-toggle" type="checkbox">
         <div class="logo">
             <h2 class="aLogo-txt1"><a href="AdminDashboard.php">BUCEILS HS</a></h2>
@@ -103,7 +126,7 @@
             </li>
         </ul>
        
-    </nav> -->
+    </nav>  -->
 
     <div class="cheader">
         <h3>ADMINISTRATOR ACCOUNT MANAGEMENT</h3>
@@ -404,3 +427,12 @@
 </body>
 
 </html>
+
+<?php
+
+// }else{
+//     // session issue, after add/edit/delete, logout after lol
+//     header("Location: AdminLogin.php");
+//     exit();
+// }
+ ?> 

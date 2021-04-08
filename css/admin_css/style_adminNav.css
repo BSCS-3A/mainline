@@ -5,7 +5,7 @@
     box-sizing: border-box;
     font-family: Roboto,Roboto Condensed,Generica, sans-serif;
     list-style: none;  
-  }
+  } 
   
   body{  
     font-family: Roboto,Roboto Thin,Generica, sans-serif;
@@ -16,6 +16,8 @@
     width: auto;
     min-height: 100%;
   } */
+
+
   nav{
     background: #1d6986;
     box-shadow: 0 10px 20px rgba(0, 0, 0, .15 ),
@@ -46,8 +48,8 @@
     margin-top: 0px;
     color: #ffffff;
     padding-top: 5px;
-    font-weight: lighter;
-    font-size: 120%;
+    font-weight: inherit;
+    font-size: 100%;
     margin-bottom: 0px;
     letter-spacing: 6px;
     font-family: Generica regular, sans-serif;
@@ -401,7 +403,7 @@
     bottom: 0;
     width: 100%;
     height: auto;
-    padding: 5px;
+    padding: 5px 5px 20px 5px;
     background-color: #124254;
     text-align: center;
   }
@@ -414,12 +416,12 @@
     font-size: 10px;
     color: #ffffff;
   }
-  nav img.user-profile{
+  /* nav img.user-profile{
     margin-top: 0;
     height: 40px;
     width: 40px;
   }
-  
+   */
   /*Datatable*/
   /* div.container {
     background-color:#dddddd;

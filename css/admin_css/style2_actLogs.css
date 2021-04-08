@@ -14,7 +14,7 @@ body{
   background-attachment: fixed;
   width: auto;
 }
-nav{
+/* nav{
   background: #1d6986;
   box-shadow: 0 10px 20px rgba(0, 0, 0, .15 ),
               0 3px 6px rgba(0, 0, 0, .23);
@@ -39,25 +39,22 @@ nav h3{
   color: #ffffff;
   padding-top: 5px;
   font-weight: inherit;
-  font-size: 120%;
+  font-size: 100%;
   margin-bottom: 0px;
   letter-spacing: 6px;
   font-family: Generica regular, sans-serif;
 }
-
 nav .logo{
   float: left;
   position: relative;
   line-height: 80px;
   margin-top: 5px;
   margin-left: 40px;
-  color:#ffffff;
 }
 nav ul{
   float: right;
   padding: 0;
   height: 80px;
-  /* margin-right: 40px; */
   margin-bottom: 0;
   list-style: none;
   position: relative;
@@ -65,7 +62,6 @@ nav ul{
   z-index: 4;
 }
 nav ul li{
-  /* float: left; */
   display: inline-block;
   height: 80px;
   background: #1d6986;
@@ -76,7 +72,7 @@ nav ul li a{
   color: rgb(255, 255, 255);
   line-height: 70px;
   text-decoration: none;
-  font-size: 1.2em;
+  font-size: 130%;
   padding: 8px 15px;
   letter-spacing: 1px;
   font-family: Roboto Light, sans-serif;
@@ -178,7 +174,7 @@ nav ul ul ul li{
 }
 .show,.icon,input{
   display: none;
-}
+} */
 /* .fa-plus{
   font-size: 15px;
   margin-left: 40px;
@@ -259,44 +255,17 @@ nav ul ul ul li{
   }
   
 }
-/*ballesteros*/
-nav h4{
-  font-family: Roboto Regular, sans-serif;
-  font-weight: inherit;
-  font-size: 100%;
-  margin-bottom: 0px;
-  letter-spacing: 6px;
-  color: #ffffff;
-  padding-top: 15px;
-  font-size:15px;
-}
-nav h5{
-  font-size: 20px;
-  margin-top: 0px;
-  color: #ffffff;
-  padding-top: 5px;
-  font-weight: inherit;
-  font-size: 100%;
-  margin-bottom: 0px;
-  letter-spacing: 6px;
-  font-family: Generica regular, sans-serif;
-}
-.cnavie ul li a{
-  font-size: 1.05em;
-
-}
-  .cheader {
+  .header {
     z-index: 100;
-    padding: 1px 1px;
-    font-size: 35px;
+    padding: 2px 2px;
     background: #124254;
     color: #f1f1f1;
+    font-weight: 400;
     width: 100%;
     text-align: center;
     font-family: Roboto Regular, sans-serif;
     letter-spacing: 6px;
   }
-  
   
   .pagination>li {
     display: inline;
@@ -309,7 +278,7 @@ nav h5{
   .pagination > li.active > a, .pagination > li.active > span{background-color:#124254 !important}
 
   .modal-backdrop {
-      z-index: -1!important;
+      z-index: -1 !important;
     }
 
     iframe
@@ -343,16 +312,17 @@ nav h5{
     color: #fff ;
     margin: 0px;
     padding: 0px;
-    background: #5cb85c!important;
-    border-color: #5cb85c!important;
+    background: #5cb85c;
+    border-color: #5cb85c ;
     box-shadow:none ;
+    
     }
     .btn-danger {
     color: #fff ;
     margin: 0px;
     padding: 0px;
-    background: #d9534f!important;
-    border-color: #d9534f!important;
+    background: #d9534f ;
+    border-color: #d9534f;
     box-shadow:none ;
     }
     .btn-button1{
@@ -362,18 +332,48 @@ nav h5{
     border-color: #124254;
     box-shadow:none ; 
     padding: 10px 20px;
-    margin: 25px 5px 15px 0px!important;      
+    margin: 25px 5px 15px 0px ;      
     }
     .btn-button2{
       color: #eeeeee ;
-      margin: 0px;
+      margin-bottom: 4px !important;
       padding: 0px;
       background: #124254 ;
       border-color: #124254;
       box-shadow:none ; 
       padding: 10px 20px;
-      margin: 25px 0px 15px 0px!important;      
+      margin: 0px 15px 15px 25px ;      
       }    
+
+      /*BUTTON FOR SIGNATORY*/
+      .btn-button3{
+      color: #eeeeee ;
+      margin-bottom: 4px !important;
+      padding: 0px;
+      background: #124254 ;
+      border-color: #124254;
+      box-shadow:none ; 
+      padding: 10px 20px;
+      margin: 0px 15px 15px 25px ; 
+
+      }    
+    .container1{
+    max-width: 100%;
+    height: 150%;
+    
+
+
+}
+
+    .field-icon{
+      float: right;
+      margin-left: -25px;
+      margin-top: -25px;
+      position: relative;
+      z-index: 2;
+    }
+
+
    #save{
       color:#fff;
       background: #124254;
@@ -397,58 +397,8 @@ nav h5{
     background: #124254;
    }
 
-
-  /*BUTTON FOR SIGNATORY*/
-  .btn-button3{
-    color: #eeeeee ;
-    margin-bottom: 4px !important;
-    padding: 0px;
-    background: #124254 ;
-    border-color: #124254;
-    box-shadow:none ; 
-    padding: 10px 20px;
-    margin: 0px 15px 15px 25px ; 
-
-    
-  }    
-
-  .container1{
-  max-width: 100%;
-  height: 150%;
-  }
-
-.field-icon{
-      float: right;
-      margin-left: -25px;
-      margin-top: -25px;
-      position: relative;
-      z-index: 2;
-    }
-
-  #save{
-    color:#fff;
-    background: #124254;
-    margin-bottom: 5px; 
- }
-
- #cancel{
-    background-color:#dddddd;
-    margin:auto;
-
- }
- #continue{
-    background-color: #d9534f;
-    color:#fff;
- }
- #cancel2{
-    background-color: #dddddd;
- }
- #go{
-  color:#fff;
-  background: #124254;
- }
-
-  div.container{padding: 2rem;
+div.container{
+    padding: 2rem;
     background-color:#dddddd;
     margin-top: 3%;
     margin-bottom: 3%;
@@ -457,7 +407,8 @@ nav h5{
     height: auto;
     opacity: 80%;
     font-size: 1.5rem;
-  } 
+
+  }  
 
  #datatable {
 
@@ -466,8 +417,8 @@ nav h5{
     font-family: Roboto regular, sans-serif;
     border-collapse: collapse;
     table-layout: auto;
-    margin:0px;
     text-align: center;
+
   }
   
   table.center {
@@ -497,6 +448,7 @@ nav h5{
       max-height: 150px;
       overflow: hidden;
 }
+
 
 article p{
   font-family: Roboto regular, sans-serif;
@@ -539,6 +491,7 @@ img.logos{
   margin-top: 0px;
   max-width: 700px;
 } 
+
 /* Responsive layout - makes the menu and the content (inside the section) sit on top of each other instead of next to each other */
 @media (max-width: 600px) {
   body, section, .container {
@@ -552,17 +505,16 @@ img.logos{
   bottom: 0;
   width: 100%;
   height: auto;
-  padding: .4px;
+  padding: .5px;
   background-color: #124254;
   text-align: center;
-  z-index:999999;
 }
 div p.footer-txt{
   position: relative;
   top: .5em;
   font-family: Roboto Regular, sans-serif;
   letter-spacing: 7px;
-  font-size: 0.7em;
+  font-size: 1em;
   color: #ffffff;
 }
 nav img.user-profile{
@@ -570,13 +522,7 @@ nav img.user-profile{
   height: 40px;
   width: 40px;
 }
-.ccheader {
-  padding: 15px 0 3px 0;
-  color: #f1f1f1;
-  background-color: #124254;
-  width: 100%;
-  text-align: center;
-  letter-spacing: 7px;
-}
 
 
+  
+  

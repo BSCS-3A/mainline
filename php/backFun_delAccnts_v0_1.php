@@ -26,4 +26,6 @@
                     header("Location: front_addAdmin_v2.phpp");
                 }        
         }
+
+ 
 ?>

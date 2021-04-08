@@ -16,7 +16,7 @@ body{
   width: auto;
   min-height: 100%;
 }
-nav{
+/* nav{
   background: #1d6986;
   box-shadow: 0 10px 20px rgba(0, 0, 0, .15 ),
               0 3px 6px rgba(0, 0, 0, .23);
@@ -72,7 +72,7 @@ nav ul{
   position: relative;
   text-align: center;
   z-index: 4;
-}
+} */
 nav ul li{ /*Accounts, Election, Candidates, etc*/
   /* float: left; */
   display: inline-block;

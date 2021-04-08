@@ -1,21 +1,13 @@
-<!-- Navigation Bar, Footer, Log Sessions -->
+<!-- 
+Proj Mngr NOTES: 
+remove comment on session after all page sessions added and fixed 
+line 94
+- 4/8/21 11:24 pm
+-->
 
-<?php
-// Login Sessions
-session_start();
- if (isset($_SESSION['admin_id']) && isset($_SESSION['username'])) {
-    $idletime=900;//after 15 minutes the user gets logged out
 
-if (time()-$_SESSION['timestamp']>$idletime){
-    //$_GET['inactivityError'] = "Session ended: You are logged out due to inactivity.";
-    header("Location: AdminLogout.php");
-}else{
-    $_SESSION['timestamp']=time();
-}
+<!-- Navigation Bar, Footer-->
 
- ?>
-
- 
 <!DOCTYPE html>
 <html lang="en">
 
@@ -28,13 +20,14 @@ if (time()-$_SESSION['timestamp']>$idletime){
     <meta charset="utf-8">
     <link rel="icon" href="../img/BUHS LOGO.png" type="image/png">
     <link rel="stylesheet" type="text/css" href="../css/admin_css/style_adminNav.css">
-    <link rel="stylesheet" href="../css/admin_css/bootstrap4.5.2_AdminDash.css">
-    <link rel="stylesheet" href="../css/admin_css/font-awesome_AdminDash.css">
+    <!--<link rel="stylesheet" href="../css/admin_css/bootstrap4.5.2_AdminDash.css">
+    <link rel="stylesheet" href="../css/admin_css/font-awesome_AdminDash.css"> -->
+    
+    <!-- <link rel="stylesheet" type="text/css" href="../css/admin_css/style1_addAdmin.css"> -->
+    <link rel="stylesheet" href="../css/admin_css/bootstrap_addAdmin.css">
+    <link rel="stylesheet" href="../css/admin_css/dataTables.bootstrap_addAdmin.css">
+    <link rel="stylesheet" href="../css/admin_css/font-awesome_addAdmin.css">
   
-    <script src="../js/dataTables.bootstrap4.min_adminDash.js"></script>
-    <script src="../js/jquery-3.5.1_adminDash.js"></script>
-    <script src="../js/jquery.dataTables.min_adminDash.js"></script>
-    <script src="https://cdn.datatables.net/fixedheader/3.1.8/js/dataTables.fixedHeader.min.js"></script>
     <title>BUCEILS Voting System</title>
 </head>
 
@@ -86,8 +79,8 @@ if (time()-$_SESSION['timestamp']>$idletime){
                 <a href="#">LOGS</a>
                 <input class="nav-toggle5" type="checkbox" id="btn-4">
                 <ul>
-                    <li><a href="AccessLogs.php">Access Log</a></li>
-                    <li><a href="#">Activity Log</a></li>
+                    <li><a href="#">Access Log</a></li>
+                    <li><a href="front_actLogs_v0_3.php">Activity Log</a></li>
                     <li><a href="#">Vote Summary</a></li>
                 </ul>
             </li>
@@ -97,7 +90,8 @@ if (time()-$_SESSION['timestamp']>$idletime){
                 <a class="user" href="#"><img class="user-profile" src="../img/<?php echo $_SESSION['photo']; ?>"></a>
                 <input class="nav-toggle6" type="checkbox" id="btn-5">
                 <ul>
-                    <li><a class="username" href="#"><?php echo $_SESSION['admin_fname']." ".$_SESSION['admin_lname']; ?></a></li>
+                    
+                    <li><a class="username" href="#"><?php //echo $_SESSION['admin_fname']." ".$_SESSION['admin_lname']; ?></a></li>
                     <li class="logout">
                         <span class="fa fa-sign-out"></span><a href="AdminLogout.php">LOGOUT</a></span>
                     </li>
@@ -113,18 +107,11 @@ if (time()-$_SESSION['timestamp']>$idletime){
         <p class="footer-txt">BS COMPUTER SCIENCE 3A © 2021</p>
     </div>
 
-    <script>
+    <!-- <script>
         $('.ADicon').click(function () {
             $('span').toggleClass("cancel");
         });
-    </script>
+    </script> -->
 </body>
 
 </html>
-
-<?php
-}else{
-    header("Location: AdminLogin.php");
-     exit();
-}
- ?>
