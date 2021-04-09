@@ -3,6 +3,13 @@ Proj Mngr NOTES:
 remove comment on session after all page sessions added and fixed 
 line 94
 - 4/8/21 11:24 pm
+
+ISSUES:
+- nawawala yung icons for admin and student account management pag
+included ang nav bar, css issue
+- 4/9/21 9:02 pm
+
+
 -->
 
 
@@ -49,7 +56,7 @@ line 94
                 <a href="#">ACCOUNTS</a>
                 <input class="nav-toggle3" type="checkbox" id="btn-1">
                 <ul>
-                    <li><a href="#">Students</a></li>
+                    <li><a href="Admin_StudentAccountManagement.php">Students</a></li>
                     <li><a href="front_addAdmin_v2.php">Admin</a></li>
                 </ul>
             </li>
