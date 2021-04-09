@@ -8,6 +8,8 @@ ISSUES:
 - nawawala yung icons for admin and student account management pag
 included ang nav bar, css issue
 - 4/9/21 9:02 pm
+SOLVED ^^ font-awesome_addAdmin may kasalanan lol
+- 4/9/21 9:15 pm
 
 
 -->
@@ -33,7 +35,7 @@ included ang nav bar, css issue
     <!-- <link rel="stylesheet" type="text/css" href="../css/admin_css/style1_addAdmin.css"> -->
     <link rel="stylesheet" href="../css/admin_css/bootstrap_addAdmin.css">
     <link rel="stylesheet" href="../css/admin_css/dataTables.bootstrap_addAdmin.css">
-    <link rel="stylesheet" href="../css/admin_css/font-awesome_addAdmin.css">
+    <!-- <link rel="stylesheet" href="../css/admin_css/font-awesome_addAdmin.css">  -->
   
     <title>BUCEILS Voting System</title>
 </head>
