@@ -164,8 +164,8 @@ missing students
                                 <td>'.$row["fname"].'</td>
                                 <td>'.$row["Mname"].'</td>
                                 <td>'.$row["gender"].'</td>
-                                <td>'.$row["grade_level"].'</td>
                                 <td>'.$row["bumail"].'</td>
+                                <td>'.$row["grade_level"].'</td>
                                 <td>'.$row["otp"].'</td>
                                     '
                     ?>
