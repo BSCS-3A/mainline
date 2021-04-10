@@ -87,8 +87,8 @@ SOLVED ^^ font-awesome_addAdmin may kasalanan lol, + dataTables.bootstrap
                 <a href="#">CANDIDATES</a>
                 <input class="nav-toggle6" type="checkbox" id="btn-3">
                 <ul>
-                    <li><a href="#">Update Info</a></li>
-                    <li><a href="#">Update Position</a></li>
+                    <li><a href="Admin_candidate.php">Update Info</a></li>
+                    <li><a href="Admin_position.php">Update Position</a></li>
                 </ul>
             </li>
             <li>
