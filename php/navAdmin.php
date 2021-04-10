@@ -82,7 +82,15 @@ SOLVED ^^ font-awesome_addAdmin may kasalanan lol, + dataTables.bootstrap
                     </li>
                 </ul>
             </li>
-            <li><a href="#">CANDIDATES</a></li>
+            <li>
+                <label for="btn-3" class="Ashow">CANDIDATES</label>
+                <a href="#">CANDIDATES</a>
+                <input class="nav-toggle6" type="checkbox" id="btn-3">
+                <ul>
+                    <li><a href="#">Update Info</a></li>
+                    <li><a href="#">Update Position</a></li>
+                </ul>
+            </li>
             <li>
                 <label for="btn-4" class="Ashow">LOGS</label>
                 <a href="#">LOGS</a>
