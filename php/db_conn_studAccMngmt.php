@@ -3,6 +3,7 @@ Proj Mngr Notes:
 - change connect for host
 - changed dbname for local testing
 - changed header location
+- 4/11 updated CSV overwriting (y)
 -->
 
 <?php
@@ -24,15 +25,21 @@ $dbName = "bucielsmain2";   // for local -Den
 $connect = mysqli_connect($dbServername, $dbUsername, $dbPassword, $dbName) or die ('Unable to connect');
 $message = "";
 
+
 $query = "SELECT * FROM student";
 $result = mysqli_query($connect, $query);
-
+$deleteAll = "DELETE FROM student";
 
 if(isset($_POST["upload"])){
 
+    //check if there is data in the database, delete all if true
+    if (mysqli_num_rows($result) != 0) {
+       mysqli_query($connect, $deleteAll);
+    }
+
     if($_FILES['info_file']['name']){
         $filename = explode(".", $_FILES['info_file']['name']);
-        if(end($filename) == "csv"){
+        if($filename[1] == "csv"){
             $handle = fopen($_FILES['info_file']['tmp_name'], "r");
             while($data = fgetcsv($handle)){
 
@@ -54,13 +61,12 @@ if(isset($_POST["upload"])){
 
                 $voting_status = mysqli_real_escape_string($connect, $data[8]);
 
-                $query = "UPDATE student SET fname = '$fname', Mname = '$Mname', lname = '$lname', gender = '$gender', bumail = '$bumail', grade_level = '$grade_level', otp = '$otp', voting_status = '$voting_status' WHERE student_id = '$student_id'";
-
+                $query = "INSERT into student(student_id, fname, Mname, lname, gender, bumail, grade_level, otp, voting_status) values ('$student_id', '$fname', '$Mname', '$lname', '$gender', '$bumail', '$grade_level', '$otp', '$voting_status')";
 
                 mysqli_query($connect, $query);
             }
             fclose($handle);
-            header("location: Admin_StudentAccountManagement.php?updation=1");
+            header("location: Admin_StudentAccountManagement.php");
         }
         else{
             $message = '<label class="text-danger">Please Select CSV File only</label>';
@@ -70,11 +76,7 @@ if(isset($_POST["upload"])){
         $message = '<label class="text-danger">Please Select File</label>';
     }
 }
-
 if(isset($_GET["updation"])){
     $message = '<label class="text-success">File Updated</label>';
 }
-
-
-
 ?>
