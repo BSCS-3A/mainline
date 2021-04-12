@@ -1,3 +1,8 @@
+<!-- proj mngr notes
+ - undefined index " username", dunno how to check that, pafix nlng
+
+ --->
+
 <?php
 	//Note set actions for every functionality i.e from every functionality file add and update the code below this line
 	//$_SESSION['action'] = 'Added an Account' or 'Updated an Account' or 'Set and Sent Reminder' or 'Sent last Reminder' or 'Set Signatories' or 'Set Election Time and Date'
@@ -11,7 +16,7 @@
 	$username = stripslashes($_SESSION["username"]); // removes backslashes
 	unset($_SESSION["username"]);
 
-	$admin_id =  mysqli_real_escape_string($connection, $username); //escapes special characters in a string
+	$admin_id =  mysqli_real_escape_string($conn, $username); //escapes special characters in a string
 	$query = "INSERT INTO admin_activity_log (username, activity_description)
 			  values ('$username', '$activity_description')";
 
