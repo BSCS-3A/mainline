@@ -1,18 +1,18 @@
 <?php
- session_start();
-  if(!isset($_SESSION['incorrectTry'])){
-     $_SESSION['incorrectTry'] = 0;
- }
-     if($_SESSION['incorrectTry']>=3){
-      $_GET['error'] = "Oops! It seems like you logged in incorrectly 3 times. Please verify that you are not a bot by clicking the checkbox before logging in.";
-    }
- if (isset($_SESSION['student_id']) && isset($_SESSION['bumail']))
-    {
-        header("Location: .\php\StudentDashboard.php");
-    }
-    else if(isset($_SESSION['admin_id'])){
-        header("Location: .\php\AdminDashboard.php");
-    }
+//  session_start();
+//   if(!isset($_SESSION['incorrectTry'])){
+//      $_SESSION['incorrectTry'] = 0;
+//  }
+//      if($_SESSION['incorrectTry']>=3){
+//       $_GET['error'] = "Oops! It seems like you logged in incorrectly 3 times. Please verify that you are not a bot by clicking the checkbox before logging in.";
+//     }
+//  if (isset($_SESSION['student_id']) && isset($_SESSION['bumail']))
+//     {
+//         header("Location: .\php\StudentDashboard.php");
+//     }
+//     else if(isset($_SESSION['admin_id'])){
+//         header("Location: .\php\AdminDashboard.php");
+//     }
 ?>
 
 <!DOCTYPE html>   
@@ -64,9 +64,9 @@
             <input type="text" placeholder="Enter BU Email" name="username" required>  
             <input type="password" placeholder="Enter Password" name="password" required>
             <?php 
-            if($_SESSION['incorrectTry']>=3){
-            echo '<div class="g-recaptcha" data-sitekey="6LflenwaAAAAAAmK_ZEd0aJwcROAUe3gH2Cbmzkg"></div>';
-            }
+            // if($_SESSION['incorrectTry']>=3){
+            // echo '<div class="g-recaptcha" data-sitekey="6LflenwaAAAAAAmK_ZEd0aJwcROAUe3gH2Cbmzkg"></div>';
+            // }
             ?>  
             
 

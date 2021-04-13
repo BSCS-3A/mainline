@@ -54,7 +54,7 @@ if (time()-$_SESSION['timestamp']>$idletime){
             </li>
             <li>
                 <label for="btn-3" class="Ashow">CANDIDATES</label>
-                <a class="Atopnav" href="#">CANDIDATES</a>
+                <a class="Atopnav" href="Student_CandView.php">CANDIDATES</a>
             </li>
             <li>
                 <label for="btn-4" class="Ashow">CHAT US</label>

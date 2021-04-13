@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <?php
-    // include '../database/connect.php';
+    include 'db_conn.php';
     // session_start();
     // if (!(isset($_SESSION['student_id']) && isset($_SESSION['bumail']))) {//if not logged in
     //     header("location:../../DashboardAuthentication/Login UI v2/html/AdminLogin.php");
@@ -23,29 +23,44 @@
     <script src="../js/bootstrap.min_Pos.js"></script>
     <title>BUCEILS HS Online Voting System</title>
     
+
 <script>
     $(document).ready(function() {
+        if($("#select").val()==0){
+            var selected = 0;
+            $.ajax({
+                url: './backPos/view.php',
+                method:'post',
+                data:{heirarchy_id:selected},
+                success:function(response){ 
+ 	                   $("#view-container").html(response);
+                }
+            });
+        }
         $("#select").change(function() {
-        var selected = $(this).val();
-            if(selected != 0){
-                $.ajax({
-                    url: '../database/view.php',
-                    method:'post',
-                    data:{heirarchy_id:selected},
-                    success:function(response){
- 	                    $("#view-container").html(response);
- 	                    console.log(response);
-                    }
-                });
-            }
+            var selected = $(this).val();
+            $.ajax({
+                url: './backPos/view.php',
+                method:'post',
+                data:{heirarchy_id:selected},
+                success:function(response){ 
+ 	                   $("#view-container").html(response);
+                }
+            });
         });
+        $(document).on("click","#modalbtn",function(){
+            $(".credContainer").children("p").html($(this).attr("credentials"));
+            $(".platContainer").children("p").html($(this).attr("platform"));
+        });
+        
     });
 </script>
      
 </head>
 
 <body>
-    <nav id="nav-container">
+
+    <!-- <nav id="nav-container">
         <input id="nav-toggle" type="checkbox">
         <div class="Alogo">
             <h2>BUCEILS HS</h2>
@@ -86,21 +101,21 @@
                 </ul>
             </li>
         </ul>
-        <!--end of list-->
-    </nav>
+        
+    </nav> -->
 
      <section id="section-container">
         <!--Left Content-->
-        <!-- <article>
-            <div class="Alogo-container">
+        <article>
+            <!-- <div class="Alogo-container">
                 <img class="Alogos" src="../IMG/BU-LOGO.png">
                 <img class="Alogos" src="../IMG/BUHS_LOGO.png">
                 <img class="Alogos" src="../IMG/SSG_LOGO.png">
-            </div>
-            <p>WELCOME TO THE OFFICIAL</p>
-            <h1>ONLINE VOTING SYSTEM</h1>
-        </article> -->
-    </section> 
+            </div> -->
+            <!-- <p>WELCOME TO THE OFFICIAL</p> -->
+            <h1>OFFICIAL CANDIDATES</h1>
+        </article>
+    </section>
 
     <div class= "Uwrapper">
         <div class="Uleft">
@@ -117,7 +132,7 @@
                          <td>
                             <form action = "" method = "POST">
                                 <select name = "select-position" id = "select">
-                                    <option value = "0">Select</option>
+                                    <option value = "0" selected>Select</option>
                                     <?php
                                         $sql = "SELECT position_name FROM `candidate_position` ORDER BY heirarchy_id";
                                         $result = mysqli_query($conn, $sql);
@@ -144,47 +159,7 @@
 
         <div class="Uright">
            <div class = "Urow" id = "view-container">
-            <div class="column">
-                <div class="card" id = "profile">
-                    <div class = "avatar" > <!--pictures will be replaced by candidate photos-->
-                        <img src="../IMG/user.png">
-                    </div>
-                    <h3 class = "card_name">Full Name</h3>
-                    <p class = "card_partylist">Partylist</p>
-                    <button class="btn btn-primary btn-xs" data-title="View" data-toggle="modal" data-target="#view" data-placement="top" data-toggle="tooltip" title="View" >View More</button>
-                </div>
             </div>
-            <div class="column">
-                <div class="card" id = "profile">
-                    <div class = "avatar" > <!--pictures will be replaced by candidate photos-->
-                        <img src="../IMG/user.png">
-                    </div>
-                    <h3 class = "card_name">Full Name</h3>
-                    <p class = "card_partylist">Partylist</p>
-                    <button class="btn btn-primary btn-xs" data-title="View" data-toggle="modal" data-target="#view" data-placement="top" data-toggle="tooltip" title="View" >View More</button>
-                </div>
-            </div>
-            <div class="column">
-                <div class="card" id = "profile">
-                    <div class = "avatar">
-                        <img src="../IMG/user.png">
-                    </div> <!--pictures will be replaced by candidate photos-->
-                    <h3 class = "card_name">Full Name</h3>
-                    <p class = "card_partylist">Partylist</p>
-                    <button class="btn btn-primary btn-xs" data-title="View" data-toggle="modal" data-target="#view" data-placement="top" data-toggle="tooltip" title="View" >View More</button>
-                </div>
-            </div>
-             <div class="column">
-                <div class="card" id = "profile">
-                    <div class = "avatar" > <!--pictures will be replaced by candidate photos-->
-                        <img src="../IMG/user.png">
-                    </div>
-                    <h3 class = "card_name">Full Name</h3>
-                    <p class = "card_partylist">Partylist</p>
-                    <button class="btn btn-primary btn-xs" data-title="View" data-toggle="modal" data-target="#view" data-placement="top" data-toggle="tooltip" title="View" >View More</button>
-                </div> 
-            </div>
-           </div>
         </div>
 
 
@@ -198,7 +173,6 @@
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
                     <h4 class="modal-title custom_align" id="Heading">Platforms and Credentials</h4>
                 </div>
-                <form action="../database/addCandidate.php" method = "POST">
                     <div class="modal-body">
                     <div class="credContainer">
                         <h3>Credentials</h3>
@@ -209,7 +183,6 @@
                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi lobortis laoreet metus, sit amet mollis arcu pretium in. Vestibulum arcu elit, ornare eu dictum id, rutrum et dolor. Nunc tempus commodo rhoncus. Fusce tortor ex, consequat nec tortor id, pharetra tincidunt nunc. Fusce dictum lorem vel iaculis fringilla. Curabitur tristique malesuada ex, at convallis nisl pellentesque sit amet. Nam semper enim id orci lacinia ultricies. Integer consectetur in neque id accumsan. Vivamus ac tellus efficitur, scelerisque risus id, egestas tellus. Fusce tincidunt ex urna, non volutpat ipsum posuere tempus. Vivamus imperdiet mattis tellus eget elementum. Phasellus justo lectus, sagittis ut velit a, mattis imperdiet nibh. Morbi ultricies rhoncus euismod. Morbi et dolor vitae magna vulputate placerat. Cras ac velit sapien.</p>
                    </div>
                 </div>
-            </form>
             
                 <div class="modal-footer ">
                 </div>
@@ -217,9 +190,9 @@
         </div>
     </div>
 
-                <footer>
+                <!-- <footer>
             BS COMPUTER SCIENCE 3A © 2021
-            </footer>
+            </footer> -->
 
     <script>
         $('.icon').click(function () {
