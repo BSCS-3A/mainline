@@ -5,25 +5,32 @@
     - change photo fix
     - fix responsiveness table
 
+
+   OKE - delete previous photo when changed 
+    - 1:1 ratio requirement of photo size
+    - change echo something
+
+    - den: fix layout candidate view
+
 -->
 
 <!DOCTYPE html>
 <?php
     include_once 'db_conn.php';
-    session_start();
-    if (!(isset($_SESSION['admin_id']) && isset($_SESSION['username']))) {//if not logged in
-        header("location:AdminLogin.php");
-    }    
-    if(isset($_SESSION['student_id']) && isset($_SESSION['bumail'])){//if logged in as student
-        header("location:AdminLogin.php");
-        //or put a warning page stating that you cannot enter because you are a student
-    }
-    //if sql finished and done editing candidate deter from going back to page 
-    if(isset($_SESSION['message']) && isset($_GET['id'])){
-        unset($_SESSION['message']);
-        unset($_SESSION['msg_typ']);
-        header("location:Admin_candidate.php"); 
-    } 
+    // session_start();
+    // if (!(isset($_SESSION['admin_id']) && isset($_SESSION['username']))) {//if not logged in
+    //     header("location:AdminLogin.php");
+    // }    
+    // if(isset($_SESSION['student_id']) && isset($_SESSION['bumail'])){//if logged in as student
+    //     header("location:AdminLogin.php");
+    //     //or put a warning page stating that you cannot enter because you are a student
+    // }
+    // //if sql finished and done editing candidate deter from going back to page 
+    // if(isset($_SESSION['message']) && isset($_GET['id'])){
+    //     unset($_SESSION['message']);
+    //     unset($_SESSION['msg_typ']);
+    //     header("location:Admin_candidate.php"); 
+    // } 
     
 ?>
 <html>
@@ -369,13 +376,21 @@
                                         while( $row = mysqli_fetch_assoc($result)){
                                 ?>
                                         <tr>
-                                            <form action="./backPos/uploadphoto.php?id=<?php echo $row['candidate_id']?>" method="POST" enctype="multipart/form-data">
+                                            <form action="Admincand_uploadphoto.php?id=<?php echo $row['candidate_id']?>" method="POST" enctype="multipart/form-data">
                                             <?php 
                                                 if(!(empty($row['photo'])||isset($_GET['change']))){//if has photo change photo and has $get change variable
                                                     echo '<td><button name="change">Change Photo</button></td>';
                                                 }
                                                 elseif(isset($_GET['change'])&&$_GET['change']==$row['candidate_id']){
                                                     echo '<td style="text-align:left;"><input type="file" name="datafile"><button name="uploadphoto">Apply Changes</button><button name="cancel" >cancel</button></td>';
+                                                }
+                                                elseif(isset($_GET['change'])&&$_GET['change']!=$row['candidate_id']){
+                                                    if(empty($row['photo'])){ //denden was here
+                                                        echo '<td style="text-align:left;"><input type="file" name="datafile"><button name="uploadphoto">Upload</button></td>';
+                                                    }else{
+                                                        echo '<td><button name="change">Change Photo</button></td>';
+                                                    }
+                                                    
                                                 }
                                                 else{
                                                     echo '<td style="text-align:left;"><input type="file" name="datafile"><button name="uploadphoto">Upload</button></td>';

@@ -25,7 +25,7 @@
 		                <div id="hidden_id" style="display:none;">'.$row['candidate_id'].'</div>
 			                    <div class = "card" id ="profile">
 			    		            <div class="avatar">    
-			    		                <img src = "../../img/user.png">
+			    		                <img src = "../img/user.png">
 			    		            </div>
 			    		        <h3 class = "card_name">'.$row['lname'].', '.$row['fname'].'</h3>
 			    		        <p class = "card_partylist">'.$row['party_name'].'</p>

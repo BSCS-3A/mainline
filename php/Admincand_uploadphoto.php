@@ -1,8 +1,10 @@
 <?php
-    include_once "../db_conn.php";
+    include_once "db_conn.php";
     session_start();
+
     
     if(isset($_POST['uploadphoto'])){
+
         $candidateid = $_GET['id']; 
         $file = $_FILES['datafile']; 
         
@@ -15,11 +17,25 @@
         $fileActualExt = strtolower(end($fileExt));
         $allowedExt = array("jpg","png");
     
+        // to delete previous image file
+        $sqlImg = "SELECT * FROM ((candidate INNER JOIN student ON candidate.student_id = student.student_id) INNER JOIN candidate_position ON     candidate.position_id = candidate_position.position_id) WHERE candidate.candidate_id = '$candidateid'";
+        $resultImg = mysqli_query($conn,$sqlImg);
+        $numrowsImg = mysqli_num_rows($resultImg);
+
+        if($numrowsImg == 1){
+            $rowImg = mysqli_fetch_assoc($resultImg);
+
+            if(!(empty($rowImg['photo']))){
+                unlink($rowImg['photo']);
+            }
+        }
+
+
         if(in_array($fileActualExt,$allowedExt)){
             if($fileError === 0){
                 if($fileSize < 500000){
                     $fileNameNew = uniqid('',true).".".$fileActualExt;
-                    $url= "../../img/dp/".$fileNameNew;
+                    $url= "../img/dp/".$fileNameNew;
                     $fileDestination = mysqli_real_escape_string($conn,$url);
                     
                     $sql = "UPDATE candidate SET photo = '$fileDestination' WHERE candidate.candidate_id = $candidateid";
@@ -28,7 +44,7 @@
                         if(move_uploaded_file($fileTmpName,$fileDestination)){//if upload file successfull
                             echo "success";
                             $_SESSION['message']="upload photo succesfull";
-                            header("Location:../Admin_candidate.php?success=true");
+                            header("Location:Admin_candidate.php?success=true");
                         }else{
                             $sqlremove = "UPDATE candidate SET photo = '' WHERE candidate.candidate_id = $candidateid";
                             mysqli_query($conn,$sqlremove); 
@@ -52,11 +68,11 @@
     }
     if(isset($_POST['change'])){
         $change_id=$_GET['id'];
-        header("Location:../Admin_candidate.php?change=".$change_id."");
+        header("Location:Admin_candidate.php?change=".$change_id."");
     }
     if(isset($_POST['cancel'])){
         $_SESSION['message'] = "cancelled changing of photo";
-        header("Location:../Admin_candidate.php");
+        header("Location:Admin_candidate.php");
     }
 
 
