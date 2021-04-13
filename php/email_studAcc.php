@@ -2,40 +2,72 @@
 Proj Mngr Note:
 - directory change for PHP Mailer
 - changed header
+- fixed email function, added username and password
 -->
 
 <?php
 
-require_once('../other/PHPMailer/PHPMailer-5.2-stable/PHPMailerAutoload.php');
+
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
+
+//palitan na lang ang location kung nasan ang composer na folder
+// require_once('C:\Users\Christian Diesta\Desktop\composer\vendor\autoload.php');
+require '../other/composer/vendor/autoload.php';
 
 if(isset($_POST["sendEmail"])){
    
-    $mail = new PHPMailer();
-    $mail->isSMTP();
-    $mail->SMTPAuth = true;
-    $mail->SMTPSecure = 'ssl';
-    $mail->Host = 'smtp.gmail.com';
-    $mail->Port = '465';
-    $mail->isHTML();
-    
-    // Host credentials
-    $mail->Username = '';
-    $mail->Password = '';
-
-    $mail->Subject = 'User Credentials';
-  
+    $mail = new PHPMailer(TRUE);
 
     while($row = mysqli_fetch_array($result)){
 
-        $user_otp = $row['otp'];
-        $user_email = $row['bumail'];
+        try {
+                
+            $mail->isSMTP();
+            $mail->Host = 'smtp.gmail.com';
+            $mail->SMTPAuth = true;
+            $mail->SMTPSecure = 'tls';
+            $mail->Port = '587';
 
-        $mail->SetFrom('BSCS3A@bu.com');
-        $mail->Body = "Your one time password: $user_otp";
-        $mail->AddAddress($user_email);
+            // reason why email works now
+            $mail->Username = 'buceilshighschool@gmail.com';
+            $mail->Password = 'aacbysxikqgbrdfl';
+            
+            // // Host credentials
+            // $mail->Username = '';   //email
+            // $mail->Password = '';   //password
+        
+            /* Disable some SSL checks. */
+            $mail->SMTPOptions = array(
+                'ssl' => array(
+                'verify_peer' => false,
+                'verify_peer_name' => false,
+                'allow_self_signed' => true
+                )
+            );
 
-        $mail->Send();
-    }
-    header("location: Admin_StudentAccountManagement.php?updation=1");
+            $user_otp = $row['otp'];
+            $user_email = $row['bumail'];
+
+            //palitan na lang ang mga message
+            $mail->SetFrom('BSCS3A@bu.com');
+            $mail->Subject = 'User Credentials';
+            
+            /*-------------------------------*/
+            // $mail->Body = "Your one time password: $user_otp";
+            
+            $mail->Body = "Good day! Your one time password for the current election is $user_otp . Please do not disclose your login credentials. Thank you!";
+            $mail->addAddress($user_email);
+
+        }
+            catch (Exception $e){
+                echo $e->errorMessage();
+            }
+            catch (\Exception $e){
+                echo $e->getMessage();
+            }
+        }
+        $mail->send();
+        header("location: Admin_StudentAccountManagement.php");
 }
 ?>
