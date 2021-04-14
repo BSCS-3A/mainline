@@ -17,6 +17,13 @@ $dbname = "bucielsmain2";
         exit();
     }
 
+    
+    $connect = mysqli_connect($servername,$username,$password,$dbname) or die ('Unable to connect');   // for student account mgnmt
+
+    // for backend student account mngmt
+    $connection = mysqli_connect($servername,$username,$password);
+    $db = mysqli_select_db($connection, $dbname);
+
 // JP
     // $dbhost = "localhost";
     // $dbuser = "id16218880_webhostingbscs3a";

@@ -17,10 +17,9 @@ missing students
 
 
 <?php
-    //generate otp
+    
     include("genotp_studAcc.php");
-    // database connection
-    include("db_conn_studAccMngmt.php");
+    include("back_studAccMngmt.php");
     include("email_studAcc.php");
     include ("edit_studAcc.php");
 ?>

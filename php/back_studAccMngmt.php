@@ -16,14 +16,16 @@ Proj Mngr Notes:
 
 
 // local version
-$dbServername = "localhost";
-$dbUsername = "root";   //id1621880_webhostingbscs3a
-$dbPassword = "";       //id16218880_buceils
-//$dbName = "seproject";
-$dbName = "bucielsmain2";   // for local -Den
+// $dbServername = "localhost";
+// $dbUsername = "root";   //id1621880_webhostingbscs3a
+// $dbPassword = "";       //id16218880_buceils
+// //$dbName = "seproject";
+// $dbName = "bucielsmain2";   // for local -Den
 
-$connect = mysqli_connect($dbServername, $dbUsername, $dbPassword, $dbName) or die ('Unable to connect');
-$message = "";
+// $connect = mysqli_connect($dbServername, $dbUsername, $dbPassword, $dbName) or die ('Unable to connect');
+// $message = "";
+
+include "db_conn.php";
 
 
 $query = "SELECT * FROM student";
@@ -33,7 +35,7 @@ $deleteCandidate = "DELETE FROM candidate";
 $deleteStudentLog = "DELETE FROM student_access_log";
 $deleteStudent = "DELETE FROM student";
 
-$message = '<label class="text-danger">WARNING! All stored data, such as results, list of candidates, and logs, will be deleted, and all student records will be replaced.</label>';
+$message = '<label class="text-danger">WARNING! All stored data, such as results, list <br> of candidates, and logs, will be deleted, and all student records will be replaced.</label>';
 
 if(isset($_POST["upload"])){
     

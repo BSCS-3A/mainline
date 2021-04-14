@@ -11,13 +11,14 @@ Proj Mngr Note:
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
+
 //palitan na lang ang location kung nasan ang composer na folder
 // require_once('C:\Users\Christian Diesta\Desktop\composer\vendor\autoload.php');
 require '../other/composer/vendor/autoload.php';
 
 if(isset($_POST["sendEmail"])){
    
-    $mail = new PHPMailer(TRUE);
+    $mail = new PHPMailer();
 
     while($row = mysqli_fetch_array($result)){
 
@@ -52,12 +53,14 @@ if(isset($_POST["sendEmail"])){
             //palitan na lang ang mga message
             $mail->SetFrom('BSCS3A@bu.com');
             $mail->Subject = 'User Credentials';
+
+            // $mail->Body = "Good day! Your one time password for the current election is $user_otp . Please do not disclose your login credentials. Thank you!";
+            $mail->addAddress($user_email);
             
             /*-------------------------------*/
-            // $mail->Body = "Your one time password: $user_otp";
-            
-            $mail->Body = "Good day! Your one time password for the current election is $user_otp . Please do not disclose your login credentials. Thank you!";
-            $mail->addAddress($user_email);
+            $mail->Body = "Your one time password: $user_otp";
+            $mail->send();
+            $mail->ClearAllRecipients();
 
         }
             catch (Exception $e){
@@ -66,8 +69,10 @@ if(isset($_POST["sendEmail"])){
             catch (\Exception $e){
                 echo $e->getMessage();
             }
+            
+            
         }
-        $mail->send();
+        // $mail->send();
         header("location: Admin_StudentAccountManagement.php");
 }
 ?>

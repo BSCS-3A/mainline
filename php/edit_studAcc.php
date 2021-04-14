@@ -7,8 +7,10 @@
 
     session_start();
     
-    $connection = mysqli_connect("localhost", "root", "");
-    $db = mysqli_select_db($connection, 'bucielsmain2');
+    include "db_conn.php";
+
+    // $connection = mysqli_connect("localhost", "root", "");
+    // $db = mysqli_select_db($connection, 'bucielsmain2');
 
         if (isset($_POST['save'])) {
 

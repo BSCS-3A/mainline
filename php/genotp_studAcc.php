@@ -6,12 +6,16 @@
 
 <?php
 if(isset($_POST["go"])){
-    $dbServername = "localhost";
-    $dbUsername = "root";   //id1621880_webhostingbscs3a
-    $dbPassword = "";       //id16218880_buceils
-    //$dbName = "seproject";
-    $dbName = "bucielsmain2";  //local Den 4/9/21
-    $connect = mysqli_connect($dbServername, $dbUsername, $dbPassword, $dbName);
+
+    // $dbServername = "localhost";
+    // $dbUsername = "root";   //id1621880_webhostingbscs3a
+    // $dbPassword = "";       //id16218880_buceils
+    // //$dbName = "seproject";
+    // $dbName = "bucielsmain2";  //local Den 4/9/21
+    // $connect = mysqli_connect($dbServername, $dbUsername, $dbPassword, $dbName);
+
+    include "db_conn.php";
+
     $sql = "UPDATE `student` SET `otp` = '' ";
     $connect->query($sql);
     

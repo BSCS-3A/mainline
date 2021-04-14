@@ -161,7 +161,7 @@ class SMTP
      *
      * @var int
      */
-    public $Timeout = 300;
+    public $Timeout = 10000;
 
     /**
      * How long to wait for commands to complete, in seconds.
@@ -169,7 +169,7 @@ class SMTP
      *
      * @var int
      */
-    public $Timelimit = 300;
+    public $Timelimit = 10000;
 
     /**
      * Patterns to extract an SMTP transaction id from reply to a DATA command.
@@ -369,7 +369,7 @@ class SMTP
      *
      * @return false|resource
      */
-    protected function getSMTPConnection($host, $port = null, $timeout = 30, $options = [])
+    protected function getSMTPConnection($host, $port = null, $timeout = 10000, $options = [])
     {
         static $streamok;
         //This is enabled by default since 5.0.0 but some providers disable it
