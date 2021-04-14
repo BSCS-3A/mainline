@@ -29,8 +29,8 @@ SOLVED ^^ font-awesome_addAdmin may kasalanan lol, + dataTables.bootstrap
     <meta charset="utf-8">
     <link rel="icon" href="../img/BUHS LOGO.png" type="image/png">
     <link rel="stylesheet" type="text/css" href="../css/admin_css/style_adminNav.css">
-    <!--<link rel="stylesheet" href="../css/admin_css/bootstrap4.5.2_AdminDash.css">
-    <link rel="stylesheet" href="../css/admin_css/font-awesome_AdminDash.css"> -->
+    <!-- <link rel="stylesheet" href="../css/admin_css/bootstrap4.5.2_AdminDash.css"> -->
+    <!-- <link rel="stylesheet" href="../css/admin_css/font-awesome_AdminDash.css"> -->
     
     <!-- <link rel="stylesheet" type="text/css" href="../css/admin_css/style1_addAdmin.css"> -->
     <link rel="stylesheet" href="../css/admin_css/bootstrap_addAdmin.css">
@@ -96,7 +96,7 @@ SOLVED ^^ font-awesome_addAdmin may kasalanan lol, + dataTables.bootstrap
                 <a href="#">LOGS</a>
                 <input class="nav-toggle5" type="checkbox" id="btn-4">
                 <ul>
-                    <li><a href="#">Access Log</a></li>
+                    <li><a href="Admin_AccessLogs.php">Access Log</a></li>
                     <li><a href="front_actLogs_v0_3.php">Activity Log</a></li>
                     <li><a href="#">Vote Summary</a></li>
                 </ul>

@@ -396,7 +396,7 @@ aside p.Aelec-guide-txt{
 }
 
 /*footer*/
-.footer {
+/* .footer {
   position: fixed;
   left: 0;
   bottom: 0;
@@ -414,7 +414,7 @@ div p.footer-txt{
   letter-spacing: 7px;
   font-size: 10px;
   color: #ffffff;
-}
+} */
 nav img.user-profile{
   margin-top: 0;
   height: 40px;
@@ -431,7 +431,7 @@ div.container {
   width: 100% !important;
   height: auto;
   opacity: 80%;
-  font-size: .8rem;
+  font-size: 10ptrem;
 }
 #ADdataTable {
   border-collapse: collapse !important;
@@ -455,7 +455,7 @@ th {
   color: #ffffff;
   background-color: #18566e;
   text-align: center;
-  font-size: .8rem;
+  font-size: 10pt;
   font-family: Roboto regular, sans-serif;
   text-transform: uppercase;
   letter-spacing: 2px; 
@@ -467,7 +467,7 @@ td {
     max-width: 150px;
     max-height: 150px;
     overflow: hidden;
-    font-size: .8rem;
+    font-size: 10pt;
 }
 #ADheader{
   position: relative;

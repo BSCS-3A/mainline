@@ -520,7 +520,7 @@ img.logos{
     flex-direction: column;
   }
 }
-.footer {
+/* .footer {
   position: fixed;
   left: 0;
   bottom: 0;
@@ -538,7 +538,7 @@ div p.footer-txt{
   letter-spacing: 7px;
   font-size: 0.7em;
   color: #ffffff;
-}
+} */
 nav img.user-profile{
   margin-top: 0;
   height: 40px;

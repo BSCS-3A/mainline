@@ -23,7 +23,7 @@
     box-shadow: 0 10px 20px rgba(0, 0, 0, .15 ),
                 0 3px 6px rgba(0, 0, 0, .23);
     width: auto;
-    z-index: 3;
+    z-index: 500;
     display: flex;
   }
   nav:after{
@@ -403,9 +403,10 @@
     bottom: 0;
     width: 100%;
     height: auto;
-    padding: 5px 5px 20px 5px;
+    padding: 10px 5px 10px 5px;
     background-color: #124254;
     text-align: center;
+    z-index: 500;   /* para very front lagi ang footer */
   }
   div p.footer-txt{
     position: relative;

@@ -14,7 +14,7 @@ body{
   background-attachment: fixed;
   width: auto;
 }
-nav{
+/* nav{
   background: #1d6986;
   box-shadow: 0 10px 20px rgba(0, 0, 0, .15 ),
               0 3px 6px rgba(0, 0, 0, .23);
@@ -57,7 +57,7 @@ nav ul{
   float: right;
   padding: 0;
   height: 80px;
-  /* margin-right: 40px; */
+ 
   margin-bottom: 0;
   list-style: none;
   position: relative;
@@ -65,7 +65,7 @@ nav ul{
   z-index: 4;
 }
 nav ul li{
-  /* float: left; */
+ 
   display: inline-block;
   height: 80px;
   background: #1d6986;
@@ -280,7 +280,7 @@ nav h5{
   margin-bottom: 0px;
   letter-spacing: 6px;
   font-family: Generica regular, sans-serif;
-}
+} */
 .cnavie ul li a{
   font-size: 1.05em;
 
@@ -546,7 +546,7 @@ img.logos{
     flex-direction: column;
   }
 }
-.footer {
+/* .footer {
   position: fixed;
   left: 0;
   bottom: 0;
@@ -564,7 +564,7 @@ div p.footer-txt{
   letter-spacing: 7px;
   font-size: 0.7em;
   color: #ffffff;
-}
+} */
 nav img.user-profile{
   margin-top: 0;
   height: 40px;
