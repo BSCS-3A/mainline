@@ -54,11 +54,12 @@ if(isset($_POST["sendEmail"])){
             $mail->SetFrom('BSCS3A@bu.com');
             $mail->Subject = 'User Credentials';
 
-            // $mail->Body = "Good day! Your one time password for the current election is $user_otp . Please do not disclose your login credentials. Thank you!";
             $mail->addAddress($user_email);
+            $mail->Body = "Good day! Your one time password for the current election is $user_otp . Please do not disclose your login credentials. Thank you!";
+            
             
             /*-------------------------------*/
-            $mail->Body = "Your one time password: $user_otp";
+            // $mail->Body = "Your one time password: $user_otp";
             $mail->send();
             $mail->ClearAllRecipients();
 
