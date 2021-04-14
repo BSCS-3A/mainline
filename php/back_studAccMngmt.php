@@ -30,6 +30,11 @@ include "db_conn.php";
 
 $query = "SELECT * FROM student";
 $result = mysqli_query($connect, $query);
+
+$sqlImg = "SELECT * FROM candidate";
+$resultImg = mysqli_query($connect, $sqlImg);
+$numrowsImg = mysqli_num_rows($resultImg);
+
 $deleteVote = "DELETE FROM vote";
 $deleteCandidate = "DELETE FROM candidate";
 $deleteStudentLog = "DELETE FROM student_access_log";
@@ -40,6 +45,16 @@ $message = '<label class="text-danger">WARNING! All stored data, such as results
 if(isset($_POST["upload"])){
     
     mysqli_query($connect, $deleteVote);
+
+    // delete candidate images before data in table
+    if($numrowsImg > 0){
+        while($rowImg = mysqli_fetch_assoc($resultImg)){
+            if(!(empty($rowImg['photo']))){
+                unlink($rowImg['photo']);
+            }
+        }
+    }
+
     mysqli_query($connect, $deleteCandidate);
     mysqli_query($connect, $deleteStudentLog);
 

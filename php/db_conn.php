@@ -8,7 +8,8 @@
 $servername = "localhost";
 $username = "root";
 $password = "";
-$dbname = "bucielsmain2";    
+$dbname = "bucielsmain2";
+// $dbname = "check";     
     
     // Create connection
     $conn = mysqli_connect($servername,$username,$password,$dbname);
@@ -18,7 +19,8 @@ $dbname = "bucielsmain2";
     }
 
     
-    $connect = mysqli_connect($servername,$username,$password,$dbname) or die ('Unable to connect');   // for student account mgnmt
+    // for student account mgnmt
+    $connect = mysqli_connect($servername,$username,$password,$dbname) or die ('Unable to connect');   
 
     // for backend student account mngmt
     $connection = mysqli_connect($servername,$username,$password);
