@@ -19,7 +19,7 @@ body{
 }
 
 /* Top Navigation */
-nav{
+/* nav{
   background: #f8f8f8;
   box-shadow: 0 10px 20px rgba(0, 0, 0, .15 ),
               0 3px 6px rgba(0, 0, 0, .23);
@@ -70,12 +70,11 @@ nav .Alogo{
 }
 
 
-/* Top Navigation Item List */
+
 nav ul{
   float: right;
   padding: 0;
   height: 80px;
-  /* margin-right: 40px; */
   margin-bottom: 0;
   list-style: none;
   position: relative;
@@ -88,7 +87,6 @@ nav ul li{
   height: 80px;
   background: #f8f8f8;
   text-align: center;
-  /* margin: 0 5px; */
   width: 150px;
 }
 nav ul li a{
@@ -206,7 +204,7 @@ nav img.Auser-profile{
   margin-top: 0;
   height: 40px;
   width: 40px;
-}
+} */
 /* .fa-plus{
   font-size: 15px;
   margin-left: 40px;
@@ -260,7 +258,7 @@ nav img.Auser-profile{
     cursor: pointer;
     font-size: 25px;
   }
-  nav ul ul{
+  /* nav ul ul{
     top: 70px;
     border-top: 0px;
     border-bottom: 0px;
@@ -272,7 +270,7 @@ nav img.Auser-profile{
   }
   nav ul ul a{
     left: 0;
-  }
+  } */
   /* nav ul ul ul a{
     padding-left: 80px;
   }
@@ -413,7 +411,7 @@ aside p.Aelec-guide-txt{
 
 
 /* Footer */
-footer{
+/* footer{
   background-color: #fece4b;
   position: relative;
   height: 5%;
@@ -422,4 +420,4 @@ footer{
   text-align: center;
   padding: 5px 0px;
   letter-spacing: 7px;
-}
+} */

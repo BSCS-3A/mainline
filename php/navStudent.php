@@ -1,5 +1,5 @@
 <?php
-session_start();
+// session_start();
 
 // if (isset($_SESSION['student_id']) && isset($_SESSION['bumail'])) {
 //     $idletime=900;//after 15 minutes the user gets logged out
@@ -20,19 +20,15 @@ session_start();
     <link rel="icon" href="../img/BUHS LOGO.png" type="image/png">
     <link rel="stylesheet" href="../css/student_css/bootstrap_studDash.css">
     <link rel="stylesheet" href="../css/student_css/font-awesome_studDash.css">
-    <link rel="stylesheet" type="text/css" href="../css/student_css/style_studDash.css">
-    <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
-    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
-    <script src="../js/countdown.js"></script>
+    <!-- <link rel="stylesheet" type="text/css" href="../css/student_css/style_studDash.css"> -->
+    <link rel="stylesheet" type="text/css" href="../css/student_css/style_studNav.css">
+    
     <title>BUCEILS HS Online Voting System</title>
 </head>
 
 <body>
     <!--navbar-->
-    <?php include "navStudent.php" ?>
-
-
-    <!-- <nav id="nav-container">
+    <nav id="nav-container">
         <input id="nav-toggle" type="checkbox">
         <div class="Alogo">
             <h2><a class="Atext-link" href="StudentDashboard.php">BUCEILS HS</a></h2>
@@ -64,59 +60,28 @@ session_start();
                 <a class="Atopnav" href="#">CHAT US</a>
             </li>
             <li>
-                <label for="btn-5" class="Ashow"><?php echo $_SESSION['fname']." ".$_SESSION['lname']; ?></label>
+                <label for="btn-5" class="Ashow"><?php //echo $_SESSION['fname']." ".$_SESSION['lname']; ?></label>
                 <a class="Auser" href="#"><img class="Auser-profile" src="../img/user.png"></a>
                 <input type="checkbox" id="btn-5">
                 <ul>
-                    <li><a href="#" class="Aelec-text"><?php echo $_SESSION['fname']." ".$_SESSION['lname']; ?></a></li>
+                    <li><a href="#" class="Aelec-text"><?php //echo $_SESSION['fname']." ".$_SESSION['lname']; ?></a></li>
                     <li><a href="StudentLogout.php">LOGOUT</a></li>
                 </ul>
             </li>
         </ul>    
-    </nav> -->
-    <!--end of navbar-->
-    
-    <!--Left Content-->
-    <section id="section-container">
-        <article>
-            <div class="Alogo-container">
-        		<img class="Alogos" src="../img/BU-LOGO.png">
-        		<img class="Alogos" src="../img/BUHS LOGO.png">
-        		<img class="Alogos" src="../img/SSG LOGO.png">
-        	</div>
-            <p>WELCOME TO THE OFFICIAL</p>
-            <h1>ONLINE VOTING SYSTEM</h1>
-            <p>BICOL UNIVERSITY COLLEGE OF EDUCATION<br>
-                INTEGRATED LABORATORY SCHOOL-HIGH SCHOOL DEPT.</p>
-        </article>
-    </section>
-    <!--Left Content-->
-
-    <!--Proxy Countdown-->
-    <aside id="aside-container">
-        <h1 id="headline">ELECTION COUNTDOWN</h1>
-        <div id="countdown">
-            <ul>
-                <li><span id="days">0</span>days</li>
-                <li><span id="hours">0</span>Hours</li>
-                <li><span id="minutes">0</span>Minutes</li>
-                <li><span id="seconds">0</span>Seconds</li>
-            </ul>
-        </div>
-        <p class="Aelec-guide-txt">ELECTION GUIDELINES GO HERE
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
-            sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
-            Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
-            Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-        </p>
-    </aside>
-    <!--End of Proxy Countdown-->
+    </nav>
+ 
 
     <!--Footer-->
     <!-- <footer>
         BS COMPUTER SCIENCE 3A © 2021
     </footer> -->
+
+
+    <div class="footer">
+        <p class="footer-txt">BS COMPUTER SCIENCE 3A © 2021</p>
+    </div>
+
     <!--End of Footer-->
 
     <script>
@@ -127,9 +92,3 @@ session_start();
 </body>
 
 </html>
-<?php
-// }else{
-// 	header("Location: ..\index.php");
-//      exit();
-// }
- ?>

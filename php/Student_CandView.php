@@ -60,6 +60,9 @@
 
 <body>
 
+    <?php include "navStudent.php"; ?>
+
+
     <!-- <nav id="nav-container">
         <input id="nav-toggle" type="checkbox">
         <div class="Alogo">

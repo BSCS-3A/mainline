@@ -28,7 +28,7 @@
                         $result_tunay = mysqli_query($conn,$sql_tunay);
                         header("location:../Admin_candidate.php");
                     }else{
-                        echo "<script>alert('Cannot add student(Either position is not set or student is already a candidate)'); 
+                        echo "<script>alert('Cannot add student as candidate (Either running position not selected or student is already a candidate)'); 
                         window.location.href='../Admin_candidate.php';
                         </script>";
                         //no position found
