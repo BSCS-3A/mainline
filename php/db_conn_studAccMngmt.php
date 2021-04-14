@@ -28,15 +28,24 @@ $message = "";
 
 $query = "SELECT * FROM student";
 $result = mysqli_query($connect, $query);
-$deleteAll = "DELETE FROM student";
+$deleteVote = "DELETE FROM vote";
+$deleteCandidate = "DELETE FROM candidate";
+$deleteStudentLog = "DELETE FROM student_access_log";
+$deleteStudent = "DELETE FROM student";
+
+$message = '<label class="text-danger">WARNING! All stored data, such as results, list of candidates, and logs, will be deleted, and all student records will be replaced.</label>';
 
 if(isset($_POST["upload"])){
+    
+    mysqli_query($connect, $deleteVote);
+    mysqli_query($connect, $deleteCandidate);
+    mysqli_query($connect, $deleteStudentLog);
 
     //check if there is data in the database, delete all if true
-    if (mysqli_num_rows($result) != 0) {
-       mysqli_query($connect, $deleteAll);
+    if (mysqli_num_rows($result) != 0) {        
+        mysqli_query($connect, $deleteStudent);
     }
-
+    
     if($_FILES['info_file']['name']){
         $filename = explode(".", $_FILES['info_file']['name']);
         if($filename[1] == "csv"){
@@ -73,10 +82,7 @@ if(isset($_POST["upload"])){
         }
     }
     else{
-        $message = '<label class="text-danger">Please Select File</label>';
+        $message = '<label class="text-danger">No file selected, Please Select CSV File</label>';
     }
-}
-if(isset($_GET["updation"])){
-    $message = '<label class="text-success">File Updated</label>';
 }
 ?>
