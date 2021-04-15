@@ -22,6 +22,10 @@ if (isset($_POST['updateData'])) {
     $query_run = mysqli_query($conn, $query);
     //CHECK DATA UPDATED OR NOT
     if ($query_run) {
+        //For Logs
+		$_SESSION['action'] = 'edited Admin Account : ' . $_POST['username'];
+		include 'backFun_actLogs_v0_1.php';
+        
         header("Refresh: 0; front_addAdmin_v2.php");
         echo "<script>
           alert('Data Updated');
