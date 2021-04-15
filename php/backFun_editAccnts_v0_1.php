@@ -23,7 +23,7 @@ if (isset($_POST['updateData'])) {
     //CHECK DATA UPDATED OR NOT
     if ($query_run) {
         //For Logs
-		$_SESSION['action'] = 'edited Admin Account : ' . $_POST['username'];
+		$_SESSION['action'] = 'updated Admin Account : ' . $_POST['username'];
 		include 'backFun_actLogs_v0_1.php';
         
         header("Refresh: 0; front_addAdmin_v2.php");
