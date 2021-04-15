@@ -11,14 +11,16 @@
 	include "db_conn.php";
 
 	$activity_description = $_SESSION['action'];
-	unset($_SESSION["action"]);
+	unset($_SESSION['action']);
 
-	$username = stripslashes($_SESSION["username"]); // removes backslashes
-	unset($_SESSION["username"]);
+	date_default_timezone_set('Asia/Manila');
+	$activity_date = date('Y-m-d');
+	$activity_time = date('H:i:s');
 
-	$admin_id =  mysqli_real_escape_string($conn, $username); //escapes special characters in a string
-	$query = "INSERT INTO admin_activity_log (username, activity_description)
-			  values ('$username', '$activity_description')";
+	$query = "INSERT INTO admin_activity_log (admin_id, activity_description, activity_date, activity_time)
+			  values ($_SESSION['admin_id'], '$activity_description', '$activity_date', '$activity_time')";
 
 	mysqli_query($conn, $query);
+
+	unset($_SESSION['admin_id'])
 ?>
