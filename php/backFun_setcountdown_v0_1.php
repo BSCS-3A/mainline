@@ -31,6 +31,10 @@ function function_alert($msg) {
       VALUES('$date $tstart', '$dateEnd $tends')";
     mysqli_query($conn, $vtevent);
     function_alert("saved");
+       
+        //For Logs
+		$_SESSION['action'] = 'set Election Schedule.';
+		include 'backFun_actLogs_v0_1.php';
       
 
    }
@@ -49,6 +53,10 @@ if (isset($_POST['editsched'])) {
     $edit =  "UPDATE `vote_event` SET start_date='$date $tstart', end_date='$dateEnd $tends ' WHERE vote_event_id = 1";
   mysqli_query($conn, $edit);
   function_alert("updating successful"); 
+    
+         //For Logs
+        $_SESSION['action'] = 'updated Election Schedule.';
+        include 'backFun_actLogs_v0_1.php';
 
  }
 
