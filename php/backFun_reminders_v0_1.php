@@ -58,7 +58,7 @@ $mail = new PHPMailer(TRUE);
    $mail->send(); 
 
 	//For Logs
-	$_SESSION['action'] = 'sent reminders.';
+	$_SESSION['action'] = 'sent Last Reminders.';
 	include 'backFun_actLogs_v0_1.php';
 
 
