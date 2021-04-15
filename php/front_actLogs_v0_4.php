@@ -137,8 +137,10 @@ header to cheader
                               <?php
                                   // Create connection
                                   include "db_conn.php";
-
-                                  $results = mysqli_query($conn, "SELECT * FROM admin_activity_log");
+                                  
+                                  $results = mysqli_query($conn, "SELECT * FROM admin INNER JOIN admin_activity_log ON admin.admin_id = admin_activity_log.admin_id"); //query and join activity log and admin
+                              
+                                  /*$results = mysqli_query($conn, "SELECT * FROM admin_activity_log");*/
 
                                   while($row = mysqli_fetch_array($results))
                                   {
