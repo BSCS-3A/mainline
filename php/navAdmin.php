@@ -97,7 +97,7 @@ SOLVED ^^ font-awesome_addAdmin may kasalanan lol, + dataTables.bootstrap
                 <input class="nav-toggle5" type="checkbox" id="btn-4">
                 <ul>
                     <li><a href="Admin_AccessLogs.php">Access Log</a></li>
-                    <li><a href="front_actLogs_v0_3.php">Activity Log</a></li>
+                    <li><a href="front_actLogs_v0_4.php">Activity Log</a></li>
                     <li><a href="#">Vote Summary</a></li>
                 </ul>
             </li>
