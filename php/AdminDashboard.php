@@ -151,14 +151,14 @@ session_start();
         </p>
     </aside>
 
-<!--
-    <div class="footer">
+    <!-- <div class="footer">
         <p class="footer-txt">BS COMPUTER SCIENCE 3A © 2021</p>
-    </div>
--->
+    </div> -->
 
-<?php 
+      <?php 
+       
        include "db_conn.php";
+
        $event = mysqli_query($conn, "SELECT * FROM vote_event WHERE vote_event_id = 1");
   
        while ($row = mysqli_fetch_array($event)) { 
@@ -173,7 +173,7 @@ session_start();
         });
      
      
-     var start ="<?php echo $stdate ?>"; 
+        var start ="<?php echo $stdate ?>"; 
 
 // Set the date we're counting down to
 var countDownStart = new Date(start).getTime();
@@ -204,6 +204,8 @@ var x = setInterval(function() {
 
   // If the count down is over, write some text 
   if (distance < 0) {
+   let headlines = document.getElementById("AD-CD-headline");
+    headlines.innerText = "Time before \n election ends";
    //delete the data in vote_event table in database after election ends
 $(document).ready(function(){
  var dend = "<?php echo $endate ?>"; 
@@ -245,7 +247,7 @@ $(document).ready(function(){
                 
 },1000);
 });
-                headline.innerText = "Time before election ends";
+               
                 clearInterval(x);
               }
 
@@ -297,7 +299,7 @@ var y = setInterval(function() {
 </html>
 <?php
 // }else{
-//     header("Location: AdminLogin.php");
+//     header("Location: ..\Login UI v2\html\AdminLogin.php");
 //      exit();
 // }
  ?>
