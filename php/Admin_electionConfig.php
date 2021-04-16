@@ -130,9 +130,9 @@
         </div>
         <br>
         <div>
-           <!-- <script type="text/javascript" src="../js/awaw.js"></script>onclick="passvalues();"-->
-            <button class="btn" type="submit" id="btnsave" name="savesched" >SAVE</button><!-- onclick="myFunction('date','tstart','tends')-->
-            <button class="btn" type="submit" name="editsched" >EDIT</button>
+           <!-- <script type="text/javascript" src="../assets/js/awaw.js"></script>onclick="passvalues();"-->
+            <!--<button class="btn" type="submit" id="btnsave" name="savesched" >SAVE</button>--><!-- onclick="myFunction('date','tstart','tends')-->
+            <button class="btn" type="submit" name="editsched" >UPDATE SCHEDULE</button>
         </div>
     </div>
 
@@ -149,9 +149,9 @@
 	</form>
 
 
-    <div class="footer">
+    <!-- <div class="footer">
         <p class="footer-txt">BS COMPUTER SCIENCE 3A © 2021</p>
-    </div>
+    </div> -->
 
     <script>
         $('.icon').click(function () {

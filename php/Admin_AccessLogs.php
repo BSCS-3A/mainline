@@ -133,6 +133,7 @@ include("db_conn.php");
                         </thead>
                         <tbody>
                             <?php
+                            mysqli_query($conn, "DELETE FROM admin_activity_log WHERE activity_date < DATE_SUB(NOW(), INTERVAL 1 MONTH)");
                             $res = mysqli_query($conn, "SELECT * FROM admin_activity_log INNER JOIN admin ON admin_activity_log.admin_id=admin.admin_id  WHERE activity_description='Login' OR activity_description='Logout' ORDER BY activity_date DESC,activity_time DESC"); //query and join activity log and admin
                             while($result = mysqli_fetch_array($res)){
                                  echo "<tr>";
@@ -169,6 +170,7 @@ include("db_conn.php");
                         </thead>
                         <tbody>
                             <?php
+                            mysqli_query($conn, "DELETE FROM student_access_log WHERE date < DATE_SUB(NOW(), INTERVAL 1 MONTH)");
                             $res2 = mysqli_query($conn, "SELECT * FROM student_access_log INNER JOIN student ON student_access_log.student_id=student.student_id  WHERE activity_description='Login' OR activity_description='Logout' ORDER BY date DESC, time DESC"); //query and join student access log and student
                             while($resultA = mysqli_fetch_array($res2)){
                                     echo "<tr>";

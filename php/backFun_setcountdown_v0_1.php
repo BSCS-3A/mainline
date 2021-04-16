@@ -17,31 +17,10 @@ function function_alert($msg) {
     echo "<script>alert('$msg');</script>"; 
 } 
 
-//set timeframe
-   if (isset($_POST['savesched'])) {
-
-      $date=$_POST['date'];
-      $dateEnd=$_POST['dateEnd'];
-      $tstart= $_POST['tstart'];
-      $tends= $_POST['tends'];
-
-  
-            //SET TIMEFRAME
-      $vtevent = "INSERT INTO vote_event (`start_date`,`end_date`) 
-      VALUES('$date $tstart', '$dateEnd $tends')";
-    mysqli_query($conn, $vtevent);
-    function_alert("saved");
-       
-        //For Logs
-		$_SESSION['action'] = 'set Election Schedule.';
-		include 'backFun_actLogs_v0_1.php';
-      
-
-   }
-
-
    //edit timeframe
 if (isset($_POST['editsched'])) {
+      
+    $truncate = mysqli_query($conn, "TRUNCATE TABLE vote_event"); 
 
     $date=$_POST['date'];
     $dateEnd=$_POST['dateEnd'];
@@ -50,14 +29,14 @@ if (isset($_POST['editsched'])) {
 
     
     //updating the table
-    $edit =  "UPDATE `vote_event` SET start_date='$date $tstart', end_date='$dateEnd $tends ' WHERE vote_event_id = 1";
-  mysqli_query($conn, $edit);
-  function_alert("updating successful"); 
-    
-         //For Logs
-        $_SESSION['action'] = 'updated Election Schedule.';
-        include 'backFun_actLogs_v0_1.php';
+     $vtevent = "INSERT INTO vote_event (`start_date`,`end_date`) 
+      VALUES('$date $tstart', '$dateEnd $tends')";
+      mysqli_query($conn, $vtevent);
+  function_alert("Updating successful"); 
 
- }
+ }else{
+   function_alert("Updating failed");
+
+}
 
    ?>

@@ -9,17 +9,17 @@
 
 <?php
 session_start();
- if (isset($_SESSION['admin_id']) && isset($_SESSION['username'])) 
-{
-    $idletime=900; //after 15 minutes the user gets logged out
+//  if (isset($_SESSION['admin_id']) && isset($_SESSION['username'])) 
+// {
+//     $idletime=900; //after 15 minutes the user gets logged out
 
-if (time()-$_SESSION['timestamp']>$idletime){
-    $_GET['inactivityError'] = "Session ended: You are logged out due to inactivity.";
-   header("Location: AdminLogout.php");
-}else{
-   $_SESSION['timestamp']=time();
-}
- ?>
+// if (time()-$_SESSION['timestamp']>$idletime){
+//     $_GET['inactivityError'] = "Session ended: You are logged out due to inactivity.";
+//    header("Location: AdminLogout.php");
+// }else{
+//    $_SESSION['timestamp']=time();
+// }
+//  ?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -204,14 +204,48 @@ var x = setInterval(function() {
 
   // If the count down is over, write some text 
   if (distance < 0) {
-                let headline = document.getElementById("AD-CD-headline"),
+   //delete the data in vote_event table in database after election ends
+$(document).ready(function(){
+ var dend = "<?php echo $endate ?>"; 
+// Set the date we're counting down to
+ var cdEnd = new Date(dend).getTime();
+
+// Update the count down every 1 second
+ var i = setInterval(function() {
+
+  // Get today's date and time
+  var nowww = new Date().getTime();
+    
+  // Find the distance between now and the count down date
+
+  var distEnd = cdEnd - nowww;
+  var d = Math.floor(distEnd / (1000 * 60 * 60 * 24));
+  var h = Math.floor((distEnd % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  var m = Math.floor((distEnd % (1000 * 60 * 60)) / (1000 * 60));
+  var s = Math.floor((distEnd % (1000 * 60)) / 1000);
+
+  // Output the result in an element with id="demo"
+ 
+  document.getElementById("days").innerHTML = d;
+  document.getElementById("hours").innerHTML = h;
+  document.getElementById("minutes").innerHTML = m;
+  document.getElementById("seconds").innerHTML =s;
+    
+  // If the count down is over, write some text 
+  if ( distEnd < 0) {
+               let headline = document.getElementById("AD-CD-headline"),
                     countdown = document.getElementById("ADcountdown"),
                     content = document.getElementById("AD-CD-contents");
       
-                headline.innerText = "It's my election day!";
+                headline.innerText = "The election period \n has ended!";
                 countdown.style.display = "none";
+   
+                clearInterval(i);
+        }
                 
-      
+},1000);
+});
+                headline.innerText = "Time before election ends";
                 clearInterval(x);
               }
 
@@ -256,43 +290,14 @@ var y = setInterval(function() {
 },1000);
 });
 
-//delete the data in vote_event table in database after election ends
-$(document).ready(function(){
-var dend = "<?php echo $endate ?>"; 
-// Set the date we're counting down to
-var cdEnd = new Date(dend).getTime();
 
-// Update the count down every 1 second
-var i = setInterval(function() {
-
-  // Get today's date and time
-  var nowww = new Date().getTime();
-    
-  // Find the distance between now and the count down date
-
-  var distEnd = cdEnd - nowww;
-    
-  // If the count down is over, write some text 
-  if ( distEnd < 0) {
-               
-                $.post("backFun_resetDBtable_v0_1.php",
-                function(data,statuss){
-                  //alert("Message sent with status" + status);
-                  //location.reload(true);
-                  
-                });
-                clearInterval(i);
-        }
-                
-},1000);
-});
     </script>
 </body>
 
 </html>
 <?php
-}else{
-    header("Location: AdminLogin.php");
-     exit();
-}
+// }else{
+//     header("Location: AdminLogin.php");
+//      exit();
+// }
  ?>
