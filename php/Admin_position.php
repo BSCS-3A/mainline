@@ -155,13 +155,16 @@ Need:
               <label for="heirarchy_id">
                 Heirarchy ID
               </label>
-              <input type="text" 
+              <input type="text"
                      value= "<?php if(isset($_GET['heirarchy'])){ $heirarchyId = $_GET['heirarchy'];echo $heirarchyId;}?>"
                      class="form-control" 
                      placeholder="Heirarchy ID" 
                      id="heirarchy_id" 
-                     name ="heirarchy">
-                     
+                     name ="heirarchy"
+                     <?php if(isset($_GET['heirarchy'])){ ?> 
+                     style = "background-color: #c6c9cc; color: #545557;"
+                     readonly <?php } ?>
+                     >
             </div>
             <!--Heirarchy ID From group-->
             <div class="form-group">
