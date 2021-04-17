@@ -223,24 +223,26 @@ CREATE TABLE `candidate` (
 --
 
 INSERT INTO `candidate` (`candidate_id`, `student_id`, `position_id`, `total_votes`, `party_name`, `platform_info`, `credentials`, `photo`) VALUES
-(1, 8, 1, 2, 'Run Adrian, Run Partylist', 'I wanna be a billionaire, so freaking bad.', 'Class President for 20 years.', ''),
-(2, 9, 1, 4, 'Dingdong Dantes Supporters', 'Para kay Tatay Digs, I dig.', 'DU30natics since 1999', ''),
-(3, 10, 2, 4, 'Run Adrian, Run Partylist', 'I wanna be a billionaire (2)', 'Tiktoker for 2 years.', ''),
-(6, 13, 3, 1, 'Dingdong Dantes Supporters', 'I believe in the saying na naniniwala ako sa kasabihan.', 'Sana all may credentials.', ''),
-(7, 14, 3, 0, 'Independent', 'Strong independent woman, kaya ko mag-secretary.', 'Independent for 10 years.', ''),
-(8, 15, 4, 6, 'Dingdong Dantes Supporters', 'Payaman lang ako dito.', 'Kurakot pero cute.', ''),
-(9, 16, 5, 0, 'Independent', 'Isasama kita sa barko ko.', 'I have Noah\'s Arc.\r\nSaving animals for 5 years.', ''),
-(10, 17, 6, 1, 'Dingdong Dantes Supporters', 'Boses ng grade 7, malakas.', 'Pabibo yesterday, oday and tomorrow.', ''),
-(11, 18, 6, 0, 'Run Adrian, Run Partylist', 'Meron akong Martin\'s crackers.', 'Owner of Martin\'s crackers.', ''),
-(12, 19, 7, 1, 'Dingdong Dantes Supporters', 'Kung kailangan mo ng tulang, sabihin mo lang, \"JOSEFA-tulong.\"', 'In the service of grade 8 people...', ''),
-(13, 20, 7, 1, 'Run Adrian, Run Partylist', 'Danilook, may nangangailangan ng tulong.', 'Nakikita niya lahat ng nangangailangan ng tulong.', ''),
-(14, 21, 7, 0, 'Independent', 'I will take you to Madagascar.', 'King Julien\'s adviser.', ''),
-(15, 22, 8, 0, 'Run Adrian, Run Partylist', 'Hello World', 'Bot 77', ''),
-(16, 23, 8, 0, 'Dingdong Dantes Supporters', 'Itataas ko bandera ng grade 9.', 'Flag-bearer.\r\nBoyscout for 10 years.', ''),
-(17, 24, 10, 1, 'Independent', 'I set fire to the rain...', 'Kaya ko mag-split.', ''),
-(18, 25, 10, 0, 'Run Adrian, Run Partylist', 'Kaya NEO ba ang kaya ko?', 'May-kaya sa buhay.', ''),
-(19, 26, 11, 0, 'Dingdong Dantes Supporters', 'JAZ call my name, and I\'ll be there.', 'Dancer sa munisipyo.', ''),
-(20, 27, 11, 1, 'Run Adrian, Run Partylist', 'Si Gabriella, isinilang...', 'Woman\'s rights ambassador', '');
+(1, 8, 1, 0, 'Run Adrian, Run Partylist', 'I wanna be a billionaire, so freaking bad.', 'Class President for 5 years.', 'img/dp/1.jpg'),
+(2, 9, 1, 0, 'Dingdong Dantes Supporters', 'Para kay Tatay Digs, I dig.', 'DU30natics since 1999', 'img/dp/2.jpg'),
+(3, 10, 2, 0, 'Run Adrian, Run Partylist', 'I wanna be a billionaire (2)', 'Tiktoker for 2 years.', 'img/dp/3.jpg'),
+(4, 11, 2, 0, 'Dingdong Dantes Supporters', 'DDS forever.', 'Clowns since birth.', 'img/dp/4.jpg'),
+(5, 12, 3, 0, 'Run Adrian, Run Partylist', 'Do you want to build a snowman?', 'Elsa\'s sister.', 'img/dp/5.jpg'),
+(6, 13, 3, 0, 'Dingdong Dantes Supporters', 'I believe in the saying na naniniwala ako sa kasabihan.', 'Sana all may credentials.', 'img/dp/6.jpg'),
+(7, 14, 3, 0, 'Independent', 'Strong independent woman, kaya ko mag-secretary.', 'Independent for 10 years.', 'img/dp/7.jpg'),
+(8, 15, 4, 0, 'Dingdong Dantes Supporters', 'Payaman lang ako dito.', 'Kurakot pero cute.', 'img/dp/8.jpg'),
+(9, 16, 4, 0, 'Independent', 'Isasama kita sa barko ko.', 'I have Noah\'s Arc.\r\nSaving animals for 5 years.', 'img/dp/9.jpg'),
+(10, 17, 6, 0, 'Dingdong Dantes Supporters', 'Boses ng grade 7, malakas.', 'Pabibo yesterday, oday and tomorrow.', 'img/dp/10.jpg'),
+(11, 18, 6, 0, 'Run Adrian, Run Partylist', 'Meron akong Martin\'s crackers.', 'Owner of Martin\'s crackers.', 'img/dp/11.jpg'),
+(12, 19, 7, 0, 'Dingdong Dantes Supporters', 'Kung kailangan mo ng tulang, sabihin mo lang, \"JOSEFA-tulong.\"', 'In the service of grade 8 people...', 'img/dp/12.jpg'),
+(13, 20, 7, 0, 'Run Adrian, Run Partylist', 'Danilook, may nangangailangan ng tulong.', 'Nakikita niya lahat ng nangangailangan ng tulong.', 'img/dp/13.jpg'),
+(14, 21, 7, 0, 'Independent', 'I will take you to Madagascar.', 'King Julien\'s adviser.', 'img/dp/14.jpg'),
+(15, 22, 8, 0, 'Run Adrian, Run Partylist', 'Hello World', 'Bot 77', 'img/dp/15.jpg'),
+(16, 23, 8, 0, 'Dingdong Dantes Supporters', 'Itataas ko bandera ng grade 9.', 'Flag-bearer.\r\nBoyscout for 10 years.', 'img/dp/16.jpg'),
+(17, 24, 10, 0, 'Independent', 'I set fire to the rain...', 'Kaya ko mag-split.', 'img/dp/17.jpg'),
+(18, 25, 10, 0, 'Run Adrian, Run Partylist', 'Kaya NEO ba ang kaya ko?', 'May-kaya sa buhay.', 'img/dp/18.jpg'),
+(19, 26, 11, 0, 'Dingdong Dantes Supporters', 'JAZ call my name, and I\'ll be there.', 'Dancer sa munisipyo.', 'img/dp/19.jpg'),
+(20, 27, 11, 0, 'Run Adrian, Run Partylist', 'Si Gabriella, isinilang...', 'Woman\'s rights ambassador', 'img/dp/20.jpg');
 
 -- --------------------------------------------------------
 
