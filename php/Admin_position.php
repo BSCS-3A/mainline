@@ -202,7 +202,7 @@ Need:
           </div>
         </div>
 </form>
-        <div class = "right">
+<div class = "right">
           <div class = "center" id = CPTable>
             <div class="col-md-12">
               <table class= "center" id="datatable" width="100%" cellspacing="0" cellpadding="2px">
@@ -213,6 +213,7 @@ Need:
                                   <th class="padThisCell">Description</th>
                                   <th class = "text-center">Edit</th>
                                   <th class = "text-center">Delete</th>
+                                  <th class = "text-center">Allow All</th>
                                 </tr>
                               </thead>
                               <tbody>
@@ -225,7 +226,8 @@ Need:
                                 
                                 if($numrows > 0){
                                     while($row = mysqli_fetch_assoc($result)){
-                                        echo "<tr><td>".$row['heirarchy_id']."</td><td>".$row['position_name']."</td><td>".$row['position_description']."</td><td><a href=\"./backPos/updatePosition.php?edit=".$row['position_id']."\"><button type='button' class='btn btn-primary btn-xs'>EDIT</button></td><td><a href=\"./backPos/deletePosition.php?delete=".$row['position_id']."\"><button type='button' class='btn btn-danger btn-xs'>DELETE</button></td></tr>";
+                                        echo "<tr><td>".$row['heirarchy_id']."</td><td>".$row['position_name']."</td><td>".$row['position_description']."</td><td><a href=\"./backPos/updatePosition.php?edit=".$row['position_id']."\"><button type='button' class='btn btn-primary btn-xs'>EDIT</button></td><td><a href=\"./backPos/deletePosition.php?delete=".$row['position_id']."\"><button type='button' class='btn btn-danger btn-xs'>DELETE</button></td><td><label class= 'switch'>
+                                            <input type= 'checkbox'> <span class='slider round'></span></label></td></tr>";
                                     }
                                 }else{
                                     echo "<tr><td>no data inside position table.</td></tr>";
@@ -341,7 +343,7 @@ Need:
 		var position_description = $('#position_description').val();
 		if(position_name!="" && position_description!=""){
 			$.ajax({
-				url: "./backPos/save.php",
+				url: "./backPos//save.php",
 				type: "POST",
 				data: {
 					position_name: position_name,
