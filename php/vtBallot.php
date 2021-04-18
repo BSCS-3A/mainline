@@ -35,25 +35,27 @@
         <form id = "main-form" method="POST" action = "vtSubmit.php" class="vtBallot" id="vtBallot">
         <div id="voting-page">
                <?php
-                    // if(isValidTime()){// Not yet implemented
-                        // if(isValidUser($conn)){
+                    if(isValidTime()){// Not yet implemented
+                        if(isValidUser($conn)){
                             if(!isVoted($conn)){
                                 generateBallot($table);
                                 require 'vtConfirm.php';
                                 // require 'vtReceipt.php';
                             }
                             else{
-                                // already voted
+                                //already voted
                             }
-                        // }else{
-                            // destroy session and return to login
-                        // }
-                    // }
+                        }
+                        else{
+                            //destroy session and return to login
+                        }
+                    }
                 ?>
                 <!-- <form method = "POST" action = "vtPreview.php"> -->
-                    <div id="vote-button"><button id="vote-btn" name = "vote-button" class="btn" type = "button">SUBMIT</button></div>
+                    <!-- <div id="vote-button"><button id="vote-btn" name = "vote-button" class="btn" type = "button">SUBMIT</button></div> -->
                 <!-- </form> -->
         </div>
+        <div id="vote-button"><button id="vote-btn" name = "vote-button" class="btn" type = "button">SUBMIT</button></div>
         </form>
      </main>
      <br>

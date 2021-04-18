@@ -39,7 +39,8 @@
 
 		
 		// // send vote table
-		$cand_id = $poss['student_id'];
+		// $cand_id = $poss['student_id'];
+		$cand_id = $poss['candidate_id'];
 		$conn->query("INSERT INTO `vote` (`vote_log_id`, `student_id`, `candidate_id`, `status`, `time_stamp`) VALUES (NULL, $stud_id, $cand_id, '$status', current_timestamp())");
 	}
 

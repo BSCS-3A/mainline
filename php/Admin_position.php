@@ -10,23 +10,23 @@ Need:
 
 <!DOCTYPE html>
 <?php 
-    include_once 'db_conn.php';
-    session_start();
-    if (!(isset($_SESSION['admin_id']) && isset($_SESSION['username']))) {
-        header("location: AdminLogin.php");
-    }
-    if(!$conn){
-      // add 404 error
-        echo "<script>alert('Cannot connect to database');
-   			window.location.href = '../../index.html';
-   			</script>";
-    }
+    include "db_conn.php";
+    // session_start();
+    // if (!(isset($_SESSION['admin_id']) && isset($_SESSION['username']))) {
+    //     header("location: AdminLogin.php");
+    // }
+    // if(!$conn){
+    //   // add 404 error
+    //     echo "<script>alert('Cannot connect to database');
+   	// 		window.location.href = '../../index.html';
+   	// 		</script>";
+    // }
     
-    if(isset($_SESSION['message']) && isset($_GET['id'])){
-        unset($_SESSION['message']);
-        unset($_SESSION['msg_typ']);
-        header("location: candidate.php");
-    }
+    // if(isset($_SESSION['message']) && isset($_GET['id'])){
+    //     unset($_SESSION['message']);
+    //     unset($_SESSION['msg_typ']);
+    //     header("location: candidate.php");
+    // }
     
 ?>
 <html>
@@ -43,22 +43,33 @@ Need:
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
     
     <!-- datatable scripts -->
-    <!-- <script src="../js/jquery-1.11.1.min.js"></script> -->
-    <script src="../js/jQuery.dataTables.min_Pos.js"></script>
-    <!-- <script src="../js/dataTables.bootstrap.js"></script> -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- <script src="../js/jQuery.dataTables.min_Pos.js"></script> -->
     <script src="../js/bootstrap.min_Pos.js"></script>
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>    
     <script type="text/javascript"> (function() { var css = document.createElement('link'); css.href = 'https://use.fontawesome.com/releases/v5.1.0/css/all.css'; css.rel = 'stylesheet'; css.type = 'text/css'; document.getElementsByTagName('head')[0].appendChild(css); })(); </script>   
 
     <title>BUCEILS Voting System</title>
+    <script>
+    //edit nag gawa pa ako bagong file na allow.php
+        $(document).ready(function(){
+            $(document).on("click","#vote_allow",function(){
+                var position_id = $(this).attr("posid");
+                $.ajax({
+                   url:'./backPos/allow.php', 
+                   method:'post',
+                   data:{voteallow:position_id},
+                   success:function(response){
+                       console.log(response);
+                   }
+                });
+            });
+        });
+    //edit
+    </script>
 </head>
 
 <body>
-
-    <!-- navigation bar -->
-    <?php include "navAdmin.php"; ?>
-
-
     <!-- <nav>
         <input class="nav-toggle1" type="checkbox">
         <div class="aLogo">
@@ -70,7 +81,7 @@ Need:
         <ul>
             <li>
                 <label for="btn-1" class="Ashow">ACCOUNTS</label>
-                <a href="#">ACCOUNTS</a>
+                <a href="#">ACCOUNTS</a> 
                 <input class="nav-toggle3" type="checkbox" id="btn-1">
                 <ul>
                     <li><a href="#">Students</a></li>
@@ -82,7 +93,7 @@ Need:
                 <a href="#">ELECTION</a>
                 <input class="nav-toggle4" type="checkbox" id="btn-2">
                 <ul>
-                    <li><a href="#">Archive</a></li>
+                    <li><a href="#">Archive</a></li> 
                     <li><a href="#">Vote Status</a></li>
                     <li><a href="#">Vote Result</a>
                         <ul>
@@ -130,6 +141,7 @@ Need:
             </li>
         </ul>
     </nav> -->
+
    <!-- The sidetable -->
       <div class="Uheader" id="CM_Header">
         <h2>Candidate Information Management</h2>
@@ -140,7 +152,7 @@ Need:
 
           </div>
       
-<form autocomplete = "off" action = "<?php if(isset($_GET['id'])){$positionId =$_GET['id']; echo "./backPos/addPosition.php?id=".$positionId;}else{ echo "./backPos/addPosition.php";}?>" method ="POST">  
+<form autocomplete = "off" action = "<?php if(isset($_GET['id'])){$positionId =$_GET['id']; echo "../database/addPosition.php?id=".$positionId;}else{ echo "../database/addPosition.php";}?>" method ="POST">  
 <div class ="wrapper">
   <div class = "left">
 <div class = "center" id = "CPTable2">
@@ -155,16 +167,14 @@ Need:
               <label for="heirarchy_id">
                 Heirarchy ID
               </label>
-              <input type="text"
+              <input type="text" 
                      value= "<?php if(isset($_GET['heirarchy'])){ $heirarchyId = $_GET['heirarchy'];echo $heirarchyId;}?>"
+                     <?php if(isset($_GET['heirarchy'])){echo "disabled = \"disabled\"";}?>
                      class="form-control" 
                      placeholder="Heirarchy ID" 
                      id="heirarchy_id" 
-                     name ="heirarchy"
-                     <?php if(isset($_GET['heirarchy'])){ ?> 
-                     style = "background-color: #c6c9cc; color: #545557;"
-                     readonly <?php } ?>
-                     >
+                     name ="heirarchy">
+                     
             </div>
             <!--Heirarchy ID From group-->
             <div class="form-group">
@@ -202,7 +212,7 @@ Need:
           </div>
         </div>
 </form>
-<div class = "right">
+        <div class = "right">
           <div class = "center" id = CPTable>
             <div class="col-md-12">
               <table class= "center" id="datatable" width="100%" cellspacing="0" cellpadding="2px">
@@ -213,8 +223,8 @@ Need:
                                   <th class="padThisCell">Description</th>
                                   <th class = "text-center">Edit</th>
                                   <th class = "text-center">Delete</th>
-                                  <th class = "text-center">Allow All</th>
-                                </tr>
+                                  <th class = "text-center">Allow All</th> 
+                                </tr> 
                               </thead>
                               <tbody>
                               <?php
@@ -226,8 +236,15 @@ Need:
                                 
                                 if($numrows > 0){
                                     while($row = mysqli_fetch_assoc($result)){
-                                        echo "<tr><td>".$row['heirarchy_id']."</td><td>".$row['position_name']."</td><td>".$row['position_description']."</td><td><a href=\"./backPos/updatePosition.php?edit=".$row['position_id']."\"><button type='button' class='btn btn-primary btn-xs'>EDIT</button></td><td><a href=\"./backPos/deletePosition.php?delete=".$row['position_id']."\"><button type='button' class='btn btn-danger btn-xs'>DELETE</button></td><td><label class= 'switch'>
-                                            <input type= 'checkbox'> <span class='slider round'></span></label></td></tr>";
+                                        echo "<tr><td>".$row['heirarchy_id']."</td><td>".$row['position_name']."</td><td>".$row['position_description']."</td><td><a href=\"../database/updatePosition.php?edit=".$row['position_id']."\"><button type='button' class='btn btn-primary btn-xs'>EDIT</button></td><td><a href=\"../database/deletePosition.php?delete=".$row['position_id']."\"><button type='button' class='btn btn-danger btn-xs'>DELETE</button></td><td><label class= 'switch'>";
+                                        //edit
+                                        if($row['vote_allow']==0){
+                                            echo "<input id='vote_allow' posid='".$row['position_id']."' type='checkbox'> <span class='slider round'></span></label></td></tr>";
+                                        }
+                                        else{
+                                            echo "<input id='vote_allow' posid='".$row['position_id']."' type='checkbox' checked> <span class='slider round'></span></label></td></tr>";
+                                        }
+                                        //edit
                                     }
                                 }else{
                                     echo "<tr><td>no data inside position table.</td></tr>";
@@ -241,7 +258,7 @@ Need:
                         </div>
                         </div>
                      </div>
-
+                    
 <!--Start of form panel scripts
 <script>
    // Current product being edited
@@ -343,7 +360,7 @@ Need:
 		var position_description = $('#position_description').val();
 		if(position_name!="" && position_description!=""){
 			$.ajax({
-				url: "./backPos//save.php",
+				url: "../database/save.php",
 				type: "POST",
 				data: {
 					position_name: position_name,
@@ -380,12 +397,11 @@ Need:
     }
   </script>
 </script>
- <!--script for form panel functionality-->
 
 
-    <div class="footer">
+    <!-- <div class="footer">
         <p class="footer-txt">BS COMPUTER SCIENCE 3A © 2021</p>
-    </div>
+    </div> -->
 
     <script>
         $('.icon').click(function () {
