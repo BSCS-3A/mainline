@@ -39,7 +39,7 @@
         <ul>
             <li>
                 <label for="btn-1" class="Ashow">VOTE</label>
-                <a class="topnav" href="#">VOTE</a>
+                <a class="topnav" href="vtBallot.php">VOTE</a>
             </li>
             <li>
                 <label for="btn-2" class="Ashow">ELECTION</label>

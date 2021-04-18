@@ -1,0 +1,221 @@
+body {
+  font-family: "Roboto";
+}
+
+/* The Modal (background) */
+.F-modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 80px;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.F-modal-content {
+  position: relative;
+  background-color: #fefefe;
+  margin: auto;
+  padding: 0;
+  border: 1px solid #888;
+  width: 40%;
+  min-width: 400px;
+  height: auto;
+  overflow: auto;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+  -webkit-animation-name: animatetop;
+  -webkit-animation-duration: 0.4s;
+  animation-name: animatetop;
+  animation-duration: 0.4s;
+  /* margin-left: 10px; */
+
+}
+
+/* Add Animation */
+@-webkit-keyframes animatetop {
+  from {top:-300px; opacity:0} 
+  to {top:0; opacity:1}
+}
+
+@keyframes animatetop {
+  from {top:-300px; opacity:0}
+  to {top:0; opacity:1}
+}
+
+
+
+.F-modal-header {
+  padding: 2px 16px;
+  background-color: white;
+ 
+}
+
+.F-modal-body {
+  padding: 2px 16px;
+  margin-left: 10px;
+  margin-top: 15px;
+  font-size: 16px;
+}
+
+.F-modal-button {
+  padding: 2px 16px;
+  background-color: white;
+ 
+}
+
+.F-modal-button button {
+  margin-bottom: 15px;
+  margin-top: 15px;
+}
+
+.F-modal-footer button:active {
+  box-shadow: 0px;
+  outline: none;
+}
+
+/* Return Button */
+.F-returnBTN {
+  float: left;
+  background-color: #eeeeee;
+  color: black;
+  margin-left: 10px;
+  height: 30px;
+  width: 170px;
+  font-size: 14px;
+  border-radius: 30px;
+  letter-spacing: 1px;
+  cursor: pointer;
+}
+.F-returnBTN span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.F-returnBTN span:before {
+  content: '\00AB';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  left: -20px;
+  transition: 0.5s;
+}
+
+.F-returnBTN:hover span {
+  padding-left: 25px;
+}
+
+.F-returnBTN:hover span:before {
+  opacity: 1;
+  left: 0;
+}
+
+/* Confirm Button */
+.F-confirmBTN {
+  float: right;
+  font: bold Roboto Light, sans-serif;
+  color: #eeeeee;
+  letter-spacing: 1px;
+  background-color: #124254;
+  margin-right: 10px;
+  height: 30px;
+  width: 200px;
+  font-size: 14px;
+  border-radius: 30px;
+  cursor: pointer;
+}
+
+.F-confirmBTN span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.F-confirmBTN span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.F-confirmBTN:hover span {
+  padding-right: 25px;
+}
+
+.F-confirmBTN:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+
+.F-confirmBTN:active {
+  box-shadow: none;
+  outline: none;
+}
+
+.F-show-votes {
+  font: Roboto Regular, sans-serif;
+  margin-top: 5px;
+}
+
+#F-preview-CandidateName {
+  font-size: 16px;
+  color: black;
+  font-family: Roboto Regular, sans-serif;
+}
+
+#F-preview-Position{
+  font-size: 16px;
+  color: black;
+  font-family: Roboto Regular, sans-serif;
+}
+
+/* Go to Home Button */
+.F-goToHomeBTN {
+  float: left;
+  background-color: #eeeeee;
+  color: black;
+  margin-left: 10px;
+  height: 50px;
+  width: 140px;
+  font-size: 14px;
+  border-radius: 30px;
+  letter-spacing: 1px;
+  cursor: pointer;
+}
+
+/* Download Receipt Button */
+.F-downloadReceiptBTN {
+  float: right;
+  background-color: #ffc423;
+  color: black;
+  margin-right: 10px;
+  height: 50px;
+  width: 140px;
+  font-size: 14px;
+  border-radius: 4px;
+  cursor: pointer;
+
+}
+
+@media (max-width: 1200px){
+  .F-modal{
+    top: 50px;
+  }
+  
+  .F-modal-content {
+    position: relative;
+    overflow: auto;
+    min-width: 80%;
+  }
+  
+}
