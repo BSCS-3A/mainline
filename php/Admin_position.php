@@ -11,6 +11,7 @@ Need:
 <!DOCTYPE html>
 <?php 
     include "db_conn.php";
+    include "navAdmin.php";
     // session_start();
     // if (!(isset($_SESSION['admin_id']) && isset($_SESSION['username']))) {
     //     header("location: AdminLogin.php");

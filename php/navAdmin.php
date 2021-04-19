@@ -68,7 +68,7 @@ SOLVED ^^ font-awesome_addAdmin may kasalanan lol, + dataTables.bootstrap
                 <input class="nav-toggle4" type="checkbox" id="btn-2">
                 <ul>
                     <li><a href="#">Archive</a></li>
-                    <li><a href="#">Vote Status</a></li>
+                    <li><a href="front_voteStatusPerc.php">Vote Status</a></li>
                     <li><a href="#">Vote Result</a>
                         <ul>
                             <li><a href="#">Make Report</a></li>
@@ -98,7 +98,7 @@ SOLVED ^^ font-awesome_addAdmin may kasalanan lol, + dataTables.bootstrap
                 <ul>
                     <li><a href="Admin_AccessLogs.php">Access Log</a></li>
                     <li><a href="front_actLogs_v0_4.php">Activity Log</a></li>
-                    <li><a href="#">Vote Summary</a></li>
+                    <li><a href="Admin_voteSum.php">Vote Summary</a></li>
                 </ul>
             </li>
             <li><a href="#">MESSAGES</a></li>

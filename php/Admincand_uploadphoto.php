@@ -50,19 +50,26 @@
                             mysqli_query($conn,$sqlremove); 
                             echo "failed to upload picture to website";   
                         }
-                    }else{
-                        echo mysqli_error($conn)."<br>";
-                        echo "failed";
+                    }else{ 
+                        echo "<script>alert('query failed please try again'); 
+                            window.location.href= 'Admin_candidate.php';
+                            </script>"; 
                     }
                     
                 }else{
-                    echo "file is too big";   
+                    echo "<script>alert('file is too big'); 
+                            window.location.href= 'Admin_candidate.php';
+                            </script>";
                 }
             }else{
-                echo "error uploading file";
+                echo "<script>alert('error uploading file'); 
+                        window.location.href= 'Admin_candidate.php';
+                        </script>"; 
             }
         }else{
-            echo "file not supported!";
+            echo "<script>alert('file not supported'); 
+                    window.location.href= 'Admin_candidate.php';
+                    </script>"; 
         }
         
     }

@@ -8,7 +8,7 @@
     $_SESSION['bumail'] = "student";
     $_SESSION['fname'] = "student";
     $_SESSION['lname'] = "student";
-    $_SESSION['student_id'] = 3;
+    $_SESSION['student_id'] = 34;
     $_SESSION['grade_level'] = 12;
     $_SESSION['timestamp']=time();
     $_SESSION['voting_status'] = 0;

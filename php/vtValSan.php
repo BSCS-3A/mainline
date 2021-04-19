@@ -56,7 +56,7 @@
         // }
         // else{
         //     echo $date1->format("Y-m-d") . " is older than " . $date2->format("Y-m-d"); 
-            return true;
+           // return true;
         // }
         // show schedule message when time is invalid
     }

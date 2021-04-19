@@ -35,7 +35,7 @@
         <form id = "main-form" method="POST" action = "vtSubmit.php" class="vtBallot" id="vtBallot">
         <div id="voting-page">
                <?php
-                    if(isValidTime()){// Not yet implemented
+                    // if(isValidTime()){// Not yet implemented
                         if(isValidUser($conn)){
                             if(!isVoted($conn)){
                                 generateBallot($table);
@@ -49,7 +49,7 @@
                         else{
                             //destroy session and return to login
                         }
-                    }
+                    // }
                 ?>
                 <!-- <form method = "POST" action = "vtPreview.php"> -->
                     <!-- <div id="vote-button"><button id="vote-btn" name = "vote-button" class="btn" type = "button">SUBMIT</button></div> -->
