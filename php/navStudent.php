@@ -48,7 +48,7 @@
                 <ul>
                     <li><a href="#" class="Aelec-text">ELECTION PROCESS</a></li>
                     <li><a href="#">ARCHIVE</a></li>
-                    <li><a href="#">RESULTS</a></li>
+                    <li><a href="Student_ElecResult.php">RESULTS</a></li>
                 </ul>
             </li>
             <li>
