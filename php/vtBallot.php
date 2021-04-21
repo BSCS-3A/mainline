@@ -32,31 +32,28 @@
 
     <main>
         <!--Candidates-->
-        <form id = "main-form" method="POST" action = "vtSubmit.php" class="vtBallot" id="vtBallot">
-        <div id="voting-page">
-               <?php
-                    // if(isValidTime()){// Not yet implemented
-                        if(isValidUser($conn)){
-                            if(!isVoted($conn)){
-                                generateBallot($table);
-                                require 'vtConfirm.php';
-                                // require 'vtReceipt.php';
-                            }
-                            else{
-                                //already voted
-                            }
-                        }
-                        else{
-                            //destroy session and return to login
-                        }
-                    // }
-                ?>
-                <!-- <form method = "POST" action = "vtPreview.php"> -->
-                    <!-- <div id="vote-button"><button id="vote-btn" name = "vote-button" class="btn" type = "button">SUBMIT</button></div> -->
-                <!-- </form> -->
-        </div>
-        <div id="vote-button"><button id="vote-btn" name = "vote-button" class="btn" type = "button">SUBMIT</button></div>
-        </form>
+        <?php
+            if(isValidUser($conn)){
+                if(isValidTime()){// Not yet implemented
+                    if(!isVoted($conn)){
+                        echo '<form id = "main-form" method="POST" action = "vtReceipt.php" class="vtBallot" id="vtBallot"><div id="voting-page">';
+                        generateBallot($table);
+                        require 'vtConfirm.php';
+                        echo '</div>';
+                        echo '<div id="vote-button"><button id="vote-btn" name = "vote-button" class="btn" type = "button">SUBMIT</button></div>
+                        </form>';
+                    }
+                    else{ // Already Voted
+                        header("Location: vtReceipt.php");
+                    }
+                }
+            }
+            else{ // Invalid user; destroy session and return to login
+                session_unset();    // remove all session variables
+                session_destroy();  // destroy session
+                header("Location: ../index.php");
+            }
+        ?>
      </main>
      <br>
 

@@ -56,7 +56,7 @@
         // }
         // else{
         //     echo $date1->format("Y-m-d") . " is older than " . $date2->format("Y-m-d"); 
-           // return true;
+            return true;
         // }
         // show schedule message when time is invalid
     }
@@ -81,7 +81,7 @@
         $poss = $voter->fetch_assoc();
         // echo $studd_id;
         // echo $poss["fname"]." ".$poss["lname"]." ".$poss["student_id"];
-        if($poss["lname"] == $_SESSION['lname'] && $poss["fname"] == $_SESSION['fname'] && $poss["student_id"] == $_SESSION['student_id'] && $poss["bumail"] == $_SESSION['bumail']){
+        if($poss != NULL && ($poss["lname"] == $_SESSION['lname'] && $poss["fname"] == $_SESSION['fname'] && $poss["student_id"] == $_SESSION['student_id'] && $poss["bumail"] == $_SESSION['bumail'])){
             return true;
         }
         else{
