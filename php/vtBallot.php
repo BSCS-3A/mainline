@@ -33,26 +33,26 @@
     <main>
         <!--Candidates-->
         <?php
-            if(isValidUser($conn)){
-                if(isValidTime()){// Not yet implemented
-                    if(!isVoted($conn)){
+            // if(isValidUser($conn)){
+            //     if(isValidTime()){// Not yet implemented
+            //         if(!isVoted($conn)){
                         echo '<form id = "main-form" method="POST" action = "vtReceipt.php" class="vtBallot" id="vtBallot"><div id="voting-page">';
                         generateBallot($table);
                         require 'vtConfirm.php';
                         echo '</div>';
                         echo '<div id="vote-button"><button id="vote-btn" name = "vote-button" class="btn" type = "button">SUBMIT</button></div>
                         </form>';
-                    }
-                    else{ // Already Voted
-                        header("Location: vtReceipt.php");
-                    }
-                }
-            }
-            else{ // Invalid user; destroy session and return to login
-                session_unset();    // remove all session variables
-                session_destroy();  // destroy session
-                header("Location: ../index.php");
-            }
+            //         }
+            //         else{ // Already Voted
+            //             header("Location: vtReceipt.php");
+            //         }
+            //     }
+            // }
+            // else{ // Invalid user; destroy session and return to login
+            //     session_unset();    // remove all session variables
+            //     session_destroy();  // destroy session
+            //     header("Location: ../index.php");
+            // }
         ?>
      </main>
      <br>

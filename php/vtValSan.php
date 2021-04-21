@@ -43,24 +43,6 @@
         return false;
     }
 
-    function isValidTime(){
-        // checks if vote is made at scheduled time
-        $date_pr = new DateTime(date("Y-m-d H:i:s"));       // submit date/ time
-        $date_st = new DateTime("2021-03-20 08:00:00");     // start sched date
-        $date_en = new DateTime("2021-03-30 16:00:00");     // end sched date
-
-        // Compare the dates (current vs scheduled)
-        // Fix the date comparison during compilation
-        // if ($date_pr > $date_st && $date_pr < $date_en) {
-        //     echo $date1->format("Y-m-d") . " is later than " . $date2->format("Y-m-d"); 
-        // }
-        // else{
-        //     echo $date1->format("Y-m-d") . " is older than " . $date2->format("Y-m-d"); 
-            return true;
-        // }
-        // show schedule message when time is invalid
-    }
-
     function isVoted($conn){
         // check if user has already voted
         $stud_id = $_SESSION['student_id'];
