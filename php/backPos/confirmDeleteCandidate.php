@@ -20,7 +20,7 @@
         }
     }
 
-        
+         
         $sql = "DELETE FROM `candidate` WHERE candidate_id = '$candidateid'";
         $result = mysqli_query($conn,$sql);
 

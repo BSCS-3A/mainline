@@ -390,11 +390,19 @@
                                     <form action="Admincand_uploadphoto.php?id=<?php echo $row['candidate_id']?>" method="POST" enctype="multipart/form-data">
                                       <?php 
                                           if(!(empty($row['photo'])||isset($_GET['change']))){//if has photo change photo and has $get change variable
-                                              echo '<td><button name="change">Change Photo</button></td>';
+                                            echo '<td><button name="change">Change Photo</button></td>';
                                           }
-                                          elseif(isset($_GET['change'])&&$_GET['change']==$row['candidate_id']){
-                                              echo '<td style="text-align:left;"><input type="file" name="datafile"><button name="uploadphoto">Apply Changes</button><button name="cancel" >cancel</button></td>';
-                                          }
+                                        elseif(isset($_GET['change'])&&$_GET['change']==$row['candidate_id']){
+                                            echo '<td style="text-align:left;"><input type="file" name="datafile"><button name="uploadphoto">Apply Changes</button><button name="cancel" >cancel</button></td>';
+                                        }
+                                        elseif(isset($_GET['change'])&&$_GET['change']!=$row['candidate_id']){
+                                            if(empty($row['photo'])){ //denden was here
+                                                echo '<td style="text-align:left;"><input type="file" name="datafile"><button name="uploadphoto">Upload</button></td>';
+                                            }else{
+                                                echo '<td><button name="change">Change Photo</button></td>';
+                                            }
+                                            
+                                        }
                                           else{
                                               echo '<td style="text-align:left;"><input type="file" name="datafile"><button name="uploadphoto">Upload</button></td>';
                                           }

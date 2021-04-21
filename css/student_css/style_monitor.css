@@ -276,6 +276,7 @@ p{
   font-weight: 500;
   font-family: Generica regular, sans-serif;
 }
+
 article p{
   font-family: Roboto regular, sans-serif;
   color: #124254;
@@ -414,7 +415,7 @@ div p.elec-guide-txt{
   color:#1f6f8f;
   font-weight: inherit;
   font-size: 500%;
-  margin-top: 150px;
+  margin-top: 3%;
   letter-spacing: 4px;
   text-align: center;
 }

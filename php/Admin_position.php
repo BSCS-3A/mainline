@@ -153,7 +153,7 @@ Need:
 
           </div>
       
-<form autocomplete = "off" action = "<?php if(isset($_GET['id'])){$positionId =$_GET['id']; echo "../database/addPosition.php?id=".$positionId;}else{ echo "../database/addPosition.php";}?>" method ="POST">  
+<form autocomplete = "off" action = "<?php if(isset($_GET['id'])){$positionId =$_GET['id']; echo "./backPos/addPosition.php?id=".$positionId;}else{ echo "./backPos/addPosition.php";}?>" method ="POST">  
 <div class ="wrapper">
   <div class = "left">
 <div class = "center" id = "CPTable2">
@@ -170,7 +170,7 @@ Need:
               </label>
               <input type="text" 
                      value= "<?php if(isset($_GET['heirarchy'])){ $heirarchyId = $_GET['heirarchy'];echo $heirarchyId;}?>"
-                     <?php if(isset($_GET['heirarchy'])){echo "disabled = \"disabled\"";}?>
+                     <?php if(isset($_GET['heirarchy'])){echo "readonly style=\"background-color:#cfcfcf; color: #8e8e8e;\"";}?>
                      class="form-control" 
                      placeholder="Heirarchy ID" 
                      id="heirarchy_id" 
@@ -237,7 +237,7 @@ Need:
                                 
                                 if($numrows > 0){
                                     while($row = mysqli_fetch_assoc($result)){
-                                        echo "<tr><td>".$row['heirarchy_id']."</td><td>".$row['position_name']."</td><td>".$row['position_description']."</td><td><a href=\"../database/updatePosition.php?edit=".$row['position_id']."\"><button type='button' class='btn btn-primary btn-xs'>EDIT</button></td><td><a href=\"../database/deletePosition.php?delete=".$row['position_id']."\"><button type='button' class='btn btn-danger btn-xs'>DELETE</button></td><td><label class= 'switch'>";
+                                        echo "<tr><td>".$row['heirarchy_id']."</td><td>".$row['position_name']."</td><td>".$row['position_description']."</td><td><a href=\"./backPos/updatePosition.php?edit=".$row['position_id']."\"><button type='button' class='btn btn-primary btn-xs'>EDIT</button></td><td><a href=\"./backPos/deletePosition.php?delete=".$row['position_id']."\"><button type='button' class='btn btn-danger btn-xs'>DELETE</button></td><td><label class= 'switch'>";
                                         //edit
                                         if($row['vote_allow']==0){
                                             echo "<input id='vote_allow' posid='".$row['position_id']."' type='checkbox'> <span class='slider round'></span></label></td></tr>";
@@ -361,7 +361,7 @@ Need:
 		var position_description = $('#position_description').val();
 		if(position_name!="" && position_description!=""){
 			$.ajax({
-				url: "../database/save.php",
+				url: "./backPos/save.php",
 				type: "POST",
 				data: {
 					position_name: position_name,

@@ -1,19 +1,19 @@
-<!--Election Results (Student)-->
-<?php
-    // require '../php/fetch_candidates.php';
-    require "./backMonitor/fetch_candidates.php";
-    // include "navStudent.php";
+<?php 
+    require './backMonitor/fetch_date.php';
+    include "navStudent.php";
 ?>
+
 <!DOCTYPE html>
 <html>
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta charset="utf-8">
-    <link rel="icon" href="../img/BUHS LOGO.png" type="image/png">
+    <link rel="icon" href="assets/img/BUHS LOGO.png" type="image/png">
     <link rel="stylesheet" href="../css/student_css/bootstrap_monitor.css">
     <link rel="stylesheet" href="../css/student_css/font-awesome_monitor.css">
-    <link rel="stylesheet" type="text/css" href="../css/student_css/style_monitor.css">
+    <!-- <link rel="stylesheet" type="text/css" href="../css/student_css/style.css"> -->
+    <link rel="stylesheet" href="../css/student_css/style_monitor.css?v=<?php echo time(); ?>">
     <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
     <!-- <script src="assets/js/countdown.js"></script> -->
@@ -41,7 +41,7 @@
                 <ul>
                     <li><a href="#" class="elec-text">ELECTION PROCESS</a></li>
                     <li><a href="front_ArcFolder_v3_0.html ">ARCHIVE</a></li>
-                    <li><a href="front_ArcList_v4_0.html">RESULTS</a></li>
+                    <li><a href="front_ElecStat_v1_1.html">RESULTS</a></li>
                 </ul>
             </li>
             <li>
@@ -65,88 +65,25 @@
        
     </nav> -->
 
-    <div class="Bcontainer_res scs-responsive">
-      <div class="Bhoverme scs-responsive">
-        <h1>
-          ELECTION RESULTS
-        </h1>
-        <i></i>
-        <i></i>
-        <i></i>
-        <i></i>
-        <i></i>
-        <i></i>
-        <i></i>
-        <i></i>
-        <i></i>
-        <i></i>
-        <i></i>
-        <i></i>
-        <i></i>
-        <i></i>
-        <i></i>
-        <i></i>
-        <i></i>
-        <i></i>
-        <i></i>
-        <i></i>
-        <i></i>
-        <i></i>
-        <i></i>
-        <i></i>
-        <i></i>
-        <i></i>
-        <i></i>
-        <i></i>
-        <i></i>
-        <i></i>
-        <i></i>
-        <i></i>
-        <i></i>
-        <i></i>
-        <i></i>
-        <i></i>
-        <i></i>
-        <i></i>
-        <i></i>
-        <i></i>
-        <i></i>
-        <i></i>
-        <i></i>
-        <i></i>
-        <i></i>
-        <i></i>
-        <i></i>
-        <i></i>
-        <i></i>
-        <i></i>
-      </div>
-    </div>
-    
-    <div class="Belec_container" id="candidate">  
-        <?php
-            foreach($candidates as $candidate){
-                echo '<div class="Bpstn">';
-                echo '<img src="'.$candidate['photo'].'"/>';
-                echo '<p class="Bnum_votes">TOTAL VOTES: '.$candidate['total_votes'].'</p>';
-                echo '<p class="Bname">'.$candidate['first_name'].' '.$candidate['middle_name'].' '.$candidate['last_name'].'</p>';
-                echo '<p class="Bpos">'.$candidate['position'].'</p>';
-                echo '<p class="Bparty">'.$candidate['party_name'].'</p>';
-                echo '</div>';
-            }
-        ?>
-    </div>
+    <?php if($vote_stat==1): ?>
+    <?php require '../html/ongoing.html';?>
+    <?php elseif($vote_stat==2): ?>
+    <?php require '../html/after_election.html';?>
+    <?php elseif($vote_stat==3): ?>
+    <?php require 'Student_ElecResult.php';?>
+    <?php else: ?>
+    <?php require '../html/no_election.html';?>
+    <?php endif; ?>
 
     <!-- <div class="footer">
         <p class="footer-txt">BS COMPUTER SCIENCE 3A © 2021</p>
     </div> -->
 
-    <script> 
+    <script>
         $('.icon').click(function () {
             $('span').toggleClass("cancel");
         });
     </script>
-
 </body>
 
 </html>
