@@ -34,18 +34,34 @@
         <!--Candidates-->
         <?php
             // if(isValidUser($conn)){
-            //     if(isValidTime()){// Not yet implemented
-            //         if(!isVoted($conn)){
+            //     if(!isVoted($conn)){
+                    $sched_row = $conn->query("SELECT * FROM `vote_event` WHERE `vote_event_id` = 1");
+                    $sched = $sched_row->fetch_assoc();
+                    
+                    $start_time = strtotime($sched['start_date']);
+                    $end_time = strtotime($sched['end_date']);
+                    $access_time = time();
+
+                    if(empty($sched)){
+                        header("Location: ../html/no_election_scheduled.html");
+                    }
+                    else if($access_time > $end_time){
+                        header("Location: ../html/election_finished.html");
+                    }
+                    else if($access_time < $start_time){
+                        header("Location: ../html/election_not_yet_started.html");
+                    }
+                    else if($access_time >= $start_time && $access_time <= $end_time){
                         echo '<form id = "main-form" method="POST" action = "vtReceipt.php" class="vtBallot" id="vtBallot"><div id="voting-page">';
                         generateBallot($table);
                         require 'vtConfirm.php';
                         echo '</div>';
                         echo '<div id="vote-button"><button id="vote-btn" name = "vote-button" class="btn" type = "button">SUBMIT</button></div>
                         </form>';
-            //         }
-            //         else{ // Already Voted
-            //             header("Location: vtReceipt.php");
-            //         }
+                    }
+            //     }
+            //     else{ // Already Voted
+            //         header("Location: vtReceipt.php");
             //     }
             // }
             // else{ // Invalid user; destroy session and return to login
