@@ -135,17 +135,28 @@ header to cheader
      
                           <tbody>
                               <?php
-                                  // Create connection
-                                  include "db_conn.php";
-                              
-                                  $results = mysqli_query($conn, "SELECT * FROM admin_activity_log");
-
                                   while($row = mysqli_fetch_array($results))
                                   {
                                       echo "<tr>";
                                           echo "<td>" . $row['activity_date'] . "</td>";
                                           echo "<td>" . $row['activity_time'] . "</td>";
                                           echo "<td>" . $row['admin_id'] . "</td>";
+                                          echo "<td>" . $row['activity_description'] . "</td>";
+                                      echo "</tr>";
+                                  }
+                              
+                                  // Create connection
+                                  include "db_conn.php";
+                              
+                                  mysqli_query($conn, "DELETE FROM admin_activity_log WHERE activity_date < DATE_SUB(NOW(), INTERVAL 1 MONTH)");
+                                  $results = mysqli_query($conn, "SELECT activity_time, activity_date, activity_description, username FROM admin INNER JOIN admin_activity_log ON admin.admin_id = admin_activity_log.admin_id");
+
+                                  while($row = mysqli_fetch_array($results))
+                                  {
+                                      echo "<tr>";
+                                          echo "<td>" . $row['activity_date'] . "</td>";
+                                          echo "<td>" . $row['activity_time'] . "</td>";
+                                          echo "<td>" . $row['username'] . "</td>";
                                           echo "<td>" . $row['activity_description'] . "</td>";
                                       echo "</tr>";
                                   }
