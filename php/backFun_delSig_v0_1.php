@@ -12,6 +12,11 @@ $query = mysqli_query($connection, $delete);
 
 if($query){
 echo "Signatory Deleted Successfully";
+ 
+   //For Logs
+   $signame = "SELECT signame FROM signatory_table WHERE id = '$_POST['Delete_ID']' ";
+   $_SESSION['action'] = 'deleted Signatory : ' . $signame ;
+   include 'backFun_adLogs_v0_1.php';
 }
 else
 echo "Failed to Delete Signatory";
