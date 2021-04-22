@@ -6,6 +6,9 @@ na filepath yung background image url, kaya ginawa ko same nlng sa addAdmin yung
 "style1_addAdmin" tapos yung header para sa title ng ACTIVITY LOGS pinalitan ko from
 header to cheader
 
+kerby, latest update:
+30 day expiry of logs, 
+use of username instead of admin id in the display table
 -->
 
 <!DOCTYPE html>
