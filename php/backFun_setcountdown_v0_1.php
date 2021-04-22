@@ -33,6 +33,10 @@ if (isset($_POST['editsched'])) {
       VALUES('$date $tstart', '$dateEnd $tends')";
       mysqli_query($conn, $vtevent);
   function_alert("Updating successful"); 
+    
+      //For Logs
+      $_SESSION['action'] = 'set Election Countdown.';
+      include 'backFun_actLogs_v0_1.php';
 
  }else{
    function_alert("Updating failed");
