@@ -5,11 +5,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta charset="utf-8">
     <link rel="icon" href="../img/BUHS LOGO.png" type="image/png">
-    <link rel="stylesheet" href="../css/bootstrap.css">
-    <link rel="stylesheet" href="../css/font-awesome.css">
-    <link rel="stylesheet" type="text/css" href="../css/layout.css">
-    <link rel="stylesheet" type="text/css" href="../css/style.css">
-    <link rel="stylesheet" type="text/css" href="../css/messages.css">
+    <!-- <link rel="stylesheet" href="../css/bootstrap.css"> -->
+    <link rel="stylesheet" href="../css/student_css/font-awesome_vote.css">
+    <link rel="stylesheet" type="text/css" href="../css/student_css/style_vote.css">
+    <!-- <link rel="stylesheet" type="text/css" href="../css/style.css">
+    <link rel="stylesheet" type="text/css" href="../css/messages.css"> -->
     <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
     <title>Download receipt</title>
@@ -18,8 +18,17 @@
 <body>
     <?php
         include 'navstudent.php';
-        require "connect.php";
+        require "db_conn.php";
 	      require "vtValSan.php";
+
+        // Remove this temp session
+        session_start();
+        $_SESSION['bumail'] = "kathrindenisemontallana.taclas@bicol-u.edu.ph";
+        $_SESSION['fname'] = "Maria";
+        $_SESSION['lname'] = "Hanway";
+        $_SESSION['student_id'] = 1;
+        $_SESSION['grade_level'] = 7;
+        $_SESSION['timestamp']=time();
     ?>
     <header id="F-header" style="text-align:center"><b>VOTE RECEIPT</b></header><br>
 
@@ -86,7 +95,7 @@
       }
 
       home.onclick = function() {
-        location.href = "/*Dashboard*/";
+        location.href = "StudentDashboard.php";
       }
 
     </script>
