@@ -1,14 +1,10 @@
 <?php
-	require "db_conn.php";
-	require "vtConnect.php";
-	require "vtValSan.php";
+	$table = $conn->query("SELECT * FROM ((candidate INNER JOIN student ON candidate.student_id = student.student_id) INNER JOIN candidate_position ON candidate.position_id = candidate_position.position_id) ORDER BY candidate_position.heirarchy_id"); // get positions
 
 	mysqli_data_seek($table, 0);
 	$stud_id = $_SESSION['student_id'];
 	$status = "";
 	while($poss = $table->fetch_assoc()){   // loop through all positions
-		echo $poss["position_name"].": ".$poss["fname"].$poss["lname"]; // 
-		
 		if(($poss["vote_allow"] == 0 && $_SESSION['grade_level'] == $poss["grade_level"]) || $poss["vote_allow"] == 1){
 			if(empty(($_POST[$poss['heirarchy_id']]))){
 				// insert sanitation and validation function here
@@ -21,19 +17,18 @@
 				// $choice = $_POST[$poss['heirarchy_id']];
 			}
 			
+			checkCandidateValidity();
+
 			$candidate = $poss['candidate_id'];
 			if($poss['candidate_id'] == $choice){
 				$conn->query("UPDATE candidate SET total_votes = total_votes + 1 WHERE candidate.candidate_id = $candidate");		
-				echo "Voted <br>";
 				$status = "Voted";
 			}
 			else{
-				echo "Abstain <br>";
 				$status = "Abstain";
 			}
 		}
 		else{
-			echo "Abstain <br>";
 			$status = "Abstain";
 		}
 
