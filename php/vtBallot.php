@@ -16,15 +16,19 @@
 
 <body>
     <?php
-        // require 'connect.php'; // Remove this when compiling
         include "db_conn.php";
-        require "vtConnect.php";
         include 'navStudent.php';
         require 'vtValSan.php';
-        // insert ajax here (jquery)
-        // for automatic time based access control
         require 'vtFetch.php';
 
+        // Remove this temp session
+        session_start();
+        $_SESSION['bumail'] = "kathrindenisemontallana.taclas@bicol-u.edu.ph";
+        $_SESSION['fname'] = "Maria";
+        $_SESSION['lname'] = "Hanway";
+        $_SESSION['student_id'] = 1;
+        $_SESSION['grade_level'] = 7;
+        $_SESSION['timestamp']=time();
 
     ?>
 
@@ -33,8 +37,8 @@
     <main>
         <!--Candidates-->
         <?php
-            // if(isValidUser($conn)){
-            //     if(!isVoted($conn)){
+            if(isValidUser($conn)){
+                if(!isVoted($conn)){
                     $sched_row = $conn->query("SELECT * FROM `vote_event` WHERE `vote_event_id` = 1");
                     $sched = $sched_row->fetch_assoc();
                     
@@ -53,22 +57,23 @@
                     }
                     else if($access_time >= $start_time && $access_time <= $end_time){
                         echo '<form id = "main-form" method="POST" action = "vtReceipt.php" class="vtBallot" id="vtBallot"><div id="voting-page">';
+                        $table = $conn->query("SELECT * FROM ((candidate INNER JOIN student ON candidate.student_id = student.student_id) INNER JOIN candidate_position ON candidate.position_id = candidate_position.position_id) ORDER BY candidate_position.heirarchy_id"); // get positions
                         generateBallot($table);
                         require 'vtConfirm.php';
                         echo '</div>';
                         echo '<div id="vote-button"><button id="vote-btn" name = "vote-button" class="btn" type = "button">SUBMIT</button></div>
                         </form>';
                     }
-            //     }
-            //     else{ // Already Voted
-            //         header("Location: vtReceipt.php");
-            //     }
-            // }
-            // else{ // Invalid user; destroy session and return to login
-            //     session_unset();    // remove all session variables
-            //     session_destroy();  // destroy session
-            //     header("Location: ../index.php");
-            // }
+                }
+                else{ // Already Voted
+                    header("Location: vtReceipt.php");
+                }
+            }
+            else{ // Invalid user; destroy session and return to login
+                session_unset();    // remove all session variables
+                session_destroy();  // destroy session
+                header("Location: ../index.php");
+            }
         ?>
      </main>
      <br>
