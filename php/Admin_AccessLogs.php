@@ -42,7 +42,7 @@ include("db_conn.php");
     <script src="../js/jquery.dataTables.min_adminDash.js"></script>
 
     <script src="https://cdn.datatables.net/fixedheader/3.1.8/js/dataTables.fixedHeader.min.js"></script>
-    <title>BUCEILS Voting System</title>
+    <title>Access Logs</title>
 </head>
 
 <body>
