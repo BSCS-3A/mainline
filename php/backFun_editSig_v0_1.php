@@ -17,7 +17,9 @@ $query = mysqli_query($connection, $update);
 if($query){
 echo "Signatory Updated Successfully";
 
-
+    //For Logs
+    $_SESSION['action'] = 'updated Signatory : ' . $_POST['signame'] ;
+    include 'backFun_actLogs_v0_1.php';
 }
 else
 echo "Failed to Update Signatory";
