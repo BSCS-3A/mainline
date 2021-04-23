@@ -17,16 +17,23 @@
 				// $choice = $_POST[$poss['heirarchy_id']];
 			}
 			
-			checkCandidateValidity();
-
-			$candidate = $poss['candidate_id'];
-			if($poss['candidate_id'] == $choice){
-				$conn->query("UPDATE candidate SET total_votes = total_votes + 1 WHERE candidate.candidate_id = $candidate");		
-				$status = "Voted";
-			}
-			else{
-				$status = "Abstain";
-			}
+			// if(isValidCandidate($table, $choice, $poss['heirarchy_id'])){
+				if($poss['candidate_id'] == $choice){
+					$candidate = $poss['candidate_id'];
+					$conn->query("UPDATE candidate SET total_votes = total_votes + 1 WHERE candidate.candidate_id = $candidate");		
+					// echo "Voted <br>";
+					$status = "Voted";
+				}
+				else{
+					// echo "Abstain <br>";
+					$status = "Abstain";
+				}
+			// }
+			// else{
+			// 	// notify admin & return to ballot
+			// 	// echo "Ballot tampering detected";
+			// 	header("Location: vtBallot.php");
+			// }
 		}
 		else{
 			$status = "Abstain";
