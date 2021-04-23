@@ -20,6 +20,10 @@
         include 'navstudent.php';
         require "db_conn.php";
 	      require "vtValSan.php";
+        // if(!isset($_POST['confirm-button'])){
+        //   header("Location: vtBallot.php");
+        //   exit();
+        // }
 
         // Remove this temp session
         session_start();
@@ -43,38 +47,37 @@
                 if(!isVoted($conn)){
                     $sched_row = $conn->query("SELECT * FROM `vote_event` WHERE `vote_event_id` = 1");
                     $sched = $sched_row->fetch_assoc();
-                    
+
                     $start_time = strtotime($sched['start_date']);
                     $end_time = strtotime($sched['end_date']);
                     $access_time = time();
 
                     if(empty($sched)){
                         header("Location: ../html/no_election_scheduled.html");
+                        exit();
                     }
                     else if($access_time > $end_time){
                         header("Location: ../html/election_finished.html");
+                        exit();
                     }
                     else if($access_time < $start_time){
                         header("Location: ../html/election_not_yet_started.html");
+                        exit();
                     }
                     else if($access_time >= $start_time && $access_time <= $end_time){
-                      if(isset($_POST['confirm-button'])){
-                        require "vtSubmit.php";
-                        echo "<h3>Your votes were submitted successfully! Here is a copy of your vote receipt</h3>";
-                      }
-                      else{
-                        header("Location: vtBallot.php");
-                      }
+                      require "vtSubmit.php";
+                      echo "<h3>Your votes were submitted successfully! Here is a copy of your vote receipt</h3>";
                     }
                 }
                 else{ // Already Voted
-                  echo "<h3>You have already voted Here is a copy of your vote receipt.</h3>";
+                  echo "<h3>You have already voted. Here is a copy of your vote receipt.</h3>";
                 }
             }
             else{ // Invalid user; destroy session and return to login
-                session_unset();    // remove all session variables
-                session_destroy();  // destroy session
-                header("Location: ../index.php");
+              session_unset();    // remove all session variables
+              session_destroy();  // destroy session
+              header("Location: ../index.php");
+              exit();
             }
             ?>
           </div>
