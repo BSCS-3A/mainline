@@ -10,7 +10,7 @@
   /* Body */
   body{  
     font-family: Roboto,Roboto Thin,Generica, sans-serif;  
-    /* background-image: url("../../img/studentBG.png"); */
+    background-image: url("../../img/studentBG.png");
     background-size: cover;
     font-size: 100%;
     background-attachment: fixed;
