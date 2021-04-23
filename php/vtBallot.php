@@ -64,7 +64,7 @@
                     </form>';
                     echo '</main>';
                     echo '<br>
-                    <script src = "../js/modals.js"></script>';
+                    <script src = "../js/modals_vote.js"></script>';
                 }
             }
             else{ // Already Voted
