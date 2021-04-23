@@ -17,7 +17,7 @@
 
 <body>
     <?php
-        include 'navstudent.php';
+        // include 'navstudent.php';
         require "db_conn.php";
 	      require "vtValSan.php";
         // if(!isset($_POST['confirm-button'])){
