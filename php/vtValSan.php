@@ -17,7 +17,7 @@
         }
     }  
 
-    // remove malicious bits
+    // remove malicious bits; calls fixDataType()
     function cleanInput($input) {
         $search = array(
             '@<script[^>]*?>.*?</script>@si',   // Strip out javascript
@@ -35,20 +35,25 @@
     function isValidCandidate($table, $ballot_cand_id, $ballot_heir_id){
         // checks if selection is valid candidate
         mysqli_data_seek($table, 0);
-        while($poss = $table->fetch_assoc()){
-            if($ballot_cand_id == $poss['candidate_id']){
-                if($poss['heirarchy_id'] == $ballot_heir_id){
-                    return true;
-                }
-                else{
-                    return false;
+        // if($ballot_cand_id == 0){
+        //     return true;
+        // }
+        // else{
+            while($poss = $table->fetch_assoc()){
+                if($ballot_cand_id == $poss['candidate_id']){
+                    if($poss['heirarchy_id'] == $ballot_heir_id){
+                        return true;
+                    }
+                    else{
+                        return false;
+                    }
                 }
             }
-        }
-        return false;
+            return false;
+        // }
     }
 
-    function isVoted($conn){
+     function isVoted($conn){
         // check if user has already voted
         $stud_id = $_SESSION['student_id'];
         $voter = $conn->query("SELECT * FROM student WHERE student_id = $stud_id");
@@ -89,5 +94,14 @@
         
         return $string;
         
+    }
+    // window.location.replace("http://www.w3schools.com");
+    function redirect($url){
+        if (headers_sent()){
+          die('<script type="text/javascript">window.location.replace("'.$url.'");</script‌​>');
+        }else{
+          header('Location: ' . $url);
+          die();
+        }    
     }
 ?>

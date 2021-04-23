@@ -33,80 +33,81 @@
         $_SESSION['student_id'] = 1;
         $_SESSION['grade_level'] = 7;
         $_SESSION['timestamp']=time();
-    ?>
-    <header id="F-header" style="text-align:center"><b>VOTE RECEIPT</b></header><br>
 
-    <main>
-      <!-- <div id="download-receipt-page" class="F-download-receipt-page">			
-				<div id="election-finished-msg" class="error-message"> -->
-          <!-- <div id="F-receipt-message" class="F-receipt-message"> -->
-          <div id="error-message-container" style = "margin-top: 5%;" class="error-message-container">		<div id="election-finished-msg" class="error-message">
-            <!-- insert message here -->
-            <?php
-              if(isValidUser($conn)){
-                if(!isVoted($conn)){
-                    $sched_row = $conn->query("SELECT * FROM `vote_event` WHERE `vote_event_id` = 1");
-                    $sched = $sched_row->fetch_assoc();
-
-                    $start_time = strtotime($sched['start_date']);
-                    $end_time = strtotime($sched['end_date']);
-                    $access_time = time();
-
-                    if(empty($sched)){
-                        header("Location: ../html/no_election_scheduled.html");
-                        exit();
-                    }
-                    else if($access_time > $end_time){
-                        header("Location: ../html/election_finished.html");
-                        exit();
-                    }
-                    else if($access_time < $start_time){
-                        header("Location: ../html/election_not_yet_started.html");
-                        exit();
-                    }
-                    else if($access_time >= $start_time && $access_time <= $end_time){
-                      require "vtSubmit.php";
-                      echo "<h3>Your votes were submitted successfully! Here is a copy of your vote receipt</h3>";
-                    }
-                }
-                else{ // Already Voted
-                  echo "<h3>You have already voted. Here is a copy of your vote receipt.</h3>";
-                }
-            }
-            else{ // Invalid user; destroy session and return to login
-              session_unset();    // remove all session variables
-              session_destroy();  // destroy session
-              header("Location: ../index.php");
+        if(isValidUser($conn)){
+          if(!isVoted($conn)){
+            $sched_row = $conn->query("SELECT * FROM `vote_event` WHERE `vote_event_id` = 1");
+            $sched = $sched_row->fetch_assoc();
+    
+            $start_time = strtotime($sched['start_date']);
+            $end_time = strtotime($sched['end_date']);
+            $access_time = time();
+    
+            if(empty($sched)){
+              header("Location: ../html/no_election_scheduled.html");
               exit();
             }
-            ?>
+            else if($access_time > $end_time){
+              header("Location: ../html/election_finished.html");
+              exit();
+            }
+            else if($access_time < $start_time){
+              header("Location: ../html/election_not_yet_started.html");
+              exit();
+            }
+            else if($access_time >= $start_time && $access_time <= $end_time){
+              require "vtSubmit.php";
+              echo '<header id="F-header"  style="text-align: center;"><b>VOTE RECEIPT</b></header><br>';
+              echo '<main>';
+              echo '<div id="download-receipt-page" class="F-download-receipt-container">';
+              echo '<div class="F-receipt-message">';
+              echo "<h3>Your votes were submitted successfully! Here is a copy of your vote receipt</h3>";
+              echo '</div></div>';
+              echo '<div id="receipt-page-buttons" class="F-receipt-page-buttons">
+              <button type="button" class="F-downloadReceiptBTN">Download Receipt</button>
+              <button type="button" class="F-goToHomeBTN">Go to Home</button>
+            </div>
+        </main>';
+              
+            }
+          }
+          else{ // Already Voted
+            echo '<header id="F-header"  style="text-align: center;"><b>VOTE RECEIPT</b></header><br>';
+            echo '<main>';
+            echo '<div id="download-receipt-page" class="F-download-receipt-container">';
+            echo '<div class="F-receipt-message">';
+            echo "<h3>You have already voted. Here is a copy of your vote receipt.</h3>";
+            echo '</div></div>';
+            echo '<div id="receipt-page-buttons" class="F-receipt-page-buttons">
+            <button type="button" class="F-downloadReceiptBTN">Download Receipt</button>
+            <button type="button" class="F-goToHomeBTN">Go to Home</button>
           </div>
-          <div id="receipt-page-buttons" style = "margin-bottom: 5%;" class="F-receipt-page-buttons">
-            <button type="button" class="F-downloadReceiptBTN" id="dl-receipt">Download Receipt</button>
-            <button type="button" class="F-goToHomeBTN" id="gt-home">Go to Home</button>
-            <!-- </div>
-            </div>   -->
-          <!-- </div> -->
-        </div>
-      </div>
-    </main>
-
-    <script>
-      // Get Download Receipt button
-      var download = document.getElementById("dl-receipt");
-
-      // Get Home button
-      var home = document.getElementById("gt-home");
-
-      download.onclick = function() {
-        location.href = "PDF/generatepdf.php";
-      }
-
-      home.onclick = function() {
-        location.href = "StudentDashboard.php";
-      }
-
-    </script>
+        </main>';
+          }
+        }
+        else{ // Invalid user; destroy session and return to login
+          session_unset();    // remove all session variables
+          session_destroy();  // destroy session
+          header("Location: ../index.php");
+          exit();
+        }
+      ?>
+              
+      <script>
+            // Get Download Receipt button
+            var download = document.getElementById("receipt-page-buttons");
+    
+            // Get Home button
+            var home = document.getElementById("gt-home");
+    
+            download.onclick = function() {
+            location.href = "PDF/generatepdf.php";
+            }
+    
+            home.onclick = function() {
+            location.href = "/*Dashboard*/";
+            }
+      </script>
 </body>
 
 </html>
