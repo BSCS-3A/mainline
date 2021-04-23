@@ -58,8 +58,13 @@
                         header("Location: ../html/election_not_yet_started.html");
                     }
                     else if($access_time >= $start_time && $access_time <= $end_time){
-                      require "vtSubmit.php";
-                      echo "<h3>Your votes were submitted successfully! Here is a copy of your vote receipt</h3>";
+                      if(isset($_POST['confirm-button'])){
+                        require "vtSubmit.php";
+                        echo "<h3>Your votes were submitted successfully! Here is a copy of your vote receipt</h3>";
+                      }
+                      else{
+                        header("Location: vtBallot.php");
+                      }
                     }
                 }
                 else{ // Already Voted
