@@ -32,12 +32,17 @@
         return $output;
     }
 
-    function isValidCandidate($candidate, $heir_id){
+    function isValidCandidate($table, $ballot_cand_id, $ballot_heir_id){
         // checks if selection is valid candidate
         mysqli_data_seek($table, 0);
         while($poss = $table->fetch_assoc()){
-            if($candidate == $poss['candidate_id'] && $heir_id == $poss['heir_id']){
-                return true;
+            if($ballot_cand_id == $poss['candidate_id']){
+                if($poss['heirarchy_id'] == $ballot_heir_id){
+                    return true;
+                }
+                else{
+                    return false;
+                }
             }
         }
         return false;
