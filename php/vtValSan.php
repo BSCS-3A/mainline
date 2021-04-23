@@ -32,27 +32,6 @@
         return $output;
     }
 
-    function isValidCandidate($table, $ballot_cand_id, $ballot_heir_id){
-        // checks if selection is valid candidate
-        mysqli_data_seek($table, 0);
-        // if($ballot_cand_id == 0){
-        //     return true;
-        // }
-        // else{
-            while($poss = $table->fetch_assoc()){
-                if($ballot_cand_id == $poss['candidate_id']){
-                    if($poss['heirarchy_id'] == $ballot_heir_id){
-                        return true;
-                    }
-                    else{
-                        return false;
-                    }
-                }
-            }
-            return false;
-        // }
-    }
-
      function isVoted($conn){
         // check if user has already voted
         $stud_id = $_SESSION['student_id'];
@@ -95,7 +74,52 @@
         return $string;
         
     }
-    // window.location.replace("http://www.w3schools.com");
+
+    function isValidCandidate($table, $ballot_cand_id, $ballot_heir_id){
+        // checks if selection is valid candidate
+        mysqli_data_seek($table, 0);
+        // if($ballot_cand_id == 0){
+        //     return true;
+        // }
+        // else{
+            while($poss = $table->fetch_assoc()){
+                if($ballot_cand_id == $poss['candidate_id']){
+                    if($poss['heirarchy_id'] == $ballot_heir_id){
+                        return true;
+                    }
+                    else{
+                        return false;
+                    }
+                }
+            }
+            return false;
+        // }
+    }
+
+    function errorMessage($message){
+        echo '<link rel="stylesheet" type="text/css" href="../css/student_css/vote-message.css">';
+        include 'navStudent.php';
+        echo '<main>
+			<div id="error-message-container" class="error-message-container">			
+				<div id="election-finished-msg" class="error-message">
+					<h3>'.$message.'</h3>
+				</div>
+
+				<div id="error-button" class="error-button">
+            		<button type="button" id="ok-button" class="OkBTN-error">OK</button>
+          		</div>
+          	</div>
+		</main>';
+        echo '<script>
+        // Get Home button
+        var home = document.getElementById("ok-button");
+
+        home.onclick = function() {
+            location.href = "StudentDashboard.php";
+        }
+        </script>';
+    }
+    
     function redirect($url){
         if (headers_sent()){
           die('<script type="text/javascript">window.location.replace("'.$url.'");</script‌​>');
@@ -104,4 +128,6 @@
           die();
         }    
     }
+
+
 ?>

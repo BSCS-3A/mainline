@@ -34,6 +34,20 @@
         $_SESSION['grade_level'] = 7;
         $_SESSION['timestamp']=time();
 
+        function receiptMsg($message){
+          include 'navStudent.php';
+          echo '<header id="F-header"  style="text-align: center;"><b>VOTE RECEIPT</b></header><br>';
+            echo '<main>';
+            echo '<div id="download-receipt-page" class="F-download-receipt-container">';
+            echo '<div class="F-receipt-message">';
+            echo "<h3>".$message."</h3>";
+            echo '</div></div>';
+            echo '<div id="receipt-page-buttons" class="F-receipt-page-buttons">
+            <button type="button" class="F-downloadReceiptBTN">Download Receipt</button>
+            <button type="button" class="F-goToHomeBTN">Go to Home</button>
+          </div>
+        </main>';
+        }
         if(isValidUser($conn)){
           if(!isVoted($conn)){
             $sched_row = $conn->query("SELECT * FROM `vote_event` WHERE `vote_event_id` = 1");
@@ -44,45 +58,21 @@
             $access_time = time();
     
             if(empty($sched)){
-              header("Location: ../html/no_election_scheduled.html");
-              exit();
+              errorMessage("No election has been scheduled");
             }
             else if($access_time > $end_time){
-              header("Location: ../html/election_finished.html");
-              exit();
+                errorMessage("Election is already finished");
             }
             else if($access_time < $start_time){
-              header("Location: ../html/election_not_yet_started.html");
-              exit();
+                errorMessage("Election has not yet started");
             }
             else if($access_time >= $start_time && $access_time <= $end_time){
               require "vtSubmit.php";
-              echo '<header id="F-header"  style="text-align: center;"><b>VOTE RECEIPT</b></header><br>';
-              echo '<main>';
-              echo '<div id="download-receipt-page" class="F-download-receipt-container">';
-              echo '<div class="F-receipt-message">';
-              echo "<h3>Your votes were submitted successfully! Here is a copy of your vote receipt</h3>";
-              echo '</div></div>';
-              echo '<div id="receipt-page-buttons" class="F-receipt-page-buttons">
-              <button type="button" class="F-downloadReceiptBTN">Download Receipt</button>
-              <button type="button" class="F-goToHomeBTN">Go to Home</button>
-            </div>
-        </main>';
-              
+              receiptMsg("Your votes were submitted successfully! Here is a copy of your vote receipt");
             }
           }
           else{ // Already Voted
-            echo '<header id="F-header"  style="text-align: center;"><b>VOTE RECEIPT</b></header><br>';
-            echo '<main>';
-            echo '<div id="download-receipt-page" class="F-download-receipt-container">';
-            echo '<div class="F-receipt-message">';
-            echo "<h3>You have already voted. Here is a copy of your vote receipt.</h3>";
-            echo '</div></div>';
-            echo '<div id="receipt-page-buttons" class="F-receipt-page-buttons">
-            <button type="button" class="F-downloadReceiptBTN">Download Receipt</button>
-            <button type="button" class="F-goToHomeBTN">Go to Home</button>
-          </div>
-        </main>';
+            receiptMsg("You have already voted. Here is a copy of your vote receipt.");
           }
         }
         else{ // Invalid user; destroy session and return to login
