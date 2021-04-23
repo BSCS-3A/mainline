@@ -67,12 +67,14 @@
                 }
                 else{ // Already Voted
                     header("Location: vtReceipt.php");
+                    exit();
                 }
             }
             else{ // Invalid user; destroy session and return to login
                 session_unset();    // remove all session variables
                 session_destroy();  // destroy session
                 header("Location: ../index.php");
+                exit();
             }
         ?>
      </main>
