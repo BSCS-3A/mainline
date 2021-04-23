@@ -5,9 +5,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta charset="utf-8">
     <link rel="icon" href="../img/BUHS LOGO.png" type="image/png">
-    <!-- <link rel="stylesheet" href="../css/student_css/bootstrap_vote.css"> -->
+    <link rel="stylesheet" href="../css/student_css/bootstrap_vote.css">
     <link rel="stylesheet" href="../css/student_css/font-awesome_vote.css">
-    <link rel="stylesheet" type="text/css" href="../css/student_css/style_vote.css">
+    <link rel="stylesheet" type="text/css" href="../css/student_css/bootstrap.min-vote.css">
+    <link rel="stylesheet" type="text/css" href="../css/student_css/bootstrap_vote.css">
+    <link rel="stylesheet" type="text/css" href="../css/student_css/vote-ballot.css">
+    <!-- <link rel="stylesheet" type="text/css" href="../css/student_css/style_vote.css"> -->
     <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
     <script src="../js/scripts_vote.js"></script>
@@ -17,7 +20,7 @@
 <body>
     <?php
         include "db_conn.php";
-        include 'navStudent.php';
+        // include 'navStudent.php';
         require 'vtValSan.php';
         require 'vtFetch.php';
 
