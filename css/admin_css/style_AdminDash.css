@@ -443,6 +443,11 @@ div.container {
 }
 #ADdataTable2 {
   border-collapse: collapse !important;
+  table-layout: auto;
+  margin: 0px;
+  text-align: center;
+  opacity: 100%;
+  width: 100% !important;
 }
 thead {
   width: 100%;
