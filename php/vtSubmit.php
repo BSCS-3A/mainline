@@ -31,7 +31,7 @@
 			}
 			else{
 				// notify admin & return to ballot
-				echo "Ballot tampering detected";
+				echo "Ballot tampering detected.";
 				exit();
 				// header("Location: vtBallot.php");
 			}
