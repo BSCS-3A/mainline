@@ -18,7 +18,9 @@
             header("Location:../Admin_candidate.php?candidateid=".$candidateid."&fname=".$firstname."&lname=".$lastname."&candidateid=".$candidateid."&partylist=".$partylist."&platform=".$platform."&credentials=".$credentials."");
         }
         else{
-            echo "message";
+            echo "<script>alert('There is something wrong here(failed query cannot find candidate)'); 
+                    window.location.href='../Admin_candidate.php';
+                    </script>";
         }
     }
     

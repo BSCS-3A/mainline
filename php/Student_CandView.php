@@ -24,7 +24,8 @@
     <title>BUCEILS HS Online Voting System</title>
     
 
-<script>
+    
+    <script>
     $(document).ready(function() {
         if($("#select").val()==0){
             var selected = 0;
@@ -55,6 +56,7 @@
         
     });
 </script>
+     
      
 </head>
 
@@ -133,24 +135,22 @@
                  <tbody>
                      <tr>
                          <td>
-                            <form action = "" method = "POST">
-                                <select name = "select-position" id = "select">
-                                    <option value = "0" selected>Select</option>
-                                    <?php
-                                        $sql = "SELECT position_name FROM `candidate_position` ORDER BY heirarchy_id";
-                                        $result = mysqli_query($conn, $sql);
-                                        if(mysqli_num_rows($result) > 0)
-                                        { 
-                                            $i = 1;
-                                            while($row = mysqli_fetch_assoc($result))
-                                            {
-                                                echo "<option value = '".$i."'>".$row['position_name']."</option>";
-                                                $i++;
-                                            }
+                            <select name = "select-position" id = "select">
+                                <option value = "0" selected>All Candidates</option>
+                                <?php
+                                    $sql = "SELECT position_name FROM `candidate_position` ORDER BY heirarchy_id";
+                                    $result = mysqli_query($conn, $sql);
+                                    if(mysqli_num_rows($result) > 0)
+                                    {  
+                                        $i = 1;
+                                        while($row = mysqli_fetch_assoc($result))
+                                        {
+                                            echo "<option value = '".$i."'>".$row['position_name']."</option>";
+                                            $i++;
                                         }
-                                    ?>
-                                </select>    
-                            </form>
+                                    }
+                                ?>
+                            </select>    
                          </td>
                          <!--<td>
                              <button class="btn-primary btn-xs" onclick="function;">View</button> Button reloads the profile cards and populates it with appropriate data

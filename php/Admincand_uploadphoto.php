@@ -4,7 +4,6 @@
 
     
     if(isset($_POST['uploadphoto'])){
-
         $candidateid = $_GET['id']; 
         $file = $_FILES['datafile']; 
         
@@ -17,20 +16,6 @@
         $fileActualExt = strtolower(end($fileExt));
         $allowedExt = array("jpg","png");
     
-        // to delete previous image file
-        $sqlImg = "SELECT * FROM ((candidate INNER JOIN student ON candidate.student_id = student.student_id) INNER JOIN candidate_position ON     candidate.position_id = candidate_position.position_id) WHERE candidate.candidate_id = '$candidateid'";
-        $resultImg = mysqli_query($conn,$sqlImg);
-        $numrowsImg = mysqli_num_rows($resultImg);
-
-        if($numrowsImg == 1){
-            $rowImg = mysqli_fetch_assoc($resultImg);
-
-            if(!(empty($rowImg['photo']))){
-                unlink($rowImg['photo']);
-            }
-        }
-
-
         if(in_array($fileActualExt,$allowedExt)){
             if($fileError === 0){
                 if($fileSize < 500000){
@@ -50,6 +35,7 @@
                             mysqli_query($conn,$sqlremove); 
                             echo "failed to upload picture to website";   
                         }
+//edit                        
                     }else{ 
                         echo "<script>alert('query failed please try again'); 
                             window.location.href= 'Admin_candidate.php';
@@ -71,7 +57,7 @@
                     window.location.href= 'Admin_candidate.php';
                     </script>"; 
         }
-        
+//edit
     }
     if(isset($_POST['change'])){
         $change_id=$_GET['id'];

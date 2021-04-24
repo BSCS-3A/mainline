@@ -65,7 +65,24 @@ Need:
                    }
                 });
             });
+//edit 04-23-21    
+            
+            $(document).on("click","#continue",function(){
+                var temp= true;
+                $("#delete").modal("hide");
+                $.ajax({
+                    url:'./backPos/loadDefault.php', 
+                    method:'post',
+                    data:{btnclicked:temp},
+                    success:function(response){
+                        console.log(response);
+                        alert(response);
+                    }
+                });
+            });
         });
+
+//edit 04-23-21
     //edit
     </script>
 </head>
@@ -144,14 +161,12 @@ Need:
     </nav> -->
 
    <!-- The sidetable -->
-      <div class="Uheader" id="CM_Header">
-        <h2>Candidate Information Management</h2>
-      </div>
-      <div class="btn-toolbar" style="margin-left: 18px;">
-          <button type="submit" id="defaultButton" name = "" 
-                        class="btn btn-button1 btn-s">Load Default Positions</button>
-
-          </div>
+   <div class="Uheader" id="CM_Header">
+            <h2>Candidate Information Management</h2>
+        </div>
+        <div class="btn-toolbar" style="margin-left: 18px;">
+          <button type="submit" id="defaultButton" name = "" class="btn btn-button1 btn-s" data-toggle="modal" data-target="#delete">Load Default Positions</button>
+        </div>
       
 <form autocomplete = "off" action = "<?php if(isset($_GET['id'])){$positionId =$_GET['id']; echo "./backPos/addPosition.php?id=".$positionId;}else{ echo "./backPos/addPosition.php";}?>" method ="POST">  
 <div class ="wrapper">
@@ -259,7 +274,29 @@ Need:
                         </div>
                         </div>
                      </div>
-                    
+      <!--edit 04-23-21-->
+    <div class="modal fade" id="delete" tabindex="-1" role="dialog" aria-labelledby="edit" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                    <h4 class="modal-title custom_align" id="Heading">Load Default Positions</h4>
+                </div>
+                <div class="modal-body">             
+                    <div class="alert alert-danger"><span class="fa fa-exclamation-triangle"></span>Are you sure you want to delete existing positions and replace it with the system default?</div>
+                </div>
+                <div class="modal-footer ">
+                    <button type="submit" name="continue-delete-btn" class="btn btn-success" id="continue"><span class= "fa fa-check-circle"></span>Continue</button>
+                    <button type="button" name="cancel-delete-btn" class="btn btn-default" id= "cancel2" data-dismiss="modal"><span class="fa fa-times-circle"></span>Cancel</button>
+                </div> 
+             </div>
+         <!-- /.modal-content --> 
+        </div>
+        <!-- /.modal-dialog --> 
+    </div>
+<!--edit 04-23-21-->   
+
+
 <!--Start of form panel scripts
 <script>
    // Current product being edited

@@ -263,6 +263,13 @@
               [5, 10, 25, 50, "All"],
               /**"ordering": false**/
           ],
+//edit 4/23/2021
+                'columnDefs': [ {
+                'targets': [0,6,7], /* column index */
+                'orderable': false, /* true or false */
+                }],
+                'order': [[3, 'asc']]
+//edit
       });
       $("[data-toggle=tooltip]").tooltip();
   });
@@ -388,7 +395,7 @@
                           ?>
                                   <tr>
                                     <form action="Admincand_uploadphoto.php?id=<?php echo $row['candidate_id']?>" method="POST" enctype="multipart/form-data">
-                                      <?php 
+                                    <?php 
                                           if(!(empty($row['photo'])||isset($_GET['change']))){//if has photo change photo and has $get change variable
                                             echo '<td><button name="change">Change Photo</button></td>';
                                           }
