@@ -441,6 +441,9 @@ div.container {
   opacity: 100%;
   width: 100% !important;
 }
+#ADdataTable2 {
+  border-collapse: collapse !important;
+}
 thead {
   width: 100%;
   color: #EEEEEE;
