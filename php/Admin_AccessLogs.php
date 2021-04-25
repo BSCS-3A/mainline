@@ -199,27 +199,27 @@ include("db_conn.php");
             $('span').toggleClass("cancel");
         });
     </script>
-    <!-- <script>
-        $(document).ready(function () {
-            $('#ADdataTable').DataTable({
-                rowReorder: {
-                    selector: 'td:nth-child(2)'
-                },
-                responsive: true
-            });
-        
-        });
-    </script> -->
-    <!-- <script>
-        $(document).ready(function () {
-            var table = $('#ADdataTable').DataTable({
-                responsive: true
-            });
-        });
     </script> -->
     <script>
+        $(document).ready(function() {
+            $('#ADdataTable').DataTable({
+                "lengthMenu": [
+                    [10, 25, 50, -1],
+                    [10, 25, 50, "All"]
+                ]
+            });
+            $('#ADdataTable2').DataTable({
+                "lengthMenu": [
+                    [10, 25, 50, -1],
+                    [10, 25, 50, "All"]
+                ]
+            });
+            $("[data-toggle=tooltip]").tooltip();
+        });
+    </script>
+    <script>
         $(document).ready(function () {
-            $('#ADdataTable').DataTable();
+            $('#ADdataTable2').DataTable();
         });
     </script>
         <script>
