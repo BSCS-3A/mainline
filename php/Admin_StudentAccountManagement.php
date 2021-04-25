@@ -145,18 +145,18 @@ include("edit_studAcc.php");
         <div class="row">
             <div class="col-md-12">
                 <div class="table-responsive">
-                    <table class="table table-hover" id="datatable" width="100%" cellspacing="0">
+                    <table class="table table-hover" id="datatable" style="width:100%">
                         <thead>
                             <tr>
-                                <th class="text-center">STUDENT ID</th>
-                                <th class="text-center">LAST NAME</th>
-                                <th class="text-center">FIRST NAME</th>
-                                <th class="text-center">MIDDLE NAME</th>
-                                <th class="text-center">GENDER</th>
-                                <th class="text-center">BU EMAIL</th>
-                                <th class="text-center">GRADE LEVEL</th>
-                                <th class="text-center">OTP</th>
-                                <th class="text-center">TOOLS</th>
+                                <th class="min-mobile">STUDENT ID</th>
+                                <th class="min-mobile">LAST NAME</th>
+                                <th class="min-mobile">FIRST NAME</th>
+                                <th class="min-mobile">MIDDLE NAME</th>
+                                <th class="min-mobile">GENDER</th>
+                                <th class="min-mobile">BU EMAIL</th>
+                                <th class="min-mobile">GRADE LEVEL</th>
+                                <th class="min-mobile">OTP</th>
+                                <th class="min-mobile">TOOLS</th>
 
                             </tr>
                         </thead>

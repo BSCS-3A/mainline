@@ -286,7 +286,7 @@ nav h5{
   font-size: 1.05em;
 
 }
-  .cheader {
+.cheader {
     z-index: 100;
     padding: 1px 1px;
     font-size: 35px;
@@ -295,30 +295,28 @@ nav h5{
     width: 100%;
     text-align: center;
     font-family: Roboto Regular, sans-serif;
-    letter-spacing: 6px;
-  }
+    letter-spacing: 6px; 
+}
   
-  
-  .pagination>li {
-    display: inline;
-    padding:0px ;
-    margin:0px ;
-    border:none ;
+.pagination>li {
+  display: inline;
+  padding:0px ;
+  margin:0px ;
+  border:none ;
+}
 
-    }
-  .pagination > li > a, .pagination > li > span{background-color:#EEEEEE !important}
-  .pagination > li.active > a, .pagination > li.active > span{background-color:#124254 !important}
+.pagination > li > a, .pagination > li > span{background-color:#EEEEEE !important}
+.pagination > li.active > a, .pagination > li.active > span{background-color:#124254 !important}
 
-  .modal-backdrop {
-      z-index: -1!important;
-    }
-
-    iframe
-    {
-        height:700px ;
-    }
+.modal-backdrop {
+  z-index: -1!important;
+}
+iframe
+{
+  height:700px ;
+}
     
-    .btn {
+.btn {
     font-family: Roboto Regular, sans-serif;
     display: inline-block;
     padding: 6px 12px ;
@@ -432,22 +430,26 @@ nav h5{
 
 /* Extra small devices (phones, 600px and down) */
 @media only screen and (max-width: 600px) {
-  .container {margin: 20px 0px 20px 0px;;}                     
+  .container {margin: 10px 0px 10px 0px;;}                     
   }
 
 /* Small devices (portrait tablets and large phones, 600px and up) */
 @media only screen and (max-width: 768px) {
-  .container {margin: 20px 0px 20px 0px;}
+  .container {
+    margin: 10px 0px 10px 0px;
+    width: 100%;
+  }
 }
-
 #datatable {
   border-collapse: collapse !important;
   table-layout: auto;
   margin: 0px;
   text-align: center;
-  opacity: 100% !important;
+  overflow-y:scroll;
+  overflow-x:hidden !important;
+  opacity: 100%;
   width: 100% !important;
-  background: rgba(255, 255, 255, .8);
+  background: rgba(255, 255, 255, .9);
 }
 thead {
   width: 100%;
@@ -474,10 +476,9 @@ td {
   padding: 0px;
   max-width: auto;
   height: 30px;
-  overflow: hidden;
+  overflow: hidden !important;
   font-size: 10p
 }
-
 article p{
   font-family: Roboto regular, sans-serif;
   color: white;
