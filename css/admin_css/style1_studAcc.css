@@ -419,57 +419,63 @@ nav h5{
    }
 
 .container{
-    background-color:#dddddd;
-    margin: 30px 15px 25px 15px;
-    border: 2px solid #124254;
+  background-color:#dddddd;
+  padding: 1rem;
+  margin-top: 3%;
+  margin-bottom: 5%;
+  border: 2px solid #124254;
+  width: 80% !important;
+  height: auto;
+  opacity: 80%;
+  font-size: 10ptrem;
   }
 
 /* Extra small devices (phones, 600px and down) */
 @media only screen and (max-width: 600px) {
-  .container {margin: 0px 0px 0px 0px;;}                     
+  .container {margin: 20px 0px 20px 0px;;}                     
   }
 
 /* Small devices (portrait tablets and large phones, 600px and up) */
 @media only screen and (max-width: 768px) {
-  .container {margin: 0px 0px 0px 0px;}
+  .container {margin: 20px 0px 20px 0px;}
 }
- #datatable {
 
-    width: 100%;
-    border: 1px solid #124254;
-    font-family: Roboto regular, sans-serif;
-    border-collapse: collapse;
-    table-layout: auto;
-    margin:0px;
-    text-align: center;
-  }
-  
-  table.center {
-    margin-left:auto; 
-    margin-right:auto;
-    }
-  thead {
-    border: 1px solid #124254;
-    color: #EEEEEE;
-    background-color: #18566e;
-    text-align: center;
-  }
-  tbody {
-    border: 1px solid #124254;
-    }
-  th {
-      border: 1px solid #124254;
-      color: #EEEEEE;
-      background-color: #18566e;
-      text-align: center;
-
-    }
-  td {
-      border: 1px solid #124254;
-      padding: 0px;
-      max-width: 150px;
-      max-height: 150px;
-      overflow: hidden;
+#datatable {
+  border-collapse: collapse !important;
+  table-layout: auto;
+  margin: 0px;
+  text-align: center;
+  opacity: 100% !important;
+  width: 100% !important;
+  background: rgba(255, 255, 255, .8);
+}
+thead {
+  width: 100%;
+  color: #EEEEEE;
+  background-color: #18566e;
+  text-align: center;
+  opacity: 100%;
+}
+thead input {
+  width: 100%;
+}
+th {
+  color: #ffffff;
+  background-color: #18566e;
+  text-align: center;
+  font-size: 10pt;
+  font-family: Roboto regular, sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 2px; 
+  border: 1px solid #124254 !important;
+}
+td {
+  border: 1px solid #124254;
+  padding: 0px;
+  max-width: auto;
+  height: 30px;
+  overflow: hidden;
+  font-size: 10p
 }
 
 article p{
