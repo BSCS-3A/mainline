@@ -31,11 +31,14 @@
 				// notify admin & return to ballot
 				// echo "Ballot tampering detected.";
 				errorMessage("Ballot tampering detected. You have been banned from voting and reported to the admins.");
+				// Submit records marked invalid
 				mysqli_data_seek($table, 0);
 				while($poss = $table->fetch_assoc()){
-					$cand_id = $poss['candidate_id'];
+					$cand_id = $conn->real_escape_string($poss['candidate_id']);
+					$stud_id = $conn->real_escape_string($stud_id);
 					$conn->query("INSERT INTO `vote` (`vote_log_id`, `student_id`, `candidate_id`, `status`, `time_stamp`) VALUES (NULL, $stud_id, $cand_id, 'Invalid', current_timestamp())");
 				}
+				// notify admin
 				exit();
 				// header("Location: index.php");
 			}
@@ -52,7 +55,8 @@
 		if(($poss["vote_allow"] == 0 && $_SESSION['grade_level'] == $poss["grade_level"]) || $poss["vote_allow"] == 1){
 			$choice = $choice_final[$poss['heirarchy_id']];
 			if($poss['candidate_id'] == $choice){
-				$candidate = $poss['candidate_id'];
+				$candidate = $conn->real_escape_string($poss['candidate_id']);
+				// $candidate = $poss['candidate_id'];
 				$conn->query("UPDATE candidate SET total_votes = total_votes + 1 WHERE candidate.candidate_id = $candidate");	
 			}
 		}
@@ -60,8 +64,9 @@
 	
 	mysqli_data_seek($table, 0);
 	while($poss = $table->fetch_assoc()){
-		$status = $vote_table[$poss['candidate_id']];
-		$cand_id = $poss['candidate_id'];
+		$status = $conn->real_escape_string($vote_table[$poss['candidate_id']]);
+		$cand_id = $conn->real_escape_string($poss['candidate_id']);
+		$stud_id = $conn->real_escape_string($stud_id);
 		$conn->query("INSERT INTO `vote` (`vote_log_id`, `student_id`, `candidate_id`, `status`, `time_stamp`) VALUES (NULL, $stud_id, $cand_id, '$status', current_timestamp())");
 	}
 	
