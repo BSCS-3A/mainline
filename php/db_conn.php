@@ -11,12 +11,18 @@ $password = "";
 $dbname = "bucielsmain2";
 // $dbname = "check";     
     
-    // Create connection
-    $conn = mysqli_connect($servername,$username,$password,$dbname);
-    if (!$conn) {
-        printf("Connect failed: %s\n", mysqli_connect_error());
+    $conn = new mysqli($servername,$username,$password,$dbname);
+    if ($conn -> connect_errno) {
+        echo "Failed to connect to MySQL: " . $conn -> connect_error;
         exit();
     }
+
+    // Create connection
+    // $conn = mysqli_connect($servername,$username,$password,$dbname);
+    // if (!$conn) {
+    //     printf("Connect failed: %s\n", mysqli_connect_error());
+    //     exit();
+    // }
 
 
     // for student account mgnmt
