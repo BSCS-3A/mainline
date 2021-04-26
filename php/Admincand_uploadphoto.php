@@ -20,7 +20,7 @@
             if($fileError === 0){
                 if($fileSize < 500000){
                     $fileNameNew = uniqid('',true).".".$fileActualExt;
-                    $url= "../img/dp/".$fileNameNew;
+                    $url= "../user/img/".$fileNameNew;
                     $fileDestination = mysqli_real_escape_string($conn,$url);
                     
                     $sql = "UPDATE candidate SET photo = '$fileDestination' WHERE candidate.candidate_id = $candidateid";
