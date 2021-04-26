@@ -37,6 +37,8 @@
 					$stud_id = $conn->real_escape_string($stud_id);
 					$conn->query("INSERT INTO `vote` (`vote_log_id`, `student_id`, `candidate_id`, `status`, `time_stamp`) VALUES (NULL, $stud_id, $cand_id, 'Invalid', current_timestamp())");
 				}
+				// update voter's status
+				$conn->query("UPDATE `student` SET `voting_status` = true WHERE `student`.`student_id` = '$stud_id'");
 				// notify admin
 				notifyAdmin("Warning: An attempt to submit a tampered ballot was made! The user was automatically banned from voting.");
 				exit();
