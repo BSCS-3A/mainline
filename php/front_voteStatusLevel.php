@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
@@ -14,15 +15,24 @@
     <script src="../js/jquery.dataTables.min_monitor.js"></script>
     <script src="../js/dataTables.bootstrap_monitor.js"></script>
     <script src="../js/bootstrap.min_monitor.js"></script>
-    <script src="https://kit.fontawesome.com/a076d05399.js"></script>    
-    <script type="text/javascript"> (function() { var css = document.createElement('link'); css.href = 'https://use.fontawesome.com/releases/v5.1.0/css/all.css'; css.rel = 'stylesheet'; css.type = 'text/css'; document.getElementsByTagName('head')[0].appendChild(css); })(); </script>   
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <script type="text/javascript">
+        (function() {
+            var css = document.createElement('link');
+            css.href = 'https://use.fontawesome.com/releases/v5.1.0/css/all.css';
+            css.rel = 'stylesheet';
+            css.type = 'text/css';
+            document.getElementsByTagName('head')[0].appendChild(css);
+        })();
+    </script>
     <title>BUCEILS Voting System</title>
 </head>
+
 <body>
 
-<?php include "navAdmin.php"; ?>
+    <?php include "navAdmin.php"; ?>
 
-<!-- <nav>
+    <!-- <nav>
     <input id="nav-toggle" type="checkbox">
     <div class="logo">
         <h2>BUCEILS HS</h2>
@@ -86,27 +96,26 @@
         <p><b>VOTE STATUS</b></p>
     </div>
     <div class="Bvs_gradelevel">
-    <?php $samp = $_GET['level']; //gets the value from prev page
-        echo '<p>GRADE '.$samp.'</p>';?>
+        <?php $samp = $_GET['level']; //gets the value from prev page
+        echo '<p>GRADE ' . $samp . '</p>'; ?>
     </div>
-    
     <div class="container"><br>
-    <div class="row">
-    <div class="col-md-12">
-        <div class="table-responsive">            
-            <table class= "center" id="datatable" width="100%" cellspacing="0" cellpadding="2px">
-                <thead>
-                    <tr> 
-                        <th class="text-center">LASTNAME</th>
-                        <th class="text-center">FIRSTNAME</th>
-                        <th class="text-center">MIDDLENAME</th>    
-                        <th class="text-center">STATUS</th>   
-                    </tr>
-                </thead> 
-            </table>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="table-responsive">
+                    <table class="table table-hover" id="datatable" width="100%" cellspacing="0">
+                        <thead>
+                            <tr>
+                                <th class="min-mobile">LASTNAME</th>
+                                <th class="min-mobile">FIRSTNAME</th>
+                                <th class="min-mobile">MIDDLENAME</th>
+                                <th class="min-mobile">STATUS</th>
+                            </tr>
+                        </thead>
+                    </table>
+                </div>
+            </div>
         </div>
-    </div>
-    </div>
     </div>
     </div>
     <br><br><br><br>
@@ -114,29 +123,40 @@
         <p class="footer-txt">BS COMPUTER SCIENCE 3A © 2021</p>
     </div> -->
     <script>
-        $(document).ready(function(){
+        $(document).ready(function() {
             var table = $('#datatable').DataTable({
-                "lengthMenu": [[10, 25, 50, -1], [10, 25, 50, "All"]],
+                "lengthMenu": [
+                    [10, 25, 50, -1],
+                    [10, 25, 50, "All"]
+                ],
                 "ajax": {
-                    "url": <?php echo '"./backMonitor/fetch_students.php?level='.$samp.'"'?>,
+                    "url": <?php echo '"./backMonitor/fetch_students.php?level=' . $samp . '"' ?>,
                     "type": "POST",
                     "dataSrc": ""
                 },
-                "columns": [
-                    {data: "lname"},
-                    {data: "fname"},
-                    {data: "Mname"},
-                    {data: "voting_status"}
+                "columns": [{
+                        data: "lname"
+                    },
+                    {
+                        data: "fname"
+                    },
+                    {
+                        data: "Mname"
+                    },
+                    {
+                        data: "voting_status"
+                    }
                 ]
-            } );
-            setInterval(function(){
+            });
+            setInterval(function() {
                 table.ajax.reload(null, false);
             }, 1000);
         });
+
         function goBack() {
             window.history.back()
         }
     </script>
 </body>
-        
-        </html>
+
+</html>

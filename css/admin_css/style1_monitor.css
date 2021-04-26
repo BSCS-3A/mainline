@@ -297,84 +297,23 @@ nav h5{
     font-family: Roboto Regular, sans-serif;
     letter-spacing: 6px;
   }
-  
-  
   .pagination>li {
     display: inline;
     padding:0px ;
     margin:0px ;
     border:none ;
-
-    }
+  }
+  
   .pagination > li > a, .pagination > li > span{background-color:#EEEEEE !important}
   .pagination > li.active > a, .pagination > li.active > span{background-color:#124254 !important}
-
+  
   .modal-backdrop {
-      z-index: -1!important;
-    }
-
-    iframe
-    {
-        height:700px ;
-    }
-    
-    .btn {
-    font-family: Roboto Regular, sans-serif;
-    display: inline-block;
-    padding: 6px 12px ;
-    margin: 0px;
-    font-size: 14px;
-    font-weight: 400;
-    line-height: 1.42857143;
-    text-align: center;
-    white-space: nowrap;
-    vertical-align: middle;
-    -ms-touch-action: manipulation;
-    touch-action: manipulation;
-    cursor: pointer;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-    background-image: none;
-    border: 1px solid transparent;
-    }
-    
-    .btn-primary {
-    color: #fff ;
-    margin: 0px;
-    padding: 0px;
-    background: #5cb85c!important;
-    border-color: #5cb85c!important;
-    box-shadow:none ;
-    }
-    .btn-danger {
-    color: #fff ;
-    margin: 0px;
-    padding: 0px;
-    background: #d9534f!important;
-    border-color: #d9534f!important;
-    box-shadow:none ;
-    }
-    .btn-button1{
-    color: #eeeeee ;
-    padding: 0px;
-    background: #124254 ;
-    border-color: #124254;
-    box-shadow:none ; 
-    padding: 10px 20px;
-    margin: 25px 5px 15px 0px!important;      
-    }
-    .btn-button2{
-      color: #eeeeee ;
-      margin: 0px;
-      padding: 0px;
-      background: #124254 ;
-      border-color: #124254;
-      box-shadow:none ; 
-      padding: 10px 20px;
-      margin: 25px 0px 15px 0px!important;      
-      }    
+    z-index: -1!important;
+  }
+  iframe
+  {
+    height:700px ;
+  }  
    #save{
       color:#fff;
       background: #124254;
@@ -399,9 +338,15 @@ nav h5{
    }
 
 .container{
-    background-color:rgba(255,255,255, 0.6);
-    margin: 30px 15px 25px 15px;
-    border: 2px solid #124254;
+  background-color:#dddddd;
+  padding: 1rem;
+  margin-top: 3%;
+  margin-bottom: 5%;
+  border: 2px solid #124254;
+  width: 80% !important;
+  height: auto;
+  opacity: 80%;
+  font-size: 10ptrem;
 }
 
 /* Extra small devices (phones, 600px and down) */
@@ -414,46 +359,44 @@ nav h5{
   .container {margin: 0px 0px 0px 0px;}
 }
  #datatable {
-
-    width: 100%;
-    border: 1px solid #124254;
-    font-family: Roboto regular, sans-serif;
-    border-collapse: collapse;
-    table-layout: auto;
-    margin:0px;
-    text-align: center;
-    background:rgba(255,255,255,0.8);
+  border-collapse: collapse !important;
+  table-layout: auto;
+  margin: 0px;
+  text-align: center;
+  overflow-y:scroll;
+  overflow-x:hidden !important;
+  opacity: 100%;
+  width: 100% !important;
+  background: rgba(255, 255, 255, .9);
   }
-  table.center {
-    margin-left:auto; 
-    margin-right:auto;
-    }
   thead {
-    border: 1px solid #124254;
+    width: 100%;
     color: #EEEEEE;
     background-color: #18566e;
     text-align: center;
+    opacity: 100%;
   }
-  tbody {
-    border: 1px solid #124254;
-    }
+  thead input {
+    width: 100%;
+  }
   th {
-      font-size: large;
-      border: 1px solid #124254;
-      color: #EEEEEE;
-      background-color: #18566e;
-      text-align: center;
-
-    }
+    color: #ffffff;
+    background-color: #18566e;
+    text-align: center;
+    font-size: 10pt;
+    font-family: Roboto regular, sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 2px; 
+    border: 1px solid #124254 !important;
+  }
   td {
-      font-size: large;
-      border: 1px solid #124254;
-      padding: 0px;
-      max-width: 150px;
-      max-height: 150px;
-      overflow: hidden;
-}
-
+    border: 1px solid #124254;
+    padding: 0px;
+    max-width: auto;
+    height: 30px;
+    overflow: hidden !important;
+    font-size: 10p
+  }
 article p{
   font-family: Roboto regular, sans-serif;
   color: white;
@@ -593,16 +536,26 @@ nav img.user-profile{
   font-size: 0.9rem;
 }
 /* Vote Status Percentage */
+.Bvotestat{
+  position: relative;
+  z-index: -1;
+  padding: 6px;
+  background: #124254;
+  color: #ffffff;
+  width: 100%;
+  text-align: center;
+  font-family: Roboto Regular, sans-serif;
+  letter-spacing: 6px;
+}
 .Bvotestat p{
   font-family: Roboto black;
   color: #ffc423;
-  font-weight: inherit;
-  font-size: 45px;
-  position: relative;
-  letter-spacing: 3px;
+  letter-spacing: 4px;
   text-align: center;
-  margin-top: 25px;
-  z-index:-1000;
+  z-index:1;
+  font-size: 30px;
+  margin-top: .5%;
+  margin-bottom: .5%;
  }
 .Bcon{
     display: flex;
@@ -636,10 +589,10 @@ nav img.user-profile{
   content: '';
   position: absolute;
   top: 0;
-  left: 0%; 100%;
-  backgro
+  left: 0%; 
+  background: rgba(73, 163, 0, 0.03);
   width: 100%;
-  height:und: rgba(73, 163, 0, 0.03);
+  height: 100%;
   pointer-events: none;
   z-index:1;
 }
@@ -649,12 +602,12 @@ nav img.user-profile{
 }
 .Bvs_gradelevel p{
   font-family: Roboto black;
-  font-size: 20px;
+  font-size: 28px;
   position: relative;
   letter-spacing: 3px;
   text-align: center;
   z-index:-1000;
-  margin-top: 140px;
+  margin-top: 20px;
 }
 .Bnp{
   margin-top: -12px;
