@@ -482,13 +482,13 @@ td {
   z-index: -1;
   padding: 6px;
   background: #124254;
-  color: #ffffff;
   width: 100%;
   text-align: center;
   font-family: Roboto Regular, sans-serif;
   letter-spacing: 6px;
 }
 h2.aHeader-txt{
+  color: #ffc423;
   font-size: 24px;
   margin-top: .5%;
   margin-bottom: .5%;
