@@ -400,8 +400,6 @@ div p.elec-guide-txt{
   margin-bottom: 0;
   float: right;
 }
-
-
 /* Election*/
 .Belecstat p{
   font-family: Roboto black;
@@ -507,7 +505,6 @@ div p.elec-guide-txt{
 .Bbtn_postresults:hover {background:  #ffc423;}
 .Bbtn_postresults:success {color: white}
 .Bbtn_postresults:default {color: black;}
-
 /* Vote Status */
 .Bvotestat p{
   font-family: Roboto black;
@@ -664,7 +661,6 @@ svg circle:nth-child(2){
   stroke-dashoffset: calc(440 - (440 * 45) / 100);
   stroke:  #ff9124;
 }
-
 /* Election Archives Folder*/
 .Barchives p{
   font-family: Roboto black;

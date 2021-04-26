@@ -85,7 +85,6 @@
     <div class="Bvotestat">
         <p><b>VOTE STATUS</b></p>
     </div>
-    <button class="Bbtn_goback" onclick="goBack()">Go Back</button>
     <div class="Bvs_gradelevel">
     <?php $samp = $_GET['level']; //gets the value from prev page
         echo '<p>GRADE '.$samp.'</p>';?>

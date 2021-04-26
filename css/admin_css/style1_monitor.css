@@ -399,7 +399,7 @@ nav h5{
    }
 
 .container{
-    background-color:#f5f5f5;
+    background-color:rgba(255,255,255, 0.6);
     margin: 30px 15px 25px 15px;
     border: 2px solid #124254;
 }
@@ -416,14 +416,14 @@ nav h5{
  #datatable {
 
     width: 100%;
-    border: 2px solid #124254;
+    border: 1px solid #124254;
     font-family: Roboto regular, sans-serif;
     border-collapse: collapse;
     table-layout: auto;
     margin:0px;
     text-align: center;
+    background:rgba(255,255,255,0.8);
   }
-
   table.center {
     margin-left:auto; 
     margin-right:auto;
@@ -534,9 +534,6 @@ nav img.user-profile{
   text-align: center;
   letter-spacing: 7px;
 }
-
-
-  
   <!--Message Box-->
   ::-webkit-scrollbar {
     width: 15px;
@@ -573,13 +570,11 @@ nav img.user-profile{
     font-family: Roboto regular,sans-serif;
     font-size: 1rem;
   }
-  
   .messages-box,
   .chat-box {
     height: 390px;
     overflow-y: scroll;
   }
-  
   .rounded-lg {
     border-radius: 0.5rem;
   }
@@ -648,10 +643,7 @@ nav img.user-profile{
   pointer-events: none;
   z-index:1;
 }
-
-
 /*Vote Status per grade level*/
-
 .table{
  text-align: center;
 }
@@ -662,19 +654,7 @@ nav img.user-profile{
   letter-spacing: 3px;
   text-align: center;
   z-index:-1000;
-  margin-top: -50px;
-}
-
-.Bbtn_goback{
-  border: none;
-  font-style: Roboto;
-  background-color:white;
-  padding: 6px 8px;
-  margin-left: 10px;
-  font-size: 11px;
-  cursor: pointer;
-  border-radius: 20px;
-  margin-bottom: 15px;
+  margin-top: 140px;
 }
 .Bnp{
   margin-top: -12px;
@@ -687,18 +667,6 @@ nav img.user-profile{
 .Bnp a:hover {
   background-color: #ffc423;
   color: #1d6986;
-}
-.Bprevious {
-  background-color: white;
-  color: black;
-  font-size: 16px;
-  margin-left: 667px;
-}
-.Bnext {
-  background-color: white;
-  color:black;
-  font-size: 16px;
-  margin-left: 5px;
 }
 .round {
   border-radius: 50%;

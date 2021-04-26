@@ -284,7 +284,6 @@ nav h5{
 }
 .cnavie ul li a{
   font-size: 1.05em;
-
 }
 .cheader {
     z-index: 100;
@@ -297,7 +296,6 @@ nav h5{
     font-family: Roboto Regular, sans-serif;
     letter-spacing: 6px; 
 }
-  
 .pagination>li {
   display: inline;
   padding:0px ;
@@ -315,7 +313,6 @@ iframe
 {
   height:700px ;
 }
-    
 .btn {
     font-family: Roboto Regular, sans-serif;
     display: inline-block;
@@ -598,17 +595,15 @@ nav img.user-profile{
     font-family: Roboto regular,sans-serif;
     font-size: 1rem;
   }
-  
+
   .messages-box,
   .chat-box {
     height: 390px;
     overflow-y: scroll;
   }
-  
   .rounded-lg {
     border-radius: 0.5rem;
   }
-  
   input::placeholder {
     font-size: 1.0rem;
     color: #999;
@@ -617,7 +612,6 @@ nav img.user-profile{
     font-weight: bold;
     font-size: 1rem;
     margin-bottom: 0;
-
   }
 .cmessage{
   font-size: 0.9rem;
