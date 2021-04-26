@@ -13,7 +13,7 @@ $dbname = "bucielsmain2";
     
     $conn = new mysqli($servername,$username,$password,$dbname);
     if ($conn -> connect_errno) {
-        echo "Failed to connect to MySQL: " . $conn -> connect_error;
+        echo "Failed to connect to Database: " . $conn -> connect_error;
         exit();
     }
 
