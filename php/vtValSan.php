@@ -2,7 +2,6 @@
     // convert values to acceptable data types
     function fixDataType($data){
         $data = trim($data);
-        // $data = cleanInput($data);
         $data = stripslashes($data);
         $data = htmlspecialchars($data);
         $data = intval($data);
@@ -34,7 +33,7 @@
 
      function isVoted($conn){
         // check if user has already voted
-        $stud_id = $_SESSION['student_id'];
+        $stud_id = $conn->real_escape_string($_SESSION['student_id']);
         $voter = $conn->query("SELECT * FROM student WHERE student_id = $stud_id");
         $student = $voter->fetch_assoc();
         // see if login already has voter info
@@ -47,12 +46,12 @@
     }
 
     function isValidUser($conn){  // checks if user is registered
-        $studd_id = $_SESSION['student_id'];
+        $studd_id = $conn->real_escape_string($_SESSION['student_id']);
         $voter = $conn->query("SELECT * FROM student WHERE student_id = $studd_id");
         $poss = $voter->fetch_assoc();
         // echo $studd_id;
         // echo $poss["fname"]." ".$poss["lname"]." ".$poss["student_id"];
-        if($poss != NULL && ($poss["lname"] === $_SESSION['lname'] && $poss["fname"] === $_SESSION['fname'] && $poss["student_id"] === $_SESSION['student_id'] && $poss["bumail"] === $_SESSION['bumail'])){
+        if($poss != NULL && ($poss["lname"] === $_SESSION['lname'] && $poss["fname"] === $_SESSION['fname'] && $poss["student_id"] == $_SESSION['student_id'] && $poss["bumail"] === $_SESSION['bumail'])){
             return true;
         }
         else{
@@ -79,22 +78,31 @@
         // checks if selection is valid candidate
         $table = $conn->query("SELECT * FROM ((candidate INNER JOIN student ON candidate.student_id = student.student_id) INNER JOIN candidate_position ON candidate.position_id = candidate_position.position_id) ORDER BY candidate_position.heirarchy_id"); // get positions
         mysqli_data_seek($table, 0);
-        // if($ballot_cand_id == 0){
-        //     return true;
-        // }
-        // else{
+        if($ballot_cand_id == 0){
+            return true;
+            // return 1;
+        }
+        else{
             while($poss = $table->fetch_assoc()){
+                // echo $poss['candidate_id']." ".$poss['fname']; 
                 if($ballot_cand_id == $poss['candidate_id']){
+                    // echo "Matched";
                     if($poss['heirarchy_id'] === $ballot_heir_id){
                         return true;
+                        // return 1;
+                        // echo "Valid";
                     }
                     else{
                         return false;
+                        // return 2;
+                        // echo "Invalid";
                     }
                 }
+                // echo "<br>";
             }
             return false;
-        // }
+            // return 2;
+        }
     }
 
     function errorMessage($message){
@@ -120,7 +128,7 @@
         }
         </script>';
     }
-    
+
     function redirect($url){
         if (headers_sent()){
           die('<script type="text/javascript">window.location.replace("'.$url.'");</script‌​>');
@@ -130,5 +138,17 @@
         }    
     }
 
-
+    function notifyAdmin($text){
+        if($text != ""){
+            date_default_timezone_set("Asia/Singapore");
+            $session_info = "<br><br>More info about the sender: <br>Student Name: ".$_SESSION['fname']." ".$_SESSION['lname'].
+            "<br>Grade Level: ".$_SESSION['grade_level'].
+            "<br>Email: ".$_SESSION['bumail'].
+            "<br>Student ID: ".$_SESSION['student_id'].
+            "<br>TIme Attempted: ".date("h:i:sa");
+            $text_message = "1||".$text.$session_info."||".date('h:i')."||".date('Y/m/d')."##\n";
+            $file = "../user/msg/system.html";
+            file_put_contents($file, $text_message, FILE_APPEND | LOCK_EX);
+        }
+    }
 ?>
