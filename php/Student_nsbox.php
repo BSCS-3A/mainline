@@ -118,9 +118,10 @@ session_start();
         </div>
         <!-- /.modal-dialog --> 
       </div>
-          <div class="footer">
+      <br><br><br> <!-- footer distance - PM-->
+          <!-- <div class="footer">
             <p class="footer-txt">BS COMPUTER SCIENCE 3A © 2021</p>
-        </div>    
+        </div>     -->
         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <script type="text/javascript">
 

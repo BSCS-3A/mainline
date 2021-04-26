@@ -130,7 +130,7 @@ use of username instead of admin id in the display table
                               <tr> 
                                   <th class="text-center">DATE</th>
                                   <th class="text-center">TIME</th>
-                                  <th class="text-center">ADMIN ID</th>
+                                  <th class="text-center">ADMIN USERNAME</th>
                                   <th class="text-center">ACTION</th>    
                     
                               </tr>
@@ -138,15 +138,15 @@ use of username instead of admin id in the display table
      
                           <tbody>
                               <?php
-                                  while($row = mysqli_fetch_array($results))
-                                  {
-                                      echo "<tr>";
-                                          echo "<td>" . $row['activity_date'] . "</td>";
-                                          echo "<td>" . $row['activity_time'] . "</td>";
-                                          echo "<td>" . $row['admin_id'] . "</td>";
-                                          echo "<td>" . $row['activity_description'] . "</td>";
-                                      echo "</tr>";
-                                  }
+                                //   while($row = mysqli_fetch_array($results))
+                                //   {
+                                //       echo "<tr>";
+                                //           echo "<td>" . $row['activity_date'] . "</td>";
+                                //           echo "<td>" . $row['activity_time'] . "</td>";
+                                //           echo "<td>" . $row['admin_id'] . "</td>";
+                                //           echo "<td>" . $row['activity_description'] . "</td>";
+                                //       echo "</tr>";
+                                //   }
                               
                                   // Create connection
                                   include "db_conn.php";

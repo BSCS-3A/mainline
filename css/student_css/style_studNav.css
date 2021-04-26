@@ -66,6 +66,7 @@
   nav .Alogo{
     float: left;
     position: relative;
+    margin-bottom:20px; /*add distance - PM */
     line-height: 80px;
     margin-top: 14px;
     margin-left: 40px;

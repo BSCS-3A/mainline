@@ -3,7 +3,7 @@
   padding: 0;
   user-select: none;
   box-sizing: border-box;
-  font-family: Roboto,Roboto Condensed,Generica, sans-serif;
+  /* font-family: Roboto,Roboto Condensed,Generica, sans-serif; */
   list-style: none;  
 }
 body{  
