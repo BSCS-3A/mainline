@@ -52,7 +52,7 @@
         $poss = $voter->fetch_assoc();
         // echo $studd_id;
         // echo $poss["fname"]." ".$poss["lname"]." ".$poss["student_id"];
-        if($poss != NULL && ($poss["lname"] == $_SESSION['lname'] && $poss["fname"] == $_SESSION['fname'] && $poss["student_id"] == $_SESSION['student_id'] && $poss["bumail"] == $_SESSION['bumail'])){
+        if($poss != NULL && ($poss["lname"] === $_SESSION['lname'] && $poss["fname"] === $_SESSION['fname'] && $poss["student_id"] === $_SESSION['student_id'] && $poss["bumail"] === $_SESSION['bumail'])){
             return true;
         }
         else{
@@ -85,7 +85,7 @@
         // else{
             while($poss = $table->fetch_assoc()){
                 if($ballot_cand_id == $poss['candidate_id']){
-                    if($poss['heirarchy_id'] == $ballot_heir_id){
+                    if($poss['heirarchy_id'] === $ballot_heir_id){
                         return true;
                     }
                     else{
