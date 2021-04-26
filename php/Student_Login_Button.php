@@ -31,8 +31,8 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
 	   return $data;
 	}
 //gets the input from the textbox in the StudentLogin.php
-	$username = validate($_POST['username']);
-	$pass = validate($_POST['password']); //hash here
+	$username = $conn->real_escape_string(validate($_POST['username']));
+	$pass = $conn->real_escape_string(validate($_POST['password'])); //hash here
 
 	if (empty($username)) {
 		header("Location: ..\index.php?error=User Name is required");
@@ -42,7 +42,6 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
 	    exit();
 	}else{
 		$sql = "SELECT * FROM student WHERE bumail='$username' AND otp='$pass'";
-
 		$result = mysqli_query($conn, $sql);
 //check if every inputs matched if yes go directly to the dashboard
 		if (mysqli_num_rows($result)===1) {
