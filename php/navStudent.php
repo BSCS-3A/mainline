@@ -19,7 +19,7 @@
     <meta charset="utf-8">
     <link rel="icon" href="../img/BUHS LOGO.png" type="image/png">
     <link rel="stylesheet" href="../css/student_css/bootstrap_studDash.css">
-    <link rel="stylesheet" href="../css/student_css/font-awesome_studDash.css">
+    <!-- <link rel="stylesheet" href="../css/student_css/font-awesome_studDash.css"> -->
     <!-- <link rel="stylesheet" type="text/css" href="../css/student_css/style_studDash.css"> -->
     <link rel="stylesheet" type="text/css" href="../css/student_css/style_studNav.css">
     
@@ -57,7 +57,7 @@
             </li>
             <li>
                 <label for="btn-4" class="Ashow">CHAT US</label>
-                <a class="Atopnav" href="#">CHAT US</a>
+                <a class="Atopnav" href="Student_nsbox.php">CHAT US</a>
             </li>
             <li>
                 <label for="btn-5" class="Ashow"><?php //echo $_SESSION['fname']." ".$_SESSION['lname']; ?></label>

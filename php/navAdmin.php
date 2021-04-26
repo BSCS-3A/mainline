@@ -23,6 +23,7 @@ SOLVED ^^ font-awesome_addAdmin may kasalanan lol, + dataTables.bootstrap
 <head>
     <!-- CSS AND JAVASCRIPT LINK -->
     <!-- BASED ON ADMIN DASHBOARD -->
+  
 
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
@@ -33,7 +34,8 @@ SOLVED ^^ font-awesome_addAdmin may kasalanan lol, + dataTables.bootstrap
     <!-- <link rel="stylesheet" href="../css/admin_css/font-awesome_AdminDash.css"> -->
     
     <!-- <link rel="stylesheet" type="text/css" href="../css/admin_css/style1_addAdmin.css"> -->
-    <link rel="stylesheet" href="../css/admin_css/bootstrap_addAdmin.css">
+    <!-- <link rel="stylesheet" href="../css/admin_css/bootstrap_addAdmin.css"> -->
+    <link rel="stylesheet" href="../css/admin_css/bootstrap_navAdmin.css">
     <!-- <link rel="stylesheet" href="../css/admin_css/dataTables.bootstrap_addAdmin.css"> -->
     <!-- <link rel="stylesheet" href="../css/admin_css/font-awesome_addAdmin.css">  -->
   
@@ -101,10 +103,10 @@ SOLVED ^^ font-awesome_addAdmin may kasalanan lol, + dataTables.bootstrap
                     <li><a href="Admin_voteSum.php">Vote Summary</a></li>
                 </ul>
             </li>
-            <li><a href="#">MESSAGES</a></li>
+            <li><a href="Admin_MessageBox.php">MESSAGES</a></li>
             <li>
                 <label for="btn-5" class="Ashow"><?php echo $_SESSION['admin_fname']." ".$_SESSION['admin_lname']; ?></label>
-                <a class="user" href="#"><img class="user-profile" src="../img/<?php echo $_SESSION['photo']; ?>"></a>
+                <a class="user" href="#"><img class="user-profile" src="../user/img/<?php echo $_SESSION['photo']; ?>"></a>
                 <input class="nav-toggle6" type="checkbox" id="btn-5">
                 <ul>
                     
