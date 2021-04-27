@@ -25,7 +25,7 @@ date_default_timezone_set('Asia/Manila');
     <link rel="stylesheet" type="text/css" href="../css/student_css/style_studNav.css">
     
     <!-- for disabling inspect element -->
-    <!-- <script src="../js/scripts_vote.js"></script> -->
+    <script src="../js/scripts_vote.js"></script>
     <title>BUCEILS HS Online Voting System</title>
 </head>
 
