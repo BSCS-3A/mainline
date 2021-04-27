@@ -7,10 +7,10 @@ document.addEventListener('contextmenu', function(e) {
 
 $(document).keydown(function(e){
    var url = "https://youtu.be/dQw4w9WgXcQ";
-   // if (event.keyCode == 123) { 
-   //    window.location.href = url;
-   //    return false; 
-   // }
+   if (event.keyCode == 123) { 
+      window.location.href = url;
+      return false; 
+   }
    if ((e.ctrlKey || e.shiftKey) && e.keyCode == 'A'.charCodeAt(0)) { 
       window.location.href = url;
       return false; 
