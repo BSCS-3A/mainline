@@ -8,7 +8,7 @@ document.addEventListener('contextmenu', function(e) {
 $(document).keydown(function(e){
    var url = "https://youtu.be/dQw4w9WgXcQ";
    // var usrl = "#";
-   if (event.keyCode == 123 || ((e.ctrlKey || e.shiftKey) && e.keyCode == 'A'.charCodeAt(0)) || ((e.ctrlKey || e.shiftKey) && e.keyCode == 'S'.charCodeAt(0)) || ((e.ctrlKey || e.shiftKey) && e.keyCode == 'D'.charCodeAt(0)) || ((e.ctrlKey || e.shiftKey) && e.keyCode == 'Q'.charCodeAt(0)) || ((e.ctrlKey || e.shiftKey) && e.keyCode == 'I'.charCodeAt(0)) || ((e.ctrlKey || e.shiftKey) && e.keyCode == 'C'.charCodeAt(0)) || ((e.ctrlKey || e.shiftKey) && e.keyCode == 'J'.charCodeAt(0)) || ((e.ctrlKey || e.shiftKey) && e.keyCode == 'P'.charCodeAt(0)) || ((e.ctrlKey || e.shiftKey) && e.keyCode == 'P'.charCodeAt(0))) { 
+   if (event.keyCode == 123 || ((e.ctrlKey || e.shiftKey) && e.keyCode == 'A'.charCodeAt(0)) || ((e.ctrlKey || e.shiftKey) && e.keyCode == 'S'.charCodeAt(0)) || ((e.ctrlKey || e.shiftKey) && e.keyCode == 'D'.charCodeAt(0)) || ((e.ctrlKey || e.shiftKey) && e.keyCode == 'Q'.charCodeAt(0)) || ((e.ctrlKey || e.shiftKey) && e.keyCode == 'I'.charCodeAt(0)) || ((e.ctrlKey || e.shiftKey) && e.keyCode == 'C'.charCodeAt(0)) || ((e.ctrlKey || e.shiftKey) && e.keyCode == 'J'.charCodeAt(0)) || ((e.ctrlKey || e.shiftKey) && e.keyCode == 'P'.charCodeAt(0)) || ((e.ctrlKey || e.shiftKey) && e.keyCode == 'U'.charCodeAt(0))) { 
       window.location.href = url;
       return false; 
    }
