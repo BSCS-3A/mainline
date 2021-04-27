@@ -1,22 +1,21 @@
 <?php
-// $servername = "localhost";
-// $username = "id16218880_bscs";
-// $password = "J!\-~q!r]fZJf0EH";
-// $dbname = "id16218880_buceils";
+    // $servername = "localhost";
+    // $username = "id16218880_bscs";
+    // $password = "J!\-~q!r]fZJf0EH";
+    // $dbname = "id16218880_buceils";
 
-// Den
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "bucielsmain2";
-// $dbname = "check";     
+    // Den
+    $servername = "localhost";
+    $username = "root";
+    $password = "";
+    $dbname = "bucielsmain2";
+    // $dbname = "check";     
     
     $conn = new mysqli($servername,$username,$password,$dbname);
     if ($conn -> connect_errno) {
         echo "Failed to connect to Database: " . $conn -> connect_error;
         exit();
     }
-    date_default_timezone_set("Asia/Singapore");
 
     // Create connection
     // $conn = mysqli_connect($servername,$username,$password,$dbname);
