@@ -22,7 +22,7 @@
     <!-- <link rel="stylesheet" href="../css/student_css/font-awesome_studDash.css"> -->
     <!-- <link rel="stylesheet" type="text/css" href="../css/student_css/style_studDash.css"> -->
     <link rel="stylesheet" type="text/css" href="../css/student_css/style_studNav.css">
-    <script src="../js/scripts_vote.js"></script>
+    <!-- <script src="../js/scripts_vote.js"></script> -->
     <title>BUCEILS HS Online Voting System</title>
 </head>
 
