@@ -7,7 +7,7 @@
     <meta name="HandheldFriendly" content="true">
     <!-- <link rel="icon" href="assets/img/buceils-logo.png"> -->
     <link rel="icon" href="../img/BUHS LOGO.png" type="image/png">
-    <link rel="stylesheet" type="text/css" href="../css/admin_css/style1_msgbox.css">
+    <link rel="stylesheet" type="text/css" href="../css/admin_css/style1_studAcc.css">
     <link rel="stylesheet" href="../css/admin_css/font-awesome.min_studAcc.css">
     <link rel="stylesheet" href="../css/admin_css/bootstrap4.3.1.min_msgbox.css">
     <script src="../js/jquery-3.3.1.slim.min_msgbox.js"></script>

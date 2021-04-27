@@ -65,7 +65,7 @@ nav ul{
   z-index: 4;
 }
 nav ul li{
-  float: left;
+  /* float: left; */
   display: inline-block;
   height: 80px;
   background: #1d6986;
