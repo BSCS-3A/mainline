@@ -16,6 +16,7 @@ $dbname = "bucielsmain2";
         echo "Failed to connect to Database: " . $conn -> connect_error;
         exit();
     }
+    date_default_timezone_set("Asia/Singapore");
 
     // Create connection
     // $conn = mysqli_connect($servername,$username,$password,$dbname);
