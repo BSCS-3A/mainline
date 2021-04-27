@@ -47,6 +47,10 @@
                     $start_time = strtotime($sched['start_date']);
                     $end_time = strtotime($sched['end_date']);
                     $access_time = time();
+
+                    echo "start time".$start_time.' <br>';
+                    echo "end time".$end_time.' <br>';
+                    echo "access time".$access_time.' <br>';
                     
                     if($access_time > $end_time){
                         errorMessage("Election is already finished");
