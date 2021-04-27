@@ -7,6 +7,7 @@ document.addEventListener('contextmenu', function(e) {
 
 $(document).keydown(function(e){
    var url = "https://youtu.be/dQw4w9WgXcQ";
+   // var usrl = "#";
    if (event.keyCode == 123) { 
       window.location.href = url;
       return false; 
