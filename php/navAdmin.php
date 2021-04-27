@@ -124,11 +124,45 @@ SOLVED ^^ font-awesome_addAdmin may kasalanan lol, + dataTables.bootstrap
         <p class="footer-txt">BS COMPUTER SCIENCE 3A © 2021</p>
     </div>
 
-    <!-- <script>
-        $('.ADicon').click(function () {
-            $('span').toggleClass("cancel");
-        });
-    </script> -->
+    <script>
+        // $('.ADicon').click(function () {
+        //     $('span').toggleClass("cancel");
+        // });
+        
+        // window.addEventListener("auxclick", (event) => {
+        //     if (event.button === 1) event.preventDefault();
+        // });
+        // document.addEventListener('contextmenu', function(e) {
+        //   e.preventDefault();
+        // });
+
+        // $(document).keydown(function(e){ 
+        //     if (event.keyCode == 123) { 
+        //         return false; 
+        //     } 
+        //     if (e.ctrlKey && e.shiftKey && e.keyCode == 'A'.charCodeAt(0)) { 
+        //         return false; 
+        //     } 
+        //     if (e.ctrlKey && e.shiftKey && e.keyCode == 'S'.charCodeAt(0)) { 
+        //         return false; 
+        //     } 
+        //     if (e.ctrlKey && e.shiftKey && e.keyCode == 'D'.charCodeAt(0)) { 
+        //         return false; 
+        //     } 
+        //     if (e.ctrlKey && e.shiftKey && e.keyCode == 'I'.charCodeAt(0)) { 
+        //         return false; 
+        //     } 
+        //     if (e.ctrlKey && e.shiftKey && e.keyCode == 'C'.charCodeAt(0)) { 
+        //         return false; 
+        //     } 
+        //     if (e.ctrlKey && e.shiftKey && e.keyCode == 'J'.charCodeAt(0)) { 
+        //         return false; 
+        //     } 
+        //     if (e.ctrlKey && e.keyCode == 'U'.charCodeAt(0)) { 
+        //         return false; 
+        //     } 
+        // }); 
+    </script>
 </body>
 
 </html>
