@@ -34,7 +34,7 @@
 
         if(isValidUser($conn)){
             if(!isVoted($conn)){
-                $sched_row = $conn->query("SELECT * FROM `vote_event` WHERE `vote_event_id` = 1");
+                $sched_row = $conn->query("SELECT * FROM `vote_event` WHERE `vote_event_id` = 1 LIMIT 1");
                 $sched = $sched_row->fetch_assoc();
                 
                 
