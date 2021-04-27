@@ -361,12 +361,13 @@ aside{
   color: #333;
   float: left;
   text-align: center;
-  margin-left: 50px;
-  top: 50px;
-  bottom: 0;
+  margin-right: 30px;
+  margin-left: 30px;
+  top: 80px;
+  padding-bottom: 50px;
   position: relative;
   max-width: 500px;
-
+  float: right;
 }
 div h1 {
   font-weight: normal;
