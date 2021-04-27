@@ -17,7 +17,7 @@
     <title> Message Box</title>
 </head>
 <body>
-  <?php include "navAdmin.php"; ?>
+  <?php include "navAdmin.php";?>
 
     <!-- <nav class="cnavie">
         <input id="nav-toggle" type="checkbox">
