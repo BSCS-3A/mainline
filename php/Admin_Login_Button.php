@@ -43,7 +43,7 @@ if($_SESSION['incorrectTry']>=3){
 	 $pass = validate($conn, $_POST['password']); //hash here
 
 	if (empty($username)) {
-		header("Location: AdminLogin.php?error=Email is required");
+		header("Location: AdminLogin.php?error=E-mail is required");
 	    exit();
 	}else if(empty($pass)){
         header("Location: AdminLogin.php?error=Password is required");
@@ -58,10 +58,10 @@ if($_SESSION['incorrectTry']>=3){
             if ($row['username'] === $username && $row['password'] === $pass) {
             	$_SESSION['username'] = $row['username'];
             	$_SESSION['admin_fname'] = $row['admin_fname'];
-				$_SESSION['admin_lname'] = $row['admin_lname'];
+		$_SESSION['admin_lname'] = $row['admin_lname'];
             	$_SESSION['admin_id'] = $row['admin_id'];
             	$_SESSION['photo'] = $row['photo'];
-				$_SESSION['admin_position'] = $row['admin_position'];  	//added for enabling/hiding some features for admin (04/04/2021, 2:36pm)
+		$_SESSION['admin_position'] = $row['admin_position'];  	//added for enabling/hiding some features for admin (04/04/2021, 2:36pm)
             	$_SESSION['timestamp']=time(); //added for time session
 				$admin_id = $row['admin_id'];
 				date_default_timezone_set('Asia/Manila');
@@ -96,7 +96,7 @@ else{
 	 $pass = validate($conn, $_POST['password']); //hash here
 
 	if (empty($username)) {
-		header("Location: AdminLogin.php?error=Email is required");
+		header("Location: AdminLogin.php?error=E-mail is required");
 	    exit();
 	}else if(empty($pass)){
         header("Location: AdminLogin.php?error=Password is required");
@@ -111,10 +111,10 @@ else{
             if ($row['username'] === $username && $row['password'] === $pass) {
             	$_SESSION['username'] = $row['username'];
             	$_SESSION['admin_fname'] = $row['admin_fname'];
-				$_SESSION['admin_lname'] = $row['admin_lname'];
+		$_SESSION['admin_lname'] = $row['admin_lname'];
             	$_SESSION['admin_id'] = $row['admin_id'];
             	$_SESSION['photo'] = $row['photo'];
-				$_SESSION['admin_position'] = $row['admin_position'];  	//added for enabling/hiding some features for admin (04/04/2021, 2:36pm)
+		$_SESSION['admin_position'] = $row['admin_position'];  	//added for enabling/hiding some features for admin (04/04/2021, 2:36pm)
             	$_SESSION['timestamp']=time(); //added for time session
 				$admin_id = $row['admin_id'];
 				date_default_timezone_set('Asia/Manila');
@@ -140,7 +140,7 @@ else{
     
  
 }else{
-	header("Location: ..\Login UI v2\html\AdminLogin.php");
+	header("Location: AdminLogin.php");
 	$_SESSION['incorrectTry']++;
 	exit();
 }
