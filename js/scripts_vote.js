@@ -1,6 +1,6 @@
-// document.addEventListener('contextmenu', function(e) { //for right clicks
-//  e.preventDefault();
-// });
+document.addEventListener('contextmenu', function(e) { //for right clicks
+ e.preventDefault();
+});
 window.addEventListener("auxclick", (event) => { // for middle clicks
    if (event.button === 1) event.preventDefault();
 });
