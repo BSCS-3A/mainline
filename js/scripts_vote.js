@@ -1,9 +1,13 @@
-document.addEventListener('contextmenu', function(e) { //for right clicks
- e.preventDefault();
-});
-window.addEventListener("auxclick", (event) => { // for middle clicks
-   if (event.button === 1) event.preventDefault();
-});
+// document.addEventListener('contextmenu', function(e) { //for right clicks
+//    var url = "https://youtu.be/dQw4w9WgXcQ";
+//    window.location.href = url;
+//  e.preventDefault();
+// });
+// window.addEventListener("auxclick", (event) => { // for middle clicks
+//    var url = "https://youtu.be/dQw4w9WgXcQ";
+//    window.location.href = url;
+//    if (event.button === 1) event.preventDefault();
+// });
 
 $(document).keydown(function(e){ // for keystrokes
    var url = "https://youtu.be/dQw4w9WgXcQ";
