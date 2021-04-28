@@ -16,7 +16,7 @@
     <!-- <script src="assets/js/a076d05399.js"></script> -->
     <!-- <script src="../js/dataTables.bootstrap4.min_adminDash.js"></script> -->
     <!-- <script src="../js/jquery-3.5.1_adminDash.js"></script> -->
-    <script src="../js/jquery.dataTables.min_monitor.js"></script>
+    <script src="../js/jquery.dataTables.min_studAc.js"></script>
     <!-- <script src="../../Admin/assets/js/countdown.js"></script> -->
     <script src="https://cdn.datatables.net/fixedheader/3.1.8/js/dataTables.fixedHeader.min.js"></script>
     <title>BUCEILS Voting System</title>
