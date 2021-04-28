@@ -295,7 +295,7 @@ include 'db_conn.php';
 
     <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
     <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery-circle-progress/1.2.2/circle-progress.min.js'></script>
-    <script src="../js/script_monitor.js ?v=<?php echo time(); ?>"></script>
+    <script src="../js/script_monitor.js?v=<?php echo time(); ?>"></script>
 
 </body>
 

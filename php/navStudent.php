@@ -51,7 +51,7 @@ date_default_timezone_set('Asia/Manila');
                 <ul>
                     <li><a href="#" class="Aelec-text">ELECTION PROCESS</a></li>
                     <li><a href="#">ARCHIVE</a></li>
-                    <li><a href="Student_ElecStat.php">RESULTS</a></li>
+                    <li><a href="front_ElectStat.php">RESULTS</a></li>
                 </ul>
             </li>
             <li>

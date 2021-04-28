@@ -3,12 +3,12 @@
   padding: 0;
   user-select: none;
   box-sizing: border-box;
-  font-family: Roboto,Roboto Condensed,Generica, sans-serif;
+  /* font-family: Roboto,Roboto Condensed,Generica, sans-serif; */
   list-style: none;  
 }
 body{  
   font-family: Roboto,Roboto Thin,Generica, sans-serif;  
-  background-image: url("../../img/studentBG.png");
+  background-image: url("../img/studentBG.png");
   background-size: cover;
   font-size: 100%;
   background-attachment: fixed;
@@ -63,7 +63,7 @@ nav ul{
   z-index: 4;
 }
 nav ul li{
-  /* float: left; */
+  float: left;
   display: inline-block;
   height: 80px;
   background: #f8f8f8;
@@ -186,6 +186,7 @@ nav ul ul ul li{
   font-size: 15px;
   margin-left: 40px;
 } */
+
 @media all and (max-width: 968px) {
   nav ul{
     margin-right: 0px;
@@ -260,13 +261,16 @@ nav ul ul ul li{
   }
   span.cancel:before{
     content: '\f00d';
-  } 
+  }
+  
 }
+
 header{
   font-size: 35px;
   font-weight: 600;
   padding: 10px 0;
 }
+
 p{
   font-size: 30px;
   font-weight: 500;
@@ -403,13 +407,14 @@ div p.elec-guide-txt{
   font-size: 1.6em;
   margin-top: 3em;
 }
+
 /* On-Going Election*/
  .Belec1 p{
   font-family: Roboto regular;
   color:#1f6f8f;
   font-weight: inherit;
   font-size: 500%;
-  margin-top: 3%;
+  margin-top: 6%;
   letter-spacing: 4px;
   text-align: center;
 }
@@ -439,6 +444,7 @@ div p.elec-guide-txt{
   font-family: Roboto;
   letter-spacing: 1px;
   font-size: 100%;
+
 }
 /*No On-going Election*/
 .Belec2 p{
@@ -446,7 +452,7 @@ div p.elec-guide-txt{
   color:#1f6f8f;
   font-weight: inherit;
   font-size: 500%;
-  margin-top: 160px;
+  margin-top: 6%;
   letter-spacing: 4px;
   text-align: center;
 }
@@ -469,16 +475,18 @@ div p.elec-guide-txt{
   text-align: center;
   margin-top: 100px;
 }
+
 /* End of Election*/
 .Belec_end1 p{
   font-family: Roboto regular;
   color:#1f6f8f;
   font-weight: inherit;
   font-size: 500%;
-  margin-top: 100px;
+  margin-top: 4%;
   letter-spacing: 4px;
   text-align: center;
 }
+
 .Belec_end2 h1{
   font-family: Roboto regular;
   color: #142d4f;
@@ -487,14 +495,15 @@ div p.elec-guide-txt{
   position: relative;
   letter-spacing: 4px;
   text-align: center;
-  margin-top: -0.5%;
+  margin-top: -0.8%;
 }
+
 .Belec_end3 p{
   font-family: Roboto regular;
   color:#1f6f8f;
   font-weight: inherit;
   font-size: 500%;
-  margin-top:-2%;
+  margin-top:-4%;
   letter-spacing: 4px;
   text-align: center;
 }
@@ -913,42 +922,11 @@ div p.elec-guide-txt{
   object-fit: cover;  
   text-align: center;
 }
-.Bpstn{
-  background-color:rgba(255, 255, 255, 0.773);
-  padding-top: 4%;
-  width:98%;
-  height: 98%;
-  margin-bottom: 5%;
-  border-radius: 30px;
-  box-shadow: 0 4px 8px 0 rgb(0 0 0 / 20%);
-}
 .Bpstn .Bnum_votes{
-  color: rgb(152, 43, 43);
-  padding-top: 20px;
+  color: red;
   font-weight: bold;
 }
-.Bpstn .Bname{
-  margin-top: -7px;
-  color:  #142d4f;
-  font-weight: bold;
-}
-.Bpstn .Bpstn{
-  margin-top: -25px;
-  color:  #e9b647;
-  font-weight: bold;
-}
-.Bpstn .Bparty{
-  margin-top: 0px;
-  color:  #142d4f;
-  font-weight: bold;
-}
-.Bpstn .Bpos{
-  margin: -6px auto 0px auto;
-  /* color:  #fdae45; */
-  background-color: #fece4b;
-  font-weight: initial; 
-  width: 70%;
-}
+
 /* Election Archives Folder*/
 .Barch p{
   font-family: Roboto black;
@@ -1012,6 +990,7 @@ width: 150px;
 height:150px;
 z-index:1000;
 }
+
 /*Election Archives List*/
 .Barch_year{
   font-family: Roboto black;
@@ -1049,4 +1028,15 @@ z-index:1000;
   font-size: 15px;
   object-fit: cover;  
   text-align: center;
+}
+.Bpstn .Bname{
+  margin-top: 10px;
+  color:  #142d4f;
+  font-weight: bold;
+}
+.Bpstn .Bpstn{
+  margin-top: 10px;
+  color:  #ffb700;
+  margin-top: -10px;
+  font-weight: bold;
 }

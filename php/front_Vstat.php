@@ -1,30 +1,26 @@
 <!DOCTYPE html>
 <html>
-<!DOCTYPE html>
-<html>
-
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta charset="utf-8">
     <link rel="icon" href="../img/BUHS LOGO.png" type="image/png">
-    <link rel="stylesheet" type="text/css" href="../css/admin_css/style_monitor.css">
-    <link rel="stylesheet" href="../css/admin_css/bootstrap4.5.2_monitor.css">
-    <link rel="stylesheet" href="../css/admin_css/dataTables.bootstrap4.min_monitor.css">
-    <link rel="stylesheet" href="../css/admin_css/font-awesome_monitor.css">
-    <link rel="stylesheet" href="../css/admin_css/jquery.dataTables.min_monitor.css">
+    <link rel="stylesheet" type="text/css" href="../css/admin_css/style1_monitor.css">
+    <link rel="stylesheet" href="../css/admin_css/bootstrap_monitor.css">
+    <link rel="stylesheet" href="../css/admin_css/dataTables.bootstrap_monitor.css">
+    <link rel="stylesheet" href="../css/admin_css/font-awesome.css">
     <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
     <script src="../js/jquery-1.11.1.min_monitor.js"></script>
-    <script src="../js/jquery.dataTables.min_monitor.js"></script>
+    <!-- <script src="../js/jquery.dataTables.min_monitor.js"></script> -->
+    <script src="../../Monitoring/Admin/assets/js/jquery.dataTables.min.js"></script>
     <script src="../js/dataTables.bootstrap_monitor.js"></script>
-    <script src="../js/bootstrap.min_monitor.js"></script>
-    <script src="https://kit.fontawesome.com/a076d05399.js"></script>    
-    <script type="text/javascript"> (function() { var css = document.createElement('link'); css.href = 'https://use.fontawesome.com/releases/v5.1.0/css/all.css'; css.rel = 'stylesheet'; css.type = 'text/css'; document.getElementsByTagName('head')[0].appendChild(css); })(); </script>   
+    <!-- <script src="../js/countdown.js"></script> -->
+    <script src="https://cdn.datatables.net/fixedheader/3.1.8/js/dataTables.fixedHeader.min.js"></script>
     <title>BUCEILS Voting System</title>
 </head>
 
 <body>
-    <?php include "navAdmin.php" ?>
+    <?php include 'navAdmin.php'; ?>
     <!-- <nav>
         <input class="nav-toggle1" type="checkbox">
         <div class="aLogo">
@@ -89,11 +85,10 @@
         </ul>
     </nav> -->
 
-
     <div class="Bvotestat">
         <p><b>VOTE STATUS</b></p>
     </div>
-    <button class="Bbtn_goback" onclick="goBack()">Go Back</button>
+    <br><br>
     <div class="Bvs_gradelevel">
         <?php $samp = $_GET['level']; //gets the value from prev page
         echo '<p>GRADE ' . $samp . '</p>'; ?>
@@ -130,7 +125,7 @@
                     [10, 25, 50, "All"]
                 ],
                 "ajax": {
-                    "url": <?php echo '"./backMonitor/fetch_students.php?level='.$samp.'"' ?>,
+                    "url": <?php echo '"./backMonitor/fetch_students.php?level=' . $samp . '"' ?>,
                     "type": "POST",
                     "dataSrc": ""
                 },
@@ -158,5 +153,4 @@
         }
     </script>
 </body>
-
 </html>
