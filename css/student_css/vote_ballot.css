@@ -201,6 +201,31 @@ img.candidate-photo{
   border-radius: 30px;
 }
 
+/* Responsive layout - makes the menu and the content (inside the section) sit on top of each other instead of next to each other */
+@media (max-width: 1200px){
+  header{
+    text-align: center;
+  }
+  #F-container{
+    min-width: 90%;
+    position: relative;
+  }
+  .candidate-box{
+    flex-direction: column;
+    width: 100%;
+  }
+  .candidate-box > div{
+    width: 100%;
+    margin-bottom: 5%;
+  }
+  }
+
+@media screen and (max-width: 450px){
+    .candidate-info{
+      display: inline-block;
+    }
+  }
+
 /* Start of Vote Preview css */
 /* The Modal (background) */
 .F-modal {
