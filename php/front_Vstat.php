@@ -13,12 +13,13 @@
     <link rel="stylesheet" href="../css/admin_css/dataTables.bootstrap4.min_monitor.css">
     <link rel="stylesheet" href="../css/admin_css/font-awesome_monitor.css">
     <link rel="stylesheet" href="../css/admin_css/jquery.dataTables.min_monitor.css">
-    <!-- <script src="assets/js/a076d05399.js"></script> -->
-    <!-- <script src="../js/dataTables.bootstrap4.min_adminDash.js"></script> -->
-    <!-- <script src="../js/jquery-3.5.1_adminDash.js"></script> -->
-    <script src="../js/jquery.dataTables.min_studAc.js"></script>
-    <!-- <script src="../../Admin/assets/js/countdown.js"></script> -->
-    <script src="https://cdn.datatables.net/fixedheader/3.1.8/js/dataTables.fixedHeader.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script src="../js/jquery-1.11.1.min_monitor.js"></script>
+    <script src="../js/jquery.dataTables.min_monitor.js"></script>
+    <script src="../js/dataTables.bootstrap_monitor.js"></script>
+    <script src="../js/bootstrap.min_monitor.js"></script>
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>    
+    <script type="text/javascript"> (function() { var css = document.createElement('link'); css.href = 'https://use.fontawesome.com/releases/v5.1.0/css/all.css'; css.rel = 'stylesheet'; css.type = 'text/css'; document.getElementsByTagName('head')[0].appendChild(css); })(); </script>   
     <title>BUCEILS Voting System</title>
 </head>
 
