@@ -32,13 +32,13 @@
 	$candidates = array();
 	while($candidate=mysqli_fetch_array($result)){
 		$candidates[] = array(
-		"photo"=>$candidate['photo'],	
-		"first_name"=>strtoupper($candidate['first_name']),
-		"middle_name"=>strtoupper($candidate['middle_name']),
-		"last_name"=>strtoupper($candidate['last_name']),
-		"total_votes"=>$candidate['total_votes'],
-		"position"=>$candidate['position'],
-		"party_name"=>$candidate['party_name']
-        );
+			"photo"=>$candidate['photo'],	
+			"first_name"=>strtoupper($candidate['first_name']),
+			"middle_name"=>strtoupper($candidate['middle_name']),
+			"last_name"=>strtoupper($candidate['last_name']),
+			"total_votes"=>$candidate['total_votes'],
+			"position"=>$candidate['position'],
+			"party_name"=>$candidate['party_name']
+        	);
 	}
 ?>
