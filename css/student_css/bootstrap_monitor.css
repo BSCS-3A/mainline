@@ -87,17 +87,9 @@ sup {
 sub {
   bottom: -0.25em;
 }
-
-
 img {
   border: 0;
-  margin-top: 3%;
-  max-width: 150px;
-  max-height:150px;
 }
-
-
-
 svg:not(:root) {
   overflow: hidden;
 }

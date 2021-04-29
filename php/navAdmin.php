@@ -17,6 +17,10 @@ SOLVED ^^ font-awesome_addAdmin may kasalanan lol, + dataTables.bootstrap
 
 <!-- Navigation Bar, Footer-->
 
+<?php
+    date_default_timezone_set('Asia/Manila');
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -70,10 +74,10 @@ SOLVED ^^ font-awesome_addAdmin may kasalanan lol, + dataTables.bootstrap
                 <input class="nav-toggle4" type="checkbox" id="btn-2">
                 <ul>
                     <li><a href="#">Archive</a></li>
-                    <li><a href="front_voteStatusPerc.php">Vote Status</a></li>
-                    <li><a href="#">Vote Result</a>
+                    <li><a href="front_VsPercentage.php">Vote Status</a></li>
+                    <li><a href="front_ElectionResults.php">Vote Result</a>
                         <ul>
-                            <li><a href="#">Make Report</a></li>
+                            <li><a href="front_Report.php">Make Report</a></li>
                         </ul>
                     </li>
                     <li><a href="#">Configuration</a>
@@ -131,39 +135,6 @@ SOLVED ^^ font-awesome_addAdmin may kasalanan lol, + dataTables.bootstrap
         //     $('span').toggleClass("cancel");
         // });
         
-        // window.addEventListener("auxclick", (event) => {
-        //     if (event.button === 1) event.preventDefault();
-        // });
-        // document.addEventListener('contextmenu', function(e) {
-        //   e.preventDefault();
-        // });
-
-        // $(document).keydown(function(e){ 
-        //     if (event.keyCode == 123) { 
-        //         return false; 
-        //     } 
-        //     if (e.ctrlKey && e.shiftKey && e.keyCode == 'A'.charCodeAt(0)) { 
-        //         return false; 
-        //     } 
-        //     if (e.ctrlKey && e.shiftKey && e.keyCode == 'S'.charCodeAt(0)) { 
-        //         return false; 
-        //     } 
-        //     if (e.ctrlKey && e.shiftKey && e.keyCode == 'D'.charCodeAt(0)) { 
-        //         return false; 
-        //     } 
-        //     if (e.ctrlKey && e.shiftKey && e.keyCode == 'I'.charCodeAt(0)) { 
-        //         return false; 
-        //     } 
-        //     if (e.ctrlKey && e.shiftKey && e.keyCode == 'C'.charCodeAt(0)) { 
-        //         return false; 
-        //     } 
-        //     if (e.ctrlKey && e.shiftKey && e.keyCode == 'J'.charCodeAt(0)) { 
-        //         return false; 
-        //     } 
-        //     if (e.ctrlKey && e.keyCode == 'U'.charCodeAt(0)) { 
-        //         return false; 
-        //     } 
-        // }); 
     </script>
 </body>
 

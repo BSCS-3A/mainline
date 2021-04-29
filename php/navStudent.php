@@ -1,4 +1,5 @@
 <?php
+date_default_timezone_set('Asia/Manila');
 // session_start();
 
 // if (isset($_SESSION['student_id']) && isset($_SESSION['bumail'])) {
@@ -24,7 +25,7 @@
     <link rel="stylesheet" type="text/css" href="../css/student_css/style_studNav.css">
     
     <!-- for disabling inspect element -->
-    <!-- <script src="../js/scripts_vote.js"></script> -->
+    <script src="../js/scripts_vote.js"></script>
     <title>BUCEILS HS Online Voting System</title>
 </head>
 
@@ -50,7 +51,7 @@
                 <ul>
                     <li><a href="#" class="Aelec-text">ELECTION PROCESS</a></li>
                     <li><a href="#">ARCHIVE</a></li>
-                    <li><a href="Student_ElecStat.php">RESULTS</a></li>
+                    <li><a href="front_ElectStat.php">RESULTS</a></li>
                 </ul>
             </li>
             <li>

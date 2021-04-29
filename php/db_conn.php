@@ -1,22 +1,24 @@
 <?php
-// $servername = "localhost";
-// $username = "id16218880_bscs";
-// $password = "J!\-~q!r]fZJf0EH";
-// $dbname = "id16218880_buceils";
+    date_default_timezone_set('Asia/Manila');
+    // $servername = "localhost";
+    // $username = "id16218880_bscs";
+    // $password = "J!\-~q!r]fZJf0EH";
+    // $dbname = "id16218880_buceils";
 
-// Den
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "bucielsmain2";
-// $dbname = "check";     
+    $servername = "localhost";
+    $username = "root";
+    $password = "";
+    // $dbname = "id16218880_buceils"; // JP
+    $dbname = "bucielsmain2";       // Den
+    // $dbname = "check";     
     
-    $conn = new mysqli($servername,$username,$password,$dbname);
+   @$conn = new mysqli($servername,$username,$password,$dbname);
     if ($conn -> connect_errno) {
-        echo "Failed to connect to Database: " . $conn -> connect_error;
+        // echo "Failed to connect to Database: " . $conn -> connect_error;
+        require 'vtValSan.php';
+        errorMessage("There seems to be an error. <br> It's not you, it's us. We're trying our best to make this work. ");
         exit();
     }
-    date_default_timezone_set("Asia/Singapore");
 
     // Create connection
     // $conn = mysqli_connect($servername,$username,$password,$dbname);
