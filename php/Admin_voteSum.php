@@ -89,7 +89,7 @@
     </div>
     <div class="container">
        <section> <form method="POST" action="Admin_printSum.php">
-        <button name="prnt" id="prnt" class="btn btn-button1" type="submit" data-placement="top" data-toggle="tooltip" title="Print Vote Summary"><span class="fa fa-print"></span> PRINT SUMMARY</button>    
+        <button name="prnt" id="prnt" class="btn btn-button5" type="submit" data-placement="top" data-toggle="tooltip" title="Print Vote Summary"><span class="fa fa-print"></span> PRINT SUMMARY</button>    
      </form>        
      </section>
               <div class="row">

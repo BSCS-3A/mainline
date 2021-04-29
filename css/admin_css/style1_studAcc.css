@@ -14,7 +14,7 @@ body{
   background-attachment: fixed;
   width: auto;
 }
-/* nav{
+nav{
   background: #1d6986;
   box-shadow: 0 10px 20px rgba(0, 0, 0, .15 ),
               0 3px 6px rgba(0, 0, 0, .23);
@@ -52,7 +52,7 @@ nav .logo{
   margin-top: 5px;
   margin-left: 40px;
   color:#ffffff;
-} */
+}
 nav ul{
   float: right;
   padding: 0;
@@ -385,24 +385,38 @@ nav h5{
       margin: 25px 5px 15px 0px!important;      
       }
       .btn-button3:hover{background-color:#18566e !important; color: #EEEEEE!important;}
-      @media only screen and (max-width: 350px) {
+      @media only screen and (max-width: 600px) {
         .btn-button1{
-          margin: 25px 5px 5px 0px!important;      
+          margin: 25px 2px 5px 0px!important;    
           }
         .btn-button2{
-          margin: 25px 0px 5px 0px!important;      
+          margin: 0px 500px 5px 0px!important;      
             }
         .btn-button3{
-          margin: 0px 0px 15px 0px!important;      
-      }
+          margin: 0px 0px 15px 0px!important;}
+        .btn-button4{
+            width: 25% !important;
+            margin: 30px 15px 10px 0px!important; 
+            }    
     }
     .btn-button4{
         background: #dddddd ;
         box-shadow:none ;
-        width: 15%; 
-        margin: 25px 5px 15px 0px!important;      
+        width: 15%;        
+        margin-top: 10px ;      
         }
-    .btn-button4:hover{background-color: 	#c1c1c1!important;}          
+    .btn-button4:hover{background-color: 	#c1c1c1!important;}
+    .btn-button5{
+      color: #eeeeee ;
+      background: #124254 ;
+      border-color: #124254;
+      box-shadow:none ; 
+      padding: 10px 20px;
+      margin: 25px 5px 15px 0px!important;      
+      }
+      .btn-button5:hover{background-color:#18566e !important; color: #EEEEEE!important;} 
+    
+    
    #save{
       color:#fff;
       background: #124254;
@@ -436,16 +450,18 @@ nav h5{
    #go2:hover{background-color:#18566e !important; color: #EEEEEE!important;}  
 
 .container{
-    margin: 30px 15px 25px 15px;
-    border: 2px solid #124254;
-    height: 100%!important;
+    max-width: 100%;
+    height: 150%;   
+  }
+  div.container{
     background:rgba(255,255,255, 0.7);
+    margin-top: 3%;
+    margin-bottom: 3%;
+    border: 2px solid #124254;
+    width: 80%;
+    height: auto;
   }
-/* Extra small devices (phones, 600px and down) */
-@media only screen and (max-width: 600px) {
-  .container {margin: 0px 0px 0px 0px;border: none; } 
-         
-  }
+
  #datatable {
     width: 100%;
     border: 1px solid #124254;
@@ -483,6 +499,7 @@ nav h5{
       max-width: 150px;
       max-height: 150px;
       overflow: hidden;
+      word-wrap: break-word;
 }
 table tbody tr:hover { background-color: #D3D3D3; }
 article p{
@@ -644,12 +661,12 @@ nav img.user-profile{
 @media only screen and (min-height: 820px) {
   .chat-box{height: 620px;}
   .messages-box{height: 620px;}
-  body{background-image: url("../img/adminBG.png");}
+  body{background-image: url("../../img/adminBG.png");}
 }
 @media only screen and (min-width: 1000px) {
   .chat-box{height: 360px;}
   .messages-box{height: 360px;}
-  body{background-image: url("../img/adminBG.png");}
+  body{background-image: url("../../img/adminBG.png");}
 }
   
   .rounded-lg {
@@ -667,5 +684,5 @@ nav img.user-profile{
 
   }
 .cmessage{
-  font-size: 1.5rem;
+  font-size: 0.9rem;
 }

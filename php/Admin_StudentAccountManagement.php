@@ -22,6 +22,15 @@ include("genotp_studAcc.php");
 include("back_studAccMngmt.php");
 include("email_studAcc.php");
 include("edit_studAcc.php");
+include "db_conn.php";
+
+
+// for button disable
+$checktime = "SELECT * FROM vote_event"; 
+$DnT = $connect->query($checktime);
+$row =  $DnT->fetch_row(); 
+// row[1] = start date, row[2] = end date
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -133,13 +142,41 @@ include("edit_studAcc.php");
         <h3>STUDENT ACCOUNT MANAGEMENT</h3>
     </div>
     <div class="container">
+
+
         <section>
             <div class="btn-toolbar">
-                <button class="btn btn-button1" data-title="new" data-toggle="modal" data-target="#new" data-placement="top" data-toggle="tooltip" title="Import new list"><span class="fa fa-file-import"></span> IMPORT</button>
+                <button class="btn btn-button1" data-title="new" data-toggle="modal" data-target="#new" data-placement="top" data-toggle="tooltip" title="Import new list" 
 
-                <button class="btn btn-button2" data-title="otp" data-toggle="modal" data-target="#otp" data-placement="top" data-toggle="tooltip" title="Generat OTP for this list"><span class="fa fa-lock"></span> GENERATE OTP</button>
+                <?php 
+                    $now = date("Y-m-d G:i:s"); // G for 24hr format
+                    if($now >= $row[1] && $now <= $row[2] ){
+                    ?> disabled <?php    
+                    }?>>
+                <span class="fa fa-file-import"></span> IMPORT</button>      
+               
+               <!--Edited button to be disabled during the election-->       
+               <button class="btn btn-button2"  data-title="otp" data-toggle="modal" data-target="#otp"data-placement="top" data-toggle="tooltip" title="Generat OTP for this list"  
 
-                <button class="btn btn-button2" data-title="send" data-toggle="modal" data-target="#send" data-placement="top" data-toggle="tooltip" title="Send Login Credentials"><span class="fa fa-envelope-open"></span> SEND</button>
+                <?php 
+                    $now = date("Y-m-d G:i:s"); // G for 24hr format
+                    if($now >= $row[1] && $now <= $row[2] ){
+                    ?> disabled <?php    
+                    }?>>
+                       <span class="fa fa-lock"></span> GENERATE OTP</button>
+                <!--Edited button to be disabled during the election-->     
+
+
+                <button class="btn btn-button2" data-title="send" data-toggle="modal" data-target="#send" data-placement="top" data-toggle="tooltip" title="Send Login Credentials"  
+
+                <?php 
+                    $now = date("Y-m-d G:i:s"); // G for 24hr format
+                    if($now >= $row[1] && $now <= $row[2] ){
+                    ?> disabled <?php    
+                    }?>>
+
+                 <span class="fa fa-envelope-open"></span> SEND</button>
+
             </div>
         </section>
         <div class="row">
@@ -180,12 +217,33 @@ include("edit_studAcc.php");
                             ?>
                                 <td style="white-space: nowrap;">
 
+                                <?php   // for button disable inside table
+                                    $DnT = $connect->query($checktime);
+                                    $row =  $DnT->fetch_row(); 
+                                ?>
+
                                     <!-- Edit Button -->
-                                    <button class="btn btn-primary btn-xs EditBtn" data-title="Edit" data-toggle="modal" data-placement="top" data-toggle="tooltip" title="Edit"><span class="fa fa-edit"></span> EDIT</button>
+                                    <button class="btn btn-primary btn-xs EditBtn" data-title="Edit" data-toggle="modal" data-placement="top" data-toggle="tooltip" title="Edit"
+
+                                    <?php 
+                                        $now = date("Y-m-d G:i:s"); // G for 24hr format
+                                        if($now >= $row[1] && $now <= $row[2] ){
+                                        ?> disabled <?php    
+                                        }?>>
+                                        
+                                    <span class="fa fa-edit"></span> EDIT</button>
 
                                     <!-- Delete Button -->
-                                    <button class="btn btn-danger btn-xs DeleteBtn" data-title="Delete" data-toggle="modal" data-placement="top" data-toggle="tooltip" title="Delete"><span class="fa fa-trash-alt"></span> DELETE</button>
-                                </td>
+                                    <button class="btn btn-danger btn-xs DeleteBtn" data-title="Delete" data-toggle="modal"  data-placement="top" data-toggle="tooltip" title="Delete"
+
+                                    <?php 
+                                        $now = date("Y-m-d G:i:s"); // G for 24hr format
+                                        if($now >= $row[1] && $now <= $row[2] ){
+                                        ?> disabled <?php    
+                                        }?>>
+                                        
+                                    <span class="fa fa-trash-alt"></span> DELETE</button>
+                                    </td>
                             <?php
                                 '</tr>';
                             }
@@ -205,8 +263,7 @@ include("edit_studAcc.php");
                     <h4 class="modal-title custom_align" id="Heading">Upload File</h4>
                 </div>
                 <div class="modal-body">
-                    <div class="alert alert-danger"><span class="fa fa-exclamation-triangle"></span>Please Select File(Only CSV Format)
-                    </div>
+                <div class="alert alert-danger"><span class="fa fa-exclamation-triangle"></span> WARNING! <br> By uploading a new file, the existing student record will be replaced, and all student related data, such as results, list of candidates, and logs, will be deleted. <br><br><b>Select a new file (Only in CSV Format)</b></div>
                 </div>
 
                 <div class="modal-footer ">
@@ -217,7 +274,7 @@ include("edit_studAcc.php");
                         <p><label></label></p>
                         <input type="file" name="info_file" />
 
-                        <?php echo $message; ?>
+                        <?php //echo $message; ?>
 
                         <br />
                         <input type="submit" name="upload" class="btn btn-button1" value="Upload" />
@@ -339,9 +396,9 @@ include("edit_studAcc.php");
         <!-- /.modal-dialog -->
     </div>
     <!--############################################################################################################################################################################################## -->
-    <div class="footer">
+    <!-- <div class="footer">
         <p class="footer-txt">BS COMPUTER SCIENCE 3A © 2021</p>
-    </div>
+    </div> -->
     <!--############################################################################################################################################################################################## -->
     <!-- DATABLE SCRIPT -->
     <script>

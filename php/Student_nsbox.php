@@ -190,6 +190,26 @@ session_start();
                     window.location = "Student_nsbox.php";
                 });
                 
+                
+                window.addEventListener('beforeunload', function (e) {
+                if(notclose == false){
+                var fle = "<?php echo $_GET['id']?>";  
+                $.ajax({
+                url: 'Student_endses.php',
+                type: 'post',
+                data: {isid:fle},
+                });
+                //Delay
+                var start = Date.now(), now = start;
+                var delay = 500; // msec
+                while (now - start < delay) {
+                now = Date.now();
+                }
+                // this is needed to avoid to show a confirmation prompt
+                delete e['returnValue'];
+                }
+                });
+                
             </script>
 </body>
 
