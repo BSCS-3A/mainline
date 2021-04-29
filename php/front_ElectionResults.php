@@ -14,18 +14,19 @@ require './backMonitor/fetch_date.php';
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
   <meta charset="utf-8">
   <link rel="icon" href="../img/BUHS LOGO.png" type="image/png">
-  <link rel="stylesheet" type="text/css" href="../css/admin_css/style_monitor.css">
-  <link rel="stylesheet" href="../css/admin_css/bootstrap4.5.2_monitor.css">
-  <link rel="stylesheet" href="../css/admin_css/dataTables.bootstrap4.min_monitor.css">
-  <link rel="stylesheet" href="../css/admin_css/font-awesome_monitor.css">
-  <link rel="stylesheet" href="../css/admin_css/jquery.dataTables.min_monitor.css">
-  <!-- <script src="assets/js/a076d05399.js"></script> -->
-  <!-- <script src="../js/dataTables.bootstrap4.min.js"></script> -->
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script src="../js/jquery.dataTables.min_monitor.js"></script>
-  <!-- <script src="../../Admin/assets/js/countdown.js"></script> -->
-  <script src="https://cdn.datatables.net/fixedheader/3.1.8/js/dataTables.fixedHeader.min.js"></script>
-  <title>BUCEILS Voting System</title>
+    <link rel="stylesheet" type="text/css" href="../css/admin_css/style_monitor.css">
+    <link rel="stylesheet" href="../css/admin_css/bootstrap4.5.2_monitor.css">
+    <link rel="stylesheet" href="../css/admin_css/dataTables.bootstrap4.min_monitor.css">
+    <link rel="stylesheet" href="../css/admin_css/font-awesome_monitor.css">
+    <link rel="stylesheet" href="../css/admin_css/jquery.dataTables.min_monitor.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script src="../js/jquery-1.11.1.min_monitor.js"></script>
+    <script src="../js/jquery.dataTables.min_monitor.js"></script>
+    <script src="../js/dataTables.bootstrap_monitor.js"></script>
+    <script src="../js/bootstrap.min_monitor.js"></script>
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>    
+    <script type="text/javascript"> (function() { var css = document.createElement('link'); css.href = 'https://use.fontawesome.com/releases/v5.1.0/css/all.css'; css.rel = 'stylesheet'; css.type = 'text/css'; document.getElementsByTagName('head')[0].appendChild(css); })(); </script>   
+    <title>BUCEILS Voting System</title>
 </head>
 
 <body>
@@ -116,7 +117,7 @@ require './backMonitor/fetch_date.php';
             echo '<div class ="Bcan"><b>'.$candidate['first_name'].' '.$candidate['last_name'].'</b></div>';
             echo '<div class ="Bparty"><b>'.$candidate['party_name'].'</b></div>';
             echo '<div class="Bbar1">';
-            echo '<img class="Banon" src="../img/anon.png" width="45px" height="45px">';
+            echo '<img class="Banon" src="'.$candidate['photo'].'" width="45px" height="45px">';
             echo '<div class="Bvote_percentage">';
             echo '<div class="Bvote_level" style="width:' . $percentage . '%">';
             echo '<b><span>'.$candidate['total_votes'].'</span></b>';

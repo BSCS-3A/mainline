@@ -77,7 +77,7 @@ SOLVED ^^ font-awesome_addAdmin may kasalanan lol, + dataTables.bootstrap
                     <li><a href="front_VsPercentage.php">Vote Status</a></li>
                     <li><a href="front_ElectionResults.php">Vote Result</a>
                         <ul>
-                            <li><a href="#">Make Report</a></li>
+                            <li><a href="front_Report.php">Make Report</a></li>
                         </ul>
                     </li>
                     <li><a href="#">Configuration</a>
