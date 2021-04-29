@@ -1,14 +1,15 @@
 <?php
+    date_default_timezone_set('Asia/Manila');
     // $servername = "localhost";
     // $username = "id16218880_bscs";
     // $password = "J!\-~q!r]fZJf0EH";
     // $dbname = "id16218880_buceils";
 
-    // Den
     $servername = "localhost";
     $username = "root";
     $password = "";
-    $dbname = "bucielsmain2";
+    // $dbname = "id16218880_buceils"; // JP
+    $dbname = "bucielsmain2";       // Den
     // $dbname = "check";     
     
    @$conn = new mysqli($servername,$username,$password,$dbname);
