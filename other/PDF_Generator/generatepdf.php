@@ -127,7 +127,7 @@ ob_start();
 	$h_index = 0;
 	$flag = 0;
 	while($voted = $vote_que->fetch_assoc()){   // loop through all positions
-		if($voted['status'] != "Invalid" || (($voted['status'] != "Voted") && ($voted['status'] != "Abstain"))){
+		if($voted['status'] == "Invalid" || !($voted['status'] == "Abstain" || $voted['status'] == "Voted")){
 			$flag = 1;
 			break;
 		}
