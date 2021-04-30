@@ -73,7 +73,7 @@ SOLVED ^^ font-awesome_addAdmin may kasalanan lol, + dataTables.bootstrap
                 <a href="#">ELECTION</a>
                 <input class="nav-toggle4" type="checkbox" id="btn-2">
                 <ul>
-                    <li><a href="#">Archive</a></li>
+                    <li><a href="Admin_ArchFolder.php">Archive</a></li>
                     <li><a href="front_VsPercentage.php">Vote Status</a></li>
                     <li><a href="front_ElectionResults.php">Vote Result</a>
                         <ul>

@@ -50,7 +50,7 @@ date_default_timezone_set('Asia/Manila');
                 <input type="checkbox" id="btn-2">
                 <ul>
                     <li><a href="#" class="Aelec-text">ELECTION PROCESS</a></li>
-                    <li><a href="#">ARCHIVE</a></li>
+                    <li><a href="Student_ArcFolder.php">ARCHIVE</a></li>
                     <li><a href="front_ElectStat.php">RESULTS</a></li>
                 </ul>
             </li>
