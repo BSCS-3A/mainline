@@ -114,7 +114,11 @@ require './backMonitor/fetch_date.php';
             $percentage = 0;
           }
           if($current_date_time > $row['end_date']){
-            echo '<div class ="Bcan"><b>'.$candidate['first_name'].' '.$candidate['last_name'].'</b></div>';
+            if(!(empty($candidate['middle_name']))){  // check if middle name exists or not for printing
+              echo '<div class ="Bcan"><b>'.$candidate['first_name'].' '.$candidate['middle_name'][0].'. '.$candidate['last_name'].'</b></div>';
+            } else {
+              echo '<div class ="Bcan"><b>'.$candidate['first_name'].' '.$candidate['last_name'].'</b></div>';
+            }
             echo '<div class ="Bparty"><b>'.$candidate['party_name'].'</b></div>';
             echo '<div class="Bbar1">';
             echo '<img class="Banon" src="'.$candidate['photo'].'" width="45px" height="45px">';
