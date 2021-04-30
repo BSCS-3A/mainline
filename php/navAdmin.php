@@ -130,12 +130,6 @@ SOLVED ^^ font-awesome_addAdmin may kasalanan lol, + dataTables.bootstrap
         <p class="footer-txt">BS COMPUTER SCIENCE 3A © 2021</p>
     </div>
 
-    <script>
-        // $('.ADicon').click(function () {
-        //     $('span').toggleClass("cancel");
-        // });
-        
-    </script>
 </body>
 
 </html>

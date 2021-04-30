@@ -87,12 +87,7 @@ date_default_timezone_set('Asia/Manila');
 
     <!--End of Footer-->
 
-    <script>
-        // $('.icon').click(function () {
-        //     $('span').toggleClass("cancel");
-        // });
-        
-    </script>
+   
 </body>
 
 </html>

@@ -53,7 +53,7 @@ class PDF extends TCPDF {
 $pdf = new PDF('p', 'mm', 'A4', true, 'UTF-8', false);
 $pdf->SetTitle('VOTE RECEIPT'); 			
 $pdf->setFooterFont(Array('times', '', '12'));
-$pdf->SetMargins(21.20, 20, 25);
+$pdf->SetMargins(21, 20, 25);
 $pdf->SetHeaderMargin(PDF_MARGIN_HEADER);
 $pdf->SetFooterMargin(PDF_MARGIN_FOOTER);
 $pdf->SetAutoPageBreak(TRUE, PDF_MARGIN_BOTTOM);
@@ -90,25 +90,27 @@ ob_start();
 		$st_glevel = $_SESSION['grade_level'];
 
 //first table
+
+	$pdf->SetLeftMargin(16.5);	// adjust table
 	$pdf->Ln(10); 
 	$pdf->SetFillColor(224,235,255);
 	$pdf->SetFont('times','',12);
-	$pdf->Cell(120,10,'VOTER DETAILS',1,0,'C',0);
-	$pdf->Cell(60,10,'',1,0,'C',0);
-	$pdf->Cell(60,10,'',0,0); //spacer
-	$pdf->Cell(60,10,'',0,1); //spacer
-	$pdf->Cell(60,10,'Name of Voter',1,0,'C');
-	$pdf->Cell(60,10, $st_full, 1,0,'C',0);
-	$pdf->Cell(60,10,'',1,0,'C',0);
-	$pdf->Cell(60,10,'',0,1); //spacer
-	$pdf->Cell(60,10,'Grade Level',1,0,'C');
-	$pdf->Cell(60,10, $st_glevel, 1,0,'C',0);
-	$pdf->Cell(60,10,'',1,0,'C',0);
-	$pdf->Cell(60,10,'',0,1); //spacer
-	$pdf->Cell(60,10,'Date Voted',1,0,'C');
-	$pdf->Cell(60,10, $today, 1,0,'C',0);
-	$pdf->Cell(60,10,'',1,0,'C',0);
-	$pdf->Cell(60,10,'',0,1); //spacer
+	$pdf->Cell(180,10,'VOTER DETAILS',1,0,'C',0);
+	// $pdf->Cell(60,10,'',1,0,'C',0);
+	$pdf->Cell(90,10,'',0,0); //spacer
+	$pdf->Cell(90,10,'',0,1); //spacer
+	$pdf->Cell(90,10,'Name of Voter',1,0,'C');
+	$pdf->Cell(90,10, $st_full, 1,0,'C',0);
+	// $pdf->Cell(60,10,'',1,0,'C',0);
+	$pdf->Cell(90,10,'',0,1); //spacer
+	$pdf->Cell(90,10,'Grade Level',1,0,'C');
+	$pdf->Cell(90,10, $st_glevel, 1,0,'C',0);
+	// $pdf->Cell(60,10,'',1,0,'C',0);
+	$pdf->Cell(90,10,'',0,1); //spacer
+	$pdf->Cell(90,10,'Date Voted',1,0,'C');
+	$pdf->Cell(90,10, $today, 1,0,'C',0);
+	// $pdf->Cell(60,10,'',1,0,'C',0);
+	$pdf->Cell(90,10,'',0,1); //spacer
 
 //second table
 	$pdf->Ln(10); 
