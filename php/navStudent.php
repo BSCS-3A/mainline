@@ -45,7 +45,7 @@ date_default_timezone_set('Asia/Manila');
                 <a class="Atopnav" href="vtBallot.php">VOTE</a>
             </li>
             <li>
-                <label for="btn-2" class="Ashow">ELECTION</label>
+                <label for="btn-2" class="Ashow"><a href="#">ELECTION</a></label>
                 <a class="Atopnav" href="#">ELECTION</a> 
                 <input type="checkbox" id="btn-2">
                 <ul>
@@ -55,13 +55,12 @@ date_default_timezone_set('Asia/Manila');
                 </ul>
             </li>
             <li>
-                <!-- <label for="btn-3" class="Ashow">CANDIDATES</label> -->
-                <!-- <a class="Atopnav" href="Student_CandView.php">CANDIDATES</a> -->
-                <a class="Atopnav" href="Student_CandView.php">CANDIDATES</a>
+                <label for="btn-3" class="Ashow"><a href="Student_CandView.php">CANDIDATES</a></label>
+                <!--<a class="Atopnav" href="Student_CandView.php">CANDIDATES</a> -->
             </li>
             <li>
-                <!-- <label for="btn-4" class="Ashow">CHAT US</label> -->
-                <a class="Atopnav" href="Student_nsbox.php">CHAT US</a>
+                <label for="btn-4" class="Ashow"><a href="Student_nsbox.php">CHAT US</a></label>
+                <!--<a class="Atopnav" href="Student_nsbox.php">CHAT US</a> -->
             </li>
             <li>
                 <label for="btn-5" class="Ashow">NAME<?php //echo $_SESSION['fname']." ".$_SESSION['lname']; ?></label>

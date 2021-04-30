@@ -136,11 +136,10 @@
    margin: 0px;
    float: none;
    display: list-item;
-   color:white;
+   color:#18566e;
   }
   nav ul ul li a{
     line-height: 50px;
-    color:white;
   }
   nav ul ul li a.Aelec-text{
     font-size: 1.2em;
