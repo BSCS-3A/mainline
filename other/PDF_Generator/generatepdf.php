@@ -168,8 +168,6 @@ ob_start();
 				$pdf->Cell(60,10,$candidate_name,1,0,'C',0);
 				$pdf->Cell(60,10,$party_name,1,0,'C',0);
 				$pdf->Cell(60,10,'',0,1); //spacer
-				
-				
 			}
 		}
 	}
