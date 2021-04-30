@@ -238,6 +238,9 @@
     .Ashow + a, ul{
       display: none;
     }
+    li, ul, .Atopnav:link{
+      display: none;
+    }
     nav ul li,nav ul ul li{
       border-top: 3px solid #18566e;
       display: block;
