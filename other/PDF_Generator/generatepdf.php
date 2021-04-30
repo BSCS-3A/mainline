@@ -120,33 +120,60 @@ ob_start();
 	$stud_id = $_SESSION['student_id'];
 	$vote_que = $conn->query("SELECT * FROM (((vote INNER JOIN candidate ON vote.candidate_id = candidate.candidate_id)INNER JOIN student ON candidate.student_id = student.student_id) INNER JOIN candidate_position ON candidate.position_id = candidate_position.position_id) WHERE vote.student_id = $stud_id ORDER BY candidate_position.heirarchy_id");
 	
+	$receipt_list = array(array());
+	mysqli_data_seek($vote_que, 0);
+	$h_index = 0;
+	$flag = 0;
+	while($voted = $vote_que->fetch_assoc()){   // loop through all positions
+		if($voted['status'] == "Invalid"){
+			$flag = 1;
+			break;
+		}
+		if(($voted["vote_allow"] == 0 && $_SESSION['grade_level'] == $voted["grade_level"]) || $voted["vote_allow"] == 1){
+			if($voted['status'] == "Voted"){
+				$receipt_list[$h_index][0] = $voted['heirarchy_id'];
+				$receipt_list[$h_index][1] = $voted['fname'].' '.$voted['lname'];
+				$receipt_list[$h_index][2] = $voted['party_name'];
+				$h_index++;
+			}
+		}
+	}
+	
+	
 	$heir_id = 0;
-	$counter = 0;
+	mysqli_data_seek($vote_que, 0);
 	while($voted = $vote_que->fetch_assoc()){   // loop through all positions
 		if(($voted["vote_allow"] == 0 && $_SESSION['grade_level'] == $voted["grade_level"]) || $voted["vote_allow"] == 1){
 			if($heir_id != $voted["heirarchy_id"]){
+				$pdf->Cell(60,10,$voted['position_name'],1,0,'C');
 				$heir_id = $voted["heirarchy_id"];
-				if($voted['status'] == "Voted"){
-					$candidate_name = $voted['fname'].' '.$voted['lname'];
-					$party_name = $voted['party_name'];
-				}
-				else if($voted['status'] == "Abstain"){
-					$candidate_name = "Abstain";
-					$party_name = "N/A";
+				if($flag == 0){
+					$candidate_name = "";
+					foreach($receipt_list as $value){
+						if($value[0] == $voted['heirarchy_id']){
+							$candidate_name = $value[1];
+							$party_name = $value[2];
+							break;
+						}
+						else{
+							$candidate_name = $voted['status'];
+							$party_name = "N/A";
+						}
+					}
 				}
 				else{
 					$candidate_name = "Invalid";
 					$party_name = "N/A";
 				}
-
-				$pdf->Cell(60,10,$voted['position_name'],1,0,'C');
 				$pdf->Cell(60,10,$candidate_name,1,0,'C',0);
 				$pdf->Cell(60,10,$party_name,1,0,'C',0);
 				$pdf->Cell(60,10,'',0,1); //spacer
+				
+				
 			}
-			$counter++;
 		}
 	}
+
 	// while($voted = $vote_que->fetch_assoc()){
 	// 	$candidate_name = $voted['fname'].' '.$voted['lname'];
 	// } 
