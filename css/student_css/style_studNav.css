@@ -1,4 +1,4 @@
-/*
+/* Static Page */
 *{
     margin: 0;
     padding: 0;
@@ -7,6 +7,7 @@
     list-style: none;  
   }
   
+  /* Body */
   body{  
     font-family: Roboto,Roboto Thin,Generica, sans-serif;  
     background-image: url("../../img/studentBG.png");
@@ -15,17 +16,20 @@
     background-attachment: fixed;
     width: auto;
     min-height: 100%;
-  }*/
+  }
   
-  /* Navigation */
+  /* Top Navigation */
   nav{
     background: #f8f8f8;
     box-shadow: 0 10px 20px rgba(0, 0, 0, .15 ),
                 0 3px 6px rgba(0, 0, 0, .23);
     width: 100%;
     z-index: 500;
-    display: flex;
+    position: sticky;
     top: 0;
+  }
+  nav:before{
+    min-height: 100%;
   }
   nav:after{
     content: '';
@@ -132,6 +136,7 @@
    margin: 0px;
    float: none;
    display: list-item;
+   color:white;
   }
   nav ul ul li a{
     line-height: 50px;
