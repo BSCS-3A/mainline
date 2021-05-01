@@ -80,7 +80,10 @@ SOLVED ^^ font-awesome_addAdmin may kasalanan lol, + dataTables.bootstrap
                             <li><a href="front_Report.php">Make Report</a></li>
                         </ul>
                     </li>
-                    <li><a href="#">Configuration</a>
+                    <li>
+                        <label for="btn-6" class="Ashow2">Configuration</label>
+                        <a href="#">Configuration</a>
+                        <input class="nav-toggle7" type="checkbox" id="btn-6"> <!-- latest button toggle for 3rd ul-->
                         <ul>
                             <li><a href="Admin_electionConfig.php">Scheduler</a></li>
                             <li><a href="front_signatory.php">Signatory</a></li>

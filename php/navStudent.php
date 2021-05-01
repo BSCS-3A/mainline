@@ -1,20 +1,5 @@
 <?php
 date_default_timezone_set('Asia/Manila');
-if (!empty($_SERVER["HTTP_CLIENT_IP"]))
-{
-$ip = $_SERVER["HTTP_CLIENT_IP"];
-}
-elseif (!empty($_SERVER["HTTP_X_FORWARDED_FOR"]))
-{
-$ip = $_SERVER["HTTP_X_FORWARDED_FOR"];
-}
-else
-{
-$ip = $_SERVER["REMOTE_ADDR"];
-}
-echo "<center>
-    <h2>YOUR IP ADDRESS is ".$ip." </h2>
-</center>";
 // session_start();
 
 // if (isset($_SESSION['student_id']) && isset($_SESSION['bumail'])) {
@@ -60,7 +45,10 @@ echo "<center>
         <label for="btn" class="ADicon"><span class="fa fa-bars"></span></label>
         <input class="nav-toggle2" type="checkbox" id="btn">
         <ul>
-             <li><a href="vtBallot.php">VOTE</a></li>
+             <li>
+                <label for="btn-1" class="Ashow"><a id="Ashow1" href="vtBallot.php">VOTE</a></label>
+                <a href="vtBallot.php">VOTE</a>
+            </li>
 
             <li>
                 <label for="btn-2" class="Ashow">ELECTION</label>
@@ -73,9 +61,15 @@ echo "<center>
                 </ul>
             </li>
            
-            <li><a href="Student_CandView.php">CANDIDATES</a></li>
+            <li>
+                <label for="btn-3" class="Ashow"><a id="Ashow1" href="Student_CandView.php">CANDIDATES</a></label>
+                <a href="Student_CandView.php">CANDIDATES</a>
+            </li>
 
-            <li><a href="Student_nsbox.php">CHAT US</a></li>
+            <li>
+                <label for="btn-4" class="Ashow"><a id="Ashow1" href="Student_nsbox.php">CHAT US</a></label>
+                <a href="Student_nsbox.php">CHAT US</a>
+            </li>
 
             <li>
                 <label for="btn-5" class="Ashow"><img class="Auser-profile" src="../img/user.png"></label>
