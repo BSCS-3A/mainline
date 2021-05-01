@@ -35,13 +35,19 @@
         // check if user has already voted
         $stud_id = $conn->real_escape_string($_SESSION['student_id']);
         $voter = $conn->query("SELECT * FROM student WHERE student_id = $stud_id");
-        $student = $voter->fetch_assoc();
-        // see if login already has voter info
-        if($student['voting_status'] == 1){
-            return true;
+        $voter = $conn->query("SELECT * FROM vote WHERE student_id = $stud_id");
+        if(empty($voter)){
+            $student = $voter->fetch_assoc();
+            // see if login already has voter info
+            if($student['voting_status'] == 1){
+                return true;
+            }
+            else{
+                return false;
+            }
         }
         else{
-            return false;
+            return true;
         }
     }
 
