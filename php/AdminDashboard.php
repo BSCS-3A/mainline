@@ -9,17 +9,17 @@
 
 <?php
 session_start();
-//  if (isset($_SESSION['admin_id']) && isset($_SESSION['username'])) 
-// {
-//     $idletime=900; //after 15 minutes the user gets logged out
+  if (isset($_SESSION['admin_id']) && isset($_SESSION['username'])) 
+ {
+     $idletime=900; //after 15 minutes the user gets logged out
 
-// if (time()-$_SESSION['timestamp']>$idletime){
-//     $_GET['inactivityError'] = "Session ended: You are logged out due to inactivity.";
-//    header("Location: AdminLogout.php");
-// }else{
-//    $_SESSION['timestamp']=time();
-// }
-//  ?>
+ if (time()-$_SESSION['timestamp']>$idletime){
+     $_GET['inactivityError'] = "Session ended: You are logged out due to inactivity.";
+    header("Location: AdminLogout.php");
+ }else{
+    $_SESSION['timestamp']=time();
+ }
+  ?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -298,8 +298,8 @@ var y = setInterval(function() {
 
 </html>
 <?php
-// }else{
-//     header("Location: ..\Login UI v2\html\AdminLogin.php");
-//      exit();
-// }
+}else{
+    header("Location: AdminLogin.php");
+     exit();
+}
  ?>

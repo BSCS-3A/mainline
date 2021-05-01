@@ -58,7 +58,7 @@ if($_SESSION['incorrectTry']>=3){
             if ($row['username'] === $username && $row['password'] === $pass) {
             	$_SESSION['username'] = $row['username'];
             	$_SESSION['admin_fname'] = $row['admin_fname'];
-		$_SESSION['admin_lname'] = $row['admin_lname'];
+				$_SESSION['admin_lname'] = $row['admin_lname'];
             	$_SESSION['admin_id'] = $row['admin_id'];
             	$_SESSION['photo'] = $row['photo'];
 		$_SESSION['admin_position'] = $row['admin_position'];  	//added for enabling/hiding some features for admin (04/04/2021, 2:36pm)

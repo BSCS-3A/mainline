@@ -5,7 +5,7 @@
 -->
 
 <?php
-session_start();
+
 include('Admin_electionConfig.php');
 
 // $conn = mysqli_connect('localhost', 'root', '', 'bucielsmain2');

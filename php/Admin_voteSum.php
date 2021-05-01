@@ -1,7 +1,18 @@
 ﻿<?php
-    include('Admin_printSum.php');
-    include "db_conn.php";
-    include "navAdmin.php";
+    session_start();
+  if (isset($_SESSION['admin_id']) && isset($_SESSION['username'])) {
+    
+         $idletime=900;//after 60 seconds the user gets logged out
+
+         if (time()-$_SESSION['timestamp']>$idletime){
+           header("Location: Logout.php");
+         }else{
+           $_SESSION['timestamp']=time();
+         }
+         include('Admin_printSum.php');
+         include "db_conn.php";
+         include "navAdmin.php";
+        
 ?>
 <!DOCTYPE html>
 <html>
@@ -242,3 +253,9 @@
 </body>
 
 </html>
+<?php
+}else{
+    header("Location: AdminLogin.php");
+     exit();
+}
+ ?>

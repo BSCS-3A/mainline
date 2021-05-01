@@ -17,12 +17,23 @@ missing students
 
 
 <?php
-
 include("genotp_studAcc.php");
 include("back_studAccMngmt.php");
 include("email_studAcc.php");
 include("edit_studAcc.php");
-include "db_conn.php";
+include("db_conn.php");
+  if (isset($_SESSION['admin_id']) && isset($_SESSION['username'])) {
+    
+         $idletime=900;//after 60 seconds the user gets logged out
+
+         if (time()-$_SESSION['timestamp']>$idletime){
+           header("Location: AdminLogout.php");
+         }else{
+           $_SESSION['timestamp']=time();
+         }
+    
+
+
 
 
 // for button disable
@@ -463,3 +474,9 @@ $row =  $DnT->fetch_row();
 </body>
 
 </html>
+<?php
+ }else{
+     header("Location: AdminLogin.php");
+      exit();
+ }
+ ?>
