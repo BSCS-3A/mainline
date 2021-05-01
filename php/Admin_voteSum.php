@@ -5,7 +5,7 @@
          $idletime=900;//after 60 seconds the user gets logged out
 
          if (time()-$_SESSION['timestamp']>$idletime){
-           header("Location: Logout.php");
+            header("Location: AdminLogout.php");
          }else{
            $_SESSION['timestamp']=time();
          }
