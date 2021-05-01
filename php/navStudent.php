@@ -1,20 +1,5 @@
 <?php
 date_default_timezone_set('Asia/Manila');
-if (!empty($_SERVER["HTTP_CLIENT_IP"]))
-{
-$ip = $_SERVER["HTTP_CLIENT_IP"];
-}
-elseif (!empty($_SERVER["HTTP_X_FORWARDED_FOR"]))
-{
-$ip = $_SERVER["HTTP_X_FORWARDED_FOR"];
-}
-else
-{
-$ip = $_SERVER["REMOTE_ADDR"];
-}
-echo "<center>
-    <h2>YOUR IP ADDRESS is ".$ip." </h2>
-</center>";
 // session_start();
 
 // if (isset($_SESSION['student_id']) && isset($_SESSION['bumail'])) {
