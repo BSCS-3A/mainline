@@ -83,7 +83,7 @@ SOLVED ^^ font-awesome_addAdmin may kasalanan lol, + dataTables.bootstrap
                     <li><a href="#">Configuration</a>
                         <ul>
                             <li><a href="Admin_electionConfig.php">Scheduler</a></li>
-                            <li><a href="front_signatory_v0_1.php">Signatory</a></li>
+                            <li><a href="front_signatory.php">Signatory</a></li>
                         </ul>
                     </li>
                 </ul>
