@@ -19,6 +19,7 @@ SOLVED ^^ font-awesome_addAdmin may kasalanan lol, + dataTables.bootstrap
 
 <?php
     date_default_timezone_set('Asia/Manila');
+    include('db_conn.php');
 ?>
 
 <!DOCTYPE html>

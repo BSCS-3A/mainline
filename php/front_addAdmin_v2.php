@@ -1,5 +1,6 @@
 <?php       // SESSION ISSUE, details at last part
  session_start();
+ include('db_conn.php');
   if (isset($_SESSION['admin_id']) && isset($_SESSION['username'])) 
  {
      $idletime=900;//after 15 minutes the user gets logged out

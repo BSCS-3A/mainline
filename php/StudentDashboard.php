@@ -1,5 +1,6 @@
 <?php
 session_start();
+include('db_conn.php');
  if (isset($_SESSION['student_id']) && isset($_SESSION['bumail'])) {
      $idletime=900;//after 15 minutes the user gets logged out
 

@@ -1,5 +1,6 @@
 <?php
 date_default_timezone_set('Asia/Manila');
+include('db_conn.php');
 // session_start();
 
 // if (isset($_SESSION['student_id']) && isset($_SESSION['bumail'])) {

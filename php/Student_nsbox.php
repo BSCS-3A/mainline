@@ -1,8 +1,16 @@
 <?php
-
 // PM notes: remove login dummy after testing (for implementation)
-
 session_start();
+include('db_conn.php');
+ if (isset($_SESSION['student_id']) && isset($_SESSION['bumail'])) {
+     $idletime=900;//after 15 minutes the user gets logged out
+
+ if (time()-$_SESSION['timestamp']>$idletime){
+     //$_GET['inactivityError'] = "Session ended: You are logged out due to inactivity.";
+     header("Location: StudentLogout.php");
+ }else{
+     $_SESSION['timestamp']=time();
+ }
 ?>
 <!DOCTYPE html>
 <html>
@@ -214,3 +222,9 @@ session_start();
 </body>
 
 </html>
+<?php
+}else{
+	header("Location: ..\index.php");
+     exit();
+}
+ ?>
