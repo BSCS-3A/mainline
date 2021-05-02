@@ -18,8 +18,8 @@ SOLVED ^^ font-awesome_addAdmin may kasalanan lol, + dataTables.bootstrap
 <!-- Navigation Bar, Footer-->
 
 <?php
-    date_default_timezone_set('Asia/Manila');
-    include('db_conn.php');
+date_default_timezone_set('Asia/Manila');
+include('db_conn.php');
 ?>
 
 <!DOCTYPE html>
@@ -28,7 +28,7 @@ SOLVED ^^ font-awesome_addAdmin may kasalanan lol, + dataTables.bootstrap
 <head>
     <!-- CSS AND JAVASCRIPT LINK -->
     <!-- BASED ON ADMIN DASHBOARD -->
-  
+
 
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
@@ -37,13 +37,13 @@ SOLVED ^^ font-awesome_addAdmin may kasalanan lol, + dataTables.bootstrap
     <link rel="stylesheet" type="text/css" href="../css/admin_css/style_adminNav.css">
     <!-- <link rel="stylesheet" href="../css/admin_css/bootstrap4.5.2_AdminDash.css"> -->
     <!-- <link rel="stylesheet" href="../css/admin_css/font-awesome_AdminDash.css"> -->
-    
+
     <!-- <link rel="stylesheet" type="text/css" href="../css/admin_css/style1_addAdmin.css"> -->
     <!-- <link rel="stylesheet" href="../css/admin_css/bootstrap_addAdmin.css"> -->
     <link rel="stylesheet" href="../css/admin_css/bootstrap_navAdmin.css">
     <!-- <link rel="stylesheet" href="../css/admin_css/dataTables.bootstrap_addAdmin.css"> -->
     <!-- <link rel="stylesheet" href="../css/admin_css/font-awesome_addAdmin.css">  -->
-  
+
     <title>BUCEILS Voting System</title>
 </head>
 
@@ -62,7 +62,7 @@ SOLVED ^^ font-awesome_addAdmin may kasalanan lol, + dataTables.bootstrap
         <ul>
             <li>
                 <label for="btn-1" class="Ashow">ACCOUNTS</label>
-                <a href="#">ACCOUNTS</a>
+                <a tabindex="0">ACCOUNTS</a>
                 <input class="nav-toggle3" type="checkbox" id="btn-1">
                 <ul>
                     <li><a href="Admin_StudentAccountManagement.php">Students</a></li>
@@ -71,20 +71,23 @@ SOLVED ^^ font-awesome_addAdmin may kasalanan lol, + dataTables.bootstrap
             </li>
             <li>
                 <label for="btn-2" class="Ashow">ELECTION</label>
-                <a href="#">ELECTION</a>
+                <a tabindex="0">ELECTION</a>
                 <input class="nav-toggle4" type="checkbox" id="btn-2">
                 <ul>
                     <li><a href="Admin_ArchFolder.php">Archive</a></li>
                     <li><a href="front_VsPercentage.php">Vote Status</a></li>
-                    <li><a href="front_ElectionResults.php">Vote Result</a>
+                    <li>
+                        <label for="btn-7" class="Ashow3">Vote Result</label>
+                        <a href="front_ElectionResults.php">Vote Result</a>
+                        <input class="nav-toggle8" type="checkbox" id="btn-7"> <!-- button toggle for 3rd ul-->
                         <ul>
                             <li><a href="front_Report.php">Make Report</a></li>
                         </ul>
                     </li>
                     <li>
                         <label for="btn-6" class="Ashow2">Configuration</label>
-                        <a href="#">Configuration</a>
-                        <input class="nav-toggle7" type="checkbox" id="btn-6"> <!-- latest button toggle for 3rd ul-->
+                        <a tabindex="0">Configuration</a>
+                        <input class="nav-toggle7" type="checkbox" id="btn-6"> <!-- button toggle for 3rd ul-->
                         <ul>
                             <li><a href="Admin_electionConfig.php">Scheduler</a></li>
                             <li><a href="front_signatory.php">Signatory</a></li>
@@ -94,7 +97,7 @@ SOLVED ^^ font-awesome_addAdmin may kasalanan lol, + dataTables.bootstrap
             </li>
             <li>
                 <label for="btn-3" class="Ashow">CANDIDATES</label>
-                <a href="#">CANDIDATES</a>
+                <a tabindex="0">CANDIDATES</a>
                 <input class="nav-toggle6" type="checkbox" id="btn-3">
                 <ul>
                     <li><a href="Admin_candidate.php">Update Info</a></li>
@@ -103,7 +106,7 @@ SOLVED ^^ font-awesome_addAdmin may kasalanan lol, + dataTables.bootstrap
             </li>
             <li>
                 <label for="btn-4" class="Ashow">LOGS</label>
-                <a href="#">LOGS</a>
+                <a tabindex="0">LOGS</a>
                 <input class="nav-toggle5" type="checkbox" id="btn-4">
                 <ul>
                     <li><a href="Admin_AccessLogs.php">Access Log</a></li>
@@ -113,12 +116,12 @@ SOLVED ^^ font-awesome_addAdmin may kasalanan lol, + dataTables.bootstrap
             </li>
             <li><a href="Admin_MessageBox.php">MESSAGES</a></li>
             <li>
-                <label for="btn-5" class="Ashow"><?php echo $_SESSION['admin_fname']." ".$_SESSION['admin_lname']; ?></label>
+                <label for="btn-5" class="Ashow"><?php echo $_SESSION['admin_fname'] . " " . $_SESSION['admin_lname']; ?></label>
                 <a class="user" href="#"><img class="user-profile" src="../img/<?php echo $_SESSION['photo']; ?>"></a>
                 <input class="nav-toggle6" type="checkbox" id="btn-5">
                 <ul>
-                    
-                    <li><a class="username" href="#"><?php echo $_SESSION['admin_fname']." ".$_SESSION['admin_lname']; ?></a></li>
+
+                    <li><a class="username" tabindex="0"><?php echo $_SESSION['admin_fname'] . " " . $_SESSION['admin_lname']; ?></a></li>
                     <li class="logout">
                         <span class="fa fa-sign-out"></span><a href="AdminLogout.php">LOGOUT</a></span>
                     </li>
