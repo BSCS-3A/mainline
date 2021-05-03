@@ -84,6 +84,15 @@
     <div class="ccheader">
     <h3>MESSAGE BOX</h3>
 </div>
+
+<?php
+  $server = strtolower($_SERVER['HTTP_USER_AGENT']);
+  $isMob = is_numeric(strpos($server, "mobile"));
+  if($isMob){
+    echo "<br><center><p style='color:white';>You are using a mobile device! It is recommended to switch into landscape mode.</p></center>";
+  } 
+?>
+
   <div class="container">  
     <div class="row rounded-lg overflow-hidden shadow">
       <!-- Users box-->
@@ -156,9 +165,10 @@
         </div>
       </div>
     </div>
-    <div class="footer">
+    <!-- <div class="footer">
       <p class="footer-txt">BS COMPUTER SCIENCE 3A © 2021</p>
-  </div>
+  </div> -->
+  <br><br><br><br>
 
         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <script type="text/javascript"> 
