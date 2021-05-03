@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,7 +7,7 @@
     <meta name="HandheldFriendly" content="true">
     <!-- <link rel="icon" href="assets/img/buceils-logo.png"> -->
     <link rel="icon" href="../img/BUHS LOGO.png" type="image/png">
-    <link rel="stylesheet" type="text/css" href="../css/admin_css/style_studAcc.css">
+    <link rel="stylesheet" type="text/css" href="../css/admin_css/style1_studAcc.css">
     <link rel="stylesheet" href="../css/admin_css/font-awesome.min_studAcc.css">
     <link rel="stylesheet" href="../css/admin_css/bootstrap4.3.1.min_msgbox.css">
     <script src="../js/jquery-3.3.1.slim.min_msgbox.js"></script>
@@ -91,7 +91,7 @@
         <div class="bg-white">
   
           <div class="bg-gray px-4 py-1 bg-light" id="recent">
-            <p class="h4 mb-0 py-2">Recent</p>
+            <p class="h5 mb-0 py-2">Recent</p>
           </div>
           <div id ="take" class="messages-box">
             <div class="list-group rounded-0">
@@ -112,11 +112,9 @@
               echo   '<a href="Admin_MessageBox.php?id='.$sname[0].'" class="list-group-item list-group-item-action list-group-item-light rounded-0" style="background-color:#1D6986;color:white">                  
               <div class="media-body ml-4" >
               <div class="d-flex align-items-center justify-content-between mb-1" >
-              <p class="cname">'.$sname[0].'</p>
-              </div>              
-              <p class="cmessage">'.$rowsx[1].'</p>
-              <div class="float-sm-right">
-              <small class="small font-weight-bold" >'.$rowsx[2]." ".$rowsx[3].'</small></div>  
+              <p class="cname">'.$sname[0].'</p><small class="small font-weight-bold" >'.$rowsx[2]." ".$rowsx[3].'</small>
+              </div>
+              <p class="cmessage">'.$rowsx[1].'</p>  
               </div></a>
               ';
             }}}
@@ -146,7 +144,7 @@
         <!-- Typing area -->
         <form method="POST" class="bg-light">
           <div class="input-group">
-            <input  type="text" id= "usermsg" placeholder="Type a message" aria-describedby="button-addon2" class="form-control rounded-0 border-0 py-4 pb-5 bg-light">
+            <input  type="text" id= "usermsg" placeholder="Type a message" aria-describedby="button-addon2" class="form-control rounded-0 border-0 py-4 bg-light">
             <div class="input-group-append">
             <button id="button-addon2" type="submit" class="btn btn-link"> <i class="fa fa-paper-plane"></i></button>
             </div>
