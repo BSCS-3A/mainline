@@ -1,5 +1,6 @@
 <?php
 date_default_timezone_set('Asia/Manila');
+include('db_conn.php');
 // session_start();
 
 // if (isset($_SESSION['student_id']) && isset($_SESSION['bumail'])) {
@@ -76,8 +77,8 @@ date_default_timezone_set('Asia/Manila');
                 <a class="user" href="#"><img class="Auser-profile" src="../img/user.png"></a>
                 <input class="nav-toggle4" type="checkbox" id="btn-5">
                 <ul>
-                    <li><a class="username" href="#">Student Name </a></li>
-                    <li><a href="AdminLogout.php">LOGOUT</a></li>
+                    <li><a class="username" href="#"><?php echo $_SESSION['fname']." ".$_SESSION['lname']; ?> </a></li>
+                    <li><a href="StudentLogout.php">LOGOUT</a></li>
                 </ul>
                 <!-- <label for="btn-5" class="Ashow"><?php //echo $_SESSION['admin_fname']." ".$_SESSION['admin_lname']; ?></label>
                 <a class="user" href="#"><img class="Auser-profile" src="../img/user.png"></a>

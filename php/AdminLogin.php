@@ -8,12 +8,16 @@
        $_GET['BOTerror'] = "Oops! It seems like you logged in incorrectly 3 times. Please verify that you are not a bot by clicking the checkbox before logging in.";
      }
     
+    /* if(isset($_GET[''])){
+         $message = $_GET['inactivityError'];
+          echo "<script type='text/javascript'>alert('$message');</script>"; 
+     }*/
   if (isset($_SESSION['admin_id']) && isset($_SESSION['username']))
      {
-         header("Location: php\AdminDashboard.php");
+         header("Location: AdminDashboard.php");
      }
      else if(isset($_SESSION['student_id'])){
-         header("Location: php\StudentDashboard.php");
+         header("Location: StudentDashboard.php");
      }
  
 

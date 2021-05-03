@@ -4,7 +4,7 @@
     padding: 0;
     user-select: none;
     box-sizing: border-box;
-    /* font-family: Roboto,Roboto Condensed,Generica, sans-serif; */
+    font-family: Roboto,Roboto Condensed,Generica, sans-serif;
     list-style: none;  
   }
   body{  
@@ -468,6 +468,7 @@
       max-height: 150px;
       overflow: hidden;
       font-size: .8rem;
+      background-color: #ddd;
   }
   #ADheader{
     position: relative;
@@ -616,29 +617,27 @@
   
      #datatable {
         width: 100%;
-        border: none;
+        border: 1px solid #124254;
         font-family: Roboto regular, sans-serif;
+        border-collapse: collapse;
         table-layout: auto;
-        margin:0;
+        margin:0px;
         text-align: center;
-        background-color: #ffc423;
-        overflow: hidden;
-        border-radius: 4px;
-          }
+        }
       
       table.center {
         margin-left:auto; 
         margin-right:auto;
         }
       thead {
-        color: #EEEEEE;
-        background-color: #18566e;
-        text-align: center;
-        overflow: hidden;
+        border: 1px solid #124254;
+    color: #EEEEEE;
+    background-color: #18566e;
+    text-align: center;
       }
       tbody {
       overflow: hidden;
-      border-radius: 4px;
+      
         }
       th {
           color: #EEEEEE;
@@ -649,22 +648,20 @@
   
         }
       td {
+             border: 1px solid #124254;
+             padding: 0px;
              max-width: 150px;
-      max-height: 150px;
-      overflow: hidden;
-      border-radius: 4px;
-      font-size: 15px;
-      padding: 12px 12px 12px 12px;
+             max-height: 150px;
+             overflow: hidden;
     }
   
     #datatable td{
           padding: 12px 12px 12px 12px;
-      max-width: 150px;
-      max-height: 150px;
-      overflow: hidden;
-      border-radius: 4px;
-      font-size: 15px;
-  
+          max-width: 150px;
+          max-height: 150px;
+          overflow: hidden;
+          font-size: 15px;
+          color: #2f4f4f;
     }
   
     article p{
@@ -741,24 +738,23 @@
     }
   
     .panel-primary{
-      background-color: #337ab7 !important;
+      background-color: transparent !important;
     }
   
     .panel-primary > .panel-heading {
       width: 100%;
       height: 100%;
       padding: 6px 5px;
-      background-color: #1d6986 !important;
+      background-color: #18566e !important;
       font-size: 1.3em;
     }
   
     .panel-body{
       width: 100%;
       height: 100%;
-      background-color: #ffc423;
+      background-color: #ddd !important;
       padding: 6px 5px;
       font-size: 1em;
-  
     }
   
     .form-group{
@@ -1045,14 +1041,14 @@
   }
   
        .btn-button1{
-        color: white !important ;
-        padding: 0;
-        background: #124254 !important;
-        border-color: transparent;
-        box-shadow:none ; 
-        padding: 10px 20px;
-        margin: 25px 5px 15px 0px!important; 
-        float: center;     
+         color: #eeeeee ;
+      margin: 0px;
+      padding: 0px;
+      background: #124254 ;
+      border-color: #124254;
+      box-shadow:none ; 
+      padding: 10px 20px;
+      margin: 25px 0px 15px 0px!important;    
         }
         
         .panel-primary{
@@ -1102,7 +1098,7 @@
   }
   
   tr:nth-child(even){
-    background-color: #fcd058 !important;
+    background-color: #dddddd !important;
   }
   
   textarea{
@@ -1146,12 +1142,11 @@
   }
   
   table.dataTable tbody .odd{
-    background-color:#ffc423 !important;
+    background-color: #dddddd !important;
   }
   
   table.dataTable tbody .even{
-    background-color: #ffd86f !important;
-  
+   background-color: #dddddd !important;
   }
   
   .dataTables_wrapper .dataTables_paginate .paginate_button{
@@ -1215,3 +1210,16 @@
   .slider.round:before {
     border-radius: 50%;
   }
+.paginate_button next{
+      cursor: default;
+    color: #666 !important;
+    border: 1px solid transparent;
+    background: transparent;
+    box-shadow: none;
+    background-color: #dddddd !important;
+}
+
+a.paginate_button:hover {
+  background-color: #15254 !important;
+  color: white;
+}

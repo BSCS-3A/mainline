@@ -1,13 +1,17 @@
 <?php
-require '../../php/db_conn.php';
-// Remove this temp session
 session_start();
-$_SESSION['bumail'] = "dhanjaphetverastigue.ador@bicol-u.edu.ph";
-$_SESSION['fname'] = "Maria";
-$_SESSION['lname'] = "Hanway";
-$_SESSION['student_id'] = 1;
-$_SESSION['grade_level'] = 7;
-$_SESSION['timestamp']=time();
+require '../../php/db_conn.php';
+ if (isset($_SESSION['student_id']) && isset($_SESSION['bumail'])) {
+     $idletime=900;//after 15 minutes the user gets logged out
+
+ if (time()-$_SESSION['timestamp']>$idletime){
+     //$_GET['inactivityError'] = "Session ended: You are logged out due to inactivity.";
+     header("Location: ../../php/StudentLogout.php");
+ }else{
+     $_SESSION['timestamp']=time();
+ }
+ 
+
 
 // Include the main TCPDF library (search for installation path).
 require_once('TCPDF-main/tcpdf.php');
@@ -210,3 +214,9 @@ ob_start();
 
 // Close and output PDF document
 $pdf->Output('Official Ballot Receipt.pdf', 'I');  
+
+}else{
+	header("Location: ../../index.php");
+     exit();
+}
+ ?>

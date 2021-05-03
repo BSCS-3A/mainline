@@ -1,5 +1,16 @@
 <!-- ELECTION ARCHIVES FOLDERS (ADMIN) -->
 <?php
+session_start();
+include("db_conn.php");
+  if (isset($_SESSION['admin_id']) && isset($_SESSION['username'])) {
+    
+         $idletime=900;//after 60 seconds the user gets logged out
+
+         if (time()-$_SESSION['timestamp']>$idletime){
+            header("Location: AdminLogout.php");
+         }else{
+           $_SESSION['timestamp']=time();
+         }
         $year = $_GET['year'];
         //echo $year;
 ?>
@@ -159,3 +170,9 @@
 </body>
 
 </html>
+<?php
+}else{
+    header("Location: AdminLogin.php");
+     exit();
+}
+ ?>
