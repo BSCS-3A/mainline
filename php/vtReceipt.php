@@ -1,16 +1,3 @@
-<?php
-session_start();
-include('db_conn.php');
- if (isset($_SESSION['student_id']) && isset($_SESSION['bumail'])) {
-     $idletime=900;//after 15 minutes the user gets logged out
-
- if (time()-$_SESSION['timestamp']>$idletime){
-     //$_GET['inactivityError'] = "Session ended: You are logged out due to inactivity.";
-     header("Location: StudentLogout.php");
- }else{
-     $_SESSION['timestamp']=time();
- }
- ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -39,7 +26,14 @@ include('db_conn.php');
         //   exit();
         // }
 
-
+        // Remove this temp session
+        session_start();
+        $_SESSION['bumail'] = "dhanjaphetverastigue.ador@bicol-u.edu.ph";
+        $_SESSION['fname'] = "Maria";
+        $_SESSION['lname'] = "Hanway";
+        $_SESSION['student_id'] = 1;
+        $_SESSION['grade_level'] = 7;
+        $_SESSION['timestamp']=time();
 
         function receiptMsg($message){
           include 'navStudent.php';
@@ -87,7 +81,9 @@ include('db_conn.php');
         }
         else{ // Invalid user; destroy session and return to login
           notifyAdmin("Warning: A user with invalid credentials attmpted to access the Receipt Page!");
-          header("Location: StudentLogout.php");
+          session_unset();    // remove all session variables
+          session_destroy();  // destroy session
+          header("Location: ../index.php");
           exit();
         }
       ?>
@@ -109,9 +105,3 @@ include('db_conn.php');
       </script>
     </body>
     </html>
-<?php
-}else{
-	header("Location: ..\index.php");
-     exit();
-}
- ?>

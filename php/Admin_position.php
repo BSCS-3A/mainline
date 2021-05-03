@@ -10,32 +10,25 @@ Need:
 
 <!DOCTYPE html>
 <?php 
-     session_start();
     include "db_conn.php";
+    include "navAdmin.php";
+    // session_start();
+    // if (!(isset($_SESSION['admin_id']) && isset($_SESSION['username']))) {
+    //     header("location: AdminLogin.php");
+    // }
+    // if(!$conn){
+    //   // add 404 error
+    //     echo "<script>alert('Cannot connect to database');
+   	// 		window.location.href = '../../index.html';
+   	// 		</script>";
+    // }
     
-    if (isset($_SESSION['admin_id']) && isset($_SESSION['username'])){
-      $idletime=900;//after 15 minutes the user gets logged out
-
-      if (time()-$_SESSION['timestamp']>$idletime){
-         $_GET['inactivityError'] = "Session ended: You are logged out due to inactivity.";
-         header("Location: AdminLogout.php");
-      }else{
-        $_SESSION['timestamp']=time();
-     }
-     if(!$conn){
-       // add 404 error
-         echo "<script>alert('Cannot connect to database');
-   	 		window.location.href = '../../index.html';
-   	 		</script>";
-     }
+    // if(isset($_SESSION['message']) && isset($_GET['id'])){
+    //     unset($_SESSION['message']);
+    //     unset($_SESSION['msg_typ']);
+    //     header("location: candidate.php");
+    // }
     
-     if(isset($_SESSION['message']) && isset($_GET['id'])){
-         unset($_SESSION['message']);
-         unset($_SESSION['msg_typ']);
-         header("location: candidate.php");
-     }
-     include "navAdmin.php";
-  
 ?>
 <html>
 <head>
@@ -456,11 +449,3 @@ Need:
 
 </body>
 </html>
-<?php
-
- }else{
-     // session issue, after add/edit/delete, logout after lol
-     header("Location: AdminLogin.php");
-     exit();
- }
- ?> 

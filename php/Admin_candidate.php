@@ -17,22 +17,20 @@
 <!DOCTYPE html>
 <?php
     include_once 'db_conn.php';
-     session_start();
-
-     if(isset($_SESSION['message']) && isset($_GET['id'])){
-         unset($_SESSION['message']);
-         unset($_SESSION['msg_typ']);
-         header("location:Admin_candidate.php"); 
-     } 
-     if (isset($_SESSION['admin_id']) && isset($_SESSION['username'])){
-        $idletime=900;//after 15 minutes the user gets logged out
-
-        if (time()-$_SESSION['timestamp']>$idletime){
-           $_GET['inactivityError'] = "Session ended: You are logged out due to inactivity.";
-           header("Location: AdminLogout.php");
-        }else{
-          $_SESSION['timestamp']=time();
-         }
+    // session_start();
+    // if (!(isset($_SESSION['admin_id']) && isset($_SESSION['username']))) {//if not logged in
+    //     header("location:AdminLogin.php");
+    // }    
+    // if(isset($_SESSION['student_id']) && isset($_SESSION['bumail'])){//if logged in as student
+    //     header("location:AdminLogin.php");
+    //     //or put a warning page stating that you cannot enter because you are a student
+    // }
+    // //if sql finished and done editing candidate deter from going back to page 
+    // if(isset($_SESSION['message']) && isset($_GET['id'])){
+    //     unset($_SESSION['message']);
+    //     unset($_SESSION['msg_typ']);
+    //     header("location:Admin_candidate.php"); 
+    // } 
     
 ?>
 <html>
@@ -612,11 +610,3 @@ if(isset($_GET['candidateid'])&&!isset($_GET['delete'])){
 </script>
 </body> 
 </html>
-<?php
-
- }else{
-     
-     header("Location: AdminLogin.php");
-     exit();
- }
- ?> 

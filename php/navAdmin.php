@@ -19,7 +19,6 @@ SOLVED ^^ font-awesome_addAdmin may kasalanan lol, + dataTables.bootstrap
 
 <?php
     date_default_timezone_set('Asia/Manila');
-    include('db_conn.php');
 ?>
 
 <!DOCTYPE html>
@@ -81,10 +80,7 @@ SOLVED ^^ font-awesome_addAdmin may kasalanan lol, + dataTables.bootstrap
                             <li><a href="front_Report.php">Make Report</a></li>
                         </ul>
                     </li>
-                    <li>
-                        <label for="btn-6" class="Ashow2">Configuration</label>
-                        <a href="#">Configuration</a>
-                        <input class="nav-toggle7" type="checkbox" id="btn-6"> <!-- latest button toggle for 3rd ul-->
+                    <li><a href="#">Configuration</a>
                         <ul>
                             <li><a href="Admin_electionConfig.php">Scheduler</a></li>
                             <li><a href="front_signatory.php">Signatory</a></li>
@@ -114,11 +110,11 @@ SOLVED ^^ font-awesome_addAdmin may kasalanan lol, + dataTables.bootstrap
             <li><a href="Admin_MessageBox.php">MESSAGES</a></li>
             <li>
                 <label for="btn-5" class="Ashow"><?php echo $_SESSION['admin_fname']." ".$_SESSION['admin_lname']; ?></label>
-                <a class="user" href="#"><img class="user-profile" src="../img/<?php echo $_SESSION['photo']; ?>"></a>
+                <a class="user" href="#"><img class="user-profile" src="../user/img/<?php echo $_SESSION['photo']; ?>"></a>
                 <input class="nav-toggle6" type="checkbox" id="btn-5">
                 <ul>
                     
-                    <li><a class="username" href="#"><?php echo $_SESSION['admin_fname']." ".$_SESSION['admin_lname']; ?></a></li>
+                    <li><a class="username" href="#"><?php //echo $_SESSION['admin_fname']." ".$_SESSION['admin_lname']; ?></a></li>
                     <li class="logout">
                         <span class="fa fa-sign-out"></span><a href="AdminLogout.php">LOGOUT</a></span>
                     </li>

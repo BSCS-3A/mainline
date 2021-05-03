@@ -1,18 +1,14 @@
-<?php
-session_start();
-include('db_conn.php');
- if (isset($_SESSION['student_id']) && isset($_SESSION['bumail'])) {
-     $idletime=900;//after 15 minutes the user gets logged out
-
- if (time()-$_SESSION['timestamp']>$idletime){
-     //$_GET['inactivityError'] = "Session ended: You are logged out due to inactivity.";
-     header("Location: StudentLogout.php");
- }else{
-     $_SESSION['timestamp']=time();
- }
- ?>
 <!DOCTYPE html>
-
+<?php
+    include 'db_conn.php';
+    // session_start();
+    // if (!(isset($_SESSION['student_id']) && isset($_SESSION['bumail']))) {//if not logged in
+    //     header("location:../../DashboardAuthentication/Login UI v2/html/AdminLogin.php");
+    // }
+    // if(isset($_SESSION['admin_id']) && isset($_SESSION['username'])){//if logged in as admin
+    //     header("location:../../DashboardAuthentication/Login UI v2/html/AdminLogin.php");
+    // }
+?>
 <html>
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -213,9 +209,3 @@ include('db_conn.php');
 </body>
 
 </html>
-<?php
-}else{
-	header("Location: ..\index.php");
-     exit();
-}
- ?>

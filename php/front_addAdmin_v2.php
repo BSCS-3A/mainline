@@ -1,16 +1,15 @@
 <?php       // SESSION ISSUE, details at last part
- session_start();
- include('db_conn.php');
-  if (isset($_SESSION['admin_id']) && isset($_SESSION['username'])) 
- {
-     $idletime=900;//after 15 minutes the user gets logged out
+// session_start();
+//  if (isset($_SESSION['admin_id']) && isset($_SESSION['username'])) 
+// {
+//     $idletime=900;//after 15 minutes the user gets logged out
 
- if (time()-$_SESSION['timestamp']>$idletime){
-     $_GET['inactivityError'] = "Session ended: You are logged out due to inactivity.";
-    header("Location: AdminLogout.php");
- }else{
-    $_SESSION['timestamp']=time();
- }
+// if (time()-$_SESSION['timestamp']>$idletime){
+//     $_GET['inactivityError'] = "Session ended: You are logged out due to inactivity.";
+//    header("Location: AdminLogout.php");
+// }else{
+//    $_SESSION['timestamp']=time();
+// }
  ?>
 
 <!DOCTYPE html>
@@ -431,10 +430,9 @@
 
 <?php
 
-}else{
-    // session issue, after add/edit/delete, logout after lol 
-    // status: fixed and applied 05/01/2021 9:53pm
-    header("Location: AdminLogin.php");
-    exit();
-}
+// }else{
+//     // session issue, after add/edit/delete, logout after lol
+//     header("Location: AdminLogin.php");
+//     exit();
+// }
  ?> 

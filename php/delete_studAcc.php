@@ -18,7 +18,7 @@
 
                 $student_id = $_POST['Delete_ID'];
 				$query = "DELETE FROM student WHERE student_id ='$student_id'";
-				$query_run = mysqli_query($conn, $query);
+				$query_run = mysqli_query($connection, $query);
 				
                 if ($query_run) {
                     $_SESSION['message'] = 'Record has been deleted!';

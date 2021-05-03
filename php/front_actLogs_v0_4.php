@@ -10,21 +10,7 @@ kerby, latest update:
 30 day expiry of logs, 
 use of username instead of admin id in the display table
 -->
-<?php
-session_start();
-include("db_conn.php");
-  if (isset($_SESSION['admin_id']) && isset($_SESSION['username'])) {
-    
-         $idletime=900;//after 60 seconds the user gets logged out
 
-         if (time()-$_SESSION['timestamp']>$idletime){
-            header("Location: AdminLogout.php");
-         }else{
-           $_SESSION['timestamp']=time();
-         }
-    
-
-?>
 <!DOCTYPE html>
 <html>
 
@@ -166,7 +152,7 @@ include("db_conn.php");
                                   include "db_conn.php";
                               
                                   mysqli_query($conn, "DELETE FROM admin_activity_log WHERE activity_date < DATE_SUB(NOW(), INTERVAL 1 MONTH)");
-                                  $results = mysqli_query($conn, "SELECT activity_time, activity_date, activity_description, username FROM admin INNER JOIN admin_activity_log ON admin.admin_id = admin_activity_log.admin_id WHERE activity_description!='Login' AND activity_description!='Logout' ORDER BY activity_log_id desc");
+                                  $results = mysqli_query($conn, "SELECT activity_time, activity_date, activity_description, username FROM admin INNER JOIN admin_activity_log ON admin.admin_id = admin_activity_log.admin_id");
 
                                   while($row = mysqli_fetch_array($results))
                                   {
@@ -289,9 +275,3 @@ include("db_conn.php");
 </body>
 
 </html>
-<?php
-}else{
-    header("Location: AdminLogin.php");
-     exit();
-}
- ?>
