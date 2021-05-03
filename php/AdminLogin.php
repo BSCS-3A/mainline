@@ -5,7 +5,7 @@
   }
      
      if($_SESSION['incorrectTry']>=3){
-       $_GET['error'] = "Oops! It seems like you logged in incorrectly 3 times. Please verify that you are not a bot by clicking the checkbox before logging in.";
+       $_GET['BOTerror'] = "Oops! It seems like you logged in incorrectly 3 times. Please verify that you are not a bot by clicking the checkbox before logging in.";
      }
     
     /* if(isset($_GET[''])){
@@ -65,9 +65,13 @@
                         <option value="../index">STUDENT</option>
                     </select>
                 </div>
-                <?php if (isset($_GET['error'])) { 
-                    echo '<p class="error" align="center" ><font color="#E42217"  size="3">'.$_GET['error'].'</font></p>';
-                 } ?>
+                <?php if (isset($_GET['error']) && isset($_GET['BOTerror'])) { ?>
+                    <p class="error" align="center" ><font color="#E42217"  size="3"><?php echo $_GET['error']; ?></font></p>
+                <?php }else if (isset($_GET['error'])) { ?>
+                    <p class="error" align="center" ><font color="#E42217"  size="3"><?php echo $_GET['error']; ?></font></p>
+                <?php }else if (isset($_GET['BOTerror'])){ ?>
+                    <p class="error" align="center" ><font color="#E42217"  size="3"><?php echo $_GET['BOTerror']; ?></font></p>
+                <?php } ?>
             <input type="text" placeholder="Enter BU Email" name="username" required>  
             <input type="password" placeholder="Enter Password" name="password" required>  
             <?php 
