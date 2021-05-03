@@ -29,8 +29,9 @@ include("db_conn.php");
     <script type="text/javascript"> (function() { var css = document.createElement('link'); css.href = 'https://use.fontawesome.com/releases/v5.1.0/css/all.css'; css.rel = 'stylesheet'; css.type = 'text/css'; document.getElementsByTagName('head')[0].appendChild(css); })(); </script>
     <title> Message Box</title>
 </head>
+
 <body>
-  <?php include "navAdmin.php";?>
+  <?php include "navAdmin.php"; ?>
 
     <!-- <nav class="cnavie">
         <input id="nav-toggle" type="checkbox">
@@ -97,6 +98,16 @@ include("db_conn.php");
     <div class="ccheader">
     <h3>MESSAGE BOX</h3>
 </div>
+
+<?php
+  $server = strtolower($_SERVER['HTTP_USER_AGENT']);
+  $isMob = is_numeric(strpos($server, "mobile"));
+  if($isMob){
+    echo "<br><center><p style='color:white';>You are using a mobile device! It is recommended to switch into landscape mode.</p></center>";
+  } 
+?>
+
+
   <div class="container">  
     <div class="row rounded-lg overflow-hidden shadow">
       <!-- Users box-->
@@ -167,9 +178,10 @@ include("db_conn.php");
         </div>
       </div>
     </div>
-    <div class="footer">
+    <!-- <div class="footer">
       <p class="footer-txt">BS COMPUTER SCIENCE 3A © 2021</p>
-  </div>
+  </div> -->
+  <br><br><br><br>
 
         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <script type="text/javascript"> 
