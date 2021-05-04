@@ -35,6 +35,9 @@ $position_query_run = mysqli_query($connection, $position_query);
               alert('Signatory Added');
               </script>
               ";
+              //For Logs
+              $_SESSION['action'] = 'added Signatory : ' . $_POST['siglname']. ', ' . $_POST['sigfname'];
+              include 'backFun_actLogs_v0_1.php';
             }
           }
 
