@@ -23,10 +23,12 @@ include("db_conn.php");
     <link rel="stylesheet" href="../css/admin_css/bootstra_addAdmin.css">
     <link rel="stylesheet" href="../css/admin_css/dataTables.bootstrap_addAdmin.css">
     <link rel="stylesheet" href="../css/admin_css/font-awesome_addAdmin.css">
+    <link rel="stylesheet" href="../assets/css/autocomplete_signatory.css">
     <script src="../js/jquery-1.11.1.min_addAdmin.js"></script>
     <script src="../js/jquery.dataTables.min_addAdmin.js"></script>
     <script src="../js/dataTables.bootstrap_addAdmin.js" ></script>
     <script src="../js/bootstrap.min_addAdmin.js"></script>
+    <script src="../assets/js/tablesort.js"></script>
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
 
 
@@ -112,12 +114,10 @@ include("db_conn.php");
               <div class="col-md-12">
               <?php
 
-                //Create connection
-                $connection = mysqli_connect("localhost", "root", "");
-                // $db = mysqli_select_db($connection, 'buceils_db');
+
                 include 'db_conn.php';
               
-              $file = file_get_contents('../other/sig_array.txt');
+              $file = file_get_contents('../other/sig_array.json');
               $decoded = json_decode($file, true);
               $id = explode(",",$decoded);
               $id = array_filter($id);
