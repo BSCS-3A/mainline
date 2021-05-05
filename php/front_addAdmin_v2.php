@@ -1,5 +1,5 @@
 <?php       // SESSION ISSUE, details at last part
-// session_start();
+session_start();
 //  if (isset($_SESSION['admin_id']) && isset($_SESSION['username'])) 
 // {
 //     $idletime=900;//after 15 minutes the user gets logged out
@@ -134,8 +134,14 @@
     <div class="container">
         <section>
             <div class="btn-toolbar">
-                <button class="btn btn-button2" data-title="otp" data-toggle="modal" data-target="#otp" data-placement="top" data-toggle="modal" title="Add Account"><span class="fa fa-user-plus"></span> ADD ACCOUNT</button>
+                <button name="AddAccountButton" class="btn btn-button2" data-title="otp" data-toggle="modal" data-target="#otp" data-placement="top" data-toggle="modal" title="Add Account" 
+                <?php if($_SESSION['admin_position'] == "Admin"){
+                ?> disabled <?php 
+                }?>>
+                
+                <span class="fa fa-user-plus"></span> ADD ACCOUNT</button>
             </div>
+            <?php //echo("{$_SESSION['admin_position']}") ?>
         </section>
         <!--######################################################################################################################################################################################-->
         <!-- TABLE -->
@@ -173,13 +179,20 @@
                                     <td><?php echo $row['admin_fname']; ?></td>
                                     <td><?php echo $row['admin_mname']; ?></td>
                                     <td><?php echo $row['admin_lname']; ?></td>
-                                    <td><?php echo $row['username']; ?></td>
+                                    <td style="word-wrap: break-word"><?php echo $row['username']; ?></td>
                                     <td><?php echo $row['comelec_position']; ?></td>
                                     <td><?php echo $row['admin_position']; ?></td>
                                     <td style="display:none;"><?php echo $row['password']; ?></td>
                                     <td style="white-space: nowrap;">
-                                        <button class="btn btn-primary btn-xs editbtn" data-title="Edit" name="editinfo" data-toggle="modal" data-target="#edit" data-placement="top" data-toggle="tooltip" title="Edit"><span class="glyphicon glyphicon-pencil"></span> EDIT</button>
-                                        <button class="btn btn-danger btn-xs deletebtn" data-title="Delete" data-toggle="modal" data-target="#delete"><span class="fa fa-trash"></span> DELETE</button>
+                                        <button class="btn btn-primary btn-xs editbtn" data-title="Edit" name="editinfo" data-toggle="modal" data-target="#edit" data-placement="top" data-toggle="tooltip" title="Edit"
+                                        <?php if($_SESSION['admin_position'] == "Admin"){
+                                        ?> disabled <?php 
+                                        }?>>
+                                        <span class="glyphicon glyphicon-pencil"></span> EDIT</button>
+                                        <button class="btn btn-danger btn-xs deletebtn" data-title="Delete" data-toggle="modal" data-target="#delete"
+                                        <?php if($_SESSION['admin_position'] == "Admin"){
+                                        ?> disabled <?php
+                                        }?>><span class="fa fa-trash"></span> DELETE</button>
                                     </td>
                                 </tr>
                             <?php } ?>
@@ -222,8 +235,8 @@
                             <label for="sel1">Admin Position:</label>
                             <select class="form-control" name="admin_position" id="sel1" required>
                                 <option><\choose></option>
-                                <option>Student Admin</option>
-                                <option>Adviser</option>
+                                <option>Admin</option>
+                                <option>Head Admin</option>
                             </select>
                         </div>
                         <div class="form-group">
@@ -286,8 +299,8 @@
                             <label for="sel1">Admin Position:</label>
                             <select class="form-control" name="admin_position" id="admin_position" required>
                                 <option><\choose></option>
-                                <option>Student Admin</option>
-                                <option>Adviser</option>
+                                <option>Admin</option>
+                                <option>Head Admin</option>
                             </select>
                         </div>
                         <div class="form-group">
