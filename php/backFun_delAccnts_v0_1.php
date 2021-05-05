@@ -23,7 +23,7 @@
                 else{
                     $_SESSION['message'] = 'Record has not been deleted!';
                     $_SESSION['msg_type'] = 'danger';
-                    header("Location: front_addAdmin_v2.phpp");
+                    header("Location: front_addAdmin_v2.php");
                 }        
         }
 

@@ -19,6 +19,7 @@ SOLVED ^^ font-awesome_addAdmin may kasalanan lol, + dataTables.bootstrap
 
 <?php
     date_default_timezone_set('Asia/Manila');
+    include('db_conn.php');
 ?>
 
 <!DOCTYPE html>
@@ -73,17 +74,20 @@ SOLVED ^^ font-awesome_addAdmin may kasalanan lol, + dataTables.bootstrap
                 <a href="#">ELECTION</a>
                 <input class="nav-toggle4" type="checkbox" id="btn-2">
                 <ul>
-                    <li><a href="#">Archive</a></li>
+                    <li><a href="Admin_ArchFolder.php">Archive</a></li>
                     <li><a href="front_VsPercentage.php">Vote Status</a></li>
                     <li><a href="front_ElectionResults.php">Vote Result</a>
                         <ul>
                             <li><a href="front_Report.php">Make Report</a></li>
                         </ul>
                     </li>
-                    <li><a href="#">Configuration</a>
+                    <li>
+                        <label for="btn-6" class="Ashow2">Configuration</label>
+                        <a href="#">Configuration</a>
+                        <input class="nav-toggle7" type="checkbox" id="btn-6"> <!-- latest button toggle for 3rd ul-->
                         <ul>
                             <li><a href="Admin_electionConfig.php">Scheduler</a></li>
-                            <li><a href="front_signatory_v0_1.php">Signatory</a></li>
+                            <li><a href="front_signatory.php">Signatory</a></li>
                         </ul>
                     </li>
                 </ul>
@@ -110,11 +114,11 @@ SOLVED ^^ font-awesome_addAdmin may kasalanan lol, + dataTables.bootstrap
             <li><a href="Admin_MessageBox.php">MESSAGES</a></li>
             <li>
                 <label for="btn-5" class="Ashow"><?php echo $_SESSION['admin_fname']." ".$_SESSION['admin_lname']; ?></label>
-                <a class="user" href="#"><img class="user-profile" src="../user/img/<?php echo $_SESSION['photo']; ?>"></a>
+                <a class="user" href="#"><img class="user-profile" src="../img/<?php echo $_SESSION['photo']; ?>"></a>
                 <input class="nav-toggle6" type="checkbox" id="btn-5">
                 <ul>
                     
-                    <li><a class="username" href="#"><?php //echo $_SESSION['admin_fname']." ".$_SESSION['admin_lname']; ?></a></li>
+                    <li><a class="username" href="#"><?php echo $_SESSION['admin_fname']." ".$_SESSION['admin_lname']; ?></a></li>
                     <li class="logout">
                         <span class="fa fa-sign-out"></span><a href="AdminLogout.php">LOGOUT</a></span>
                     </li>
@@ -130,12 +134,6 @@ SOLVED ^^ font-awesome_addAdmin may kasalanan lol, + dataTables.bootstrap
         <p class="footer-txt">BS COMPUTER SCIENCE 3A © 2021</p>
     </div>
 
-    <script>
-        // $('.ADicon').click(function () {
-        //     $('span').toggleClass("cancel");
-        // });
-        
-    </script>
 </body>
 
 </html>

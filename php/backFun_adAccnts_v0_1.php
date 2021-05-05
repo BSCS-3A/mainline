@@ -28,8 +28,8 @@ if (isset($_POST['saveAccount']) && isset($_FILES['my_image']) ) {
   $tmp_name = $_FILES['my_image']['tmp_name'];
   $error = $_FILES['my_image']['error'];
 
-  $user_check_query = "SELECT * FROM admin_table WHERE username='$username' LIMIT 1";
-  $result = mysqli_query($db, $user_check_query);
+  $user_check_query = "SELECT * FROM admin WHERE username='$username' LIMIT 1";
+  $result = mysqli_query($conn, $user_check_query);
   $user = mysqli_fetch_assoc($result);
   
   if ($user['username'] === $username) {

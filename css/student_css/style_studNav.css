@@ -28,133 +28,129 @@
     position: sticky;
     top: 0;
   }
-  nav:before{
-    min-height: 100%;
-  }
+
+  nav img.Auser-profile {
+    margin-top: 0px;
+    height: 40px;
+    width: 40px;
+}
+
   nav:after{
     content: '';
     clear: both;
     display: table;
   }
-  nav h2{
+  h2.aLogo-txt1{
     margin-top: 3px;
     font-family: Roboto Regular, sans-serif;
     font-weight: inherit;
-    font-size: 180%;
+    font-size: 100%;
     margin-bottom: 0px;
     letter-spacing: 6px;
-    color: #124254;
-  }
-  h2 a.Atext-link{
     text-decoration: none;
-    color: #124254;
+    color: #1b1b1b;
   }
-  nav h3{
+  h2.aLogo-txt1 a{
+    text-decoration: none;
+    color: #1b1b1b;
+  }
+  h3.aLogo-txt2{
     margin-top: 0px;
-    color: #124254;
+    color: #1b1b1b;
     padding-top: 5px;
     font-weight: inherit;
-    font-size: 200%;
+    font-size: 100%;
     margin-bottom: 0px;
     letter-spacing: 6px;
     font-family: Generica regular, sans-serif;
   }
-  h3 a.Atext-link{
+  h3.aLogo-txt2 a{
     text-decoration: none;
-    color: #124254;
+    color: #1b1b1b;
   }
-  nav .Alogo{
+  div.aLogo{
     float: left;
     position: relative;
-    margin-bottom:20px; /*add distance - PM */
     line-height: 80px;
     margin-top: 14px;
     margin-left: 40px;
   }
-  
-  
-  /* Top Navigation Item List */
   nav ul{
     float: right;
     padding: 0;
     height: 80px;
-    /* margin-right: 40px; */
     margin-bottom: 0;
     list-style: none;
     position: relative;
     text-align: center;
     z-index: 4;
   }
-  nav ul li{
-    
+  nav ul li{ /*Accounts, Election, Candidates, etc*/
+    /* float: left; */
     display: inline-block;
-    height: 80px;
-    background: #f8f8f8;
+    height: 80px; /*80px ang dati*/
+    /* background-color: #ffc423; */
     text-align: center;
     /* margin: 0 5px; */
     width: 150px;
   }
   nav ul li a{
-    color: black;
+    color: #1b1b1b;
     line-height: 70px;
     text-decoration: none;
-    font-size: 2em;
+    font-size: 1.2em;
     padding: 8px 15px;
     letter-spacing: 1px;
     font-family: Roboto Light, sans-serif;
+    text-decoration:none;
   }
   nav ul li a:visited {
-    color: black;
-    /* color: white; */
+    color: #1b1b1b;
     text-decoration: none;
   }
   nav ul li a:hover{
-    color: black;
-    /* color: white; */
+    color: #1b1b1b;
     text-decoration: none;
   }
   nav ul li a:active{
     text-decoration: none;
   }
   nav ul li:hover{
-    background-color: #fece4b;
+    background-color: #ffc423;
   }
   nav ul li a:active {
-    color: green;
+    color: #1b1b1b;
+    text-decoration:none;
   }
-  nav ul ul{
+  nav ul ul{ /*dropdown container*/
     position: absolute;
     top: 90px;
-    border-top: 3px solid #18566e;
+    border-top: 3px solid #124254;
     opacity: 0;
     visibility: hidden;
     transition: top .3s;
   }
-  nav ul ul li{
+  nav ul ul li{ /*dropdown list*/
+   background: #18566e;
    height: 50px;
    position: relative;
    margin: 0px;
    float: none;
    display: list-item;
-   color:white;
+   font-size: 0.8em;
   }
   nav ul ul li a{
     line-height: 50px;
-    color:white;
-  }
-  nav ul ul li a.Aelec-text{
-    font-size: 1.2em;
-    color:white;
+    text-decoration: none;
   }
   nav ul ul li .logout::before {
     content: "\f2f5";
     font-family: "Font Awesome 5 Free";
     padding: 0 10px 0 0;
-    color:white;
   }
   nav ul ul li a:link{
     color:white;
-    /* color:rgb(0, 0, 0); */
+    text-decoration:none;
   }
   nav ul ul li a:visited {
     color: white;
@@ -192,16 +188,16 @@
     position: relative;
     margin: 0px;
     width: 150px;
-    font-size: 0.8em;
+    font-size: .9rem;
     float: none;
     display: list-item;
     border-bottom: 1px solid rgba(0,0,0,0.3);
-    z-index: 1;
+    z-index: 2;
   }
   nav ul ul li a{
-    color: black;
     line-height: 50px;
     font-family: Roboto bold, sans-serif;
+    text-decoration: none;
   }
   nav ul ul ul li{
     position: relative;
@@ -209,48 +205,52 @@
     top: -60px;
     left: 150px;
   }
-  .Ashow,.Aicon,input{
-    display: none;
+  .Ashow, .ADicon{
+    display: none
   }
-  nav img.Auser-profile{
-    margin-top: 0;
-    height: 40px;
-    width: 40px;
+  
+  .nav-toggle1, .nav-toggle2, .nav-toggle3,
+  .nav-toggle4, .nav-toggle5, .nav-toggle6{
+    display: none;
   }
   /* .fa-plus{
     font-size: 15px;
     margin-left: 40px;
   } */
   
-  
-  
-  /* Mobile */
   @media all and (max-width: 968px) {
     nav ul{
       margin-right: 0px;
       margin-left: 0px;
       float: left;
     }
-    /* nav .logo{
-      padding-left: 30px;
+    nav .aLogo{
+      margin-bottom: 3%;
       width: auto;
       float: left;
-    } */
+    }
     .Ashow + a, ul{
       display: none;
     }
     nav ul li,nav ul ul li{
-      border-top: 3px solid #18566e;
       display: block;
       width: 100%;
+      background-color:  #18566e;
+      color:white; 
+    }
+    #Ashow1{
+      color: white;
+    }
+    #Ashow1:hover{
+      color: black;
     }
     nav ul li a:hover{
       box-shadow: none;
+      text-decoration: none;
+      color:black;
     }
-  
     .Ashow{
       display: block;
-      background-color: #18566e;
       color: white;
       font-size: 1.2em;
       padding: 0 20px;
@@ -258,11 +258,12 @@
       cursor: pointer;
     }
     .Ashow:hover{
-      color:white;
+      /* color:white; */
+      color: #000000;
     }
-    .Aicon{
+    .ADicon{
       display: block;
-      color:  black;
+      /* color:#ffffff; */
       position: absolute;
       top: 0;
       right: 40px;
@@ -307,7 +308,7 @@
   Left Content
   article p{
     font-family: Roboto regular, sans-serif;
-    color: #124254;
+    color: #1b1b1b;
     font-weight: inherit;
     font-size: 20px;
     letter-spacing: 3px;

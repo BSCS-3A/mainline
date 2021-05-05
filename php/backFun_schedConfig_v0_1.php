@@ -4,7 +4,7 @@
 -->
 
 <?php
-session_start();
+
 include('Admin_electionConfig.php');
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;

@@ -22,12 +22,12 @@ if($_SESSION['incorrectTry']>=3){
    }
    else {
      // die('Your account has been logged as a spammer, you cannot continue!');
-     header("Location: ..\index.php?error=Oops! It seems like you logged in incorrectly 3 times. Please verify that you are not a bot by clicking the checkbox before logging in.");	
+     header("Location: ..\index.php?BOTerror=Oops! It seems like you logged in incorrectly 3 times. Please verify that you are not a bot by clicking the checkbox before logging in.");	
      exit();
    }
  }else {
      // die('Your account has been logged as a spammer, you cannot continue!');
-     header("Location: ..\index.php?error=Oops! It seems like you logged in incorrectly 3 times. Please verify that you are not a bot by clicking the checkbox before logging in.");	
+     header("Location: ..\index.php?BOTerror=Oops! It seems like you logged in incorrectly 3 times. Please verify that you are not a bot by clicking the checkbox before logging in.");	
      exit();
    }
    

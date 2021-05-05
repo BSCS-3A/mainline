@@ -1,20 +1,23 @@
+<!--Election Archives List of Winners (Student)-->
 <?php
 session_start();
 include('db_conn.php');
- if (isset($_SESSION['student_id']) && isset($_SESSION['bumail'])) {
-     $idletime=900;//after 15 minutes the user gets logged out
+if (isset($_SESSION['student_id']) && isset($_SESSION['bumail'])) {
+    $idletime=900;//after 15 minutes the user gets logged out
 
- if (time()-$_SESSION['timestamp']>$idletime){
-     //$_GET['inactivityError'] = "Session ended: You are logged out due to inactivity.";
-     header("Location: StudentLogout.php");
- }else{
-     $_SESSION['timestamp']=time();
- }
- ?>
-<?php require './backMonitor/fetch_date.php' ?>
+if (time()-$_SESSION['timestamp']>$idletime){
+    //$_GET['inactivityError'] = "Session ended: You are logged out due to inactivity.";
+    header("Location: StudentLogout.php");
+}else{
+    $_SESSION['timestamp']=time();
+}
+        $year = $_GET['year'];
+        //echo $year;
+?>
 
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
@@ -22,8 +25,7 @@ include('db_conn.php');
     <link rel="icon" href="../img/BUHS LOGO.png" type="image/png">
     <link rel="stylesheet" href="../css/student_css/bootstrap_monitor.css">
     <link rel="stylesheet" href="../css/student_css/font-awesome.css">
-    <!-- <link rel="stylesheet" type="text/css" href="../css/student_css/style.css"> -->
-    <link rel="stylesheet" href="../css/student_css/style_monitor.css?v=<?php echo time(); ?>">
+    <link rel="stylesheet" type="text/css" href="../css/student_css/style_monitor.css">
     <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
     <!-- <script src="assets/js/countdown.js"></script> -->
@@ -47,7 +49,7 @@ include('db_conn.php');
             </li>
             <li>
                 <label for="btn-2" class="show">ELECTION</label>
-                <a class="topnav" href="#">ELECTION</a> 
+                <a class="topnav" href="#">ELECTION</a>
                 <input type="checkbox" id="btn-2">
                 <ul>
                     <li><a href="#" class="elec-text">ELECTION PROCESS</a></li>
@@ -75,22 +77,59 @@ include('db_conn.php');
         </ul>
     </nav> -->
 
-    <?php if($vote_stat==1): ?>
-    <?php require '../html/ongoing.html';?>
-    <?php elseif($vote_stat==2): ?>
-    <?php require '../html/after_election.html';?>
-    <?php elseif($vote_stat==3): ?>
-    <?php require 'front_ElectRes.php';?>
-    <?php else: ?>
-    <?php require '../html/no_election.html';?>
-    <?php endif; ?>
+    <div class="Barch">
+        <p><b>ELECTION ARCHIVES</b></p>
+    </div>
 
+    <div class="Barch_year">
+        <p><b><?php echo $year ?> ELECTION</b></p>
+    </div>
+
+    <div class="Barch_container">
+        <?php
+
+        require "db_conn.php";
+        // Check connection
+        if ($conn->connect_error) {
+            die("Connection failed: " . $conn->connect_error);
+        }
+        //echo "Connected successfully";
+
+        $schoolYear = mysqli_query($conn, "SELECT YEAR(school_year) AS schyear FROM archive");
+        $archive = mysqli_query($conn, "SELECT * FROM archive");
+
+
+        while (($shyear = mysqli_fetch_array($schoolYear)) && ($archRow = mysqli_fetch_array($archive))) {
+            if ($year === $shyear['schyear']) {
+                //echo $year;
+                //require('ArchWinnerInfo.php');
+                // echo '<div class="Bpstn">';
+                // echo '<img src="../Student/assets/img/profile1.png" />';
+                // echo '<p class="Bname">' . $archRow['winner_fname'] . ' ' . $archRow['winner_mname'] . ' ' . $archRow['winner_lname'] . '</p>';
+                // echo '<p class="Bpstn">' . $archRow['position_name'] . '</p>';
+                // echo '</div>';
+
+                echo '<div class="Bpstn">';
+            if(!(empty($archRow['winner_mname']))){
+                echo '<p class="Bname">'.$archRow['winner_fname'].' '.$archRow['winner_mname'][0].'. '.$archRow['winner_lname'].'</p>';
+            } else {
+                echo '<p class="Bname">'.$archRow['winner_fname'].' '.$archRow['winner_lname'].'</p>';
+            }
+            echo '<p class="Bpstn">'.$archRow['position_name'].'</p>';
+            echo '<p class="Bplat1"> PLATFORMS </p>';
+            echo '<p class="Bplat2">' .$archRow['platform_info']. '</p>';
+            echo '</div>';
+            }
+        }
+        ?>
+    </div>
+        <br><br><br>
     <!-- <div class="footer">
         <p class="footer-txt">BS COMPUTER SCIENCE 3A © 2021</p>
     </div> -->
 
     <script>
-        $('.icon').click(function () {
+        $('.icon').click(function() {
             $('span').toggleClass("cancel");
         });
     </script>

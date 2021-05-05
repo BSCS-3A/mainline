@@ -902,7 +902,8 @@ z-index:1000;
 /*Election Archives List*/
 .Barch_year{
   font-family: Roboto black;
-  color: #1d6986;
+  /* color: #1d6986; */
+  color: #030f15;
   font-weight: inherit;
   font-size: 1.5vw;
   position: relative;
@@ -915,12 +916,22 @@ z-index:1000;
   padding: 30px;
   color: black;
   display: grid;  
-  grid-gap: 5px;  
+  grid-gap: 30px;  
   grid-template-columns: repeat(auto-fit, minmax(200px, 5fr));
-  grid-template-rows: repeat(2, 200px);  
+  grid-template-rows: repeat(autofit,30%);  
   text-align: center;
-  margin-top: -5px;
+  margin-top: -20px;
+  max-width: 80%;
+  margin-left: auto;
+  margin-right: auto;
 }
+
+.Barch_container > div{
+  border-radius: 20px;
+  background-color: rgba(17, 50, 70, 0.7);
+  padding: 20px;
+}
+
 .Barch_container > div > img{
   border-radius: 50%;
   width: 80px;
@@ -939,14 +950,40 @@ z-index:1000;
 }
 .Bpstn .Bname{
   margin-top: 10px;
-  color:  #142d4f;
+  /* color:  #142d4f; */
+  color:  #ffffff;
   font-weight: bold;
+  font-size: 20px;
+  text-transform: uppercase;
+  border-top-color: white;
+  border-top-style: solid;
+  border-top-width: 90%;
+  padding-top: 10px;
 }
 .Bpstn .Bpstn{
-  margin-top: 10px;
-  color:  #ffb700;
   margin-top: -10px;
+  color:  #ffb700;
   font-weight: bold;
+  font-size: 130%;
+  border-bottom-color: white;
+  border-bottom-style: solid;
+  border-bottom-width: 90%;
+  padding-bottom: 10px;
+}
+
+.Bpstn .Bplat1{
+  margin-top: 15px;
+  color:  white;
+  font-weight: bold;
+  font-size: 90%;
+  letter-spacing: 1px;
+}
+
+.Bpstn .Bplat2{
+  color:  #ffb700;
+  /* font-weight: bold; */
+  font-size: 85%;
+  margin-top: -5px;
 }
 
 /* Election Results Report */

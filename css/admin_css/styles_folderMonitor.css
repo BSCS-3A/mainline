@@ -1,0 +1,43 @@
+body{
+    background-color: rgb(221, 221, 221);
+}
+
+a { 
+    text-decoration: none;
+    font-size: large;
+    color: aliceblue;
+}
+
+a :hover, a :active{
+    text-decoration: none;
+}
+
+.items{
+    text-align:center; 
+    float: left;
+    margin-top: 30px;
+    margin-left: 100px;
+    align-self: auto;
+    color:white;
+    text-decoration: none;
+} 
+
+.items:hover{
+    background-color: rgb(255, 255, 255, 0.3);
+    text-decoration: none;
+}
+    
+.items figure{
+    margin:0px 20px;
+    text-decoration:none;
+    background-color: transparent;
+    width: 160px;
+    height: 180px;
+}
+
+figcaption{
+    color:white;
+}
+
+
+

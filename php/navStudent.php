@@ -1,5 +1,6 @@
 <?php
 date_default_timezone_set('Asia/Manila');
+include('db_conn.php');
 // session_start();
 
 // if (isset($_SESSION['student_id']) && isset($_SESSION['bumail'])) {
@@ -19,10 +20,15 @@ date_default_timezone_set('Asia/Manila');
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta charset="utf-8">
     <link rel="icon" href="../img/BUHS LOGO.png" type="image/png">
-    <link rel="stylesheet" href="../css/student_css/bootstrap_studDash.css">
-    <!-- <link rel="stylesheet" href="../css/student_css/font-awesome_studDash.css"> -->
-    <!-- <link rel="stylesheet" type="text/css" href="../css/student_css/style_studDash.css"> -->
     <link rel="stylesheet" type="text/css" href="../css/student_css/style_studNav.css">
+    <!-- <link rel="stylesheet" href="../css/admin_css/bootstrap4.5.2_AdminDash.css"> -->
+    <!-- <link rel="stylesheet" href="../css/admin_css/font-awesome_AdminDash.css"> -->
+    
+    <!-- <link rel="stylesheet" type="text/css" href="../css/admin_css/style1_addAdmin.css"> -->
+    <!-- <link rel="stylesheet" href="../css/admin_css/bootstrap_addAdmin.css"> -->
+    <link rel="stylesheet" href="../css/student_css/bootstrap_studNav.css">
+    <!-- <link rel="stylesheet" href="../css/admin_css/dataTables.bootstrap_addAdmin.css"> -->
+    <!-- <link rel="stylesheet" href="../css/admin_css/font-awesome_addAdmin.css">  -->
     
     <!-- for disabling inspect element -->
     <script src="../js/scripts_vote.js"></script>
@@ -31,47 +37,62 @@ date_default_timezone_set('Asia/Manila');
 
 <body>
     <!--navbar-->
-    <nav id="nav-container">
-        <input id="nav-toggle" type="checkbox">
-        <div class="Alogo">
-            <h2><a class="Atext-link" href="StudentDashboard.php">BUCEILS HS</a></h2>
-            <h3><a class="Atext-link" href="StudentDashboard.php">ONLINE VOTING SYSTEM</a></h3>
+    <nav>
+        <input class="nav-toggle1" type="checkbox">
+        <div class="aLogo">
+            <h2 class="aLogo-txt1"><a href="StudentDashboard.php">BUCEILS HS</a></h2>
+            <h3 class="aLogo-txt2"><a href="StudentDashboard.php">ONLINE VOTING SYSTEM</a></h3>
         </div>
-        <label for="btn" class="Aicon"><span class="fa fa-bars"></span></label>
-        <input type="checkbox" id="btn">
+        <label for="btn" class="ADicon"><span class="fa fa-bars"></span></label>
+        <input class="nav-toggle2" type="checkbox" id="btn">
         <ul>
-            <li>
-                <label for="btn-1" class="Ashow">VOTE</label>
-                <a class="topnav" href="vtBallot.php">VOTE</a>
+             <li>
+                <label for="btn-1" class="Ashow"><a id="Ashow1" href="vtBallot.php">VOTE</a></label>
+                <a href="vtBallot.php">VOTE</a>
             </li>
+
             <li>
                 <label for="btn-2" class="Ashow">ELECTION</label>
-                <a class="Atopnav" href="#">ELECTION</a> 
-                <input type="checkbox" id="btn-2">
+                <a href="#">ELECTION</a>
+                <input class="nav-toggle4" type="checkbox" id="btn-2">
                 <ul>
-                    <li><a href="#" class="Aelec-text">ELECTION PROCESS</a></li>
-                    <li><a href="#">ARCHIVE</a></li>
+                    <li><a href="#">PROCESS</a></li>
+                    <li><a href="Student_ArcFolder.php">ARCHIVE</a></li>
                     <li><a href="front_ElectStat.php">RESULTS</a></li>
                 </ul>
             </li>
+           
             <li>
-                <label for="btn-3" class="Ashow">CANDIDATES</label>
-                <a class="Atopnav" href="Student_CandView.php">CANDIDATES</a>
+                <label for="btn-3" class="Ashow"><a id="Ashow1" href="Student_CandView.php">CANDIDATES</a></label>
+                <a href="Student_CandView.php">CANDIDATES</a>
             </li>
+
             <li>
-                <label for="btn-4" class="Ashow">CHAT US</label>
-                <a class="Atopnav" href="Student_nsbox.php">CHAT US</a>
+                <label for="btn-4" class="Ashow"><a id="Ashow1" href="Student_nsbox.php">CHAT US</a></label>
+                <a href="Student_nsbox.php">CHAT US</a>
             </li>
+
             <li>
-                <label for="btn-5" class="Ashow"><?php //echo $_SESSION['fname']." ".$_SESSION['lname']; ?></label>
-                <a class="Auser" href="#"><img class="Auser-profile" src="../img/user.png"></a>
-                <input type="checkbox" id="btn-5">
+                <label for="btn-5" class="Ashow"><img class="Auser-profile" src="../img/user.png"></label>
+                <a class="user" href="#"><img class="Auser-profile" src="../img/user.png"></a>
+                <input class="nav-toggle4" type="checkbox" id="btn-5">
                 <ul>
-                    <li><a href="#" class="Aelec-text"><?php //echo $_SESSION['fname']." ".$_SESSION['lname']; ?></a></li>
+                    <li><a class="username" href="#"><?php echo $_SESSION['fname']." ".$_SESSION['lname']; ?> </a></li>
                     <li><a href="StudentLogout.php">LOGOUT</a></li>
                 </ul>
+                <!-- <label for="btn-5" class="Ashow"><?php //echo $_SESSION['admin_fname']." ".$_SESSION['admin_lname']; ?></label>
+                <a class="user" href="#"><img class="Auser-profile" src="../img/user.png"></a>
+                <input class="nav-toggle6" type="checkbox" id="btn-5">
+                <ul>
+                    
+                    <li><a class="username" href="#"><?php //echo $_SESSION['admin_fname']." ".$_SESSION['admin_lname']; ?></a></li>
+                    <li class="logout">
+                        <span class="fa fa-sign-out"></span><a href="AdminLogout.php">LOGOUT</a></span>
+                    </li>
+                </ul> -->
             </li>
-        </ul>    
+        </ul>
+        <!--end of list-->
     </nav>
  
 
@@ -87,12 +108,7 @@ date_default_timezone_set('Asia/Manila');
 
     <!--End of Footer-->
 
-    <script>
-        // $('.icon').click(function () {
-        //     $('span').toggleClass("cancel");
-        // });
-        
-    </script>
+   
 </body>
 
 </html>

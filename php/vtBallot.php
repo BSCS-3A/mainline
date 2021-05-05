@@ -1,3 +1,16 @@
+<?php
+session_start();
+include('db_conn.php');
+ if (isset($_SESSION['student_id']) && isset($_SESSION['bumail'])) {
+     $idletime=900;//after 15 minutes the user gets logged out
+
+ if (time()-$_SESSION['timestamp']>$idletime){
+     //$_GET['inactivityError'] = "Session ended: You are logged out due to inactivity.";
+     header("Location: StudentLogout.php");
+ }else{
+     $_SESSION['timestamp']=time();
+ }
+ ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -24,13 +37,6 @@
         require 'vtFetch.php';
 
         // Remove this temp session
-        session_start();
-        $_SESSION['bumail'] = "dhanjaphetverastigue.ador@bicol-u.edu.ph";
-        $_SESSION['fname'] = "Maria";
-        $_SESSION['lname'] = "Hanway";
-        $_SESSION['student_id'] = 1;
-        $_SESSION['grade_level'] = 7;
-        $_SESSION['timestamp']=time();
 
         if(isValidUser($conn)){
             if(!isVoted($conn)){
@@ -48,9 +54,9 @@
                     $end_time = strtotime($sched['end_date']);
                     $access_time = time();
 
-                    echo "Start: ".(date("Y-m-d h:m:sa", $start_time))."<br>";
-                    echo "End: ".(date("Y-m-d h:m:sa", $end_time))."<br>";
-                    echo "Now: ".(date("Y-m-d h:m:sa", $access_time))."<br>";
+                    // echo "Start: ".(date("Y-m-d h:m:sa", $start_time))."<br>";
+                    // echo "End: ".(date("Y-m-d h:m:sa", $end_time))."<br>";
+                    // echo "Now: ".(date("Y-m-d h:m:sa", $access_time))."<br>";
                     
                     if($access_time > $end_time){
                         errorMessage("Election is already finished");
@@ -88,12 +94,15 @@
         }
         else{ // Invalid user; destroy session and return to login
             notifyAdmin("Warning: A user with invalid credentials attmpted to access the Voting Page");
-            session_unset();    // remove all session variables
-            session_destroy();  // destroy session
-            header("Location: ../index.php");
-            exit();
+            header("location: StudentLogout.php");
         }
     ?>
  </body>
 
 </html>
+<?php
+}else{
+	header("Location: ..\index.php");
+     exit();
+}
+ ?>

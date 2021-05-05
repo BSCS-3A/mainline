@@ -24,7 +24,7 @@
 
                 $query = "UPDATE student SET lname = '$lname', fname = '$fname', Mname = '$Mname', gender = '$gender', grade_level = '$grade_level', bumail = '$bumail'
                          WHERE student_id = '$student_id' ";
-                $query_run = mysqli_query($connection, $query);
+                $query_run = mysqli_query($conn, $query);
 
                 if ($query_run) {
                     $_SESSION['message'] = 'Record has been updated!';

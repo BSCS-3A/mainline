@@ -1,13 +1,17 @@
 <?php
-require '../../php/db_conn.php';
-// Remove this temp session
 session_start();
-$_SESSION['bumail'] = "dhanjaphetverastigue.ador@bicol-u.edu.ph";
-$_SESSION['fname'] = "Maria";
-$_SESSION['lname'] = "Hanway";
-$_SESSION['student_id'] = 1;
-$_SESSION['grade_level'] = 7;
-$_SESSION['timestamp']=time();
+require '../../php/db_conn.php';
+ if (isset($_SESSION['student_id']) && isset($_SESSION['bumail'])) {
+     $idletime=900;//after 15 minutes the user gets logged out
+
+ if (time()-$_SESSION['timestamp']>$idletime){
+     //$_GET['inactivityError'] = "Session ended: You are logged out due to inactivity.";
+     header("Location: ../../php/StudentLogout.php");
+ }else{
+     $_SESSION['timestamp']=time();
+ }
+ 
+
 
 // Include the main TCPDF library (search for installation path).
 require_once('TCPDF-main/tcpdf.php');
@@ -53,7 +57,7 @@ class PDF extends TCPDF {
 $pdf = new PDF('p', 'mm', 'A4', true, 'UTF-8', false);
 $pdf->SetTitle('VOTE RECEIPT'); 			
 $pdf->setFooterFont(Array('times', '', '12'));
-$pdf->SetMargins(21.20, 20, 25);
+$pdf->SetMargins(21, 20, 25);
 $pdf->SetHeaderMargin(PDF_MARGIN_HEADER);
 $pdf->SetFooterMargin(PDF_MARGIN_FOOTER);
 $pdf->SetAutoPageBreak(TRUE, PDF_MARGIN_BOTTOM);
@@ -90,25 +94,27 @@ ob_start();
 		$st_glevel = $_SESSION['grade_level'];
 
 //first table
+
+	$pdf->SetLeftMargin(16.5);	// adjust table
 	$pdf->Ln(10); 
 	$pdf->SetFillColor(224,235,255);
 	$pdf->SetFont('times','',12);
-	$pdf->Cell(120,10,'VOTER DETAILS',1,0,'C',0);
-	$pdf->Cell(60,10,'',1,0,'C',0);
-	$pdf->Cell(60,10,'',0,0); //spacer
-	$pdf->Cell(60,10,'',0,1); //spacer
-	$pdf->Cell(60,10,'Name of Voter',1,0,'C');
-	$pdf->Cell(60,10, $st_full, 1,0,'C',0);
-	$pdf->Cell(60,10,'',1,0,'C',0);
-	$pdf->Cell(60,10,'',0,1); //spacer
-	$pdf->Cell(60,10,'Grade Level',1,0,'C');
-	$pdf->Cell(60,10, $st_glevel, 1,0,'C',0);
-	$pdf->Cell(60,10,'',1,0,'C',0);
-	$pdf->Cell(60,10,'',0,1); //spacer
-	$pdf->Cell(60,10,'Date Voted',1,0,'C');
-	$pdf->Cell(60,10, $today, 1,0,'C',0);
-	$pdf->Cell(60,10,'',1,0,'C',0);
-	$pdf->Cell(60,10,'',0,1); //spacer
+	$pdf->Cell(180,10,'VOTER DETAILS',1,0,'C',0);
+	// $pdf->Cell(60,10,'',1,0,'C',0);
+	$pdf->Cell(90,10,'',0,0); //spacer
+	$pdf->Cell(90,10,'',0,1); //spacer
+	$pdf->Cell(90,10,'Name of Voter',1,0,'C');
+	$pdf->Cell(90,10, $st_full, 1,0,'C',0);
+	// $pdf->Cell(60,10,'',1,0,'C',0);
+	$pdf->Cell(90,10,'',0,1); //spacer
+	$pdf->Cell(90,10,'Grade Level',1,0,'C');
+	$pdf->Cell(90,10, $st_glevel, 1,0,'C',0);
+	// $pdf->Cell(60,10,'',1,0,'C',0);
+	$pdf->Cell(90,10,'',0,1); //spacer
+	$pdf->Cell(90,10,'Date Voted',1,0,'C');
+	$pdf->Cell(90,10, $today, 1,0,'C',0);
+	// $pdf->Cell(60,10,'',1,0,'C',0);
+	$pdf->Cell(90,10,'',0,1); //spacer
 
 //second table
 	$pdf->Ln(10); 
@@ -125,7 +131,7 @@ ob_start();
 	$h_index = 0;
 	$flag = 0;
 	while($voted = $vote_que->fetch_assoc()){   // loop through all positions
-		if($voted['status'] == "Invalid"){
+		if($voted['status'] == "Invalid" || !($voted['status'] == "Abstain" || $voted['status'] == "Voted")){
 			$flag = 1;
 			break;
 		}
@@ -208,3 +214,9 @@ ob_start();
 
 // Close and output PDF document
 $pdf->Output('Official Ballot Receipt.pdf', 'I');  
+
+}else{
+	header("Location: ../../index.php");
+     exit();
+}
+ ?>
