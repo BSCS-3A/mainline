@@ -28,7 +28,7 @@ include("db_conn.php");
     <script src="../js/jquery.dataTables.min_addAdmin.js"></script>
     <script src="../js/dataTables.bootstrap_addAdmin.js" ></script>
     <script src="../js/bootstrap.min_addAdmin.js"></script>
-    <script src="../assets/js/tablesort.js"></script>
+    <script src="../js/tablesort.js"></script>
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
 
 
