@@ -23,7 +23,7 @@ include("db_conn.php");
     <link rel="stylesheet" href="../css/admin_css/bootstra_addAdmin.css">
     <link rel="stylesheet" href="../css/admin_css/dataTables.bootstrap_addAdmin.css">
     <link rel="stylesheet" href="../css/admin_css/font-awesome_addAdmin.css">
-    <link rel="stylesheet" href="../assets/css/autocomplete_signatory.css">
+    <link rel="stylesheet" href="../css/admin_css/autocomplete_signatory.css">
     <script src="../js/jquery-1.11.1.min_addAdmin.js"></script>
     <script src="../js/jquery.dataTables.min_addAdmin.js"></script>
     <script src="../js/dataTables.bootstrap_addAdmin.js" ></script>
