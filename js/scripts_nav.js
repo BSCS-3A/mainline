@@ -12,7 +12,7 @@ document.addEventListener('contextmenu', function(e) { //for right clicks
    // alert("You can't do that here.");
    // window.location.href = url;
    e.preventDefault();
-   document.getElementById('F-modal-message-text').innerHTML = "<h3>Action not allowed! </h3><br> <br>Thaat action is not allowed in this website.";
+   document.getElementById('F-modal-message-text').innerHTML = "<h3>Action not allowed! </h3><br> <br>That action is not allowed in this website.";
    modal.style.display = "block";
    document.querySelector("body").style.overflow = 'hidden';
 });
