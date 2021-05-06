@@ -32,7 +32,6 @@ include('db_conn.php');
     <link rel="stylesheet" type="text/css" href="../css/student_css/modal_error_messages.css">
     <!-- for disabling inspect element -->
     <!-- <script src="../js/scripts_vote.js"></script> -->
-    <title>BUCEILS HS Online Voting System</title>
 </head>
 
 <body>

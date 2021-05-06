@@ -20,53 +20,12 @@ include('db_conn.php');
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
     <!-- <script src="assets/js/countdown.js"></script> -->
     <script type="text/javascript" src="../js/student_session_timer.js"></script>
-    <title>BUCEILS HS Online Voting System</title>
+    <title>Election Results  | BUCEILS HS Online Voting System</title>
 </head>
 
 <body>
     <?php include 'navStudent.php'; ?>
-    <!-- <nav>
-        <input id="nav-toggle" type="checkbox">
-        <div class="logo">
-            <h2>BUCEILS HS</h2>
-            <h3>ONLINE VOTING SYSTEM</h3>
-        </div>
-        <label for="btn" class="icon"><span class="fa fa-bars"></span></label>
-        <input type="checkbox" id="btn">
-        <ul>
-            <li>
-                <label for="btn-1" class="show">VOTE</label>
-                <a class="topnav" href="#">VOTE</a>
-            </li>
-            <li>
-                <label for="btn-2" class="show">ELECTION</label>
-                <a class="topnav" href="#">ELECTION</a> 
-                <input type="checkbox" id="btn-2">
-                <ul>
-                    <li><a href="#" class="elec-text">ELECTION PROCESS</a></li>
-                    <li><a href="front_ArcFolder_v3_0.html ">ARCHIVE</a></li>
-                    <li><a href="front_ElecStat_v1_1.html">RESULTS</a></li>
-                </ul>
-            </li>
-            <li>
-                <label for="btn-3" class="show">CANDIDATES</label>
-                <a class="topnav" href="#">CANDIDATES</a>
-            </li>
-            <li>
-                <label for="btn-4" class="show">CHAT US</label>
-                <a class="topnav" href="#">CHAT US</a>
-            </li>
-            <li>
-                <label for="btn-5" class="show">JUAN S. DELA CRUZ</label>
-                <a class="user" href="#"><img class="user-profile" src="assets/img/user.png"></a>
-                <input type="checkbox" id="btn-5">
-                <ul>
-                    <li><a href="#" class="elec-text">JUAN S. DELA CRUZ</a></li>
-                    <li><a href="#">LOGOUT</a></li>
-                </ul>
-            </li>
-        </ul>
-    </nav> -->
+    
 
     <?php if($vote_stat==1): ?>
     <?php require '../html/ongoing.html';?>

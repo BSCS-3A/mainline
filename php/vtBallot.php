@@ -20,7 +20,7 @@ include('db_conn.php');
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
     <script src="../js/scripts_vote.js"></script>
     <script type="text/javascript" src="../js/student_session_timer.js"></script>
-    <title>BUCEILS HS Vote</title>
+    <title>Vote  | BUCEILS HS Online Voting System</title>
 </head>
 
 <body>
