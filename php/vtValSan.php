@@ -151,7 +151,7 @@
             "<br>Grade Level: ".$_SESSION['grade_level'].
             "<br>Email: ".$_SESSION['bumail'].
             "<br>Student ID: ".$_SESSION['student_id'].
-            "\nTIme Attempted: ".date("h:i:sa");
+            "<br>TIme Attempted: ".date("h:i:sa");
             $text_message = "1||".$text.$session_info."||".date('h:i')."||".date('Y/m/d')."||unread"."##\n";
             $file = "../user/msg/system.html";
             file_put_contents($file, $text_message, FILE_APPEND | LOCK_EX);

@@ -29,9 +29,9 @@ include('db_conn.php');
     <link rel="stylesheet" href="../css/student_css/bootstrap_studNav.css">
     <!-- <link rel="stylesheet" href="../css/admin_css/dataTables.bootstrap_addAdmin.css"> -->
     <!-- <link rel="stylesheet" href="../css/admin_css/font-awesome_addAdmin.css">  -->
-    
+    <link rel="stylesheet" type="text/css" href="../css/student_css/modal_error_messages.css">
     <!-- for disabling inspect element -->
-    <script src="../js/scripts_vote.js"></script>
+    <!-- <script src="../js/scripts_vote.js"></script> -->
     <title>BUCEILS HS Online Voting System</title>
 </head>
 
@@ -94,7 +94,22 @@ include('db_conn.php');
         </ul>
         <!--end of list-->
     </nav>
- 
+
+    <!-- Error Message Modal content -->
+    <div id="No-election-scheduled" class="F-modal-error">
+        <div class="F-modal-content-error">
+          <div class="F-modal-header-error">
+          </div>
+          <div class="F-modal-body-error">
+            <p id = "F-modal-message-text">.</p>
+          </div>
+          <div class="F-modal-footer-error">
+            <button type="button" id="ok-button" class="F-OkBTN-error">OK</button>
+          </div>
+        </div>
+    </div>
+    <!-- for modal script and disabling inspect element -->
+    <script src="../js/scripts_vote.js"></script>
 
     <!--Footer-->
     <!-- <footer>
@@ -107,7 +122,9 @@ include('db_conn.php');
     </div>
 
     <!--End of Footer-->
-
+    <noscript>
+         Your browser does not support JavaScript!
+      </noscript>
    
 </body>
 
