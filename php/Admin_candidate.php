@@ -25,14 +25,6 @@
          header("location:Admin_candidate.php"); 
      } 
      if (isset($_SESSION['admin_id']) && isset($_SESSION['username'])){
-        $idletime=900;//after 15 minutes the user gets logged out
-
-        if (time()-$_SESSION['timestamp']>$idletime){
-           $_GET['inactivityError'] = "Session ended: You are logged out due to inactivity.";
-           header("Location: AdminLogout.php");
-        }else{
-          $_SESSION['timestamp']=time();
-         }
     
 ?>
 <html>
@@ -57,6 +49,7 @@
     <script src="../js/jQuery.dataTables.min_Pos.js"></script>
     <script src="../js/bootstrap.min_Pos.js"></script> 
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <script type="text/javascript" src="../js/admin_session_timer.js"></script>
     <script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
   
     <script>

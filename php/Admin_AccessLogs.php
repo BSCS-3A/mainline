@@ -2,14 +2,6 @@
 session_start();
 include("db_conn.php");
   if (isset($_SESSION['admin_id']) && isset($_SESSION['username'])) {
-    
-         $idletime=900;//after 60 seconds the user gets logged out
-
-         if (time()-$_SESSION['timestamp']>$idletime){
-           header("Location: AdminLogout.php");
-         }else{
-           $_SESSION['timestamp']=time();
-         }
 ?>
 <!DOCTYPE html>
 <html>
@@ -38,7 +30,7 @@ include("db_conn.php");
     <script src="../js/jquery-3.5.1_adminDash.js"></script>
 
     <script src="../js/jquery.dataTables.min_adminDash.js"></script>
-
+    <script type="text/javascript" src="../js/admin_session_timer.js"></script>
     <script src="https://cdn.datatables.net/fixedheader/3.1.8/js/dataTables.fixedHeader.min.js"></script>
     <title>Access Logs</title>
 </head>

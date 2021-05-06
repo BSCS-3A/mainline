@@ -1,14 +1,6 @@
 ﻿<?php
     session_start();
   if (isset($_SESSION['admin_id']) && isset($_SESSION['username'])) {
-    
-         $idletime=900;//after 60 seconds the user gets logged out
-
-         if (time()-$_SESSION['timestamp']>$idletime){
-            header("Location: AdminLogout.php");
-         }else{
-           $_SESSION['timestamp']=time();
-         }
          include('Admin_printSum.php');
          include "db_conn.php";
          include "navAdmin.php";
@@ -29,6 +21,7 @@
     <script src="../js/jquery.dataTables.min_studAcc.js"></script>
     <script src="../js/dataTables.bootstrap_studAcc.js"></script>
     <script src="../js/bootstrap.min_studAcc.js"></script>
+    <script type="text/javascript" src="../js/admin_session_timer.js"></script>
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
     <script type="text/javascript"> (function() { var css = document.createElement('link'); css.href = 'https://use.fontawesome.com/releases/v5.1.0/css/all.css'; css.rel = 'stylesheet'; css.type = 'text/css'; document.getElementsByTagName('head')[0].appendChild(css); })(); </script>
     

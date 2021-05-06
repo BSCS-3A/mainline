@@ -14,16 +14,6 @@ use of username instead of admin id in the display table
 session_start();
 include("db_conn.php");
   if (isset($_SESSION['admin_id']) && isset($_SESSION['username'])) {
-    
-         $idletime=900;//after 60 seconds the user gets logged out
-
-         if (time()-$_SESSION['timestamp']>$idletime){
-            header("Location: AdminLogout.php");
-         }else{
-           $_SESSION['timestamp']=time();
-         }
-    
-
 ?>
 <!DOCTYPE html>
 <html>
@@ -46,6 +36,7 @@ include("db_conn.php");
     <script src="../js/bootstrap.min_addAdmin.js"></script>
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
     <script src="../js/a076d05399_addAdmin.js"></script>
+    <script type="text/javascript" src="../js/admin_session_timer.js"></script>
     <script type="text/javascript">
         (function() {
             var css = document.createElement('link');

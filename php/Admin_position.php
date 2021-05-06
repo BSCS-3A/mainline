@@ -14,14 +14,6 @@ Need:
     include "db_conn.php";
     
     if (isset($_SESSION['admin_id']) && isset($_SESSION['username'])){
-      $idletime=900;//after 15 minutes the user gets logged out
-
-      if (time()-$_SESSION['timestamp']>$idletime){
-         $_GET['inactivityError'] = "Session ended: You are logged out due to inactivity.";
-         header("Location: AdminLogout.php");
-      }else{
-        $_SESSION['timestamp']=time();
-     }
      if(!$conn){
        // add 404 error
          echo "<script>alert('Cannot connect to database');
@@ -54,7 +46,8 @@ Need:
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <!-- <script src="../js/jQuery.dataTables.min_Pos.js"></script> -->
     <script src="../js/bootstrap.min_Pos.js"></script>
-    <script src="https://kit.fontawesome.com/a076d05399.js"></script>    
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>   
+    <script type="text/javascript" src="../js/admin_session_timer.js"></script> 
     <script type="text/javascript"> (function() { var css = document.createElement('link'); css.href = 'https://use.fontawesome.com/releases/v5.1.0/css/all.css'; css.rel = 'stylesheet'; css.type = 'text/css'; document.getElementsByTagName('head')[0].appendChild(css); })(); </script>   
 
     <title>BUCEILS Voting System</title>

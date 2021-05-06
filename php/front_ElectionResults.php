@@ -2,14 +2,6 @@
 session_start();
 include("db_conn.php");
   if (isset($_SESSION['admin_id']) && isset($_SESSION['username'])) {
-    
-         $idletime=900;//after 60 seconds the user gets logged out
-
-         if (time()-$_SESSION['timestamp']>$idletime){
-          header("Location: AdminLogout.php");
-         }else{
-           $_SESSION['timestamp']=time();
-         }
 // front_Election_v5_0.php
 require './backMonitor/fetch_candidates.php';
 require './backMonitor/fetch_candidate_position.php';
@@ -35,7 +27,8 @@ require './backMonitor/fetch_date.php';
     <script src="../js/jquery.dataTables.min_monitor.js"></script>
     <script src="../js/dataTables.bootstrap_monitor.js"></script>
     <script src="../js/bootstrap.min_monitor.js"></script>
-    <script src="https://kit.fontawesome.com/a076d05399.js"></script>    
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>  
+    <script type="text/javascript" src="../js/admin_session_timer.js"></script>  
     <script type="text/javascript"> (function() { var css = document.createElement('link'); css.href = 'https://use.fontawesome.com/releases/v5.1.0/css/all.css'; css.rel = 'stylesheet'; css.type = 'text/css'; document.getElementsByTagName('head')[0].appendChild(css); })(); </script>   
     <title>BUCEILS Voting System</title>
 </head>

@@ -3,14 +3,6 @@
 session_start();
 include('db_conn.php');
  if (isset($_SESSION['student_id']) && isset($_SESSION['bumail'])) {
-     $idletime=900;//after 15 minutes the user gets logged out
-
- if (time()-$_SESSION['timestamp']>$idletime){
-     //$_GET['inactivityError'] = "Session ended: You are logged out due to inactivity.";
-     header("Location: StudentLogout.php");
- }else{
-     $_SESSION['timestamp']=time();
- }
 ?>
 <!DOCTYPE html>
 <html>
@@ -28,6 +20,7 @@ include('db_conn.php');
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
     <script src="../js/bootstrap4.1.min_msgbox.js"></script>
     <script type="text/javascript"> (function() { var css = document.createElement('link'); css.href = 'https://use.fontawesome.com/releases/v5.1.0/css/all.css'; css.rel = 'stylesheet'; css.type = 'text/css'; document.getElementsByTagName('head')[0].appendChild(css); })(); </script>
+    <script type="text/javascript" src="../js/student_session_timer.js"></script>
     <title>Chat us</title>
 </head>
 

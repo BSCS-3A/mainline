@@ -23,19 +23,6 @@ include("email_studAcc.php");
 include("edit_studAcc.php");
 include("db_conn.php");
   if (isset($_SESSION['admin_id']) && isset($_SESSION['username'])) {
-    
-         $idletime=900;//after 60 seconds the user gets logged out
-
-         if (time()-$_SESSION['timestamp']>$idletime){
-           header("Location: AdminLogout.php");
-         }else{
-           $_SESSION['timestamp']=time();
-         }
-    
-
-
-
-
 // for button disable
 $checktime = "SELECT * FROM vote_event"; 
 $DnT = $connect->query($checktime);
@@ -61,6 +48,7 @@ $row =  $DnT->fetch_row();
     <script src="../js/dataTables.bootstrap_studAcc.js"></script>
     <script src="../js/bootstrap.min_studAcc.js"></script>
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <script type="text/javascript" src="../js/admin_session_timer.js"></script>
     <script type="text/javascript">
         (function() {
             var css = document.createElement('link');
