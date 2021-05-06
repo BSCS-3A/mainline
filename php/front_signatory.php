@@ -18,11 +18,11 @@ include("db_conn.php");
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta charset="utf-8">
-    <link rel="icon" href="../assets/img/buceils-logo.png">
+    <link rel="icon" href="../img/BUHS LOGO.png">
     <link rel="stylesheet" type="text/css" href="../css/admin_css/style2_actLogs.css">
-    <link rel="stylesheet" href="../css/admin_css/bootstra_addAdmin.css">
+    <link rel="stylesheet" href="../css/admin_css/bootstrap_addAdmin.css">
     <link rel="stylesheet" href="../css/admin_css/dataTables.bootstrap_addAdmin.css">
-    <link rel="stylesheet" href="../css/admin_css/font-awesome_addAdmin.css">
+    <link rel="stylesheet" href="../css/admin_css/font-awesome.css">
     <link rel="stylesheet" href="../css/admin_css/autocomplete_signatory.css">
     <script src="../js/jquery-1.11.1.min_addAdmin.js"></script>
     <script src="../js/jquery.dataTables.min_addAdmin.js"></script>
@@ -36,94 +36,27 @@ include("db_conn.php");
 </head>
 
 <body>
-<?php include "navAdmin.php"; ?>
-    <!-- <nav>
-        <input id="nav-toggle" type="checkbox">
-        <div class="logo">
-            <h2>BUCEILS HS</h2>
-            <h3>ONLINE VOTING SYSTEM</h3>
-        </div>
-        <label for="btn" class="icon"><span class="fa fa-bars"></span></label>
-        <input type="checkbox" id="btn">
-        <ul>
-            <li>
-                <label for="btn-1" class="show">ACCOUNTS</label>
-                <a href="#">ACCOUNTS</a>
-                <input type="checkbox" id="btn-1">
-                <ul>
-                    <li><a href="#">Students</a></li>
-                    <li><a href="addAdmin.html">Admin</a></li>
-                </ul>
-            </li>
-            <li>
-                <label for="btn-2" class="show">ELECTION</label>
-                <a href="#">ELECTION</a>
-                <input type="checkbox" id="btn-2">
-                <ul>
-                    <li><a href="#">Archive</a></li>
-                    <li><a href="#">Vote Status</a></li>
-                    <li><a href="#">Vote Result</a>
-                        <ul>
-                            <li><a href="#">Make Report</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="#">Configuration</a>
-                    <ul>
-                            <li><a href="#">Scheduler</a>
-                                <li><a href="signatory.html">Signatory</a>
-                        </ul>
-                </ul>
-            </li>
-            <li><a href="#">CANDIDATES</a></li>
-            <li>
-                <label for="btn-4" class="show">LOGS</label>
-                <a href="#">LOGS</a>
-                <input type="checkbox" id="btn-4">
-                <ul>
-                    <li><a href="#">Access Log</a></li>
-                    <li><a href="actLogs.html">Activity Log</a></li>
-
-                    <li><a href="#">Vote Summary</a></li>
-                </ul>
-            </li>
-            <li><a href="#">MESSAGES</a></li>
-            <li>
-                <label for="btn-5" class="show">Admin Name</label>
-                <a class="user" href="#"><img class="user-profile" src="../assets/img/user.png"></a>
-                <input type="checkbox" id="btn-5">
-                <ul>
-                    <li><a class="username" href="#">Admin Name</a></li>
-                    <li class="logout">
-                        <span class="fa fa-sign-out"></span><a href="#">LOGOUT</a></span>
-                    </li>
-                </ul>
-            </li>
-        </ul>
-        
-    </nav> -->
-
+  <?php include "navAdmin.php"; ?>
+    
     <div class="header" id="myHeader">
         <h1>SIGNATORY DETAILS</h1>
     </div>
     <div class="container">
 <section> <div class="btn-toolbar">
         <input id="file-input" type="file" name="name" style="display: none;" accept=".csv, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel" />
-        <button class="btn btn-button3"  data-title="otp" data-toggle="modal" data-target="#otp"data-placement="top" data-toggle="tooltip" title="Add"><span class= "glyphicon glyphicon-lock"></span> ADD</button>
+        <button class="btn btn-button3"  data-title="otp" data-toggle="modal" data-target="#otp"data-placement="top" data-toggle="tooltip" title="Add"><span class= "fa fa-user-plus"></span> ADD</button>
       </div></section>
               <div class="row">
               <div class="col-md-12">
               <?php
 
-
-                include 'db_conn.php';
-              
               $file = file_get_contents('../other/sig_array.json');
               $decoded = json_decode($file, true);
               $id = explode(",",$decoded);
               $id = array_filter($id);
               $in = '(' . implode(',', $id) .')';
-              $query = "SELECT * FROM admin_table WHERE admin_id IN". $in;
-              $query_run = mysqli_query($connection, $query);
+              $query = "SELECT * FROM admin WHERE admin_id IN". $in;
+              $query_run = mysqli_query($conn, $query);
               error_reporting(E_ERROR | E_PARSE);
               ?>
 
@@ -166,8 +99,8 @@ include("db_conn.php");
 
 <form action="backFun_adSig.php" method="POST" autocomplete="off">
   <?php
-  $sql = "SELECT * FROM admin_table";
-  $result = mysqli_query($connection,$sql);
+  $sql = "SELECT * FROM admin";
+  $result = mysqli_query($conn,$sql);
   $data = array();
   $fname = array();
   $lname = array();
@@ -226,8 +159,8 @@ include("db_conn.php");
             </div>
 
     <div class="modal-footer ">
-    <button type="submit" class="btn btn-success" id="go" ><span class="glyphicon glyphicon-ok-sign" name="saveSignatory"></span> ADD</button>
-    <button type="button" class="btn btn-default" id= "cancel2" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span> CANCEL</button>
+    <button type="submit" class="btn btn-success" id="go" ><span class="fa fa-user-plus" name="saveSignatory"></span> ADD</button>
+    <button type="button" class="btn btn-default" id= "cancel2" data-dismiss="modal"><span class="fa fa-times-circle"></span> CANCEL</button>
 
   </div>
   </form>
@@ -250,10 +183,10 @@ include("db_conn.php");
                   <input type="hidden" name="signatory_fname"id="signatory_fname">
                   <input type="hidden" name="signatory_lname"id="signatory_lname">
                   <input type="hidden" name="signatory_position"id="signatory_position">
-                <div class="alert alert-danger"><span class="glyphicon glyphicon-warning-sign"></span> Are you sure you want to delete this signatory?</div>
+                <div class="alert alert-danger"><span class="fa fa-exclamation-triangle"></span> Are you sure you want to delete this signatory?</div>
               <div class="modal-footer ">
-              <button type="submit" class="btn btn-success" name="yes"id="continue"><span class="glyphicon glyphicon-ok-sign"></span> Yes</button>
-              <button type="button" class="btn btn-default" id= "no" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span> No</button>
+              <button type="submit" class="btn btn-success" name="yes"id="continue"><span class="fa fa-check-circle"></span> Yes</button>
+              <button type="button" class="btn btn-default" id= "no" data-dismiss="modal"><span class="fa fa-times-circle"></span> No</button>
             </div>
             </div>
             </form>

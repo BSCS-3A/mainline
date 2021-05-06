@@ -20,6 +20,10 @@
         exit();
     }
 
+    $connect  = $conn;
+    $db = $conn;
+    $connection = $conn;
+    
     // Create connection
     // $conn = mysqli_connect($servername,$username,$password,$dbname);
     // if (!$conn) {
@@ -29,11 +33,11 @@
 
 
     // for student account mgnmt
-    $connect  = $conn;
+    
     // $connect = mysqli_connect($servername,$username,$password,$dbname) or die ('Unable to connect');   
 
     // for backend student account mngmt
-    $db = $conn;
+   
     // $connection = mysqli_connect($servername,$username,$password);
     // $db = mysqli_select_db($connection, $dbname);
 
