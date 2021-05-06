@@ -358,8 +358,8 @@
         $(document).ready(function() {
             $('#datatable').DataTable({
                 "lengthMenu": [
-                    [10, 25, 50, -1],
-                    [10, 25, 50, "All"]
+                    [5, 10, 25, 50, -1],
+                    [5, 10, 25, 50, "All"]
                 ]
             });
             $("[data-toggle=tooltip]").tooltip();
