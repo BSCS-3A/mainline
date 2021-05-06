@@ -461,6 +461,12 @@ nav h5{
     width: 80%;
     height: auto;
   }
+  @media only screen and (max-width: 600px){
+  div.container{
+     margin: 0px 0px 0px 0px;
+     width: 100%;
+     height: fit-content;
+    }}
 
  #datatable {
     width: 100%;
@@ -575,7 +581,7 @@ nav img.user-profile{
   width: 40px;
 }
 .ccheader {
-  padding: 15px 0 3px 0;
+  padding: 3px 0 5px 0;
   color: #f1f1f1;
   background-color: #124254;
   width: 100%;
@@ -585,104 +591,130 @@ nav img.user-profile{
 
 
 /*------------messagebox----------*/   
-  <!--Message Box-->
-  ::-webkit-scrollbar {
-    width: 15px;
-  }
-  
-  ::-webkit-scrollbar-track {
-    width: 5px;
-    background: #f5f5f5;
-  }
-  
-  ::-webkit-scrollbar-thumb {
-    width: 1em;
-    background-color: #ddd;
-    outline: 1px solid black;
-    border-radius: 1rem;
-  }
-  #top{
-    border:none;
-    background-color: #124254!important;
-  }
-  #receive{
-    background-color: #124254!important;
-  }
-  .btn-link{
-    color: #124254!important;
-    font-size: 1.0rem!important;
-  }
-  #recent{
-    color: #124254!important;
-    font-weight: bold;
-  }
-  
-  .text-small {
-    font-family: Roboto regular,sans-serif;
-    font-size: 1rem;
-  }
-  
-  .messages-box,
-  .chat-box {
-    height: 360px;
-    overflow-y: scroll;
-  }
-  /*Responsiveness*/    
-@media only screen and (max-height: 590px) {
-  .chat-box{height: 335px;}
-  .messages-box{height: 335px;}
-   
-}   
-@media only screen and (min-height: 600px) {
-  .chat-box{height: 425px;}
-  .messages-box{height: 425px;} 
-         
+<!--Message Box-->
+::-webkit-scrollbar {
+  width: 15px;
 }
-@media only screen and (min-height: 660px) {
-  .chat-box{height: 450px;}
-  .messages-box{height: 450px;}
-            
-}
-@media only screen and (min-height: 670px) {
-  .chat-box{height: 470px;}
-  .messages-box{height: 470px;}
-            
-}
-@media only screen and (min-height: 720px) {
-  .chat-box{height: 530px;}
-  .messages-box{height: 530px;}
-   
-           }             
-@media only screen and (min-height: 800px) {
-  .chat-box{height: 595px;}
-  .messages-box{height: 595px;}
-   
-}
-@media only screen and (min-height: 820px) {
-  .chat-box{height: 620px;}
-  .messages-box{height: 620px;}
-  body{background-image: url("../../img/adminBG.png");}
-}
-@media only screen and (min-width: 1000px) {
-  .chat-box{height: 360px;}
-  .messages-box{height: 360px;}
-  body{background-image: url("../../img/adminBG.png");}
-}
-  
-  .rounded-lg {
-    border-radius: 0.5rem;
-  }
-  
-  input::placeholder {
-    font-size: 1.0rem;
-    color: #999;
-  }
-  .cname{
-    font-weight: bold;
-    font-size: 1rem;
-    margin-bottom: 0;
 
-  }
+::-webkit-scrollbar-track {
+  width: 5px;
+  background: #f5f5f5;
+}
+
+::-webkit-scrollbar-thumb {
+  width: 1em;
+  background-color: #ddd;
+  outline: 1px solid black;
+  border-radius: 1rem;
+}
+#top{
+  border:none;
+  background-color: #124254!important;
+}
+#receive{
+  background-color: #124254!important;
+}
+.btn-link{
+  background: #f8f9fa none repeat scroll 0 0!important;
+  border: medium none!important;
+  border-radius: 50%!important;
+  color: #124254!important;
+  cursor: pointer!important;
+  font-size: 15px!important;
+  margin-right:15px!important;
+  height: 5px!important;
+  position: absolute!important;
+  right: 0!important;
+  top: 8px!important;
+  width: 5px!important;
+}
+@media only screen and (max-width: 600px){
+ .btn-link{
+ font-size: 10px!important;
+ margin-right: 4px!important;
+}}
+
+#recent{
+  color: #124254!important;
+  font-weight: bold;
+}
+
+.text-small {
+  font-family: Roboto regular,sans-serif;
+  font-size: 1.4rem;
+}
+
+.messages-box,
+.chat-box {
+  height: 500px!important;
+  overflow-y: scroll;
+  position:static;
+  width: auto;
+}
+  @media only screen and (max-height: 590px) {
+      .messages-box,
+      .chat-box {
+        height: 350px!important;
+      }
+    }   
+    @media only screen and (min-height: 600px) {
+      .messages-box,
+      .chat-box {
+        height: 420px!important;
+      }                
+    }
+    @media only screen and (min-height: 660px) {
+      .messages-box,
+      .chat-box {
+        height: 470px!important;
+      }                
+    }
+    @media only screen and (min-height: 720px) {
+      .messages-box,
+      .chat-box {
+        height: 530px!important;
+      }}             
+    @media only screen and (min-height: 800px) {
+      .messages-box,
+      .chat-box {
+        height: 612px!important;
+      }
+    }
+    @media only screen and (min-width: 992px) {
+      .messages-box,
+      .chat-box {
+        height: 500px!important;
+      }
+    }
+    @media only screen and (min-width: 1200px) {
+      .messages-box,
+      .chat-box {
+        height: 500px!important;
+      }
+    }
+    
+.rounded-lg {
+  border-radius: 0.5rem;
+}
+
+input::placeholder {
+  font-size: 1.5rem!important;
+  color: #999!important;
+  position: relative!important;
+}
+.cname{
+  font-weight: bold;
+  font-size: 1.4 rem;
+  margin-bottom: 0;
+
+}
 .cmessage{
-  font-size: 0.9rem;
+font-size: 1.4rem;
+}
+#alert{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  margin-bottom: 0!important;
 }
