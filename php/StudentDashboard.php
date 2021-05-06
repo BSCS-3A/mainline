@@ -103,12 +103,9 @@ include('db_conn.php');
                 <li><span id="seconds">0</span>Seconds</li>
             </ul>
         </div>
-        <p class="Aelec-guide-txt">ELECTION GUIDELINES GO HERE
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
-            sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
-            Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
-            Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+        <p class="Aelec-guide-txt">Welcome to the official Bicol University College of Education
+        Integrated Laboratory - High School Department Online Voting System. The system aims to provide mobility among student users to vote electronically anywhere for the annual Student Supreme Government Elections.
+
         </p>
     </aside>
     <!--End of Proxy Countdown-->
