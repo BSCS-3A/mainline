@@ -70,7 +70,7 @@ $row =  $DnT->fetch_row();
             document.getElementsByTagName('head')[0].appendChild(css);
         })();
     </script>
-    <<title> Student Account Management  | BUCEILS HS Online Voting System</title>
+    <title> Student Account Management  | BUCEILS HS Online Voting System</title>
 </head>
 
 <body>
