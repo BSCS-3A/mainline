@@ -30,9 +30,7 @@ include("db_conn.php");
     <script src="../js/bootstrap.min_addAdmin.js"></script>
     <script src="../js/tablesort.js"></script>
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
-
-
-    <title>Signatory</title>
+    <title>Election Report Signatory  | BUCEILS HS Online Voting System</title>
 </head>
 
 <body>

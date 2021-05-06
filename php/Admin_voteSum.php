@@ -32,69 +32,10 @@
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
     <script type="text/javascript"> (function() { var css = document.createElement('link'); css.href = 'https://use.fontawesome.com/releases/v5.1.0/css/all.css'; css.rel = 'stylesheet'; css.type = 'text/css'; document.getElementsByTagName('head')[0].appendChild(css); })(); </script>
     
-    <title> Vote Summary</title>
+    <title>Vote Summary  | BUCEILS HS Online Voting System</title>
 </head>
 <body>
-    <!-- <nav>
-        <input id="nav-toggle" type="checkbox">
-        <div class="logo">
-            <h2>BUCEILS HS</h2>
-            <h3>ONLINE VOTING SYSTEM</h3>
-        </div>
-        <label for="btn" class="icon"><span class="fa fa-bars"></span></label>
-        <input type="checkbox" id="btn">
-        <ul>
-            <li>
-                <label for="btn-1" class="show">ACCOUNTS</label>
-                <a href="#">ACCOUNTS</a>
-                <input type="checkbox" id="btn-1">
-                <ul>
-                    <li><a href="important.html">Students</a></li>
-                    <li><a href="#">Admin</a></li>
-                </ul>
-            </li>
-            <li>
-                <label for="btn-2" class="show">ELECTION</label>
-                <a href="#">ELECTION</a>
-                <input type="checkbox" id="btn-2">
-                <ul>
-                    <li><a href="#">Archive</a></li>
-                    <li><a href="#">Vote Status</a></li>
-                    <li><a href="#">Vote Result</a>
-                        <ul>
-                            <li><a href="#">Make Report</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="#">Configuration</a>
-                    
-                </ul>
-            </li>
-            <li><a href="#">CANDIDATES</a></li>
-            <li>
-                <label for="btn-4" class="show">LOGS</label>
-                <a href="#">LOGS</a>
-                <input type="checkbox" id="btn-4">
-                <ul>
-                    <li><a href="#">Access Log</a></li>
-                    <li><a href="#">Activity Log</a></li>
-                    <li><a href="#">Vote Summary</a></li>
-                </ul>
-            </li>
-            <li><a href="#">MESSAGES</a></li>
-            <li>
-                <label for="btn-5" class="show">Admin Name</label>
-                <a class="user" href="#"><img class="user-profile" src="assets/img/user.png"></a>
-                <input type="checkbox" id="btn-5">
-                <ul>
-                    <li><a class="username" href="#">Admin Name</a></li>
-                    <li class="logout">
-                        <span class="fa fa-sign-out"></span><a href="#">LOGOUT</a></span>
-                    </li>
-                </ul>
-            </li>
-        </ul>
-        
-    </nav> -->
+    
     <div class="cheader">
         <h3>VOTE SUMMARY</h3>
     </div>

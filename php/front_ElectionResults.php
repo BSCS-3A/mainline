@@ -37,76 +37,12 @@ require './backMonitor/fetch_date.php';
     <script src="../js/bootstrap.min_monitor.js"></script>
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>    
     <script type="text/javascript"> (function() { var css = document.createElement('link'); css.href = 'https://use.fontawesome.com/releases/v5.1.0/css/all.css'; css.rel = 'stylesheet'; css.type = 'text/css'; document.getElementsByTagName('head')[0].appendChild(css); })(); </script>   
-    <title>BUCEILS Voting System</title>
+    <title>Election Results | BUCEILS HS Online Voting System</title>
 </head>
 
 <body>
   <?php include 'navAdmin.php'; ?>
-  <!-- <nav>
-    <input class="nav-toggle1" type="checkbox">
-    <div class="aLogo">
-      <h2 class="aLogo-txt1"><a href="adminDashboard.html">BUCEILS HS</a></h2>
-      <h3 class="aLogo-txt2"><a href="adminDashboard.html">ONLINE VOTING SYSTEM</a></h3>
-    </div>
-    <label for="btn" class="ADicon"><span class="fa fa-bars"></span></label>
-    <input class="nav-toggle2" type="checkbox" id="btn">
-    <ul>
-      <li>
-        <label for="btn-1" class="Ashow">ACCOUNTS</label>
-        <a href="#">ACCOUNTS</a>
-        <input class="nav-toggle3" type="checkbox" id="btn-1">
-        <ul>
-          <li><a href="#">Students</a></li>
-          <li><a href="#">Admin</a></li>
-        </ul>
-      </li>
-      <li>
-        <label for="btn-2" class="Ashow">ELECTION</label>
-        <a href="#">ELECTION</a>
-        <input class="nav-toggle4" type="checkbox" id="btn-2">
-        <ul>
-          <li><a href="front_ArchFolder_v8_0.php">Archive</a></li>
-          <li><a href="front_VsPercentage_v6_1.php">Vote Status</a></li>
-          <li><a href="front_Election_v5_0">Vote Result</a>
-            <ul>
-              <li><a href="../../functionality_php/report/generate-pdf.php">Make Report</a></li>
-            </ul>
-          </li>
-          <li><a href="#">Configuration</a>
-            <ul>
-              <li><a href="#">Scheduler</a></li>
-              <li><a href="#">Signatory</a></li>
-            </ul>
-          </li>
-        </ul>
-      </li>
-      <li><a href="#">CANDIDATES</a></li>
-      <li>
-        <label for="btn-4" class="Ashow">LOGS</label>
-        <a href="#">LOGS</a>
-        <input class="nav-toggle5" type="checkbox" id="btn-4">
-        <ul>
-          <li><a href="accessLogs-v2.0.html">Access Log</a></li>
-          <li><a href="#">Activity Log</a></li>
-          <li><a href="#">Vote Summary</a></li>
-        </ul>
-      </li>
-      <li><a href="#">MESSAGES</a></li>
-      <li>
-        <label for="btn-5" class="Ashow">Admin Name</label>
-        <a class="user" href="#"><img class="user-profile" src="../../Admin/assets/img/user.png"></a>
-        <input class="nav-toggle6" type="checkbox" id="btn-5">
-        <ul>
-          <li><a class="username" href="#">Admin Name</a></li>
-          <li class="logout">
-            <span class="fa fa-sign-out"></span><a href="#">LOGOUT</a></span>
-          </li>
-        </ul>
-      </li>
-    </ul>
-    
-  </nav> -->
-
+  
   <div class="Belecstat">
     <p><b>ELECTION RESULTS</b></p>
   </div>

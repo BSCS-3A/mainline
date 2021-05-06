@@ -26,7 +26,7 @@ include('db_conn.php');
     <link rel="stylesheet" type="text/css" href="../css/messages.css"> -->
     <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
-    <title>Download receipt</title>
+    <title>Download Vote Receipt | BUCEILS HS Online Voting System</title>
 </head>
 
 <body>

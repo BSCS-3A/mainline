@@ -24,57 +24,13 @@ include('db_conn.php');
     <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
     <!-- <script src="../js/countdown.js"></script> -->
-    <title>BUCEILS HS Online Voting System</title>
+    <title>Home | BUCEILS HS Online Voting System</title>
 </head>
 
 <body>
     <!--navbar-->
     <?php include "navStudent.php" ?>
 
-
-    <!-- <nav id="nav-container">
-        <input id="nav-toggle" type="checkbox">
-        <div class="Alogo">
-            <h2><a class="Atext-link" href="StudentDashboard.php">BUCEILS HS</a></h2>
-            <h3><a class="Atext-link" href="StudentDashboard.php">ONLINE VOTING SYSTEM</a></h3>
-        </div>
-        <label for="btn" class="Aicon"><span class="fa fa-bars"></span></label>
-        <input type="checkbox" id="btn">
-        <ul>
-            <li>
-                <label for="btn-1" class="Ashow">VOTE</label>
-                <a class="topnav" href="#">VOTE</a>
-            </li>
-            <li>
-                <label for="btn-2" class="Ashow">ELECTION</label>
-                <a class="Atopnav" href="#">ELECTION</a> 
-                <input type="checkbox" id="btn-2">
-                <ul>
-                    <li><a href="#" class="Aelec-text">ELECTION PROCESS</a></li>
-                    <li><a href="#">ARCHIVE</a></li>
-                    <li><a href="#">RESULTS</a></li>
-                </ul>
-            </li>
-            <li>
-                <label for="btn-3" class="Ashow">CANDIDATES</label>
-                <a class="Atopnav" href="Student_CandView.php">CANDIDATES</a>
-            </li>
-            <li>
-                <label for="btn-4" class="Ashow">CHAT US</label>
-                <a class="Atopnav" href="#">CHAT US</a>
-            </li>
-            <li>
-                <label for="btn-5" class="Ashow"><?php echo $_SESSION['fname']." ".$_SESSION['lname']; ?></label>
-                <a class="Auser" href="#"><img class="Auser-profile" src="../img/user.png"></a>
-                <input type="checkbox" id="btn-5">
-                <ul>
-                    <li><a href="#" class="Aelec-text"><?php echo $_SESSION['fname']." ".$_SESSION['lname']; ?></a></li>
-                    <li><a href="StudentLogout.php">LOGOUT</a></li>
-                </ul>
-            </li>
-        </ul>    
-    </nav> -->
-    <!--end of navbar-->
     
     <!--Left Content-->
     <section id="section-container">
@@ -110,11 +66,7 @@ include('db_conn.php');
     </aside>
     <!--End of Proxy Countdown-->
 
-    <!--Footer-->
-    <!-- <footer>
-        BS COMPUTER SCIENCE 3A © 2021
-    </footer> -->
-    <!--End of Footer-->
+    
 
     <?php 
        

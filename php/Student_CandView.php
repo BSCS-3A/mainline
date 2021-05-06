@@ -25,10 +25,8 @@ include('db_conn.php');
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
     <script src="../js/bootstrap.min_Pos.js"></script>
-    <title>BUCEILS HS Online Voting System</title>
-    
+    <title>Candidates  | BUCEILS HS Online Voting System</title>
 
-    
     <script>
     $(document).ready(function() {
         if($("#select").val()==0){
@@ -69,59 +67,9 @@ include('db_conn.php');
     <?php include "navStudent.php"; ?>
 
 
-    <!-- <nav id="nav-container">
-        <input id="nav-toggle" type="checkbox">
-        <div class="Alogo">
-            <h2>BUCEILS HS</h2>
-            <h3>ONLINE VOTING SYSTEM</h3>
-        </div>
-        <label for="btn" class="Aicon"><span class="fa fa-bars"></span></label>
-        <input type="checkbox" id="btn">
-        <ul>
-            <li>
-                <label for="btn-1" class="Ashow">VOTE</label>
-                <a class="topnav" href="#">VOTE</a>
-            </li>
-            <li>
-                <label for="btn-2" class="Ashow">ELECTION</label>
-                <a class="Atopnav" href="#">ELECTION</a> 
-                <input type="checkbox" id="btn-2">
-                <ul>
-                    <li><a href="#" class="Aelec-text">ELECTION PROCESS</a></li>
-                    <li><a href="#">ARCHIVE</a></li>
-                    <li><a href="#">RESULTS</a></li>
-                </ul>
-            </li>
-            <li>
-                <label for="btn-3" class="Ashow">CANDIDATES</label>
-                <a class="Atopnav" href="#">CANDIDATES</a>
-            </li>
-            <li>
-                <label for="btn-4" class="Ashow">CHAT US</label>
-                <a class="Atopnav" href="#">CHAT US</a>
-            </li>
-            <li>
-                <label for="btn-5" class="Ashow">JUAN S. DELA CRUZ</label>
-                <a class="Auser" href="#"><img class="Auser-profile" src="../IMG/student.png"></a>
-                <input type="checkbox" id="btn-5">
-                <ul>
-                    <li><a href="#" class="Aelec-text">JUAN S. DELA CRUZ</a></li>
-                    <li><a href="../../DashboardAuthentication/Student Dashboard/Logout.php">LOGOUT</a></li>
-                </ul>
-            </li>
-        </ul>
-        
-    </nav> -->
-
      <section id="section-container">
         <!--Left Content-->
         <article>
-            <!-- <div class="Alogo-container">
-                <img class="Alogos" src="../IMG/BU-LOGO.png">
-                <img class="Alogos" src="../IMG/BUHS_LOGO.png">
-                <img class="Alogos" src="../IMG/SSG_LOGO.png">
-            </div> -->
-            <!-- <p>WELCOME TO THE OFFICIAL</p> -->
             <h1>OFFICIAL CANDIDATES</h1>
         </article>
     </section>

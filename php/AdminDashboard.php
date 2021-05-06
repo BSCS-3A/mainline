@@ -42,7 +42,7 @@ include('db_conn.php');
     <!-- <script src="../js/countdown.js"></script> -->
     <script src="https://cdn.datatables.net/fixedheader/3.1.8/js/dataTables.fixedHeader.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <title>BUCEILS Voting System</title>
+    <title>Home (Administrators)  | BUCEILS HS Online Voting System</title>
 </head>
 
 <body>

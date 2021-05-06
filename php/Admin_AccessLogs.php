@@ -40,78 +40,13 @@ include("db_conn.php");
     <script src="../js/jquery.dataTables.min_adminDash.js"></script>
 
     <script src="https://cdn.datatables.net/fixedheader/3.1.8/js/dataTables.fixedHeader.min.js"></script>
-    <title>Access Logs</title>
+    <title>Access Logs | BUCEILS HS Online Voting System</title>
 </head>
 
 <body>
 
     <!-- navigation and footer -->
     <?php include "navAdmin.php"; ?>
-
-    <!-- <nav>
-        <input class="nav-toggle1" type="checkbox">
-        <div class="aLogo">
-            <h2 class="aLogo-txt1"><a href="AdminDashboard.php">BUCEILS HS</a></h2>
-            <h3 class="aLogo-txt2"><a href="AdminDashboard.php">ONLINE VOTING SYSTEM</a></h3>
-        </div>
-        <label for="btn" class="ADicon"><span class="fa fa-bars"></span></label>
-        <input class="nav-toggle2" type="checkbox" id="btn">
-        <ul>
-            <li>
-                <label for="btn-1" class="Ashow">ACCOUNTS</label>
-                <a href="#">ACCOUNTS</a>
-                <input class="nav-toggle3" type="checkbox" id="btn-1">
-                <ul>
-                    <li><a href="#">Students</a></li>
-                    <li><a href="#">Admin</a></li>
-                </ul>
-            </li>
-            <li>
-                <label for="btn-2" class="Ashow">ELECTION</label>
-                <a href="#">ELECTION</a>
-                <input class="nav-toggle4" type="checkbox" id="btn-2">
-                <ul>
-                    <li><a href="#">Archive</a></li>
-                    <li><a href="#">Vote Status</a></li>
-                    <li><a href="#">Vote Result</a>
-                        <ul>
-                            <li><a href="#">Make Report</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="#">Configuration</a>
-                        <ul>
-                            <li><a href="#">Scheduler</a></li>
-                            <li><a href="#">Signatory</a></li>
-                        </ul>
-                    </li>
-                </ul>
-            </li>
-            <li><a href="../../Candidate-Management-main/LandingPage/LandingPageV1.0.php">CANDIDATES</a></li>
-            <li>
-                <label for="btn-4" class="Ashow">LOGS</label>
-                <a href="#">LOGS</a>
-                <input class="nav-toggle5" type="checkbox" id="btn-4">
-                <ul>
-                    <li><a href="AccessLogs.php">Access Log</a></li>
-                    <li><a href="#">Activity Log</a></li>
-                    <li><a href="#">Vote Summary</a></li>
-                </ul>
-            </li>
-            <li><a href="#">MESSAGES</a></li>
-            <li>
-                <label for="btn-5" class="Ashow"><?php echo $_SESSION['admin_fname']." ".$_SESSION['admin_lname']; ?></label>
-                <a class="user" href="#"><img class="user-profile" src="assets/img/<?php echo $_SESSION['photo'];?>"></a>
-                <input class="nav-toggle6" type="checkbox" id="btn-5">
-                <ul>
-                    <li><a class="username" href="#"><?php echo $_SESSION['admin_fname']." ".$_SESSION['admin_lname']; ?></a></li>
-                    <li class="logout">
-                        <span class="fa fa-sign-out"></span><a href="Logout.php">LOGOUT</a></span>
-                    </li>
-                </ul>
-            </li>
-        </ul>
-        
-    </nav> -->
 
     <div class="ADheader" id="ADheader">
         <h2 class="aHeader-txt">ADMIN ACCESS LOGS</h2>

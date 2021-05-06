@@ -27,7 +27,7 @@ include('db_conn.php');
     <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
     <script src="../js/scripts_vote.js"></script>
-    <title>BUCEILS HS Vote</title>
+    <title>Vote  | BUCEILS HS Online Voting System</title>
 </head>
 
 <body>

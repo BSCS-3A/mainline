@@ -23,7 +23,7 @@
 <script type="text/javascript" src="./js/loginLink.js"></script>
 <link rel="stylesheet" type="text/css" href="./css/style_Login.css">
 <link rel="icon" href="./img/BUHS LOGO.png" type="image/png">  
-<title> BUCEILS Voting System </title>   
+<title> BUCEILS HS Online Voting System</title>
 </head>    
 <body>
     <!-- Login Banner -->
