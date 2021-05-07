@@ -233,7 +233,7 @@ Need:
               <div id="pid" posid=""></div>
               <input type="text"  
                      class="form-control" 
-                     placeholder="Heirarchy ID" 
+                     placeholder="Hierarchy ID" 
                      id="heirarchy_id" 
                      name ="heirarchy">
                      
@@ -282,7 +282,7 @@ Need:
               <table class= "center" id="datatable" width="100%" cellspacing="0" cellpadding="2px">
               <thead>
                               <tr> 
-                                  <th class ="text-center">Heirarchy ID</th>
+                                  <th class ="text-center">Hierarchy ID</th>
                                   <th class= "text-center">Position</th>
                                   <th class="padThisCell">Description</th>
                                   <th class = "text-center">Edit</th>
