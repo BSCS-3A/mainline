@@ -1253,5 +1253,6 @@ a.paginate_button:hover {
   font-size:15px;
 }
 
-::-webkit-scrollbar {
+.table-responsive::-webkit-scrollbar {
   display: none;
+}
