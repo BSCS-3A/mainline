@@ -58,6 +58,7 @@ if($_SESSION['incorrectTry']>=3){
             if ($row['bumail']===$username && $row['otp']===$pass) {
             	$_SESSION['bumail'] = $row['bumail'];
             	$_SESSION['fname'] = $row['fname'];
+				$_SESSION['mname'] = $row['Mname'];
 				$_SESSION['lname'] = $row['lname'];
             	$_SESSION['student_id'] = $row['student_id'];
 				$_SESSION['grade_level'] = $row['grade_level']; //added for voting : 03/04/2021 , 11:48am
@@ -111,6 +112,7 @@ else{
             if ($row['bumail']===$username && $row['otp']===$pass) {
             	$_SESSION['bumail'] = $row['bumail'];
             	$_SESSION['fname'] = $row['fname'];
+				$_SESSION['mname'] = $row['Mname'];
 				$_SESSION['lname'] = $row['lname'];
             	$_SESSION['student_id'] = $row['student_id'];
 				$_SESSION['grade_level'] = $row['grade_level']; //added for voting : 03/04/2021 , 11:48am
