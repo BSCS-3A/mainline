@@ -45,7 +45,7 @@
 </head>
 
         <!-- navigation, footer, log sessions -->
-        <?php include "navAdmin.php" ?>
+        <?php //include "navAdmin.php" ?>
 
 <body>
     
@@ -290,7 +290,7 @@
     <!-- DELETE SCRIPT -->
     <script>
         $(document).ready(function() {
-            $('.deletebtn').on('click', function() {
+            $('#datatable').on('click', '.deletebtn', function() {
 
                 $tr = $(this).closest('tr');
 
@@ -309,7 +309,7 @@
     <!-- EDIT and UPDATE SCRIPT -->
     <script>
         $(document).ready(function() {
-            $('.editbtn').on('click', function() {
+            $('#datatable').on('click', '.editbtn', function() {
 
                 $tr = $(this).closest('tr');
 

@@ -12,7 +12,7 @@ $errors = array();
 // Create connection
 include 'db_conn.php';
 
-if (isset($_POST['saveAccount']) && isset($_FILES['my_image']) ) {
+if (isset($_POST['saveAccount']) && isset($_FILES['my_image'])) {
 
   $admin_lname = $_POST['admin_lname'];
   $admin_fname = $_POST['admin_fname'];
@@ -28,48 +28,44 @@ if (isset($_POST['saveAccount']) && isset($_FILES['my_image']) ) {
   $tmp_name = $_FILES['my_image']['tmp_name'];
   $error = $_FILES['my_image']['error'];
 
-  $user_check_query = "SELECT * FROM admin WHERE username='$username' LIMIT 1";
-  $result = mysqli_query($conn, $user_check_query);
-  $user = mysqli_fetch_assoc($result);
-  
-  if ($user['username'] === $username) {
-      array_push($errors, "Username already exists");
-      echo "user already exists";
-  }
-
-  if (count($errors) == 0) {
-    if ($img_size > 125000) {
-      $em = "Sorry, your file is too large.";
-      header("Location: front_addAdmin_v2.php?error=$em");
-    } else {
-      $img_ex = pathinfo($img_name, PATHINFO_EXTENSION);
-      $img_ex_lc = strtolower($img_ex);
-
-      $allowed_exs = array("jpg", "jpeg", "png");
-
-      if (in_array($img_ex_lc, $allowed_exs)) {
-        $new_img_name = uniqid("IMG-", true) . '.' . $img_ex_lc;
-        $img_upload_path = '../uploads/' . $new_img_name;
-        move_uploaded_file($tmp_name, $img_upload_path);
-
-        //insert into database
-        $query = "INSERT INTO admin (`admin_lname`, `admin_fname`, `admin_mname`, `username`, `admin_position`, `comelec_position`, `password`, `photo`) 
-          VALUES('$admin_lname', '$admin_fname', '$admin_mname', '$username', '$admin_position', '$comelec_position', '$password', '$new_img_name')";
-        mysqli_query($conn, $query);
-
-        //For Logs
-	$_SESSION['action'] = 'created Admin Account : ' . $_POST['username'];
-	include 'backFun_actLogs_v0_1.php';
-        
-        header("Location: front_addAdmin_v2.php");
-      } else {
-        $em = "You can't upload files of this type";
-        header("Location: front_addAdmin_v2.php?error=$em");
-      }
-    }
+  $duplicate = mysqli_query($conn, "select * from admin where username='$username'"); //add or for multiple attribute checking
+  if (mysqli_num_rows($duplicate) > 0) {
+    header("Location: front_addAdmin_v2.php?message=User name or Email id already exists.");
   } else {
-    $em - "unknown error occured!";
-    header("Location: front_addAdmin_v2.php?error=$em");
+    if (count($errors) == 0) {
+      if ($img_size > 125000) {
+        $em = "Sorry, your file is too large.";
+        header("Location: front_addAdmin_v2.php?error=$em");
+      } else {
+        $img_ex = pathinfo($img_name, PATHINFO_EXTENSION);
+        $img_ex_lc = strtolower($img_ex);
+
+        $allowed_exs = array("jpg", "jpeg", "png");
+
+        if (in_array($img_ex_lc, $allowed_exs)) {
+          $new_img_name = uniqid("IMG-", true) . '.' . $img_ex_lc;
+          $img_upload_path = '../uploads/' . $new_img_name;
+          move_uploaded_file($tmp_name, $img_upload_path);
+
+          //insert into database
+          $query = "INSERT INTO admin (`admin_lname`, `admin_fname`, `admin_mname`, `username`, `admin_position`, `comelec_position`, `password`, `photo`) 
+          VALUES('$admin_lname', '$admin_fname', '$admin_mname', '$username', '$admin_position', '$comelec_position', '$password', '$new_img_name')";
+          mysqli_query($conn, $query);
+
+          //For Logs
+          $_SESSION['action'] = 'created Admin Account : ' . $_POST['username'];
+          include 'backFun_actLogs_v0_1.php';
+
+          header("Location: front_addAdmin_v2.php");
+        } else {
+          $em = "You can't upload files of this type";
+          header("Location: front_addAdmin_v2.php?error=$em");
+        }
+      }
+    } else {
+      $em - "unknown error occured!";
+      header("Location: front_addAdmin_v2.php?error=$em");
+    }
   }
 }
 ?>
