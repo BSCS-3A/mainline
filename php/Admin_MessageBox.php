@@ -39,7 +39,7 @@ include("db_conn.php");
 ?>
 
   <div class="container">  
-    <div class="row rounded-lg overflow-hidden shadow">
+  <div class="row rounded-lg overflow-hidden shadow" style="background-color:white">
       <!-- Users box-->
       <div class="col-5 px-0">
         <div class="bg-white">
@@ -66,11 +66,9 @@ include("db_conn.php");
               echo   '<a href="Admin_MessageBox.php?id='.$sname[0].'" class="list-group-item list-group-item-action list-group-item-light rounded-0" style="background-color:#1D6986;color:white">                  
               <div class="media-body ml-4" >
               <div class="d-flex align-items-center justify-content-between mb-1" >
-              <p class="cname">'.$sname[0].'</p>
-              </div>              
-              <p class="cmessage">'.$rowsx[1].'</p>
-              <div class="float-sm-right">
-              <small class="small font-weight-bold" >'.$rowsx[2]." ".$rowsx[3].'</small></div>  
+              <p class="cname">'.$sname[0].'</p><small class="small font-weight-bold" >'.$rowsx[2]." ".$rowsx[3].'</small>
+              </div>
+              <p class="cmessage">'.$rowsx[1].'</p>  
               </div></a>
               ';
             }}}
@@ -96,21 +94,22 @@ include("db_conn.php");
       </div>
       <!-- Chat Box-->
       <div class="col-7 px-0">
-        <div  style=' background: white;'>
+        <div  class="sender">
         <?php 
         if(isset($_GET['id'])){
-        echo "<h4 style='color: black'>".$_GET['id']."<h4/>";
+        echo "<h4 style='color: #124254'>".$_GET['id']."<h4/>";
         }
         ?>
         </div>
-        <div id = "chatbox" class="px-4 py-5 chat-box bg-white " >
+        <div id = "chatbox" class="px-4 py-1 chat-box bg-white " >
         
         </div>
         
         <!-- Typing area -->
         <form method="POST" class="bg-light">
           <div class="input-group">
-            <input  type="text" id= "usermsg" placeholder="Type a message" aria-describedby="button-addon2" class="form-control rounded-0 border-0 py-4 pb-5 bg-light">
+          <div class="input-group pr-5 pl-3 py-1" id="type">
+          <input  type="text" id= "usermsg" placeholder="Type a message" aria-describedby="button-addon2" class="form-control rounded-0 border-0 py-4 pb-2 mt-1 bg-light">
             <div class="input-group-append">
             <button id="button-addon2" type="submit" class="btn btn-link"> <i class="fa fa-paper-plane"></i></button>
             </div>
@@ -119,9 +118,7 @@ include("db_conn.php");
         </div>
       </div>
     </div>
- 
 
-  <br><br><br><br>
 
         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <script type="text/javascript"> 
@@ -177,9 +174,8 @@ include("db_conn.php");
                rpt = setInterval (loadLog, 10);
                 
                 </script>
-         
-                
-        
+    </div>
+    <br><br><br><br>
  </body>
 
 </html>

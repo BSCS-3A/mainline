@@ -3,7 +3,7 @@
 session_start();
 include('db_conn.php');
  if (isset($_SESSION['student_id']) && isset($_SESSION['bumail'])) {
-   $id = $_SESSION['student_id'];
+   $id = $_SESSION['fname']." ".$_SESSION['mname']." ".$_SESSION['lname'];
    $_GET['id'] = $id;
 ?>
 <!DOCTYPE html>
@@ -31,6 +31,7 @@ include('db_conn.php');
    
 
 <body>
+
     <div class="cheader">
         <h3>MESSAGE BOX</h3>
     </div>
