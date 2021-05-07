@@ -228,7 +228,7 @@ Need:
           <div class="panel-body">
               <div class="form-group">
               <label for="heirarchy_id">
-                Heirarchy ID
+                Hierarchy ID
               </label>
               <div id="pid" posid=""></div>
               <input type="text"  
