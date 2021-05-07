@@ -156,6 +156,11 @@ ob_start();
 				if($flag == 0){
 					$candidate_name = "";
 					foreach($receipt_list as $value){
+						if(empty($value)){
+							$candidate_name = $voted['status'];
+							$party_name = "N/A";
+							break;
+						}
 						if($value[0] == $voted['heirarchy_id']){
 							$candidate_name = $value[1];
 							$party_name = $value[2];

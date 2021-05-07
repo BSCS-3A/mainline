@@ -18,6 +18,7 @@
 
             $_SESSION['message']="deleted successfully";
             echo "Deleted succesfully";
+            //lagay logs
         }else{
             echo "Cannot delete(Query Error)";
         }

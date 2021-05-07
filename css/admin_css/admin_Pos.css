@@ -4,7 +4,7 @@
     padding: 0;
     user-select: none;
     box-sizing: border-box;
-    font-family: Roboto,Roboto Condensed,Generica, sans-serif;
+    /* font-family: Roboto,Roboto Condensed,Generica, sans-serif; */
     list-style: none;  
   }
   body{  
@@ -1250,7 +1250,9 @@ a.paginate_button:hover {
 
 .dataTables_wrapper .dataTables_length, .dataTables_wrapper .dataTables_filter, .dataTables_wrapper .dataTables_info, .dataTables_wrapper .dataTables_processing, .dataTables_wrapper{
   color: #333 important;
+  font-size:15px;
 }
 
-::-webkit-scrollbar {
+.table-responsive::-webkit-scrollbar {
   display: none;
+}

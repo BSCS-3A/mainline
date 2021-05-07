@@ -737,7 +737,6 @@ function changePhoto(ctl){
         candidate_id = $(this).parents("tr").attr("candid");
         filesize = this.files[0].size/1024/1024;//mb 
         maxsize = 1;//mb
-        alert(filesize);
         if(maxsize < filesize){
           alert("Cannot upload picture higher than 1mb.");
           return;
