@@ -28,8 +28,6 @@
 				}
 			}
 			else{
-				// notify admin & return to ballot
-				errorMessage("Ballot tampering detected. You have been banned from voting and reported to the admins.");
 				// Submit records marked invalid
 				mysqli_data_seek($table, 0);
 				while($poss = $table->fetch_assoc()){
@@ -41,6 +39,8 @@
 				$conn->query("UPDATE `student` SET `voting_status` = true WHERE `student`.`student_id` = '$stud_id'");
 				// notify admin
 				notifyAdmin("Warning: An attempt to submit a tampered ballot was made! The user was automatically banned from voting.");
+				// notify admin & return to ballot
+				errorMessage("Ballot tampering detected. You have been banned from voting and have been reported to the admins.");
 				exit();
 			}
 		}

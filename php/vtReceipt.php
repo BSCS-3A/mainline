@@ -62,7 +62,8 @@ include('db_conn.php');
     
             
             if(empty($sched)){
-              errorMessage("No election has been scheduled");
+              notifyAdmin("Warning: Someone has attmpted to access the Receipt Page bafore the scheduled election!");
+              errorMessage("Suspicious behavior detected! Attempted to submit votes without a scheduled election. Your actions have been reported to the admins.");
             }
             else{
               $start_time = strtotime($sched['start_date']);
@@ -70,10 +71,11 @@ include('db_conn.php');
               $access_time = time();
     
               if($access_time > $end_time){
-                  errorMessage("Election is already finished");
+                  errorMessage("Sorry. You can no longer submit your votes. Election is already finished");
               }
               else if($access_time < $start_time){
-                  errorMessage("Election has not yet started");
+                notifyAdmin("Warning: Someone has attmpted to access the Receipt Page bafore the scheduled election!");
+                errorMessage("Suspicious behavior detected! Attempted to submit votes before the start of the elections. Your actions have been reported to the admins.");
               }
               else if($access_time >= $start_time && $access_time <= $end_time){
                 require "vtSubmit.php";

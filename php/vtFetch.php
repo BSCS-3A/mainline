@@ -1,7 +1,7 @@
 <?php
     function showCandidate($poss){
         echo '<label class="checkbox">
-            <input type="radio" name="'.$poss["heirarchy_id"].'" id="vote" value="'.$poss["candidate_id"].'" onclick="document.getElementById(\''.$poss['heirarchy_id'].'\').innerHTML = \''.$poss['fname']." ".$poss['lname'].'\'">
+            <input type="radio" required name="'.$poss["heirarchy_id"].'" id="vote" value="'.$poss["candidate_id"].'" onclick="document.getElementById(\''.$poss['heirarchy_id'].'\').innerHTML = \''.$poss['fname']." ".$poss['lname'].'\'">
                 <span class="checkmark"></span>
                     <a href=""><img src="'.$poss["photo"].'" class="candidate-photo" style="float: left; width: 100px; height: 100px;" alt="Candidate" ></a>
                     
@@ -13,7 +13,7 @@
 
     }
     function showAbstain($poss){
-        echo'<label class="checkbox"><input type="radio" name="'.$poss["heirarchy_id"].'"  id="vote" value = "0" onclick="document.getElementById(\''.$poss["heirarchy_id"].'\').innerHTML = \'Abstain\'"><span class="checkmark"></span><b> Abstain </b></label></div>';
+        echo'<label class="checkbox"><input type="radio" required checked name="'.$poss["heirarchy_id"].'"  id="vote" value = "0" onclick="document.getElementById(\''.$poss["heirarchy_id"].'\').innerHTML = \'Abstain\'"><span class="checkmark"></span><b> Abstain </b></label></div>';
     }
 
     function generateBallot($table){
