@@ -118,7 +118,7 @@ Need:
             });  
             $(document).on("click","#continue-load",function(){
                 var temp = true;
-                $("#load").modal("hide");
+                $("#load").modal("show");
                 $.ajax({
                     url:'./backPos/loadDefault.php', 
                     method:'post',
@@ -278,7 +278,7 @@ Need:
               <table class= "center" id="datatable" width="100%" cellspacing="0" cellpadding="2px">
               <thead>
                               <tr> 
-                                  <th class ="text-center">Heirarchy ID</th>
+                                  <th class ="text-center">Hierarchy ID</th>
                                   <th class= "text-center">Position</th>
                                   <th class="padThisCell">Description</th>
                                   <th class = "text-center">Edit</th>
@@ -302,7 +302,7 @@ Need:
                     <h4 class="modal-title custom_align" id="Heading-load">Load Default Positions</h4>
                 </div>
                 <div class="modal-body">             
-                    <div class="alert alert-danger"><span class="fa fa-exclamation-triangle"></span>Are you sure you want to delete existing positions and replace it with the system default?</div>
+                    <div class="alert alert-danger" id="loadD"><span class="fa fa-exclamation-triangle"></span>Are you sure you want to delete existing positions and replace it with the system default?</div>
                 </div>
                 <div class="modal-footer ">
                     <button type="submit" name="continue-delete-btn" class="btn btn-success" id="continue-load"><span class= "fa fa-check-circle"></span>Continue</button>
@@ -321,11 +321,13 @@ Need:
                     <h4 class="modal-title custom_align" id="Heading-delete">Delete Position</h4>
                 </div>
                 <div class="modal-body">             
-                    <div class="alert alert-danger"><span class="fa fa-exclamation-triangle"></span></div>
+                    <div class="alert alert-danger" id="deleteD"><span class="fa fa-exclamation-triangle"></span></div>
                 </div>
                 <div class="modal-footer ">
+                <form method="post" id="delete-form">  
                     <button type="submit" name="continue-delete-btn" class="btn btn-success" id="continue-delete"><span class= "fa fa-check-circle"></span>Continue</button>
                     <button type="button" name="cancel-delete-btn" class="btn btn-default" id="cancel" data-dismiss="modal"><span class="fa fa-times-circle"></span>Cancel</button>
+                </form>
                 </div> 
              </div>
          <!-- /.modal-content --> 
@@ -358,9 +360,9 @@ Start of form panel scripts
       var pid = editRow.attr("posid");
       $("#Heading-delete").text("Delete Position");
       var deletemess = "Are you sure you want to DELETE position: "+$(cols[1]).text()+" with heirarchy_id: "+ $(cols[0]).text();
-      $(".alert").text(deletemess);   
+      $("#deleteD").text(deletemess);   
 
-      $(document).on("click","#continue-delete",function(){
+      $("#delete-form").submit(function(){
           $("#delete").modal("hide");
           $.ajax({
               url:'backPos/deletePosition.php',
