@@ -1,9 +1,9 @@
 <?php
-require '../php/db_connection.php';				// Link to database
-require '../php/student_count.php';				// Link to queries
-require '../php/fetch_date.php';				// Link to queries in date
-require '../php/fetch_report.php';				// Link to queries in archive
-require_once('TCPDF-main/tcpdf.php'); 			// Include the main TCPDF library
+require 'db_conn.php';						// Link to database
+require './backMonitor/student_count.php';			// Link to queries
+require './backMonitor/fetch_date.php';				// Link to queries in date
+require './backMonitor/fetch_report.php';			// Link to queries in archive
+require_once('../other/TCPDF-main/tcpdf.php'); 			// Include the main TCPDF library
 
 //---------------------Create header and footer
 class PDF extends TCPDF { 
