@@ -228,12 +228,12 @@ Need:
           <div class="panel-body">
               <div class="form-group">
               <label for="heirarchy_id">
-                Heirarchy ID
+                Hierarchy ID
               </label>
               <div id="pid" posid=""></div>
               <input type="text"  
                      class="form-control" 
-                     placeholder="Heirarchy ID" 
+                     placeholder="Hierarchy ID" 
                      id="heirarchy_id" 
                      name ="heirarchy">
                      
@@ -273,8 +273,12 @@ Need:
         </div>
 
         <div class = "right">
+		<!--Added container and row to accomodate table responsiveness-->
+		<div class = "container">
+			<div class = "row">
           <div class = "center" id = CPTable>
             <div class="col-md-12">
+		      <div class ="table-responsive table-body">
               <table class= "center" id="datatable" width="100%" cellspacing="0" cellpadding="2px">
               <thead>
                               <tr> 
@@ -292,8 +296,11 @@ Need:
                             </table>
                           </div>
                         </div>
-                        </div>
+                       </div>
                      </div>
+		    </div>
+                   </div>
+	          </div>
     <div class="modal fade" id="load" tabindex="-1" role="dialog" aria-labelledby="edit" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -519,6 +526,12 @@ Start of form panel scripts
         $('.icon').click(function () {
             $('span').toggleClass("cancel");
         });
+	    
+	     /**Added this move to edit/add panel function for mobile QoL**/
+        $("button").click(function() {
+    	$('html,body').animate({
+        scrollTop: $(".left").offset().top},
+        'slow');
     </script>
 
 </body>
