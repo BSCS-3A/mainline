@@ -1,5 +1,7 @@
 <?php
     include_once '../db_conn.php';
+
+
     if(isset($_POST['query'])){
         $firstname = $_POST['query'];
         $sql = "SELECT * FROM `student` WHERE `fname` LIKE '%".$firstname."%'";

@@ -1,7 +1,8 @@
 <?php 
     session_start();
     include_once '../db_conn.php';
-    
+
+  
     function increment($conn,$query){
         $result = mysqli_query($conn,$query); 
         $array = array();
@@ -31,20 +32,16 @@
         $heirarchyId = mysqli_real_escape_string($conn,trim($_POST['heirarchy'])); 
         $positionName = mysqli_real_escape_string($conn,trim($_POST['positionname']));
         $positionDescription = mysqli_real_escape_string($conn,trim($_POST['positiondes']));
-        $voteallow = 0;//default value false
-        
+        $voteallow = 0;//default value false       
+
         if(!empty($positionName) || !empty($heirarchyId) ){//if there is input in position name or heirarchy id
             $get_position = mysqli_query($conn,"SELECT * FROM `candidate_position` WHERE position_name = '$positionName' "); 
             $num_position = mysqli_num_rows($get_position);
             if ($num_position>0){//if position is already inside database
-                echo "<script>alert('position already added inside the database(please add another)'); 
-                window.location.href= '../Admin_position.php';
-                </script>"; 
+                echo "Position already added inside the database(please add another)."; 
             }else{
-                if($heirarchyId<0 || !ctype_digit($heirarchyId)){//if heirarchyid is negative or is not a digit
-                    echo "<script>alert('Please enter a valid heirarchy value(values more than 1)'); 
-                    window.location.href='../Admin_position.php';
-                    </script>";
+                if($heirarchyId<1 || !ctype_digit($heirarchyId)){//if heirarchyid is negative and is not a digit
+                    echo "Please enter a valid heirarchy value(values more than 1)";
                 }
                 else{ 
                     $highest = "SELECT MAX(`heirarchy_id`) AS heirarchy_id FROM `candidate_position`";
@@ -61,19 +58,14 @@
                                 date_default_timezone_set('Asia/Manila');
         		        		$time = date('H:i:s');
                                 mysqli_query($conn, "INSERT INTO admin_activity_log(activity_log_id,admin_id,activity_description,activity_date,activity_time) VALUES(NULL,$admin_id,'Added position:$positionName',CURRENT_TIMESTAMP,'$time')");
-                                header("location:../Admin_position.php");
                             }
                             else{
                                 echo mysqli_error($conn);
-                                echo "<script>alert('Data did not enter database!(Please check your input)'); 
-                                window.location.href='../Admin_position.php';
-                                </script>";
+                                echo "Data did not enter database!(Please check your input)";
                             }
                         }else{
                             $temp = $rowhighest['heirarchy_id']+1;
-                            echo "<script>alert('cannot insert value higher than ".$temp."'); 
-                                window.location.href='../Admin_position.php';
-                                </script>";
+                            echo "cannot insert value higher than ".$temp;
                             //echo cannot insert value higher than $rowhighest['heirarchy_id']+1
                         }
                     }elseif(mysqli_num_rows($highestresult)==0){
@@ -85,39 +77,29 @@
                             date_default_timezone_set('Asia/Manila');
         		       		$time = date('H:i:s');
                             mysqli_query($conn, "INSERT INTO admin_activity_log(activity_log_id,admin_id,activity_description,activity_date,activity_time) VALUES(NULL,$admin_id,'Added position:$positionName',CURRENT_TIMESTAMP,'$time')");
-                            header("location:../Admin_position.php");
                         }
                         else{
                             echo mysqli_error($conn);
-                            echo "<script>alert('Data did not enter database!(Please check your input first)'); 
-                            window.location.href='../Admin_position.php';
-                            </script>";
-                        }
-                        
+                            echo "Data did not enter database!(Please check your input first)";
+                        }      
                     }
                 }
             }
         }else{ 
-            include_once "../Admin_position.php";
-            echo "<script>alert('Please enter a value'); 
-            </script>";
-            header("Refresh:0; url=../Admin_position.php");
-            die();
+            echo "Please enter a value";
         }       
     }
         
     
        
-    if(isset($_POST['editbtn'])){
-        $positionId = mysqli_real_escape_string($conn,trim($_GET['id']));
+    if(isset($_POST['id'])){
+        $positionId = mysqli_real_escape_string($conn,trim($_POST['id']));
         $heirarchyId = mysqli_real_escape_string($conn,trim($_POST['heirarchy']));
         $positionName = mysqli_real_escape_string($conn,trim($_POST['positionname']));
         $positionDescription = mysqli_real_escape_string($conn,trim($_POST['positiondes']));
-    
+        
         if(empty($positionName) || empty($heirarchyId)){ //if name or heirarchy has no value
-            echo "<script>alert('Heirarchy ID and Position Name are REQUIRED!'); 
-            window.location.href = '../Admin_position.php';
-            </script>";
+            echo "Heirarchy ID and Position Name are REQUIRED!";
         } 
         else{
             if(ctype_digit($heirarchyId)&& $heirarchyId > 0){//if herirachy is digit and heirarchy is positive
@@ -129,20 +111,16 @@
 		        	$time = date('H:i:s');
                     mysqli_query($conn, "INSERT INTO admin_activity_log(activity_log_id,admin_id,activity_description,activity_date,activity_time) VALUES(NULL,$admin_id,' Updated to position $positionName',CURRENT_TIMESTAMP,'$time')");
                     $_SESSION['message'] = "edited successfully";
-                    header("location:../Admin_position.php");
+                    echo "Edited succesfully";
                 }else{
-                    echo "<script>alert('Data did not enter database!(Please check your input)'); 
-                    window.location.href='../Admin_position.php';
-                    </script>";
+                    echo "Data did not enter database!(Please check your input)";
                 }        
             }else{
-                echo "<script>alert('invalid input (check your hierarchy id)'); 
-                window.location.href='../Admin_position.php';
-                </script>";
+                echo "Invalid input (check your hierarchy id)";
             } 
         }
     }   
-    
+
  
     
 ?>
