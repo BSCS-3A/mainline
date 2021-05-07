@@ -77,14 +77,14 @@
 }
 body{  
   font-family: Roboto,Roboto Thin,Generica, sans-serif;  
-  background-image: url("../../img/studentBG.png");
+  background-image: url("../IMG/studentBG.png");
   background-size: cover;
   font-size: 100%;
   background-attachment: fixed;
   width: auto;
   min-height: 100%;
 }
-/* nav{
+nav{
   background: #f8f8f8;
   box-shadow: 0 10px 20px rgba(0, 0, 0, .15 ),
               0 3px 6px rgba(0, 0, 0, .23);
@@ -128,6 +128,7 @@ nav ul{
   float: right;
   padding: 0;
   height: 80px;
+  /* margin-right: 40px; */
   margin-bottom: 0;
   list-style: none;
   position: relative;
@@ -135,11 +136,12 @@ nav ul{
   z-index: 4;
 }
 nav ul li{
-  
+  float: left;
   display: inline-block;
   height: 80px;
   background: #f8f8f8;
   text-align: center;
+  /* margin: 0 5px; */
   width: 150px;
 }
 nav ul li a{
@@ -257,13 +259,25 @@ nav img.Auser-profile{
   margin-top: 0;
   height: 40px;
   width: 40px;
-} */
+}
 /* .fa-plus{
   font-size: 15px;
   margin-left: 40px;
 } */
 
+
+@media all and (max-width: 1200px) {
+
+  .Uright{
+    margin-left: 100px;
+  }
+  }
+
 @media all and (max-width: 968px) {
+
+  .Uright{
+    margin-left: 100px;
+  }
   nav ul{
     margin-right: 0px;
     margin-left: 0px;
@@ -364,7 +378,7 @@ section {
   display: -webkit-flex;
   display: flex;
   margin-left: 30px;
-  margin-top: 20px;
+  margin-top: 100px;
   max-width: 800px;
   float: left;
 }
@@ -407,7 +421,7 @@ img.Alogos{
 .Uright{
   overflow-y:scroll;
   margin-left: auto;
-  height:320px;
+  height: 350px;
   margin-right: auto;
   width:320px;
 }
@@ -442,7 +456,7 @@ div h1 {
   text-transform: uppercase;
   font-size: 4em;
   color: black;
-  margin-bottom: .3em;
+  margin-bottom: .8em;
 }
 div ul{
   /* max-width: 90%; */
@@ -478,11 +492,12 @@ aside p.Aelec-guide-txt{
   overflow: auto;
   padding-bottom: 5%;
 }
-/* #section-container{
-  min-height: 70%;
+#section-container{
+  min-height: 100%;
   overflow: auto;
-  padding-bottom: 5%;
-} */
+  padding-bottom: 12%;
+}
+
 
 footer{
   background-color: #fece4b;
