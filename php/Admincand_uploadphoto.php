@@ -12,13 +12,21 @@
         $image_name = "../user/img/".uniqid('',true).'.jpg';
 
         
+        $slqphotofind = "SELECT `photo` FROM `candidate` WHERE `candidate_id`= '$candidateid'"; 
+        $resultphotofind= mysqli_query($conn,$slqphotofind);
+        $rowfindphoto = mysqli_fetch_assoc($resultphotofind);
 
         // pasok na sa database 
         $sql = "UPDATE `candidate` SET `photo` = '$image_name' WHERE `candidate_id` = $candidateid";
         $result = mysqli_query($conn,$sql);
         if($result){
+            if(!empty($rowfindphoto['photo'])){//if has photo delete photo in directory
+                $path = $rowfindphoto['photo'];
+                unlink($path);
+            }
             file_put_contents($image_name, $data);
             echo "upload successful";
+            //lagay logs
         }
 
 

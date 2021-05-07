@@ -27,6 +27,7 @@
                         $positionid = $row_pos['position_id'];
                         $sql_tunay = "INSERT INTO `candidate` (`candidate_id`,`student_id`, `position_id`, `total_votes`,`party_name`, `platform_info`,`credentials`,`photo`) VALUES (NULL,    '$studentid', ' $positionid', '0','$partylist','$platform','$credentials','')"; //photo is to be replaced by gender
                         $result_tunay = mysqli_query($conn,$sql_tunay);
+                        //lagay logs
                         if($result_tunay){
                             //logs
                         }
