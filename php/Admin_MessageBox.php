@@ -2,14 +2,6 @@
 session_start();
 include("db_conn.php");
   if (isset($_SESSION['admin_id']) && isset($_SESSION['username'])) {
-    
-         $idletime=900;//after 60 seconds the user gets logged out
-
-         if (time()-$_SESSION['timestamp']>$idletime){
-          header("Location: AdminLogout.php");
-         }else{
-           $_SESSION['timestamp']=time();
-         }
 ?>
 <!DOCTYPE html>
 <html>
@@ -20,81 +12,20 @@ include("db_conn.php");
     <meta name="HandheldFriendly" content="true">
     <!-- <link rel="icon" href="assets/img/buceils-logo.png"> -->
     <link rel="icon" href="../img/BUHS LOGO.png" type="image/png">
-    <link rel="stylesheet" type="text/css" href="../css/admin_css/style1_studAcc.css">
-    <link rel="stylesheet" href="../css/admin_css/font-awesome.min_studAcc.css">
+    <link rel="stylesheet" type="text/css" href="../css/admin_css/style_studAcc.css">
+    <link rel="stylesheet" href="../css/admin_css/font-awesome.min.css">
     <link rel="stylesheet" href="../css/admin_css/bootstrap4.3.1.min_msgbox.css">
     <script src="../js/jquery-3.3.1.slim.min_msgbox.js"></script>
     <script src="../js/bootstrap.bundle.min_msgbox.js"></script>   
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <script type="text/javascript" src="../js/admin_session_timer.js"></script>
     <script type="text/javascript"> (function() { var css = document.createElement('link'); css.href = 'https://use.fontawesome.com/releases/v5.1.0/css/all.css'; css.rel = 'stylesheet'; css.type = 'text/css'; document.getElementsByTagName('head')[0].appendChild(css); })(); </script>
-    <title> Message Box</title>
+    <title> Message Box  | BUCEILS HS Online Voting System</title>
 </head>
 <body>
 
   <?php include "navAdmin.php";?>
 
-    <!-- <nav class="cnavie">
-        <input id="nav-toggle" type="checkbox">
-        <div class="logo">
-            <h4>BUCEILS HS</h4>
-            <h5>ONLINE VOTING SYSTEM</h5>
-        </div>
-        <label for="btn" class="icon"><span class="fa fa-bars"></span></label>
-        <input type="checkbox" id="btn">
-        <ul>
-            <li>
-                <label for="btn-1" class="show">ACCOUNTS</label>
-                <a href="#">ACCOUNTS</a>
-                <input type="checkbox" id="btn-1">
-                <ul>
-                    <li><a href="#">Students</a></li>
-                    <li><a href="#">Admin</a></li>
-                </ul>
-            </li>
-            <li>
-                <label for="btn-2" class="show">ELECTION</label>
-                <a href="#">ELECTION</a>
-                <input type="checkbox" id="btn-2">
-                <ul>
-                    <li><a href="#">Archive</a></li>
-                    <li><a href="#">Vote Status</a></li>
-                    <li><a href="#">Vote Result</a>
-                        <ul>
-                            <li><a href="#">Make Report</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="#">Configuration</a>
-                    
-                </ul>
-            </li>
-            <li><a href="#">CANDIDATES</a></li>
-            <li>
-                <label for="btn-4" class="show">LOGS</label>
-                <a href="#">LOGS</a>
-                <input type="checkbox" id="btn-4">
-                <ul>
-                    <li><a href="#">Access Log</a></li>
-                    <li><a href="#">Activity Log</a></li>
-                    <li><a href="#">Vote Summary</a></li>
-                </ul>
-            </li>
-            <li><a href="#">MESSAGES</a></li>
-            <li>
-                <label for="btn-5" class="show">Admin Name</label>
-                <a class="user" href="#"><img class="user-profile" src="assets/img/user.png"></a>
-                <input type="checkbox" id="btn-5">
-                <ul>
-                    <li><a class="username" href="#">Admin Name</a></li>
-                    <li class="logout">
-                        <span class="fa fa-sign-out"></span><a href="#">LOGOUT</a></span>
-                    </li>
-                </ul>
-            </li>
-        </ul>
-       
-    </nav> -->
-
-    
     <div class="ccheader">
     <h3>MESSAGE BOX</h3>
 </div>
@@ -165,7 +96,17 @@ include("db_conn.php");
       </div>
       <!-- Chat Box-->
       <div class="col-7 px-0">
-        <div id = "chatbox" class="px-4 py-5 chat-box bg-white " ></div>
+        <div  style=' background: white;'>
+        <?php 
+        if(isset($_GET['id'])){
+        echo "<h4 style='color: black'>".$_GET['id']."<h4/>";
+        }
+        ?>
+        </div>
+        <div id = "chatbox" class="px-4 py-5 chat-box bg-white " >
+        
+        </div>
+        
         <!-- Typing area -->
         <form method="POST" class="bg-light">
           <div class="input-group">
@@ -175,13 +116,11 @@ include("db_conn.php");
             </div>
           </div>
         </form>
-    
         </div>
       </div>
     </div>
-    <!-- <div class="footer">
-      <p class="footer-txt">BS COMPUTER SCIENCE 3A © 2021</p>
-  </div> -->
+ 
+
   <br><br><br><br>
 
         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>

@@ -3,14 +3,6 @@
 session_start();
 include('db_conn.php');
  if (isset($_SESSION['student_id']) && isset($_SESSION['bumail'])) {
-     $idletime=900;//after 15 minutes the user gets logged out
-
- if (time()-$_SESSION['timestamp']>$idletime){
-     //$_GET['inactivityError'] = "Session ended: You are logged out due to inactivity.";
-     header("Location: StudentLogout.php");
- }else{
-     $_SESSION['timestamp']=time();
- }
  ?>
 <!DOCTYPE html>
 <html>
@@ -26,55 +18,13 @@ include('db_conn.php');
     <link rel="stylesheet" type="text/css" href="../css/student_css/styles_folder_monitor.css">
     <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <script type="text/javascript" src="../js/student_session_timer.js"></script>
     <!-- <script src="assets/js/countdown.js"></script> -->
-    <title>BUCEILS HS Online Voting System</title>
+    <title>Election Archive  | BUCEILS HS Online Voting System</title>
 </head>
 
 <body>
     <?php include 'navStudent.php'; ?>
-    <!-- <nav>
-        <input id="nav-toggle" type="checkbox">
-        <div class="logo">
-            <h2>BUCEILS HS</h2>
-            <h3>ONLINE VOTING SYSTEM</h3>
-        </div>
-        <label for="btn" class="icon"><span class="fa fa-bars"></span></label>
-        <input type="checkbox" id="btn">
-        <ul>
-            <li>
-                <label for="btn-1" class="show">VOTE</label>
-                <a class="topnav" href="#">VOTE</a>
-            </li>
-            <li>
-                <label for="btn-2" class="show">ELECTION</label>
-                <a class="topnav" href="#">ELECTION</a>
-                <input type="checkbox" id="btn-2">
-                <ul>
-                    <li><a href="#" class="elec-text">ELECTION PROCESS</a></li>
-                    <li><a href="front_Monitoring_v3_0.html ">ARCHIVE</a></li>
-                    <li><a href="front_Monitoring_v1_1.html">RESULTS</a></li>
-                </ul>
-            </li>
-            <li>
-                <label for="btn-3" class="show">CANDIDATES</label>
-                <a class="topnav" href="#">CANDIDATES</a>
-            </li>
-            <li>
-                <label for="btn-4" class="show">CHAT US</label>
-                <a class="topnav" href="#">CHAT US</a>
-            </li>
-            <li>
-                <label for="btn-5" class="show">JUAN S. DELA CRUZ</label>
-                <a class="user" href="#"><img class="user-profile" src="assets/img/user.png"></a>
-                <input type="checkbox" id="btn-5">
-                <ul>
-                    <li><a href="#" class="elec-text">JUAN S. DELA CRUZ</a></li>
-                    <li><a href="#">LOGOUT</a></li>
-                </ul>
-            </li>
-        </ul>
-    </nav> -->
-
     <div class="Barch">
         <p><b>ELECTION ARCHIVES</b></p>
     </div>

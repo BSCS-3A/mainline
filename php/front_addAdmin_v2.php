@@ -3,14 +3,6 @@
  include('db_conn.php');
   if (isset($_SESSION['admin_id']) && isset($_SESSION['username'])) 
  {
-     $idletime=900;//after 15 minutes the user gets logged out
-
- if (time()-$_SESSION['timestamp']>$idletime){
-     $_GET['inactivityError'] = "Session ended: You are logged out due to inactivity.";
-    header("Location: AdminLogout.php");
- }else{
-    $_SESSION['timestamp']=time();
- }
  ?>
 
 <!DOCTYPE html>
@@ -33,6 +25,7 @@
     <script src="../js/bootstrap.min_addAdmin.js"></script>
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
     <script src="../js/a076d05399_addAdmin.js"></script>
+    <script type="text/javascript" src="../js/admin_session_timer.js"></script>
     <script type="text/javascript">
         (function() {
             var css = document.createElement('link');
@@ -48,86 +41,14 @@
     <link rel="stylesheet" href="../css/admin_css/customized_addAdmin.css">
 
 
-    <title>Add New Account</title>
+    <title>Admin Account Management | BUCEILS HS Online Voting System</title>
 </head>
 
-        <!-- 
-            
-        fix need:
-        - icon on add account goes missing when navAdmin included
-        - when adding/ editing / deleting, after click of button, straight to logout
-        ( issue found: navAdmin.php yung else sa pinakababa, tig comment muna para no conflict)
-
-         -->
-         
         <!-- navigation, footer, log sessions -->
         <?php include "navAdmin.php" ?>
 
 <body>
-    <!-- <nav>
-        <input id="nav-toggle" type="checkbox">
-        <div class="logo">
-            <h2 class="aLogo-txt1"><a href="AdminDashboard.php">BUCEILS HS</a></h2>
-            <h3 class="aLogo-txt2"><a href="AdminDashboard.php">ONLINE VOTING SYSTEM</a></h3>
-        </div>
-        <label for="btn" class="icon"><span class="fa fa-bars"></span></label>
-        <input type="checkbox" id="btn">
-        <ul>
-            <li>
-                <label for="btn-1" class="show">ACCOUNTS</label>
-                <a href="#">ACCOUNTS</a>
-                <input type="checkbox" id="btn-1">
-                <ul>
-                    <li><a href="#">Students</a></li>
-                    <li><a href="addAdmin.html">Admin</a></li>
-                </ul>
-            </li>
-            <li>
-                <label for="btn-2" class="show">ELECTION</label>
-                <a href="#">ELECTION</a>
-                <input type="checkbox" id="btn-2">
-                <ul>
-                    <li><a href="#">Archive</a></li>
-                    <li><a href="#">Vote Status</a></li>
-                    <li><a href="#">Vote Result</a>
-                        <ul>
-                            <li><a href="#">Make Report</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="#">Configuration</a>
-                        <ul>
-                            <li><a href="#">Scheduler</a>
-                            <li><a href="signatory.html">Signatory</a>
-                        </ul>
-                </ul>
-            </li>
-            <li><a href="#">CANDIDATES</a></li>
-            <li>
-                <label for="btn-4" class="show">LOGS</label>
-                <a href="#">LOGS</a>
-                <input type="checkbox" id="btn-4">
-                <ul>
-                    <li><a href="#">Access Log</a></li>
-                    <li><a href="actLogs.html">Activity Log</a></li>
-
-                    <li><a href="#">Vote Summary</a></li>
-                </ul>
-            </li>
-            <li><a href="#">MESSAGES</a></li>
-            <li>
-                <label for="btn-5" class="show">Admin Name</label>
-                <a class="user" href="#"><img class="user-profile" src="../assets/img/user.png"></a>
-                <input type="checkbox" id="btn-5">
-                <ul>
-                    <li><a class="username" href="#">Admin Name</a></li>
-                    <li class="logout">
-                        <span class="fa fa-sign-out"></span><a href="#">LOGOUT</a></span>
-                    </li>
-                </ul>
-            </li>
-        </ul>
-       
-    </nav>  -->
+    
 
     <div class="cheader">
         <h3>ADMINISTRATOR ACCOUNT MANAGEMENT</h3>
@@ -369,7 +290,7 @@
     <!-- DELETE SCRIPT -->
     <script>
         $(document).ready(function() {
-            $('.deletebtn').on('click', function() {
+            $('#datatable').on('click', '.deletebtn', function() {
 
                 $tr = $(this).closest('tr');
 
@@ -388,7 +309,7 @@
     <!-- EDIT and UPDATE SCRIPT -->
     <script>
         $(document).ready(function() {
-            $('.editbtn').on('click', function() {
+            $('#datatable').on('click', '.editbtn', function() {
 
                 $tr = $(this).closest('tr');
 

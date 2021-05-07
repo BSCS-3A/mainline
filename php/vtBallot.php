@@ -2,14 +2,6 @@
 session_start();
 include('db_conn.php');
  if (isset($_SESSION['student_id']) && isset($_SESSION['bumail'])) {
-     $idletime=900;//after 15 minutes the user gets logged out
-
- if (time()-$_SESSION['timestamp']>$idletime){
-     //$_GET['inactivityError'] = "Session ended: You are logged out due to inactivity.";
-     header("Location: StudentLogout.php");
- }else{
-     $_SESSION['timestamp']=time();
- }
  ?>
 <!DOCTYPE html>
 <html>
@@ -27,7 +19,8 @@ include('db_conn.php');
     <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
     <script src="../js/scripts_vote.js"></script>
-    <title>BUCEILS HS Vote</title>
+    <script type="text/javascript" src="../js/student_session_timer.js"></script>
+    <title>Vote  | BUCEILS HS Online Voting System</title>
 </head>
 
 <body>

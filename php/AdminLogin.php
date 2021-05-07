@@ -30,7 +30,7 @@
 <link rel="stylesheet" type="text/css" href="../css/style_Login.css">
 <script type="text/javascript" src="../js/loginLink.js"></script>
 <link rel="icon" href="../img/BUHS LOGO.png" type="image/png">  
-<title> BUCEILS Voting System </title> 
+<title> BUCEILS HS Online Voting System</title>
 <script src="https://www.google.com/recaptcha/api.js"></script>   
 </head>    
 <body>

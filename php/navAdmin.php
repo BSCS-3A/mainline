@@ -45,7 +45,6 @@ SOLVED ^^ font-awesome_addAdmin may kasalanan lol, + dataTables.bootstrap
     <!-- <link rel="stylesheet" href="../css/admin_css/dataTables.bootstrap_addAdmin.css"> -->
     <!-- <link rel="stylesheet" href="../css/admin_css/font-awesome_addAdmin.css">  -->
   
-    <title>BUCEILS Voting System</title>
 </head>
 
 <body>

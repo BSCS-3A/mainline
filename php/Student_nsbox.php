@@ -3,14 +3,8 @@
 session_start();
 include('db_conn.php');
  if (isset($_SESSION['student_id']) && isset($_SESSION['bumail'])) {
-     $idletime=900;//after 15 minutes the user gets logged out
-
- if (time()-$_SESSION['timestamp']>$idletime){
-     //$_GET['inactivityError'] = "Session ended: You are logged out due to inactivity.";
-     header("Location: StudentLogout.php");
- }else{
-     $_SESSION['timestamp']=time();
- }
+   $id = $_SESSION['student_id'];
+   $_GET['id'] = $id;
 ?>
 <!DOCTYPE html>
 <html>
@@ -28,57 +22,15 @@ include('db_conn.php');
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
     <script src="../js/bootstrap4.1.min_msgbox.js"></script>
     <script type="text/javascript"> (function() { var css = document.createElement('link'); css.href = 'https://use.fontawesome.com/releases/v5.1.0/css/all.css'; css.rel = 'stylesheet'; css.type = 'text/css'; document.getElementsByTagName('head')[0].appendChild(css); })(); </script>
-    <title>Chat us</title>
+    <script type="text/javascript" src="../js/student_session_timer.js"></script>
+    <title>Chat Us  | BUCEILS HS Online Voting System</title>
 </head>
 
 <body>
     <?php include "navStudent.php"; ?>
-    <!-- <nav id="nav-container">
-        <input id="nav-toggle" type="checkbox">
-        <div class="Alogo">
-            <h2>BUCEILS HS</h2>
-            <h3>ONLINE VOTING SYSTEM</h3>
-        </div>
-        <label for="btn" class="Aicon"><span class="fa fa-bars"></span></label>
-        <input type="checkbox" id="btn">
-        <ul>
-            <li>
-                <label for="btn-1" class="Ashow">VOTE</label>
-                <a class="topnav" href="#">VOTE</a>
-            </li>
-            <li>
-                <label for="btn-2" class="Ashow">ELECTION</label>
-                <a class="Atopnav" href="#">ELECTION</a> 
-                <input type="checkbox" id="btn-2">
-                <ul>
-                    <li><a href="#" class="Aelec-text">ELECTION PROCESS</a></li>
-                    <li><a href="#">ARCHIVE</a></li>
-                    <li><a href="#">RESULTS</a></li>
-                </ul>
-            </li>
-            <li>
-                <label for="btn-3" class="Ashow">CANDIDATES</label>
-                <a class="Atopnav" href="#">CANDIDATES</a>
-            </li>
-            <li>
-                <label for="btn-4" class="Ashow">CHAT US</label>
-                <a class="Atopnav" href="#">CHAT US</a>
-            </li>
-            <li>
-                <label for="btn-5" class="Ashow">JUAN S. DELA CRUZ</label>
-                <a class="Auser" href="#"><img class="Auser-profile" src="asset/img/user.png"></a>
-                <input type="checkbox" id="btn-5">
-                <ul>
-                    <li><a href="#" class="Aelec-text">JUAN S. DELA CRUZ</a></li>
-                    <li><a href="#">LOGOUT</a></li>
-                </ul>
-            </li>
-        </ul>
-       
-    </nav> -->
+   
 
 <body>
-  <a href = "Student_nsbox.php?id=dummy">Click to login a dummy account</a>
     <div class="cheader">
         <h3>MESSAGE BOX</h3>
     </div>
