@@ -68,7 +68,7 @@ include('db_conn.php');
 
             <li>
                 <label for="btn-4" class="Ashow"><a id="Ashow1" href="Student_nsbox.php">CHAT US</a></label>
-                <a href="Student_nsbox.php">CHAT US</a>
+                <a href = "Student_nsbox.php">CHAT US</a>
             </li>
 
             <li>

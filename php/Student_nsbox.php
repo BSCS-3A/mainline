@@ -3,6 +3,8 @@
 session_start();
 include('db_conn.php');
  if (isset($_SESSION['student_id']) && isset($_SESSION['bumail'])) {
+   $id = $_SESSION['student_id'];
+   $_GET['id'] = $id;
 ?>
 <!DOCTYPE html>
 <html>
@@ -29,7 +31,6 @@ include('db_conn.php');
    
 
 <body>
-  <a href = "Student_nsbox.php?id=dummy">Click to login a dummy account</a>
     <div class="cheader">
         <h3>MESSAGE BOX</h3>
     </div>
