@@ -3,6 +3,7 @@
 	include_once '../db_conn.php';
     session_start();
 // <p class = "card_position">'.$row['position_name'].'</p> adds position to profile card
+
 	if(isset($_POST['heirarchy_id'])){
 	    $selected = $_POST['heirarchy_id'];
 	    if($selected!=0){
@@ -14,7 +15,7 @@
 		    	        echo '<div class = "column">
 			                    <div class = "card" id ="profile"> 
 			    		            <div class="avatar">    
-			    		                <img src = "'.$row['photo'].'">
+			    		                <img class="pic" src = "'.$row['photo'].'">
 			    		            </div>
 			    		        <h3 class = "card_name">'.$row['lname'].', '.$row['fname'].'</h3>
 			    		        <p class = "card_partylist">'.$row['party_name'].'</p> 
@@ -27,7 +28,7 @@
 		                <div id="hidden_id" style="display:none;">'.$row['candidate_id'].'</div>
 			                    <div class = "card" id ="profile">
 			    		            <div class="avatar">    
-			    		                <img src = "../img/user.png">
+			    		                <img class="pic" src = "../img/user.png">
 			    		            </div>
 			    		        <h3 class = "card_name">'.$row['lname'].', '.$row['fname'].'</h3>
 			    		        <p class = "card_partylist">'.$row['party_name'].'</p>
@@ -48,7 +49,7 @@
 		    	        echo '<div class = "column">
 			                    <div class = "card" id ="profile">
 			    		            <div class="avatar">    
-			    		                <img src = "'.$row['photo'].'">
+			    		                <img class="pic" src = "'.$row['photo'].'">
 			    		            </div>
 			    		        <h3 class = "card_name">'.$row['lname'].', '.$row['fname'].'</h3>
 			    		        <p class = "card_partylist">'.$row['party_name'].'</p>
@@ -61,7 +62,7 @@
 		                <div id="hidden_id" style="display:none;">'.$row['candidate_id'].'</div>
 			                    <div class = "card" id ="profile">
 			    		            <div class="avatar">    
-			    		                <img src = "../img/user.png">
+			    		                <img class="pic" src = "../img/user.png">
 			    		            </div>
 			    		        <h3 class = "card_name">'.$row['lname'].', '.$row['fname'].'</h3>
 			    		        <p class = "card_partylist">'.$row['party_name'].'</p>
@@ -74,6 +75,6 @@
 	        }
 	    }
 	}  
-	
+
 
 ?>

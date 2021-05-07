@@ -2,11 +2,12 @@
 
     include_once '../db_conn.php';
     session_start();
-    
-    if(isset($_POST['save-btn'])){
-        $lastname = mysqli_real_escape_string($conn,trim($_POST['lastnamesearch']));
-        $firstname = mysqli_real_escape_string($conn,trim($_POST['firstnamesearch']));
-        $heirarchyId = mysqli_real_escape_string($conn,trim($_POST['positionlist']));
+
+    if(isset($_POST['savebtn'])){
+
+        $lastname = mysqli_real_escape_string($conn,trim($_POST['lastname']));
+        $firstname = mysqli_real_escape_string($conn,trim($_POST['firstname']));
+        $heirarchyId = mysqli_real_escape_string($conn,trim($_POST['heirarchy_id']));
         $partylist = mysqli_real_escape_string($conn,trim($_POST['partylist']));
         $platform = mysqli_real_escape_string($conn,trim($_POST['platform']));
         $credentials = mysqli_real_escape_string($conn,trim($_POST['credentials']));
@@ -26,58 +27,120 @@
                         $positionid = $row_pos['position_id'];
                         $sql_tunay = "INSERT INTO `candidate` (`candidate_id`,`student_id`, `position_id`, `total_votes`,`party_name`, `platform_info`,`credentials`,`photo`) VALUES (NULL,    '$studentid', ' $positionid', '0','$partylist','$platform','$credentials','')"; //photo is to be replaced by gender
                         $result_tunay = mysqli_query($conn,$sql_tunay);
-                        header("location:../Admin_candidate.php");
+                        if($result_tunay){
+                            //logs
+                        }
+                        else{
+                            echo "Failed to insert student as a candidate(Query error)";
+                        }
                     }else{
-                        echo "<script>alert('Cannot add student as candidate (Either running position not selected or student is already a candidate)'); 
-                        window.location.href='../Admin_candidate.php';
-                        </script>";
+                        echo "Cannot add student as candidate (Either no selected position or student is already a candidate)";
                         //no position found
                     }
                 }else{
-                   echo "<script>alert('Query failed while selecting hierarchy id or position'); 
-                    window.location.href='../Admin_candidate.php';
-                    </script>";
+                   echo "Query failed while selecting hierarchy id or position";
                 }
             }else{
-                echo "<script>alert('Student ".$firstname." ".$lastname."does not exist '); 
-                window.location.href='../Admin_candidate.php';
-                </script>";
+                echo "Student ".$firstname." ".$lastname."does not exist ";
                 //no student was found  
             }
         }else{
-            echo "<script>alert('Query failed while selecting name and lastname'); 
-                window.location.href='../Admin_candidate.php';
-                </script>";
+            echo "Query failed while selecting name and lastname";
         }
-    } 
-    if(isset($_POST['edit-save-btn'])){//preserve /n https://stackoverflow.com/questions/55332358/how-to-use-mysqli-real-escape-string-in-php-to-escape-all-characters-except-ne/55332780
-        $lastname = mysqli_real_escape_string($conn,trim($_POST['editlastnamesearch']));
-        $firstname = mysqli_real_escape_string($conn,trim($_POST['editfirstnamesearch']));
-        $heirarchyid = mysqli_real_escape_string($conn,trim($_POST['editpositionlist']));
-        $partylist = mysqli_real_escape_string($conn,trim($_POST['editpartylist']));
-        $platform = mysqli_real_escape_string($conn,trim($_POST['editplatform']));
-        $credentials= mysqli_real_escape_string($conn,trim($_POST['editcredentials']));
-        
-        $sql = "SELECT * FROM ((candidate INNER JOIN student ON candidate.student_id = student.student_id) INNER JOIN candidate_position ON candidate.position_id = candidate_position.position_id) WHERE fname = '$firstname' AND lname = '$lastname'";
+    }
+
+    if(isset($_POST['dropdownadd'])){
+        $sql = "SELECT position_name FROM `candidate_position` ORDER BY heirarchy_id";
         $result = mysqli_query($conn,$sql);
+        if(mysqli_num_rows($result)> 0){
+            $i=1;
+            echo "<option value = '0'>- Select Position-</option>";
+            while($row = mysqli_fetch_assoc($result)){
+                echo "<option value = '".$i."'>".$row['position_name']."</option>";
+                $i++;
+            }
+        }
+    }
+
+    if(isset($_POST['dropdownedit'])){
+        $sql = "SELECT position_name FROM `candidate_position` ORDER BY heirarchy_id";
+        $result = mysqli_query($conn,$sql);
+        if(mysqli_num_rows($result)> 0){
+            $i=1;
+            echo "<option value = '0'>- Select Position-</option>";
+            while($row = mysqli_fetch_assoc($result)){
+                if($_POST['dropdownedit']==$i){ 
+                    echo "<option value = '".$i."' selected>".$row['position_name']."</option>"; 
+                }else{
+                    echo "<option value = '".$i."'>".$row['position_name']."</option>";
+                }
+                $i++;
+            }
+        }
+    }
+
+    if(isset($_POST['editsavebtn'])){//preserve /n https://stackoverflow.com/questions/55332358/how-to-use-mysqli-real-escape-string-in-php-to-escape-all-characters-except-ne/5533278
+        $candidateid = $_POST['candidateid'] ;
+        $lastname = mysqli_real_escape_string($conn,trim($_POST['editlastname']));
+        $firstname = mysqli_real_escape_string($conn,trim($_POST['editfirstname']));
+        $heirarchyid = mysqli_real_escape_string($conn,trim($_POST['editheirarchy_id']));
+        $partylist = mysqli_real_escape_string($conn,trim($_POST['editpartylist']));
+        $platform = mysqli_real_escape_string($conn,nl2br(trim($_POST['editplatform'])));
+        $credentials= mysqli_real_escape_string($conn,nl2br(trim($_POST['editcredentials'])));
+
+        
+        $sql = "SELECT * FROM ((`candidate` INNER JOIN student ON `candidate`.`student_id` = `student`.`student_id`) INNER JOIN `candidate_position` ON `candidate`.`position_id` = `candidate_position`.`position_id`) WHERE `candidate_id`= '$candidateid'";
+        $result = mysqli_query($conn,$sql); 
         if(mysqli_num_rows($result) == 1){
             $row = mysqli_fetch_assoc($result);
-            $candidateid= $row['candidate_id'];
-            $studentid= $row['student_id'];
-            $sqlpositionid = "SELECT position_id FROM `candidate_position`WHERE heirarchy_id ='$heirarchyid'";
-            $resultpositionid = mysqli_query($conn,$sqlpositionid);
-            $rowpositionid = mysqli_fetch_assoc($resultpositionid);
-            $positionid = $rowpositionid['position_id'];
-            echo $positionid;
-            $updatesql = "UPDATE `candidate` SET `position_id` = '$positionid',`party_name` = '$partylist', `platform_info` = '$platform',`credentials`='$credentials' WHERE `candidate`.`candidate_id`='$candidateid'"; 
-            $updateresult = mysqli_query($conn,$updatesql);
-            if($updateresult){
-                echo '<script>alert(" updated")</script>';
-            }
-            header("location:../Admin_candidate.php");  
+            $studentid = $row['student_id'];
+            $sqlcand = "SELECT `student_id` FROM `student` WHERE `lname`= '$lastname' AND `fname`='$firstname'";
+            $resultcand = mysqli_query($conn,$sqlcand);
+            $rowcand = mysqli_fetch_assoc($resultcand);
+
+            if ($studentid == $rowcand['student_id']){// if name is not edited
+                $sqlpositionid = "SELECT `position_id` FROM `candidate_position` WHERE `heirarchy_id` ='$heirarchyid'";
+                $resultpositionid = mysqli_query($conn,$sqlpositionid);
+                $rowpositionid = mysqli_fetch_assoc($resultpositionid);
+                $positionid = $rowpositionid['position_id'];
+                $updatesql = "UPDATE `candidate` SET `position_id` = '$positionid', `party_name` = '$partylist', `platform_info` = '$platform',`credentials`='$credentials' WHERE `candidate_id`='$candidateid'"; 
+                $updateresult = mysqli_query($conn,$updatesql);
+                if($updateresult){
+                    //admin logs
+                }else{
+                    echo mysqli_error($conn);
+                    echo  "Candidate not updated(query error)";
+                }
+            }else{
+                $sqlstudent = "SELECT * FROM ((`candidate` INNER JOIN student ON `candidate`.`student_id` = `student`.`student_id`) INNER JOIN `candidate_position` ON `candidate`.`position_id` = `candidate_position`.`position_id`) WHERE `lname`= '$lastname' AND `fname` = '$firstname'";
+                $resultstudent = mysqli_query($conn,$sqlstudent);
+                if(mysqli_num_rows($resultstudent)==1){// if name is already inside the candidate table
+                    echo "That student is already a candidate";
+                }
+                else{
+                    $getstudentid = "SELECT `student_id` FROM `student` WHERE `lname`= '$lastname' AND `fname` = '$firstname' ";
+                    $resultget= mysqli_query($conn,$getstudentid);
+                    $rowget = mysqli_fetch_assoc($resultget);
+                    $studentid = $rowget['student_id'];
+
+                    $sqlpositionid = "SELECT `position_id` FROM `candidate_position` WHERE `heirarchy_id` ='$heirarchyid'";
+                    $resultpositionid = mysqli_query($conn,$sqlpositionid);
+                    $rowpositionid = mysqli_fetch_assoc($resultpositionid);
+                    $positionid = $rowpositionid['position_id'];
+                    $updatesql = "UPDATE `candidate` SET `student_id`='$studentid', `position_id` = '$positionid', `party_name` = '$partylist', `platform_info` = '$platform', `credentials`='$credentials' WHERE `candidate_id`='$candidateid'"; 
+                    $updateresult = mysqli_query($conn,$updatesql);
+                    if($updateresult){
+                        //logs
+                    }else{
+                        echo mysqli_error($conn);
+                        echo  "Candidate not updated(query error)";
+                    }
+                } 
+            }   
+        }else{
+             echo "Cannot find that student(Please check your spelling)";
         }
 
     }
-
 
 ?>

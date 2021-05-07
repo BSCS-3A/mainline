@@ -12,7 +12,7 @@ include("db_conn.php");
     <meta name="HandheldFriendly" content="true">
     <!-- <link rel="icon" href="assets/img/buceils-logo.png"> -->
     <link rel="icon" href="../img/BUHS LOGO.png" type="image/png">
-    <link rel="stylesheet" type="text/css" href="../css/admin_css/style_studAcc.css">
+    <link rel="stylesheet" type="text/css" href="../css/admin_css/style_msgBox.css">
     <link rel="stylesheet" href="../css/admin_css/font-awesome.min.css">
     <link rel="stylesheet" href="../css/admin_css/bootstrap4.3.1.min_msgbox.css">
     <script src="../js/jquery-3.3.1.slim.min_msgbox.js"></script>
@@ -96,6 +96,13 @@ include("db_conn.php");
       </div>
       <!-- Chat Box-->
       <div class="col-7 px-0">
+        <div  style=' background: white;'>
+        <?php 
+        if(isset($_GET['id'])){
+        echo "<h4 style='color: black'>".$_GET['id']."<h4/>";
+        }
+        ?>
+        </div>
         <div id = "chatbox" class="px-4 py-5 chat-box bg-white " >
         
         </div>

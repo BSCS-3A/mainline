@@ -2,7 +2,7 @@
     // include 'connect.php';
     include "../db_conn.php";
     session_start();
-    
+   
     if(isset($_POST['btnclicked'])){
         $query = "SELECT * FROM `candidate`";
         $querysult = mysqli_query($conn,$query);
@@ -21,22 +21,23 @@
                 (11, 11, 'Grade 12 Representative', 'Represents the voice of the Grade 12 students.', 0);";
 
             $result = mysqli_query($conn,"DELETE FROM candidate_position");           
-            $result=mysqli_query($conn,$sql);
+            $result = mysqli_query($conn,$sql);
             
             if($result){
                 $admin_id = $_SESSION['admin_id'];
                 date_default_timezone_set('Asia/Manila');
         		$time = date('H:i:s');
                 mysqli_query($conn, "INSERT INTO admin_activity_log(activity_log_id,admin_id,activity_description,activity_date,activity_time) VALUES(NULL,$admin_id,'loaded default positions',CURRENT_TIMESTAMP,'$time')");
-                echo "default positions added";
+                echo "Default positions added";
             }else{
-                echo "query error";
+                
+                echo "Query error";
             }
         }
         else{
-            echo "cannot load default positions";
+            echo "Cannot load default positions (Delete candidates first)";
         }
     }
-    
+
     
 ?>

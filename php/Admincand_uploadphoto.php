@@ -3,9 +3,26 @@
     session_start();
 
     
-    if(isset($_POST['uploadphoto'])){
-        $candidateid = $_GET['id']; 
-        $file = $_FILES['datafile']; 
+    if(isset($_POST['image'])){
+        $candidateid = $_POST['candidateid'];
+        $data = $_POST['image'];
+        $image_array_1 = explode(";", $data);
+        $image_array_2 = explode(",", $image_array_1[1]);
+        $data = base64_decode($image_array_2[1]);
+        $image_name = "../user/img/".uniqid('',true).'.jpg';
+
+        
+
+        // pasok na sa database 
+        $sql = "UPDATE `candidate` SET `photo` = '$image_name' WHERE `candidate_id` = $candidateid";
+        $result = mysqli_query($conn,$sql);
+        if($result){
+            file_put_contents($image_name, $data);
+            echo "upload successful";
+        }
+
+
+/*      $file = $_FILES['image']; 
         
         $fileName = $file['name'];
         $fileTmpName = $file['tmp_name'];
@@ -15,6 +32,7 @@
         $fileExt = explode('.',$fileName);
         $fileActualExt = strtolower(end($fileExt));
         $allowedExt = array("jpg","png");
+        echo $file;
     
         if(in_array($fileActualExt,$allowedExt)){
             if($fileError === 0){
@@ -29,7 +47,6 @@
                         if(move_uploaded_file($fileTmpName,$fileDestination)){//if upload file successfull
                             echo "success";
                             $_SESSION['message']="upload photo succesfull";
-                            header("Location:Admin_candidate.php?success=true");
                         }else{
                             $sqlremove = "UPDATE candidate SET photo = '' WHERE candidate.candidate_id = $candidateid";
                             mysqli_query($conn,$sqlremove); 
@@ -68,6 +85,6 @@
         header("Location:Admin_candidate.php");
     }
 
-
-
+*/
+}
 ?>

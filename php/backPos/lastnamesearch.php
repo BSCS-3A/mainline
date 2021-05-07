@@ -1,5 +1,6 @@
 <?php
     include_once '../db_conn.php';
+
     if(isset($_POST['query'])){
         $lastname = $_POST['query'];
         $sql = "SELECT * FROM `student` WHERE `lname` LIKE '%".$lastname."%' ORDER BY lname";
@@ -14,6 +15,6 @@
         }else{
             echo "<a id='noresults' class = 'list-group-item list-group-action-border-1' style='z-index:200;'>no results found..</a>";
         }
-        
     }    
+
 ?>
