@@ -28,8 +28,11 @@
 <head>  
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link rel="stylesheet" type="text/css" href="../css/style_Login.css">
+<link rel="stylesheet" type="text/css" href="../css/session_modal.css">
 <script type="text/javascript" src="../js/loginLink.js"></script>
 <link rel="icon" href="../img/BUHS LOGO.png" type="image/png">  
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 <title> BUCEILS HS Online Voting System</title>
 <script src="https://www.google.com/recaptcha/api.js"></script>   
 </head>    
@@ -83,5 +86,68 @@
         </div>   
     </form> 
     <!-- end Login Form -->
+
+    <!-- Modal -->
+  <!-- <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+    
+      <-- Modal content-->
+      <!-- <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Modal Header</h4>
+        </div>
+        <div class="modal-body">
+          <p>Some text in the modal.</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+      
+    </div>
+  </div> --> 
+    
+        <!-- Error Message Modal content -->
+        <div id="No-election-scheduled" class="F-modal-error">
+        <div class="F-modal-content-error">
+          <div class="F-modal-header-error">
+          </div>
+          <div class="F-modal-body-error">
+            <p id = "F-modal-message-text">.</p>
+          </div>
+          <div class="F-modal-footer-error">
+            <button type="button" id="ok-button" class="F-OkBTN-error">OK</button>
+          </div>
+        </div>
+    </div>
+
+    <!-- for modal script and disabling inspect element -->
+    <!-- <script src="../js/scripts_nav.js"></script> -->
+<!-- end err modal -->
+
+    <!-- FOR MODAL FIRING -->
+<?php
+ if(isset($_GET['session'])){
+    ?>
+   <script type=text/javascript>
+    // Get the modal
+    var modal = document.getElementById("No-election-scheduled");
+
+    //Get the button that closes the modal
+    var close = document.getElementById("ok-button");
+
+    document.getElementById('F-modal-message-text').innerHTML = "<h3>SESSION TIMEOUT </h3><br>You have been logged out due to inactivity.";
+    modal.style.display = "block";
+    document.querySelector("body").style.overflow = 'hidden';
+    //OK button
+    close.onclick = function() {
+        modal.style.display = "none";
+        document.querySelector("body").style.overflow = 'visible';
+    }
+   </script>
+<?php  }?>
+    <!-- END MODAL FIRING   -->
+</div>
 </body>     
 </html>  

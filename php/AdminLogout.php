@@ -10,5 +10,10 @@ date_default_timezone_set('Asia/Manila');
 //setcookie("username", "", time() -3600,"/", "buceilsvoting.online", 1);
 session_unset();
 session_destroy();
-header("Location: AdminLogin.php");
+
+if(isset($_GET['error'])){
+	header("Location: AdminLogin.php?session=timeout");
+}else{
+	header("Location: AdminLogin.php");
+}
 ?>

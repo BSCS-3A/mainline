@@ -12,6 +12,13 @@ include('db_conn.php');
 // }else{
 //     $_SESSION['timestamp']=time();
 // }
+$idletime=60*60;//after 1 hr the user gets logged out
+if (time()-$_SESSION['timestamp']>$idletime){
+    //$_GET['inactivityError'] = "Session ended: You are logged out due to inactivity.";
+    header("Location: StudentLogout.php?error=timeout");
+}else{
+    $_SESSION['timestamp']=time();
+}
  ?>
 <!DOCTYPE html>
 <html>
@@ -94,6 +101,28 @@ include('db_conn.php');
         <!--end of list-->
     </nav>
 
+        <!-- MODAL -->
+        <div class="modal fade" id="logout" tabindex="1" role="dialog" aria-labelledby="logout" aria-hidden="true">
+          <div class="modal-dialog">
+    <div class="modal-content">
+          <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+              <h2 class="modal-title custom_align" id="Heading"><b>SESSION TIMEOUT</b></h2>
+    </div>
+          <div class="modal-body">             
+          <div><h3>You have been logged out due to inactivity.</h3></div>
+    </div>
+        <div class="modal-footer ">
+        <button type="submit" name="continue-btn" class="btn btn-warning" id="continue" ><span "></span><h4> Continue</h4></button>
+      </div>    
+        </div>
+    <!-- /.modal-content --> 
+  </div>
+      <!-- /.modal-dialog --> 
+    </div>
+    <!-- ENDMODAL -->
+
+
     <!-- Error Message Modal content -->
     <div id="No-election-scheduled" class="F-modal-error">
         <div class="F-modal-content-error">
@@ -108,7 +137,8 @@ include('db_conn.php');
         </div>
     </div>
     <!-- for modal script and disabling inspect element -->
-    <!-- <script src="../js/scripts_nav.js"></script> -->
+    <script src="../js/scripts_nav.js"></script>
+
 
     <!--Footer-->
     <!-- <footer>

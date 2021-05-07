@@ -9,5 +9,9 @@ mysqli_query($conn, "INSERT INTO student_access_log(student_id,activity_descript
 session_unset();
 session_destroy();
 
-header("Location: ..\index.php");
+if(isset($_GET['error'])){
+    header("Location: ..\index.php?session=timeout");
+}else{
+    header("Location: ..\index.php");
+}
 ?>

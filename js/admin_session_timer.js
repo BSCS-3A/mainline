@@ -1,4 +1,4 @@
-//SESSION TIMEOUT JACASCRIPT
+//SESSION TIMEOUT JAVASCRIPT
 var timeoutID;
  
 function setup() {
@@ -25,8 +25,7 @@ function resetTimer(e) { //restarts timer
 }
 
 function goInactive() { //when user is inactive
-    alert("SESSION TIMEOUT: You have been logged out due to inactivity.");
-    window.location.href="AdminLogout.php";
+    window.location.href="AdminLogout.php?error=timeout";
 }
 
 function goActive() { //when user is active

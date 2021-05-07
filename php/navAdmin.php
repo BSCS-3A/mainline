@@ -20,6 +20,13 @@ SOLVED ^^ font-awesome_addAdmin may kasalanan lol, + dataTables.bootstrap
 <?php
     date_default_timezone_set('Asia/Manila');
     include('db_conn.php');
+    $idletime=60*60;//after 1 hr the user gets logged out
+if (time()-$_SESSION['timestamp']>$idletime){
+    //$_GET['inactivityError'] = "Session ended: You are logged out due to inactivity.";
+    header("Location: AdminLogout.php?error=timeout");
+}else{
+    $_SESSION['timestamp']=time();
+}
 ?>
 
 <!DOCTYPE html>
@@ -42,6 +49,7 @@ SOLVED ^^ font-awesome_addAdmin may kasalanan lol, + dataTables.bootstrap
     <!-- <link rel="stylesheet" href="../css/admin_css/bootstrap_addAdmin.css"> -->
     <link rel="stylesheet" href="../css/admin_css/bootstrap_navAdmin.css">
     <link rel="stylesheet" type="text/css" href="../css/student_css/modal_error_messages.css">
+    <script type="text/javascript" src="../js/admin_session_timer.js"></script>
     <!-- <link rel="stylesheet" href="../css/admin_css/dataTables.bootstrap_addAdmin.css"> -->
     <!-- <link rel="stylesheet" href="../css/admin_css/font-awesome_addAdmin.css">  -->
   

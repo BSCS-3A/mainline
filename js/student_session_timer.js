@@ -1,4 +1,4 @@
-//SESSION TIMEOUT JACASCRIPT
+//SESSION TIMEOUT JAVASCRIPT
 var timeoutID;
  
 function setup() {
@@ -16,7 +16,7 @@ setup();
 
 function startTimer() { //starts timer
     // wait 15 minutes before calling goInactive
-    timeoutID = window.setTimeout(goInactive, 15*(60*1000));
+    timeoutID = window.setTimeout(goInactive, 15(60*1000));
 }
 
 function resetTimer(e) { //restarts timer
@@ -25,8 +25,14 @@ function resetTimer(e) { //restarts timer
 }
 
 function goInactive() { //when user is inactive
-    alert("SESSION TIMEOUT: You have been logged out due to inactivity.");
-    window.location.href="StudentLogout.php";
+    // $("#logout").modal("show");
+    // $("#continue").click(function(){
+    //     window.location.href="StudentLogout.php";
+    // });
+    // $("#logout").on("hidden.bs.modal",function(){
+    //     window.location.href="StudentLogout.php";
+    // });
+    window.location.href="StudentLogout.php?error=timeout";
 }
 
 function goActive() { //when user is active

@@ -16,6 +16,7 @@ include('db_conn.php');
     <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
     <script type="text/javascript" src="../js/student_session_timer.js"></script>
+    <script src="../js/bootstrap.min_Pos.js"></script>
     <!-- <script src="../js/countdown.js"></script> -->
     <title>Home | BUCEILS HS Online Voting System</title>
 </head>
