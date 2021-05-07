@@ -340,10 +340,14 @@
       display: block;
       font-size: auto;
     }
+
+
   }
 
 
 }
+
+
   /*countdown*/
   aside{
     color: #333;
@@ -714,7 +718,15 @@
         -webkit-flex-direction: column;
         flex-direction: column;
       }
+        .left{
+      width:100% !important;
     }
+     .center{
+      width:100% !important;
+     }
+    }
+
+
     .footer {
       position: fixed;
       left: 0;
