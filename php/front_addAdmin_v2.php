@@ -45,7 +45,7 @@
 </head>
 
         <!-- navigation, footer, log sessions -->
-        <?php //include "navAdmin.php" ?>
+        <?php include "navAdmin.php" ?>
 
 <body>
     
