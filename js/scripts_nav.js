@@ -43,28 +43,32 @@ $(document).keydown(function(e){ // for keystrokes
       e.keyCode == 121 || 
       e.keyCode == 122 || 
       e.keyCode == 123 ||
-      (e.ctrlKey && e.keyCode == 'I'.charCodeAt(0)) || 
-      (e.ctrlKey && e.keyCode == 'C'.charCodeAt(0)) || 
-      (e.ctrlKey && e.keyCode == 'J'.charCodeAt(0)) || 
-      (e.ctrlKey && e.keyCode == 'U'.charCodeAt(0)) || 
-      (e.ctrlKey && e.keyCode == 'P'.charCodeAt(0)) || 
-      ((e.ctrlKey && e.shiftKey) && e.keyCode == 'A'.charCodeAt(0)) || 
-      ((e.ctrlKey && e.shiftKey) && e.keyCode == 'S'.charCodeAt(0)) || 
-      ((e.ctrlKey && e.shiftKey) && e.keyCode == 'D'.charCodeAt(0)) || 
-      ((e.ctrlKey && e.shiftKey) && e.keyCode == 'Q'.charCodeAt(0)) || 
-      ((e.ctrlKey && e.shiftKey) && e.keyCode == 'I'.charCodeAt(0)) || 
-      ((e.ctrlKey && e.shiftKey) && e.keyCode == 'C'.charCodeAt(0)) || 
-      ((e.ctrlKey && e.shiftKey) && e.keyCode == 'J'.charCodeAt(0)) || 
-      ((e.ctrlKey && e.shiftKey) && e.keyCode == 'P'.charCodeAt(0)) || 
-      ((e.ctrlKey && e.shiftKey) && e.keyCode == 'U'.charCodeAt(0))) 
+      (e.ctrlKey && e.shiftKey) ||
+      (e.ctrlKey && (
+         e.keyCode == 'I'.charCodeAt(0) || 
+         e.keyCode == 'C'.charCodeAt(0) || 
+         e.keyCode == 'J'.charCodeAt(0) || 
+         e.keyCode == 'U'.charCodeAt(0) || 
+         e.keyCode == 'P'.charCodeAt(0))) || 
+      ((e.ctrlKey && e.shiftKey) && (
+         e.keyCode == 'A'.charCodeAt(0) || 
+         e.keyCode == 'S'.charCodeAt(0) || 
+         e.keyCode == 'D'.charCodeAt(0) || 
+         e.keyCode == 'K'.charCodeAt(0) || 
+         e.keyCode == 'Q'.charCodeAt(0) || 
+         e.keyCode == 'I'.charCodeAt(0) || 
+         e.keyCode == 'C'.charCodeAt(0) || 
+         e.keyCode == 'J'.charCodeAt(0) || 
+         e.keyCode == 'P'.charCodeAt(0) || 
+         e.keyCode == 'U'.charCodeAt(0))))
       {
       // alert("You can't do that here.");
-      window.location.href = url;
+      // window.location.href = url;
       e.preventDefault();
-      // document.getElementById('F-modal-message-text').innerHTML = "<h3>Suspicious activity detected! </h3><br> <br>Please refrain from reverse engineering and tampering with this site to avoid the consequences of R.A. 10175.";
-      // modal.style.display = "block";
-      // document.querySelector("body").style.overflow = 'hidden';
-      // return false; 
+      document.getElementById('F-modal-message-text').innerHTML = "<h3>Suspicious activity detected! </h3><br> <br>Please refrain from reverse engineering and tampering with this site to avoid the consequences of R.A. 10175.";
+      modal.style.display = "block";
+      document.querySelector("body").style.overflow = 'hidden';
+      return false; 
    }
   
 
