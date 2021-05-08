@@ -22,7 +22,8 @@
 	                        // $db = mysqli_connect('localhost', 'root', '', 'bucielsmain2');
 	                        //get the all votes of each student (discard abstain)
 	                        $sqlget = "SELECT vote.student_id, vote.status, vote.candidate_id, student.fname FROM vote INNER JOIN student ON vote.student_id = student.student_id WHERE vote.status = 'Voted'";  
-	                        $query = mysqli_query($db,$sqlget);	
+	                        $query = mysqli_query($db,$sqlget);
+				if (mysqli_num_rows($query) != null){
 	                        $name = "";
 	                        $pos = array_fill(0,11,0);
 	                        $flname = array_fill(0,11," ");
@@ -109,6 +110,7 @@
                             header("Content-Disposition: attachment; filename=Summary of Votes.xls");
                            
                         }
+	}
 						?>
 					
                         </tr>
