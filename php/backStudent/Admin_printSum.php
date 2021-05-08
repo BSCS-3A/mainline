@@ -17,7 +17,7 @@
 			   <th>Grade 11 Representative</th>
 			   <th>Grade 12 Representative</th>
 		   </tr>';
-		   		include "db_conn.php";
+		   		include "../db_conn.php";
 		   		$db = $conn;
 	                        // $db = mysqli_connect('localhost', 'root', '', 'bucielsmain2');
 	                        //get the all votes of each student (discard abstain)

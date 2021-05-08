@@ -14,7 +14,7 @@ if(isset($_POST["go"])){
     // $dbName = "bucielsmain2";  //local Den 4/9/21
     // $connect = mysqli_connect($dbServername, $dbUsername, $dbPassword, $dbName);
 
-    include "db_conn.php";
+    include "../db_conn.php";
 
     $sql = "UPDATE `student` SET `otp` = '' ";
     $connect->query($sql);
@@ -41,6 +41,6 @@ if(isset($_POST["go"])){
             }
         }while($flag == 0);
     }
-    header("location: Admin_StudentAccountManagement.php");
+    header("location: Admin_studAcc.php");
 }
 ?>

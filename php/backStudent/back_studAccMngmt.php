@@ -25,7 +25,7 @@ Proj Mngr Notes:
 // $connect = mysqli_connect($dbServername, $dbUsername, $dbPassword, $dbName) or die ('Unable to connect');
 // $message = "";
 
-include "db_conn.php";
+include "../db_conn.php";
 
 
 $query = "SELECT * FROM student";
@@ -92,7 +92,7 @@ if(isset($_POST["upload"])){
                 mysqli_query($connect, $query);
             }
             fclose($handle);
-            header("location: Admin_StudentAccountManagement.php");
+            header("location: Admin_studAcc.php");
         }
         else{
             $message = '<label class="text-danger">Please Select CSV File only</label>';

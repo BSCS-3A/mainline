@@ -7,7 +7,7 @@
 
     session_start();
     
-    include "db_conn.php";
+    include "../db_conn.php";
 
     // $connection = mysqli_connect("localhost", "root", "");
     // $db = mysqli_select_db($connection, 'bucielsmain2');
@@ -29,12 +29,12 @@
                 if ($query_run) {
                     $_SESSION['message'] = 'Record has been updated!';
                     $_SESSION['msg_type'] = 'success';
-                    header("location: Admin_StudentAccountManagement.php");
+                    header("location: Admin_studAcc.php");
                 }
                 else{
                     $_SESSION['message'] = 'Record has not been updated!';
                     $_SESSION['msg_type'] = 'warning';
-                    header("location: Admin_StudentAccountManagement.php");
+                    header("location: Admin_studAcc.php");
                 }
         }
 

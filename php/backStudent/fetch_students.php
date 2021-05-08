@@ -1,5 +1,6 @@
 <?php
-	require 'db_connection.php';
+	// require 'db_connection.php';
+	require '../db_conn.php';
 	$samp = $_GET['level'];
 	$query = "SELECT lname, fname, Mname, voting_status FROM student WHERE grade_level = '".$samp."'";
 

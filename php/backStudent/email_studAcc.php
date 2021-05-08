@@ -1,10 +1,3 @@
-<!--
-Proj Mngr Note:
-- directory change for PHP Mailer
-- changed header
-- fixed email function, added username and password
--->
-
 <?php
 
 
@@ -13,8 +6,7 @@ use PHPMailer\PHPMailer\Exception;
 
 
 //palitan na lang ang location kung nasan ang composer na folder
-// require_once('C:\Users\Christian Diesta\Desktop\composer\vendor\autoload.php');
-require '../other/composer/vendor/autoload.php';
+require '../../other/composer/vendor/autoload.php';
 
 if(isset($_POST["sendEmail"])){
    
@@ -99,6 +91,6 @@ if(isset($_POST["sendEmail"])){
             
         }
         // $mail->send();
-        header("location: Admin_StudentAccountManagement.php");
+        header("location: Admin_studAcc.php");
 }
 ?>
