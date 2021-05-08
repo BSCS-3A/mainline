@@ -1,10 +1,10 @@
 <?php
-include "db_conn.php";
+include "../db_conn.php";
 
 $sigfname = $_POST['sigfname'];
 $siglname = $_POST['siglname'];
 $sigpos = $_POST['sigpos'];
-$file = file_get_contents('../other/sig_array.json');
+$file = file_get_contents('../../other/sig_array.json');
 $decode = json_decode($file, true);
 $arrtab = explode(",",$decode);
 $arrtab = array_filter($arrtab);
@@ -43,7 +43,7 @@ $position_query_run = mysqli_query($connection, $position_query);
                 file_put_contents('../other/sig_array.json',($encodedString));
                 echo"<script language='javascript'>
                 alert('Signatory Added');
-                window.location.href = 'front_signatory.php';
+                window.location.href = '../Admin_signConfig.php';
                 </script>
                 ";
               }
@@ -54,7 +54,7 @@ $position_query_run = mysqli_query($connection, $position_query);
       else{
         echo"<script language='javascript'>
         alert('Position does not exist');
-        window.location.href = 'front_signatory.php';
+        window.location.href = '../Admin_signConfig.php';
         </script>
         ";
       }
@@ -62,7 +62,7 @@ $position_query_run = mysqli_query($connection, $position_query);
     else{
       echo"<script language='javascript'>
       alert('Last Name does not exist');
-      window.location.href = 'front_signatory.php';
+      window.location.href = '../Admin_signConfig.php';
       </script>
       ";
     }
@@ -70,7 +70,7 @@ $position_query_run = mysqli_query($connection, $position_query);
   else{
     echo"<script language='javascript'>
     alert('First Name does not exist');
-    window.location.href = 'front_signatory.php';
+    window.location.href = '../Admin_signConfig.php';
     </script>
     ";
   }

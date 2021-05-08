@@ -5,11 +5,12 @@
 
 <?php
 
-include('Admin_electionConfig.php');
+include('../Admin_schedConfig.php');
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
-require '../other/composer/vendor/autoload.php';
-$db = mysqli_connect('localhost', 'root', '', 'bucielsmain2');
+require '../../other/composer/vendor/autoload.php';
+// $db = mysqli_connect('localhost', 'root', '', 'bucielsmain2');
+include '../db_conn.php';
 $results = mysqli_query($db, "SELECT * FROM student");
 
 $mail = new PHPMailer(TRUE);

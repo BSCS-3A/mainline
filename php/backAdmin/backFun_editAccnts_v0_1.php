@@ -2,7 +2,7 @@
 //Change file name to edit.php before using
 session_start();
 
-include 'db_conn.php';
+include '../db_conn.php';
 
 if (isset($_POST['updateData'])) {
 
@@ -26,7 +26,7 @@ if (isset($_POST['updateData'])) {
 		$_SESSION['action'] = 'updated Admin Account : ' . $_POST['username'];
 		include 'backFun_actLogs_v0_1.php';
         
-        header("Refresh: 0; front_addAdmin_v2.php");
+        header("Refresh: 0; ../Admin_adAccnt.php");
         echo "<script>
           alert('Data Updated');
           </script>";

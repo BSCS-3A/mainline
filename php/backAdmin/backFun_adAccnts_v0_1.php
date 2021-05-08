@@ -10,7 +10,7 @@ session_start();
 $errors = array();
 
 // Create connection
-include 'db_conn.php';
+include '../db_conn.php';
 
 if (isset($_POST['saveAccount']) && isset($_FILES['my_image'])) {
 
@@ -30,12 +30,12 @@ if (isset($_POST['saveAccount']) && isset($_FILES['my_image'])) {
 
   $duplicate = mysqli_query($conn, "select * from admin where username='$username'"); //add or for multiple attribute checking
   if (mysqli_num_rows($duplicate) > 0) {
-    header("Location: front_addAdmin_v2.php?message=User name or Email id already exists.");
+    header("Location: ../Admin_adAccnt.php?message=User name or Email id already exists.");
   } else {
     if (count($errors) == 0) {
       if ($img_size > 125000) {
         $em = "Sorry, your file is too large.";
-        header("Location: front_addAdmin_v2.php?error=$em");
+        header("Location: ../Admin_adAccnt.php?error=$em");
       } else {
         $img_ex = pathinfo($img_name, PATHINFO_EXTENSION);
         $img_ex_lc = strtolower($img_ex);
@@ -56,15 +56,15 @@ if (isset($_POST['saveAccount']) && isset($_FILES['my_image'])) {
           $_SESSION['action'] = 'created Admin Account : ' . $_POST['username'];
           include 'backFun_actLogs_v0_1.php';
 
-          header("Location: front_addAdmin_v2.php");
+          header("Location: ../Admin_adAccnt.php");
         } else {
           $em = "You can't upload files of this type";
-          header("Location: front_addAdmin_v2.php?error=$em");
+          header("Location: ../Admin_adAccnt.php?error=$em");
         }
       }
     } else {
       $em - "unknown error occured!";
-      header("Location: front_addAdmin_v2.php?error=$em");
+      header("Location: ../Admin_adAccnt.php?error=$em");
     }
   }
 }

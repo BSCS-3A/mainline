@@ -4,9 +4,9 @@ session_start();
 
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
-require '../other/composer/vendor/autoload.php';
+require '../../other/composer/vendor/autoload.php';
 // $db = mysqli_connect('localhost', 'root', '', 'admin_man');
-include "db_conn.php";
+include "../db_conn.php";
 $reminders = mysqli_query($conn, "SELECT * FROM student WHERE voting_status = 'not yet voted'"); // pa edit na lang depende kung ano database na gamit
 
 $mail = new PHPMailer(TRUE);

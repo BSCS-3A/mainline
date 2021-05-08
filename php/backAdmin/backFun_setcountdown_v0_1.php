@@ -6,10 +6,10 @@
 
 <?php
 
-include('Admin_electionConfig.php');
+include('../Admin_schedConfig.php');
 
 // $conn = mysqli_connect('localhost', 'root', '', 'bucielsmain2');
-include "db_conn.php";
+include "../db_conn.php";
 
 function function_alert($msg) { 
       

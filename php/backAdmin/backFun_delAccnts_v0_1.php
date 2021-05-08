@@ -2,7 +2,7 @@
 //Change file name to delete.php before using
 	session_start();
 
-    include 'db_conn.php';
+    include '../db_conn.php';
 
 
         if (isset($_POST['yes_delete'])) {
@@ -18,12 +18,12 @@
 		include 'backFun_actLogs_v0_1.php';
 			
                     echo '<script type="text/javascript"> alert("Data Deleted"); </script>';
-                    header("Location: front_addAdmin_v2.php");
+                    header("Location: ../Admin_adAccnt.php");
                 }
                 else{
                     $_SESSION['message'] = 'Record has not been deleted!';
                     $_SESSION['msg_type'] = 'danger';
-                    header("Location: front_addAdmin_v2.php");
+                    header("Location: ../Admin_adAccnt.php");
                 }        
         }
 

@@ -1,10 +1,10 @@
 <?php
-include "db_conn.php";
+include "../db_conn.php";
 
 $sigfname = (isset($_POST['signatory_fname']) ? $_POST['signatory_fname'] : '');
 $siglname = (isset($_POST['signatory_lname']) ? $_POST['signatory_lname'] : '');
 $sigpos = (isset($_POST['signatory_position']) ? $_POST['signatory_position'] : '');
-$file = file_get_contents('../other/sig_array.json');
+$file = file_get_contents('../../other/sig_array.json');
 $decode = json_decode($file, true);
 
 $fname_query = "SELECT * FROM admin WHERE admin_fname = '$sigfname'";
@@ -30,10 +30,10 @@ if(mysqli_num_rows($fname_query_run) >0){
         unset($id[$key]);
         $string = implode (", ", $id);
         $encodedString = json_encode($string);
-        file_put_contents('../other/sig_array.json',($encodedString));
+        file_put_contents('../../other/sig_array.json',($encodedString));
         echo"<script language='javascript'>
         alert('Signatory Deleted');
-        window.location.href = 'front_signatory.php';
+        window.location.href = '../Admin_signConfig.php';
         </script>
         ";
         }
