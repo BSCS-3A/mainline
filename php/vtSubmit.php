@@ -14,7 +14,7 @@
 				$choice = 0;
 			}
 			else{
-				$_POST[$poss['heirarchy_id']] = filter_var($_POST[$poss['heirarchy_id']], FILTER_SANITIZE_STRING);;
+				$_POST[$poss['heirarchy_id']] = filter_var(stripslashes($_POST[$poss['heirarchy_id']]), FILTER_SANITIZE_STRING);;
 				$choice = cleanInput($_POST[$poss['heirarchy_id']]);
 			}
 
