@@ -1,12 +1,12 @@
 <?php
 session_start();
-require '../../php/db_conn.php';
+require 'db_conn.php';
  if (isset($_SESSION['student_id']) && isset($_SESSION['bumail'])) {
      $idletime=900;//after 15 minutes the user gets logged out
 
  if (time()-$_SESSION['timestamp']>$idletime){
      //$_GET['inactivityError'] = "Session ended: You are logged out due to inactivity.";
-     header("Location: ../../php/StudentLogout.php");
+     header("Location: StudentLogout.php");
  }else{
      $_SESSION['timestamp']=time();
  }
@@ -14,7 +14,7 @@ require '../../php/db_conn.php';
 
 
 // Include the main TCPDF library (search for installation path).
-require_once('TCPDF-main/tcpdf.php');
+require_once('../other/TCPDF-main/tcpdf.php');
 
 class PDF extends TCPDF {
 	public function Header(){
