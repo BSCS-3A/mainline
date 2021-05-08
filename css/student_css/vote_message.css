@@ -1,31 +1,32 @@
 /* CSS FOR ERROR MESSAGES */
-.error-message-container{
+
+.error-message-container {
   border: 1px solid black;
   width: 35%;
-  margin: auto;    
+  margin: auto;
   background-color: #f8f8f8;
   margin-top: 13%;
 }
 
-
-.error-message{
+.error-message {
   font: Roboto Light, sans-serif;
   margin-top: 10%;
   text-align: center;
 }
 
-.error-button{
+.error-button {
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100px;
 }
 
-.OkBTN-error {                         /* OK Button */
-  font:bold 14px Roboto Light, sans-serif;
+.OkBTN-error {
+  /* OK Button */
+  font: bold 14px Roboto Light, sans-serif;
   background-color: #fece4b;
   color: black;
-  margin: auto;    
+  margin: auto;
   height: 35%;
   width: 30%;
   border-radius: 30px;
@@ -33,15 +34,16 @@
   cursor: pointer;
 }
 
-@media (max-width: 1200px){
-  .error-message-container{
+@media (max-width: 1200px) {
+  .error-message-container {
     min-width: 65%;
     margin-top: 35%;
   }
 }
 
 /* CSS FOR VOTE RECEIPT */
-#F-header{
+
+#F-header {
   font-family: Generica regular, sans-serif;
   color: #124254;
   font-weight: inherit;
@@ -50,25 +52,25 @@
   z-index: -1;
   letter-spacing: 2px;
   margin-top: 50px;
-  margin-bottom: 3%; /*for vote receipt  */
+  margin-bottom: 3%;
+  /*for vote receipt  */
 }
 
-.F-download-receipt-container{
+.F-download-receipt-container {
   border: 1px solid black;
   width: 35%;
   margin: auto;
   background-color: #f8f8f8;
 }
 
-.F-receipt-message{
+.F-receipt-message {
   padding: 15px;
   width: 80%;
   margin-left: auto;
   margin-right: auto;
-  
 }
 
-.F-receipt-message h3{
+.F-receipt-message h3 {
   text-align: center;
   font-family: Roboto Light, sans-serif;
 }
@@ -79,7 +81,8 @@
   margin-top: 3%;
 }
 
-.F-goToHomeBTN {                    /* Go to Home Button */
+.F-goToHomeBTN {
+  /* Go to Home Button */
   background-color: #eeeeee;
   color: black;
   margin-left: 5%;
@@ -91,7 +94,8 @@
   cursor: pointer;
 }
 
-.F-downloadReceiptBTN {             /* Download Receipt Button */
+.F-downloadReceiptBTN {
+  /* Download Receipt Button */
   background-color: #fece4b;
   color: black;
   margin-right: 5%;
@@ -101,19 +105,17 @@
   border-radius: 30px;
   cursor: pointer;
   letter-spacing: 1px;
-
 }
 
-
-@media (max-width: 1200px){
-  .F-receipt-message{
+@media (max-width: 1200px) {
+  .F-receipt-message {
     min-width: 65%;
     margin-top: 3%;
   }
-  .F-receipt-page-buttons{
+  .F-receipt-page-buttons {
     margin-top: 6%;
   }
-  .F-download-receipt-container{
+  .F-download-receipt-container {
     width: 70%;
   }
 }

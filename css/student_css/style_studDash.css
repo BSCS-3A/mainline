@@ -1,15 +1,17 @@
 /* Static Page */
-*{
+
+* {
   margin: 0;
   padding: 0;
   user-select: none;
   box-sizing: border-box;
-  list-style: none;  
+  list-style: none;
 }
 
 /* Body */
-body{  
-  font-family: Roboto,Roboto Thin,Generica, sans-serif;  
+
+body {
+  font-family: Roboto, Roboto Thin, Generica, sans-serif;
   background-image: url("../../img/studentBG.png");
   background-size: cover;
   font-size: 100%;
@@ -19,6 +21,7 @@ body{
 }
 
 /* Top Navigation */
+
 /* nav{
   background: #f8f8f8;
   box-shadow: 0 10px 20px rgba(0, 0, 0, .15 ),
@@ -205,16 +208,16 @@ nav img.Auser-profile{
   height: 40px;
   width: 40px;
 } */
+
 /* .fa-plus{
   font-size: 15px;
   margin-left: 40px;
 } */
 
-
-
 /* Mobile */
+
 @media all and (max-width: 968px) {
-  nav ul{
+  nav ul {
     margin-right: 0px;
     margin-left: 0px;
     float: left;
@@ -224,21 +227,20 @@ nav img.Auser-profile{
     width: auto;
     float: left;
   } */
-  .Ashow + a, ul{
+  .Ashow+a, ul {
     display: none;
   }
-  nav ul li,nav ul ul li{
+  nav ul li, nav ul ul li {
     border-top: 3px solid #18566e;
-    color:white;
+    color: white;
     display: block;
     width: 100%;
   }
-  nav ul li a:hover{
+  nav ul li a:hover {
     box-shadow: none;
-    color:white;
+    color: white;
   }
-
-  .Ashow{
+  .Ashow {
     display: block;
     /* background-color: #18566e; */
     color: white;
@@ -247,10 +249,10 @@ nav img.Auser-profile{
     line-height: 70px;
     cursor: pointer;
   }
-  .Ashow:hover{
-    color:white;
+  .Ashow:hover {
+    color: white;
   }
-  .Aicon{
+  .Aicon {
     display: block;
     /* color:  black; */
     position: absolute;
@@ -279,23 +281,23 @@ nav img.Auser-profile{
   nav ul ul ul li{
     position: static;
   } */
-  [id^=btn]:checked + ul{
+  [id^=btn]:checked+ul {
     width: 100%;
     left: 0;
     display: block;
   }
-  nav ul ul li{
+  nav ul ul li {
     border-top: 0px;
     border-bottom: 0px;
   }
-  span.cancel:before{
+  span.cancel:before {
     content: '\f00d';
-  } 
+  }
 }
 
-
 /* Left Content */
-article p{
+
+article p {
   font-family: Roboto regular, sans-serif;
   color: #124254;
   font-weight: inherit;
@@ -303,7 +305,8 @@ article p{
   letter-spacing: 3px;
   position: relative;
 }
-article h1{
+
+article h1 {
   font-family: Generica regular, sans-serif;
   color: #18566e;
   font-weight: inherit;
@@ -312,7 +315,9 @@ article h1{
   letter-spacing: 3px;
   margin-top: 10px;
 }
+
 /* Container for flexboxes */
+
 section {
   display: -webkit-flex;
   display: flex;
@@ -321,36 +326,44 @@ section {
   max-width: 800px;
   float: left;
 }
-#section-container{
+
+#section-container {
   min-height: 100%;
   overflow: auto;
   padding-bottom: 12%;
 }
+
 /* Style the content */
+
 article {
   -webkit-flex: 3;
   -ms-flex: 3;
   flex: 3;
   padding: 10px;
 }
+
 /*For logos on top of welcome banner*/
-img.Alogos{
+
+img.Alogos {
   float: left;
   padding-left: 10px;
   height: 90px;
   width: 100px;
   margin-bottom: 2em;
 }
-.Alogo-container{
-  position:relative;
+
+.Alogo-container {
+  position: relative;
   /* float: left; */
   display: -webkit-flex;
   display: flex;
   margin-left: 0px;
   margin-top: 0px;
   max-width: 700px;
-} 
+}
+
 /* Responsive layout - makes the menu and the content (inside the section) sit on top of each other instead of next to each other */
+
 @media (max-width: 600px) {
   body, section, .Acontainer {
     -webkit-flex-direction: column;
@@ -359,7 +372,8 @@ img.Alogos{
 }
 
 /*countdown*/
-aside{
+
+aside {
   color: #333;
   float: left;
   text-align: center;
@@ -371,6 +385,7 @@ aside{
   max-width: 495px;
   float: right;
 }
+
 div h1 {
   font-weight: normal;
   letter-spacing: .125rem;
@@ -379,13 +394,15 @@ div h1 {
   color: black;
   margin-bottom: .8em;
 }
-div ul{
+
+div ul {
   /* max-width: 90%; */
   border: 1px solid #ffc423;
   border-width: 3px;
   text-align: center;
   padding: 0;
 }
+
 div li {
   display: inline-block;
   font-size: 1.5em;
@@ -394,26 +411,27 @@ div li {
   text-transform: uppercase;
   color: black;
 }
+
 div li span {
   display: block;
   font-size: 4.5rem;
-
 }
-aside p.Aelec-guide-txt{
+
+aside p.Aelec-guide-txt {
   font-family: Roboto Regular, sans-serif;
   text-align: justify;
   font-size: 1.3em;
   margin-top: 3em;
 }
-#aside-container{
+
+#aside-container {
   min-height: 100%;
   overflow: auto;
   padding-bottom: 5%;
 }
 
-
-
 /* Footer */
+
 /* footer{
   background-color: #fece4b;
   position: relative;
