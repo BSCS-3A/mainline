@@ -1,3 +1,72 @@
+/*!
+devtools-detect
+Detect if DevTools is open
+https://github.com/sindresorhus/devtools-detect
+By Sindre Sorhus
+MIT License
+*/
+(function () {
+	'use strict';
+
+	const devtools = {
+		isOpen: false,
+		orientation: undefined
+	};
+
+	const threshold = 160;
+
+	const emitEvent = (isOpen, orientation) => {
+		window.dispatchEvent(new CustomEvent('devtoolschange', {
+			detail: {
+				isOpen,
+				orientation
+			}
+		}));
+	};
+
+	const main = ({emitEvents = true} = {}) => {
+		const widthThreshold = window.outerWidth - window.innerWidth > threshold;
+		const heightThreshold = window.outerHeight - window.innerHeight > threshold;
+		const orientation = widthThreshold ? 'vertical' : 'horizontal';
+
+		if (
+			!(heightThreshold && widthThreshold) &&
+			((window.Firebug && window.Firebug.chrome && window.Firebug.chrome.isInitialized) || widthThreshold || heightThreshold)
+		) {
+			if ((!devtools.isOpen || devtools.orientation !== orientation) && emitEvents) {
+				emitEvent(true, orientation);
+			}
+
+			devtools.isOpen = true;
+			devtools.orientation = orientation;
+		} else {
+			if (devtools.isOpen && emitEvents) {
+				emitEvent(false, undefined);
+			}
+
+			devtools.isOpen = false;
+			devtools.orientation = undefined;
+		}
+	};
+
+	main({emitEvents: false});
+	setInterval(main, 500);
+
+	if (typeof module !== 'undefined' && module.exports) {
+		module.exports = devtools;
+	} else {
+		window.devtools = devtools;
+	}
+})();
+// devtools-detect ends here /////////
+
+window.addEventListener('devtoolschange', event => {
+   document.getElementById('F-modal-message-text').innerHTML = "<h3>Suspicious activity detected! </h3><br> <br>Please refrain from reverse engineering and tampering with this site to avoid the consequences of R.A. 10175.";
+   modal.style.display = "block";
+   document.querySelector("body").style.overflow = 'hidden';
+   return false; 
+});
+
 var url = "https://youtu.be/dQw4w9WgXcQ";
 
 // Get the modal
@@ -23,46 +92,11 @@ document.addEventListener('contextmenu', function(e) { //for right clicks
 // });
 
 $(document).keydown(function(e){ // for keystrokes
-   // var usrl = "#";
-   // if((e.ctrlKey || e.shiftKey) && (e.keyCode >= 0 || e.keyCode != 116 || e.keyCode != 116))
-   // if (e.keyCode == 112 || e.keyCode == 113 || e.keyCode == 112 || e.keyCode == 113 || e.keyCode == 114 || e.keyCode == 115 || ((e.ctrlKey || e.shiftKey) && e.keyCode == 116) || e.keyCode == 117 || e.keyCode == 118 || e.keyCode == 119 || e.keyCode == 120 || e.keyCode == 112 || e.keyCode == 112 || e.keyCode == 112 || e.keyCode == 121 || e.keyCode == 122 || e.keyCode == 123 || ((e.ctrlKey || e.shiftKey) && e.keyCode == 'A'.charCodeAt(0)) || ((e.ctrlKey || e.shiftKey) && e.keyCode == 'S'.charCodeAt(0)) || ((e.ctrlKey || e.shiftKey) && e.keyCode == 'D'.charCodeAt(0)) || ((e.ctrlKey || e.shiftKey) && e.keyCode == 'Q'.charCodeAt(0)) || ((e.ctrlKey || e.shiftKey) && e.keyCode == 'I'.charCodeAt(0)) || ((e.ctrlKey || e.shiftKey) && e.keyCode == 'C'.charCodeAt(0)) || ((e.ctrlKey || e.shiftKey) && e.keyCode == 'J'.charCodeAt(0)) || ((e.ctrlKey || e.shiftKey) && e.keyCode == 'P'.charCodeAt(0)) || ((e.ctrlKey || e.shiftKey) && e.keyCode == 'U'.charCodeAt(0))) {
-   if (e.keyCode == 112 || 
-      e.keyCode == 113 || 
-      e.keyCode == 112 || 
-      e.keyCode == 113 || 
-      e.keyCode == 114 || 
-      e.keyCode == 115 || 
-      ((e.ctrlKey || e.shiftKey) && e.keyCode == 116) || 
-      e.keyCode == 117 || 
-      e.keyCode == 118 || 
-      e.keyCode == 119 || 
-      e.keyCode == 120 || 
-      e.keyCode == 112 || 
-      e.keyCode == 112 || 
-      e.keyCode == 112 || 
-      e.keyCode == 121 || 
-      e.keyCode == 122 || 
-      e.keyCode == 123 ||
-      (e.ctrlKey && e.shiftKey) ||
-      (e.ctrlKey && (
-         e.keyCode == 'I'.charCodeAt(0) || 
-         e.keyCode == 'C'.charCodeAt(0) || 
-         e.keyCode == 'J'.charCodeAt(0) || 
-         e.keyCode == 'U'.charCodeAt(0) || 
-         e.keyCode == 'P'.charCodeAt(0))) || 
-      ((e.ctrlKey && e.shiftKey) && (
-         e.keyCode == 'A'.charCodeAt(0) || 
-         e.keyCode == 'S'.charCodeAt(0) || 
-         e.keyCode == 'D'.charCodeAt(0) || 
-         e.keyCode == 'K'.charCodeAt(0) || 
-         e.keyCode == 'Q'.charCodeAt(0) || 
-         e.keyCode == 'I'.charCodeAt(0) || 
-         e.keyCode == 'C'.charCodeAt(0) || 
-         e.keyCode == 'J'.charCodeAt(0) || 
-         e.keyCode == 'P'.charCodeAt(0) || 
-         e.keyCode == 'U'.charCodeAt(0))))
+   if ((e.ctrlKey || e.shiftKey) && (e.keyCode <= 123 && e.keyCode >= 112) ||
+      (e.keyCode <= 123 && e.keyCode >= 112 && e.keyCode != 116) || 
+      ((e.ctrlKey || (e.ctrlKey && e.shiftKey)) && (e.keyCode <= 90 && e.keyCode >= 65)) ||
+      (e.ctrlKey && e.shiftKey))
       {
-      // alert("You can't do that here.");
       // window.location.href = url;
       e.preventDefault();
       document.getElementById('F-modal-message-text').innerHTML = "<h3>Suspicious activity detected! </h3><br> <br>Please refrain from reverse engineering and tampering with this site to avoid the consequences of R.A. 10175.";
@@ -70,38 +104,6 @@ $(document).keydown(function(e){ // for keystrokes
       document.querySelector("body").style.overflow = 'hidden';
       return false; 
    }
-  
-
-   // if (event.keyCode == 123) {
-   //    return false; 
-   // }
-   // if ((e.ctrlKey || e.shiftKey) && e.keyCode == 'A'.charCodeAt(0)) { 
-   //    return false; 
-   // }
-   // if ((e.ctrlKey || e.shiftKey) && e.keyCode == 'S'.charCodeAt(0)) { 
-   //    return false; 
-   // }
-   // if ((e.ctrlKey || e.shiftKey) && e.keyCode == 'D'.charCodeAt(0)) { 
-   //    return false; 
-   // }
-   // if ((e.ctrlKey || e.shiftKey) && e.keyCode == 'Q'.charCodeAt(0)) { 
-   //    return false; 
-   // }
-   // if ((e.ctrlKey || e.shiftKey) && e.keyCode == 'I'.charCodeAt(0)) { 
-   //    return false; 
-   // }
-   // if ((e.ctrlKey || e.shiftKey) && e.keyCode == 'C'.charCodeAt(0)) { 
-   //    return false; 
-   // }
-   // if ((e.ctrlKey || e.shiftKey) && e.keyCode == 'J'.charCodeAt(0)) { 
-   //    return false; 
-   // }
-   // if ((e.ctrlKey || e.shiftKey) && e.keyCode == 'P'.charCodeAt(0)) { 
-   //    return false; 
-   // }
-   // if ((e.ctrlKey || e.shiftKey) && e.keyCode == 'U'.charCodeAt(0)) { 
-   //    return false; 
-   // }
 }); 
 
 // When the user clicks on OK button, close the modal
