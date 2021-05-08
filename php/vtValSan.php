@@ -10,7 +10,6 @@
         }
         else{
             $page = "vtBallot.php";
-            $sec = "0";
             // inseert sending message to admin about tampered data
             header("url=$page");
         }
