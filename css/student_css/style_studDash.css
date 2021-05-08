@@ -227,7 +227,8 @@ nav img.Auser-profile{
     width: auto;
     float: left;
   } */
-  .Ashow+a, ul {
+  .Ashow + a, 
+  ul {
     display: none;
   }
   nav ul li, nav ul ul li {
