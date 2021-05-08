@@ -6,8 +6,7 @@
 <?php
 
     session_start();
-    
-    include "../db_conn.php";
+    include "db_conn.php";
 
     // $connection = mysqli_connect("localhost", "root", "");
     // $db = mysqli_select_db($connection, 'bucielsmain2');
@@ -19,10 +18,10 @@
                 $fname = $_POST['fname'];
                 $Mname = $_POST['Mname'];
                 $gender = $_POST['gender'];
-                $grade_level = $_POST['grade_level'];
                 $bumail = $_POST['bumail'];
+                $grade_level = $_POST['grade_level'];
 
-                $query = "UPDATE student SET lname = '$lname', fname = '$fname', Mname = '$Mname', gender = '$gender', grade_level = '$grade_level', bumail = '$bumail'
+                $query = "UPDATE student SET lname = '$lname', fname = '$fname', Mname = '$Mname', gender = '$gender', bumail = '$bumail', grade_level = '$grade_level'
                          WHERE student_id = '$student_id' ";
                 $query_run = mysqli_query($conn, $query);
 

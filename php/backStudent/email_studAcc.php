@@ -6,7 +6,7 @@ use PHPMailer\PHPMailer\Exception;
 
 
 //palitan na lang ang location kung nasan ang composer na folder
-require '../../other/composer/vendor/autoload.php';
+require '../other/composer/vendor/autoload.php';
 
 if(isset($_POST["sendEmail"])){
    

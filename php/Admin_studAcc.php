@@ -17,10 +17,10 @@ missing students
 
 
 <?php
-include("./backStudent/genotp_studAcc.php");
+include("genotp_studAcc.php");
 include("./backStudent/back_studAccMngmt.php");
 include("./backStudent/email_studAcc.php");
-include("./backStudent/edit_studAcc.php");
+include("edit_studAcc.php");
 include("db_conn.php");
   if (isset($_SESSION['admin_id']) && isset($_SESSION['username'])) {
 // for button disable
@@ -62,6 +62,15 @@ $row =  $DnT->fetch_row();
 </head>
 
 <body>
+
+<!-- navigation bar -->
+<?php include "navAdmin.php"; ?>
+    
+    <div class="cheader">
+        <h3>STUDENT ACCOUNT MANAGEMENT</h3>
+    </div>
+    
+
     <!--############################################################################################################################################################################################## -->
     <!-- CONFIRMATION MESSAGE FOR EDIT AND DELETE-->
     <?php
@@ -74,17 +83,8 @@ $row =  $DnT->fetch_row();
         </div>
     <?php endif ?>
     <!--############################################################################################################################################################################################## -->
-
-    <!-- navigation bar -->
-    <?php include "navAdmin.php"; ?>
-
     
-    <div class="cheader">
-        <h3>STUDENT ACCOUNT MANAGEMENT</h3>
-    </div>
     <div class="container">
-
-
         <section>
             <div class="btn-toolbar">
                 <button class="btn btn-button1" data-title="new" data-toggle="modal" data-target="#new" data-placement="top" data-toggle="tooltip" title="Import new list" 
@@ -271,7 +271,7 @@ $row =  $DnT->fetch_row();
     </div>
     <!--############################################################################################################################################################################################## -->
     <!-- EDIT MODAL -->
-    <form action="./backStudent/edit_studAcc.php" method="POST">
+    <form action="edit_studAcc.php" method="POST">
         <div class="modal fade" id="edit" tabindex="-1" role="dialog" aria-labelledby="edit" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
@@ -289,17 +289,17 @@ $row =  $DnT->fetch_row();
                         <div class="form-group">
                             <input class="form-control " name="fname" id="fname" type="text" placeholder="Enter First Name" required="required">
                         </div>
-                        <div class="form-group">
-                            <input class="form-control " name="Mname" id="Mname" type="text" placeholder="Enter Middle Name" required="required">
+                        <div class="form-group"> <!-- Do not require, not all students have middle name -->
+                            <input class="form-control " name="Mname" id="Mname" type="text" placeholder="Enter Middle Name">
                         </div>
                         <div class="form-group">
                             <input class="form-control " name="gender" id="gender" type="text" placeholder="Enter Gender" required="required">
                         </div>
                         <div class="form-group">
-                            <input class="form-control " name="grade_level" id="grade_level" type="text" placeholder="Enter Grade Level" required="required">
+                            <input class="form-control " name="bumail" id="bumail" type="text" placeholder="Enter Email" required="required">
                         </div>
                         <div class="form-group">
-                            <input class="form-control " name="bumail" id="bumail" type="text" placeholder="Enter Email" required="required">
+                            <input class="form-control " name="grade_level" id="grade_level" type="text" placeholder="Enter Grade Level" required="required">
                         </div>
                     </div>
                     <div class="modal-footer ">
@@ -394,8 +394,8 @@ $row =  $DnT->fetch_row();
                 $('#fname').val(data[2]);
                 $('#Mname').val(data[3]);
                 $('#gender').val(data[4]);
-                $('#grade_level').val(data[5]);
-                $('#bumail').val(data[6]);
+                $('#bumail').val(data[5]);
+                $('#grade_level').val(data[6]);
 
             });
         });

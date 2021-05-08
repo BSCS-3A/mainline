@@ -84,7 +84,7 @@ if (time()-$_SESSION['timestamp']>$idletime){
                 <ul>
                     <li><a href="Admin_ArcFolder.php">Archive</a></li>
                     <li><a href="Admin_VsPercentage.php">Vote Status</a></li>
-                    <li><a href="Admin_ElecRes.php">Vote Result</a>
+                    <li><a href="Admin_ElectRes.php">Vote Result</a>
                         <ul>
                             <li><a href="Admin_Report.php">Make Report</a></li>
                         </ul>

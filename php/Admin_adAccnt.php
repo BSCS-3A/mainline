@@ -187,7 +187,7 @@
     <!-- /.modal-dialog -->
     <!--######################################################################################################################################################################################-->
     <!-- EDIT MODAL -->
-    <form action="./backFun_editAccnts_v0_1.php" method="POST">
+    <form action="./backAdmin/backFun_editAccnts_v0_1.php" method="POST">
         <div class="modal fade" id="edit" tabindex="-1" role="dialog" aria-labelledby="edit" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
@@ -253,7 +253,7 @@
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
                     <h4 class="modal-title custom_align" id="Heading">Delete this entry</h4>
                 </div>
-                <form action="./backFun_delAccnts_v0_1.php" method="POST">
+                <form action="./backAdmin/backFun_delAccnts_v0_1.php" method="POST">
                     <div class="modal-body">
                         <input type="hidden" name="Delete_ID" id="Delete_ID">
                         <div class="alert alert-danger"><span class="fa fa-exclamation-triangle"></span> Are you sure you want to delete this account?</div>

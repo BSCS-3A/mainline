@@ -1,9 +1,3 @@
-<!-- Proj Mngr notes:
-- change connection for host
-- changed dbName temporarily for testing
-- changed header
--->
-
 <?php
 if(isset($_POST["go"])){
 
@@ -14,7 +8,7 @@ if(isset($_POST["go"])){
     // $dbName = "bucielsmain2";  //local Den 4/9/21
     // $connect = mysqli_connect($dbServername, $dbUsername, $dbPassword, $dbName);
 
-    include "../db_conn.php";
+    include "db_conn.php";
 
     $sql = "UPDATE `student` SET `otp` = '' ";
     $connect->query($sql);

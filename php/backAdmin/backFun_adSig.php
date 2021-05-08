@@ -40,7 +40,7 @@ $position_query_run = mysqli_query($connection, $position_query);
                 $arrtab = implode(",",$arrtab);
                 $string = $arrtab .",". $source;
                 $encodedString = json_encode($string);
-                file_put_contents('../other/sig_array.json',($encodedString));
+                file_put_contents('../../other/sig_array.json',($encodedString));
                 echo"<script language='javascript'>
                 alert('Signatory Added');
                 window.location.href = '../Admin_signConfig.php';

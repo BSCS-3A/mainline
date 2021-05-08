@@ -1,3 +1,9 @@
+<?php
+session_start();
+include("db_conn.php");
+  if (isset($_SESSION['admin_id']) && isset($_SESSION['username'])) {
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -92,3 +98,9 @@
     </script>
 </body>
 </html>
+<?php
+}else{
+    header("Location: AdminLogin.php");
+     exit();
+}
+ ?>

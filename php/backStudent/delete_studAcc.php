@@ -23,12 +23,12 @@
                 if ($query_run) {
                     $_SESSION['message'] = 'Record has been deleted!';
                     $_SESSION['msg_type'] = 'danger';
-                    header("location: Admin_studAcc.php");
+                    header("location: ../Admin_studAcc.php");
                 }
                 else{
                     $_SESSION['message'] = 'Record has not been deleted!';
                     $_SESSION['msg_type'] = 'warning';
-                    header("location: Admin_studAcc.php");
+                    header("location: ../Admin_studAcc.php");
                 }        
         }
 ?>

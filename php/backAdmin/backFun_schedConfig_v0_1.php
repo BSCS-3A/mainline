@@ -6,9 +6,9 @@
 <?php
 
 include('../Admin_schedConfig.php');
+require '../../other/composer/vendor/autoload.php';
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
-require '../../other/composer/vendor/autoload.php';
 // $db = mysqli_connect('localhost', 'root', '', 'bucielsmain2');
 include '../db_conn.php';
 $results = mysqli_query($db, "SELECT * FROM student");
@@ -22,7 +22,9 @@ $mail = new PHPMailer(TRUE);
    function function_alert($msg) { 
       
       // Display the alert box  
-      echo "<script>alert('$msg');</script>"; 
+      echo "<script>
+         alert('$msg');
+    </script>"; 
   } 
 
  //Send email

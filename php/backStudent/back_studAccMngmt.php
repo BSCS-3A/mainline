@@ -25,7 +25,7 @@ Proj Mngr Notes:
 // $connect = mysqli_connect($dbServername, $dbUsername, $dbPassword, $dbName) or die ('Unable to connect');
 // $message = "";
 
-include "../db_conn.php";
+include "db_conn.php";
 
 
 $query = "SELECT * FROM student";
