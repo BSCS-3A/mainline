@@ -1,15 +1,3 @@
-<!--
-Proj Mngr NOTES:
-dunno why pero sa original version, style2 ang ginamit pero gumagana naman bg
-pero paglipat sa main, ayaw lumabas ng background image kahit napalitan ko na ng correct
-na filepath yung background image url, kaya ginawa ko same nlng sa addAdmin yung stylesheet
-"style1_addAdmin" tapos yung header para sa title ng ACTIVITY LOGS pinalitan ko from
-header to cheader
-
-kerby, latest update:
-30 day expiry of logs, 
-use of username instead of admin id in the display table
--->
 <?php
 session_start();
 include("db_conn.php");
@@ -24,10 +12,9 @@ include("db_conn.php");
     <meta charset="utf-8">
     <link rel="icon" href="../img/BUHS LOGO.png">
     <link rel="stylesheet" type="text/css" href="../css/admin_css/style1_addAdmin.css">
-    <!-- <link rel="stylesheet" type="text/css" href="../css/admin_css/style2_actLogs.css"> -->
     <link rel="stylesheet" href="../css/admin_css//bootstrap_addAdmin.css">
     <link rel="stylesheet" href="../css/admin_css//dataTables.bootstrap_addAdmin.css">
-    <link rel="stylesheet" href="../css/admin_css//font-awesome_addAdmin.css">
+    <link rel="stylesheet" href="../css/admin_css//font-awesome.css">
     
     <script src="../js/jquery-1.11.1.min_addAdmin.js"></script>
     <script src="../js/jquery.dataTables.min_addAdmin.js"></script>

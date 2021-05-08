@@ -25,7 +25,7 @@ include('db_conn.php');
     <link rel="stylesheet" type="text/css" href="../css/admin_css/style_AdminDash.css">
     <link rel="stylesheet" href="../css/admin_css/bootstrap4.5.2_AdminDash.css">
     <link rel="stylesheet" href="../css/admin_css/dataTables.bootstrap4.min_AdminDash.css">
-    <link rel="stylesheet" href="../css/admin_css/font-awesome_AdminDash.css">
+    <link rel="stylesheet" href="../css/admin_css/font-awesome.css">
     <link rel="stylesheet" href="../css/admin_css/jquery.dataTables.min_AdminDash.css">
     <!-- <script src="assets/js/a076d05399.js"></script> -->
     <script src="../js/dataTables.bootstrap4.min_adminDash.js"></script>
@@ -71,10 +71,6 @@ include('db_conn.php');
         Integrated Laboratory - High School Department Online Voting System. The system aims to provide mobility among student users to vote electronically anywhere for the annual Student Supreme Government Elections. This section allows administrators to conduct the election, manage its process and other necessary information.
         </p>
     </aside>
-
-    <!-- <div class="footer">
-        <p class="footer-txt">BS COMPUTER SCIENCE 3A © 2021</p>
-    </div> -->
 
       <?php 
        
@@ -201,7 +197,7 @@ var y = setInterval(function() {
   // If the count down is over, write some text 
   if (hoursEnd < 0) {
                
-                $.post("backFun_reminders_v0_1.php",
+                $.post("./backAdmin/backFun_reminders_v0_1.php",
                 function(data,status){
                   //alert("Message sent with status" + status);
                   //location.reload(true);

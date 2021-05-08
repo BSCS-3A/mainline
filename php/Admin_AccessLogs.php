@@ -18,7 +18,7 @@ include("db_conn.php");
     <link rel="stylesheet" href="../css/admin_css/rowReorder.dataTables.min_AdminDash.css">
     <link rel="stylesheet" href="../css/admin_css/responsive.dataTables.min_AdminDash.css">
 
-    <link rel="stylesheet" href="../css/admin_css/font-awesome_AdminDash.css">
+    <link rel="stylesheet" href="../css/admin_css/font-awesome.css">
     <link rel="stylesheet" href="../css/admin_css/jquery.dataTables.min_AdminDash.css">
     <!-- <script src="../js/a076d05399.js"></script> -->
     

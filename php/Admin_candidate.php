@@ -48,7 +48,7 @@
     <link rel="icon" href="../img/BUHS LOGO.png" type="image/png"> 
     <link rel="stylesheet" type="text/css" href="../css/admin_css/admin_Pos.css">
     <link rel="stylesheet" href="../css/admin_css/bootstrap_Pos.css"> 
-    <link rel="stylesheet" href="../css/admin_css/font-awesome_Pos.css">
+    <link rel="stylesheet" href="../css/admin_css/font-awesome.css">
     <link rel="stylesheet" href="https://unpkg.com/simplebar@2.0.1/umd/simplebar.css" />
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.24/css/jquery.dataTables.min.css">
     
@@ -73,7 +73,7 @@
         $(document).on("click","#add-candidate",function(){
             var temp = true;
             $.ajax({
-            url:'backPos/addCandidate.php',
+            url:'backCandidate/addCandidate.php',
             method:'post',
             data:{dropdownadd:temp},
             success:function(response){
@@ -93,7 +93,7 @@
             var cred = $("#etc-add3").val();
 
             $.ajax({
-              url:'backPos/addCandidate.php',
+              url:'backCandidate/addCandidate.php',
               method:'post',
               data:{savebtn:temp,lastname:lname,firstname:fname,heirarchy_id:hid,partylist:party,platform:plat,credentials:cred},
               success:function(response){
@@ -121,7 +121,7 @@
             var cred = $("#etc-edit3").val();
 
             $.ajax({
-              url:'backPos/addCandidate.php',
+              url:'backCandidate/addCandidate.php',
               method:'post',
               data:{editsavebtn:temp,candidateid:candid,editlastname:lname,editfirstname:fname,editheirarchy_id:hid,editpartylist:party,editplatform:plat,editcredentials:cred},
               success:function(response){
@@ -143,7 +143,7 @@
             var temp=true;
             var candid = $("#HeadingDelete").attr("candidate");
             $.ajax({
-                url:'backPos/confirmDeleteCandidate.php',
+                url:'backCandidate/confirmDeleteCandidate.php',
                 method:'post',
                 data:{delete:temp,candidateid:candid},
                 success:function(response){
@@ -166,7 +166,7 @@
             var lastname = $(this).val();
             if(lastname != ''){
                 $.ajax({
-                    url:'./backPos/lastnamesearch.php',
+                    url:'./backCandidate/lastnamesearch.php',
                     method:'post', 
                     data:{query:lastname},
                     success:function(response){ 
@@ -276,7 +276,7 @@
             var firstname = $(this).val();
             if(firstname != ''){
                 $.ajax({
-                    url:'./backPos/firstnamesearch.php',
+                    url:'./backCandidate/firstnamesearch.php',
                     method:'post',
                     data:{query:firstname},
                     success:function(response){
@@ -297,7 +297,7 @@
             var lastname = $(this).val();
             if(lastname != ''){
                 $.ajax({
-                    url:'./backPos/lastnamesearch.php',
+                    url:'./backCandidate/lastnamesearch.php',
                     method:'post',
                     data:{query:lastname},
                     success:function(response){
@@ -316,7 +316,7 @@
             var firstname = $(this).val();
             if(firstname != ''){
                 $.ajax({
-                    url:'./backPos/firstnamesearch.php',
+                    url:'./backCandidate/firstnamesearch.php',
                     method:'post',
                     data:{query:firstname},
                     success:function(response){
@@ -380,89 +380,13 @@
         
     </style>
 
-<title>BUCEILS Voting System</title>
+<title>Update Candidate Information | BUCEILS HS Online Voting System</title>
 </head>
 
 <body>
 
 <!-- navigation and footer -->
 <?php include "navAdmin.php"; ?>
-
-<!-- <nav>
-  <input class="nav-toggle1" type="checkbox">
-  <div class="aLogo">
-      <h2 class="aLogo-txt1"><a href="adminDashboard.html">BUCEILS HS</a></h2>
-      <h3 class="aLogo-txt2"><a href="adminDashboard.html">ONLINE VOTING SYSTEM</a></h3>
-  </div>
-  <label for="btn" class="ADicon"><span class="fa fa-bars"></span></label>
-  <input class="nav-toggle2" type="checkbox" id="btn">
-  <ul>
-      <li>
-          <label for="btn-1" class="Ashow">ACCOUNTS</label>
-          <a href="#">ACCOUNTS</a>
-          <input class="nav-toggle3" type="checkbox" id="btn-1">
-          <ul>
-              <li><a href="#">Students</a></li>
-              <li><a href="#">Admin</a></li>
-          </ul>
-      </li>
-      <li>
-          <label for="btn-2" class="Ashow">ELECTION</label>
-          <a href="#">ELECTION</a>
-          <input class="nav-toggle4" type="checkbox" id="btn-2">
-          <ul>
-              <li><a href="#">Archive</a></li>
-              <li><a href="#">Vote Status</a></li>
-              <li><a href="#">Vote Result</a>
-                  <ul>
-                      <li><a href="#">Make Report</a></li>
-                  </ul>
-              </li>
-              <li><a href="#">Configuration</a>
-                  <ul>
-                      <li><a href="#">Scheduler</a></li>
-                      <li><a href="#">Signatory</a></li>
-                  </ul>
-              </li>
-          </ul>
-      </li>
-      <li>
-          <label for="btn-3" class="Ashow">CANDIDATES</label>
-          <a href="#">CANDIDATES</a>
-          <input class="nav-toggle5" type="checkbox" id="btn-3">
-          <ul>
-              <li><a href="#">Update Info</a></li>
-              <li><a href="#">Positions</a></li>
-          </ul>
-      </li>
-      <li>
-          <label for="btn-4" class="Ashow">LOGS</label>
-          <a href="#">LOGS</a>
-          <input class="nav-toggle6" type="checkbox" id="btn-4">
-          <ul>
-              <li><a href="accessLogs-v2.0.html">Access Log</a></li>
-              <li><a href="#">Activity Log</a></li>
-              <li><a href="#">Vote Summary</a></li>
-          </ul>
-      </li>
-      <li><a href="#">MESSAGES</a></li>
-      <li>
-          <label for="btn-5" class="Ashow">Admin Name</label>
-          <a class="user" href="#"><img class="user-profile" src="../IMG/user.png"></a>
-          <input class="nav-toggle7" type="checkbox" id="btn-5">
-          <ul>
-              <li><a class="username" href="#">Admin Name
-              <?php //echo $_SESSION['admin_fname']." ".$_SESSION['admin_lname'];?></a></li>
-              <li class="logout">
-                  <span class="fa fa-sign-out"></span><a href="../../DashboardAuthentication/Admin Dashboard/Logout.php">LOGOUT</a></span>
-              </li>
-          </ul>
-      </li>
-  </ul>
- 
-</nav> -->
-
-
 
 <div class="Uheader" id="CM_Header">
   <h2>Candidate Information Management</h2>
@@ -514,7 +438,7 @@
               <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
               <h4 class="modal-title custom_align" id="HeadingAdd">Add Candidate Information</h4>
           </div>
-          <form autocomplete = "off" method="post" action="backPos/addCandidate.php" id="addform">
+          <form autocomplete = "off" method="post" action="backCandidate/addCandidate.php" id="addform">
               <div class="modal-body">
                   <div class="form-group">              
                       <input class="form-control" name="lastnamesearch" id="lastnamesearch" type="text" placeholder="Enter Lastname" required>
@@ -559,7 +483,7 @@
               <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
               <h4 class="modal-title custom_align" id="HeadingEdit">Edit Candidate Information</h4>
           </div>
-          <form action="backPos/addCandidate.php" method = "POST" autocomplete = "off" id="editform">
+          <form action="backCandidate/addCandidate.php" method = "POST" autocomplete = "off" id="editform">
               <div class="modal-body">
                   <div class="form-group">    
                       <div id="cid" candidate=""></div>       
@@ -610,7 +534,7 @@
           <div class="modal-body">             
           <div class="alert alert-danger"><span class="fa fa-exclamation-triangle"></span> Are you sure you want to delete <b id="delcan"></b> in position <b id="delpos"></b>?</div>
     </div>
-    <form action="./backPos/confirmDeleteCandidate.php" method="POST" id="deleteForm">
+    <form action="./backCandidate/confirmDeleteCandidate.php" method="POST" id="deleteForm">
         <div class="modal-footer ">
         <button type="submit" name="continue-delete-btn" class="btn btn-success" id="continue" ><span class= "fa fa-check-circle"></span>Continue</button>
         <button type="button" name="cancel-delete-btn" class="btn btn-default" id= "cancel2" data-dismiss="modal"><span class="fa fa-times-circle"></span>Cancel</button>
@@ -662,7 +586,7 @@
 
     function reloadTable(){
       $.ajax({
-        url:'backPos/tableCandidate.php',
+        url:'backCandidate/tableCandidate.php',
         success: function(response){
             $("tbody").html(response);
             table = $('#datatable').DataTable({
@@ -694,7 +618,7 @@
       $("#etc-edit3").val($(cols[6]).text());
 
       $.ajax({
-          url:'backPos/addCandidate.php',
+          url:'backCandidate/addCandidate.php',
           method:'post',
           data:{dropdownedit:hid},
           success:function(response){

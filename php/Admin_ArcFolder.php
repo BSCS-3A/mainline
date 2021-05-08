@@ -60,7 +60,7 @@ include("db_conn.php");
             $year = $row1['year'];
             echo '<div class="items">';
             echo '<figure>';
-            echo '<b><a href="Admin_ArchList.php?year='.$year.'">';
+            echo '<b><a href="Admin_ArcList.php?year='.$year.'">';
             echo '<img src="../img/folder.png" width="140px" height="140px">';
             echo '<figcaption>'.$year.'</figcaption>';
             echo '</a></b>';
