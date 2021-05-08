@@ -46,15 +46,15 @@ if (time()-$_SESSION['timestamp']>$idletime){
     <nav>
         <input class="nav-toggle1" type="checkbox">
         <div class="aLogo">
-            <h2 class="aLogo-txt1"><a href="StudentDashboard.php">BUCEILS HS</a></h2>
-            <h3 class="aLogo-txt2"><a href="StudentDashboard.php">ONLINE VOTING SYSTEM</a></h3>
+            <h2 class="aLogo-txt1"><a href="Student_studDash.php">BUCEILS HS</a></h2>
+            <h3 class="aLogo-txt2"><a href="Student_studDash.php">ONLINE VOTING SYSTEM</a></h3>
         </div>
         <label for="btn" class="ADicon"><span class="fa fa-bars"></span></label>
         <input class="nav-toggle2" type="checkbox" id="btn">
         <ul>
              <li>
-                <label for="btn-1" class="Ashow"><a id="Ashow1" href="vtBallot.php">VOTE</a></label>
-                <a href="vtBallot.php">VOTE</a>
+                <label for="btn-1" class="Ashow"><a id="Ashow1" href="Student_vtBallot.php">VOTE</a></label>
+                <a href="Student_vtBallot.php">VOTE</a>
             </li>
 
             <li>
@@ -64,7 +64,7 @@ if (time()-$_SESSION['timestamp']>$idletime){
                 <ul>
                     <li><a href="#">PROCESS</a></li>
                     <li><a href="Student_ArcFolder.php">ARCHIVE</a></li>
-                    <li><a href="front_ElectStat.php">RESULTS</a></li>
+                    <li><a href="Student_ElectStat.php">RESULTS</a></li>
                 </ul>
             </li>
            
@@ -74,8 +74,8 @@ if (time()-$_SESSION['timestamp']>$idletime){
             </li>
 
             <li>
-                <label for="btn-4" class="Ashow"><a id="Ashow1" href="Student_nsbox.php">CHAT US</a></label>
-                <a href = "Student_nsbox.php">CHAT US</a>
+                <label for="btn-4" class="Ashow"><a id="Ashow1" href="Student_Mbox.php">CHAT US</a></label>
+                <a href = "Student_Mbox.php">CHAT US</a>
             </li>
 
             <li>
@@ -86,16 +86,7 @@ if (time()-$_SESSION['timestamp']>$idletime){
                     <li><a class="username" href="#"><?php echo $_SESSION['fname']." ".$_SESSION['lname']; ?> </a></li>
                     <li><a href="StudentLogout.php">LOGOUT</a></li>
                 </ul>
-                <!-- <label for="btn-5" class="Ashow"><?php //echo $_SESSION['admin_fname']." ".$_SESSION['admin_lname']; ?></label>
-                <a class="user" href="#"><img class="Auser-profile" src="../img/user.png"></a>
-                <input class="nav-toggle6" type="checkbox" id="btn-5">
-                <ul>
-                    
-                    <li><a class="username" href="#"><?php //echo $_SESSION['admin_fname']." ".$_SESSION['admin_lname']; ?></a></li>
-                    <li class="logout">
-                        <span class="fa fa-sign-out"></span><a href="AdminLogout.php">LOGOUT</a></span>
-                    </li>
-                </ul> -->
+                
             </li>
         </ul>
         <!--end of list-->

@@ -60,7 +60,7 @@ Need:
             reloadTable();
             function reloadTable(){
                 $.ajax({
-                    url:'backPos/tablePosition.php',
+                    url:'backCandidate/tablePosition.php',
                     success: function(response){
                         $("tbody").html(response);
                     }
@@ -79,7 +79,7 @@ Need:
                     if(posid==""){//if you are adding a position
                         var temp = true;
                         $.ajax({
-                            url:'backPos/addPosition.php',
+                            url:'backCandidate/addPosition.php',
                             method:'post',
                             data:{addbtn:temp,heirarchy:hid,positionname:posname,positiondes:posdes},
                             success:function(response){
@@ -92,7 +92,7 @@ Need:
                         });
                     }else{//if you are editing a position
                         $.ajax({
-                            url:'backPos/addPosition.php',
+                            url:'backCandidate/addPosition.php',
                             method:'post',
                             data:{id:posid,heirarchy:hid,positionname:posname,positiondes:posdes}, 
                             success:function(response){
@@ -108,7 +108,7 @@ Need:
             $(document).on("click",".vote_allow",function(){
                 var position_id = $(this).closest('tr').attr("posid");
                 $.ajax({
-                   url:'./backPos/allow.php', 
+                   url:'./backCandidate/allow.php', 
                    method:'post',
                    data:{voteallow:position_id},
                    success:function(response){
@@ -120,7 +120,7 @@ Need:
                 var temp = true;
                 $("#load").modal("show");
                 $.ajax({
-                    url:'./backPos/loadDefault.php', 
+                    url:'./backCandidate/loadDefault.php', 
                     method:'post',
                     data:{btnclicked:temp},
                     success:function(response){
@@ -136,77 +136,6 @@ Need:
 </head>
 
 <body>
-    <!-- <nav>
-        <input class="nav-toggle1" type="checkbox">
-        <div class="aLogo">
-            <h2 class="aLogo-txt1"><a href="adminDashboard.html">BUCEILS HS</a></h2>
-            <h3 class="aLogo-txt2"><a href="adminDashboard.html">ONLINE VOTING SYSTEM</a></h3>
-        </div>
-        <label for="btn" class="ADicon"><span class="fa fa-bars"></span></label>
-        <input class="nav-toggle2" type="checkbox" id="btn">
-        <ul>
-            <li>
-                <label for="btn-1" class="Ashow">ACCOUNTS</label>
-                <a href="#">ACCOUNTS</a> 
-                <input class="nav-toggle3" type="checkbox" id="btn-1">
-                <ul>
-                    <li><a href="#">Students</a></li>
-                    <li><a href="#">Admin</a></li>
-                </ul>
-            </li>
-            <li>
-                <label for="btn-2" class="Ashow">ELECTION</label>
-                <a href="#">ELECTION</a>
-                <input class="nav-toggle4" type="checkbox" id="btn-2">
-                <ul>
-                    <li><a href="#">Archive</a></li> 
-                    <li><a href="#">Vote Status</a></li>
-                    <li><a href="#">Vote Result</a>
-                        <ul>
-                            <li><a href="#">Make Report</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="#">Configuration</a>
-                        <ul>
-                            <li><a href="#">Scheduler</a></li>
-                            <li><a href="#">Signatory</a></li>
-                        </ul>
-                    </li>
-                </ul>
-            </li>
-            <li>
-                <label for="btn-3" class="Ashow">CANDIDATES</label>
-                <a href="#">CANDIDATES</a>
-                <input class="nav-toggle5" type="checkbox" id="btn-3">
-                <ul>
-                    <li><a href="#">Update Info</a></li>
-                    <li><a href="#">Positions</a></li>
-                </ul>
-            </li>
-            <li>
-                <label for="btn-4" class="Ashow">LOGS</label>
-                <a href="#">LOGS</a>
-                <input class="nav-toggle6" type="checkbox" id="btn-4">
-                <ul>
-                    <li><a href="accessLogs-v2.0.html">Access Log</a></li>
-                    <li><a href="#">Activity Log</a></li>
-                    <li><a href="#">Vote Summary</a></li>
-                </ul>
-            </li>
-            <li><a href="#">MESSAGES</a></li>
-            <li>
-                <label for="btn-5" class="Ashow">Admin Name</label>
-                <a class="user" href="#"><img class="user-profile" src="../IMG/user.png"></a>
-                <input class="nav-toggle7" type="checkbox" id="btn-5">
-                <ul>
-                    <li><a class="username" href="#">Admin Name</a></li>
-                    <li class="logout">
-                        <span class="fa fa-sign-out"></span><a href="../../DashboardAuthentication/Admin Dashboard/Logout.php">LOGOUT</a></span>
-                    </li>
-                </ul>
-            </li>
-        </ul>
-    </nav> -->
 
    <!-- The sidetable -->
    <div class="Uheader" id="CM_Header">
@@ -372,7 +301,7 @@ Start of form panel scripts
       $("#delete-form").submit(function(){
           $("#delete").modal("hide");
           $.ajax({
-              url:'backPos/deletePosition.php',
+              url:'backCandidate/deletePosition.php',
               method:'post',
               data:{delete:pid},
               success:function(response){
@@ -386,7 +315,7 @@ Start of form panel scripts
     }
     function reloadTable(){
       $.ajax({
-        url:'backPos/tablePosition.php',
+        url:'backCandidate/tablePosition.php',
         success: function(response){
           $("tbody").html(response);
         }
@@ -477,7 +406,7 @@ Start of form panel scripts
 // 		var position_description = $('#position_description').val();
 // 		if(position_name!="" && position_description!=""){
 // 			$.ajax({
-// 				url: "./backPos/save.php",
+// 				url: "./backCandidate/save.php",
 // 				type: "POST",
 // 				data: {
 // 					position_name: position_name,

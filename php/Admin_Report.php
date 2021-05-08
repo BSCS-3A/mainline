@@ -15,7 +15,7 @@ include("db_conn.php");
         <link rel="stylesheet" type="text/css" href="../css/admin_css/style_monitor.css">
         <link rel="stylesheet" href="../css/admin_css/bootstrap4.5.2_monitor.css">
         <link rel="stylesheet" href="../css/admin_css/dataTables.bootstrap4.min_monitor.css">
-        <link rel="stylesheet" href="../css/admin_css/font-awesome_monitor.css">
+        <link rel="stylesheet" href="../css/admin_css/font-awesome.css">
         <link rel="stylesheet" href="../css/admin_css/jquery.dataTables.min_monitor.css">
         <script src="../js/dataTables.bootstrap4.min_monitor.js"></script>
         <script src="../js/jquery-3.5.1_monitor.js"></script>
@@ -93,7 +93,7 @@ include("db_conn.php");
         <div class="Bbtn_post">
             <!-- <button onclick="parent.open('http://localhost/Monitoring-main/functionality_php/report/generate-pdf.php')" class="Bbtn_postresults scs-responsive"><b>DOWNLOAD PDF</b></button> -->
             
-            <button onclick="parent.open('generate-pdf.php')" class="Bbtn_postresults scs-responsive"><b>DOWNLOAD PDF</b></button>
+            <button onclick="parent.open('Admin_generate-pdf.php')" class="Bbtn_postresults scs-responsive"><b>DOWNLOAD PDF</b></button>
         </div>
 
         <!-- Space before footer -->

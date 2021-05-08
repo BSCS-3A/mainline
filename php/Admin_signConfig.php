@@ -88,7 +88,7 @@ include("db_conn.php");
           <h4 class="modal-title custom_align" id="Heading">Add an entry</h4>
       </div>
 
-<form action="backFun_adSig.php" method="POST" autocomplete="off">
+<form action="./backAdmin/backFun_adSig.php" method="POST" autocomplete="off">
   <?php
   $sql = "SELECT * FROM admin";
   $result = mysqli_query($conn,$sql);
@@ -170,7 +170,7 @@ include("db_conn.php");
                     <h4 class="modal-title custom_align" id="Heading">Delete this entry</h4>
           </div>
                 <div class="modal-body">
-                  <form action="backFun_delSig.php" method="POST" autocomplete="off">
+                  <form action="./backAdmin/backFun_delSig.php" method="POST" autocomplete="off">
                   <input type="hidden" name="signatory_fname"id="signatory_fname">
                   <input type="hidden" name="signatory_lname"id="signatory_lname">
                   <input type="hidden" name="signatory_position"id="signatory_position">

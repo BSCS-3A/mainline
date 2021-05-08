@@ -15,7 +15,7 @@ include("db_conn.php");
     <link rel="stylesheet" type="text/css" href="../css/admin_css/style_monitor.css">
     <link rel="stylesheet" href="../css/admin_css/bootstrap4.5.2_monitor.css">
     <link rel="stylesheet" href="../css/admin_css/dataTables.bootstrap4.min_monitor.css">
-    <link rel="stylesheet" href="../css/admin_css/font-awesome_monitor.css">
+    <link rel="stylesheet" href="../css/admin_css/font-awesome.css">
     <link rel="stylesheet" href="../css/admin_css/jquery.dataTables.min_monitor.css">
     <!-- <script src="assets/js/a076d05399.js"></script> -->
     <!-- <script src="../js/dataTables.bootstrap4.min_adminDash.js"></script> -->
@@ -147,7 +147,7 @@ include("db_conn.php");
                         </div>
                     </div>
 
-                     <br><a href='front_Vstat.php?level=7'><b> GRADE 7</b></a>
+                     <br><a href='Admin_Vstat.php?level=7'><b> GRADE 7</b></a>
                 </div>
             </div>
 
@@ -160,7 +160,7 @@ include("db_conn.php");
 
                         </div>
                     </div>
-                     <br><a href='front_Vstat.php?level=8'><b> GRADE 8</b></a>
+                     <br><a href='Admin_Vstat.php?level=8'><b> GRADE 8</b></a>
                 </div>
             </div>
 
@@ -173,7 +173,7 @@ include("db_conn.php");
 
                         </div>
                     </div>
-                     <br><a href='front_Vstat.php?level=9'><b> GRADE 9</b></a>
+                     <br><a href='Admin_Vstat.php?level=9'><b> GRADE 9</b></a>
 
                 </div>
             </div>
@@ -188,7 +188,7 @@ include("db_conn.php");
 
                         </div>
                     </div>
-                     <br><a href='front_Vstat.php?level=10'><b> GRADE 10</b></a>
+                     <br><a href='Admin_Vstat.php?level=10'><b> GRADE 10</b></a>
 
                 </div>
             </div>
@@ -202,7 +202,7 @@ include("db_conn.php");
 
                         </div>
                     </div>
-                     <br><a href='front_Vstat.php?level=11'><b> GRADE 11</b></a>
+                     <br><a href='Admin_Vstat.php?level=11'><b> GRADE 11</b></a>
 
                 </div>
             </div>
@@ -216,14 +216,14 @@ include("db_conn.php");
 
                         </div>
                     </div>
-                     <br><a href='front_Vstat.php?level=12'><b> GRADE 12</b></a>
+                     <br><a href='Admin_Vstat.php?level=12'><b> GRADE 12</b></a>
 
                 </div>
             </div>
 
             <?php
             //additional notes:
-            // yung mga ganito =  <br><a href='front_Vstat.php?level=12'><b> GRADE 12</b></a>
+            // yung mga ganito =  <br><a href='Admin_Vstat.php?level=12'><b> GRADE 12</b></a>
             //sya yung sa label baga na pag tig click maga redirect
             ?>
 

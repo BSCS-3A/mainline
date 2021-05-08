@@ -32,7 +32,7 @@ include('db_conn.php');
     <?php elseif($vote_stat==2): ?>
     <?php require '../html/after_election.html';?>
     <?php elseif($vote_stat==3): ?>
-    <?php require 'front_ElectRes.php';?>
+    <?php require 'Student_ElectRes.php';?>
     <?php else: ?>
     <?php require '../html/no_election.html';?>
     <?php endif; ?>

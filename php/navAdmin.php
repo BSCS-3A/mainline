@@ -62,8 +62,8 @@ if (time()-$_SESSION['timestamp']>$idletime){
     <nav>
         <input class="nav-toggle1" type="checkbox">
         <div class="aLogo">
-            <h2 class="aLogo-txt1"><a href="AdminDashboard.php">BUCEILS HS</a></h2>
-            <h3 class="aLogo-txt2"><a href="AdminDashboard.php">ONLINE VOTING SYSTEM</a></h3>
+            <h2 class="aLogo-txt1"><a href="Admin_adminDash.php">BUCEILS HS</a></h2>
+            <h3 class="aLogo-txt2"><a href="Admin_adminDash.php">ONLINE VOTING SYSTEM</a></h3>
         </div>
         <label for="btn" class="ADicon"><span class="fa fa-bars"></span></label>
         <input class="nav-toggle2" type="checkbox" id="btn">
@@ -73,8 +73,8 @@ if (time()-$_SESSION['timestamp']>$idletime){
                 <a href="#">ACCOUNTS</a>
                 <input class="nav-toggle3" type="checkbox" id="btn-1">
                 <ul>
-                    <li><a href="Admin_StudentAccountManagement.php">Students</a></li>
-                    <li><a href="front_addAdmin_v2.php">Admin</a></li>
+                    <li><a href="Admin_studAcc.php">Students</a></li>
+                    <li><a href="Admin_adAccnt.php">Admin</a></li>
                 </ul>
             </li>
             <li>
@@ -82,11 +82,11 @@ if (time()-$_SESSION['timestamp']>$idletime){
                 <a href="#">ELECTION</a>
                 <input class="nav-toggle4" type="checkbox" id="btn-2">
                 <ul>
-                    <li><a href="Admin_ArchFolder.php">Archive</a></li>
-                    <li><a href="front_VsPercentage.php">Vote Status</a></li>
-                    <li><a href="front_ElectionResults.php">Vote Result</a>
+                    <li><a href="Admin_ArcFolder.php">Archive</a></li>
+                    <li><a href="Admin_VsPercentage.php">Vote Status</a></li>
+                    <li><a href="Admin_ElecRes.php">Vote Result</a>
                         <ul>
-                            <li><a href="front_Report.php">Make Report</a></li>
+                            <li><a href="Admin_Report.php">Make Report</a></li>
                         </ul>
                     </li>
                     <li>
@@ -94,8 +94,8 @@ if (time()-$_SESSION['timestamp']>$idletime){
                         <a href="#">Configuration</a>
                         <input class="nav-toggle7" type="checkbox" id="btn-6"> <!-- latest button toggle for 3rd ul-->
                         <ul>
-                            <li><a href="Admin_electionConfig.php">Scheduler</a></li>
-                            <li><a href="front_signatory.php">Signatory</a></li>
+                            <li><a href="Admin_schedConfig.php">Scheduler</a></li>
+                            <li><a href="Admin_signConfig.php">Signatory</a></li>
                         </ul>
                     </li>
                 </ul>
@@ -114,12 +114,12 @@ if (time()-$_SESSION['timestamp']>$idletime){
                 <a href="#">LOGS</a>
                 <input class="nav-toggle5" type="checkbox" id="btn-4">
                 <ul>
-                    <li><a href="Admin_AccessLogs.php">Access Log</a></li>
-                    <li><a href="front_actLogs_v0_4.php">Activity Log</a></li>
-                    <li><a href="Admin_voteSum.php">Vote Summary</a></li>
+                    <li><a href="Admin_accessLogs.php">Access Log</a></li>
+                    <li><a href="Admin_actLogs.php">Activity Log</a></li>
+                    <li><a href="Admin_vtSumm.php">Vote Summary</a></li>
                 </ul>
             </li>
-            <li><a href="Admin_MessageBox.php">MESSAGES</a></li>
+            <li><a href="Admin_MBox.php">MESSAGES</a></li>
             <li>
                 <label for="btn-5" class="Ashow"><?php echo $_SESSION['admin_fname']." ".$_SESSION['admin_lname']; ?></label>
                 <a class="user" href="#"><img class="user-profile" src="../img/<?php echo $_SESSION['photo']; ?>"></a>

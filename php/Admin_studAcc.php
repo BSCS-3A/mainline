@@ -17,10 +17,10 @@ missing students
 
 
 <?php
-include("genotp_studAcc.php");
-include("back_studAccMngmt.php");
-include("email_studAcc.php");
-include("edit_studAcc.php");
+include("./backStudent/genotp_studAcc.php");
+include("./backStudent/back_studAccMngmt.php");
+include("./backStudent/email_studAcc.php");
+include("./backStudent/edit_studAcc.php");
 include("db_conn.php");
   if (isset($_SESSION['admin_id']) && isset($_SESSION['username'])) {
 // for button disable
@@ -271,7 +271,7 @@ $row =  $DnT->fetch_row();
     </div>
     <!--############################################################################################################################################################################################## -->
     <!-- EDIT MODAL -->
-    <form action="edit_studAcc.php" method="POST">
+    <form action="./backStudent/edit_studAcc.php" method="POST">
         <div class="modal fade" id="edit" tabindex="-1" role="dialog" aria-labelledby="edit" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
@@ -321,7 +321,7 @@ $row =  $DnT->fetch_row();
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
                     <h4 class="modal-title custom_align" id="Heading">Delete this entry</h4>
                 </div>
-                <form action="delete_studAcc.php" method="POST">
+                <form action="./backStudent/delete_studAcc.php" method="POST">
                     <div class="modal-body">
                         <div class="alert alert-danger"><span class="fa fa-exclamation-triangle"></span> Are you sure you want to delete this Record?</div>
                         <input type="hidden" name="Delete_ID" id="Delete_ID">

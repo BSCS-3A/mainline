@@ -14,10 +14,10 @@
      }*/
   if (isset($_SESSION['admin_id']) && isset($_SESSION['username']))
      {
-         header("Location: AdminDashboard.php");
+         header("Location: Admin_adminDash.php");
      }
      else if(isset($_SESSION['student_id'])){
-         header("Location: StudentDashboard.php");
+         header("Location: Student_studDash.php");
      }
  
 

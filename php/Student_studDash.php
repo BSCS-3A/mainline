@@ -11,7 +11,7 @@ include('db_conn.php');
     <meta charset="utf-8">
     <link rel="icon" href="../img/BUHS LOGO.png" type="image/png">
     <link rel="stylesheet" href="../css/student_css/bootstrap_studDash.css">
-    <link rel="stylesheet" href="../css/student_css/font-awesome_studDash.css">
+    <link rel="stylesheet" href="../css/student_css/font-awesome.css">
     <link rel="stylesheet" type="text/css" href="../css/student_css/style_studDash.css">
     <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>

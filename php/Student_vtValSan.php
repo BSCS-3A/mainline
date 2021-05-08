@@ -9,7 +9,7 @@
             return $data;
         }
         else{
-            $page = "vtBallot.php";
+            $page = "Student_vtBallot.php";
             // inseert sending message to admin about tampered data
             header("url=$page");
         }
@@ -129,7 +129,7 @@
         var home = document.getElementById("ok-button");
 
         home.onclick = function() {
-            location.href = "StudentDashboard.php";
+            location.href = "Student_studDash.php";
         }
         </script>';
     }

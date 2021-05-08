@@ -15,7 +15,7 @@ include('db_conn.php');
     <meta name="HandheldFriendly" content="true">
     <link rel="icon" href="../img/BUHS LOGO.png" type="image/png">
     <link rel="stylesheet" href="../css/student_css/bootstrap_msgbox.css">
-    <link rel="stylesheet" href="../css/student_css/font-awesome_msgbox.css">
+    <link rel="stylesheet" href="../css/student_css/font-awesome.css">
     <link rel="stylesheet" type="text/css" href="../css/student_css/style_msgbox.css">
     <script src="../js/bootstrap.min_msgbox.js"></script>
     <script src="../js/jquery.min_msgbox.js"></script>
@@ -92,7 +92,7 @@ include('db_conn.php');
                 $("#submitmsg").click(function () {
                     var clientmsg = $("#usermsg").val();
                     var idin = "<?php echo $_GET['id']?>";
-                    $.post("Student_post.php", { text: clientmsg,idup: idin });
+                    $.post("./backStudent/Student_post.php", { text: clientmsg,idup: idin });
                     $("#usermsg").val("");
                 });
 
@@ -142,13 +142,13 @@ include('db_conn.php');
                 $("#go").click(function () {
                     var fle = "<?php echo $_GET['id']?>";  
                     $.ajax({
-                    url: 'Student_endses.php',
+                    url: './backStudent/Student_endses.php',
                     type: 'post',
                     data: {isid:fle},
                     success: function(data) {
                     }
                     });
-                    window.location = "Student_nsbox.php";
+                    window.location = "Student_Mbox.php";
                 });
                 
                 
@@ -156,7 +156,7 @@ include('db_conn.php');
                 if(notclose == false){
                 var fle = "<?php echo $_GET['id']?>";  
                 $.ajax({
-                url: 'Student_endses.php',
+                url: './backStudent/Student_endses.php',
                 type: 'post',
                 data: {isid:fle},
                 });

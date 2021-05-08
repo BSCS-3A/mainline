@@ -12,7 +12,7 @@ include('db_conn.php');
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="icon" href="../img/BUHS LOGO.png" type="image/png">
     <link rel="stylesheet" href="../css/student_css/bootstrap_vote.css">
-    <link rel="stylesheet" href="../css/student_css/font-awesome_vote.css">
+    <link rel="stylesheet" href="../css/student_css/font-awesome.css">
     <link rel="stylesheet" type="text/css" href="../css/student_css/bootstrap.min-vote.css">
     <link rel="stylesheet" type="text/css" href="../css/student_css/bootstrap_vote.css">
     <link rel="stylesheet" type="text/css" href="../css/student_css/vote_ballot.css">
@@ -26,8 +26,8 @@ include('db_conn.php');
 <body>
     <?php
         include "db_conn.php";
-        require 'vtValSan.php';
-        require 'vtFetch.php';
+        require 'Student_vtValSan.php';
+        require 'Student_vtFetch.php';
 
         // Remove this temp session
 
@@ -62,15 +62,15 @@ include('db_conn.php');
                         // exit();
                     }
                     else if($access_time >= $start_time && $access_time <= $end_time){
-                        include 'navstudent.php';
+                        include 'navStudent.php';
                         echo '<header id="F-header"  style="text-align: center;"><b>STUDENT LEADER ELECTION</b></header><br>';
                         echo '<main>';
-                        echo '<form id = "main-form" method="POST" action = "vtReceipt.php" class="vtBallot" id="vtBallot"><div id="voting-page">';
+                        echo '<form id = "main-form" method="POST" action = "Student_vtReceipt.php" class="vtBallot" id="vtBallot"><div id="voting-page">';
 
                         $table = $conn->query("SELECT * FROM ((candidate INNER JOIN student ON candidate.student_id = student.student_id) INNER JOIN candidate_position ON candidate.position_id = candidate_position.position_id) ORDER BY candidate_position.heirarchy_id"); // get positions
                         
                         generateBallot($table);
-                        require 'vtConfirm.php';
+                        require 'Student_vtConfirm.php';
                         echo '</div>';
                         echo '<div id="vote-button"><button id="vote-btn" name = "vote-button" class="vote-btn" type = "button">SUBMIT</button></div>
                         </form>';
@@ -81,7 +81,7 @@ include('db_conn.php');
                 }
             }
             else{ // Already Voted
-                header("Location: vtReceipt.php");
+                header("Location: Student_vtReceipt.php");
                 exit();
             }
         }

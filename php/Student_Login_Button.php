@@ -68,7 +68,7 @@ if($_SESSION['incorrectTry']>=3){
 				$date = date('Y-m-d');
 				$time = date('H:i:s');
                 mysqli_query($conn, "INSERT INTO student_access_log(student_id,activity_description,date,time) VALUES($student_id,'Login','$date','$time')");
-				header("Location: StudentDashboard.php");
+				header("Location: Student_studDash.php");
 				 exit();
 			 }else{
 				 $_SESSION['incorrectTry']++;
@@ -122,7 +122,7 @@ else{
 				$date = date('Y-m-d');
 				$time = date('H:i:s');
                 mysqli_query($conn, "INSERT INTO student_access_log(student_id,activity_description,date,time) VALUES($student_id,'Login','$date','$time')");
-				header("Location: StudentDashboard.php");
+				header("Location: Student_studDash.php");
 				 exit();
 			 }else{
 				 $_SESSION['incorrectTry']++;

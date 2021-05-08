@@ -1,7 +1,7 @@
 ﻿<?php
     session_start();
   if (isset($_SESSION['admin_id']) && isset($_SESSION['username'])) {
-         include('Admin_printSum.php');
+         include('./backStudent/Admin_printSum.php');
          include "db_conn.php";
          include "navAdmin.php";
         
@@ -16,7 +16,7 @@
     <link rel="stylesheet" type="text/css" href="../css/admin_css/style_studAcc.css">
     <link rel="stylesheet" href="../css/admin_css/bootstrap_studAcc.css">
     <link rel="stylesheet" href="../css/admin_css/dataTables.bootstrap_studAcc.css">
-    <link rel="stylesheet" href="../css/admin_css/font-awesome_studAcc.css">
+    <link rel="stylesheet" href="../css/admin_css/font-awesome.css">
     <script src="../js/jquery-1.11.1.min_studAcc.js"></script>
     <script src="../js/jquery.dataTables.min_studAcc.js"></script>
     <script src="../js/dataTables.bootstrap_studAcc.js"></script>
@@ -33,7 +33,7 @@
         <h3>VOTE SUMMARY</h3>
     </div>
     <div class="container">
-       <section> <form method="POST" action="Admin_printSum.php">
+       <section> <form method="POST" action="./backStudent/Admin_printSum.php">
         <button name="prnt" id="prnt" class="btn btn-button5" type="submit" data-placement="top" data-toggle="tooltip" title="Print Vote Summary"><span class="fa fa-print"></span> PRINT SUMMARY</button>    
      </form>        
      </section>

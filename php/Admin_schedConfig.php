@@ -1,7 +1,3 @@
-<!--
-    Proj Mngr notes:
-    -changed nav bar
--->
 <?php
 session_start();
 include("db_conn.php");
@@ -20,7 +16,7 @@ include("db_conn.php");
     <link rel="stylesheet" type="text/css" href="../css/admin_css/electionConfig.css">
     <link rel="stylesheet" href="../css/admin_css/bootstrap_addAdmin.css">
     <link rel="stylesheet" href="../css/admin_css/dataTables.bootstrap_addAdmin.css">
-    <link rel="stylesheet" href="../css/admin_css/font-awesome_addAdmin.css">
+    <link rel="stylesheet" href="../css/admin_css/font-awesome.css">
     <script src="../js/jquery-1.11.1.min_addAdmin.js"></script>
     <script src="../js/jquery.dataTables.min_addAdmin.js"></script>
     <script src="../js/dataTables.bootstrap_addAdmin.js" ></script>
@@ -42,7 +38,7 @@ include("db_conn.php");
     <div class="header" id="myHeader">
        <h1>Time Scheduler</h1>
     </div>
-    <form class="isog" method="POST" action="backFun_setcountdown_v0_1.php">
+    <form class="isog" method="POST" action="./backAdmin/backFun_setcountdown_v0_1.php">
     <div class="leftdiv">
        <br>
         <div>
@@ -77,7 +73,7 @@ include("db_conn.php");
 
 </form>
 
-<form method="post" action="backFun_schedConfig_v0_1.php" >
+<form method="post" action="./backAdmin/backFun_schedConfig_v0_1.php" >
 		<div class="input-group">
 			<label>Vote Reminders:</label>
             <textarea rows="15" cols="68" name="message" placeholder="" required></textarea>

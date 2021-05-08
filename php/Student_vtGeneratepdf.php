@@ -221,7 +221,7 @@ ob_start();
 $pdf->Output('Official Ballot Receipt.pdf', 'I');  
 
 }else{
-	header("Location: ../../index.php");
+	header("Location: ../index.php");
      exit();
 }
  ?>

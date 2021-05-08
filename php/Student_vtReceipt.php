@@ -11,7 +11,7 @@ include('db_conn.php');
     <meta charset="utf-8">
     <link rel="icon" href="../img/BUHS LOGO.png" type="image/png">
     <link rel="stylesheet" href="../css/student_css/bootstrap_vote.css">
-    <link rel="stylesheet" href="../css/student_css/font-awesome_vote.css">
+    <link rel="stylesheet" href="../css/student_css/font-awesome.css">
     <link rel="stylesheet" type="text/css" href="../css/student_css/vote_message.css">
     <!-- <link rel="stylesheet" href="../css/bootstrap.css"> -->
     <!-- <link rel="stylesheet" type="text/css" href="../css/style.css">
@@ -26,7 +26,7 @@ include('db_conn.php');
     <?php
         // include 'navstudent.php';
         require "db_conn.php";
-	      require "vtValSan.php";
+	      require "Student_vtValSan.php";
         // if(!isset($_POST['confirm-button'])){
         //   header("Location: vtBallot.php");
         //   exit();
@@ -71,7 +71,7 @@ include('db_conn.php');
                 errorMessage("Suspicious behavior detected! Attempted to submit votes before the start of the elections. Your actions have been reported to the admins.");
               }
               else if($access_time >= $start_time && $access_time <= $end_time){
-                require "vtSubmit.php";
+                require "Student_vtSubmit.php";
                 receiptMsg("Your votes were submitted successfully! Here is a copy of your vote receipt");
               }
             } 
@@ -95,11 +95,11 @@ include('db_conn.php');
             var home = document.getElementById("F-goToHomeBTN");
     
             download.onclick = function() {
-            location.href = "vtGeneratepdf.php"; // generate reciept & show receipt
+            location.href = "Student_vtGeneratepdf.php"; // generate reciept & show receipt
             }
     
             home.onclick = function() {
-            location.href = "StudentDashboard.php";
+            location.href = "Student_studDash.php";
             }
       </script>
     </body>
