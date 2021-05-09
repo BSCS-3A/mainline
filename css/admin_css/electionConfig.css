@@ -1,4 +1,18 @@
 
+#myHeader{
+    position: relative;
+    z-index: -1;
+    padding: 1px 1px;
+    font-size: 35px;
+    background: #124254;
+    color: #ffc423;
+    width: 100%;
+    text-align: center;
+    font-family: 'Roboto-regular', sans-serif;
+    letter-spacing: 6px;
+    text-transform: uppercase;
+}
+ 
 form {
     width: 40%;
     margin: 50px auto;
@@ -8,19 +22,19 @@ form {
     border-radius: 5px;
     background-color: #124254;
     margin-right: 75px;
-    margin-top: 20px;
+    margin-top: 40px;
     margin-bottom: 60px;
 }
 
 input[type="date"] {
-    font-family: 'PT Sans', sans-serif;
+    font-family: 'Roboto-regular', sans-serif;
     font-size: 3rem;
     display: block;
     padding: 0rem 2rem;
 }
 
 input[type="time"] {
-    font-family: 'PT Sans', sans-serif;
+    font-family: 'Roboto-regular', sans-serif;
     font-size: 3rem;
     display: block;
     padding: 0rem 2rem;
@@ -34,8 +48,9 @@ input[type="time"] {
     display: block;
     text-align: left;
     margin: 3px;
-    color: #ffc423;
+    color:white;
     font-size: 25px;
+    font-family: 'Roboto-regular', sans-serif;
 }
 
 .input-group input {
@@ -48,12 +63,15 @@ input[type="time"] {
 }
 
 .btn {
+    margin-top: 10px;
     padding: 10px;
     font-size: 15px;
-    color: white;
-    background: #828686;
+    color: black;
+    background: #ffc423;
     border: none;
     border-radius: 5px;
+    font-weight: bold;
+    font-family: 'Roboto-regular', sans-serif;
 }
 
 .msg {
@@ -92,7 +110,7 @@ input[type="time"] {
 
 label {
     display: block;
-    font: 1rem 'Fira Sans', sans-serif;
+    font: 1rem 'Roboto-regular', sans-serif;
     font-size: 20px;
 }
 

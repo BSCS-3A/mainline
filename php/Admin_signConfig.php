@@ -30,7 +30,7 @@ include("db_conn.php");
   <?php include "navAdmin.php"; ?>
     
     <div class="header" id="myHeader">
-        <h1>SIGNATORY DETAILS</h1>
+        <h3 class="header-txt">SIGNATORY DETAILS</h3>
     </div>
     <div class="container">
 <section> <div class="btn-toolbar">
