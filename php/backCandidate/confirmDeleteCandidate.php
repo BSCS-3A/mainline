@@ -6,7 +6,7 @@
 
     if(isset($_POST['delete'])){
         $candidateid = $_POST['candidateid'];
-        $sqlfind = "SELECT * FROM ((candidate INNER JOIN student ON candidate.student_id = student.student_id) INNER JOIN candidate_position ON candidate.position_id = candidate_position.position_id) WHERE candidate_position.heirarchy_id = '$candidateid'";
+        $sqlfind = "SELECT * FROM ((candidate INNER JOIN student ON candidate.student_id = student.student_id) INNER JOIN candidate_position ON candidate.position_id = candidate_position.position_id) WHERE `candidate_id` = '$candidateid'";
         $resultfind = mysqli_query($conn,$sqlfind);
         $rowfind = mysqli_fetch_assoc($resultfind);
 
@@ -15,7 +15,10 @@
         if($result){
             $candidatename = $rowfind['fname'];
             $candidateposition = $rowfind['position_name'];
-            unlink($rowfind['photo']);
+            if(!empty($rowfind['photo'])){//if has photo delete photo in directory    
+                $path ="../".$rowfind['photo'];
+                unlink($path);
+            }
             $admin_id = $_SESSION['admin_id'];
             date_default_timezone_set('Asia/Manila');
             $time = date('H:i:s');

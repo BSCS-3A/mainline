@@ -142,7 +142,7 @@
                 method:'post',
                 data:{delete:temp,candidateid:candid},
                 success:function(response){
-                    
+                    console.log(response);
                   if(response !=""){
                       alert(response);
                   }else{
