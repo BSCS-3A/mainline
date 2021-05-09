@@ -18,11 +18,6 @@
 <?php 
     include "db_conn.php";
     session_start();
-    if(isset($_SESSION['message']) && isset($_GET['id'])){
-        unset($_SESSION['message']);
-        unset($_SESSION['msg_typ']);
-        header("location:Admin_candidate.php"); 
-    } 
     if (isset($_SESSION['admin_id']) && isset($_SESSION['username'])){
         $idletime=900;//after 15 minutes the user gets logged out
 
