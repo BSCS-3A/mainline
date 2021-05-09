@@ -1,13 +1,52 @@
-/* *{
-    margin: 0;
-    padding: 0;
-    user-select: none;
-    box-sizing: border-box;
-    font-family: Roboto,Roboto Condensed,Generica, sans-serif;
-    list-style: none;  
+@font-face {
+  font-family: 'Roboto-regular';
+  src: url('../../other/fonts/Roboto-Regular.eot');
+  src: local('Roboto Regular'), url('../../other/fonts/Roboto-Regular.ttf'), format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Roboto-light';
+  src: url('../../other/fonts/Roboto-Light.eot');
+  src: local('Roboto Light'), url('../../other/fonts/Roboto-Light.ttf'), format('truetype');
+  font-weight: lighter;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Roboto-bold';
+  src: url('../../other/fonts/Roboto-Bold.eot');
+  src: local('Roboto Bold'), url('../../other/fonts/Roboto-Bold.ttf'), format('truetype');
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'genericaregular';
+  src: url('../../other/fonts/generica-webfont.woff2') format('woff2'),
+         url('../../other/fonts/generica-webfont.woff') format('woff'),
+         url('../../other/fonts/Generica.eot') format('eot');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'genericabold';
+  src: url('../../other/fonts/generica-bold-webfont.woff2') format('woff2'),
+       url('../../other/fonts/generica-bold-webfont.woff') format('woff'),
+       url('../../other/fonts/Generica.eot') format('eot');
+  font-weight: normal;
+  font-style: normal;
+
+}
+
+
+*{
+    font-family: Roboto,Roboto Condensed,Generica, Generica Regular, sans-serif; 
   } 
   
-  body{  
+  /* body{  
     font-family: Roboto,Roboto Thin,Generica, sans-serif;
     background-image: url('../../img/adminBG.png');
     background-size: cover;
@@ -19,7 +58,7 @@
 
 nav {
   background: #1d6986;
-  box-shadow: 0 10px 20px rgba(0, 0, 0, .15), 0 3px 6px rgba(0, 0, 0, .23);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, .15), 0 3px 6px rgba(0, 0, 0, .23) !important;
   width: auto;
   z-index: 500;
   display: flex;
@@ -33,7 +72,7 @@ nav:after {
 
 h2.aLogo-txt1 {
   margin-top: 3px;
-  font-family: Roboto Regular, sans-serif;
+  font-family: 'Roboto-regular', sans-serif;
   font-weight: inherit;
   font-size: 100%;
   margin-bottom: 0px;
@@ -54,12 +93,12 @@ h3.aLogo-txt2 {
   font-size: 100%;
   margin-bottom: 0px;
   letter-spacing: 6px;
-  font-family: Generica regular, sans-serif;
 }
 
 h3.aLogo-txt2 a {
   text-decoration: none;
   color: #ffffff;
+  font-family: 'genericaregular', sans-serif;
 }
 
 div.aLogo {
@@ -100,7 +139,7 @@ nav ul li a {
   font-size: 1.2em;
   padding: 8px 15px;
   letter-spacing: 1px;
-  font-family: Roboto Light, sans-serif;
+  font-family: 'Roboto-light', sans-serif;
 }
 
 nav ul li a:visited, nav ul li a:link{
@@ -230,13 +269,13 @@ nav ul ul ul li {
   left: 150px;
 }
 
-.Ashow, .Ashow2, .ADicon {
+.Ashow, .Ashow2, .ADicon, input {
   display: none
 }
 
-.nav-toggle1, .nav-toggle2, .nav-toggle3, .nav-toggle4, .nav-toggle5, .nav-toggle6, .nav-toggle7 {
+/* .nav-toggle1, .nav-toggle2, .nav-toggle3, .nav-toggle4, .nav-toggle5, .nav-toggle6, .nav-toggle7 {
   display: none;
-}
+} */
 
 /* .fa-plus{
     font-size: 15px;
@@ -260,8 +299,7 @@ nav ul ul ul li {
   .Ashow2+a, ul {
     display: none;
   }
-  nav ul li, nav ul ul li, nav ul ul ul li {
-    display: block;
+  nav ul li, nav ul ul li, nav ul ul ul li{
     width: 100%;
   }
   nav ul li a:hover {
@@ -277,7 +315,7 @@ nav ul ul ul li {
     margin-bottom: 0;
   }
   .Ashow2 {
-    display: block;
+    display: block !important;
     color: #000000 !important;
     font-size: 1.2em;
     padding: 0;
@@ -328,7 +366,7 @@ nav ul ul ul li {
     margin-top: 0;
     position: static;
   }
-  [id^=btn]:checked+ul {
+  [id^=btn]:checked + ul {
     width: 100%;
     left: 0;
     display: block;
@@ -341,7 +379,6 @@ nav ul ul ul li {
     content: '\f00d';
   }
 }
-
 /*footer*/
 
 .footer {
@@ -361,7 +398,7 @@ div p.footer-txt {
   position: relative;
   margin-top: auto;
   margin-bottom: auto;
-  font-family: Roboto Regular, sans-serif;
+  font-family: 'Roboto-regular', sans-serif;
   letter-spacing: 7px;
   font-size: 10px;
   color: #ffffff;

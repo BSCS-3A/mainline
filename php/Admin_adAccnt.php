@@ -169,7 +169,7 @@
                             <label>Confirm Password:</label>
                             <input type="password" name="conpassword" class="form-control" data-toggle="password" placeholder="*********" onChange="onChange()" required>
                         </div>
-                        <div class="container container1">
+                        <div class="container">
                             <label for="photo" width="70%">Upload photo</label><br />
                             <input type="file" name="my_image" id="my_image" required><br />
                             <span id="admin_newupload_errorloc" class="error"></span>

@@ -16,176 +16,6 @@ body {
   width: auto;
 }
 
-/* nav{
-  background: #1d6986;
-  box-shadow: 0 10px 20px rgba(0, 0, 0, .15 ),
-              0 3px 6px rgba(0, 0, 0, .23);
-  width: auto;
-  z-index: 3;
-}
-nav:after{
-  content: '';
-  clear: both;
-  display: table;
-}
-nav h2{
-  font-family: Roboto Regular, sans-serif;
-  font-weight: inherit;
-  font-size: 100%;
-  margin-bottom: 0px;
-  letter-spacing: 6px;
-  color: #ffffff;
-}
-nav h3{
-  margin-top: 0px;
-  color: #ffffff;
-  padding-top: 5px;
-  font-weight: inherit;
-  font-size: 120%;
-  margin-bottom: 0px;
-  letter-spacing: 6px;
-  font-family: Generica regular, sans-serif;
-}
-
-nav .logo{
-  float: left;
-  position: relative;
-  line-height: 80px;
-  margin-top: 5px;
-  margin-left: 40px;
-  color:#ffffff;
-}
-nav ul{
-  float: right;
-  padding: 0;
-  height: 80px;
- 
-  margin-bottom: 0;
-  list-style: none;
-  position: relative;
-  text-align: center;
-  z-index: 4;
-}
-nav ul li{
- 
-  display: inline-block;
-  height: 80px;
-  background: #1d6986;
-  text-align: center;
-  width: 150px;
-}
-nav ul li a{
-  color: rgb(255, 255, 255);
-  line-height: 70px;
-  text-decoration: none;
-  font-size: 1.2em;
-  padding: 8px 15px;
-  letter-spacing: 1px;
-  font-family: Roboto Light, sans-serif;
-}
-nav ul li a:visited {
-  color: #ffffff;
-  text-decoration: none;
-}
-nav ul li a:hover{
-  color: #ffc423;
-  text-decoration: none;
-}
-nav ul li a:active{
-  text-decoration: none;
-}
-nav ul li:hover{
-  background-color: #124254;
-}
-nav ul li a:active {
-  color: green;
-}
-nav ul ul{
-  position: absolute;
-  top: 90px;
-  border-top: 3px solid #124254;
-  opacity: 0;
-  visibility: hidden;
-  transition: top .3s;
-}
-nav ul ul li{
- height: 50px;
- position: relative;
- margin: 0px;
- float: none;
- display: list-item;
-}
-nav ul ul li a{
-  line-height: 50px;
-}
-nav ul ul li .logout::before {
-  content: "\f2f5";
-  font-family: "Font Awesome 5 Free";
-  padding: 0 10px 0 0;
-}
-nav ul ul li a:link{
-  color:rgb(0, 0, 0);
-}
-nav ul ul li a:visited {
-  color: black;
-  text-decoration: none;
-}
-nav ul ul li a:hover{
-  color: #1b1b1b;
-  box-shadow: none;
-  text-decoration: none;
-}
-nav ul ul li:hover{
-  background-color: #e0a900;
-  text-decoration: none;
-}
-nav ul ul li a:active{
-  color: #1b1b1b;
-  box-shadow: none;
-  text-decoration: none;
-}
-nav ul ul ul{
-  border-top: none;
-}
-nav ul ul ul li{
-  position: relative;
-  top: -60px;
-  left: 150px;
-}
-nav ul li:hover > ul{
-  top: 70px;
-  opacity: 1;
-  visibility: visible;
-}
-nav ul ul li{
-  background: #ffc423;
-  position: relative;
-  margin: 0px;
-  width: 150px;
-  font-size: 0.8em;
-  float: none;
-  display: list-item;
-  border-bottom: 1px solid rgba(0,0,0,0.3);
-  z-index: 1;
-}
-nav ul ul li a{
-  line-height: 50px;
-  font-family: Roboto bold, sans-serif;
-}
-nav ul ul ul li{
-  position: relative;
-  font-size: 1em;
-  top: -60px;
-  left: 150px;
-}
-.show,.icon,input{
-  display: none;
-}
-/* .fa-plus{
-  font-size: 15px;
-  margin-left: 40px;
-} */
-
 @media all and (max-width: 968px) {
   nav ul {
     margin-right: 0px;
@@ -261,16 +91,18 @@ nav ul ul ul li{
   }
 }
 
-.cheader {
-  z-index: 100;
+#myHeader{
+  position: relative;
+  z-index: -1;
   padding: 1px 1px;
   font-size: 35px;
   background: #124254;
-  color: #f1f1f1;
+  color: #ffc423;
   width: 100%;
   text-align: center;
-  font-family: Roboto Regular, sans-serif;
+  font-family: 'Roboto-regular', sans-serif;
   letter-spacing: 6px;
+  text-transform: uppercase;
 }
 
 .pagination>li {
@@ -445,7 +277,7 @@ iframe {
   color: #EEEEEE!important;
 }
 
-.container1 {
+.container {
   max-width: 100%;
   height: 150%;
 }
@@ -513,7 +345,7 @@ div.container {
   background: rgba(255, 255, 255, 0.7);
   margin-top: 3%;
   margin-bottom: 3%;
-  /*border: 2px solid #124254;*/
+  border: 2px solid #124254;
   width: 80%;
   height: auto;
 }
@@ -617,26 +449,6 @@ img.logos {
     flex-direction: column;
   }
 }
-
-/* .footer {
-  position: fixed;
-  left: 0;
-  bottom: 0;
-  width: 100%;
-  height: auto;
-  padding: .4px;
-  background-color: #124254;
-  text-align: center;
-  z-index:999999;
-}
-div p.footer-txt{
-  position: relative;
-  top: .5em;
-  font-family: Roboto Regular, sans-serif;
-  letter-spacing: 7px;
-  font-size: 0.7em;
-  color: #ffffff;
-} */
 
 nav img.user-profile {
   margin-top: 0;

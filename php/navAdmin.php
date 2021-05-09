@@ -66,12 +66,12 @@ if (time() - $_SESSION['timestamp'] > $idletime) {
             <h3 class="aLogo-txt2"><a href="Admin_adminDash.php">ONLINE VOTING SYSTEM</a></h3>
         </div>
         <label for="btn" class="ADicon"><span class="fa fa-bars"></span></label>
-        <input class="nav-toggle2" type="checkbox" id="btn">
+        <input type="checkbox" id="btn">
         <ul>
             <li>
                 <label for="btn-1" class="Ashow">ACCOUNTS</label>
                 <a tabindex="0" class="isDisabled">ACCOUNTS</a>
-                <input class="nav-toggle3" type="checkbox" id="btn-1">
+                <input type="checkbox" id="btn-1">
                 <ul>
                     <li><a href="Admin_studAcc.php">Students</a></li>
                     <li><a href="Admin_adAccnt.php">Admin</a></li>
@@ -80,19 +80,16 @@ if (time() - $_SESSION['timestamp'] > $idletime) {
             <li>
                 <label for="btn-2" class="Ashow">ELECTION</label>
                 <a tabindex="0" class="isDisabled">ELECTION</a>
-                <input class="nav-toggle4" type="checkbox" id="btn-2">
+                <input type="checkbox" id="btn-2">
                 <ul>
                     <li><a href="Admin_ArcFolder.php">Archive</a></li>
                     <li><a href="Admin_VsPercentage.php">Vote Status</a></li>
-                    <li><a href="Admin_ElectRes.php">Vote Result</a>
-                        <ul>
-                            <li><a href="Admin_Report.php">Make Report</a></li>
-                        </ul>
-                    </li>
+                    <li><a href="Admin_ElectRes.php">Vote Results</a></li>
+                    <li><a href="Admin_Report.php">Election Report</a></li>
                     <li>
-                        <label for="btn-6" class="Ashow2">Configuration</label>
+                        <label for="btn-4" class="Ashow2">Configuration</label>
                         <a tabindex="0" class="isDisabled">Configuration</a>
-                        <input class="nav-toggle7" type="checkbox" id="btn-6"> <!-- latest button toggle for 3rd ul-->
+                        <input type="checkbox" id="btn-4"> <!-- latest button toggle for 3rd ul-->
                         <ul>
                             <li><a href="Admin_schedConfig.php">Scheduler</a></li>
                             <li><a href="Admin_signConfig.php">Signatory</a></li>
@@ -101,18 +98,18 @@ if (time() - $_SESSION['timestamp'] > $idletime) {
                 </ul>
             </li>
             <li>
-                <label for="btn-3" class="Ashow">CANDIDATES</label>
+                <label for="btn-5" class="Ashow">CANDIDATES</label>
                 <a tabindex="0" class="isDisabled">CANDIDATES</a>
-                <input class="nav-toggle6" type="checkbox" id="btn-3">
+                <input type="checkbox" id="btn-5">
                 <ul>
                     <li><a href="Admin_candidate.php">Update Info</a></li>
                     <li><a href="Admin_position.php">Update Position</a></li>
                 </ul>
             </li>
             <li>
-                <label for="btn-4" class="Ashow">LOGS</label>
+                <label for="btn-6" class="Ashow">LOGS</label>
                 <a tabindex="0" class="isDisabled">LOGS</a>
-                <input class="nav-toggle5" type="checkbox" id="btn-4">
+                <input type="checkbox" id="btn-6">
                 <ul>
                     <li><a href="Admin_accessLogs.php">Access Log</a></li>
                     <li><a href="Admin_actLogs.php">Activity Log</a></li>
@@ -121,9 +118,9 @@ if (time() - $_SESSION['timestamp'] > $idletime) {
             </li>
             <li><a href="Admin_MBox.php">MESSAGES</a></li>
             <li>
-                <label for="btn-5" class="Ashow"><?php echo $_SESSION['admin_fname'] . " " . $_SESSION['admin_lname']; ?></label>
+                <label for="btn-7" class="Ashow"><?php echo $_SESSION['admin_fname'] . " " . $_SESSION['admin_lname']; ?></label>
                 <a class="user" href="#"><img class="user-profile" src="../img/<?php echo $_SESSION['photo']; ?>"></a>
-                <input class="nav-toggle6" type="checkbox" id="btn-5">
+                <input type="checkbox" id="btn-7">
                 <ul>
 
                     <li><a class="username" onclick="return false"><?php echo $_SESSION['admin_fname'] . " " . $_SESSION['admin_lname']; ?></a></li>

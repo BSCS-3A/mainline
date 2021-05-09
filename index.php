@@ -8,10 +8,10 @@
      }
   if (isset($_SESSION['student_id']) && isset($_SESSION['bumail']))
      {
-         header("Location: php\StudentDashboard.php");
+         header("Location: php\Student_studDash.php");
      }
      else if(isset($_SESSION['admin_id'])){
-         header("Location: php\AdminDashboard.php");
+         header("Location: php\Admin_adminDash.php");
      }
 ?>
 

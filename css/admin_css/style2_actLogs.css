@@ -258,16 +258,18 @@ nav ul ul ul li{
   }
 }
 
-.header {
-  z-index: 100;
-  padding: 2px 2px;
+#myHeader{
+  position: relative;
+  z-index: -1;
+  padding: 1px 1px;
+  font-size: 35px;
   background: #124254;
-  color: #f1f1f1;
-  font-weight: 400;
+  color: #ffc423;
   width: 100%;
   text-align: center;
-  font-family: Roboto Regular, sans-serif;
+  font-family: 'Roboto-regular', sans-serif;
   letter-spacing: 6px;
+  text-transform: uppercase;
 }
 
 .pagination>li {

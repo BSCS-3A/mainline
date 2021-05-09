@@ -36,7 +36,7 @@ include("db_conn.php");
 
 
     <div class="header" id="myHeader">
-       <h1>Time Scheduler</h1>
+       <h3 class="header-txt">Time Scheduler</h3>
     </div>
     <form class="isog" method="POST" action="./backAdmin/backFun_setcountdown_v0_1.php">
     <div class="leftdiv">
