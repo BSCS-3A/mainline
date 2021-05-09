@@ -15,6 +15,7 @@
         if($result){
             $candidatename = $rowfind['fname'];
             $candidateposition = $rowfind['position_name'];
+            unlink($rowfind['photo']);
             $admin_id = $_SESSION['admin_id'];
             date_default_timezone_set('Asia/Manila');
             $time = date('H:i:s');
