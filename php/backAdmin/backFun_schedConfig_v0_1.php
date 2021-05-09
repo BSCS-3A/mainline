@@ -41,7 +41,7 @@ $mail = new PHPMailer(TRUE);
 
 	try {
    
-         $mail->setFrom('buceilshighschool@gmail.com', 'BUCEILS');
+         $mail->setFrom('buceilsovs.noreply@gmail.com', 'BUCEILS');
          $mail->addAddress($row['bumail']);
          $mail->Subject = 'BUCEILS ELECTION SCHEDULE';
          $mail->Body = $message;
@@ -51,8 +51,8 @@ $mail = new PHPMailer(TRUE);
          $mail->Host = 'smtp.gmail.com';
          $mail->SMTPAuth = TRUE;
          $mail->SMTPSecure = 'tls';
-         $mail->Username = 'buceilshighschool@gmail.com';
-         $mail->Password = 'aacbysxikqgbrdfl';
+         $mail->Username = 'buceilsovs.noreply@gmail.com';
+         $mail->Password = 'mhsyjtryvxhkkfts';
          $mail->Port = 587;
       
             /* Enable SMTP debug output. */
