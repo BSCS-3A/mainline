@@ -230,13 +230,13 @@ nav ul ul ul li {
   left: 150px;
 }
 
-.Ashow, .Ashow2, .ADicon {
+.Ashow, .Ashow2, .Ashow3, .ADicon, input {
   display: none
 }
 
-.nav-toggle1, .nav-toggle2, .nav-toggle3, .nav-toggle4, .nav-toggle5, .nav-toggle6, .nav-toggle7 {
+/* .nav-toggle1, .nav-toggle2, .nav-toggle3, .nav-toggle4, .nav-toggle5, .nav-toggle6, .nav-toggle7 {
   display: none;
-}
+} */
 
 /* .fa-plus{
     font-size: 15px;
@@ -260,8 +260,10 @@ nav ul ul ul li {
   .Ashow2+a, ul {
     display: none;
   }
-  nav ul li, nav ul ul li, nav ul ul ul li {
-    display: block;
+  .Ashow3+a, ul {
+    display: none;
+  }
+  nav ul li, nav ul ul li, nav ul ul ul li{
     width: 100%;
   }
   nav ul li a:hover {
@@ -277,7 +279,16 @@ nav ul ul ul li {
     margin-bottom: 0;
   }
   .Ashow2 {
-    display: block;
+    display: block !important;
+    color: #000000 !important;
+    font-size: 1.2em;
+    padding: 0;
+    line-height: 50px;
+    cursor: pointer;
+    margin-bottom: 0;
+  }
+  .Ashow3 {
+    display: block !important;
     color: #000000 !important;
     font-size: 1.2em;
     padding: 0;
@@ -328,7 +339,7 @@ nav ul ul ul li {
     margin-top: 0;
     position: static;
   }
-  [id^=btn]:checked+ul {
+  [id^=btn]:checked + ul {
     width: 100%;
     left: 0;
     display: block;
@@ -341,7 +352,6 @@ nav ul ul ul li {
     content: '\f00d';
   }
 }
-
 /*footer*/
 
 .footer {
