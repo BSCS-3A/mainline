@@ -27,7 +27,7 @@ input[type="time"] {
 }
 
 .input-group {
-    margin: 50px 0px 10px 0px;
+    margin: 5%;
 }
 
 .input-group label {
@@ -72,10 +72,11 @@ input[type="time"] {
     background-color: transparent;
     float: left;
     text-align: left;
-    margin-left: 100px;
-    margin: 25px 70px 80px;
+    /* margin: 25px 0px 80px; */
+    margin: 2% 5% 10%;
+    width: auto;
     position: relative;
-    width: 560px;
+    /* width: 560px; */
     border: transparent;
 }
 
@@ -100,21 +101,32 @@ input, label {
 }
 
 textarea {
-    resize: none;
+    /* resize: none; */
+    width: 100%;
+    
   }
 
 
 @media (max-width: 968px) {
-    form, .btn, textarea, input{
+    .btn, input{
      width: 100%;
      
     }
+
     form{
         margin-top: 550px;
+        width: 90%;
+        margin-left: 5%;
+    }
+
+    .leftdiv{
+        width: 90%;
     }
     
     .isog{
-        margin-left: 28px;
+        margin: 0% 0% 0% 2%;
+        width: 95%;
     }
+
 
   }

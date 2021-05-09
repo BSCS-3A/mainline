@@ -7,7 +7,7 @@ use PHPMailer\PHPMailer\Exception;
 require '../../other/composer/vendor/autoload.php';
 // $db = mysqli_connect('localhost', 'root', '', 'admin_man');
 include "../db_conn.php";
-$reminders = mysqli_query($conn, "SELECT * FROM student WHERE voting_status = 'not yet voted'"); // pa edit na lang depende kung ano database na gamit
+$reminders = mysqli_query($conn, "SELECT * FROM student WHERE voting_status = 0"); // pa edit na lang depende kung ano database na gamit
 
 $mail = new PHPMailer(TRUE);
 	
@@ -16,18 +16,22 @@ $mail = new PHPMailer(TRUE);
 
      try {
 
-      $mail->setFrom('buceilshighschool@gmail.com', 'BUCEILS');
-      $mail->addAddress($row['email']);// pa edit na lang depende kung ano database na gamit
-      $mail->Subject = 'BUCEILS ELECTION SCHEDULE';
-      $mail->Body = 'Reminders'; //pa edit na lang nung dapat na nakasulat
+      $mail->setFrom('buceilsovs.noreply@gmail.com', 'BUCEILS');
+      $mail->addAddress($row['bumail']);// pa edit na lang depende kung ano database na gamit
+      $mail->Subject = 'BUCEILS HS OVS - Reminders';
+      $mail->Body = 'Good day!
+      
+      Please be reminded that you have not yet voted for the election. You only have one hour before the online ballot closes.
+      
+   Thank you.'; //pa edit na lang nung dapat na nakasulat
       
       /* SMTP parameters. */
       $mail->isSMTP();
       $mail->Host = 'smtp.gmail.com';
       $mail->SMTPAuth = TRUE;
       $mail->SMTPSecure = 'tls';
-      $mail->Username = 'buceilshighschool@gmail.com';
-      $mail->Password = 'aacbysxikqgbrdfl';
+      $mail->Username = 'buceilsovs.noreply@gmail.com';
+      $mail->Password = 'mhsyjtryvxhkkfts';
       $mail->Port = 587;
    
          /* Enable SMTP debug output. */

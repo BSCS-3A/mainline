@@ -31,7 +31,7 @@ body {
 
 .F-modal-content-error {
   z-index: 1000;
-  border: 1px solid black;
+  /* border: 1px solid black; */
   width: 35%;
   margin: auto;
   background-color: #f8f8f8;
@@ -110,7 +110,7 @@ body {
   margin-left: 10px;
   height: 35%;
   width: 30%;
-  border-radius: 30px;
+  /* border-radius: 30px; */
   letter-spacing: 1px;
   font-size: 14px;
   cursor: pointer;
