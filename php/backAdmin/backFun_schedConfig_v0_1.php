@@ -23,6 +23,7 @@ $mail = new PHPMailer(TRUE);
       
       // Display the alert box  
       echo "<script>
+         window.location.href='../Admin_schedConfig.php';
          alert('$msg');
     </script>"; 
   } 
