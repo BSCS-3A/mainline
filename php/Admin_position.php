@@ -126,7 +126,7 @@ Need:
                     success:function(response){
                         console.log(response);
                         alert(response);
-                        window.location.href='Admin_position.php';
+                        reloadTable();
                     }
                 });
             });
