@@ -87,7 +87,7 @@ if (time() - $_SESSION['timestamp'] > $idletime) {
                     <li><a href="Admin_ElectRes.php">Vote Results</a></li>
                     <li><a href="Admin_Report.php">Election Report</a></li>
                     <li>
-                        <label for="btn-4" class="Ashow3">Configuration</label>
+                        <label for="btn-4" class="Ashow2">Configuration</label>
                         <a tabindex="0" class="isDisabled">Configuration</a>
                         <input type="checkbox" id="btn-4"> <!-- latest button toggle for 3rd ul-->
                         <ul>
