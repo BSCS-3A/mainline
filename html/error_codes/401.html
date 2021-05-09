@@ -11,14 +11,13 @@
 	</head>
 
 	<body>
-		<?php
-        echo '<main>
+		<main>
 			<div id="error-message-container" class="error-message-container">			
 				<div id="election-finished-msg" class="error-message">
 				<table style = "width:50%; margin-left: auto; margin-right: auto;">
 					<tr>
 						<th><img src = "../../img/BUHS LOGO.png"></th>
-						<th><h2>401</h2><h3>Authorization Required</h3><br><br></th>
+						<th><br><h2>401</h2><h3>Authorization Required</h3><br><br></th>
 					</tr>
 				</table>
 					
@@ -29,15 +28,14 @@
             		<button type="button" id="ok-button" class="OkBTN-error">OK</button>
           		</div>
           	</div>
-		</main>';
-        echo '<script>
+		</main>
+        <script>
         // Get Home button
         var home = document.getElementById("ok-button");
 
         home.onclick = function() {
             location.href = "../../index.php";
         }
-        </script>';
-		?>
+        </script>
 	</body>
 </html>
