@@ -18,11 +18,6 @@
 <?php 
     include "db_conn.php";
     session_start();
-    if(isset($_SESSION['message']) && isset($_GET['id'])){
-        unset($_SESSION['message']);
-        unset($_SESSION['msg_typ']);
-        header("location:Admin_candidate.php"); 
-    } 
     if (isset($_SESSION['admin_id']) && isset($_SESSION['username'])){
         $idletime=900;//after 15 minutes the user gets logged out
 
@@ -147,7 +142,7 @@
                 method:'post',
                 data:{delete:temp,candidateid:candid},
                 success:function(response){
-                    
+                    console.log(response);
                   if(response !=""){
                       alert(response);
                   }else{
@@ -595,6 +590,9 @@
                   [ 10, 25, 50, "All"],
                   //"ordering": false          
                 ],
+                 //search function
+                 "searching":true,
+
                 'columnDefs': [ {
                     'targets': [0,6,7], 
                     'orderable': false,

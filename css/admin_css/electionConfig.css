@@ -101,7 +101,7 @@ input, label {
 }
 
 textarea {
-    /* resize: none; */
+    resize: none;
     width: 100%;
     
   }

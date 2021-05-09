@@ -23,7 +23,7 @@
             <td>".$row['credentials']."</td>
             <td style='white-space: nowrap;'>
                 <button class='btn btn-primary btn-xs' data-title='Edit' data-target='#edit' data-placement='top' data-toggle='modal' title='Edit' onclick='candidateDisplay(this)'><span class='fa fa-edit'></span> EDIT</button>
-                <button class='btn btn-danger btn-xs' data-title='Delete' data-target='#delete' data-placement='top' data-toggle=modal title='Delete' onclick='candidateDelete(this)'><span class='fa fa-trash-alt'></span>DELETE</button>
+                <button class='btn btn-danger btn-xs' data-title='Delete' data-target='#delete' data-placement='top' data-toggle=modal title='Delete' onclick='candidateDelete(this)'><span class='fa fa-trash-alt'></span> DELETE</button>
             </td>
         </tr>";
       }
