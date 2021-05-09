@@ -92,11 +92,13 @@ document.addEventListener('contextmenu', function(e) { //for right clicks
 // });
 
 $(document).keydown(function(e){ // for keystrokes
-   if ((e.ctrlKey || e.shiftKey) && (e.keyCode <= 123 && e.keyCode >= 112) ||
+   if (
+      (e.ctrlKey && e.shiftKey) ||
       (e.keyCode <= 123 && e.keyCode >= 112 && e.keyCode != 116) || 
-      (e.ctrlKey || (e.keyCode <= 89 && e.keyCode >= 66 && e.keyCode != 88 && e.keyCode != 67 && e.keyCode != 86))
       ((e.ctrlKey && e.shiftKey) && (e.keyCode <= 90 && e.keyCode >= 65)) ||
-      (e.ctrlKey && e.shiftKey))
+      ((e.ctrlKey || e.shiftKey) && (e.keyCode <= 123 && e.keyCode >= 112)) ||
+      (e.ctrlKey && (e.keyCode <= 89 && e.keyCode >= 66 && e.keyCode != 88 && e.keyCode != 67 && e.keyCode != 86))
+      )
       {
       // window.location.href = url;
       e.preventDefault();
