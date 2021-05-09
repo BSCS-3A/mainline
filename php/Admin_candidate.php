@@ -52,6 +52,7 @@
     <!-- <script src="assets/js/a076d05399.js"></script> -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="../js/jQuery.dataTables.min_Pos.js"></script>
+    <!-- <script src="../js/jquery.dataTables.min_studAcc.js"></script> -->
     <script src="../js/bootstrap.min_Pos.js"></script> 
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css" crossorigin="anonymous">
     <link href="https://unpkg.com/cropperjs/dist/cropper.css" rel="stylesheet"/>
@@ -591,7 +592,7 @@
                   //"ordering": false          
                 ],
                  //search function
-                 "searching":true,
+                 'searching':true,
 
                 'columnDefs': [ {
                     'targets': [0,6,7], 
@@ -602,6 +603,7 @@
         }
       });
     }
+    
   function candidateDisplay(ctl){
       editRow = $(ctl).parents("tr");
       var cols = editRow.children("td");
