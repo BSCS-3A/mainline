@@ -590,6 +590,7 @@
                   [ 10, 25, 50, "All"],
                   //"ordering": false          
                 ],
+                'searching':true,
                 'columnDefs': [ {
                     'targets': [0,6,7], 
                     'orderable': false,
