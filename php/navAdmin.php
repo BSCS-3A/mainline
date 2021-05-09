@@ -18,14 +18,14 @@ SOLVED ^^ font-awesome_addAdmin may kasalanan lol, + dataTables.bootstrap
 <!-- Navigation Bar, Footer-->
 
 <?php
-    date_default_timezone_set('Asia/Manila');
-    include('db_conn.php');
-    $idletime=60*60;//after 1 hr the user gets logged out
-if (time()-$_SESSION['timestamp']>$idletime){
+date_default_timezone_set('Asia/Manila');
+include('db_conn.php');
+$idletime = 60 * 60; //after 1 hr the user gets logged out
+if (time() - $_SESSION['timestamp'] > $idletime) {
     //$_GET['inactivityError'] = "Session ended: You are logged out due to inactivity.";
     header("Location: AdminLogout.php?error=timeout");
-}else{
-    $_SESSION['timestamp']=time();
+} else {
+    $_SESSION['timestamp'] = time();
 }
 ?>
 
@@ -35,7 +35,7 @@ if (time()-$_SESSION['timestamp']>$idletime){
 <head>
     <!-- CSS AND JAVASCRIPT LINK -->
     <!-- BASED ON ADMIN DASHBOARD -->
-  
+
 
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
@@ -44,7 +44,7 @@ if (time()-$_SESSION['timestamp']>$idletime){
     <link rel="stylesheet" type="text/css" href="../css/admin_css/style_adminNav.css">
     <!-- <link rel="stylesheet" href="../css/admin_css/bootstrap4.5.2_AdminDash.css"> -->
     <!-- <link rel="stylesheet" href="../css/admin_css/font-awesome_AdminDash.css"> -->
-    
+
     <!-- <link rel="stylesheet" type="text/css" href="../css/admin_css/style1_addAdmin.css"> -->
     <!-- <link rel="stylesheet" href="../css/admin_css/bootstrap_addAdmin.css"> -->
     <link rel="stylesheet" href="../css/admin_css/bootstrap_navAdmin.css">
@@ -52,7 +52,7 @@ if (time()-$_SESSION['timestamp']>$idletime){
     <script type="text/javascript" src="../js/admin_session_timer.js"></script>
     <!-- <link rel="stylesheet" href="../css/admin_css/dataTables.bootstrap_addAdmin.css"> -->
     <!-- <link rel="stylesheet" href="../css/admin_css/font-awesome_addAdmin.css">  -->
-  
+
 </head>
 
 <body>
@@ -70,7 +70,7 @@ if (time()-$_SESSION['timestamp']>$idletime){
         <ul>
             <li>
                 <label for="btn-1" class="Ashow">ACCOUNTS</label>
-                <a href="#">ACCOUNTS</a>
+                <a tabindex="0" class="isDisabled">ACCOUNTS</a>
                 <input class="nav-toggle3" type="checkbox" id="btn-1">
                 <ul>
                     <li><a href="Admin_studAcc.php">Students</a></li>
@@ -79,7 +79,7 @@ if (time()-$_SESSION['timestamp']>$idletime){
             </li>
             <li>
                 <label for="btn-2" class="Ashow">ELECTION</label>
-                <a href="#">ELECTION</a>
+                <a tabindex="0" class="isDisabled">ELECTION</a>
                 <input class="nav-toggle4" type="checkbox" id="btn-2">
                 <ul>
                     <li><a href="Admin_ArcFolder.php">Archive</a></li>
@@ -91,7 +91,7 @@ if (time()-$_SESSION['timestamp']>$idletime){
                     </li>
                     <li>
                         <label for="btn-6" class="Ashow2">Configuration</label>
-                        <a href="#">Configuration</a>
+                        <a tabindex="0" class="isDisabled">Configuration</a>
                         <input class="nav-toggle7" type="checkbox" id="btn-6"> <!-- latest button toggle for 3rd ul-->
                         <ul>
                             <li><a href="Admin_schedConfig.php">Scheduler</a></li>
@@ -102,7 +102,7 @@ if (time()-$_SESSION['timestamp']>$idletime){
             </li>
             <li>
                 <label for="btn-3" class="Ashow">CANDIDATES</label>
-                <a href="#">CANDIDATES</a>
+                <a tabindex="0" class="isDisabled">CANDIDATES</a>
                 <input class="nav-toggle6" type="checkbox" id="btn-3">
                 <ul>
                     <li><a href="Admin_candidate.php">Update Info</a></li>
@@ -111,7 +111,7 @@ if (time()-$_SESSION['timestamp']>$idletime){
             </li>
             <li>
                 <label for="btn-4" class="Ashow">LOGS</label>
-                <a href="#">LOGS</a>
+                <a tabindex="0" class="isDisabled">LOGS</a>
                 <input class="nav-toggle5" type="checkbox" id="btn-4">
                 <ul>
                     <li><a href="Admin_accessLogs.php">Access Log</a></li>
@@ -121,12 +121,12 @@ if (time()-$_SESSION['timestamp']>$idletime){
             </li>
             <li><a href="Admin_MBox.php">MESSAGES</a></li>
             <li>
-                <label for="btn-5" class="Ashow"><?php echo $_SESSION['admin_fname']." ".$_SESSION['admin_lname']; ?></label>
+                <label for="btn-5" class="Ashow"><?php echo $_SESSION['admin_fname'] . " " . $_SESSION['admin_lname']; ?></label>
                 <a class="user" href="#"><img class="user-profile" src="../img/<?php echo $_SESSION['photo']; ?>"></a>
                 <input class="nav-toggle6" type="checkbox" id="btn-5">
                 <ul>
-                    
-                    <li><a class="username" href="#"><?php echo $_SESSION['admin_fname']." ".$_SESSION['admin_lname']; ?></a></li>
+
+                    <li><a class="username" onclick="return false"><?php echo $_SESSION['admin_fname'] . " " . $_SESSION['admin_lname']; ?></a></li>
                     <li class="logout">
                         <span class="fa fa-sign-out"></span><a href="AdminLogout.php">LOGOUT</a></span>
                     </li>
@@ -139,14 +139,14 @@ if (time()-$_SESSION['timestamp']>$idletime){
     <!-- Error Message Modal content -->
     <div id="No-election-scheduled" class="F-modal-error">
         <div class="F-modal-content-error">
-          <div class="F-modal-header-error">
-          </div>
-          <div class="F-modal-body-error">
-            <p id = "F-modal-message-text">.</p>
-          </div>
-          <div class="F-modal-footer-error">
-            <button type="button" id="ok-button" class="F-OkBTN-error">OK</button>
-          </div>
+            <div class="F-modal-header-error">
+            </div>
+            <div class="F-modal-body-error">
+                <p id="F-modal-message-text">.</p>
+            </div>
+            <div class="F-modal-footer-error">
+                <button type="button" id="ok-button" class="F-OkBTN-error">OK</button>
+            </div>
         </div>
     </div>
 
