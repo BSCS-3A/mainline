@@ -85,11 +85,12 @@ include('db_conn.php');
         </div>     -->
         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <script type="text/javascript">
-
+	var notclose = false;
         // jQuery Document 
                 var rpt = "";
                 $('#usermsg').focus();
                 $("#submitmsg").click(function () {
+		    notclose = true;
                     var clientmsg = $("#usermsg").val();
                     var idin = "<?php echo $_GET['id']?>";
                     $.post("./backStudent/Student_post.php", { text: clientmsg,idup: idin });
@@ -148,7 +149,7 @@ include('db_conn.php');
                     success: function(data) {
                     }
                     });
-                    window.location = "Student_Mbox.php";
+                    window.location = "Student_studDash.php";
                 });
                 
                 
