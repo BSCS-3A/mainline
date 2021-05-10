@@ -139,12 +139,11 @@ include("db_conn.php");
         <div class="Bvcontainer">
             <div class="Bcard">
                 <div class="Bbox">
-                    <div class="progressbar" data-animate="false"><?php //ang gr7_percent sya yung gagamitin para sa bar, yung naga pakita kung ilang percent na
-                                                                    ?>
-                        <div class="circle" data-percent=<?php echo '' . $gr7_percent . ''; ?>>
+                    <div class="progressbar" data-animate="false" > <?php //ang gr7_percent sya yung gagamitin para sa bar, yung naga pakita kung ilang percent na ?>
+                       <div class="circle" data-percent=<?php echo '' . $gr7_percent . ''; ?>>
                             <div></div>
-
                         </div>
+                       
                     </div>
 
                      <br><a href='Admin_Vstat.php?level=7'><b> GRADE 7</b></a>

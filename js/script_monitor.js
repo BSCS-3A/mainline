@@ -12,7 +12,7 @@ $(document).ready(function ($) {
 						startAngle: -Math.PI / 2,
 						value: percent / 100,
 						size: 180,
-						thickness: 30,
+						thickness: 25,
 						emptyFill: "rgba(0,0,0, .2)",
 						fill: {
 							color: '#ff9124'

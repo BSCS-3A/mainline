@@ -50,10 +50,7 @@ include('db_conn.php');
     ?>
     </div>
 
-    <!-- <div class="footer">
-        <p class="footer-txt">BS COMPUTER SCIENCE 3A © 2021</p>
-    </div> -->
-
+  
     <script>
         $('.icon').click(function () {
             $('span').toggleClass("cancel");
