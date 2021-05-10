@@ -81,9 +81,76 @@ img.logos {
   max-width: 700px;
 }
 
+/*countdown*/
+
+aside {
+  color: #333;
+  float: left;
+  text-align: center;
+  margin-right: 60px;
+  margin-left: 30px;
+  top: 80px;
+  padding-bottom: 50px;
+  position: relative;
+  max-width: 500px;
+  float: right;
+}
+
+#AD-CD-headline {
+  font-weight: normal;
+  letter-spacing: .125rem;
+  text-transform: uppercase;
+  font-size: 2.5em;
+  color: black;
+  margin-bottom: .8em;
+  font-family: 'Roboto-regular', sans-serif;
+}
+
+#AD-CD-contents {
+  /* max-width: 90%; */
+  border: 1px solid #ffc423;
+  border-width: 3px;
+  text-align: center;
+  padding: 0;
+}
+
+div li {
+  display: inline-block;
+  font-size: 1em;
+  list-style-type: none;
+  padding: 5%;
+  text-transform: uppercase;
+  color: rgb(255, 255, 255);
+}
+
+div li span {
+  display: block;
+  font-size: 2.5rem;
+}
+
+aside p.Aelec-guide-txt {
+  font-family: 'Roboto-regular', sans-serif;
+  text-align: justify;
+  font-size: 1em;
+  margin-top: 1em;
+  /* margin-bottom: 0; */
+}
+
+#ADaside-container {
+  min-height: 100%;
+  /* overflow: auto; */
+  padding-bottom: 50px;
+}
+
+nav img.user-profile {
+  margin-top: 0;
+  height: 40px;
+  width: 40px;
+}
+
 /* Responsive layout - makes the menu and the content (inside the section) sit on top of each other instead of next to each other */
 
-@media only screen and (device-width: 360px) and (device-height: 640px)  and (-webkit-device-pixel-ratio: 2) { /*galaxy fold similar to smartphones now*/
+@media only screen and (device-width: 360px) and (device-height: 640px)  and (-webkit-device-pixel-ratio: 2) { /*smartphones*/
   body, section, #ADaside-container, #ADcountdown, #AD-CD-contents {
     -webkit-flex-direction: column;
     flex-direction: column;
@@ -113,9 +180,12 @@ img.logos {
     display: block;
     font-size: auto;
   }
+  .Aelec-guide-txt{
+    margin-bottom: 60px;
+  }
 }
 
-@media (max-width: 640px) { /*landscape galaxy s5*/
+@media (device-width: 640px) {
   body, section, #ADaside-container, #ADcountdown, #AD-CD-contents {
     -webkit-flex-direction: column;
     flex-direction: column;
@@ -186,7 +256,7 @@ img.logos {
   }
 }
 
-@media only screen and (min-device-width: 768px) and (max-device-width: 1024px)  and (orientation: portrait) and (-webkit-min-device-pixel-ratio: 1) { /*ipad pro potrait*/
+@media only screen and (device-width: 768px) and (device-width: 1024px)  and (orientation: portrait) and (-webkit-min-device-pixel-ratio: 1) { /*ipad pro potrait*/
   body, section, #ADaside-container, #ADcountdown, #AD-CD-contents {
     -webkit-flex-direction: column;
     flex-direction: column;
@@ -207,73 +277,6 @@ img.logos {
     display: block;
     font-size: auto;
   }
-}
-
-/*countdown*/
-
-aside {
-  color: #333;
-  float: left;
-  text-align: center;
-  margin-right: 60px;
-  margin-left: 30px;
-  top: 80px;
-  padding-bottom: 50px;
-  position: relative;
-  max-width: 500px;
-  float: right;
-}
-
-#AD-CD-headline {
-  font-weight: normal;
-  letter-spacing: .125rem;
-  text-transform: uppercase;
-  font-size: 2.5em;
-  color: black;
-  margin-bottom: .8em;
-  font-family: 'Roboto-regular', sans-serif;
-}
-
-#AD-CD-contents {
-  /* max-width: 90%; */
-  border: 1px solid #ffc423;
-  border-width: 3px;
-  text-align: center;
-  padding: 0;
-}
-
-div li {
-  display: inline-block;
-  font-size: 1em;
-  list-style-type: none;
-  padding: 5%;
-  text-transform: uppercase;
-  color: rgb(255, 255, 255);
-}
-
-div li span {
-  display: block;
-  font-size: 2.5rem;
-}
-
-aside p.Aelec-guide-txt {
-  font-family: 'Roboto-regular', sans-serif;
-  text-align: justify;
-  font-size: 1em;
-  margin-top: 1em;
-  margin-bottom: 0;
-}
-
-#ADaside-container {
-  min-height: 100%;
-  /* overflow: auto; */
-  padding-bottom: 50px;
-}
-
-nav img.user-profile {
-  margin-top: 0;
-  height: 40px;
-  width: 40px;
 }
 
 /*Datatable*/
