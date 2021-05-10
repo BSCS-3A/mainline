@@ -150,6 +150,77 @@ nav img.user-profile {
 
 /* Responsive layout - makes the menu and the content (inside the section) sit on top of each other instead of next to each other */
 
+/* Smartphones (portrait and landscape) ----------- */
+@media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
+  body, section, #ADaside-container, #ADcountdown, #AD-CD-contents {
+    -webkit-flex-direction: column;
+    flex-direction: column;
+  }
+  section{
+    display: flex;
+    margin-left: 20px;
+    margin-top: 100px;
+    float: left;
+  }
+  article{
+    width: 100%;
+    flex-shrink: 2 !important;
+  }
+  .ADcountdown {
+    font-size: auto;
+  }
+  #ADaside-container{
+    float: left;
+    margin-left: 60px;
+    margin-top: -60px;
+    margin-bottom: 40px;
+    height: 100%;
+  }
+  #AD-CD-contents {
+    display: block;
+    font-size: auto;
+  }
+  .Aelec-guide-txt{
+    margin-bottom: 60px;
+  }
+}
+
+/* Smartphones (portrait) ----------- */
+@media only screen and (max-width : 320px) {
+  body, section, #ADaside-container, #ADcountdown, #AD-CD-contents {
+    -webkit-flex-direction: column;
+    flex-direction: column;
+  }
+  section{
+    display: flex;
+    margin-left: 20px;
+    margin-top: 100px;
+    float: left;
+  }
+  article{
+    width: 100%;
+    flex-shrink: 2 !important;
+  }
+  .ADcountdown {
+    font-size: auto;
+  }
+  #ADaside-container{
+    float: left;
+    margin-left: 60px;
+    margin-top: -60px;
+    margin-bottom: 40px;
+    height: 100%;
+  }
+  #AD-CD-contents {
+    display: block;
+    font-size: auto;
+  }
+    .Aelec-guide-txt{
+    margin-bottom: 60px;
+  }
+}
+  
+
 @media only screen and (device-width: 320px) and (device-height: 640px) and (orientation: portrait) and (-webkit-device-pixel-ratio: 2) { /*smartphones*/
   body, section, #ADaside-container, #ADcountdown, #AD-CD-contents {
     -webkit-flex-direction: column;
@@ -220,7 +291,7 @@ nav img.user-profile {
   }
 }
 
-@media (max-width: 640px) {
+@media (max-width: 640px) { /*for larger phones like iphone 6-8*/
   body, section, #ADaside-container, #ADcountdown, #AD-CD-contents {
     -webkit-flex-direction: column;
     flex-direction: column;
