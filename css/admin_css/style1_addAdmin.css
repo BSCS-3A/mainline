@@ -232,6 +232,15 @@ iframe {
     width: 25% !important;
     margin: 30px 15px 10px 0px!important;
   }
+  
+}
+
+@media only screen and (max-width: 600px) {
+  div.container {
+    margin: 0px 0px 0px 0px;
+    width: 100%;
+    height: fit-content;
+  }
 }
 
 .btn-button4 {
@@ -350,6 +359,14 @@ div.container {
   height: auto;
 }
 
+@media only screen and (max-width: 600px) {
+  div.container {
+    margin: 0px 0px 0px 0px;
+    width: 100%;
+    height: fit-content;
+  }
+}
+
 #datatable {
   width: 100%;
   border: 1px solid #124254;
@@ -456,11 +473,16 @@ nav img.user-profile {
   width: 40px;
 }
 
-.ccheader {
-  padding: 15px 0 3px 0;
-  color: #f1f1f1;
-  background-color: #124254;
+.cheader {
+  position: relative;
+  z-index: -1;
+  padding: 1px 1px;
+  font-size: 35px;
+  background: #124254;
+  color: #ffc423;
   width: 100%;
   text-align: center;
-  letter-spacing: 7px;
+  font-family: 'Roboto-regular', sans-serif;
+  letter-spacing: 6px;
+  text-transform: uppercase;
 }
