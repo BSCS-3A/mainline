@@ -44,7 +44,7 @@ $mail = new PHPMailer(TRUE);
    
          $mail->setFrom('buceilsovs.noreply@gmail.com', 'buceilsovs.noreply@gmail.com');
          $mail->addAddress($row['bumail']);
-         $mail->Subject = 'BUCEILS ELECTION SCHEDULE';
+         $mail->Subject = 'BUCEILS HS OVS - Reminders';
          $mail->Body = $message;
          
          /* SMTP parameters. */
