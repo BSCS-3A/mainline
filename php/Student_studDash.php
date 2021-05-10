@@ -27,7 +27,7 @@ include('db_conn.php');
 
     
     <!--Left Content-->
-    <section id="section-container">
+    <section>
         <article>
             <div class="Alogo-container">
         		<img class="Alogos" src="../img/BU-LOGO.png">
