@@ -29,7 +29,17 @@
                         $result_tunay = mysqli_query($conn,$sql_tunay);
                         //lagay logs
                         if($result_tunay){
-                            //logs
+                            $admin_id = $_SESSION['admin_id'];
+                            date_default_timezone_set('Asia/Manila');
+                            $time = date('H:i:s');
+                            $candidatename = $firstname.' '.$lastname;
+                            $select_positionname =  "SELECT `position_name` FROM `candidate_position` INNER JOIN `candidate` ON `candidate_position`.`position_id` = `candidate`.`position_id` WHERE `candidate_position`.`heirarchy_id` =  '$heirarchyId'";
+                            $positionname_query = mysqli_query($conn, $select_positionname);
+                            $get_positionname = mysqli_fetch_assoc($positionname_query);
+                            if($positionname_query){
+                                $positionname = $get_positionname['position_name'];
+                                mysqli_query($conn, "INSERT INTO admin_activity_log(activity_log_id,admin_id,activity_description,activity_date,activity_time) VALUES(NULL,'$admin_id','Added candidate: $candidatename to position: $positionname', CURRENT_TIMESTAMP,'$time')");
+                            }
                         }
                         else{
                             echo "Failed to insert student as a candidate(Query error)";
