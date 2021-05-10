@@ -93,7 +93,7 @@
                             $query = "SELECT * FROM admin";
                             $query_run = mysqli_query($conn, $query);
 
-                            while ($row = mysqli_fetch_array($query_run)) { #START OF FETCHING OF RECORDS FROM DATABASE
+                            while ($row = mysqli_fetch_array($query_run)) { #START FETCHING OF RECORDS FROM DATABASE
                             ?>
                                 <tr>
                                     <td></td>
@@ -110,7 +110,7 @@
                                         <?php if($_SESSION['admin_position'] == "Admin"){
                                         ?> disabled <?php 
                                         }?>>
-                                        <span class="glyphicon glyphicon-pencil"></span> EDIT</button>
+                                        <span class="fa fa-edit"></span> EDIT</button>
                                         <button class="btn btn-danger btn-xs deletebtn" data-title="Delete" data-toggle="modal" data-target="#delete"
                                         <?php if($_SESSION['admin_position'] == "Admin"){
                                         ?> disabled <?php
