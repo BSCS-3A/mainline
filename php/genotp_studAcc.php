@@ -34,6 +34,10 @@ if(isset($_POST["go"])){
                 $flag = 1;
             }
         }while($flag == 0);
+        
+        //For Logs
+        $_SESSION['action'] = "generated the students' OTP.";
+        include 'backFun_actLogs_v0_1.php';
     }
     header("location: Admin_studAcc.php");
 }
