@@ -128,13 +128,7 @@ if (time()-$_SESSION['timestamp']>$idletime){
         </div>
     </div>
     <!-- for modal script and disabling inspect element -->
-    <script src="../js/scripts_nav.js"></script>
-
-
-    <!--Footer-->
-    <!-- <footer>
-        BS COMPUTER SCIENCE 3A © 2021
-    </footer> -->
+    <!-- <script src="../js/scripts_nav.js"></script> -->
 
 
     <div class="footer">
