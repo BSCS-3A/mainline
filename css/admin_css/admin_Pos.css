@@ -1347,5 +1347,47 @@
     display:inline;
   }
 
-/*  
-}*/
+.inp_container{
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  width: 100%;
+}
+
+.inp_label{
+  position: absolute;
+  z-index: -1;
+  top: 10px;
+  left: 8px;
+  font-size: 13px;
+
+}
+
+.button-wrap{
+    position: relative;
+    margin-left: 22.5px;
+}
+
+label.button{
+  display: inline-block;
+  padding: 10px 15px;
+  cursor: pointer;
+  border-radius: 5px;
+  background-color: #18566e;
+  font-size: 16px;
+  font-weight: bold;
+  color: white;
+}
+
+.hide{
+  display:none !important;
+}
+
+input[type="file"] {
+  position: absolute;
+  z-index: -1;
+  top: 10px;
+  left: 8px;
+  font-size: 17px;
+  color: #b8b8b8;
+}
