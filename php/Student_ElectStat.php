@@ -25,17 +25,30 @@ include('db_conn.php');
 
 <body>
     <?php include 'navStudent.php'; ?>
-    
 
-    <?php if($vote_stat==1): ?>
-    <?php require '../html/ongoing.html';?>
-    <?php elseif($vote_stat==2): ?>
-    <?php require '../html/after_election.html';?>
-    <?php elseif($vote_stat==3): ?>
-    <?php require 'Student_ElectRes.php';?>
-    <?php else: ?>
-    <?php require '../html/no_election.html';?>
-    <?php endif; ?>
+    <div>
+    <?php
+        if(!(empty($row['vote_event_id']))){
+            
+            $after_election_date = date('Y-m-d H:i:s', strtotime($row['end_date']. ' + 2 days'));
+
+            if($current_date_time>$row['end_date'] && $postB==1){
+                require 'Student_ElectRes.php';
+            }else{
+                if($current_date_time>=$row['start_date'] && $current_date_time<$row['end_date']){
+                    require '../html/ongoing.html';
+                }elseif($current_date_time>=$row['end_date']&&$postB==0){
+                    require '../html/after_election.html';
+                }else{
+                    require '../html/no_election.html';
+                }
+                
+            }
+        }else{
+            require '../html/no_election.html';
+        }
+    ?>
+    </div>
 
     <!-- <div class="footer">
         <p class="footer-txt">BS COMPUTER SCIENCE 3A © 2021</p>

@@ -17,7 +17,7 @@ require './backMonitor/fetch_date.php';
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
   <meta charset="utf-8">
   <link rel="icon" href="../img/BUHS LOGO.png" type="image/png">
-    <link rel="stylesheet" type="text/css" href="../css/admin_css/style_monitor.css">
+    <link rel="stylesheet" type="text/css" href="../css/admin_css/style_monitor.css?v=<?php echo time(); ?>">
     <link rel="stylesheet" href="../css/admin_css/bootstrap4.5.2_monitor.css">
     <link rel="stylesheet" href="../css/admin_css/dataTables.bootstrap4.min_monitor.css">
     <link rel="stylesheet" href="../css/admin_css/font-awesome.css">
@@ -36,67 +36,96 @@ require './backMonitor/fetch_date.php';
 <body>
   <?php include 'navAdmin.php'; ?>
   
-  <div class="Belecstat">
-    <p><b>ELECTION RESULTS</b></p>
-  </div>
+  <?php
+    if(!empty($row['vote_event_id'])){
+    echo '<div class="Belecstat">';
+      echo '<p><b>ELECTION RESULTS</b></p>';
+    echo'</div>';
 
-  <div class="Belection_container">
+    echo '<div class="Belection_container" id="election_res">';
 
-    <?php
-    for ($i = 0; $i < $size; $i++) {
-      echo '<div class="Bposition1">';
-      echo '<h1><b>' . $candidate_positions[$i]['position_name'] . '</b></h1>';
-      foreach ($candidates as $candidate) {
-        if ($candidate['position'] == $candidate_positions[$i]['position_name']) {
-          if ($position_votes[$i]['votes_per_position'] != 0) {
-            $percentage = round(($candidate['total_votes'] / $position_votes[$i]['votes_per_position']) * 100);
-          } else {
-            $percentage = 0;
-          }
-          if($current_date_time > $row['end_date']){
-            if(!(empty($candidate['middle_name']))){  // check if middle name exists or not for printing
-              echo '<div class ="Bcan"><b>'.$candidate['first_name'].' '.$candidate['middle_name'][0].'. '.$candidate['last_name'].'</b></div>';
+      for ($i = 0; $i < $size; $i++) {
+        echo '<div class="Bposition1">';
+        echo '<h1><b>' . $candidate_positions[$i]['position_name'] . '</b></h1>';
+        foreach ($candidates as $candidate) {
+          if ($candidate['position'] == $candidate_positions[$i]['position_name']) { 
+            if ($position_votes[$i]['votes_per_position'] != 0) {
+              $percentage = round(($candidate['total_votes'] / $position_votes[$i]['votes_per_position']) * 100);
             } else {
-              echo '<div class ="Bcan"><b>'.$candidate['first_name'].' '.$candidate['last_name'].'</b></div>';
+              $percentage = 0;
             }
-            echo '<div class ="Bparty"><b>'.$candidate['party_name'].'</b></div>';
-            echo '<div class="Bbar1">';
-            echo '<img class="Banon" src="'.$candidate['photo'].'" width="45px" height="45px">';
-            echo '<div class="Bvote_percentage">';
-            echo '<div class="Bvote_level" style="width:' . $percentage . '%">';
-            echo '<b><span>'.$candidate['total_votes'].'</span></b>';
-            echo '</div>';
-            echo '</div>';
-            echo '</div>';
-          }else {
-          echo '<div class ="Bcan"><b>Candidate Name</b></div>';
-          echo '<div class ="Bparty"><b>Party</b></div>';
-          echo '<div class="Bbar1">';
-          echo '<img class="Banon" src="../img/anon.png" width="45px" height="45px">';
-          echo '<div class="Bvote_percentage">';
-          echo '<div class="Bvote_level" style="width:'.$percentage.'%">';
-          echo '<b><span>'.$percentage.'%</span></b>';
-          echo '</div>';
-          echo '</div>';
-          echo '</div>';
+            
+            if(($current_date_time > $row['end_date'])){
+              if(empty($candidate['middle_name'])){
+                echo '<div class ="Bcan"><b>'.$candidate['first_name'].' '.$candidate['last_name'].'</b></div>';
+              }else{
+                echo '<div class ="Bcan"><b>'.$candidate['first_name'].' '.$candidate['middle_name'][0].'. '.$candidate['last_name'].'</b></div>';
+              }
+              echo '<div class ="Bparty"><b>'.$candidate['party_name'].'</b></div>';
+              echo '<div class="Bbar1">';
+              echo '<img class="Banon" src="'.$candidate['photo'].'" width="45px" height="45px">';
+              echo '<div class="Bvote_percentage">';
+              echo '<div class="Bvote_level" style="width:' . $percentage . '%">';
+              echo '<b><span>'.$candidate['total_votes'].'</span></b>';
+              echo '</div>';
+              echo '</div>';
+              echo '</div>';
+            }else {
+              echo '<div class ="Bcan"><b>Candidate Name</b></div>';
+              echo '<div class ="Bparty"><b>Party</b></div>';
+              echo '<div class="Bbar1">';
+              echo '<img class="Banon" src="../img/anon.png" width="45px" height="45px">';
+              echo '<div class="Bvote_percentage">';
+              echo '<div class="Bvote_level" style="width:'.$percentage.'%">';
+              echo '<b><span>'.$percentage.'%</span></b>';
+              echo '</div>';
+              echo '</div>';
+              echo '</div>';
+            }
           }
         }
+        echo '</div>';
       }
-      echo '</div>';
+    echo '</div>';
+    echo '<form action="Admin_ElectRes.php" method="post" target="_self">';
+    echo '<div class="Bbtn_post">';
+    echo "<button onclick='return confirm('Are you sure?')' type='submit' id='post_button' name='post_button' class='Bbtn_postresults scs-responsive'><b>POST RESULT</b></button>";
+    echo '</div>';
+
+    echo '<div class="Bbtn_reset">';
+    echo "<button onclick='return confirm('Are you sure?')' type='submit' id='reset_button' name='reset_button' class='Bbtn_resetresults scs-responsive'><b>RESET ELECTION</b></button>";
+    echo '</div>';
+    echo '</form>';
+    }else{
+      require '../html/admin_no_election.html';
     }
-    ?>
-  </div>
+  ?>
 
+  
 
-  <div class="Bbtn_post">
-    <button type="submit" id="post_button" name="post_button" class="Bbtn_postresults scs-responsive"><b>POST RESULT</b></button>
-  </div>>
+  <?php
+    if(isset($_POST['post_button'])){
+      $file = fopen("../other/post_result.txt", "w") or die("Unable to open file!");
+      
+      $flag_post = 1;
 
-  <div class="Bbtn_reset">
-    <button onclick="" name='button2' class="Bbtn_resetresults scs-responsive"><b>RESET ELECTION</b></button>
-  </div>
+      fwrite($file, $flag_post);
+    
+      fclose($file);
+    }
 
+    if(isset($_POST['reset_button'])){
+      $truncate_record = mysqli_query($conn, 'TRUNCATE TABLE vote_event');
 
+      $file = fopen("../other/post_result.txt", "w") or die("Unable to open file!");
+
+      $flag_post = 0;
+
+      fwrite($file, $flag_post);
+
+      fclose($file);
+    }
+  ?>
 
   <br>
   <br>
@@ -105,26 +134,16 @@ require './backMonitor/fetch_date.php';
   <br>
 
 
-  <!-- <div class="footer">
+  <div class="footer">
     <p class="footer-txt">BS COMPUTER SCIENCE 3A © 2021</p>
-  </div> -->
+  </div>
 
   <script>
-    $(document).ready(function() {
-      $("#post_button").click(function() {
-        var temp = 1;
-        $.ajax({
-          url: "./backMonitor/fetch_date.php",
-          data: {
-            post_button: temp
-          },
-          success: function(response) {
-            console.log(response);
-          }
-        });
-      });
-    });
+    // $(document).ready(function() {
+    //   let autorefresh = setInterval(function() {
 
+    //   }, 1000);
+    // }); 
     $('.ADicon').click(function() {
       $('span').toggleClass("cancel");
     });
