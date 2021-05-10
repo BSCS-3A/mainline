@@ -40,10 +40,16 @@ div.dataTables_paginate ul.pagination {
     white-space: nowrap;
 }
 
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 600px) {
     div.dataTables_length, div.dataTables_filter, div.dataTables_info, div.dataTables_paginate {
         text-align: center;
     }
+    div.dataTables_length label{
+        float: left;
+    }
+    .dataTables_filter {
+        float: left;
+     }
 }
 
 table.dataTable td, table.dataTable th {
