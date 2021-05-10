@@ -354,7 +354,7 @@ div.container {
   background: rgba(255, 255, 255, 0.7);
   margin-top: 3%;
   margin-bottom: 3%;
-  border: 2px solid #124254;
+  /*border: 2px solid #124254;*/
   width: 80%;
   height: auto;
 }

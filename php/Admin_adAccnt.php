@@ -70,7 +70,7 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="table-responsive">
-                    <table class="center" id="datatable" width="100%" cellspacing="0" cellpadding="2px">
+                    <table class="table table-hover" id="datatable" width="100%">
                         <thead>
                             <tr>
                                 <th class="text-center">NO.</th>
