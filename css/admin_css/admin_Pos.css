@@ -241,7 +241,7 @@
      width: 100%;
     }
     div.cropper-container.cropper-bg{
-    width:auto;
+    width:auto !important;
     }
 
     nav ul {
@@ -401,7 +401,7 @@
      width: 100%;
     }
     div.cropper-container.cropper-bg{
-    width:auto;
+    width:auto !important;
     }
 
   }
