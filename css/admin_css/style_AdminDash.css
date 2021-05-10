@@ -83,7 +83,7 @@ img.logos {
 
 /* Responsive layout - makes the menu and the content (inside the section) sit on top of each other instead of next to each other */
 
-@media (device-width: 280px) { /*landscape galaxy s5*/
+@media only screen and (device-width: 360px) and (device-height: 640px)  and (-webkit-device-pixel-ratio: 2) { /*galaxy fold similar to smartphones now*/
   body, section, #ADaside-container, #ADcountdown, #AD-CD-contents {
     -webkit-flex-direction: column;
     flex-direction: column;
@@ -103,9 +103,11 @@ img.logos {
   }
   #ADaside-container{
     float: left;
-    margin-left: 0;
-    margin-top: -50px;
+    margin-left: 60px;
+    margin-top: -60px;
+    margin-bottom: 40px;
     max-width: 240px;
+    height: 100%;
   }
   #AD-CD-contents {
     display: block;
