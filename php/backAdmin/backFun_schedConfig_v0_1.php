@@ -42,7 +42,7 @@ $mail = new PHPMailer(TRUE);
 
 	try {
    
-         $mail->setFrom('buceilsovs.noreply@gmail.com', 'BUCEILS');
+         $mail->setFrom('buceilsovs.noreply@gmail.com', 'buceilsovs.noreply@gmail.com');
          $mail->addAddress($row['bumail']);
          $mail->Subject = 'BUCEILS ELECTION SCHEDULE';
          $mail->Body = $message;
