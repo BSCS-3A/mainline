@@ -236,6 +236,14 @@
   } */
 
   @media all and (max-width: 968px) {
+    .img-container{
+     overflow:hidden;
+     width: 100%;
+    }
+    div.cropper-container.cropper-bg{
+    width:auto;
+    }
+
     nav ul {
       margin-right: 0px;
       margin-left: 0px;
@@ -388,7 +396,13 @@
       display: block;
       font-size: auto;
     }
-  }
+    .img-container{
+     overflow:hidden;
+     width: 100%;
+    }
+    div.cropper-container.cropper-bg{
+    width:auto;
+    }
 
   }
 
@@ -1332,3 +1346,6 @@
   .dataTables_wrapper .dataTables_filter input{
     display:inline;
   }
+
+/*  
+}*/
