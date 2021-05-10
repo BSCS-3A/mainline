@@ -273,3 +273,7 @@ while($lastCandidate = mysqli_fetch_array($queryGroup)){
 ob_end_clean();
 $pdf->Output('Official Election Result.pdf', 'I'); 
 
+//For Logs
+$_SESSION['action'] = 'generated Election Report PDF.';
+include 'backFun_actLogs_v0_1.php';
+
