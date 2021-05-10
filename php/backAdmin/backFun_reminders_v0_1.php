@@ -16,7 +16,7 @@ $mail = new PHPMailer(TRUE);
 
      try {
 
-      $mail->setFrom('buceilsovs.noreply@gmail.com', 'BUCEILS');
+      $mail->setFrom('buceilsovs.noreply@gmail.com', 'buceilsovs.noreply@gmail.com');
       $mail->addAddress($row['bumail']);// pa edit na lang depende kung ano database na gamit
       $mail->Subject = 'BUCEILS HS OVS - Reminders';
       $mail->Body = 'Good day!
