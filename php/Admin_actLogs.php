@@ -11,7 +11,7 @@ include("db_conn.php");
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta charset="utf-8">
     <link rel="icon" href="../img/BUHS LOGO.png">
-    <link rel="stylesheet" type="text/css" href="../css/admin_css/style1_addAdmin.css">
+    <link rel="stylesheet" type="text/css" href="../css/admin_css/style2_actLogs.css">
     <link rel="stylesheet" href="../css/admin_css/bootstrap_addAdmin.css">
     <link rel="stylesheet" href="../css/admin_css/dataTables.bootstrap_addAdmin.css">
     <link rel="stylesheet" href="../css/admin_css/font-awesome.css">
