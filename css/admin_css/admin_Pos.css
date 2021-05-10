@@ -1328,3 +1328,7 @@
   .table-responsive::-webkit-scrollbar {
     display: none;
   }
+
+  .dataTables_wrapper .dataTables_filter input{
+    display:inline;
+  }
