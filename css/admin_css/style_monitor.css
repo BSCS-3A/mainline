@@ -3,12 +3,12 @@
 	padding: 0;
 	user-select: none;
 	box-sizing: border-box;
-	/* font-family: Roboto,Roboto Condensed,Generica, sans-serif; */
+
 	list-style: none;
 }
 
 body {
-	font-family: Roboto, Roboto Thin, Generica, sans-serif;
+	font-family: Roboto-regular, Roboto Thin, genericaregular, sans-serif;
 	background-image: url("../../img/adminBG.png");
 	background-size: cover;
 	font-size: 100%;
@@ -33,7 +33,7 @@ nav:after {
 
 h2.aLogo-txt1 {
 	margin-top: 3px;
-	font-family: Roboto Regular, sans-serif;
+	font-family: Roboto-regular, sans-serif;
 	font-weight: inherit;
 	font-size: 100%;
 	margin-bottom: 0px;
@@ -54,7 +54,7 @@ h3.aLogo-txt2 {
 	font-size: 120%;
 	margin-bottom: 0px;
 	letter-spacing: 6px;
-	font-family: Generica regular, sans-serif;
+	font-family: genericaregular, sans-serif;
 }
 
 h3.aLogo-txt2 a {
@@ -83,13 +83,10 @@ nav ul {
 
 nav ul li {
 	/*Accounts, Election, Candidates, etc*/
-	/* float: left; */
 	display: inline-block;
 	height: 80px;
-	/*80px ang dati*/
 	background: #1d6986;
 	text-align: center;
-	/* margin: 0 5px; */
 	width: 150px;
 }
 
@@ -333,7 +330,7 @@ section {
 }
 
 article p {
-	font-family: Roboto regular, sans-serif;
+	font-family: Roboto-regular, sans-serif;
 	color: white;
 	font-weight: inherit;
 	font-size: 20px;
@@ -447,7 +444,7 @@ div li span {
 }
 
 aside p.Aelec-guide-txt {
-	font-family: Roboto Regular, sans-serif;
+	font-family: Roboto-regular, sans-serif;
 	text-align: justify;
 	font-size: 1em;
 	margin-top: 1em;
@@ -477,7 +474,7 @@ div p.footer-txt {
 	position: relative;
 	margin-top: auto;
 	margin-bottom: auto;
-	font-family: Roboto Regular, sans-serif;
+	font-family: Roboto-regular, sans-serif;
 	letter-spacing: 7px;
 	font-size: 10px;
 	color: #ffffff;
@@ -529,7 +526,7 @@ th {
 	background-color: #18566e;
 	text-align: center;
 	font-size: 0.8rem;
-	font-family: Roboto regular, sans-serif;
+	font-family: Roboto-regular, sans-serif;
 	text-transform: uppercase;
 	letter-spacing: 2px;
 	border: 1px solid #124254 !important;
@@ -552,7 +549,7 @@ td {
 	color: #ffffff;
 	width: 100%;
 	text-align: center;
-	font-family: Roboto Regular, sans-serif;
+	font-family: Roboto-regular, sans-serif;
 	letter-spacing: 6px;
 }
 
@@ -632,7 +629,7 @@ h2.aHeader-txt {
 .Bposition5 h1 {
 	color: rgb(0, 0, 0);
 	text-transform: uppercase;
-	font-family: Roboto regular;
+	font-family: Roboto-regular;
 	font-size: 100%;
 	position: relative;
 	text-align: center;
@@ -647,7 +644,7 @@ h2.aHeader-txt {
 .Bposition11 h1 {
 	color: rgb(0, 0, 0);
 	text-transform: uppercase;
-	font-family: Roboto regular;
+	font-family: Roboto-regular;
 	font-size: 200%;
 	position: relative;
 	text-align: center;
@@ -753,7 +750,7 @@ h2.aHeader-txt {
 }
 
 .Bvotestat p {
-	font-family: Roboto black;
+	font-family: Roboto-regular;
 	color: #ffc423;
 	font-weight: inherit;
 	font-size: 300%;
@@ -770,9 +767,9 @@ h2.aHeader-txt {
 	justify-content: space-around;
 	display: grid;
 	grid-column-gap: 100px;
-	grid-row-gap: 2%;
+	grid-row-gap: 10%;
 	grid-template-columns: repeat(auto-fit, minmax(100px, 4fr));
-	grid-template-rows: repeat(1, 300px);
+	grid-template-rows: repeat(1, 100px);
 	margin-top: 4%;
 	z-index: -1000;
 }
@@ -833,7 +830,7 @@ h2.aHeader-txt {
 }
 
 .Bvs_gradelevel p {
-	font-family: Roboto black;
+	font-family: Roboto-regular;
 	font-size: 20px;
 	position: relative;
 	letter-spacing: 3px;
@@ -966,8 +963,7 @@ svg1 {
 /*Election Archives List*/
 
 .Barch_year {
-	font-family: Roboto black;
-	/* color: #1d6986; */
+	font-family: Roboto;
 	color: #030f15;
 	font-weight: inherit;
 	font-size: 1.5vw;
@@ -1051,7 +1047,6 @@ svg1 {
 
 .Bpstn .Bplat2 {
 	color: #ffb700;
-	/* font-weight: bold; */
 	font-size: 85%;
 	margin-top: -5px;
 }
@@ -1059,7 +1054,7 @@ svg1 {
 /* Election Results Report */
 
 .Breport p {
-	font-family: Roboto black;
+	font-family: Roboto-regular;
 	color: #ffc423;
 	font-weight: inherit;
 	font-size: 45px;
@@ -1072,7 +1067,7 @@ svg1 {
 
 /*No On-going Election*/
 .Belec2 p {
-	font-family: Roboto regular;
+	font-family: Roboto-regular;
 	color: white;
 	font-weight: inherit;
 	font-size: 300%;
@@ -1081,7 +1076,7 @@ svg1 {
 	margin-top: 190px;
 }
 .Bon2 h1 {
-	font-family: Roboto regular;
+	font-family: Roboto-regular;
 	color: #e0a900;
 	font-weight: inherit;
 	font-size: 500%;

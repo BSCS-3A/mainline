@@ -3,12 +3,11 @@
   padding: 0;
   user-select: none;
   box-sizing: border-box;
-  /* font-family: Roboto,Roboto Condensed,Generica, sans-serif; */
   list-style: none;
 }
 
 body {
-  font-family: Roboto, Roboto Thin, Generica, sans-serif;
+  font-family: Roboto-regular, Roboto Thin, genericaregular, sans-serif;
   background-image: url("../../img/studentBG.png");
   background-size: cover;
   font-size: 100%;
@@ -30,7 +29,7 @@ nav:after {
 }
 
 nav h2 {
-  font-family: Roboto Regular, sans-serif;
+  font-family: Roboto-regular, sans-serif;
   font-weight: inherit;
   font-size: 140%;
   margin-bottom: 0px;
@@ -46,7 +45,7 @@ nav h3 {
   font-size: 170%;
   margin-bottom: 0px;
   letter-spacing: 6px;
-  font-family: Generica regular, sans-serif;
+  font-family: genericaregular, sans-serif;
 }
 
 nav .logo {
@@ -61,7 +60,6 @@ nav ul {
   float: right;
   padding: 0;
   height: 80px;
-  /* margin-right: 40px; */
   margin-bottom: 0;
   list-style: none;
   position: relative;
@@ -75,7 +73,6 @@ nav ul li {
   height: 80px;
   background: #f8f8f8;
   text-align: center;
-  /* margin: 0 5px; */
   width: 150px;
 }
 
@@ -86,7 +83,7 @@ nav ul li a {
   font-size: 1.6em;
   padding: 8px 15px;
   letter-spacing: 1px;
-  font-family: Roboto Light, sans-serif;
+  font-family: Roboto-regular, sans-serif;
 }
 
 nav ul li a:visited {
@@ -1048,7 +1045,7 @@ div p.elec-guide-txt {
 /* Election Archives Folder*/
 
 .Barch p {
-  font-family: Roboto black;
+  font-family: Roboto-regular;
   color: #142d4f;
   font-weight: inherit;
   font-size: 500%;
@@ -1120,14 +1117,13 @@ svg {
 /*Election Archives List*/
 
 .Barch_year {
-  font-family: Roboto black;
+  font-family: Roboto-regular;
   color: #ffb700;
   font-weight: inherit;
   font-size: 1.5vw;
   position: relative;
   letter-spacing: 1px;
   text-align: center;
-  font-style: italic;
   margin-top: -10px;
 }
 

@@ -3,12 +3,11 @@
   padding: 0;
   user-select: none;
   box-sizing: border-box;
-  /* font-family: Roboto,Roboto Condensed,Generica, sans-serif; */
   list-style: none;
 }
 
 body {
-  font-family: Roboto, Roboto Thin, Generica, sans-serif;
+  font-family: Roboto-regular, Roboto Thin, genericaregular, sans-serif;
   background-image: url("../../img/adminBG.png");
   background-size: cover;
   font-size: 100%;
@@ -289,8 +288,6 @@ nav ul ul ul li {
   }
 }
 
-/*ballesteros*/
-
 nav h4 {
   font-family: Roboto Regular, sans-serif;
   font-weight: inherit;
@@ -465,7 +462,7 @@ iframe {
 #datatable {
   width: 100%;
   border: 2px solid #124254;
-  font-family: Roboto regular, sans-serif;
+  font-family: Roboto-regular, sans-serif;
   border-collapse: collapse;
   table-layout: auto;
   margin: 0px;
@@ -506,7 +503,7 @@ td {
 }
 
 article p {
-  font-family: Roboto regular, sans-serif;
+  font-family: Roboto-regular, sans-serif;
   color: white;
   font-weight: inherit;
   font-size: 20px;
@@ -515,7 +512,7 @@ article p {
 }
 
 article h1 {
-  font-family: Generica regular, sans-serif;
+  font-family: genericaregular, sans-serif;
   color: #ffc423;
   font-weight: inherit;
   font-size: 55px;
