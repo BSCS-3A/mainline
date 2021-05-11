@@ -16,7 +16,7 @@ include('db_conn.php');
     <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
     <script type="text/javascript" src="../js/student_session_timer.js"></script>
-    <script src="../js/bootstrap.min_Pos.js"></script>
+    <!-- <script src="../js/bootstrap.min_Pos.js"></script> -->
     <!-- <script src="../js/countdown.js"></script> -->
     <title>Home | BUCEILS HS Online Voting System</title>
 </head>
@@ -46,7 +46,7 @@ include('db_conn.php');
     <aside id="aside-container">
         <h1 id="aheadline">ELECTION COUNTDOWN</h1>
         <div id="acountdown">
-            <ul>
+            <ul id="AD-CD-contents">
                 <li><span id="days">0</span>days</li>
                 <li><span id="hours">0</span>Hours</li>
                 <li><span id="minutes">0</span>Minutes</li>
@@ -110,42 +110,42 @@ var x = setInterval(function() {
 
   // If the count down is over, write some text 
   if (distance < 0) {
-   		let headlines = document.getElementById("headline");
-    		headlines.innerText = "Time before election ends";
-		
-   	//delete the data in vote_event table in database after election ends
-	$(document).ready(function(){
- 	var dend = "<?php echo $endate ?>"; 
-	// Set the date we're counting down to
- 	var cdEnd = new Date(dend).getTime();
+   let headlines = document.getElementById("aheadline");
+    headlines.innerText = "Time before \n election ends";
+   //delete the data in vote_event table in database after election ends
+$(document).ready(function(){
+ var dend = "<?php echo $endate ?>"; 
+// Set the date we're counting down to
+ var cdEnd = new Date(dend).getTime();
 
-	// Update the count down every 1 second
- 	var i = setInterval(function() {
+// Update the count down every 1 second
+ var i = setInterval(function() {
 
-  	// Get today's date and time
-  	var nowww = new Date().getTime();
+  // Get today's date and time
+  var nowww = new Date().getTime();
     
-  	// Find the distance between now and the count down date
+  // Find the distance between now and the count down date
 
-  	var distEnd = cdEnd - nowww;
-  	var d = Math.floor(distEnd / (1000 * 60 * 60 * 24));
-  	var h = Math.floor((distEnd % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-  	var m = Math.floor((distEnd % (1000 * 60 * 60)) / (1000 * 60));
-  	var s = Math.floor((distEnd % (1000 * 60)) / 1000);
+  var distEnd = cdEnd - nowww;
+  var d = Math.floor(distEnd / (1000 * 60 * 60 * 24));
+  var h = Math.floor((distEnd % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  var m = Math.floor((distEnd % (1000 * 60 * 60)) / (1000 * 60));
+  var s = Math.floor((distEnd % (1000 * 60)) / 1000);
 
-  	// Output the result in an element with id="demo"
+  // Output the result in an element with id="demo"
  
-  	document.getElementById("days").innerHTML = d;
-  	document.getElementById("hours").innerHTML = h;
-  	document.getElementById("minutes").innerHTML = m;
-  	document.getElementById("seconds").innerHTML =s;
+  document.getElementById("days").innerHTML = d;
+  document.getElementById("hours").innerHTML = h;
+  document.getElementById("minutes").innerHTML = m;
+  document.getElementById("seconds").innerHTML =s;
     
-  	// If the count down is over, write some text 
-  	if ( distEnd < 0) {
-               let headline = document.getElementById("headline"),
-                    countdown = document.getElementById("countdown");
+  // If the count down is over, write some text 
+  if (distEnd < 0) {
+               let headline = document.getElementById("aheadline"),
+                    countdown = document.getElementById("acountdown"),
+                    content = document.getElementById("AD-CD-contents");
       
-                headline.innerText = "The election period has ended!";
+                headline.innerText = "The election period \n has ended!";
                 countdown.style.display = "none";
    
                 clearInterval(i);

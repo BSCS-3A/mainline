@@ -1,12 +1,3 @@
-<!--
-    Proj Mngr notes:
-    fix responsiveness, especially with election countdown,
-    may certain width sizes kasi na di visible ang election countdown, parang in
-    between regular 16:9 and yung phone version somewhere dun nawawala ang election countdown
-    ,try nyo iPad view ata or iPad pro basta dun nawawala
--->
-
-
 <?php
 session_start();
 include('db_conn.php');
@@ -151,7 +142,7 @@ $(document).ready(function(){
   document.getElementById("seconds").innerHTML =s;
     
   // If the count down is over, write some text 
-  if ( distEnd < 0) {
+  if (distEnd < 0) {
                let headline = document.getElementById("AD-CD-headline"),
                     countdown = document.getElementById("ADcountdown"),
                     content = document.getElementById("AD-CD-contents");
@@ -170,44 +161,44 @@ $(document).ready(function(){
 
 },1000);
 
-//send remindes 1 hour before election ends
-$(document).ready(function(){
-var end = "<?php echo $endate ?>"; 
-// Set the date we're counting down to
-var countDownEnd = new Date(end).getTime();
+// //send remindes 1 hour before election ends
+// $(document).ready(function(){
+// var end = "<?php echo $endate ?>"; 
+// // Set the date we're counting down to
+// var countDownEnd = new Date(end).getTime();
 
-// Update the count down every 1 second
-var y = setInterval(function() {
+// // Update the count down every 1 second
+// var y = setInterval(function() {
 
-  // Get today's date and time
-  var noww = new Date().getTime();
+//   // Get today's date and time
+//   var noww = new Date().getTime();
     
-  // Find the distance between now and the count down date
+//   // Find the distance between now and the count down date
 
-  var distanceEnd = countDownEnd - noww;
+//   var distanceEnd = countDownEnd - noww;
     
-  // Time calculations for days, hours, minutes and seconds
-//time ends
-  var daysEnd = Math.floor(distanceEnd / (1000 * 60 * 60 * 24));
-  var hoursEnd = Math.floor((distanceEnd % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)) - 1;
-  var minutesEnd = Math.floor((distanceEnd % (1000 * 60 * 60)) / (1000 * 60));
-  var secondsEnd = Math.floor((distanceEnd % (1000 * 60)) / 1000);
+//   // Time calculations for days, hours, minutes and seconds
+// //time ends
+//   var daysEnd = Math.floor(distanceEnd / (1000 * 60 * 60 * 24));
+//   var hoursEnd = Math.floor((distanceEnd % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)) - 1;
+//   var minutesEnd = Math.floor((distanceEnd % (1000 * 60 * 60)) / (1000 * 60));
+//   var secondsEnd = Math.floor((distanceEnd % (1000 * 60)) / 1000);
 
     
-  // If the count down is over, write some text 
-  if (hoursEnd < 0) {
+//   // If the count down is over, write some text 
+//   if (hoursEnd < 0) {
                
-                $.post("./backAdmin/backFun_reminders_v0_1.php",
-                function(data,status){
-                  //alert("Message sent with status" + status);
-                  //location.reload(true);
+//                 $.post("./backAdmin/backFun_reminders_v0_1.php",
+//                 function(data,status){
+//                   //alert("Message sent with status" + status);
+//                   //location.reload(true);
                   
-                });
-                clearInterval(y);
-        }
+//                 });
+//                 clearInterval(y);
+//         }
                 
-},1000);
-});
+// },1000);
+// });
 
 
     </script>
