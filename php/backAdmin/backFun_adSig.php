@@ -45,13 +45,13 @@ $position_query_run = mysqli_query($connection, $position_query);
                 echo"<script language='javascript'>
                 alert('Signatory Added');
                 
-                //For Logs
-                $_SESSION['action'] = 'added Signatory : ' . $siglname . ', '. $sigfname ;
-                include 'backFun_actLogs_v0_1.php';
-                
                 window.location.href = '../Admin_signConfig.php';
                 </script>
                 ";
+          
+                // session action for logs
+                $_SESSION['action'] = 'added Signatory : ' . $siglname . ', '. $sigfname ;
+                include 'backFun_actLogs_v0_1.php';
               }
             }
           }
