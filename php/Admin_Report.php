@@ -35,21 +35,6 @@ include("db_conn.php");
 
     <body>
         <?php
-            // require './backMonitor/db_connection.php';                     // Connect database
-            // if ($conn->connect_error)                               // Check connection
-            //     die("Connection failed: " . $conn->connect_error);
-            require 'db_conn.php';
-            require './backMonitor/fetch_date.php';                        // Fetches important datetime
-            require './backMonitor/student_count.php';                     // Counts student
-            require './backMonitor/fetch_report.php';                      // Contains necessary functions and query
-            include "navAdmin.php";                                 // Adds the navBar and footer
-        ?>
-
-        <div class="Breport">
-            <p><b>ELECTION RESULTS REPORT</b></p>
-        </div>
-
-        <?php
             // Count and store to Archive right after election
                 if($current_date_time>$last_election_date)//change to automatically compute after election
                 {
@@ -80,14 +65,8 @@ include("db_conn.php");
                         {
                             $queryString = "SELECT * FROM ((candidate INNER JOIN student ON candidate.student_id = student.student_id) INNER JOIN candidate_position ON candidate.position_id = candidate_position.position_id)".$tiedCandidates." ORDER BY candidate_position.heirarchy_id";
                             $tieTable = $conn->query($queryString);
-                            makeBallot($tieTable);
-                            require '../backMonitor/vtConfirm.php';
-                            echo '</div>';
-                            echo '<div id="vote-button"><button id="vote-btn" name = "vote-button" class="vote-btn" type = "button">SUBMIT</button></div>
-                            </form>';
-                            echo '</main>';
-                            echo '<br>
-                            <script src = "../js/modals.js"></script>';
+                            // require '../php/tieBreaker.php';
+                            require 'Admin_tieBreaker.php';
                             // after voting change to final
                         }else{ //ordinary admin
                             // display that election results is not yet final, call admin to finalize
