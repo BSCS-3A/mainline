@@ -19,7 +19,7 @@
 
 <body>
     <?php
-        require 'connect.php'; // Remove this when compiling
+        require 'db_conn.php'; // Remove this when compiling
         require 'Admin_vtValSan.php';
         require 'Admin_vtFetch.php';
         include './backMonitor/fetch_date.php';
