@@ -1,4 +1,6 @@
 <?php
+// MONITORING GROUP
+
 require 'db_conn.php';						// Link to database
 require './backMonitor/student_count.php';			// Link to queries
 require './backMonitor/fetch_date.php';				// Link to queries in date
@@ -95,17 +97,10 @@ ob_start();
 		$pdf->Cell(14.6,5,'11',1,0,'C',1);   
 		$pdf->Cell(14.7,5,'12',1,1,'C',1);
 
-//QUERY TO GET THE LAST CANDIDATE PER POSITION
-//$queryGroup=mysqli_query($conn, "SELECT max(student_id) as last FROM candidate group by position_id");
-//$lastCandidate= mysqli_fetch_array($queryGroup);
-//-------------
-
-
 $query=mysqli_query($conn, "SELECT candidate.candidate_id, candidate.student_id, candidate.position_id, candidate.total_votes, student.lname, student.fname, student.mname, candidate_position.heirarchy_id, candidate_position.position_name FROM candidate INNER JOIN student ON candidate.student_id = student.student_id INNER JOIN candidate_position ON candidate.position_id = candidate_position.heirarchy_id ORDER BY heirarchy_id"); 
 
 		$flag = 0;
 		$temp = 0;
-		// $row_flag = 0;
 		while($data=mysqli_fetch_array($query))
 		{ 	
 			if($temp==0 || $temp!=$data['heirarchy_id']){
@@ -170,10 +165,10 @@ $query=mysqli_query($conn, "SELECT candidate.candidate_id, candidate.student_id,
 				$pdf->Cell(14.7,5,$votesReceived[0],1,0,'C',$color);  		//column total grade 7 vote
 				$pdf->Cell(14.7,5,$votesReceived[1],1,0,'C',$color);   		//column total grade 8 vote
 				$pdf->Cell(14.7,5,$votesReceived[2],1,0,'C',$color);  		//column total grade 9 vote
-				$pdf->Cell(14.6,5,$votesReceived[3],1,0,'C',$color);			//column total grade 10 vote
+				$pdf->Cell(14.6,5,$votesReceived[3],1,0,'C',$color);		//column total grade 10 vote
 				$pdf->Cell(14.6,5,$votesReceived[4],1,0,'C',$color);   		//column total grade 11 vote
 				$pdf->Cell(14.7,5,$votesReceived[5],1,0,'C',$color);  		//column total grade 12 vote
-				$pdf->Cell(17,5,$votesReceivedTotal.$string,1,1,'C',$color); 		//ADDS EVERY COLUMN
+				$pdf->Cell(17,5,$votesReceivedTotal.$string,1,1,'C',$color);
 			
 				$sumGrade7+=$votesReceived[0];
 				$sumGrade8+=$votesReceived[1];
@@ -184,7 +179,6 @@ $query=mysqli_query($conn, "SELECT candidate.candidate_id, candidate.student_id,
 
 				$temp = $data['heirarchy_id'];
 
-//!!!! MINOR ERROR WITH ADDING OF ABSTAIN BUT WORKING
 //----------DISPLAYS ABSTAIN
 $queryGroup=mysqli_query($conn, "SELECT max(student_id) as last FROM candidate group by position_id");
 while($lastCandidate = mysqli_fetch_array($queryGroup)){
@@ -192,6 +186,7 @@ while($lastCandidate = mysqli_fetch_array($queryGroup)){
 			$pdf->SetFont('','',12);
 			$pdf->Cell(65,5, 'ABSTAIN',1,0,'L',0);					
 
+				//calculates number of abstained per grade level
 				$abstainedGrade7=$enrolled[0]-$sumGrade7;
 				$abstainedGrade8=$enrolled[1]-$sumGrade8;
 				$abstainedGrade9=$enrolled[2]-$sumGrade9;
@@ -199,21 +194,21 @@ while($lastCandidate = mysqli_fetch_array($queryGroup)){
 				$abstainedGrade11=$enrolled[4]-$sumGrade11;
 				$abstainedGrade12=$enrolled[5]-$sumGrade12;
 				
-				$pdf->Cell(14.7,5,$abstainedGrade7,1,0,'C',0);  					//column total grade 7 vote
-				$pdf->Cell(14.7,5,$abstainedGrade8 ,1,0,'C',0);   					//column total grade 8 vote
-				$pdf->Cell(14.7,5,$abstainedGrade9,1,0,'C',0);  					//column total grade 9 vote
-				$pdf->Cell(14.6,5,$abstainedGrade10,1,0,'C',0);						//column total grade 10 vote
-				$pdf->Cell(14.6,5,$abstainedGrade11,1,0,'C',0);   					//column total grade 11 vote
-				$pdf->Cell(14.7,5,$abstainedGrade12,1,0,'C',0);  					//column total grade 12 vote
+				//displays abstain
+				$pdf->Cell(14.7,5,$abstainedGrade7,1,0,'C',0);  			//column total grade 7 vote
+				$pdf->Cell(14.7,5,$abstainedGrade8 ,1,0,'C',0);   			//column total grade 8 vote
+				$pdf->Cell(14.7,5,$abstainedGrade9,1,0,'C',0);  			//column total grade 9 vote
+				$pdf->Cell(14.6,5,$abstainedGrade10,1,0,'C',0);				//column total grade 10 vote
+				$pdf->Cell(14.6,5,$abstainedGrade11,1,0,'C',0);   			//column total grade 11 vote
+				$pdf->Cell(14.7,5,$abstainedGrade12,1,0,'C',0);  			//column total grade 12 vote
 				$pdf->Cell(17,5,$abstainedGrade7+$abstainedGrade8+$abstainedGrade9+$abstainedGrade10+$abstainedGrade11+$abstainedGrade12,1,1,'C',0); 										
 		}//end if
-	}//end while
-		
+	}//end while	
 }//end while
 
 //----------DISPLAYS NUMBER OF ENROLLED STUDENTS 
 				$pdf->SetFont('','B',12);
-				$pdf->Cell(170,5,'' ,1,1,'C',0); 			//empty row spacer	
+				$pdf->Cell(170,5,'' ,1,1,'C',0); 				//empty row spacer	
 				$pdf->Cell(65,5,'Number of Enrolled Students:',1,0,'L',0);		
 		
 				$pdf->Cell(14.7,5,$enrolled[0],1,0,'C',0);     	//enrolled grade 7
@@ -221,7 +216,7 @@ while($lastCandidate = mysqli_fetch_array($queryGroup)){
 				$pdf->Cell(14.7,5,$enrolled[2],1,0,'C',0);   	//enrolled grade 9
 				$pdf->Cell(14.6,5,$enrolled[3],1,0,'C',0);   	//enrolled grade 10
 				$pdf->Cell(14.6,5,$enrolled[4],1,0,'C',0);   	//enrolled grade 11
-				$pdf->Cell(14.7,5,$enrolled[5],1,0,'C',0);  		//enrolled grade 12
+				$pdf->Cell(14.7,5,$enrolled[5],1,0,'C',0);  	//enrolled grade 12
 				$pdf->Cell(17,5,$enrolled[6],1,1,'C',0); 		//total enrolled	
 
 //----------DISPLAYS NUMBER OF VOTES RECEIVED 
@@ -240,40 +235,28 @@ while($lastCandidate = mysqli_fetch_array($queryGroup)){
 	$pdf->Ln(10); 
 	$pdf->SetFont('','',12);
 	$pdf->Multicell(170,2, 'In the event of a tie between candidates vying for the same position, an additional point, indicated by the plus one (+1) symbol beside the original vote count, was given to the candidate who won the toss coin. Leading candidate/s who failed to meet the minimum number of votes required to meet the electoral quota shall not be elected to the position he/she/they are running for. The newly elected candidates’ names are highlighted in the table.                                                             ',0,'J',0,1,'','',true); 
+
 // -------------------Display Signatory
-	$pdf->Ln(20); 
+	$pdf->Ln(10); 
 	$pdf->SetFont('','B',12);
 	$pdf->Cell(20,1,'Certified true and correct by:',0,0);
-	
+	$pdf->Ln(5);
 
-// !!! WAITING FOR SIGNATORY DETAILS
-	
-	//COMELEC Secretary
-	$pdf->Ln(20); 
-	$pdf->SetFont('','',12);
-	$pdf->Cell(20,5,'SURNAME, FIRST NAME M.',0,1);
-	$pdf->SetFont('','BI',12);
-	$pdf->Cell(20,1,'COMELEC Secretary',0,0);
-	
-	//COMELEC Chairman
-	$pdf->Ln(20); 
-	$pdf->SetFont('','',12);
-	$pdf->Cell(20,5,'SURNAME, FIRST NAME M.',0,1);
-	$pdf->SetFont('','BI',12);
-	$pdf->Cell(20,1,'COMELEC Chairman',0,0);
-	
-	//COMELEC Adviser
-	$pdf->Ln(20); 
-	$pdf->SetFont('','',12);
-	$pdf->Cell(20,5,'SURNAME, FIRST NAME M.',0,1);
-	$pdf->SetFont('','BI',12);
-	$pdf->Cell(20,1,'COMELEC Adviser',0,0);
+$fileJson = file_get_contents('../Signatory/php/sig_array.json');
+             $decoded = json_decode($fileJson, true);
+             $id = explode(",",$decoded);
+             $id = array_filter($id);
+             $in = '(' . implode(',', $id) .')';
+
+			$querySignatory=mysqli_query($conn, "SELECT * FROM admin WHERE admin_id IN". $in);
+			while ($resSignatory = mysqli_fetch_array($querySignatory)){ 
+				$pdf->Ln(15); 					//space between lines 
+				$pdf->SetFont('','',12);			//format
+                $pdf->Cell(20,5,strtoupper($resSignatory['admin_lname']).", ".strtoupper($resSignatory['admin_fname']),0,1);
+ 				$pdf->SetFont('','BI',12);			//format
+ 				$pdf->Cell(20,5,strtoupper($resSignatory['comelec_position']),0,1);
+            }
 
 // -------------------Output PDF
 ob_end_clean();
-$pdf->Output('Official Election Result.pdf', 'I'); 
-
-//For Logs
-$_SESSION['action'] = 'generated Election Report PDF.';
-include 'backFun_actLogs_v0_1.php';
-
+$pdf->Output('Official Election Result.pdf', 'I');
