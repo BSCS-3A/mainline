@@ -38,7 +38,7 @@
                             $get_positionname = mysqli_fetch_assoc($positionname_query);
                             if($positionname_query){
                                 $positionname = $get_positionname['position_name'];
-                                mysqli_query($conn, "INSERT INTO admin_activity_log(activity_log_id,admin_id,activity_description,activity_date,activity_time) VALUES(NULL,'$admin_id','Added candidate: $candidatename to position: $positionname', CURRENT_TIMESTAMP,'$time')");
+                                mysqli_query($conn, "INSERT INTO admin_activity_log(activity_log_id,admin_id,activity_description,activity_date,activity_time) VALUES(NULL,'$admin_id','Added candidate $candidatename to position $positionname', CURRENT_TIMESTAMP,'$time')");
                             }
                         }
                         else{
@@ -118,6 +118,17 @@
                 $updateresult = mysqli_query($conn,$updatesql);
                 if($updateresult){
                     //admin logs
+                    $admin_id = $_SESSION['admin_id'];
+                    date_default_timezone_set('Asia/Manila');
+                    $time = date('H:i:s');
+                    $candidatename = $firstname." ".$lastname;
+                    $edit_candidatelog = "SELECT `position_name` FROM `candidate_position` WHERE `heirarchy_id` ='$heirarchyid'";
+                    $edit_candidatelog_query = mysqli_query($conn, $edit_candidatelog);
+                    $row_edit_candidate = mysqli_fetch_assoc($edit_candidatelog_query);
+                    if($edit_candidatelog_query){
+                        $edited_position = $row_edit_candidate['position_name'];
+                        mysqli_query($conn, "INSERT INTO admin_activity_log(activity_log_id,admin_id,activity_description,activity_date,activity_time) VALUES(NULL,'$admin_id','Edited candidate $candidatename to position $edited_position', CURRENT_TIMESTAMP,'$time')");
+                    }
                 }else{
                     echo mysqli_error($conn);
                     echo  "Candidate not updated(query error)";
@@ -142,6 +153,17 @@
                     $updateresult = mysqli_query($conn,$updatesql);
                     if($updateresult){
                         //logs
+                        $admin_id = $_SESSION['admin_id'];
+                        date_default_timezone_set('Asia/Manila');
+                        $time = date('H:i:s');
+                        $candidatename = $firstname." ".$lastname;
+                        $edit_candidatelog = "SELECT `position_name` FROM `candidate_position` WHERE `heirarchy_id` ='$heirarchyid'";
+                        $edit_candidatelog_query = mysqli_query($conn, $edit_candidatelog);
+                        $row_edit_candidate = mysqli_fetch_assoc($edit_candidatelog_query);
+                        if($edit_candidatelog_query){
+                            $edited_position = $row_edit_candidate['position_name'];
+                            mysqli_query($conn, "INSERT INTO admin_activity_log(activity_log_id,admin_id,activity_description,activity_date,activity_time) VALUES(NULL,'$admin_id','Edited candidate $candidatename to position $edited_position', CURRENT_TIMESTAMP,'$time')");
+                        }
                     }else{
                         echo mysqli_error($conn);
                         echo  "Candidate not updated(query error)";
