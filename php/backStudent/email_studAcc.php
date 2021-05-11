@@ -1,9 +1,7 @@
 <?php
 
-
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
-
 
 //palitan na lang ang location kung nasan ang composer na folder
 require '../other/composer/vendor/autoload.php';
@@ -11,75 +9,40 @@ require '../other/composer/vendor/autoload.php';
 if(isset($_POST["sendEmail"])){
    
     $mail = new PHPMailer();
-    $mail->isSMTP();
-    $mail->Host = 'smtp.gmail.com';
-    $mail->SMTPAuth = true;
-    $mail->SMTPSecure = 'tls';
-    $mail->Port = '587';
-
-    $mail->Username = 'buceilshighschool@gmail.com';
-    $mail->Password = 'aacbysxikqgbrdfl';
-    
-    // // Host credentials
-    // $mail->Username = '';   //email
-    // $mail->Password = '';   //password
-
-    /* Disable some SSL checks. */
-    $mail->SMTPOptions = array(
-        'ssl' => array(
-        'verify_peer' => false,
-        'verify_peer_name' => false,
-        'allow_self_signed' => true
-        )
-    );
-
-    //palitan na lang ang mga message
-    $mail->SetFrom('BSCS3A@bu.com');
-    $mail->Subject = 'User Credentials';
-
+   
     while($row = mysqli_fetch_array($result)){
 
         try {
                 
-            // $mail->isSMTP();
-            // $mail->Host = 'smtp.gmail.com';
-            // $mail->SMTPAuth = true;
-            // $mail->SMTPSecure = 'tls';
-            // $mail->Port = '587';
+            $mail->isSMTP();
+            $mail->Host = 'smtp.gmail.com';
+            $mail->SMTPAuth = true;
+            $mail->SMTPSecure = 'tls';
+            $mail->Port = '587';
 
-            // reason why email works now
-            // $mail->Username = 'buceilshighschool@gmail.com';
-            // $mail->Password = 'aacbysxikqgbrdfl';
+           // Host email and password
+            $mail->Username = 'buceilsovs.noreply@gmail.com';
+            $mail->Password = 'mhsyjtryvxhkkfts';
             
-            // // // Host credentials
-            // // $mail->Username = '';   //email
-            // // $mail->Password = '';   //password
-        
-            // /* Disable some SSL checks. */
-            // $mail->SMTPOptions = array(
-            //     'ssl' => array(
-            //     'verify_peer' => false,
-            //     'verify_peer_name' => false,
-            //     'allow_self_signed' => true
-            //     )
-            // );
+            /* Disable some SSL checks. */
+            $mail->SMTPOptions = array(
+                'ssl' => array(
+                'verify_peer' => false,
+                'verify_peer_name' => false,
+                'allow_self_signed' => true
+                )
+            );
 
             $user_otp = $row['otp'];
             $user_email = $row['bumail'];
 
-            // //palitan na lang ang mga message
-            // $mail->SetFrom('BSCS3A@bu.com');
-            // $mail->Subject = 'User Credentials';
-
+            //palitan na lang ang mga message
+            $mail->SetFrom('BSCS3A@bu.com');
+            $mail->Subject = 'User Credentials';
             $mail->addAddress($user_email);
             $mail->Body = "Good day! Your one time password for the current election is $user_otp . Please do not disclose your login credentials. Thank you!";
-            
-            
-            /*-------------------------------*/
-            // $mail->Body = "Your one time password: $user_otp";
-            $mail->send();
+          
             $mail->ClearAllRecipients();
-
         }
             catch (Exception $e){
                 echo $e->errorMessage();
@@ -87,10 +50,8 @@ if(isset($_POST["sendEmail"])){
             catch (\Exception $e){
                 echo $e->getMessage();
             }
-            
-            
         }
-        // $mail->send();
+        $mail->send();
         header("location: Admin_studAcc.php");
 }
 ?>
