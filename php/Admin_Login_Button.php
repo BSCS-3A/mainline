@@ -40,7 +40,7 @@ if($_SESSION['incorrectTry']>=3){
 	 }
  //gets the input from the textbox in the StudentLogin.php
 	 $username = validate($conn, $_POST['username']);
-	 $pass = validate($conn, $_POST['password']); //hash here
+	 $pass = validate($conn, $_POST['password']); 
 
 	if (empty($username)) {
 		header("Location: AdminLogin.php?error=E-mail is required");
@@ -49,28 +49,35 @@ if($_SESSION['incorrectTry']>=3){
         header("Location: AdminLogin.php?error=Password is required");
 	    exit();
 	}else{
-		$sql = "SELECT * FROM admin WHERE username='$username' AND password='$pass'";
+		$sql = "SELECT * FROM `admin` WHERE `username`='$username'";
 
 		$result = mysqli_query($conn, $sql);
 //check if the inputs are correct if yes then go to the dashboard
 		if (mysqli_num_rows($result)===1) {
 			$row = mysqli_fetch_assoc($result);
-            if ($row['username'] === $username && $row['password'] === $pass) {
-            	$_SESSION['username'] = $row['username'];
-            	$_SESSION['admin_fname'] = $row['admin_fname'];
-				$_SESSION['admin_lname'] = $row['admin_lname'];
-            	$_SESSION['admin_id'] = $row['admin_id'];
-            	$_SESSION['photo'] = $row['photo'];
-		$_SESSION['admin_position'] = $row['admin_position'];  	//added for enabling/hiding some features for admin (04/04/2021, 2:36pm)
-            	$_SESSION['timestamp']=time(); //added for time session
-				$admin_id = $row['admin_id'];
-				date_default_timezone_set('Asia/Manila');
-				$date = date('Y-m-d');
-				$time = date('H:i:s');
-				mysqli_query($conn, "INSERT INTO admin_activity_log(admin_id,activity_description,activity_date,activity_time) VALUES('$admin_id','Login','$date','$time')");
-			    
-            	header("Location: Admin_adminDash.php");
-		        exit();
+            if ($row['username'] === $username) { //check hash
+				if(password_verify($pass, $row['password'])){
+					$_SESSION['username'] = $row['username'];
+					$_SESSION['admin_fname'] = $row['admin_fname'];
+					$_SESSION['admin_lname'] = $row['admin_lname'];
+					$_SESSION['admin_id'] = $row['admin_id'];
+					$_SESSION['photo'] = $row['photo'];
+					$_SESSION['admin_position'] = $row['admin_position'];  	//added for enabling/hiding some features for admin (04/04/2021, 2:36pm)
+					$_SESSION['timestamp']=time(); //added for time session
+					$admin_id = $row['admin_id'];
+					date_default_timezone_set('Asia/Manila');
+					$date = date('Y-m-d');
+					$time = date('H:i:s');
+					mysqli_query($conn, "INSERT INTO admin_activity_log(admin_id,activity_description,activity_date,activity_time) VALUES('$admin_id','Login','$date','$time')");
+					
+					header("Location: Admin_adminDash.php");
+					exit();
+				}
+				else{
+					header("Location: AdminLogin.php?error=Incorrect Username or Password");
+					$_SESSION['incorrectTry']++;
+		        	exit();
+				}
             }else{
 				header("Location: AdminLogin.php?error=Incorrect Username or Password");
 				 $_SESSION['incorrectTry']++;
@@ -93,7 +100,7 @@ else{
 	 }
  //gets the input from the textbox in the StudentLogin.php
 	 $username = validate($conn, $_POST['username']);
-	 $pass = validate($conn, $_POST['password']); //hash here
+	 $pass = validate($conn, $_POST['password']); 
 
 	if (empty($username)) {
 		header("Location: AdminLogin.php?error=E-mail is required");
@@ -102,28 +109,35 @@ else{
         header("Location: AdminLogin.php?error=Password is required");
 	    exit();
 	}else{
-		$sql = "SELECT * FROM admin WHERE username='$username' AND password='$pass'";
+		$sql = "SELECT * FROM `admin` WHERE `username`='$username'";
 
 		$result = mysqli_query($conn, $sql);
 //check if the inputs are correct if yes then go to the dashboard
 		if (mysqli_num_rows($result)===1) {
 			$row = mysqli_fetch_assoc($result);
-            if ($row['username'] === $username && $row['password'] === $pass) {
-            	$_SESSION['username'] = $row['username'];
-            	$_SESSION['admin_fname'] = $row['admin_fname'];
-		$_SESSION['admin_lname'] = $row['admin_lname'];
-            	$_SESSION['admin_id'] = $row['admin_id'];
-            	$_SESSION['photo'] = $row['photo'];
-		$_SESSION['admin_position'] = $row['admin_position'];  	//added for enabling/hiding some features for admin (04/04/2021, 2:36pm)
-            	$_SESSION['timestamp']=time(); //added for time session
-				$admin_id = $row['admin_id'];
-				date_default_timezone_set('Asia/Manila');
-				$date = date('Y-m-d');
-				$time = date('H:i:s');
-				mysqli_query($conn, "INSERT INTO admin_activity_log(admin_id,activity_description,activity_date,activity_time) VALUES('$admin_id','Login','$date','$time')");
-			    
-            	header("Location: Admin_adminDash.php");
-		        exit();
+            if ($row['username'] === $username) {
+				if(password_verify($pass, $row['password'])){ //check hash
+					$_SESSION['username'] = $row['username'];
+					$_SESSION['admin_fname'] = $row['admin_fname'];
+					$_SESSION['admin_lname'] = $row['admin_lname'];
+					$_SESSION['admin_id'] = $row['admin_id'];
+					$_SESSION['photo'] = $row['photo'];
+					$_SESSION['admin_position'] = $row['admin_position'];  	//added for enabling/hiding some features for admin (04/04/2021, 2:36pm)
+					$_SESSION['timestamp']=time(); //added for time session
+					$admin_id = $row['admin_id'];
+					date_default_timezone_set('Asia/Manila');
+					$date = date('Y-m-d');
+					$time = date('H:i:s');
+					mysqli_query($conn, "INSERT INTO admin_activity_log(admin_id,activity_description,activity_date,activity_time) VALUES('$admin_id','Login','$date','$time')");
+					
+					header("Location: Admin_adminDash.php");
+					exit();
+				}
+				else{
+					header("Location: AdminLogin.php?error=Incorrect Username or Password");
+					$_SESSION['incorrectTry']++;
+		        	exit();
+				}
             }else{
 				header("Location: AdminLogin.php?error=Incorrect Username or Password");
 				 $_SESSION['incorrectTry']++;

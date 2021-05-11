@@ -49,7 +49,7 @@ if($_SESSION['incorrectTry']>=3){
 		  header("Location: ..\index.php?error=Password is required");
 		 exit();
 	 }else{
-		$sql = "SELECT * FROM student WHERE bumail='$username' AND otp='$pass'";
+		$sql = "SELECT * FROM `student` WHERE `bumail`='$username' AND `otp`='$pass'";
 
 		$result = mysqli_query($conn, $sql);
 //check if every inputs matched if yes go directly to the dashboard
