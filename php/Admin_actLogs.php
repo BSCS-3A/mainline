@@ -12,9 +12,9 @@ if (isset($_SESSION['admin_id']) && isset($_SESSION['username'])) {
         <meta charset="utf-8">
         <link rel="icon" href="../img/BUHS LOGO.png">
         <link rel="stylesheet" type="text/css" href="../css/admin_css/style2_actLogs.css">
-        <link rel="stylesheet" href="../css/admin_css/bootstrap_addAdmin.css">
-        <link rel="stylesheet" href="../css/admin_css/dataTables.bootstrap_addAdmin.css">
-        <link rel="stylesheet" href="../css/admin_css/font-awesome.css">
+        <link rel="stylesheet" href="../css/admin_css//bootstrap_addAdmin.css">
+        <link rel="stylesheet" href="../css/admin_css//dataTables.bootstrap_addAdmin.css">
+        <link rel="stylesheet" href="../css/admin_css//font-awesome.css">
 
         <script src="../js/jquery-1.11.1.min_addAdmin.js"></script>
         <script src="../js/jquery.dataTables.min_addAdmin.js"></script>
