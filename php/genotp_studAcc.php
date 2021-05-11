@@ -34,7 +34,11 @@ if(isset($_POST["go"])){
                 $flag = 1;
             }
         }while($flag == 0);
+<<<<<<< Updated upstream
         
+=======
+
+>>>>>>> Stashed changes
         //For Logs
         $_SESSION['action'] = "generated the students' OTP.";
         include 'backFun_actLogs_v0_1.php';
