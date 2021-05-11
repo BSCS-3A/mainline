@@ -23,6 +23,11 @@
                 if ($query_run) {
                     $_SESSION['message'] = 'Record has been deleted!';
                     $_SESSION['msg_type'] = 'danger';
+			
+		//For Logs
+		$_SESSION['action'] = 'deleted Info of Student : ' . $student_id;
+		include 'backFun_actLogs_v0_1.php';
+			
                     header("location: ../Admin_studAcc.php");
                 }
                 else{
