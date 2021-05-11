@@ -4,6 +4,7 @@
 }
 body {
   /* font-family: 'Roboto-regular', 'genericaregular', sans-serif; */
+  font-family: Roboto,Roboto Condensed,Generica, sans-serif; 
   background-image: url("../img/sample.png");
   background-size: cover;
   background-attachment: fixed;
@@ -37,7 +38,7 @@ h1 {
 }
 
 h2 {
-  font-family: Generica, sans-serif;
+  font-family: Generica regular, sans-serif;
   color: #18566e;
   font-weight: inherit;
   font-size: 5em;

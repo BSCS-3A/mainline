@@ -9,6 +9,7 @@
 /* Body */
 body {
   background-image: url("../../img/studentBG.png");
+  font-family: Roboto,Roboto Thin,Generica, sans-serif;  
   background-size: cover;
   font-size: 100%;
   background-attachment: fixed;
@@ -28,7 +29,7 @@ article p {
 }
 
 article h1 {
-  font-family: Generica, sans-serif;
+  font-family: Generica regular, sans-serif;
   color: #18566e;
   font-weight: inherit;
   font-size: 55px;
@@ -119,7 +120,7 @@ div li span {
 }
 
 aside p.Aelec-guide-txt {
-  font-family: Generica, sans-serif;
+  font-family: Generica regular, sans-serif;
   text-align: justify;
   font-size: 1.3em;
   margin-top: 3em;
