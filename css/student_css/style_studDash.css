@@ -3,6 +3,7 @@
   padding: 0;
   user-select: none;
   box-sizing: border-box;
+  font-family: 'Roboto-regular', 'Roboto-regular' Condensed, 'genericaregular', sans-serif;
   list-style: none;
 }
 
@@ -109,14 +110,14 @@ div li {
   display: inline-block;
   font-size: 1.5em;
   list-style-type: none;
-  padding: 1em;
+  padding: 5%;
   text-transform: uppercase;
   color: black;
 }
 
 div li span {
   display: block;
-  font-size: 4.5rem;
+  font-size: 2.5rem;
 }
 
 aside p.Aelec-guide-txt {
