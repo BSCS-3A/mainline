@@ -133,19 +133,19 @@ if (isset($_SESSION['admin_id']) && isset($_SESSION['username'])) {
 
             <div class="modal-body">
               <div class="autocomplete">
-                <input class="form-control form-control-lg rounded-0 border-info" type="text" placeholder="First Name" required name="sigfname" id="sigfname">
+                <input class="form-ac" type="text" placeholder="First Name" required name="sigfname" id="sigfname">
               </div>
-              <br><br>
+              <br>
 
               <div class="autocomplete">
-                <input class="form-control form-control-lg rounded-0 border-info" type="text" placeholder="Last Name" required name="siglname" id="siglname">
+                <input class="form-ac" type="text" placeholder="Last Name" required name="siglname" id="siglname">
               </div>
-              <br><br>
+              <br>
               <div class="autocomplete">
 
-                <input class="form-control form-control-lg rounded-0 border-info" type="text" placeholder="Position" required name="sigpos" id="sigpos">
+                <input class="form-ac" type="text" placeholder="Position" required name="sigpos" id="sigpos">
               </div>
-              <br><br>
+              <br>
 
             </div>
 
