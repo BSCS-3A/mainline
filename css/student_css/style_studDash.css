@@ -3,13 +3,11 @@
   padding: 0;
   user-select: none;
   box-sizing: border-box;
-  font-family: 'Roboto-regular', 'Roboto-regular' Condensed, 'genericaregular', sans-serif;
   list-style: none;
 }
 
 /* Body */
 body {
-  font-family: 'Roboto-regular', 'genericaregular', sans-serif;
   background-image: url("../../img/studentBG.png");
   background-size: cover;
   font-size: 100%;
@@ -21,7 +19,7 @@ body {
 
 /* Left Content */
 article p {
-  font-family: 'Roboto-regular', sans-serif;
+  font-family: Roboto-regular, sans-serif;
   color: #124254;
   font-weight: inherit;
   font-size: 20px;
@@ -30,7 +28,7 @@ article p {
 }
 
 article h1 {
-  font-family: 'genericaregular', sans-serif;
+  font-family: Generica, sans-serif;
   color: #18566e;
   font-weight: inherit;
   font-size: 55px;
@@ -121,7 +119,7 @@ div li span {
 }
 
 aside p.Aelec-guide-txt {
-  font-family: 'genericaregular', sans-serif;
+  font-family: Generica, sans-serif;
   text-align: justify;
   font-size: 1.3em;
   margin-top: 3em;

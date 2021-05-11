@@ -68,7 +68,12 @@ include("db_conn.php");
         }
     }
 
-    $gr7_percent = ($gr7_voted / $gr7) * 100;
+    
+    if($gr7!=0){
+        $gr7_percent = ($gr7_voted / $gr7) * 100;
+    } else {
+        $gr7_percent = ($gr7_voted / 1) * 100;
+    }
 
     //=========================for grade 8============================
 
@@ -81,7 +86,11 @@ include("db_conn.php");
         }
     }
 
-    $gr8_percent = ($gr8_voted / $gr8) * 100;
+    if($gr8!=0){
+        $gr8_percent = ($gr8_voted / $gr8) * 100;
+    } else {
+        $gr8_percent = ($gr8_voted / 1) * 100;
+    }
 
     //========================for grade 9 ==============================
     $gr_9 = "SELECT * FROM student where grade_level = 9";
@@ -93,7 +102,11 @@ include("db_conn.php");
         }
     }
 
-    $gr9_percent = ($gr9_voted / $gr9) * 100;
+    if($gr9!=0){
+        $gr9_percent = ($gr9_voted / $gr9) * 100;
+    } else {
+        $gr9_percent = ($gr9_voted / 1) * 100;
+    }
 
     //============================for grade 10 ==========================
 
@@ -106,8 +119,11 @@ include("db_conn.php");
         }
     }
 
-    $gr10_percent = ($gr10_voted / $gr10) * 100;
-
+    if($gr10!=0){
+        $gr10_percent = ($gr10_voted / $gr10) * 100;
+    } else {
+        $gr10_percent = ($gr10_voted / 1) * 100;
+    }
     //========================for grade 11 ===============================
     $gr_11 = "SELECT * FROM student where grade_level = 11";
     if ($result = mysqli_query($conn, $gr_11)) {
@@ -118,7 +134,11 @@ include("db_conn.php");
         }
     }
 
-    $gr11_percent = ($gr11_voted / $gr11) * 100;
+    if($gr11!=0){
+        $gr11_percent = ($gr11_voted / $gr11) * 100;
+    } else {
+        $gr11_percent = ($gr11_voted / 1) * 100;
+    }
 
     //========================for grade 12 ================================
     $gr_12 = "SELECT * FROM student where grade_level = 12";
@@ -130,7 +150,11 @@ include("db_conn.php");
         }
     }
 
-    $gr12_percent = ($gr12_voted / $gr12) * 100;
+    if($gr12!=0){
+        $gr12_percent = ($gr12_voted / $gr12) * 100;
+    } else {
+        $gr12_percent = ($gr12_voted / 1) * 100;
+    }
 
     //===================== ======end============================================
     ?>
