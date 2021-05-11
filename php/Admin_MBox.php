@@ -27,7 +27,7 @@ include("db_conn.php");
   <?php include "navAdmin.php";?>
 
     <div class="ccheader">
-    <h3>MESSAGE BOX</h3>
+    <h3 class="ccheader-txt">MESSAGE BOX</h3>
 </div>
 <?php
   $server = strtolower($_SERVER['HTTP_USER_AGENT']);

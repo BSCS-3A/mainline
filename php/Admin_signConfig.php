@@ -29,8 +29,8 @@ if (isset($_SESSION['admin_id']) && isset($_SESSION['username'])) {
   <body>
     <?php include "navAdmin.php"; ?>
 
-    <div class="header" id="myHeader">
-      <h3 class="header-txt">SIGNATORY DETAILS</h3>
+    <div class="header" id="Dheader">
+      <h3 class="Dheader-txt">SIGNATORY DETAILS</h3>
     </div>
     <div class="container">
       <section>

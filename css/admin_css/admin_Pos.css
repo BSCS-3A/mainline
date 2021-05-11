@@ -551,24 +551,6 @@
     background-color: #ddd;
   }
 
-  #ADheader {
-    position: relative;
-    z-index: -1;
-    padding: 6px;
-    background: #124254;
-    color: #ffffff;
-    width: 100%;
-    text-align: center;
-    font-family: Roboto Regular, sans-serif;
-    letter-spacing: 6px;
-  }
-
-  h2.aHeader-txt {
-    font-size: 24px;
-    margin-top: .5%;
-    margin-bottom: .5%;
-  }
-
   .row {
     margin: 0;
   }
@@ -576,18 +558,6 @@
   /*Everything here is for the NavBar*/
 
   /*Datatables*/
-
-  #CM_Header {
-    z-index: 100;
-    padding: 2px 2px;
-    background: #124254;
-    color: #f1f1f1;
-    font-weight: 400;
-    width: 100%;
-    text-align: center;
-    font-family: Roboto Regular, sans-serif;
-    letter-spacing: 6px;
-  }
 
   #CPTable {
     width: 100%;
@@ -1137,15 +1107,23 @@
   }
 
   .Uheader {
-    z-index: 100;
+    position: relative;
+    z-index: -2;
     padding: 2px 2px;
     background: #124254;
-    color: #f1f1f1;
     font-weight: 400;
     width: 100%;
     text-align: center;
-    font-family: Roboto Regular, sans-serif;
+    font-family: 'Roboto-regular', sans-serif;
     letter-spacing: 6px;
+    color: #ffc423 !important;
+    text-transform: uppercase;
+  }
+
+  h2.Uheader-txt {
+    font-size: 24px;
+    margin-top: 1%;
+    margin-bottom: 1%;
   }
 
   .btn-button1 {
@@ -1321,7 +1299,6 @@
   }
 
   a.paginate_button:hover {
-    background-color: #15254 !important;
     color: white;
   }
 

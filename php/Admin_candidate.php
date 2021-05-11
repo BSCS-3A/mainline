@@ -385,7 +385,7 @@
 <?php include "navAdmin.php"; ?>
 
 <div class="Uheader" id="CM_Header">
-  <h2>Candidate Information Management</h2>
+  <h2 class="Uheader-txt">Candidate Information Management</h2>
 </div>
 
 <div class="btn-toolbar" style="margin-left: 18px;">

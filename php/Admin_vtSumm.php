@@ -29,8 +29,8 @@
 </head>
 <body>
     
-    <div class="cheader">
-        <h3>VOTE SUMMARY</h3>
+    <div class="Bheader">
+        <h3 class="Bheader-txt">VOTE SUMMARY</h3>
     </div>
     <div class="container">
        <section> <form method="POST" action="./backStudent/Admin_printSum.php">

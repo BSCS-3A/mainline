@@ -35,8 +35,8 @@ include("db_conn.php");
     <?php include "navAdmin.php"; ?>
 
 
-    <div class="header" id="myHeader">
-       <h3 class="header-txt">Time Scheduler</h3>
+    <div class="Dheader" id="Dheader">
+       <h3 class="Dheader-txt">Time Scheduler</h3>
     </div>
     <form class="isog" method="POST" action="./backAdmin/backFun_setcountdown_v0_1.php">
     <div class="leftdiv">
