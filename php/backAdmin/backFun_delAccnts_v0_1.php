@@ -8,6 +8,8 @@
         if (isset($_POST['yes_delete'])) {
 
                 $admin_id = $_POST['Delete_ID'];
+				$query = "DELETE FROM admin_activity_log WHERE admin_id ='$admin_id'";
+				$query_run = mysqli_query($conn, $query);
 				$query = "DELETE FROM admin WHERE admin_id ='$admin_id'";
 				$query_run = mysqli_query($conn, $query);
                 
