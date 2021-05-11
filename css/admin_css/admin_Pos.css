@@ -553,7 +553,7 @@
     background-color: #18566e;
     text-align: center;
     font-size: .8rem;
-    font-family: 'Roboto-regular', sans-serif;
+    font-family: Roboto regular, sans-serif;
     text-transform: uppercase;
     letter-spacing: 2px;
     border: 1px solid #124254 !important;
@@ -594,6 +594,18 @@
   /*Everything here is for the NavBar*/
 
   /*Datatables*/
+
+  #CM_Header {
+    z-index: 100;
+    padding: 2px 2px;
+    background: #124254;
+    color: #f1f1f1;
+    font-weight: 400;
+    width: 100%;
+    text-align: center;
+    font-family: 'Roboto-regular', sans-serif;
+    letter-spacing: 6px;
+  }
 
   #CPTable {
     width: 100%;
@@ -757,6 +769,7 @@
     overflow: hidden;
     font-size: 15px;
     color: #2f4f4f;
+    font-family: 'Roboto-regular',sans-serif;
   }
 
   article p {
@@ -809,6 +822,7 @@
 
   /* Responsive layout - makes the menu and the content (inside the section) sit on top of each other instead of next to each other */
 
+  }
   @media (max-width: 600px) {
     body, section, .container {
       -webkit-flex-direction: column;
@@ -859,6 +873,7 @@
     padding: 6px 5px;
     background-color: #18566e !important;
     font-size: 1.3em;
+    font-family: 'Roboto-regular',sans-serif;
   }
 
   .panel-body {
@@ -873,6 +888,7 @@
     position: initial !important;
     margin-bottom: 15px;
     z-index: 99 !important;
+    font-family: 'Roboto-regular',sans-serif;
   }
 
   .input[type=text] {
@@ -1142,26 +1158,16 @@
     margin-top: 0!important;
   }
 
-  /*Page Header*/
-
   .Uheader {
-    position: relative;
-    z-index: -2;
+    z-index: 100;
     padding: 2px 2px;
     background: #124254;
+    color: #f1f1f1;
     font-weight: 400;
     width: 100%;
     text-align: center;
     font-family: 'Roboto-regular', sans-serif;
     letter-spacing: 6px;
-    color: #ffc423 !important;
-    text-transform: uppercase;
-  }
-  
-  .Uheader-txt{
-    font-size: 24px;
-    margin-top: 1%;
-    margin-bottom: 1%;
   }
 
   .btn-button1 {
@@ -1337,6 +1343,7 @@
   }
 
   a.paginate_button:hover {
+    background-color: #15254 !important;
     color: white;
   }
 
@@ -1405,4 +1412,13 @@ input[type="file"] {
   left: 8px;
   font-size: 17px;
   color: #b8b8b8;
+}
+
+.label_panel{
+  font-family:'Roboto-regular', sans-serif;
+}
+
+.btn-warning{
+  background-color: #124254 !important;
+  border-color: #124254 !important;
 }
