@@ -78,8 +78,13 @@ if (isset($_SESSION['admin_id']) && isset($_SESSION['username'])) {
         <?php include "navAdmin.php"; ?>
 
         <section>
+            <!--
             <div class="cheader" id="myHeader">
                 <h2>ACTIVITY LOGS</h2>
+            </div>
+            -->
+            <div class="ADheader" id="ADheader">
+                 <h2 class="aHeader-txt">ACTIVITY LOGS</h2>
             </div>
             <div class="container">
                 <section>
