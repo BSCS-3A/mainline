@@ -65,6 +65,11 @@ $pdf->setImageScale(PDF_IMAGE_SCALE_RATIO);
 $pdf->setFontSubsetting(true);
 
 
+//----------------------Connect to Database
+$stud_id = $_SESSION['student_id'];
+$vote_que = $conn->query("SELECT * FROM (((vote INNER JOIN candidate ON vote.candidate_id = candidate.candidate_id)INNER JOIN student ON candidate.student_id = student.student_id) INNER JOIN candidate_position ON candidate.position_id = candidate_position.position_id) WHERE vote.student_id = $stud_id ORDER BY candidate_position.heirarchy_id");
+$time_voted = $vote_que->fetch_assoc();
+echo $time_voted['time_stamp'];
 // -------------------Add page
 $pdf->AddPage();
 $pdf->SetFont('times','',12);
@@ -72,7 +77,7 @@ ob_start();
 	
 	//date generated
 	date_default_timezone_set("Asia/Manila");
-	$today=date("F j, Y");	
+	$today = $time_voted['time_stamp'];	
 	$acadyear1 = date("Y");
 	$acadyear2 = $acadyear1 + 1;
 
@@ -123,8 +128,7 @@ ob_start();
 	$pdf->Cell(180,10,'SUMMARY OF YOUR VOTES',1,0,'C',0);
 	$pdf->Cell(60,10,'',0,0); //spacer
 	$pdf->Cell(60,10,'',0,1); //spacer
-	$stud_id = $_SESSION['student_id'];
-	$vote_que = $conn->query("SELECT * FROM (((vote INNER JOIN candidate ON vote.candidate_id = candidate.candidate_id)INNER JOIN student ON candidate.student_id = student.student_id) INNER JOIN candidate_position ON candidate.position_id = candidate_position.position_id) WHERE vote.student_id = $stud_id ORDER BY candidate_position.heirarchy_id");
+	
 	
 	$receipt_list = array(array());
 	mysqli_data_seek($vote_que, 0);
