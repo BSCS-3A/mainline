@@ -9,7 +9,6 @@
 /* Body */
 body {
   background-image: url("../../img/studentBG.png");
-  font-family: Roboto,Roboto Thin,Generica, sans-serif;  
   background-size: cover;
   font-size: 100%;
   background-attachment: fixed;
@@ -20,7 +19,7 @@ body {
 
 /* Left Content */
 article p {
-  font-family: Roboto Regular, sans-serif;
+  font-family: 'Roboto-regular', sans-serif;
   color: #124254;
   font-weight: inherit;
   font-size: 20px;
@@ -29,7 +28,7 @@ article p {
 }
 
 article h1 {
-  font-family: Generica regular, sans-serif;
+  font-family: 'genericaregular', sans-serif;
   color: #18566e;
   font-weight: inherit;
   font-size: 55px;
@@ -120,7 +119,7 @@ div li span {
 }
 
 aside p.Aelec-guide-txt {
-  font-family: Generica regular, sans-serif;
+  font-family: 'Roboto-regular', sans-serif;
   text-align: justify;
   font-size: 1.3em;
   margin-top: 3em;
