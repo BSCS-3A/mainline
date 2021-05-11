@@ -40,11 +40,6 @@
   font-style: normal;
 
 }
-
-
-*{
-    font-family: Roboto,Roboto Condensed,Generica, Generica Regular, sans-serif; 
-  } 
   
   /* body{  
     font-family: Roboto,Roboto Thin,Generica, sans-serif;
@@ -267,6 +262,12 @@ nav ul ul ul li {
   font-size: 1em;
   top: -60px;
   left: 150px;
+}
+
+nav ul ul li .logout::before {
+	content: "\f2f5";
+	font-family: "Font Awesome 5 Free";
+	padding: 0 10px 0 0;
 }
 
 .Ashow, .Ashow2, .ADicon, input {
