@@ -16,6 +16,8 @@
         header("Location: ..\index.php");
         exit();
     }
+
+    $_SESSION['fname']="Jozwa Alex"
 ?>
 <html>
 <head>
@@ -28,6 +30,7 @@
     <link rel="stylesheet" type="text/css" href="../css/student_css/user_Cand.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <script type="text/javascript" src="../js/student_session_timer.js"></script>
     <script src="../js/bootstrap.min_Pos.js"></script>
     <title>BUCEILS HS Online Voting System</title>
     

@@ -1,17 +1,8 @@
 <?php
 date_default_timezone_set('Asia/Manila');
 include('db_conn.php');
-// session_start();
 
-// if (isset($_SESSION['student_id']) && isset($_SESSION['bumail'])) {
-//     $idletime=900;//after 15 minutes the user gets logged out
-
-// if (time()-$_SESSION['timestamp']>$idletime){
-//     //$_GET['inactivityError'] = "Session ended: You are logged out due to inactivity.";
-//     header("Location: StudentLogout.php");
-// }else{
-//     $_SESSION['timestamp']=time();
-// }
+//SESSION TIMER
 $idletime=60*60;//after 1 hr the user gets logged out
 if (time()-$_SESSION['timestamp']>$idletime){
     //$_GET['inactivityError'] = "Session ended: You are logged out due to inactivity.";
@@ -19,7 +10,45 @@ if (time()-$_SESSION['timestamp']>$idletime){
 }else{
     $_SESSION['timestamp']=time();
 }
+//Function to Check user details is valid
+function isValidUserr($conn){  // checks if user is registered
+    $studd_id = $conn->real_escape_string($_SESSION['student_id']);
+    $voter = $conn->query("SELECT * FROM student WHERE student_id = $studd_id");
+    $poss = $voter->fetch_assoc();
+    // echo $studd_id;
+    // echo $poss["fname"]." ".$poss["lname"]." ".$poss["student_id"];
+    if($poss != NULL && ($poss["lname"] === $_SESSION['lname'] && $poss["fname"] === $_SESSION['fname'] && $poss["student_id"] == $_SESSION['student_id'] && $poss["bumail"] === $_SESSION['bumail'])){
+        return true;
+    }
+    else{
+        return false;
+    }
+}//end function
+
+//NOTIFY ADMIN
+function notifyAdminn($text){
+    if($text != ""){
+        date_default_timezone_set("Asia/Singapore");
+        $session_info = "<br><br>More info about the sender: <br>Student Name: ".$_SESSION['fname']." ".$_SESSION['lname'].
+        "<br>Grade Level: ".$_SESSION['grade_level'].
+        "<br>Email: ".$_SESSION['bumail'].
+        "<br>Student ID: ".$_SESSION['student_id'].
+        "<br>TIme Attempted: ".date("h:i:sa");
+        $text_message = "1||".$text.$session_info."||".date('h:i')."||".date('Y/m/d')."||unread"."##\n";
+        $file = "../user/msg/system.html";
+        file_put_contents($file, $text_message, FILE_APPEND | LOCK_EX);
+    }
+}//END NOTIFY
+
+//USER CHECKING
+if(!(isValidUserr($conn))){
+    // Invalid user; destroy session and return to login
+    notifyAdminn("Warning: A user with invalid credentials attempted to access the system");
+    header("location: StudentLogout.php");
+}//end checking
  ?>
+
+
 <!DOCTYPE html>
 <html>
 <head>
