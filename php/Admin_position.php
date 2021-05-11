@@ -176,7 +176,7 @@ include "navAdmin.php";
                             <!-- Heirarchy ID Form group-->
                             <div class="panel-body">
                                 <div class="form-group">
-                                    <label for="heirarchy_id">
+                                    <label for="heirarchy_id" class = "label_panel>
                                         Hierarchy ID
                                     </label>
                                     <div id="pid" posid=""></div>
@@ -185,13 +185,13 @@ include "navAdmin.php";
                                 </div>
                                 <!--Heirarchy ID From group-->
                                 <div class="form-group">
-                                    <label for="position_name">
+                                    <label for="position_name" class = "label_panel>
                                         Position Name
                                     </label>
                                     <input type="text" name="positionname" class="form-control" placeholder="Position Name" id="position_name">
                                 </div>
                                 <div class="form-group">
-                                    <label for="position_description">
+                                    <label for="position_description" class = "label_panel>
                                         Position Description
                                     </label>
                                     <input type="text" class="form-control" placeholder="Position Description" id="position_description" name="positiondes">
