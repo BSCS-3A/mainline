@@ -595,18 +595,6 @@
 
   /*Datatables*/
 
-  #CM_Header {
-    z-index: 100;
-    padding: 2px 2px;
-    background: #124254;
-    color: #f1f1f1;
-    font-weight: 400;
-    width: 100%;
-    text-align: center;
-    font-family: 'Roboto-regular', sans-serif;
-    letter-spacing: 6px;
-  }
-
   #CPTable {
     width: 100%;
     padding-top: 35px;
@@ -821,7 +809,6 @@
 
   /* Responsive layout - makes the menu and the content (inside the section) sit on top of each other instead of next to each other */
 
-  }
   @media (max-width: 600px) {
     body, section, .container {
       -webkit-flex-direction: column;
@@ -1155,16 +1142,26 @@
     margin-top: 0!important;
   }
 
+  /*Page Header*/
+
   .Uheader {
-    z-index: 100;
+    position: relative;
+    z-index: -2;
     padding: 2px 2px;
     background: #124254;
-    color: #f1f1f1;
     font-weight: 400;
     width: 100%;
     text-align: center;
     font-family: 'Roboto-regular', sans-serif;
     letter-spacing: 6px;
+    color: #ffc423 !important;
+    text-transform: uppercase;
+  }
+  
+  .Uheader-txt{
+    font-size: 24px;
+    margin-top: 1%;
+    margin-bottom: 1%;
   }
 
   .btn-button1 {
@@ -1340,7 +1337,6 @@
   }
 
   a.paginate_button:hover {
-    background-color: #15254 !important;
     color: white;
   }
 
