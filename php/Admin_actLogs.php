@@ -78,7 +78,7 @@ if (isset($_SESSION['admin_id']) && isset($_SESSION['username'])) {
         <?php include "navAdmin.php"; ?>
 
         <section>
-            <div class="cheader" id="myHeader">
+            <div class="cheader">
                 <h2>ACTIVITY LOGS</h2>
             </div>
             
@@ -137,7 +137,7 @@ if (isset($_SESSION['admin_id']) && isset($_SESSION['username'])) {
 
     <section>
     
-    <div class="cheader" id="myHeader">
+    <div class="cheader">
         <h1>ACTIVITY LOGS</h1>
     </div>
     
