@@ -308,7 +308,7 @@
   /*Datatables*/
 
   #CM_Header {
-    z-index: 100;
+    z-index: -2;
     padding: 2px 2px;
     background: #124254;
     color: #f1f1f1;
@@ -317,6 +317,7 @@
     text-align: center;
     font-family: 'Roboto-regular', sans-serif;
     letter-spacing: 6px;
+    position: relative;
   }
 
   #CPTable {
@@ -887,6 +888,7 @@
     font-family: 'Roboto-regular', sans-serif;
     letter-spacing: 6px;
     text-transform: uppercase;
+    position: relative;
   }
 
   .btn-button1 {
