@@ -3,7 +3,7 @@ session_start();
 include ('db_conn.php');
 
 
-if (isset($_REQUEST['username']) && isset($_REQUEST['password'])) {
+if (isset($_POST['username']) && isset($_POST['password'])) {
     
 if($_SESSION['incorrectTry']>=3){
     //login with captcha
