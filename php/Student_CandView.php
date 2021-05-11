@@ -16,8 +16,6 @@
         header("Location: ..\index.php");
         exit();
     }
-
-    $_SESSION['fname']="Jozwa Alex"
 ?>
 <html>
 <head>
