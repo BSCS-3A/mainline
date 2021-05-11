@@ -454,15 +454,12 @@ include "navAdmin.php";
             $("#position_name").val("");
             $("#position_description").val("");
         }
-    </script>
-    </script>
 
-
-    <!-- <div class="footer">
+    /*<!-- <div class="footer">
         <p class="footer-txt">BS COMPUTER SCIENCE 3A © 2021</p>
-    </div> -->
+    </div> -->*/
 
-    <script>
+
         $('.icon').click(function() {
             $('span').toggleClass("cancel");
         });
@@ -473,6 +470,7 @@ include "navAdmin.php";
                             scrollTop: $(".left").offset().top
                         },
                         'slow');
+        });
     </script>
 
 </body>

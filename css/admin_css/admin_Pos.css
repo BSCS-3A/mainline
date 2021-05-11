@@ -10,7 +10,7 @@
   }
 
   body {
-    font-family: 'Roboto-regular', 'Roboto-thin', 'genericaregular', sans-serif;
+    font-family: 'Roboto-regular', 'genericaregular', sans-serif;
     background-image: url("../../img/adminBG.png");
     background-size: cover;
     font-size: 100%;
@@ -1158,16 +1158,23 @@
     margin-top: 0!important;
   }
 
+ .Uheader-txt{
+    font-size: 24px;
+    margin-top: 1%;
+    margin-bottom: 1%;
+  }
+
   .Uheader {
-    z-index: 100;
+    z-index: -2;
     padding: 2px 2px;
     background: #124254;
-    color: #f1f1f1;
+    color: #ffc423 !important;
     font-weight: 400;
     width: 100%;
     text-align: center;
     font-family: 'Roboto-regular', sans-serif;
     letter-spacing: 6px;
+    text-transform: uppercase;
   }
 
   .btn-button1 {
@@ -1399,6 +1406,7 @@ label.button{
   font-size: 16px;
   font-weight: bold;
   color: white;
+  font-family: 'Roboto-regular',sans-serif;
 }
 
 .hide{
@@ -1421,4 +1429,28 @@ input[type="file"] {
 .btn-warning{
   background-color: #124254 !important;
   border-color: #124254 !important;
+}
+
+.dataTables_length label, option {
+  font-family: 'Roboto-regular', sans-serif !important;
+}
+
+#datatable_filter.dataTables_filter label{
+  font-family: 'Roboto-regular', sans-serif !important;
+}
+
+#datatable_info.dataTables_info {
+  font-family: 'Roboto-regular', sans-serif !important;
+}
+
+.dataTables_wrapper .dataTables_paginate .paginate_button.disabled, .dataTables_wrapper .dataTables_paginate .paginate_button.disabled:hover, .dataTables_wrapper .dataTables_paginate .paginate_button.disabled:active, .paginate_button  {
+    font-family: 'Roboto-regular', sans-serif !important;
+}
+
+.paginate_button.next{
+      font-family: 'Roboto-regular', sans-serif !important;
+}
+
+.dataTables_wrapper .dataTables_paginate .paginate_button.current, .dataTables_wrapper .dataTables_paginate .paginate_button.current:hover{
+   font-family: 'Roboto-regular', sans-serif !important;
 }

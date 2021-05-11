@@ -23,13 +23,12 @@ if(isset($_POST["go"])){
             $hold = $row["student_id"];
             for ($i = 1; $i <= 6; $i++){ 
                 $result .= substr($generator, (rand()%(strlen($generator))), 1);
-            } 
-            $hashed = password_hash($result, PASSWORD_DEFAULT);
-            $yql = "SELECT * FROM `student` WHERE `otp` = '$hashed' "; 
+            }
+            $yql = "SELECT * FROM `student` WHERE `otp` = '$result' "; 
             $done = $connect->query($yql); 
             $see = $done->fetch_assoc(); 
             if(isset($see["otp"])== false){ 
-                $xql = "UPDATE `student` SET `otp` = '$hashed' WHERE `student_id` = $hold ";
+                $xql = "UPDATE `student` SET `otp` = '$result' WHERE `student_id` = $hold ";
                 $connect->query($xql);
                 $result = "";
                 $flag = 1;
