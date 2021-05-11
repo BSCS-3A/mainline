@@ -110,7 +110,7 @@
                             header("Content-Disposition: attachment; filename=Summary of Votes.xls");
 					
 			//For Logs
-			$_SESSION['action'] = 'printed Summary of Votes.';
+			$_SESSION['action'] = 'printed Vote Summary.';
 			include 'backFun_actLogs_v0_1.php';
                            
                         }
