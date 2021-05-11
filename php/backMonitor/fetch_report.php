@@ -42,7 +42,6 @@
         		$w_lname = $winner['lname'];
         		$w_sy = $last_election_date ;
         		$w_platform = $winner['platform_info'];
-        		echo "<br>--$w_sy";
 
         		$conn->query("INSERT INTO `archive` (`archive_id`, `position_name`, `winner_fname`, `winner_mname`, `winner_lname`, `school_year`, `platform_info`) VALUES (NULL, '$w_posName', '$w_fname', '$w_mname', '$w_lname', '$w_sy', '$w_platform')");
         	}
@@ -62,7 +61,7 @@
 
 	            }
             }else{
-                echo "  -- Didn't Met Quota --  ";
+                // Didn't Meet Quota
             }
         }
 
@@ -83,67 +82,66 @@
             // $mysqli->close();
         }
 
- function showCandidate($row1){
-        echo '<label class="checkbox">
-            <input type="radio" name="'.$row1["heirarchy_id"].'" id="vote" value="'.$row1["candidate_id"].'" onclick="document.getElementById(\''.$row1['heirarchy_id'].'\').innerHTML = \''.$row1['fname']." ".$row1['lname'].'\'">
-                <span class="checkmark"></span>
-                    <a href=""><img src="'.$row1["photo"].'" class="candidate-photo" style="float: left; width: 100px; height: 100px;" alt="Candidate" ></a>
+    //     function showCandidate($row1){
+    //     echo '<label class="checkbox">
+    //         <input type="radio" name="'.$row1["heirarchy_id"].'" id="vote" value="'.$row1["candidate_id"].'" onclick="document.getElementById(\''.$row1['heirarchy_id'].'\').innerHTML = \''.$row1['fname']." ".$row1['lname'].'\'">
+    //             <span class="checkmark"></span>
+    //                 <a href=""><img src="'.$row1["photo"].'" class="candidate-photo" style="float: left; width: 100px; height: 100px;" alt="Candidate" ></a>
                     
-                  <div class="candidate-info">';
+    //               <div class="candidate-info">';
                   
-        echo '<a href="" id="F-CandidateName"><b> Name: ' .$row1["fname"]. " " . $row1["lname"]. '</b></a><br><a href="" id="F-Partylist"> Party: ' .$row1["party_name"]. '</a><br><a href="" id="F-Platform"> Platform: ' . $row1["platform_info"]. '</a>
-        </div>
-        </label>';
+    //     echo '<a href="" id="F-CandidateName"><b> Name: ' .$row1["fname"]. " " . $row1["lname"]. '</b></a><br><a href="" id="F-Partylist"> Party: ' .$row1["party_name"]. '</a><br><a href="" id="F-Platform"> Platform: ' . $row1["platform_info"]. '</a>
+    //     </div>
+    //     </label>';
 
-    }
+    // }
 
-    function makeBallot($table){
-        $heir_id = 0;
-        echo'    <div>';
-        $counter = 0;
-        mysqli_data_seek($table, 0);
-        while($poss = $table->fetch_assoc()){   // loop through all positions
-           // if(($poss["vote_allow"] == 0 && $_SESSION['grade_level'] == $poss["grade_level"]) || $poss["vote_allow"] == 1){
-                // position div
-                if($heir_id != $poss["heirarchy_id"]){
-                    $heir_id = $poss["heirarchy_id"];
-                    if(($counter % 2) != 0){
-                        echo'</div>';
-                    }
-                    $counter = 0;
-                    echo'</div>';
-                    echo'<div id="F-container">';
-                    echo'<a href="" id="F-position" style="float: left;">'.$poss["position_name"].'</a><hr>';
-                    // candidate div
-                    echo'<div class="candidate-box" ><div>';
-                    showCandidate($poss);       // display candidate
-                    echo'</div>';               // end of candidate div
-                    $counter++;
-                // end of position div 
-                }
-                else{
-                    if(($counter % 2) != 0){
-                        echo '<div>';
-                        showCandidate($poss);   // display candidate
-                        echo'</div>';
-                        echo'</div>';           // end of candidate div
-                        $counter++;
-                    }
-                    else{
-                    echo '<div class="candidate-box" >';
-                        echo'<div>';
-                        showCandidate($poss);   // display candidate
-                        echo'</div>';           // end of candidate div
-                        $counter++;
-                    }
+    // function makeBallot($table){
+    //     $heir_id = 0;
+    //     echo'    <div>';
+    //     $counter = 0;
+    //     mysqli_data_seek($table, 0);
+    //     while($poss = $table->fetch_assoc()){   // loop through all positions
+    //        // if(($poss["vote_allow"] == 0 && $_SESSION['grade_level'] == $poss["grade_level"]) || $poss["vote_allow"] == 1){
+    //             // position div
+    //             if($heir_id != $poss["heirarchy_id"]){
+    //                 $heir_id = $poss["heirarchy_id"];
+    //                 if(($counter % 2) != 0){
+    //                     echo'</div>';
+    //                 }
+    //                 $counter = 0;
+    //                 echo'</div>';
+    //                 echo'<div id="F-container">';
+    //                 echo'<a href="" id="F-position" style="float: left;">'.$poss["position_name"].'</a><hr>';
+    //                 // candidate div
+    //                 echo'<div class="candidate-box" ><div>';
+    //                 showCandidate($poss);       // display candidate
+    //                 echo'</div>';               // end of candidate div
+    //                 $counter++;
+    //             // end of position div 
+    //             }
+    //             else{
+    //                 if(($counter % 2) != 0){
+    //                     echo '<div>';
+    //                     showCandidate($poss);   // display candidate
+    //                     echo'</div>';
+    //                     echo'</div>';           // end of candidate div
+    //                     $counter++;
+    //                 }
+    //                 else{
+    //                 echo '<div class="candidate-box" >';
+    //                     echo'<div>';
+    //                     showCandidate($poss);   // display candidate
+    //                     echo'</div>';           // end of candidate div
+    //                     $counter++;
+    //                 }
         
-                }
-           // }
+    //             }
+    //        // }
 
-        }
-        echo'    </div>';
-    }
-
+    //     }
+    //     echo'    </div>';
+    // }
 
     //Count number of candidate_position
         $result = mysqli_query($conn,"SELECT * FROM candidate_position");
