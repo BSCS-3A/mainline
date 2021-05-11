@@ -1,8 +1,3 @@
-<!-- 
-Proj Mngr NOTES: 
-this is actually adAccnts_v0_2 , april 8 11:23 pm 
--->
-
 <?php
 session_start();
 
@@ -24,7 +19,7 @@ if (isset($_POST['saveAccount'])) {
   $image_array_1 = explode(";", $data);
   $image_array_2 = explode(",", $image_array_1[1]);
   $data = base64_decode($image_array_2[1]);
-  $image_name = "../user/img/" . uniqid('', true) . '.jpg';
+  $image_name = "../../user/img/" . uniqid('', true) . '.jpg';
 
   $duplicate = mysqli_query($conn, "select * from admin where username='$username'"); //add or for multiple attribute checking
   if (mysqli_num_rows($duplicate) > 0) {
