@@ -140,8 +140,13 @@ if (isset($_SESSION['admin_id']) && isset($_SESSION['username'])) {
         <div class="modal fade" id="new" tabindex="-1" role="dialog" aria-labelledby="edit" aria-hidden="true">
 
     <section>
+    <!--
     <div class="cheader" id="myHeader">
         <h1>ACTIVITY LOGS</h1>
+    </div>
+    -->
+    <div class="ADheader" id="ADheader">
+        <h2 class="aHeader-txt">ACTIVITY LOGS</h2>
     </div>
     <div class="container">
        <section>
