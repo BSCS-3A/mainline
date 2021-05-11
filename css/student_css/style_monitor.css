@@ -1045,7 +1045,7 @@ div p.elec-guide-txt {
 /* Election Archives Folder*/
 
 .Barch p {
-  font-family: Roboto regular;
+  font-family: Roboto regular, sans-serif;
   color: #142d4f;
   font-weight: inherit;
   font-size: 300%;
@@ -1064,7 +1064,7 @@ div p.elec-guide-txt {
 
 .Bbox a {
   color: #1f6f8f;
-  font-family: Roboto regular;
+  font-family: Roboto regular, sans-serif ;
   font-size: 200%;
   text-align: center;
   margin-top: -5px;
