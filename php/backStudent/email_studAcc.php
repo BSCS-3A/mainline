@@ -39,10 +39,9 @@ if(isset($_POST["sendEmail"])){
             //palitan na lang ang mga message
             $mail->SetFrom('BSCS3A@bu.com');
             $mail->Subject = 'User Credentials';
-            $mail->addAddress($user_email);
             $mail->Body = "Good day! Your one time password for the current election is $user_otp . Please do not disclose your login credentials. Thank you!";
+            $mail->addAddress($user_email);
           
-            $mail->ClearAllRecipients();
         }
             catch (Exception $e){
                 echo $e->errorMessage();
@@ -53,5 +52,6 @@ if(isset($_POST["sendEmail"])){
         }
         $mail->send();
         header("location: Admin_studAcc.php");
+        $mail->ClearAllRecipients();
 }
 ?>
