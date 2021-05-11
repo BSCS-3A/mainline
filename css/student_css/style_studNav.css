@@ -1,4 +1,46 @@
-/* Static Page */
+@font-face {
+  font-family: 'Roboto-regular';
+  src: url('../../other/fonts/Roboto-Regular.eot');
+  src: local('Roboto Regular'), url('../../other/fonts/Roboto-Regular.ttf'), format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Roboto-light';
+  src: url('../../other/fonts/Roboto-Light.eot');
+  src: local('Roboto Light'), url('../../other/fonts/Roboto-Light.ttf'), format('truetype');
+  font-weight: lighter;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Roboto-bold';
+  src: url('../../other/fonts/Roboto-Bold.eot');
+  src: local('Roboto Bold'), url('../../other/fonts/Roboto-Bold.ttf'), format('truetype');
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'genericaregular';
+  src: url('../../other/fonts/generica-webfont.woff2') format('woff2'),
+         url('../../other/fonts/generica-webfont.woff') format('woff'),
+         url('../../other/fonts/Generica.eot') format('eot');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'genericabold';
+  src: url('../../other/fonts/generica-bold-webfont.woff2') format('woff2'),
+       url('../../other/fonts/generica-bold-webfont.woff') format('woff'),
+       url('../../other/fonts/Generica.eot') format('eot');
+  font-weight: normal;
+  font-style: normal;
+
+}
+
 
 * {
   margin: 0;
@@ -11,7 +53,6 @@
 /* Body */
 
 body {
-  font-family: Roboto, Roboto Thin, Generica, sans-serif;
   background-image: url("../../img/studentBG.png");
   background-size: cover;
   font-size: 100%;
@@ -46,7 +87,7 @@ nav:after {
 
 h2.aLogo-txt1 {
   margin-top: 3px;
-  font-family: Roboto Regular, sans-serif;
+  font-family: 'Roboto-regular', sans-serif;
   font-weight: inherit;
   font-size: 100%;
   margin-bottom: 0px;
@@ -68,7 +109,7 @@ h3.aLogo-txt2 {
   font-size: 100%;
   margin-bottom: 0px;
   letter-spacing: 6px;
-  font-family: Generica regular, sans-serif;
+  font-family: 'genericaregular', sans-serif;
 }
 
 h3.aLogo-txt2 a {
@@ -114,7 +155,7 @@ nav ul li a {
   font-size: 1.2em;
   padding: 8px 15px;
   letter-spacing: 1px;
-  font-family: Roboto Light, sans-serif;
+  font-family: 'Roboto-light', sans-serif;
   text-decoration: none;
 }
 
@@ -230,7 +271,7 @@ nav ul ul li {
 
 nav ul ul li a {
   line-height: 50px;
-  font-family: Roboto bold, sans-serif;
+  font-family: 'Roboto-bold', sans-serif;
   text-decoration: none;
 }
 
@@ -340,138 +381,6 @@ nav ul ul ul li {
   }
 }
 
-/*   
-  Left Content
-  article p{
-    font-family: Roboto regular, sans-serif;
-    color: #1b1b1b;
-    font-weight: inherit;
-    font-size: 20px;
-    letter-spacing: 3px;
-    position: relative;
-  }
-  article h1{
-    font-family: Generica regular, sans-serif;
-    color: #18566e;
-    font-weight: inherit;
-    font-size: 55px;
-    position: relative;
-    letter-spacing: 3px;
-    margin-top: 10px;
-  }
-  Container for flexboxes
-  section {
-    display: -webkit-flex;
-    display: flex;
-    margin-left: 30px;
-    margin-top: 100px;
-    max-width: 800px;
-    float: left;
-  }
-  #section-container{
-    min-height: 100%;
-    overflow: auto;
-    padding-bottom: 12%;
-  }
-  Style the content
-  article {
-    -webkit-flex: 3;
-    -ms-flex: 3;
-    flex: 3;
-    padding: 10px;
-  }
-  For logos on top of welcome banner
-  img.Alogos{
-    float: left;
-    padding-left: 10px;
-    height: 90px;
-    width: 100px;
-    margin-bottom: 2em;
-  }
-  .Alogo-container{
-    position:relative;
-    float: left;
-    display: -webkit-flex;
-    display: flex;
-    margin-left: 0px;
-    margin-top: 0px;
-    max-width: 700px;
-  } 
-  Responsive layout - makes the menu and the content (inside the section) sit on top of each other instead of next to each other
-  @media (max-width: 600px) {
-    body, section, .Acontainer {
-      -webkit-flex-direction: column;
-      flex-direction: column;
-    }
-  } */
-
-/*countdown*/
-
-/* aside{
-    color: #333;
-    float: left;
-    text-align: center;
-    margin-left: 50px;
-    top: 50px;
-    bottom: 0;
-    position: relative;
-    max-width: 500px;
-  
-  }
-  div h1 {
-    font-weight: normal;
-    letter-spacing: .125rem;
-    text-transform: uppercase;
-    font-size: 4em;
-    color: black;
-    margin-bottom: .8em;
-  }
-  div ul{
-   
-    border: 1px solid #ffc423;
-    border-width: 3px;
-    text-align: center;
-    padding: 0;
-  }
-  div li {
-    display: inline-block;
-    font-size: 1.5em;
-    list-style-type: none;
-    padding: 1em;
-    text-transform: uppercase;
-    color: black;
-  }
-  div li span {
-    display: block;
-    font-size: 4.5rem;
-  
-  }
-  aside p.Aelec-guide-txt{
-    font-family: Roboto Regular, sans-serif;
-    text-align: justify;
-    font-size: 1.6em;
-    margin-top: 3em;
-  }
-  #aside-container{
-    min-height: 100%;
-    overflow: auto;
-    padding-bottom: 5%;
-  } */
-
-/* Footer */
-
-/* footer{
-    position: fixed;
-    background-color: #fece4b;
-    height: 5%;
-    clear: both;
-    text-align: center;
-    padding: 5px 0px;
-    letter-spacing: 7px;
-    width: 100%;
-    z-index: 500;
-  } */
-
 .footer {
   position: fixed;
   left: 0;
@@ -489,7 +398,7 @@ div p.footer-txt {
   position: relative;
   margin-top: auto;
   margin-bottom: auto;
-  font-family: Roboto Regular, sans-serif;
+  font-family: 'Roboto-regular', sans-serif;
   letter-spacing: 7px;
   font-size: 10px;
   /* color: #ffffff; */

@@ -128,7 +128,7 @@ if (time() - $_SESSION['timestamp'] > $idletime) {
             <li><a href="Admin_MBox.php">MESSAGES</a></li>
             <li>
                 <label for="btn-7" class="Ashow"><?php echo $_SESSION['admin_fname'] . " " . $_SESSION['admin_lname']; ?></label>
-                <a class="user" href="#"><img class="user-profile" src="../img/<?php echo $_SESSION['photo']; ?>"></a>
+                <a class="user" href="#"><img class="user-profile" src="<?php echo $_SESSION['photo']; ?>"></a>
                 <input type="checkbox" id="btn-7">
                 <ul>
 

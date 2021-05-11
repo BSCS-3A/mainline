@@ -14,6 +14,8 @@
     if(!(empty($row['vote_event_id'])))
     {
         $last_election_date = date('Y-m-d H:i:s', strtotime($row['end_date']));
+    } else {
+        $last_election_date = 0;
     }
 
     $o_file = fopen("../other/post_result.txt", "r") or die("Unable to open file!");

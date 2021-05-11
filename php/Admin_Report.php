@@ -34,6 +34,21 @@ include("db_conn.php");
     </head>
 
     <body>
+      <?php
+            require 'db_conn.php';                     // Connect database
+            if ($conn->connect_error)                               // Check connection
+                die("Connection failed: " . $conn->connect_error);
+            require './backMonitor/fetch_date.php';                        // Fetches important datetime
+            require './backMonitor/student_count.php';                     // Counts student
+            require './backMonitor/fetch_report.php';                      // Contains necessary functions and query
+            // require '../php/vtFetch.php';
+            include "navAdmin.php";                                 // Adds the navBar and footer
+        ?>
+
+        <div class="Breport">
+            <p><b>ELECTION RESULTS REPORT</b></p>
+        </div>
+      
         <?php
             // Count and store to Archive right after election
                 if($current_date_time>$last_election_date)//change to automatically compute after election
