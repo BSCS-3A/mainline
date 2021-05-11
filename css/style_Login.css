@@ -4,7 +4,6 @@
 }
 body {
   /* font-family: 'Roboto-regular', 'genericaregular', sans-serif; */
-  font-family: Roboto,Roboto Condensed,Generica, sans-serif; 
   background-image: url("../img/sample.png");
   background-size: cover;
   background-attachment: fixed;
@@ -21,7 +20,7 @@ img {
 }
 
 h1 {
-  font-family: Roboto Regular, sans-serif;
+  font-family: 'Roboto-regular', sans-serif;
   text-align: center;
   margin: 0px auto;
   display: block;
@@ -38,7 +37,7 @@ h1 {
 }
 
 h2 {
-  font-family: Generica regular, sans-serif;
+  font-family: 'genericaregular', sans-serif;
   color: #18566e;
   font-weight: inherit;
   font-size: 5em;
@@ -47,7 +46,7 @@ h2 {
 }
 
 p {
-  font-family: Roboto Regular, sans-serif;
+  font-family: 'Roboto-regular', sans-serif;
   color: #124254;
   font-weight: inherit;
   font-size: 1.5em;
