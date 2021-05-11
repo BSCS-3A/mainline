@@ -1,6 +1,4 @@
-<!-- proj mngr notes
- - undefined index " username", dunno how to check that, pafix nlng
-
+<!-- 
 kerby, latest update :
 activity_date, and activity_time
 use of session for admin_id

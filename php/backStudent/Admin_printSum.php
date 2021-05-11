@@ -1,6 +1,5 @@
 
 <?php
-	
         if(isset($_POST["prnt"])){
            $output='<table border="1">
 		   <tr>
@@ -111,7 +110,7 @@
 					
 			//For Logs
 			$_SESSION['action'] = 'printed Vote Summary.';
-			include 'backFun_actLogs_v0_1.php';
+			include '../backAdmin/backFun_actLogs_v0_1.php';
                            
                         }
 	}
