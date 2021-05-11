@@ -3,7 +3,6 @@ session_start();
 include("db_conn.php");
 if (isset($_SESSION['admin_id']) && isset($_SESSION['username'])) {
 ?>
-<<<<<<< Updated upstream
     <!DOCTYPE html>
     <html>
 
@@ -39,7 +38,6 @@ if (isset($_SESSION['admin_id']) && isset($_SESSION['username'])) {
     </head>
 
     <body>
-=======
 <!DOCTYPE html>
 <html>
 
@@ -75,12 +73,10 @@ if (isset($_SESSION['admin_id']) && isset($_SESSION['username'])) {
 </head>
 
 <body>
->>>>>>> Stashed changes
 
         <!-- connection -->
         <?php include "navAdmin.php"; ?>
 
-<<<<<<< Updated upstream
         <section>
             <div class="cheader" id="myHeader">
                 <h2>ACTIVITY LOGS</h2>
@@ -137,7 +133,7 @@ if (isset($_SESSION['admin_id']) && isset($_SESSION['username'])) {
             </div>
         </section>
         <div class="modal fade" id="new" tabindex="-1" role="dialog" aria-labelledby="edit" aria-hidden="true">
-=======
+
     <section>
     <div class="cheader" id="myHeader">
         <h1>ACTIVITY LOGS</h1>
@@ -228,7 +224,7 @@ if (isset($_SESSION['admin_id']) && isset($_SESSION['username'])) {
 </div>
 </section>
       <div class="modal fade" id="edit" tabindex="-1" role="dialog" aria-labelledby="edit" aria-hidden="true">
->>>>>>> Stashed changes
+
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
