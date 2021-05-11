@@ -44,8 +44,8 @@ include('db_conn.php');
 
     <!--Proxy Countdown-->
     <aside id="aside-container">
-        <h1 id="headline">ELECTION COUNTDOWN</h1>
-        <div id="countdown">
+        <h1 id="aheadline">ELECTION COUNTDOWN</h1>
+        <div id="acountdown">
             <ul>
                 <li><span id="days">0</span>days</li>
                 <li><span id="hours">0</span>Hours</li>

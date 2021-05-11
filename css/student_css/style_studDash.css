@@ -1,3 +1,47 @@
+@font-face {
+  font-family: 'Roboto-regular';
+  src: url('../../other/fonts/Roboto-Regular.eot');
+  src: local('Roboto Regular'), url('../../other/fonts/Roboto-Regular.ttf'), format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Roboto-light';
+  src: url('../../other/fonts/Roboto-Light.eot');
+  src: local('Roboto Light'), url('../../other/fonts/Roboto-Light.ttf'), format('truetype');
+  font-weight: lighter;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Roboto-bold';
+  src: url('../../other/fonts/Roboto-Bold.eot');
+  src: local('Roboto Bold'), url('../../other/fonts/Roboto-Bold.ttf'), format('truetype');
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'genericaregular';
+  src: url('../../other/fonts/generica-webfont.woff2') format('woff2'),
+         url('../../other/fonts/generica-webfont.woff') format('woff'),
+         url('../../other/fonts/Generica.eot') format('eot');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'genericabold';
+  src: url('../../other/fonts/generica-bold-webfont.woff2') format('woff2'),
+       url('../../other/fonts/generica-bold-webfont.woff') format('woff'),
+       url('../../other/fonts/Generica.eot') format('eot');
+  font-weight: normal;
+  font-style: normal;
+
+}
+
+
 * {
   margin: 0;
   padding: 0;
@@ -87,16 +131,17 @@ aside {
   float: right;
 }
 
-div h1 {
+#aheadline {
   font-weight: normal;
   letter-spacing: .125rem;
   text-transform: uppercase;
-  font-size: 4em;
+  font-size: 2.5em;
   color: black;
   margin-bottom: .8em;
+  font-family: 'Roboto-regular', sans-serif;
 }
 
-div ul {
+div ul{
   /* max-width: 90%; */
   border: 1px solid #ffc423;
   border-width: 3px;
@@ -106,7 +151,7 @@ div ul {
 
 div li {
   display: inline-block;
-  font-size: 1.5em;
+  font-size: 1em;
   list-style-type: none;
   padding: 5%;
   text-transform: uppercase;

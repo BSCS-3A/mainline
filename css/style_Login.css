@@ -108,6 +108,10 @@ p {
   margin-left: 200px;
 }
 
+.Aselect{
+  font-family: 'Roboto-regular', sans-serif;
+}
+
 img.Alogos {
   display: inline-block;
   padding-left: 25px;
