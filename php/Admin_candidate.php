@@ -591,9 +591,6 @@
                   [ 10, 25, 50, "All"],
                   //"ordering": false          
                 ],
-                 //search function
-                 'searching':true,
-
                 'columnDefs': [ {
                     'targets': [0,6,7], 
                     'orderable': false,
@@ -721,7 +718,7 @@ function changePhoto(ctl){
             var base64data = reader.result;
 
                 $.ajax({
-                    type: "POST",
+                    method: "POST",
                     url: "Admincand_uploadphoto.php",
                     data: {image:base64data,candidateid:candidate_id},
                     success: function(data) { 
