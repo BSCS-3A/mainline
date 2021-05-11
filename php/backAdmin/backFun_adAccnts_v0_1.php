@@ -32,10 +32,10 @@ if (isset($_POST['saveAccount'])) {
   } else {
           file_put_contents($image_name, $data);
 
-          //$hashed = password_hash($password, PASSWORD_DEFAULT);
+          $hashed = password_hash($password, PASSWORD_DEFAULT);
           //insert into database
           $query = "INSERT INTO admin (`admin_lname`, `admin_fname`, `admin_mname`, `username`, `admin_position`, `comelec_position`, `password`, `photo`) 
-          VALUES('$admin_lname', '$admin_fname', '$admin_mname', '$username', '$admin_position', '$comelec_position', '$password', '$image_name')";
+          VALUES('$admin_lname', '$admin_fname', '$admin_mname', '$username', '$admin_position', '$comelec_position', '$hashed', '$image_name')";
           mysqli_query($conn, $query);
 
           //For Logs
