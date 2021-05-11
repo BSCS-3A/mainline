@@ -3,12 +3,10 @@
   padding: 0;
   user-select: none;
   box-sizing: border-box;
-  font-family: 'Roboto-regular', 'Roboto-regular' Condensed, 'genericaregular', sans-serif;
   list-style: none;
 }
 
 body {
-  font-family: Roboto, Roboto Thin, 'genericaregular', sans-serif;
   background-image: url('../../img/adminBG.png');
   background-size: cover;
   font-size: 100%;
@@ -434,7 +432,7 @@ th {
   background-color: #18566e;
   text-align: center;
   font-size: 10pt;
-  font-family: Roboto regular, sans-serif;
+  font-family: 'Roboto-regular', sans-serif;
   text-transform: uppercase;
   letter-spacing: 2px;
   border: 1px solid #124254 !important;

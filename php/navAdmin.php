@@ -51,6 +51,16 @@ if (time() - $_SESSION['timestamp'] > $idletime) {
     <script type="text/javascript" src="../js/admin_session_timer.js"></script>
     <!-- <link rel="stylesheet" href="../css/admin_css/dataTables.bootstrap_addAdmin.css"> -->
     <!-- <link rel="stylesheet" href="../css/admin_css/font-awesome_addAdmin.css">  -->
+    <link rel="stylesheet" href="../css/admin_css/font-awesome_studAcc.css">
+    <script type="text/javascript">
+        (function() {
+            var css = document.createElement('link');
+            css.href = 'https://use.fontawesome.com/releases/v5.1.0/css/all.css';
+            css.rel = 'stylesheet';
+            css.type = 'text/css';
+            document.getElementsByTagName('head')[0].appendChild(css);
+        })();
+    </script>
 
 </head>
 
@@ -124,7 +134,7 @@ if (time() - $_SESSION['timestamp'] > $idletime) {
 
                     <li><a class="username" onclick="return false"><?php echo $_SESSION['admin_fname'] . " " . $_SESSION['admin_lname']; ?></a></li>
                     <li class="logout">
-                        <span class="fa fa-sign-out"></span><a href="AdminLogout.php">LOGOUT</a></span>
+                        <span class="fa fa-sign-out-alt"></span><a href="AdminLogout.php">LOGOUT</a></span>
                     </li>
                 </ul>
             </li>
