@@ -6,13 +6,10 @@ this is actually adAccnts_v0_2 , april 8 11:23 pm
 <?php
 session_start();
 
-// initializing variables
-$errors = array();
-
 // Create connection
 include '../db_conn.php';
 
-if (isset($_POST['saveAccount']) && isset($_FILES['my_image'])) {
+if (isset($_POST['saveAccount'])) {
 
   $admin_lname = $_POST['admin_lname'];
   $admin_fname = $_POST['admin_fname'];
@@ -23,33 +20,22 @@ if (isset($_POST['saveAccount']) && isset($_FILES['my_image'])) {
   $password = $_POST['password'];
   $conpassword = $_POST['conpassword'];
 
-  $img_name = $_FILES['my_image']['name'];
-  $img_size = $_FILES['my_image']['size'];
-  $tmp_name = $_FILES['my_image']['tmp_name'];
-  $error = $_FILES['my_image']['error'];
+  $data = $_POST['base64'];
+  $image_array_1 = explode(";", $data);
+  $image_array_2 = explode(",", $image_array_1[1]);
+  $data = base64_decode($image_array_2[1]);
+  $image_name = "../../user/img/" . uniqid('', true) . '.jpg';
 
   $duplicate = mysqli_query($conn, "select * from admin where username='$username'"); //add or for multiple attribute checking
   if (mysqli_num_rows($duplicate) > 0) {
     header("Location: ../Admin_adAccnt.php?message=User name or Email id already exists.");
   } else {
-    if (count($errors) == 0) {
-      if ($img_size > 125000) {
-        $em = "Sorry, your file is too large.";
-        header("Location: ../Admin_adAccnt.php?error=$em");
-      } else {
-        $img_ex = pathinfo($img_name, PATHINFO_EXTENSION);
-        $img_ex_lc = strtolower($img_ex);
+          file_put_contents($image_name, $data);
 
-        $allowed_exs = array("jpg", "jpeg", "png");
-
-        if (in_array($img_ex_lc, $allowed_exs)) {
-          $new_img_name = uniqid("IMG-", true) . '.' . $img_ex_lc;
-          $img_upload_path = '../uploads/' . $new_img_name;
-          move_uploaded_file($tmp_name, $img_upload_path);
-
+          $hashed = password_hash($password, PASSWORD_DEFAULT);
           //insert into database
           $query = "INSERT INTO admin (`admin_lname`, `admin_fname`, `admin_mname`, `username`, `admin_position`, `comelec_position`, `password`, `photo`) 
-          VALUES('$admin_lname', '$admin_fname', '$admin_mname', '$username', '$admin_position', '$comelec_position', '$password', '$new_img_name')";
+          VALUES('$admin_lname', '$admin_fname', '$admin_mname', '$username', '$admin_position', '$comelec_position', '$hashed', '$image_name')";
           mysqli_query($conn, $query);
 
           //For Logs
@@ -57,15 +43,6 @@ if (isset($_POST['saveAccount']) && isset($_FILES['my_image'])) {
           include 'backFun_actLogs_v0_1.php';
 
           header("Location: ../Admin_adAccnt.php");
-        } else {
-          $em = "You can't upload files of this type";
-          header("Location: ../Admin_adAccnt.php?error=$em");
-        }
-      }
-    } else {
-      $em - "unknown error occured!";
-      header("Location: ../Admin_adAccnt.php?error=$em");
-    }
   }
 }
 ?>

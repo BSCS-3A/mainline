@@ -44,12 +44,6 @@ div.dataTables_paginate ul.pagination {
     div.dataTables_length, div.dataTables_filter, div.dataTables_info, div.dataTables_paginate {
         text-align: center;
     }
-    div.dataTables_length label{
-        float: left;
-    }
-    .dataTables_filter {
-        float: left;
-     }
 }
 
 table.dataTable td, table.dataTable th {
