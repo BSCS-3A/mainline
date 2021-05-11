@@ -28,6 +28,11 @@
                 if ($query_run) {
                     $_SESSION['message'] = 'Record has been updated!';
                     $_SESSION['msg_type'] = 'success';
+                    
+                    //For Logs
+                    $_SESSION['action'] = 'updated Info of Student : ' . $student_id;
+                    include 'backFun_actLogs_v0_1.php';
+                    
                     header("location: Admin_studAcc.php");
                 }
                 else{
