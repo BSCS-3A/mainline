@@ -18,8 +18,8 @@
 
 <body>
 	<?php
-		require "connect.php";
-		require "vtValSan.php";
+		require "db_conn.php";
+		require "Admin_vtValSan.php";
     // $text = "Warning: A tampered ballot has been submitted!<br>Details Used:<br>".$_SESSION['bumail'];
     // notifyAdmin($text);
     // $table = $conn->query("SELECT * FROM ((candidate INNER JOIN student ON candidate.student_id = student.student_id) INNER JOIN candidate_position ON candidate.position_id = candidate_position.position_id) ORDER BY candidate_position.heirarchy_id"); // get positions
@@ -60,7 +60,7 @@
               errorMessage("Election has not yet started");
           }
           else if($access_time >= $start_time && $access_time >= $end_time){
-            require "vtSubmit.php";
+            require "Admin_vtSubmit.php";
             receiptMsg("Your vote were submitted successfully!");
           }
         } 
