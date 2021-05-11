@@ -135,7 +135,7 @@ iframe {
 }
 
 .btn {
-  font-family: Roboto Regular, sans-serif;
+  font-family: 'Roboto-Regular', sans-serif;
   display: inline-block;
   padding: 6px 12px;
   margin: 0px;
@@ -284,7 +284,7 @@ div.container {
 #datatable {
   width: 100%;
   border: 1px solid #124254;
-  font-family: Roboto regular, sans-serif;
+  font-family: 'Roboto-regular', sans-serif;
   border-collapse: collapse;
   table-layout: auto;
   margin: 0px;
@@ -324,7 +324,7 @@ td {
 }
 
 article p {
-  font-family: Roboto regular, sans-serif;
+  font-family: 'Roboto-regular', sans-serif;
   color: white;
   font-weight: inherit;
   font-size: 20px;
@@ -333,7 +333,7 @@ article p {
 }
 
 article h1 {
-  font-family: Generica regular, sans-serif;
+  font-family: 'genericaregular', sans-serif;
   color: #ffc423;
   font-weight: inherit;
   font-size: 55px;
@@ -394,7 +394,7 @@ img.logos {
 div p.footer-txt {
   position: relative;
   top: .5em;
-  font-family: Roboto Regular, sans-serif;
+  font-family: 'Roboto-regular', sans-serif;
   letter-spacing: 7px;
   font-size: 1em;
   color: #ffffff;
