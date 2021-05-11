@@ -196,7 +196,7 @@ nav ul ul li {
 nav ul ul li a {
   color: black;
   line-height: 50px;
-  font-family: Roboto bold, sans-serif;
+  font-family: Roboto-regular, sans-serif;
 }
 
 nav ul ul ul li {
@@ -1199,7 +1199,6 @@ svg {
 
 .Bpstn .Bplat2 {
   color: #ffb700;
-  /* font-weight: bold; */
   font-size: 100%;
   margin-top: -5px;
 }
