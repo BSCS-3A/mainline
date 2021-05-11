@@ -16,11 +16,11 @@ if (isset($_POST['updateData'])) {
     $conpassword = $_POST['conpassword'];
 
     if (!empty($password) || !empty($conpassword)) {
-        $hashed = password_hash($password, PASSWORD_DEFAULT);
+        //$hashed = password_hash($password, PASSWORD_DEFAULT);
         $user_id = $_POST['update_id'];
         // UPDATE USER DATA               
         $query = "UPDATE `admin` SET admin_lname='$admin_lname', admin_fname='$admin_fname', admin_mname='$admin_mname', username='$username', 
-                admin_position='$admin_position', comelec_position='$comelec_position' , password='$hashed' 
+                admin_position='$admin_position', comelec_position='$comelec_position' , password='$password' 
                 WHERE admin_id='$user_id' ";
         $query_run = mysqli_query($conn, $query);
     } else {
