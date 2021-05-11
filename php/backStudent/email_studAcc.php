@@ -51,6 +51,11 @@ if(isset($_POST["sendEmail"])){
             }
         }
         $mail->send();
+   
+         //For Logs
+         $_SESSION['action'] = "sent students' OTP.";
+         include 'backFun_actLogs_v0_1.php';
+   
         header("location: Admin_studAcc.php");
         $mail->ClearAllRecipients();
 }
