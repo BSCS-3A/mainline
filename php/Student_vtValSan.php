@@ -35,19 +35,14 @@
         $stud_id = $conn->real_escape_string($_SESSION['student_id']);
         $voter = $conn->query("SELECT * FROM student WHERE student_id = $stud_id");
         $vote_table = $conn->query("SELECT * FROM vote WHERE student_id = $stud_id");
-        if(!empty($vote_table->fetch_assoc())){
-            return true;
-        }
-        else{
-            $student = $voter->fetch_assoc();
-            // see if login already has voter info
-            if($student['voting_status'] == 1){
+        $student = $voter->fetch_assoc();
+        if(($student['voting_status'] == 1)){
                 return true;
-            }
-            else{
-                return false;
-            }
         }
+        if(!empty($vote_table->fetch_assoc())){
+            $conn->query("DELETE * FROM vote WHERE student_id = $stud_id");
+        }
+        return false;
     }
 
     function isValidUser($conn){  // checks if user is registered
