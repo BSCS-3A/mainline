@@ -461,7 +461,7 @@ div p.elec-guide-txt {
   font-family: Roboto regular;
   color: #1f6f8f;
   font-weight: inherit;
-  font-size: 500%;
+  font-size: 400%;
   margin-top: 6%;
   letter-spacing: 4px;
   text-align: center;
@@ -471,7 +471,7 @@ div p.elec-guide-txt {
   font-family: Roboto regular;
   color: #142d4f;
   font-weight: inherit;
-  font-size: 830%;
+  font-size: 550%;
   position: relative;
   letter-spacing: 4px;
   margin-top: 4px;
@@ -503,8 +503,8 @@ div p.elec-guide-txt {
   font-family: Roboto regular;
   color: #1f6f8f;
   font-weight: inherit;
-  font-size: 500%;
-  margin-top: 6%;
+  font-size: 400%;
+  margin-top: 10%;
   letter-spacing: 4px;
   text-align: center;
 }
@@ -513,20 +513,20 @@ div p.elec-guide-txt {
   font-family: Roboto regular;
   color: #142d4f;
   font-weight: inherit;
-  font-size: 800%;
+  font-size: 550%;
   letter-spacing: 4px;
   text-align: center;
-  margin-top: 4px;
+  margin-top: 1%;
 }
 
 .Bon3 h1 {
   font-family: Roboto regular;
   color: #142d4f;
   font-weight: inherit;
-  font-size: 150%;
+  font-size: 100%;
   letter-spacing: 4px;
   text-align: center;
-  margin-top: 100px;
+  margin-top: 8%;
 }
 
 /* End of Election*/
@@ -535,7 +535,7 @@ div p.elec-guide-txt {
   font-family: Roboto regular;
   color: #1f6f8f;
   font-weight: inherit;
-  font-size: 500%;
+  font-size: 400%;
   margin-top: 4%;
   letter-spacing: 4px;
   text-align: center;
@@ -545,7 +545,7 @@ div p.elec-guide-txt {
   font-family: Roboto regular;
   color: #142d4f;
   font-weight: inherit;
-  font-size: 800%;
+  font-size: 550%;
   position: relative;
   letter-spacing: 4px;
   text-align: center;
@@ -1045,7 +1045,7 @@ div p.elec-guide-txt {
 /* Election Archives Folder*/
 
 .Barch p {
-  font-family: Roboto-regular;
+  font-family: Roboto regular;
   color: #142d4f;
   font-weight: inherit;
   font-size: 300%;
@@ -1064,7 +1064,7 @@ div p.elec-guide-txt {
 
 .Bbox a {
   color: #1f6f8f;
-  font-family: Roboto;
+  font-family: Roboto regular;
   font-size: 200%;
   text-align: center;
   margin-top: -5px;
@@ -1117,7 +1117,7 @@ svg {
 /*Election Archives List*/
 
 .Barch_year {
-  font-family: Roboto-regular;
+  font-family: Roboto regular;
   color: #ffb700;
   font-weight: inherit;
   font-size: 100%;
@@ -1168,7 +1168,6 @@ svg {
 
 .Bpstn .Bname {
   margin-top: 10px;
-  /* color:  #142d4f; */
   color: #ffffff;
   font-weight: bold;
   font-size: 20px;
