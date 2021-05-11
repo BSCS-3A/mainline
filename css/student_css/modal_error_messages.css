@@ -104,13 +104,15 @@ body {
 /* OK Button */
 
 .F-OkBTN-error {
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   float: right;
   background-color: #fece4b;
   color: black;
   margin-left: 10px;
   height: 35%;
   width: 30%;
-  /* border-radius: 30px; */
+  border: none;
+  border-radius: 30px;
   letter-spacing: 1px;
   font-size: 14px;
   cursor: pointer;
