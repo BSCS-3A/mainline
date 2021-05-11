@@ -173,19 +173,17 @@ select {
   display: none;
 }
 
-/* Mobile CSS */
 
-@media all and (max-width: 986px){
+/* Smartphones (portrait and landscape) ----------- */
+@media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
+  body{
+    -webkit-flex-direction: column;
+    flex-direction: column;
+  }
+
   .Awelcome-banner {
     display: none;
   }
-  /* form {
-    position: fixed;
-    top: 80px;
-    bottom: 80px;
-    margin-left: -140px;
-    margin-right: 30px;
-  } */
   .Acontainer{
     position: relative; /* or absolute */
     display: inline-block;
@@ -206,5 +204,26 @@ select {
     padding: 0px 30px 0px 10px;
     height: 15%;
     width: 15%;
+  }
+}
+
+/* iPads (landscape) ----------- */
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : landscape) {
+  body{
+    -webkit-flex-direction: column;
+    flex-direction: column;
+  }
+
+  .Awelcome-banner {
+    display: block;
+    float: right;
+    margin: 100px;
+  }
+  .Acontainer{
+    position: relative; /* or absolute */
+    display: inline-block;
+    float: none;
+    max-width: 100%;
+    top: -150px;
   }
 }
