@@ -68,8 +68,31 @@ $pdf->setFontSubsetting(true);
 //----------------------Connect to Database
 $stud_id = $_SESSION['student_id'];
 $vote_que = $conn->query("SELECT * FROM (((vote INNER JOIN candidate ON vote.candidate_id = candidate.candidate_id)INNER JOIN student ON candidate.student_id = student.student_id) INNER JOIN candidate_position ON candidate.position_id = candidate_position.position_id) WHERE vote.student_id = $stud_id ORDER BY candidate_position.heirarchy_id");
-$time_voted = $vote_que->fetch_assoc();
-echo $time_voted['time_stamp'];
+if(empty($vote_que->fetch_assoc())){
+	echo '<link rel="stylesheet" type="text/css" href="../css/student_css/vote_message.css">';
+	echo '<link rel="stylesheet" type="text/css" href="../css/student_css/modal_error_messages.css">';
+	include 'navStudent.php';
+	echo '<main>
+		<div id="error-message-container" class="error-message-container">			
+			<div id="election-finished-msg" class="error-message">
+				<h3>You have not yet voted.</h3>
+			</div>
+
+			<div id="error-button" class="error-button">
+				<button type="button" id="ok-button" class="OkBTN-error">OK</button>
+			</div>
+		</div>
+	</main>';
+	echo '<script>
+	// Get Home button
+	var home = document.getElementById("ok-button");
+
+	home.onclick = function() {
+		location.href = "Student_studDash.php";
+	}
+	</script>';
+	exit();
+}
 // -------------------Add page
 $pdf->AddPage();
 $pdf->SetFont('times','',12);
@@ -77,6 +100,7 @@ ob_start();
 	
 	//date generated
 	date_default_timezone_set("Asia/Manila");
+	$time_voted = $vote_que->fetch_assoc();
 	$today = $time_voted['time_stamp'];	
 	$acadyear1 = date("Y");
 	$acadyear2 = $acadyear1 + 1;
