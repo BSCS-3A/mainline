@@ -31,6 +31,7 @@ $position_query_run = mysqli_query($connection, $position_query);
               if(array_search($source,$arrtab) == true){
                 echo"<script language='javascript'>
                 alert('Signatory already exist');
+                window.location.href = '../Admin_signConfig.php';
                 </script>
                 ";
 
