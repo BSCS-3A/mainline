@@ -53,7 +53,7 @@ if (isset($_SESSION['admin_id']) && isset($_SESSION['username'])) {
           error_reporting(E_ERROR | E_PARSE);
           ?>
 
-          <table class="center" id="datatable" width="100%" cellspacing="0" cellpadding="2px">
+          <table class="table table-hover" id="datatable" width="100%">
             <thead>
               <tr>
                 <th class="text-center">FIRST NAME</th>
