@@ -108,6 +108,10 @@
 							echo $output;
                             header("Content-type: application/xls");
                             header("Content-Disposition: attachment; filename=Summary of Votes.xls");
+					
+			//For Logs
+			$_SESSION['action'] = 'prinnted Summary of Votes.';
+			include 'backFun_actLogs_v0_1.php';
                            
                         }
 	}
