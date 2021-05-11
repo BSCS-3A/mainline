@@ -2,6 +2,7 @@
 session_start();
 include('db_conn.php');
  if (isset($_SESSION['student_id']) && isset($_SESSION['bumail'])) {
+    include 'navStudent.php';
  ?>
 <!DOCTYPE html>
 <html>
@@ -26,7 +27,7 @@ include('db_conn.php');
 <body>
     <?php
         include "db_conn.php";
-        require 'Student_vtValSan.php';
+        // require 'Student_vtValSan.php';
         require 'Student_vtFetch.php';
 
         // Remove this temp session
@@ -62,7 +63,6 @@ include('db_conn.php');
                         // exit();
                     }
                     else if($access_time >= $start_time && $access_time <= $end_time){
-                        include 'navStudent.php';
                         echo '<header id="F-header"  style="text-align: center;"><b>STUDENT LEADER ELECTION</b></header><br>';
                         echo '<main>';
                         echo '<form id = "main-form" method="POST" action = "Student_vtReceipt.php" class="vtBallot" id="vtBallot"><div id="voting-page">';
