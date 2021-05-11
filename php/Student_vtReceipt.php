@@ -26,7 +26,7 @@ include('db_conn.php');
     <?php
         // include 'navstudent.php';
         require "db_conn.php";
-	      // require "Student_vtValSan.php";
+	      require "Student_vtValSan.php";
         // if(!isset($_POST['confirm-button'])){
         //   header("Location: vtBallot.php");
         //   exit();
@@ -34,8 +34,8 @@ include('db_conn.php');
 
 
 
-        include 'navStudent.php';
         function receiptMsg($message){
+          include 'navStudent.php';
           echo '<header id="F-header"  style="text-align: center;"><b>VOTE RECEIPT</b></header><br>';
             echo '<main>';
             echo '<div id="download-receipt-page" class="F-download-receipt-container">';
