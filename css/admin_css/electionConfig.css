@@ -78,8 +78,10 @@ input[type="time"] {
     background: #ffc423;
     border: none;
     border-radius: 5px;
-    font-weight: bold;
-    font-family: 'Roboto-regular', sans-serif;
+    font-family: 'Roboto-bold', sans-serif;
+}
+.btn:hover{
+    background-color: #e0a900;
 }
 
 .msg {

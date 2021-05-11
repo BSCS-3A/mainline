@@ -86,7 +86,7 @@ if (isset($_SESSION['admin_id']) && isset($_SESSION['username'])) {
             <div class="row">
                 <div class="col-md-12">
                     <div class="table-responsive">
-                        <table class="table table-hover" id="datatable" width="100%">
+                        <table class="table-center" id="datatable" width="100%">
                             <thead>
                                 <tr>
                                     <th class="text-center">NO.</th>

@@ -123,7 +123,7 @@ $row =  $DnT->fetch_row();
         <div class="row">
             <div class="col-md-12">
                 <div class="table-responsive">
-                    <table class="table table-hover" id="datatable" style="width:100%">
+                    <table class="table-center" id="datatable" style="width:100%">
                         <thead>
                             <tr>
                                 <th class="min-mobile">STUDENT ID</th>
