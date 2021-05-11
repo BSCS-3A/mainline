@@ -23,6 +23,13 @@ include("db_conn.php");
         <!-- <script src="../js/countdown.js"></script> -->
         <script type="text/javascript" src="../js/admin_session_timer.js"></script>
         <script src="https://cdn.datatables.net/fixedheader/3.1.8/js/dataTables.fixedHeader.min.js"></script>
+      
+        <!--       Tie Breaker UI -->
+        <link rel="stylesheet" type="text/css" href="../css/student_css/vote_ballot.css">
+        <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+        <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+        <script src="../js/scripts.js"></script>
+      
         <title>Election Report Generation  | BUCEILS HS Online Voting System</title>
     </head>
 
@@ -54,7 +61,6 @@ include("db_conn.php");
                         // Count the highest vote per position
                             $rowSQL = mysqli_query($conn, "SELECT MAX(total_votes) AS tempWinner FROM candidate WHERE position_id = '$i'");
                             list($max) = mysqli_fetch_row($rowSQL);
-                        echo "<br>$i = $max";
 
                         if($max>0)
                         {
@@ -74,8 +80,14 @@ include("db_conn.php");
                         {
                             $queryString = "SELECT * FROM ((candidate INNER JOIN student ON candidate.student_id = student.student_id) INNER JOIN candidate_position ON candidate.position_id = candidate_position.position_id)".$tiedCandidates." ORDER BY candidate_position.heirarchy_id";
                             $tieTable = $conn->query($queryString);
-                            echo "<br>$queryString";
-                            // makeBallot($tieTable);
+                            makeBallot($tieTable);
+                            require '../backMonitor/vtConfirm.php';
+                            echo '</div>';
+                            echo '<div id="vote-button"><button id="vote-btn" name = "vote-button" class="vote-btn" type = "button">SUBMIT</button></div>
+                            </form>';
+                            echo '</main>';
+                            echo '<br>
+                            <script src = "../js/modals.js"></script>';
                             // after voting change to final
                         }else{ //ordinary admin
                             // display that election results is not yet final, call admin to finalize
