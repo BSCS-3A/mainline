@@ -34,13 +34,14 @@ if(mysqli_num_rows($fname_query_run) >0){
         echo"<script language='javascript'>
         alert('Signatory Deleted');
         
-        //For Logs
-        $_SESSION['action'] = 'deleted Signatory : ' . $siglname . ', ' . $sigfname ;
-        include 'backFun_actLogs_v0_1.php';
-        
         window.location.href = '../Admin_signConfig.php';
         </script>
         ";
+        
+        
+        //For Logs
+        $_SESSION['action'] = 'deleted Signatory : ' . $siglname . ', ' . $sigfname ;
+        include 'backFun_actLogs_v0_1.php';
         }
       }
     }
