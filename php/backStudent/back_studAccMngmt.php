@@ -92,6 +92,11 @@ if(isset($_POST["upload"])){
                 mysqli_query($connect, $query);
             }
             fclose($handle);
+            
+            //For Logs
+            $_SESSION['action'] = 'uploaded CSV File.';
+            include 'backFun_actLogs_v0_1.php';
+            
             header("location: Admin_studAcc.php");
         }
         else{
