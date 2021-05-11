@@ -143,8 +143,8 @@ include('db_conn.php');
                 
                   // update voter's status
                   $conn->query("UPDATE `student` SET `voting_status` = true WHERE `student`.`student_id` = '$stud_id'");
+                  receiptMsg("Your votes were submitted successfully! Here is a copy of your vote receipt");
                 }
-                receiptMsg("Your votes were submitted successfully! Here is a copy of your vote receipt");
               }
             } 
           }
