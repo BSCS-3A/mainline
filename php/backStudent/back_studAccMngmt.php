@@ -95,7 +95,7 @@ if(isset($_POST["upload"])){
             
             //For Logs
             $_SESSION['action'] = 'uploaded CSV File.';
-            include 'backFun_actLogs_v0_1.php';
+            include '../backAdmin/backFun_actLogs_v0_1.php';
             
             header("location: Admin_studAcc.php");
         }
