@@ -102,7 +102,7 @@ include("db_conn.php");
                         insertToArchive($conn, $winnerList, $last_election_date);
             ?>
                         <div class="Bbtn_post">
-                            <button onclick="parent.open('http://localhost/voting-main/php/Admin_generate-pdf.php')" class="Bbtn_postresults scs-responsive"><b>DOWNLOAD PDF</b></button>
+                            <button onclick="parent.open('Admin_generate-pdf.php')" class="Bbtn_postresults scs-responsive"><b>DOWNLOAD PDF</b></button>
                         </div>
 
             <?php
