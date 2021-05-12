@@ -13,15 +13,15 @@ class PDF extends TCPDF {
 		if (count($this->pages) === 1){ //displays header on first page only    
 			
 			//BU Seal
-			$imageFile= K_PATH_IMAGES.'bu-seal.png';
+			$imageFile= K_PATH_IMAGES.'Slide11.png';
 			$this->Image($imageFile,20,8,20,'','png','','T',false,300,'',false,false,0,false,false,false);
 			
 			//BUCEILS Seal
-			$imageFile= K_PATH_IMAGES.'buceils-seal.png';
+			$imageFile= K_PATH_IMAGES.'Slide22.png';
 			$this->Image($imageFile,41,8,20,'','png','','T',false,300,'',false,false,0,false,false,false);
 			
 			//SSG Seal
-			$imageFile= K_PATH_IMAGES.'ssg-seal.png';
+			$imageFile= K_PATH_IMAGES.'Slide44.png';
 			$this->Image($imageFile,63,8,20,'','png','','T',false,300,'',false,false,0,false,false,false);
 
 			//Header text
@@ -242,7 +242,7 @@ while($lastCandidate = mysqli_fetch_array($queryGroup)){
 	$pdf->Cell(20,1,'Certified true and correct by:',0,0);
 	$pdf->Ln(5);
 
-$fileJson = file_get_contents('../Signatory/php/sig_array.json');
+$fileJson = file_get_contents('../other/sig_array.json');
              $decoded = json_decode($fileJson, true);
              $id = explode(",",$decoded);
              $id = array_filter($id);
