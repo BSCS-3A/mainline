@@ -57,6 +57,6 @@ if(isset($_POST["sendEmail"])){
          include 'backFun_actLogs_v0_1.php';
    
         header("location: Admin_studAcc.php");
-        $mail->ClearAllRecipients();
+        //$mail->ClearAllRecipients();
 }
 ?>
