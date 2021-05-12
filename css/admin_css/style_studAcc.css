@@ -30,7 +30,7 @@ nav:after {
 }
 
 nav h2 {
-  font-family: Roboto Regular, sans-serif;
+  font-family: 'Roboto-regular', sans-serif;
   font-weight: inherit;
   font-size: 100%;
   margin-bottom: 0px;
@@ -46,7 +46,7 @@ nav h3 {
   font-size: 120%;
   margin-bottom: 0px;
   letter-spacing: 6px;
-  font-family: Generica regular, sans-serif;
+  font-family: 'genericaregular', sans-serif;
 }
 
 nav .logo {
@@ -87,7 +87,7 @@ nav ul li a {
   font-size: 1.2em;
   padding: 8px 15px;
   letter-spacing: 1px;
-  font-family: Roboto Light, sans-serif;
+  font-family: 'Roboto-regular', sans-serif;
 }
 
 nav ul li a:visited {
@@ -195,7 +195,7 @@ nav ul ul li {
 
 nav ul ul li a {
   line-height: 50px;
-  font-family: Roboto bold, sans-serif;
+  font-family: 'Roboto-regular', sans-serif;
 }
 
 nav ul ul ul li {
@@ -331,26 +331,6 @@ nav h5 {
   letter-spacing: 6px;
   text-transform: uppercase;
 }
-/*header for vote summary since tigcopy lang yung css and di naglagay ng separate --*/
-.bheader{
-  position: relative;
-    z-index: -2;
-    padding: 2px 2px;
-    background: #124254;
-    font-weight: 400;
-    width: 100%;
-    text-align: center;
-    font-family: 'Roboto-regular', sans-serif;
-    letter-spacing: 6px;
-    color: #ffc423 !important;
-    text-transform: uppercase;
-}
-
-.bHeader-txt {
-  font-size: 24px;
-  margin-top: 1%;
-  margin-bottom: 1%;
-}
 
 .pagination>li {
   display: inline;
@@ -422,6 +402,19 @@ iframe {
 .btn-danger:hover {
   background-color: #d93e39!important;
 }
+.btn-button0 {
+  color: #eeeeee;
+  background: #124254;
+  border-color: #124254;
+  box-shadow: none;
+  padding: 10px 20px;
+  margin: 25px 5px 15px 0px!important;
+}
+
+.btn-button0:hover {
+  background-color: #18566e !important;
+  color: #EEEEEE!important;
+}
 
 .btn-button1 {
   color: #eeeeee;
@@ -464,19 +457,21 @@ iframe {
   background-color: #18566e !important;
   color: #EEEEEE!important;
 }
-
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 500px) {
+  .btn-button0 {
+    margin: 25px 5px 5px 0px!important;
+  }
   .btn-button1 {
-    margin: 25px 2px 5px 0px!important;
+    margin: 25px 50px 5px 0px!important;
   }
   .btn-button2 {
-    margin: 0px 500px 5px 0px!important;
+    margin: 0px 5px 20px 0px!important;
   }
   .btn-button3 {
-    margin: 0px 0px 15px 0px!important;
+    margin: 0px 0px 20px 0px!important;
   }
   .btn-button4 {
-    width: 25% !important;
+    width: 30% !important;
     margin: 30px 15px 10px 0px!important;
   }
 }
@@ -619,10 +614,6 @@ th {
   text-align: center;
 }
 
-table tbody tr:hover {
-  background-color: #D3D3D3;
-}
-
 td {
   border: 1px solid #124254;
   padding: 0px;
@@ -635,6 +626,55 @@ td {
 table tbody tr:hover {
   background-color: #D3D3D3;
 }
+
+article p {
+  font-family: 'Roboto-regular', sans-serif;
+  color: white;
+  font-weight: inherit;
+  font-size: 20px;
+  letter-spacing: 3px;
+  position: relative;
+}
+
+article h1 {
+  font-family: 'genericaregular', sans-serif;
+  color: #ffc423;
+  font-weight: inherit;
+  font-size: 55px;
+  position: relative;
+  letter-spacing: 3px;
+  margin-top: 10px;
+}
+
+/* Style the content */
+
+article {
+  -webkit-flex: 3;
+  -ms-flex: 3;
+  flex: 3;
+  padding: 10px;
+}
+
+/*For logos on top of welcome banner*/
+
+img.logos {
+  float: left;
+  padding-left: 10px;
+  height: 90px;
+  width: 100px;
+  margin-bottom: 2em;
+}
+
+.logo-container {
+  position: relative;
+  /* float: left; */
+  display: -webkit-flex;
+  display: flex;
+  margin-left: 0px;
+  margin-top: 0px;
+  max-width: 700px;
+}
+
 /* Responsive layout - makes the menu and the content (inside the section) sit on top of each other instead of next to each other */
 
 @media (max-width: 600px) {
@@ -659,7 +699,7 @@ table tbody tr:hover {
 div p.footer-txt {
   position: relative;
   top: .5em;
-  font-family: Roboto Regular, sans-serif;
+  font-family: 'Roboto-regular', sans-serif;
   letter-spacing: 7px;
   font-size: 0.7em;
   color: #ffffff;

@@ -1,21 +1,3 @@
-<!--
-Proj Mngr Notes:
-- changed file name
-- db_conn_studAccMngmt.php
-
-- add "delete all" button or fix file uploading
-(when new list of students, overwrite existing list, including
-the number of students, addressed to the group already)
-- issue on db_conn_studAccMngmt can avoid the addition of delete all,
-instead, truncate all data on table then insert the new data (suggestion)
-pag kunware kasi sa existing table walang student 1-5 then if upload csv with
-student 1-33, di na uupload/insert yung student 1-5 kasi UPDATE ginamit instead
-INSERT. ang UPDATE gumagawa lng ng changes sa existing students, they dont add the
-missing students
-
--->
-
-
 <?php
 include("genotp_studAcc.php");
 include("./backStudent/back_studAccMngmt.php");
@@ -87,6 +69,16 @@ $row =  $DnT->fetch_row();
     <div class="container">
         <section>
             <div class="btn-toolbar">
+
+            <button class="btn btn-button0" data-title="add" data-toggle="modal" data-target="#add" data-placement="top" data-toggle="tooltip" title="Add new student" 
+
+                <?php 
+                    $now = date("Y-m-d G:i:s"); // G for 24hr format
+                    if($now >= $row[1] && $now <= $row[2] ){
+                    ?> disabled <?php    
+                    }?>>
+                <span class="fa fa-user-plus"></span> ADD</button>  
+
                 <button class="btn btn-button1" data-title="new" data-toggle="modal" data-target="#new" data-placement="top" data-toggle="tooltip" title="Import new list" 
 
                 <?php 
@@ -108,7 +100,7 @@ $row =  $DnT->fetch_row();
                 <!--Edited button to be disabled during the election-->     
 
 
-                <button class="btn btn-button2" data-title="send" data-toggle="modal" data-target="#send" data-placement="top" data-toggle="tooltip" title="Send Login Credentials"  
+                <button class="btn btn-button3" data-title="send" data-toggle="modal" data-target="#send" data-placement="top" data-toggle="tooltip" title="Send Login Credentials"  
 
                 <?php 
                     $now = date("Y-m-d G:i:s"); // G for 24hr format
@@ -196,6 +188,51 @@ $row =  $DnT->fetch_row();
             </div>
         </div>
     </div>
+    <div>
+        <!-- EDIT MODAL -->
+        <form action="edit_studAcc.php" method="POST">
+        <div class="modal fade" id="add" tabindex="-1" role="dialog" aria-labelledby="edit" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                        <h4 class="modal-title custom_align" id="Heading">Add New Student</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <input class="form-control " name="Update_ID" id="Update_ID" type="text" readonly="readonly" required="required">
+                        </div>
+                        <div class="form-group">
+                            <input class="form-control " name="lname" id="lname" type="text" placeholder="Enter Last Name" required="required">
+                        </div>
+                        <div class="form-group">
+                            <input class="form-control " name="fname" id="fname" type="text" placeholder="Enter First Name" required="required">
+                        </div>
+                        <div class="form-group"> <!-- Do not require, not all students have middle name -->
+                            <input class="form-control " name="Mname" id="Mname" type="text" placeholder="Enter Middle Name">
+                        </div>
+                        <div class="form-group">
+                            <input class="form-control " name="gender" id="gender" type="text" placeholder="Enter Gender" required="required">
+                        </div>
+                        <div class="form-group">
+                            <input class="form-control " name="bumail" id="bumail" type="text" placeholder="Enter Email" required="required">
+                        </div>
+                        <div class="form-group">
+                            <input class="form-control " name="grade_level" id="grade_level" type="text" placeholder="Enter Grade Level" required="required">
+                        </div>
+                    </div>
+                    <div class="modal-footer ">
+                        <button type="submit" name="save" class="btn btn-warning btn-lg" id="save" style="width: 100%;"><span class="fa fa-check-circle"></span> Add</button>
+                        <button type="button" class="btn btn-default" id="cancel" style="width:100%;" data-dismiss="modal"><span class="fa fa-times-circle"></span> Cancel</button>
+                    </div>
+                </div>
+                <!-- /.modal-content -->
+            </div>
+            <!-- /.modal-dialog -->
+        </div>
+    </form>
+    </div>
+
     <div class="modal fade" id="new" tabindex="-1" role="dialog" aria-labelledby="edit" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -218,8 +255,8 @@ $row =  $DnT->fetch_row();
                         <?php //echo $message; ?>
 
                         <br />
-                        <input type="submit" name="upload" class="btn btn-button1" value="Upload" />
-                        <input class="btn btn-button4 " data-dismiss="modal" value="Cancel" />
+                        <input type="submit" name="upload" class="btn btn-button0" value="Upload" />
+                        <input class="btn btn-button4" data-dismiss="modal" value="Cancel" />
                     </form>
                     <!--  -->
                 </div>
@@ -235,8 +272,8 @@ $row =  $DnT->fetch_row();
                     <h4 class="modal-title custom_align" id="Heading">Once you confirm, the system will generate one time password for this list. Do you wish to proceed?</h4>
                     <form method="POST">
                         <div class="modal-footer ">
-                            <button type="submit" name="go" class="btn btn-success" id="go"><span class="fa fa-check-circle"></span> Continue</button>
-                            <button type="button" class="btn btn-default" id="cancel2" data-dismiss="modal"><span class="fa fa-times-circle"></span> Cancel</button>
+                            <button type="submit" name="go" class="btn btn-success" id="go"><span class="fa fa-check-circle"></span> Continue</button>
+                            <button type="button" class="btn btn-default" id="cancel2" data-dismiss="modal"><span class="fa fa-times-circle"></span> Cancel</button>
                         </div>
                     </form>
                 </div>
@@ -257,7 +294,7 @@ $row =  $DnT->fetch_row();
 
                         <form method="POST">
                             <input type="submit" class="btn btn-success" id="go2" name="sendEmail" value="Continue"></input>
-                            <button type="button" class="btn btn-default" id="cancel2" data-dismiss="modal"><span class="fa fa-times-circle"></span> Cancel</button>
+                            <button type="button" class="btn btn-default" id="cancel2" data-dismiss="modal"><span class="fa fa-times-circle"></span> Cancel</button>
 
                         </form>
                     </div>
@@ -327,8 +364,8 @@ $row =  $DnT->fetch_row();
                         <input type="hidden" name="Delete_ID" id="Delete_ID">
                     </div>
                     <div class="modal-footer ">
-                        <button type="submit" name="continue" class="btn btn-success" id="continue"><span class="fa fa-check-circle"></span> Continue</button>
-                        <button type="button" class="btn btn-default" id="cancel" data-dismiss="modal"><span class="fa fa-times-circle"></span> Cancel</button>
+                        <button type="submit" name="continue" class="btn btn-success" id="continue"><span class="fa fa-check-circle"></span> Continue</button>
+                        <button type="button" class="btn btn-default" id="cancel" data-dismiss="modal"><span class="fa fa-times-circle"></span> Cancel</button>
                     </div>
                 </form>
             </div>

@@ -29,8 +29,8 @@
 </head>
 <body>
     
-    <div class="Bheader">
-        <h3 class="Bheader-txt">VOTE SUMMARY</h3>
+    <div class="cheader">
+        <h3 class="cheader-txt">VOTE SUMMARY</h3>
     </div>
     <div class="container">
        <section> <form method="POST" action="./backStudent/Admin_printSum.php">
@@ -163,8 +163,8 @@
             <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
             <h4 class="modal-title custom_align" id="Heading">Import new list?</h4>
       <div class="modal-footer ">
-      <button type="button" class="btn btn-success" id="go" ><span class="glyphicon glyphicon-ok-sign"></span> Continue</button>
-      <button type="button" class="btn btn-default" id= "cancel2" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span> Cancel</button>
+      <button type="button" class="btn btn-success" id="go" ><span class="glyphicon glyphicon-ok-sign"></span> Continue</button>
+      <button type="button" class="btn btn-default" id= "cancel2" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span> Cancel</button>
     </div>
       </div>
     </div>

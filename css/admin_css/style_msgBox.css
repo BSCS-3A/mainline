@@ -30,7 +30,7 @@ nav:after {
 }
 
 nav h2 {
-  font-family: Roboto Regular, sans-serif;
+  font-family: 'Roboto-regular', sans-serif;
   font-weight: inherit;
   font-size: 100%;
   margin-bottom: 0px;
@@ -46,7 +46,7 @@ nav h3 {
   font-size: 120%;
   margin-bottom: 0px;
   letter-spacing: 6px;
-  font-family: Generica regular, sans-serif;
+  font-family: 'genericaregular', sans-serif;
 }
 
 nav .logo {
@@ -87,7 +87,7 @@ nav ul li a {
   font-size: 1.2em;
   padding: 8px 15px;
   letter-spacing: 1px;
-  font-family: Roboto Light, sans-serif;
+  font-family: 'Roboto-regular', sans-serif;
 }
 
 nav ul li a:visited {
@@ -195,7 +195,7 @@ nav ul ul li {
 
 nav ul ul li a {
   line-height: 50px;
-  font-family: Roboto bold, sans-serif;
+  font-family: 'Roboto-regular', sans-serif;
 }
 
 nav ul ul ul li {
@@ -292,7 +292,7 @@ nav ul ul ul li {
 /*-------Student Management//Vote summary------*/
 
 nav h4 {
-  font-family: Roboto Regular, sans-serif;
+  font-family: 'Roboto-regular', sans-serif;
   font-weight: inherit;
   font-size: 100%;
   margin-bottom: 0px;
@@ -311,11 +311,23 @@ nav h5 {
   font-size: 100%;
   margin-bottom: 0px;
   letter-spacing: 6px;
-  font-family: Generica regular, sans-serif;
+  font-family: 'genericaregular', sans-serif;
 }
 
 .cnavie ul li a {
   font-size: 1.05em;
+}
+
+.cheader {
+  z-index: 100;
+  padding: 1px 1px;
+  font-size: 35px;
+  background: #124254;
+  color: #f1f1f1;
+  width: 100%;
+  text-align: center;
+  font-family: 'Roboto-regular', sans-serif;
+  letter-spacing: 6px;
 }
 
 .pagination>li {
@@ -342,7 +354,7 @@ iframe {
 }
 
 .btn {
-  font-family: Roboto Regular, sans-serif;
+  font-family: 'Roboto-regular', sans-serif;
   display: inline-block;
   padding: 6px 12px;
   margin: 0px;
@@ -554,7 +566,7 @@ div.container {
 #datatable {
   width: 100%;
   border: 1px solid #124254;
-  font-family: Roboto regular, sans-serif;
+  font-family: 'Roboto-regular', sans-serif;
   border-collapse: collapse;
   table-layout: auto;
   margin: 0px;
@@ -599,7 +611,7 @@ table tbody tr:hover {
 }
 
 article p {
-  font-family: Roboto regular, sans-serif;
+  font-family: 'Roboto-regular', sans-serif;
   color: white;
   font-weight: inherit;
   font-size: 20px;
@@ -608,7 +620,7 @@ article p {
 }
 
 article h1 {
-  font-family: Generica regular, sans-serif;
+  font-family: 'genericaregular', sans-serif;
   color: #ffc423;
   font-weight: inherit;
   font-size: 55px;
@@ -670,7 +682,7 @@ img.logos {
 div p.footer-txt {
   position: relative;
   top: .5em;
-  font-family: Roboto Regular, sans-serif;
+  font-family: 'Roboto-regular', sans-serif;
   letter-spacing: 7px;
   font-size: 0.7em;
   color: #ffffff;
@@ -684,22 +696,18 @@ nav img.user-profile {
 
 .ccheader {
   position: relative;
-  z-index: -2;
-  padding: 2px 2px;
+  z-index: -1;
+  padding: 1px 1px;
+  font-size: 35px;
   background: #124254;
-  font-weight: 400;
+  color: #ffc423;
   width: 100%;
   text-align: center;
   font-family: 'Roboto-regular', sans-serif;
   letter-spacing: 6px;
-  color: #ffc423 !important;
   text-transform: uppercase;
 }
-.ccheader-txt{
-  font-size: 24px;
-  margin-top: 1%;
-  margin-bottom: 1%;
-}
+
 /*------------messagebox----------*/
 
 <!--Message Box-->::-webkit-scrollbar {
@@ -755,7 +763,7 @@ nav img.user-profile {
 }
 
 .text-small {
-  font-family: Roboto regular, sans-serif;
+  font-family: 'Roboto-regular', sans-serif;
   font-size: 1.4rem;
 }
 
