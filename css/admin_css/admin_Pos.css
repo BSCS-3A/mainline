@@ -1168,3 +1168,11 @@ input[type="file"] {
 .dataTables_wrapper .dataTables_paginate .paginate_button.current, .dataTables_wrapper .dataTables_paginate .paginate_button.current:hover{
    font-family: 'Roboto-regular', sans-serif !important;
 }
+
+#add_button.btn.btn-button1.btn-s{
+margin-left:5px !important;
+}
+
+#save-add.btn.btn-warning.btn-lg{
+  margin-left: 5px !important;
+}
