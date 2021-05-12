@@ -645,17 +645,16 @@
           $(this).parent("td").attr("select","false");    
       });
   }
-function changePhoto(ctl){
-    $(ctl).siblings().trigger("click");
-}
 
     var bs_modal = $('#modal');
     var image = document.getElementById('imagine');
     var cropper,reader,file,candidate_id;
 
+    function changePhoto(ctl){
+        candidate_id = $(ctl).parents("tr").attr("candid");
+    }
 
     $("body").on("change", ".image", function(e) {
-        candidate_id = $(this).parents("tr").attr("candid");
         filesize = this.files[0].size/1024/1024;//mb 
         maxsize = 1;//mb
         if(maxsize < filesize){
@@ -722,7 +721,6 @@ function changePhoto(ctl){
                     url: "Admincand_uploadphoto.php",
                     data: {image:base64data,candidateid:candidate_id},
                     success: function(data) { 
-                        console.log(data);
                         bs_modal.modal('hide');
                         table.destroy();
                         reloadTable();

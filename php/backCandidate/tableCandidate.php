@@ -10,9 +10,9 @@
     if($numrows > 0){
       while( $row = mysqli_fetch_assoc($result)){
         if(!empty($row['photo'])){  
-            $string .= "<tr candid ='".$row['candidate_id']."'><td style='text-align:middle;'><div class = 'inp_container'><div class = 'button-wrap'><label class = 'button' for ='image'>Change Photo</label><input type='file' id = image name='image' class='image' style='display:none;'><button type='button' class = 'hide' onclick='changePhoto(this)'></button></div></div></td>";
+            $string .= "<tr candid ='".$row['candidate_id']."'><td style='text-align:middle;'><div class = 'inp_container'><div class = 'button-wrap'><label class = 'button' for ='image' onclick='changePhoto(this)'>Change Photo</label><input type='file' id = image name='image' class='image' style='display:none;'>";
         }else{
-            $string .= "<tr candid ='".$row['candidate_id']."'><td style='text-align:middle;'><div class = 'inp_container'><div class = 'button-wrap'><label class = 'button' for ='image'>Upload Photo</label><input type='file' id = image name='image' class='image' style='display:none;'><button type='button' class ='hide' onclick='changePhoto(this)'></button></div></div></td>";
+            $string .= "<tr candid ='".$row['candidate_id']."'><td style='text-align:middle;'><div class = 'inp_container'><div class = 'button-wrap'><label class = 'button' for ='image' onclick='changePhoto(this)'>Upload Photo</label><input type='file' id = image name='image' class='image' style='display:none;'>";
         }
 
         $string .= "<td>".$row['lname']."</td>
