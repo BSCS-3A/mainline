@@ -58,14 +58,12 @@
 	foreach($choice_final as $value){
 		$candidate = $conn->real_escape_string($value);
 		// $conn->query("UPDATE candidate SET total_votes = total_votes + 1 WHERE candidate.candidate_id = $candidate");
-<<<<<<< HEAD
-		minus($sub);
-		winString($sub, $candidate);
-		$sub = 1;
-=======
-		$tiedStatus--;
-		$winnerList = $winnerList." || candidate_id = ".$candidate."";	
->>>>>>> parent of 4b3a538 (BITCH)
+// 		minus($sub);
+// 		winString($sub, $candidate);
+
+// 		$tiedStatus--;
+// 		$winnerList = $winnerList." || candidate_id = ".$candidate."";	
+
 	}
 
 	// Submission
