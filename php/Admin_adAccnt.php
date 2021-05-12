@@ -65,6 +65,21 @@ if (isset($_SESSION['admin_id']) && isset($_SESSION['username'])) {
         }
     </style>
 
+    <style type="text/css">
+        img.imagine_edit {
+            display: block;
+            max-width: 100%;
+        }
+
+        .prev_edit {
+            overflow: hidden;
+            width: 160px;
+            height: 160px;
+            margin: 10px;
+            border: 1px solid red;
+        }
+    </style>
+
     <body>
         <div class="cheader" id="Dheader">
             <h3 class="Dheader-txt">ADMINISTRATOR ACCOUNT MANAGEMENT</h3>
@@ -99,6 +114,7 @@ if (isset($_SESSION['admin_id']) && isset($_SESSION['username'])) {
                                     <th class="text-center">ADMIN POSITION</th>
                                     <th class="text-center">ACTION</th>
                                     <th style="display:none;"></th>
+                                    <th style="display:none;"></th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -121,6 +137,7 @@ if (isset($_SESSION['admin_id']) && isset($_SESSION['username'])) {
                                         <td><?php echo $row['comelec_position']; ?></td>
                                         <td><?php echo $row['admin_position']; ?></td>
                                         <td style="display:none;"><?php echo $row['password']; ?></td>
+                                        <td style="display:none;"><?php echo $row['photo']; ?></td>
                                         <td style="white-space: nowrap;">
                                             <button class="btn btn-primary btn-xs editbtn" data-title="Edit" name="editinfo" data-toggle="modal" data-target="#edit" data-placement="top" data-toggle="tooltip" title="Edit" <?php if ($_SESSION['admin_position'] == "Admin") {
                                                                                                                                                                                                                                 ?> disabled <?php
@@ -255,7 +272,7 @@ if (isset($_SESSION['admin_id']) && isset($_SESSION['username'])) {
                             </div>
                             <div class="container">
                                 <label for="photo" width="70%">Upload photo</label><br />
-                                <input type="file" name="my_image_edit" id="my_image_edit" required><br />
+                                <input type="file" name="my_image_edit" id="my_image_edit"><br />
                                 <span id="admin_newupload_errorloc" class="error"></span>
                             </div>
                         </div>
@@ -323,6 +340,36 @@ if (isset($_SESSION['admin_id']) && isset($_SESSION['username'])) {
                 </div>
             </div>
         </div>
+        <!--######################################################################################################################################################################################-->
+        <!-- CROP MODAL FOR EDIT -->
+        <div class="modal fade" id="modal_edit" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Crop Image Before Upload</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">×</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="img-container">
+                            <div class="row">
+                                <div class="col-md-8">
+                                    <img src="" id="imagine_edit" />
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="prev_edit"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" id="crop_edit" class="btn btn-primary">Crop</button>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal_edit">Cancel</button>
+                    </div>
+                </div>
+            </div>
+        </div>
 
         <!-- <div class="footer">
         <p class="footer-txt">BS COMPUTER SCIENCE 3A © 2021</p>
@@ -380,6 +427,7 @@ if (isset($_SESSION['admin_id']) && isset($_SESSION['username'])) {
                     $('#username').val(data[5]);
                     $('#comelec_position').val(data[6]);
                     $('#admin_position').val(data[7]);
+                    $('#base64_edit').val(data[9]);
                 });
             });
         </script>
@@ -411,78 +459,150 @@ if (isset($_SESSION['admin_id']) && isset($_SESSION['username'])) {
             }
         </script>
 
-        <!-- CROP BEFORE UPLOAD -->
+        <!-- CROP BEFORE UPLOAD FOR ADD-->
         <script>
-            var bs_modal = $('#modal');
-            var image = document.getElementById('imagine');
-            var cropper, reader, file, candidate_id, temp;
+            (function() {
+                var bs_modal = $('#modal');
+                var image = document.getElementById('imagine');
+                var cropper, reader, file;
 
-            $("body").on("change", "#my_image", function(e) {
-                filesize = this.files[0].size / 1024 / 1024; //mb 
-                maxsize = 1; //mb
-                if (maxsize < filesize) {
-                    alert("Cannot upload picture higher than 1mb.");
-                    return;
-                }
-                var fileExtension = ['jpeg', 'jpg', 'png'];
-                if ($.inArray($(this).val().split('.').pop().toLowerCase(), fileExtension) == -1) {
-                    alert("Formats allowed : " + fileExtension.join(', '));
-                    return;
-                }
-                if (image != null) {
-                    var files = e.target.files;
-                    var done = function(url) {
-                        image.src = url;
-                        bs_modal.modal('show');
-                    };
+                $("body").on("change", "#my_image", function(e) {
+                    filesize = this.files[0].size / 1024 / 1024; //mb 
+                    maxsize = 1; //mb
+                    if (maxsize < filesize) {
+                        alert("Cannot upload picture higher than 1mb.");
+                        return;
+                    }
+                    var fileExtension = ['jpeg', 'jpg', 'png'];
+                    if ($.inArray($(this).val().split('.').pop().toLowerCase(), fileExtension) == -1) {
+                        alert("Formats allowed : " + fileExtension.join(', '));
+                        return;
+                    }
+                    if (image != null) {
+                        var files = e.target.files;
+                        var done = function(url) {
+                            image.src = url;
+                            bs_modal.modal('show');
+                        };
+                        if (files && files.length > 0) {
+                            file = files[0];
 
-
-                    if (files && files.length > 0) {
-                        file = files[0];
-
-                        if (URL) {
-                            done(URL.createObjectURL(file));
-                        } else if (FileReader) {
-                            reader = new FileReader();
-                            reader.onload = function(e) {
-                                done(reader.result);
-                            };
-                            reader.readAsDataURL(file);
+                            if (URL) {
+                                done(URL.createObjectURL(file));
+                            } else if (FileReader) {
+                                reader = new FileReader();
+                                reader.onload = function(e) {
+                                    done(reader.result);
+                                };
+                                reader.readAsDataURL(file);
+                            }
                         }
                     }
-                }
-                return;
-            });
+                    return;
+                });
+                bs_modal.on('shown.bs.modal', function() {
+                    cropper = new Cropper(image, {
+                        aspectRatio: 1,
+                        viewMode: 3,
+                        preview: '.prev'
+                    });
+                }).on('hidden.bs.modal', function() {
+                    $(".image").val('');
+                    cropper.destroy();
+                    cropper = null;
+                });
+                $("#crop").click(function() {
+                    canvas = cropper.getCroppedCanvas({
+                        width: 160,
+                        height: 160,
+                    });
+                    console.log(canvas);
 
-            bs_modal.on('shown.bs.modal', function() {
-                cropper = new Cropper(image, {
-                    aspectRatio: 1,
-                    viewMode: 3,
-                    preview: '.prev'
+                    canvas.toBlob(function(blob) {
+                        url = URL.createObjectURL(blob);
+                        var reader = new FileReader();
+                        reader.readAsDataURL(blob);
+                        reader.onloadend = function() {
+                            var base64data = reader.result;
+                            $("#base64").val(base64data);
+                        };
+                    });
+                    bs_modal.modal('hide');
                 });
-            }).on('hidden.bs.modal', function() {
-                $(".image").val('');
-                cropper.destroy();
-                cropper = null;
-            });
-            $("#crop").click(function() {
-                canvas = cropper.getCroppedCanvas({
-                    width: 160,
-                    height: 160,
-                });
-                console.log(canvas);
+            })();
+        </script>
 
-                canvas.toBlob(function(blob) {
-                    url = URL.createObjectURL(blob);
-                    var reader = new FileReader();
-                    reader.readAsDataURL(blob);
-                    reader.onloadend = function() {
-                        var base64data = reader.result;
-                        $("#base64").val(base64data);
-                    };
+        <!-- CROP BEFORE UPLOAD FOR EDIT-->
+        <script>
+            (function() {
+                var bs_modal = $('#modal_edit');
+                var image = document.getElementById('imagine_edit');
+                var cropper, reader, file;
+
+                $("body").on("change", "#my_image_edit", function(e) {
+                    filesize = this.files[0].size / 1024 / 1024; //mb 
+                    maxsize = 1; //mb
+                    if (maxsize < filesize) {
+                        alert("Cannot upload picture higher than 1mb.");
+                        return;
+                    }
+                    var fileExtension = ['jpeg', 'jpg', 'png'];
+                    if ($.inArray($(this).val().split('.').pop().toLowerCase(), fileExtension) == -1) {
+                        alert("Formats allowed : " + fileExtension.join(', '));
+                        return;
+                    }
+                    if (image != null) {
+                        var files = e.target.files;
+                        var done = function(url) {
+                            image.src = url;
+                            bs_modal.modal('show');
+                        };
+                        if (files && files.length > 0) {
+                            file = files[0];
+
+                            if (URL) {
+                                done(URL.createObjectURL(file));
+                            } else if (FileReader) {
+                                reader = new FileReader();
+                                reader.onload = function(e) {
+                                    done(reader.result);
+                                };
+                                reader.readAsDataURL(file);
+                            }
+                        }
+                    }
+                    return;
                 });
-                bs_modal.modal('hide');
-            });
+                bs_modal.on('shown.bs.modal', function() {
+                    cropper = new Cropper(image, {
+                        aspectRatio: 1,
+                        viewMode: 3,
+                        preview: '.prev_edit'
+                    });
+                }).on('hidden.bs.modal', function() {
+                    $(".image").val('');
+                    cropper.destroy();
+                    cropper = null;
+                });
+                $("#crop_edit").click(function() {
+                    canvas = cropper.getCroppedCanvas({
+                        width: 160,
+                        height: 160,
+                    });
+                    console.log(canvas);
+
+                    canvas.toBlob(function(blob) {
+                        url = URL.createObjectURL(blob);
+                        var reader = new FileReader();
+                        reader.readAsDataURL(blob);
+                        reader.onloadend = function() {
+                            var base64data = reader.result;
+                            $("#base64_edit").val(base64data);
+                        };
+                    });
+                    bs_modal.modal('hide');
+                });
+            })();
         </script>
     </body>
 

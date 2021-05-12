@@ -14,23 +14,76 @@ if (isset($_POST['updateData'])) {
     $comelec_position = $_POST['comelec_position'];
     $password = $_POST['password'];
     $conpassword = $_POST['conpassword'];
+    $image_edit = $_POST['my_image_edit'];
+
+    $data = $_POST['base64_edit'];
 
     if (!empty($password) || !empty($conpassword)) {
-        //$hashed = password_hash($password, PASSWORD_DEFAULT);
         $user_id = $_POST['update_id'];
-        // UPDATE USER DATA               
-        $query = "UPDATE `admin` SET admin_lname='$admin_lname', admin_fname='$admin_fname', admin_mname='$admin_mname', username='$username', 
-                admin_position='$admin_position', comelec_position='$comelec_position' , password='$password' 
-                WHERE admin_id='$user_id' ";
-        $query_run = mysqli_query($conn, $query);
+        //$hashed = password_hash($password, PASSWORD_DEFAULT);
+        if (!empty($image_edit)) {
+            $image_array_1 = explode(";", $data);
+            $image_array_2 = explode(",", $image_array_1[1]);
+            $data = base64_decode($image_array_2[1]);
+            $image_name = "../../user/img/" . uniqid('', true) . '.jpg';
+            file_put_contents($image_name, $data);
+
+            $slqphotofind = "SELECT `photo` FROM `admin` WHERE `admin_id`= '$user_id'";
+            $resultphotofind = mysqli_query($conn, $slqphotofind);
+            $rowfindphoto = mysqli_fetch_assoc($resultphotofind);
+
+            // UPDATE USER DATA               
+            $query = "UPDATE `admin` SET admin_lname='$admin_lname', admin_fname='$admin_fname', admin_mname='$admin_mname', username='$username', 
+            admin_position='$admin_position', comelec_position='$comelec_position', password='$password', photo='$image_name'
+            WHERE admin_id='$user_id' ";
+            $result = mysqli_query($conn, $query);
+            if ($result) {
+                if (!empty($rowfindphoto['photo'])) {   //if has photo delete photo in directory
+                    $path = $rowfindphoto['photo'];
+                    unlink($path);
+                }
+                echo "upload successful";
+            }
+        } else {
+            // UPDATE USER DATA               
+            $query = "UPDATE `admin` SET admin_lname='$admin_lname', admin_fname='$admin_fname', admin_mname='$admin_mname', username='$username', 
+            admin_position='$admin_position', comelec_position='$comelec_position', password='$password'
+            WHERE admin_id='$user_id' ";
+        }
     } else {
         $user_id = $_POST['update_id'];
-        // UPDATE USER DATA               
-        $query = "UPDATE `admin` SET admin_lname='$admin_lname', admin_fname='$admin_fname', admin_mname='$admin_mname', username='$username', 
+        if (!empty($image_edit)) {
+            echo "HAS PHOTO NO PASSWORD!";
+            $image_array_1 = explode(";", $data);
+            $image_array_2 = explode(",", $image_array_1[1]);
+            $data = base64_decode($image_array_2[1]);
+            $image_name = "../../user/img/" . uniqid('', true) . '.jpg';
+            file_put_contents($image_name, $data);
+
+            $slqphotofind = "SELECT `photo` FROM `admin` WHERE `admin_id`= '$user_id'";
+            $resultphotofind = mysqli_query($conn, $slqphotofind);
+            $rowfindphoto = mysqli_fetch_assoc($resultphotofind);
+
+            // UPDATE USER DATA               
+            $query = "UPDATE `admin` SET admin_lname='$admin_lname', admin_fname='$admin_fname', admin_mname='$admin_mname', username='$username', 
+            admin_position='$admin_position', comelec_position='$comelec_position', photo='$image_name'
+            WHERE admin_id='$user_id' ";
+            $result = mysqli_query($conn, $query);
+            if ($result) {
+                if (!empty($rowfindphoto['photo'])) {   //if has photo delete photo in directory
+                    $path = $rowfindphoto['photo'];
+                    unlink($path);
+                }
+                echo "upload successful";
+            }
+        } else {
+            // UPDATE USER DATA               
+            $query = "UPDATE `admin` SET admin_lname='$admin_lname', admin_fname='$admin_fname', admin_mname='$admin_mname', username='$username', 
                 admin_position='$admin_position', comelec_position='$comelec_position'
                 WHERE admin_id='$user_id' ";
-        $query_run = mysqli_query($conn, $query);
+        }
     }
+    $query_run = mysqli_query($conn, $query);
     //CHECK DATA UPDATED OR NOT
     if ($query_run) {
         //For Logs
