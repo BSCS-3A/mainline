@@ -1,4 +1,6 @@
 <?php
+	require 'front_Report_v11_1.php';
+
 	$table = $conn->query("SELECT * FROM ((candidate INNER JOIN student ON candidate.student_id = student.student_id) INNER JOIN candidate_position ON candidate.position_id = candidate_position.position_id) ORDER BY candidate_position.heirarchy_id"); // get positions
 	
 	$choice_final = array();
@@ -55,7 +57,9 @@
 
 	foreach($choice_final as $value){
 		$candidate = $conn->real_escape_string($value);
-		$conn->query("UPDATE candidate SET total_votes = total_votes + 1 WHERE candidate.candidate_id = $candidate");	
+		// $conn->query("UPDATE candidate SET total_votes = total_votes + 1 WHERE candidate.candidate_id = $candidate");
+		$tiedStatus--;
+		$winnerList = $winnerList." || candidate_id = ".$candidate."";	
 	}
 
 	// Submission

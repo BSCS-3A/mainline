@@ -27,7 +27,7 @@
                         //include 'navAdmin.php';
                         echo '<header id="F-header"  style="text-align: center;"><b>TIE BREAKER</b></header><br>';
                         echo '<main>';
-                        echo '<form id = "main-form" method="POST" action = "vtReceipt.php" class="vtBallot" id="vtBallot"><div id="voting-page">';
+                        echo '<form id = "main-form" method="POST" action = "Admin_vtReceipt" class="vtBallot" id="vtBallot"><div id="voting-page">';
 
                         if($_SESSION['admin_position']=="Head Admin")
                         {

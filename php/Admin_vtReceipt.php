@@ -13,7 +13,7 @@
     <link rel="stylesheet" type="text/css" href="../css/vote-message.css"> -->
     <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
-    <title>Download receipt</title>
+    <title>Download PDF Report</title>
 </head>
 
 <body>
@@ -86,11 +86,11 @@
         var home = document.getElementById("F-goToHomeBTN");
 
         download.onclick = function() {
-        location.href = "../other/PDF_Generator/generatepdf.php"; // generate reciept & show receipt
+        location.href = "'Admin_generate-pdf.php'"; // generate reciept & show receipt
         }
 
         home.onclick = function() {
-          location.href = "StudentDashboard.php";
+          location.href = "#";
         }
   </script>
 </body>
