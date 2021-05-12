@@ -360,6 +360,8 @@ footer {
 
 #profile h3 {
   font-size: 25px;
+  height: 26px;
+  overflow: hidden;
 }
 
 #profile p {
@@ -481,6 +483,4 @@ footer {
   
 .Uwrapper{
   flex-direction: column;
-}
-  
 }
