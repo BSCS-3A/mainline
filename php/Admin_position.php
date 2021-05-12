@@ -233,10 +233,10 @@ include "navAdmin.php";
           <form autocomplete = "off" method="post" action="" id="">
               <div class="modal-body">
                   <div class="form-group">              
-                      <input class="form-control" name="positionName" id="edit_Pos" type="text" placeholder="Enter Position Name" required>
+                      <input class="form-control" name="editName" id="edit_Pos" type="text" placeholder="Enter Position Name" required>
                   </div>
                   <div class = "form-group">
-                       <textarea class="form-control " id= "Desc_Pos" id ="edit_Desc" name="description" type="text" placeholder="Enter Position Description" required>     
+                       <textarea class="form-control" id ="edit_Desc" name="editDesc" type="text" placeholder="Enter Position Description" required>     
                        </textarea>
                   </div>
               </div>
@@ -259,10 +259,10 @@ include "navAdmin.php";
           <form autocomplete = "off" method="post" action="" id="">
               <div class="modal-body">
                   <div class="form-group">              
-                      <input class="form-control" name="add_Pos" id="add_Pos" type="text" placeholder="Enter Position Name" required>
+                      <input class="form-control" name="addPos" id="add_Pos" type="text" placeholder="Enter Position Name" required>
                   </div>
                   <div class = "form-group">
-                       <textarea class="form-control " id= "desc_Pos" id ="desc_Pos" name="description" type="text" placeholder="Enter Position Description" required>     
+                       <textarea class="form-control " id ="add_Desc" name="addDesc" type="text" placeholder="Enter Position Description" required>     
                        </textarea>
                   </div>
               </div>
