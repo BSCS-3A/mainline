@@ -1,8 +1,9 @@
 <?php
 	// Function that returns election results status
-		// function isResultFinal($status)
+		// function isResultFinal($tiedStatus)
 		// {
-		// 	return $status;
+  //           $tiedStatus++;
+		// 	return $tiedStatus;
 		// }
 
 	// Function to get quota
@@ -48,12 +49,12 @@
         }
 
     // Function to get lists of tied candidates and winners
-        function getLists($conn, $enrolled, $arrAdd, $i, $max, & $tiedCandidates, & $winnerList)
+        function getLists($conn, $enrolled, $arrAdd, $i, $max, & $tiedCandidates, & $winnerList, & $tiedStatus)
         {
         	if($max>=getQuota($enrolled[$arrAdd]))
             {//At least 50% of whole population
                 if(numTie($conn, $i, $max)>=2){
-                    // $resultStatus = false;
+                    $tiedStatus++;
                     getTiedCandidates($conn, $i, $max, $tiedCandidates);
 	            }else{
 	                $winnerStudents= mysqli_fetch_array($conn->query("SELECT * FROM candidate WHERE position_id = '$i' AND total_votes='$max'"));
