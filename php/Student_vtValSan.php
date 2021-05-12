@@ -115,16 +115,17 @@
 				</div>
 
 				<div id="error-button" class="error-button">
-            		<button type="button" id="ok-button" class="OkBTN-error">OK</button>
+            		<button type="button" id="msg-ok-button" class="OkBTN-error">OK</button>
           		</div>
           	</div>
 		</main>';
         echo '<script>
         // Get Home button
-        var home = document.getElementById("ok-button");
+        var home = document.getElementById("msg-ok-button");
 
         home.onclick = function() {
-            location.href = "Student_studDash.php";
+            // alert("waw");
+            window.location.href = "Student_studDash.php";
         }
         </script>';
     }

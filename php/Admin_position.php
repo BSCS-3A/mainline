@@ -1,13 +1,3 @@
-<!-- Proj mngr notes
-- changed db_conn
-- add navigation bar
-
-Need:
-- load default
-- add pop up confirmation
-
--->
-
 <!DOCTYPE html>
 <?php
 include "db_conn.php";

@@ -78,9 +78,9 @@
             <input type="text" placeholder="Enter BU Email" name="username" required>  
             <input type="password" placeholder="Enter Password" name="password" required>  
             <?php 
-            // if($_SESSION['incorrectTry']>=3){
-             //echo '<div class="g-recaptcha" data-sitekey="6LflenwaAAAAAAmK_ZEd0aJwcROAUe3gH2Cbmzkg"></div>';
-             //}
+            if($_SESSION['incorrectTry']>=3){
+             echo '<div class="g-recaptcha" data-sitekey="6LflenwaAAAAAAmK_ZEd0aJwcROAUe3gH2Cbmzkg"></div>';
+             }
             ?>
             <button type="submit">LOG IN</button>   
         </div>   

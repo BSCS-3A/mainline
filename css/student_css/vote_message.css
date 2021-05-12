@@ -1,7 +1,8 @@
 /* CSS FOR ERROR MESSAGES */
 
 .error-message-container {
-  border: 1px solid black;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  /*border: 1px solid black;*/
   width: 35%;
   margin: auto;
   background-color: #f8f8f8;
@@ -9,7 +10,7 @@
 }
 
 .error-message {
-  font: 'Roboto-regular', sans-serif;
+  font: Roboto Light, sans-serif;
   margin-top: 10%;
   text-align: center;
 }
@@ -23,7 +24,7 @@
 
 .OkBTN-error {
   /* OK Button */
-  font: bold 14px 'Roboto-regular', sans-serif;
+  font: bold 14px Roboto Light, sans-serif;
   background-color: #fece4b;
   color: black;
   margin: auto;
@@ -44,7 +45,7 @@
 /* CSS FOR VOTE RECEIPT */
 
 #F-header {
-  font-family: 'genericaregular', sans-serif;
+  font-family: Generica regular, sans-serif;
   color: #124254;
   font-weight: inherit;
   font-size: 30px;
@@ -73,7 +74,7 @@
 
 .F-receipt-message h3 {
   text-align: center;
-  font-family: 'Roboto-regular', sans-serif;
+  font-family: Roboto Light, sans-serif;
 }
 
 .F-receipt-page-buttons {

@@ -41,6 +41,9 @@ if(isset($_POST["sendEmail"])){
             $mail->Subject = 'User Credentials';
             $mail->Body = "Good day! Your one time password for the current election is $user_otp . Please do not disclose your login credentials. Thank you!";
             $mail->addAddress($user_email);
+            
+        $mail->send();
+        $mail->ClearAllRecipients();
           
         }
             catch (Exception $e){
@@ -50,13 +53,11 @@ if(isset($_POST["sendEmail"])){
                 echo $e->getMessage();
             }
         }
-        $mail->send();
    
          //For Logs
          $_SESSION['action'] = "sent students' OTP.";
          include 'backFun_actLogs_v0_1.php';
    
         header("location: Admin_studAcc.php");
-        //$mail->ClearAllRecipients();
 }
 ?>

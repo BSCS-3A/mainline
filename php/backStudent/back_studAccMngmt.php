@@ -1,29 +1,4 @@
-<!--
-Proj Mngr Notes:
-- change connect for host
-- changed dbname for local testing
-- changed header location
-- 4/11 updated CSV overwriting (y)
--->
-
 <?php
-
-// Host version
-// $dbServername = "localhost";
-// $dbUsername = "id16218880_bscs";
-// $dbPassword = "J!\-~q!r]fZJf0EH";
-// $dbname = "id16218880_buceils";
-
-
-// local version
-// $dbServername = "localhost";
-// $dbUsername = "root";   //id1621880_webhostingbscs3a
-// $dbPassword = "";       //id16218880_buceils
-// //$dbName = "seproject";
-// $dbName = "bucielsmain2";   // for local -Den
-
-// $connect = mysqli_connect($dbServername, $dbUsername, $dbPassword, $dbName) or die ('Unable to connect');
-// $message = "";
 
 include "db_conn.php";
 

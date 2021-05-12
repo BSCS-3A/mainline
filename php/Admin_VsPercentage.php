@@ -12,7 +12,8 @@ include("db_conn.php");
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta charset="utf-8">
     <link rel="icon" href="../img/BUHS LOGO.png" type="image/png">
-    <link rel="stylesheet" type="text/css" href="../css/admin_css/style_monitor.css">
+    <!--<link rel="stylesheet" type="text/css" href="../css/admin_css/style_monitor.css">-->
+    <link rel="stylesheet" href="../css/admin_css/style_monitor.css?v=<?php echo time(); ?>">
     <link rel="stylesheet" href="../css/admin_css/bootstrap4.5.2_monitor.css">
     <link rel="stylesheet" href="../css/admin_css/dataTables.bootstrap4.min_monitor.css">
     <link rel="stylesheet" href="../css/admin_css/font-awesome.css">

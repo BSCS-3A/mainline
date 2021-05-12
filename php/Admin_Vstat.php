@@ -17,7 +17,7 @@ include("db_conn.php");
     <link rel="stylesheet" href="../css/admin_css/font-awesome.css">
     <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
     <script src="../js/jquery-1.11.1.min_monitor.js"></script>
-    <script src="../../Monitoring/Admin/assets/js/jquery.dataTables.min.js"></script>
+    <script src="../js/jquery.dataTables.min_monitor.js"></script>
     <script src="../js/dataTables.bootstrap_monitor.js"></script>
     <script src="https://cdn.datatables.net/fixedheader/3.1.8/js/dataTables.fixedHeader.min.js"></script>
     <title>Election Vote Status  | BUCEILS HS Online Voting System</title>
@@ -67,7 +67,7 @@ include("db_conn.php");
                     [10, 25, 50, "All"]
                 ],
                 "ajax": {
-                    "url": <?php echo '"./backMonitor/fetch_students.php?level=' . $samp . '"' ?>,
+                    "url": <?php echo '"./backMonitor/fetch_students.php?level='.$samp.'"' ?>,
                     "type": "POST",
                     "dataSrc": ""
                 },

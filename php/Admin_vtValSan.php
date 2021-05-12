@@ -125,7 +125,7 @@
         var home = document.getElementById("ok-button");
 
         home.onclick = function() {
-            location.href = "StudentDashboard.php";
+            window.location.href = "Student_studDash.php";
         }
         </script>';
     }
