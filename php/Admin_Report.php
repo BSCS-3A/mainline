@@ -74,6 +74,21 @@ include("db_conn.php");
 
                     if($tiedStatus!=0)
                     {    // if headadmin
+                        // while (($tiedStatus)!=0)
+                        // {
+                            if($_SESSION['admin_position'] == "Head Admin")
+                            {
+                                $queryString = "SELECT * FROM ((candidate INNER JOIN student ON candidate.student_id = student.student_id) INNER JOIN candidate_position ON candidate.position_id = candidate_position.position_id)".$tiedCandidates." ORDER BY candidate_position.heirarchy_id";
+                                $tieTable = $conn->query($queryString);
+                                require 'Admin_tieBreaker.php';
+                                $tempString = winString(2, $candidate);
+                                $winnerList = $winnerList.$tempString;
+                                // $tiedStatus = $tiedStatus - minus(2);
+                                $tiedStatus = 0;
+                            }else{ //ordinary admin
+                                // display that election results is not yet final, call admin to finalize
+                            }
+                        // }
                         if($_SESSION['admin_position'] == "Head Admin")
                         {
                             $queryString = "SELECT * FROM ((candidate INNER JOIN student ON candidate.student_id = student.student_id) INNER JOIN candidate_position ON candidate.position_id = candidate_position.position_id)".$tiedCandidates." ORDER BY candidate_position.heirarchy_id";
@@ -87,8 +102,8 @@ include("db_conn.php");
                         insertToArchive($conn, $winnerList, $last_election_date);
             ?>
                         <div class="Bbtn_post">
-                          <button onclick="parent.open('Admin_generate-pdf.php')" class="Bbtn_postresults scs-responsive"><b>DOWNLOAD PDF</b></button>
-                      </div>
+                            <button onclick="parent.open('http://localhost/voting-main/php/Admin_generate-pdf.php')" class="Bbtn_postresults scs-responsive"><b>DOWNLOAD PDF</b></button>
+                        </div>
 
             <?php
                     }
