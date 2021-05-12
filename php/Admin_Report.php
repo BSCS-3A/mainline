@@ -35,9 +35,6 @@ include("db_conn.php");
 
     <body>
       <?php
-            require 'db_conn.php';                     // Connect database
-            if ($conn->connect_error)                               // Check connection
-                die("Connection failed: " . $conn->connect_error);
             require './backMonitor/fetch_date.php';                        // Fetches important datetime
             require './backMonitor/student_count.php';                     // Counts student
             require './backMonitor/fetch_report.php';                      // Contains necessary functions and query
@@ -55,6 +52,7 @@ include("db_conn.php");
                 {
                     $winnerList = " WHERE 0";
                     $tiedCandidates = " WHERE 0";
+                    $tiedStatus = 0;
 
                     for($i=1; $i<=$positionSize; $i++)
                     {
@@ -67,40 +65,38 @@ include("db_conn.php");
                             $voteAllow=mysqli_fetch_array($result);
                             if($voteAllow['vote_allow']==1)
                             {// For non-representative positions
-                                getLists($conn, $enrolled, '6', $i, $max, $tiedCandidates, $winnerList);
+                                getLists($conn, $enrolled, '6', $i, $max, $tiedCandidates, $winnerList, $tiedStatus);
                             }else{// For representative positions
-                                getLists($conn, $enrolled, getGradeLevel($conn, $i), $i, $max, $tiedCandidates, $winnerList);
+                                getLists($conn, $enrolled, getGradeLevel($conn, $i), $i, $max, $tiedCandidates, $winnerList, $tiedStatus);
                             } //end if else
                         }
                     }//end for loop
 
-                    // if($resultStatus==false)
+                    if($tiedStatus!=0)
                     {    // if headadmin
                         if($_SESSION['admin_position'] == "Head Admin")
                         {
                             $queryString = "SELECT * FROM ((candidate INNER JOIN student ON candidate.student_id = student.student_id) INNER JOIN candidate_position ON candidate.position_id = candidate_position.position_id)".$tiedCandidates." ORDER BY candidate_position.heirarchy_id";
                             $tieTable = $conn->query($queryString);
-                            // require '../php/tieBreaker.php';
                             require 'Admin_tieBreaker.php';
-                            // after voting change to final
                         }else{ //ordinary admin
                             // display that election results is not yet final, call admin to finalize
                         }
                     }
-                    // else{
+                    else{
                         insertToArchive($conn, $winnerList, $last_election_date);
-                    // }
+            ?>
+                        <div class="Bbtn_post">
+                          <button onclick="parent.open('Admin_generate-pdf.php')" class="Bbtn_postresults scs-responsive"><b>DOWNLOAD PDF</b></button>
+                      </div>
+
+            <?php
+                    }
                 }
                 else{
-                    echo "Election is still ongoing\n";
+                    include '../html/ongoing.html';
                 }       
             ?>
-                
-        <div class="Bbtn_post">
-            <!-- <button onclick="parent.open('http://localhost/Monitoring-main/functionality_php/report/generate-pdf.php')" class="Bbtn_postresults scs-responsive"><b>DOWNLOAD PDF</b></button> -->
-            
-            <button onclick="parent.open('Admin_generate-pdf.php')" class="Bbtn_postresults scs-responsive"><b>DOWNLOAD PDF</b></button>
-        </div>
 
         <!-- Space before footer -->
         <br><br><br><br><br><br><br><br>
