@@ -161,56 +161,24 @@ include "navAdmin.php";
     <div class="Uheader" id="CM_Header">
         <h2 class="Uheader-txt">Candidate Information Management</h2>
     </div>
-    <div class="btn-toolbar" style="margin-left: 18px;">
-        <button type="submit" id="defaultButton" name="" class="btn btn-button1 btn-s" data-toggle="modal" data-target="#load">Load Default Positions</button>
-    </div>
+
     <form autocomplete="off">
-        <div class="wrapper">
-            <div class="left">
-                <div class="center" id="CPTable2">
-                    <div class="col-sm-6">
-                        <div class="panel panel-primary">
-                            <div class="panel-heading">
-                                Add or Edit Position
-                            </div>
-                            <!-- Heirarchy ID Form group-->
-                            <div class="panel-body">
-                                <div class="form-group">
-                                    <label for="heirarchy_id" class= "label_panel">
-                                        Hierarchy ID
-                                    </label>
-                                    <div id="pid" posid=""></div>
-                                    <input type="text" class="form-control" placeholder="Hierarchy ID" id="heirarchy_id" name="heirarchy">
-
-                                </div>
-                                <!--Heirarchy ID From group-->
-                                <div class="form-group">
-                                    <label for="position_name" class = "label_panel">
-                                        Position Name
-                                    </label>
-                                    <input type="text" name="positionname" class="form-control" placeholder="Position Name" id="position_name">
-                                </div>
-                                <div class="form-group">
-                                    <label for="position_description" class = "label_panel">
-                                        Position Description
-                                    </label>
-                                    <input type="text" class="form-control" placeholder="Position Description" id="position_description" name="positiondes">
-    </form>
-    </div>
-    <button type="button" id="updateButton" class="btn btn-button1 btn-s">
-        + Add
-    </button>
-
-
-    </div>
-    </div>
-    </div>
-    </div>
-    </div>
-
+        
     <div class="right">
         <!--Added container and row to accomodate table responsiveness-->
         <div class="container">
+            <div class="btn-toolbar" style="margin-left: 18px;">
+                <button type="submit" id="defaultButton" name="" class="btn btn-button1 btn-s" data-toggle="modal" data-target="#load" > 
+                <span class = "fas fa-portrait"></span> 
+                Load Default Positions 
+                </button>
+
+        <button type = "submit" id = "add_button"  class = "btn btn-button1 btn-s" data-toggle = "modal" data-target = "#add"> 
+            <span class = "fas fa-plus"></span>
+            Add Position 
+        </button>
+        </div>
+
             <div class="row">
                 <div class="center" id=CPTable>
                     <div class="col-md-12">
@@ -221,8 +189,7 @@ include "navAdmin.php";
                                         <th class="text-center">Hierarchy ID</th>
                                         <th class="text-center">Position</th>
                                         <th class="padThisCell">Description</th>
-                                        <th class="text-center">Edit</th>
-                                        <th class="text-center">Delete</th>
+                                        <th class="text-center">Manage</th>
                                         <th class="text-center">Allow All</th>
                                     </tr>
                                 </thead>
@@ -237,7 +204,7 @@ include "navAdmin.php";
         </div>
     </div>
     </div>
-    <div class="modal fade" id="load" tabindex="-1" role="dialog" aria-labelledby="edit" aria-hidden="true">
+    <div class="modal fade" id="load" tabindex="-1" role="dialog" aria-labelledby="load" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
@@ -254,9 +221,65 @@ include "navAdmin.php";
             </div>
             <!-- /.modal-content -->
         </div>
-        <!-- /.modal-dialog -->
     </div>
-    <div class="modal fade" id="delete" tabindex="-1" role="dialog" aria-labelledby="edit" aria-hidden="true">
+
+        <div class="modal fade" id="edit" tabindex="-1" role="dialog" aria-labelledby="edit" aria-hidden="true">
+      <div class="modal-dialog">
+    <div class="modal-content">
+          <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+              <h4 class="modal-title custom_align" id="HeadingAdd">Edit Position</h4>
+          </div>
+          <form autocomplete = "off" method="post" action="" id="">
+              <div class="modal-body">
+                  <div class="form-group">              
+                      <input class="form-control" name="positionName" id="edit_Pos" type="text" placeholder="Enter Position Name" required>
+                  </div>
+                  <div class = "form-group">
+                       <textarea class="form-control " id= "Desc_Pos" id ="edit_Desc" name="description" type="text" placeholder="Enter Position Description" required>     
+                       </textarea>
+                  </div>
+              </div>
+              <div class="modal-footer ">
+                  <button type="submit" name="save-btn" class="btn btn-warning btn-lg" id="save-add" style="width: 100%;"><span class= "fa fa-check-circle"></span> Save</button>
+                  <button type="submit" name="cancel-btn" class="btn btn-default" id="cancel-add" style= "width:100%;" data-dismiss="modal"><span class="fa fa-times-circle"></span> Cancel</button>
+              </div>
+          </form>
+    </div>
+</div>
+</div>
+
+<div class="modal fade" id="add" tabindex="-1" role="dialog" aria-labelledby="add" aria-hidden="true">
+      <div class="modal-dialog">
+    <div class="modal-content">
+          <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+              <h4 class="modal-title custom_align" id="HeadingAdd">Add New Position</h4>
+          </div>
+          <form autocomplete = "off" method="post" action="" id="">
+              <div class="modal-body">
+                  <div class="form-group">              
+                      <input class="form-control" name="add_Pos" id="add_Pos" type="text" placeholder="Enter Position Name" required>
+                  </div>
+                  <div class = "form-group">
+                       <textarea class="form-control " id= "desc_Pos" id ="desc_Pos" name="description" type="text" placeholder="Enter Position Description" required>     
+                       </textarea>
+                  </div>
+              </div>
+              <div class="modal-footer ">
+                  <button type="submit" name="save-btn" class="btn btn-warning btn-lg" id="save-add" style="width: 100%;"><span class= "fa fa-check-circle"></span> Save</button>
+                  <button type="submit" name="cancel-btn" class="btn btn-default" id="cancel-add" style= "width:100%;" data-dismiss="modal"><span class="fa fa-times-circle"></span> Cancel</button>
+              </div>
+          </form>
+    </div>
+</div>
+</div>
+
+
+
+
+        <!-- /.modal-dialog -->
+    <div class="modal fade" id="delete" tabindex="-1" role="dialog" aria-labelledby="delete" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
@@ -264,7 +287,7 @@ include "navAdmin.php";
                     <h4 class="modal-title custom_align" id="Heading-delete">Delete Position</h4>
                 </div>
                 <div class="modal-body">
-                    <div class="alert alert-danger" id="deleteD"><span class="fa fa-exclamation-triangle"></span></div>
+                    <div class="alert alert-danger" id="deleteD"><span class="fa fa-exclamation-triangle"></span> Are you sure you want to delete this position?</div>
                 </div>
                 <div class="modal-footer ">
                     <form method="post" id="delete-form">
