@@ -17,8 +17,12 @@
         if (isset($_POST['continue'])) {
 
                 $student_id = $_POST['Delete_ID'];
+                $query = "SET foreign_key_checks = 0;";
+                $connect->query($query);
 				$query = "DELETE FROM student WHERE student_id ='$student_id'";
 				$query_run = mysqli_query($conn, $query);
+                $query = "SET foreign_key_checks = 1;";
+                $connect->query($query);
 				
                 if ($query_run) {
                     $_SESSION['message'] = 'Record has been deleted!';
