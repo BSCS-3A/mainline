@@ -57,7 +57,7 @@
 
 	foreach($choice_final as $value){
 		$candidate = $conn->real_escape_string($value);
-		// $conn->query("UPDATE candidate SET total_votes = total_votes + 1 WHERE candidate.candidate_id = $candidate");
+		$conn->query("UPDATE candidate SET total_votes = total_votes + 1 WHERE candidate.candidate_id = $candidate");
 // 		minus($sub);
 // 		winString($sub, $candidate);
 
