@@ -16,7 +16,7 @@ setup();
 
 function startTimer() { //starts timer
     // wait 15 minutes before calling goInactive
-    timeoutID = window.setTimeout(goInactive, 15(60*1000));
+    timeoutID = window.setTimeout(goInactive, 15*(60*1000));
 }
 
 function resetTimer(e) { //restarts timer
