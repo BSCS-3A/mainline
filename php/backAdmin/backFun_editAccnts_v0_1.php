@@ -53,7 +53,6 @@ if (isset($_POST['updateData'])) {
     } else {
         $user_id = $_POST['update_id'];
         if (!empty($image_edit)) {
-            echo "HAS PHOTO NO PASSWORD!";
             $image_array_1 = explode(";", $data);
             $image_array_2 = explode(",", $image_array_1[1]);
             $data = base64_decode($image_array_2[1]);

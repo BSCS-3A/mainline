@@ -503,7 +503,7 @@ if (isset($_SESSION['admin_id']) && isset($_SESSION['username'])) {
                 bs_modal.on('shown.bs.modal', function() {
                     cropper = new Cropper(image, {
                         aspectRatio: 1,
-                        viewMode: 3,
+                        viewMode: 0,
                         preview: '.prev'
                     });
                 }).on('hidden.bs.modal', function() {
@@ -576,7 +576,7 @@ if (isset($_SESSION['admin_id']) && isset($_SESSION['username'])) {
                 bs_modal.on('shown.bs.modal', function() {
                     cropper = new Cropper(image, {
                         aspectRatio: 1,
-                        viewMode: 3,
+                        viewMode: 0,
                         preview: '.prev_edit'
                     });
                 }).on('hidden.bs.modal', function() {
