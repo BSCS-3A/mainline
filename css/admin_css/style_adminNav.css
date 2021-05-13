@@ -101,7 +101,7 @@ div.aLogo {
   position: relative;
   line-height: 80px;
   margin-top: 14px;
-  margin-left: 40px;
+  margin-left: 30px;
 }
 
 nav ul {
@@ -120,11 +120,10 @@ nav ul li {
   /* float: left; */
   display: inline-block;
   height: 80px;
-  /*80px ang dati*/
   background: #1d6986;
   text-align: center;
   /* margin: 0 5px; */
-  width: 150px;
+  width: 140px;
 }
 
 nav ul li a {
@@ -146,7 +145,6 @@ nav ul li a:visited, nav ul li a:link{
 
 nav ul li a:hover {
   color: #ffc423;
-  text-decoration: none;
   outline: none;
 }
 
@@ -175,7 +173,8 @@ nav ul ul {
   border-top: 3px solid #124254;
   opacity: 0;
   visibility: hidden;
-  transition: top .3s;
+  /* transition: top .3s; */
+  transition: all .4s ease;
 }
 
 nav ul ul li {
@@ -231,7 +230,7 @@ nav ul ul ul {
 nav ul ul ul li {
   position: relative;
   top: -60px;
-  left: 150px;
+  left: 140px;
 }
 
 nav ul li:hover>ul {
@@ -244,7 +243,7 @@ nav ul ul li {
   background: #ffc423;
   position: relative;
   margin: 0px;
-  width: 150px;
+  width: 140px;
   font-size: 0.8em;
   float: none;
   display: list-item;
@@ -261,7 +260,7 @@ nav ul ul ul li {
   position: relative;
   font-size: 1em;
   top: -60px;
-  left: 150px;
+  left: 140px;
 }
 
 nav ul ul li .logout::before {
@@ -293,6 +292,7 @@ nav ul ul li .logout::before {
     margin-bottom: 3%;
     width: auto;
     float: left;
+    margin-left: 20px;
   }
   .Ashow+a, ul {
     display: none;

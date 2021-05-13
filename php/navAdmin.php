@@ -94,6 +94,7 @@ if (time() - $_SESSION['timestamp'] > $idletime) {
                     <li><a href="Admin_ArcFolder.php">Archive</a></li>
                     <li><a href="Admin_VsPercentage.php">Vote Status</a></li>
                     <li><a href="Admin_ElectRes.php">Vote Results</a></li>
+                    <li><a href="Admin_vtSumm.php">Vote Summary</a></li>
                     <li><a href="Admin_Report.php">Election Report</a></li>
                     <li>
                         <label for="btn-4" class="Ashow2">Configuration</label>
@@ -122,10 +123,10 @@ if (time() - $_SESSION['timestamp'] > $idletime) {
                 <ul>
                     <li><a href="Admin_accessLogs.php">Access Log</a></li>
                     <li><a href="Admin_actLogs.php">Activity Log</a></li>
-                    <li><a href="Admin_vtSumm.php">Vote Summary</a></li>
                 </ul>
             </li>
             <li><a href="Admin_MBox.php">MESSAGES</a></li>
+            <li><a href="#">ABOUT US</a></li>
             <li>
                 <label for="btn-7" class="Ashow"><?php echo $_SESSION['admin_fname'] . " " . $_SESSION['admin_lname']; ?></label>
                 <a class="user" href="#"><img class="user-profile" src="<?php 
