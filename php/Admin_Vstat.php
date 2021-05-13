@@ -11,7 +11,7 @@ include("db_conn.php");
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta charset="utf-8">
     <link rel="icon" href="../img/BUHS LOGO.png" type="image/png">
-    <link rel="stylesheet" type="text/css" href="../css/admin_css/style1_monitor.css">
+    <link rel="stylesheet" type="text/css" href="../css/admin_css/style_monitor.css">
     <link rel="stylesheet" href="../css/admin_css/bootstrap_monitor.css">
     <link rel="stylesheet" href="../css/admin_css/dataTables.bootstrap_monitor.css">
     <link rel="stylesheet" href="../css/admin_css/font-awesome.css">
@@ -26,9 +26,8 @@ include("db_conn.php");
 <body>
     <?php include 'navAdmin.php'; ?>
     
-
-    <div class="Bvotestat">
-        <p><b>VOTE STATUS</b></p>
+    <div class="ADheader" id="ADheader">
+        <h2 class="aHeader-txt">VOTE STATUS</h2>
     </div>
     <br><br>
     <div class="Bvs_gradelevel">
@@ -56,9 +55,7 @@ include("db_conn.php");
     </div>
     </div>
     <br><br><br><br>
-    <!-- <div class="footer">
-        <p class="footer-txt">BS COMPUTER SCIENCE 3A © 2021</p>
-    </div> -->
+ 
     <script>
         $(document).ready(function() {
             var table = $('#datatable').DataTable({

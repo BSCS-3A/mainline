@@ -14,7 +14,7 @@ $(document).ready(function ($) {
 						size: 150,
 						thickness: 23,
 						strokeWidth: 10,
-						emptyFill: '#003d55',
+						emptyFill: 'rgba(9,23,38, 0.7)',
 						fill: {
 							color: '#ff9124'
 						}

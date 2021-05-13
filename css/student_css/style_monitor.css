@@ -6,15 +6,6 @@
   list-style: none;
 }
 
-body {
-  font-family: 'Roboto-regular', Roboto Thin, 'genericaregular', sans-serif;
-  background-image: url("../../img/studentBG.png");
-  background-size: cover;
-  font-size: 100%;
-  background-attachment: fixed;
-  width: auto;
-}
-
 nav {
   background: #f8f8f8;
   box-shadow: 0 10px 20px rgba(0, 0, 0, .15), 0 3px 6px rgba(0, 0, 0, .23);

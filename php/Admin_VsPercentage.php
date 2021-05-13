@@ -26,10 +26,9 @@ include("db_conn.php");
 <body>
     <?php include 'navAdmin.php'; ?>
    
-    <div class="Bvotestat">
-        <p><b>VOTE STATUS</b></p>
+    <div class="ADheader" id="ADheader">
+        <h2 class="aHeader-txt">VOTE STATUS</h2>
     </div>
-
     
     <?php
     //====================variables==================

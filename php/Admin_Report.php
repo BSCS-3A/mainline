@@ -42,9 +42,9 @@ include("db_conn.php");
             include "navAdmin.php";                                 // Adds the navBar and footer
         ?>
 
-        <div class="Breport">
-            <p><b>ELECTION RESULTS REPORT</b></p>
-        </div>
+    <div class="ADheader" id="ADheader">
+        <h2 class="aHeader-txt">ELECTION REPORT</h2>
+    </div>
       
         <?php
             // Count and store to Archive right after election

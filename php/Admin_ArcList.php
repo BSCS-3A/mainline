@@ -33,12 +33,10 @@ include("db_conn.php");
 <body>
     <?php include 'navAdmin.php'; ?>
 
-    <div class="Barchives">
-        <p><b>ELECTION ARCHIVES</b></p>
+    <div class="ADheader" id="ADheader">
+        <h2 class="aHeader-txt">ARCHIVES</h2>
     </div>
-
     
-
     <div class="Barch_year">
         <p><b><?php echo $year ?> ELECTION</b></p>
     </div>

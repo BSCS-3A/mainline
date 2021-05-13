@@ -38,8 +38,8 @@ require './backMonitor/fetch_date.php';
   
   <?php
     if(!empty($row['vote_event_id'])){
-    echo '<div class="Belecstat">';
-      echo '<p><b>ELECTION RESULTS</b></p>';
+    echo '<div class="ADheader" id="ADheader">';
+      echo '<h2 class="aHeader-txt">ELECTION RESULTS</h2>';
     echo'</div>';
 
     echo '<div class="Belection_container" id="election_res">';
@@ -63,7 +63,7 @@ require './backMonitor/fetch_date.php';
               }
               echo '<div class ="Bparty"><b>'.$candidate['party_name'].'</b></div>';
               echo '<div class="Bbar1">';
-              echo '<img class="Banon" src="'.$candidate['photo'].'" width="45px" height="45px">';
+              echo '<img class="Banon" src="'.$candidate['photo'].'" width="40px" height="40px">';
               echo '<div class="Bvote_percentage">';
               echo '<div class="Bvote_level" style="width:' . $percentage . '%">';
               echo '<b><span>'.$candidate['total_votes'].'</span></b>';
@@ -74,7 +74,7 @@ require './backMonitor/fetch_date.php';
               echo '<div class ="Bcan"><b>Candidate Name</b></div>';
               echo '<div class ="Bparty"><b>Party</b></div>';
               echo '<div class="Bbar1">';
-              echo '<img class="Banon" src="../img/anon.png" width="45px" height="45px">';
+              echo '<img class="Banon" src="../img/anon.png" width="40px" height="40px">';
               echo '<div class="Bvote_percentage">';
               echo '<div class="Bvote_level" style="width:'.$percentage.'%">';
               echo '<b><span>'.$percentage.'%</span></b>';
@@ -100,8 +100,6 @@ require './backMonitor/fetch_date.php';
       require '../html/admin_no_election.html';
     }
   ?>
-
-  
 
   <?php
     if(isset($_POST['post_button'])){
@@ -130,9 +128,6 @@ require './backMonitor/fetch_date.php';
   <br>
   <br>
   <br>
-  <br>
-  <br>
-
 
   <div class="footer">
     <p class="footer-txt">BS COMPUTER SCIENCE 3A © 2021</p>
