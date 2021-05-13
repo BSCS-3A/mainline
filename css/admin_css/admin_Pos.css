@@ -2,7 +2,9 @@
 
 
 
-
+ @media (min-width: 600px) and (max-width: 767px){
+  #add_modal{}
+ }
 
   @media (min-width: 768px){
     .col-sm-6{
@@ -12,6 +14,8 @@
     .center{
       width: 100% !important;
     }
+
+
   }
   @media all and (max-width: 968px) {
     .wrapper{
@@ -177,6 +181,7 @@
       -webkit-flex-direction: column;
       flex-direction: column;
     }
+
     .ADcountdown {
       font-size: auto;
     }
@@ -535,7 +540,7 @@
 
   /* Responsive layout - makes the menu and the content (inside the section) sit on top of each other instead of next to each other */
 
-  
+  }
   @media (max-width: 600px) {
     body, section, .container {
       -webkit-flex-direction: column;
@@ -631,16 +636,9 @@
     float: left;
   }
 
-  .dataTables_length {
-    color: white;
-  }
-
-  .dataTables_filter {
-    color: white;
-  }
 
   .dataTables_info {
-    color: white;
+    margin-top: 25px;
   }
 
   .padThisCell {
@@ -912,7 +910,7 @@
 
   #show-list::-webkit-scrollbar-track {
     -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
-    background-color: transparen
+    background-color: transparent;
   }
 
   #show-list::-webkit-scrollbar {
@@ -1054,9 +1052,9 @@
     border-radius: 50%;
   }
 
-  .paginate_button next {
+  .paginate_button .next {
     cursor: default;
-    color: #666 !important;
+    color: #337ab7 !important;
     border: 1px solid transparent;
     background: transparent;
     box-shadow: none;
@@ -1064,8 +1062,8 @@
   }
 
   a.paginate_button:hover {
-    background-color:#15254 !important;
-    color: white;
+    background-color: #124254 !important;
+    color: #ddd;
   }
 
   .dataTables_wrapper .dataTables_length select {
@@ -1175,4 +1173,46 @@ margin-left:5px !important;
 
 #save-add.btn.btn-warning.btn-lg{
   margin-left: 5px !important;
+}
+
+.modal-header{
+  font-family: 'Roboto-regular', sans-serif !important; 
+}
+
+.datatables_paginate{
+  margin-top: 25px !important;
+  background-color: #EEEEEE !important;
+  border: 1px solid #ddd !important;
+}
+
+.paginate_button .current{
+  background-color: #124254 !important;
+}
+
+.paginate_button{
+  color:#337ab7;
+}
+
+#add_button:hover, #defaultButton:hover, #add-candidate:hover{
+  color: #ffc423 !important;
+}
+
+.fa.fa-exclamation-triangle text {
+margin-left: 10px;
+}
+
+.load_text{
+  margin-left: 5px;
+}
+
+#cancel-add, #cancel-edit{
+  margin-top: 10px;
+  color:#333 !important;
+  background-color: #fff !important;
+  border-color: #ccc !important;
+}
+
+
+#text_cancel-load, #text_cancel-delete, #text_confirm-load, #text_confirm-delete{
+margin-left: 3px;
 }
