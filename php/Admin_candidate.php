@@ -530,12 +530,12 @@
               <h4 class="modal-title custom_align" id="HeadingDelete" candidate="">Delete this entry</h4>
     </div>
           <div class="modal-body">             
-          <div class="alert alert-danger"><span class="fa fa-exclamation-triangle"></span> Are you sure you want to delete <b id="delcan"></b> in position <b id="delpos"></b>?</div>
+                  <div class="alert alert-danger"><span class="fa fa-exclamation-triangle"></span> <text class = "delete_confirm">Are you sure you want to delete <b id="delcan"></b> in position <b id="delpos"></b>?</text></div>
     </div>
     <form action="./backCandidate/confirmDeleteCandidate.php" method="POST" id="deleteForm">
         <div class="modal-footer ">
-        <button type="submit" name="continue-delete-btn" class="btn btn-success" id="continue" ><span class= "fa fa-check-circle"></span>Continue</button>
-        <button type="button" name="cancel-delete-btn" class="btn btn-default" id= "cancel2" data-dismiss="modal"><span class="fa fa-times-circle"></span>Cancel</button>
+        <button type="submit" name="continue-delete-btn" class="btn btn-success" id="continue" ><span class= "fa fa-check-circle"></span><text id = "text_confirm-delete">Continue</text></button>
+        <button type="button" name="cancel-delete-btn" class="btn btn-default" id= "cancel2" data-dismiss="modal"><span class="fa fa-times-circle"></span><text id = "text_confirm-delete">Cancel</text></button>
       </div> 
     </form>    
         </div>
