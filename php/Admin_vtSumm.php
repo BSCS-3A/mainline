@@ -29,8 +29,8 @@
 </head>
 <body>
     
-    <div class="cheader">
-        <h3 class="cheader-txt">VOTE SUMMARY</h3>
+    <div class="bheader">
+        <h3>VOTE SUMMARY</h3>
     </div>
     <div class="container">
        <section> <form method="POST" action="./backStudent/Admin_printSum.php">
@@ -156,25 +156,7 @@
           </div>
       </div>
     </div>
-    <div class="modal fade" id="new" tabindex="-1" role="dialog" aria-labelledby="edit" aria-hidden="true">
-        <div class="modal-dialog">
-    <div class="modal-content">
-        <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-            <h4 class="modal-title custom_align" id="Heading">Import new list?</h4>
-      <div class="modal-footer ">
-      <button type="button" class="btn btn-success" id="go" ><span class="glyphicon glyphicon-ok-sign"></span> Continue</button>
-      <button type="button" class="btn btn-default" id= "cancel2" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span> Cancel</button>
-    </div>
-      </div>
-    </div>
-    <!-- /.modal-content --> 
-    </div>
-    <!-- /.modal-dialog --> 
-  </div>
-
-
-  <!-- <div class="footer">
+ <!-- <div class="footer">
     <p class="footer-txt">BS COMPUTER SCIENCE 3A © 2021</p>
 </div> -->
 
