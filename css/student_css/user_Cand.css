@@ -89,13 +89,11 @@ table.center {
     margin-left: 0px;
     float: left;
   }
-
   /* nav .logo{
     padding-left: 30px;
     width: auto;
     float: left;
   } */
-
   .Ashow+a, ul {
     display: none;
   }
@@ -228,7 +226,6 @@ img.Alogos {
   body, section, .Uwrapper {
     -webkit-flex-direction: column;
   }
-
   .Uleft {
     padding-bottom: 25px;
   }
@@ -307,7 +304,7 @@ aside p.Aelec-guide-txt {
 #section-container {
   min-height: 100%;
   overflow: auto;
-  padding-bottom: 12%;
+  padding-bottom: 5%;
 }
 
 footer {
@@ -364,7 +361,9 @@ footer {
 #profile h3 {
   font-size: 25px;
   height: 26px;
-  overflow: hidden;
+  overflow: scroll;
+  overflow-x: auto;
+  overflow-y: auto;
 }
 
 #profile p {
@@ -486,5 +485,4 @@ footer {
   
 .Uwrapper{
   flex-direction: column;
-}
 }
