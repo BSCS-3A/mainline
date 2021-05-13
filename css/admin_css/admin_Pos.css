@@ -419,9 +419,13 @@
     margin: auto;
   }
 
-  #continue {
+.delete_confirm{
+  font-family: 'Roboto-regular', sans-serif;
+}
+  #continue, #continue-delete {
     background-color: #d9534f;
     color: #fff;
+
   }
 
   #cancel2 {
@@ -1171,7 +1175,7 @@ input[type="file"] {
 margin-left:5px !important;
 }
 
-#save-add.btn.btn-warning.btn-lg{
+#save-add.btn.btn-warning.btn-lg, #save-edit{
   margin-left: 5px !important;
 }
 
@@ -1216,3 +1220,4 @@ margin-left: 10px;
 #text_cancel-load, #text_cancel-delete, #text_confirm-load, #text_confirm-delete{
 margin-left: 3px;
 }
+
