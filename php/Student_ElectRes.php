@@ -65,7 +65,11 @@
         <?php
             foreach($candidates as $candidate){
                 echo '<div class="Bpstn">';
-                echo '<img src="'.$candidate['photo'].'"/>';
+                if(empty($candidate['photo'])){
+                  echo '<img src="../img/anon.png" width="75px" height="75px"/>';
+                }else{
+                  echo '<img src="'.$candidate['photo'].'" width="75px" height="75px"/>';
+                }
                 echo '<p class="Bnum_votes">TOTAL VOTES: '.$candidate['total_votes'].'</p>';
                 echo '<p class="Bname">'.$candidate['first_name'].' '.$candidate['middle_name'].' '.$candidate['last_name'].'</p>';
                 echo '<p class="Bpstn">'.$candidate['position'].'</p>';

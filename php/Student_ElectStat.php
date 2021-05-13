@@ -24,33 +24,47 @@ include('db_conn.php');
 </head>
 
 <body>
-    <?php include 'navStudent.php'; ?>
-
-    <div>
     <?php
-        if(!(empty($row['vote_event_id']))){
-            
-            $after_election_date = date('Y-m-d H:i:s', strtotime($row['end_date']. ' + 2 days'));
-
-            if($current_date_time>$row['end_date'] && $postB==1){
-                require 'Student_ElectRes.php';
-            }else{
-                if($current_date_time>=$row['start_date'] && $current_date_time<$row['end_date']){
-                    require '../html/ongoing.html';
-                }elseif($current_date_time>=$row['end_date']&&$postB==0){
-                    require '../html/after_election.html';
-                }else{
-                    require '../html/no_election.html';
-                }
-                
+        // require 'connect.php'; // Remove this when compiling
+        require_once 'Student_vtValSan.php';
+        
+        
+        if(isValidUser($conn)){
+            if(empty($row['vote_event_id'])){
+                errorMessage("No election has been scheduled");
+                exit();
             }
-        }else{
-            require '../html/no_election.html';
+            else{
+                $start_time = strtotime($row['start_date']);
+                $end_time = strtotime($row['end_date']);
+                $access_time = time();
+                if($access_time > $end_time){
+                    if($postB==1){
+                        require_once 'navStudent.php';
+                        require 'Student_ElectRes.php';
+                    }else{
+                        errorMessage("Election is already finished");
+                        exit();
+                    }
+                }else if($access_time < $start_time){
+                    errorMessage("Election has not yet started");
+                    exit();
+                }
+                else if($access_time >= $start_time && $access_time <= $end_time){
+                    errorMessage("Election  is still on-going");
+                    exit();
+                }
+            }
+        }
+        else{ // Invalid user; destroy session and return to login
+            notifyAdmin("Warning: A user with invalid credentials attmpted to access the Election Page");
+            session_unset();    // remove all session variables
+            session_destroy();  // destroy session
+            header("Location: ../index.php");
+            exit();
         }
     ?>
-    </div>
 
-  
     <script>
         $('.icon').click(function () {
             $('span').toggleClass("cancel");
