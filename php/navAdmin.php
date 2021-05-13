@@ -18,7 +18,7 @@ SOLVED ^^ font-awesome_addAdmin may kasalanan lol, + dataTables.bootstrap
 
 <?php
 date_default_timezone_set('Asia/Manila');
-include('db_conn.php');
+require_once( 'db_conn.php');
 $idletime = 60 * 60; //after 1 hr the user gets logged out
 if (time() - $_SESSION['timestamp'] > $idletime) {
     //$_GET['inactivityError'] = "Session ended: You are logged out due to inactivity.";
