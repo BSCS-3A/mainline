@@ -373,6 +373,7 @@
             margin: 10px;
             border: 1px solid red;
         }
+        
         .modal-lg{
             max-width: 1000px !important;
         }
@@ -429,7 +430,7 @@
 <!-- /.modal-dialog -->  
 </div>
 
-<div class="modal fade" id="add" tabindex="-1" role="dialog" aria-labelledby="add" aria-hidden="true">
+<div class="modal fade" id="add" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
       <div class="modal-dialog">
     <div class="modal-content">
           <div class="modal-header">
@@ -474,7 +475,7 @@
       <!-- /.modal-dialog --> 
     </div>       
     
-      <div class="modal fade" id="edit" tabindex="-1" role="dialog" aria-labelledby="edit" aria-hidden="true">
+      <div class="modal fade" id="edit" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
       <div class="modal-dialog">
     <div class="modal-content">
           <div class="modal-header">
@@ -511,7 +512,7 @@
                   </div>
               </div>
               <div class="modal-footer ">
-                    <button type="submit" name="edit-save-btn" class="btn btn-warning btn-lg" id="save-edit" style="width: 100%;"><span class= "fa fa-check-circle"></span>Save</button>
+                  <button type="submit" name="edit-save-btn" class="btn btn-warning btn-lg" id="save-edit" style="width: 100%;"><span class= "fa fa-check-circle"></span>Save</button>
                   <button type="submit" name="edit-cancel-btn" class="btn btn-warning btn-lg" id="cancel-edit" style= "width:100%;" data-dismiss="modal"><span class="fa fa-times-circle"></span> Cancel</button>
               </div>
           </form>
@@ -530,7 +531,7 @@
               <h4 class="modal-title custom_align" id="HeadingDelete" candidate="">Delete this entry</h4>
     </div>
           <div class="modal-body">             
-                  <div class="alert alert-danger"><span class="fa fa-exclamation-triangle"></span> <text class = "delete_confirm">Are you sure you want to delete <b id="delcan"></b> in position <b id="delpos"></b>?</text></div>
+          <div class="alert alert-danger"><span class="fa fa-exclamation-triangle"></span> <text class = "delete_confirm">Are you sure you want to delete <b id="delcan"></b> in position <b id="delpos"></b>?</text></div>
     </div>
     <form action="./backCandidate/confirmDeleteCandidate.php" method="POST" id="deleteForm">
         <div class="modal-footer ">
@@ -544,7 +545,7 @@
       <!-- /.modal-dialog --> 
     </div>
 
-    <div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
+    <div class="modal fade" id="modal" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
           <div class="modal-dialog modal-lg" role="document">
             <div class="modal-content">
                 <div class="modal-header">
@@ -710,6 +711,7 @@
             width: 160,
             height: 160,
         });
+        console.log(canvas);
 
         canvas.toBlob(function(blob) {
             url = URL.createObjectURL(blob);
