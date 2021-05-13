@@ -217,9 +217,9 @@ include "navAdmin.php";
         </div>
     </div>
     </div>
-    <div class="modal fade" id="load" tabindex="-1" role="dialog" aria-labelledby="load" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
+    <div class="modal fade" id="load" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog" id>
+            <div class="modal-content" id = "load_modal">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
                     <h4 class="modal-title custom_align" id="Heading-load">Load Default Positions</h4>
@@ -236,24 +236,21 @@ include "navAdmin.php";
         </div>
     </div>
 
-        <div class="modal fade" id="edit" tabindex="-1" role="dialog" aria-labelledby="edit" aria-hidden="true">
+<div class="modal fade" id="edit" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
       <div class="modal-dialog">
-    <div class="modal-content">
+    <div class="modal-content" id = "edit_modal">
           <div class="modal-header">
               <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
               <h4 class="modal-title custom_align" id="HeadingAdd">Edit Position</h4>
           </div>
-          <form autocomplete = "off" method="post" action="backCandidate/addPosition.php" id="editForm">
+          <form autocomplete = "off" method="post" action="" id="">
               <div class="modal-body">
-                <div id="positionId" posid=""></div>
                   <div class="form-group">              
-                      <input class="form-control" id="edit_Hid" name="edit_Hid" type="text" placeholder="Enter Hierarchy ID" disabled required>
-                  </div>
-                  <div class="form-group">              
-                      <input class="form-control" id="edit_Pos" name="edit_Pos" type="text" placeholder="Enter Position Name" required>
+                      <input class="form-control" name="editName" id="edit_Pos" type="text" placeholder="Enter Position Name" required>
                   </div>
                   <div class = "form-group">
-                       <textarea class="form-control" id ="edit_Desc" name="edit_Pos" type="text" placeholder="Enter Position Description" required></textarea>
+                       <textarea class="form-control" id ="edit_Desc" name="editDesc" type="text" placeholder="Enter Position Description" required>     
+                       </textarea>
                   </div>
               </div>
               <div class="modal-footer ">
@@ -265,37 +262,31 @@ include "navAdmin.php";
 </div>
 </div>
 
-<div class="modal fade" id="add" tabindex="-1" role="dialog" aria-labelledby="add" aria-hidden="true">
+<div class="modal fade" id="add" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
       <div class="modal-dialog">
-    <div class="modal-content">
+    <div class="modal-content" id = "add_modal">
           <div class="modal-header">
               <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
               <h4 class="modal-title custom_align" id="HeadingAdd">Add New Position</h4>
           </div>
-          <form autocomplete = "off" method="post" action="backCandidate/addPosition.php" id="addForm">
+          <form autocomplete = "off" method="post" action="" id="">
               <div class="modal-body">
                   <div class="form-group">              
-                      <input class="form-control" id="add_Hid" name="add_Hid" type="text" placeholder="Enter Hierarchy ID" required>
-                  </div>
-                  <div class="form-group">              
-                      <input class="form-control" id="add_Pos" name="add_Pos" type="text" placeholder="Enter Position Name" required>
+                      <input class="form-control" name="addPos" id="add_Pos" type="text" placeholder="Enter Position Name" required>
                   </div>
                   <div class = "form-group">
-                       <textarea class="form-control " id ="add_Desc" name="add_Desc" type="text" placeholder="Enter Position Description" required></textarea>
+                       <textarea class="form-control " id ="add_Desc" name="addDesc" type="text" placeholder="Enter Position Description" required>     
+                       </textarea>
                   </div>
               </div>
               <div class="modal-footer ">
-                 <button type="submit" name="save-btn" class="btn btn-warning btn-lg" id="save-add" style="width: 100%;"><span class= "fa fa-check-circle"></span> Save</button>
+                  <button type="submit" name="save-btn" class="btn btn-warning btn-lg" id="save-add" style="width: 100%;"><span class= "fa fa-check-circle"></span> Save</button>
                   <button type="submit" name="cancel-btn" class="btn btn-warning btn-lg" id="cancel-add" style= "width:100%;" data-dismiss="modal"><span class="fa fa-times-circle"></span> Cancel</button>
               </div>
           </form>
     </div>
 </div>
 </div>
-
-
-
-
         <!-- /.modal-dialog -->
     <div class="modal fade" id="delete" tabindex="-1" role="dialog" aria-labelledby="delete" aria-hidden="true">
         <div class="modal-dialog">
