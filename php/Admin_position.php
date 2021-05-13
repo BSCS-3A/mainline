@@ -225,11 +225,11 @@ include "navAdmin.php";
                     <h4 class="modal-title custom_align" id="Heading-load">Load Default Positions</h4>
                 </div>
                 <div class="modal-body">
-                    <div class="alert alert-danger" id="loadD"><span class="fa fa-exclamation-triangle"></span>Are you sure you want to delete existing positions and replace it with the system default?</div>
+                    <div class="alert alert-danger" id="loadD"><span class="fa fa-exclamation-triangle"></span> <text class = "load_text">Are you sure you want to delete existing positions and replace it with the system default?</text></div>
                 </div>
                 <div class="modal-footer ">
-                    <button type="submit" name="continue-delete-btn" class="btn btn-success" id="continue-load"><span class="fa fa-check-circle"></span>Continue</button>
-                    <button type="button" name="cancel-delete-btn" class="btn btn-default" id="cancel-load" data-dismiss="modal"><span class="fa fa-times-circle"></span>Cancel</button>
+                    <button type="submit" name="continue-delete-btn" class="btn btn-success" id="continue-load"><span class="fa fa-check-circle"></span><text id = "text_confirm-load">Continue</text></button>
+                    <button type="button" name="cancel-delete-btn" class="btn btn-default" id="cancel-load" data-dismiss="modal"><span class="fa fa-times-circle"></span> <text id = "text_cancel-load">Cancel</text></button>
                 </div>
             </div>
             <!-- /.modal-content -->
@@ -258,7 +258,7 @@ include "navAdmin.php";
               </div>
               <div class="modal-footer ">
                   <button type="submit" name="save-btn" class="btn btn-warning btn-lg" id="save-edit" style="width: 100%;"><span class= "fa fa-check-circle"></span> Save</button>
-                  <button type="submit" name="cancel-btn" class="btn btn-default" id="cancel-edit" style= "width:100%;" data-dismiss="modal"><span class="fa fa-times-circle"></span> Cancel</button>
+                  <button type="submit" name="cancel-btn" class="btn btn-warning btn-lg" id="cancel-edit" style= "width:100%;" data-dismiss="modal"><span class="fa fa-times-circle"></span> Cancel</button>
               </div>
           </form>
     </div>
@@ -285,8 +285,8 @@ include "navAdmin.php";
                   </div>
               </div>
               <div class="modal-footer ">
-                  <button type="submit" name="save-btn" class="btn btn-warning btn-lg" id="save-add" style="width: 100%;"><span class= "fa fa-check-circle"></span> Save</button>
-                  <button type="submit" name="cancel-btn" class="btn btn-default" id="cancel-add" style= "width:100%;" data-dismiss="modal"><span class="fa fa-times-circle"></span> Cancel</button>
+                 <button type="submit" name="save-btn" class="btn btn-warning btn-lg" id="save-add" style="width: 100%;"><span class= "fa fa-check-circle"></span> Save</button>
+                  <button type="submit" name="cancel-btn" class="btn btn-warning btn-lg" id="cancel-add" style= "width:100%;" data-dismiss="modal"><span class="fa fa-times-circle"></span> Cancel</button>
               </div>
           </form>
     </div>
@@ -309,8 +309,8 @@ include "navAdmin.php";
                 </div>
                 <div class="modal-footer ">
                     <form method="post" id="delete-form">
-                        <button type="submit" name="continue-delete-btn" class="btn btn-success" id="continue-delete"><span class="fa fa-check-circle"></span>Continue</button>
-                        <button type="button" name="cancel-delete-btn" class="btn btn-default" id="cancel" data-dismiss="modal"><span class="fa fa-times-circle"></span>Cancel</button>
+                       <button type="submit" name="continue-delete-btn" class="btn btn-success" id="continue-delete"><span class="fa fa-check-circle"></span><text id = "text_confirm-delete">Continue</text></button>
+                        <button type="button" name="cancel-delete-btn" class="btn btn-default" id="cancel-delete" data-dismiss="modal"><span class="fa fa-times-circle"></span><text id = "text_cancel-delete">Cancel</button>
                     </form>
                 </div>
             </div>
