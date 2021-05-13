@@ -694,8 +694,9 @@
     bs_modal.on('shown.bs.modal', function() {
         cropper = new Cropper(image, {
             aspectRatio: 1,
-            viewMode: 3,
+            viewMode: 0 ,
             preview: '.prev'
+
         });
     }).on('hidden.bs.modal', function() {
         $(".image").val('');
