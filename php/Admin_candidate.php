@@ -56,7 +56,7 @@
     <script src="../js/bootstrap.min_Pos.js"></script> 
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css" crossorigin="anonymous">
     <link href="https://unpkg.com/cropperjs/dist/cropper.css" rel="stylesheet"/>
-    <link rel="stylesheet" type="text/javascript" href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.11/cropper.min.js">
+    <link type="text/javascript" href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.11/cropper.min.js">
     <script src="../js/cropper.js"></script>
 
     <!-- <script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script> -->
@@ -373,7 +373,9 @@
             margin: 10px;
             border: 1px solid red;
         }
-        
+        .modal-lg{
+            max-width: 1000px !important;
+        }
     </style>
 
 <title>Update Candidate Information | BUCEILS HS Online Voting System</title>
@@ -708,7 +710,6 @@
             width: 160,
             height: 160,
         });
-        console.log(canvas);
 
         canvas.toBlob(function(blob) {
             url = URL.createObjectURL(blob);
