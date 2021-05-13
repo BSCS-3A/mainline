@@ -12,18 +12,13 @@ include("db_conn.php");
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta charset="utf-8">
     <link rel="icon" href="../img/BUHS LOGO.png" type="image/png">
-    <!--<link rel="stylesheet" type="text/css" href="../css/admin_css/style_monitor.css">-->
     <link rel="stylesheet" href="../css/admin_css/style_monitor.css?v=<?php echo time(); ?>">
     <link rel="stylesheet" href="../css/admin_css/bootstrap4.5.2_monitor.css">
     <link rel="stylesheet" href="../css/admin_css/dataTables.bootstrap4.min_monitor.css">
     <link rel="stylesheet" href="../css/admin_css/font-awesome.css">
     <link rel="stylesheet" href="../css/admin_css/jquery.dataTables.min_monitor.css">
-    <!-- <script src="assets/js/a076d05399.js"></script> -->
-    <!-- <script src="../js/dataTables.bootstrap4.min_adminDash.js"></script> -->
-    <!-- <script src="../js/jquery-3.5.1_adminDash.js"></script> -->
     <script src="../js/jquery.dataTables.min_monitor.js"></script>
     <script type="text/javascript" src="../js/admin_session_timer.js"></script>
-    <!-- <script src="../js/countdown.js"></script> -->
     <script src="https://cdn.datatables.net/fixedheader/3.1.8/js/dataTables.fixedHeader.min.js"></script>
     <title>Election Vote Status  | BUCEILS HS Online Voting System</title>
 </head>
