@@ -12,10 +12,10 @@
     $dbname = "bucielsmain2";       // Den
     // $dbname = "check";     
     
-   @$conn = new mysqli($servername,$username,$password,$dbname);
+    require_once 'Student_vtValSan.php';
+    @$conn = new mysqli($servername,$username,$password,$dbname);
     if ($conn -> connect_errno) {
         // echo "Failed to connect to Database: " . $conn -> connect_error;
-        require 'Student_vtValSan.php';
         errorMessage("There seems to be an error. <br> It's not you, it's us. We're trying our best to make this work. ");
         exit();
     }

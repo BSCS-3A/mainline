@@ -1,6 +1,7 @@
 <?php
 session_start();
 include('db_conn.php');
+
  if (isset($_SESSION['student_id']) && isset($_SESSION['bumail'])) {
  ?>
 <!DOCTYPE html>
@@ -26,7 +27,7 @@ include('db_conn.php');
     <?php
         // include 'navstudent.php';
         // require "db_conn.php";
-	      // require "Student_vtValSan.php";
+	      require_once "Student_vtValSan.php";
         // if(!isset($_POST['confirm-button'])){
         //   header("Location: vtBallot.php");
         //   exit();
@@ -35,7 +36,7 @@ include('db_conn.php');
 
 
         function receiptMsg($message){
-          include 'navStudent.php';
+          require_once 'navStudent.php';
           echo '<header id="F-header"  style="text-align: center;"><b>VOTE RECEIPT</b></header><br>';
             echo '<main>';
             echo '<div id="download-receipt-page" class="F-download-receipt-container">';
