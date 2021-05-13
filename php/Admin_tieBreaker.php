@@ -20,7 +20,7 @@
 <body>
     <?php
         require 'db_conn.php'; // Remove this when compiling
-        require 'Admin_vtValSan.php';
+        // require 'Admin_vtValSan.php';
         require 'Admin_vtFetch.php';
         include './backMonitor/fetch_date.php';
                      if($current_date_time>$last_election_date){

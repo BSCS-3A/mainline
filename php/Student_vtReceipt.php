@@ -25,8 +25,8 @@ include('db_conn.php');
 <body>
     <?php
         // include 'navstudent.php';
-        require "db_conn.php";
-	      require "Student_vtValSan.php";
+        // require "db_conn.php";
+	      // require "Student_vtValSan.php";
         // if(!isset($_POST['confirm-button'])){
         //   header("Location: vtBallot.php");
         //   exit();
