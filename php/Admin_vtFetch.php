@@ -1,9 +1,13 @@
 <?php
     function showCandidate($row1){
+        $imageLoc = $row1["photo"];
+        if (!file_exists($imageLoc)) {
+            $imageLoc = "../img/admin.png";
+        }
         echo '<label class="checkbox">
             <input type="radio" name="'.$row1["heirarchy_id"].'" id="vote" value="'.$row1["candidate_id"].'" onclick="document.getElementById(\''.$row1['heirarchy_id'].'\').innerHTML = \''.$row1['fname']." ".$row1['lname'].'\'">
                 <span class="checkmark"></span>
-                    <a href=""><img src="'.$row1["photo"].'" class="candidate-photo" style="float: left; width: 100px; height: 100px;" alt="Candidate" ></a>
+                    <a href=""><img src="'.$imageLoc.'" class="candidate-photo" style="float: left; width: 100px; height: 100px;" alt="Candidate"></a>
                     
                   <div class="candidate-info">';
                   
