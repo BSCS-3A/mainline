@@ -1,3 +1,13 @@
+<!-- Proj mngr notes
+- changed db_conn
+- add navigation bar
+
+Need:
+- load default
+- add pop up confirmation
+
+-->
+
 <!DOCTYPE html>
 <?php
 include "db_conn.php";
@@ -61,54 +71,68 @@ include "navAdmin.php";
                     }
                 });
             }
-            //editing the position
-            $(document).on("click", "#updateButton", function() {
-                var posid = $("#pid").attr("posid");
-                var hid = $.trim($("#heirarchy_id").val());
-                var posname = $.trim($("#position_name").val());
-                var posdes = $.trim($("#position_description").val());
+            //adding the position
+            $("#addForm").submit(function(e) {
+                e.preventDefault();
+                $("#add").modal("hide");
+                var temp = true;
+                var hid = $.trim($("#add_Hid").val());
+                var posname = $.trim($("#add_Pos").val());
+                var posdes = $.trim($("#add_Desc").val());
 
                 if (hid == "" || posname == "" || posdes == "") { //no input in one or more fields
                     alert("Please dont leave any fields blank.");
                 } else {
-                    if (posid == "") { //if you are adding a position
-                        var temp = true;
-                        $.ajax({
-                            url: 'backCandidate/addPosition.php',
-                            method: 'post',
-                            data: {
-                                addbtn: temp,
-                                heirarchy: hid,
-                                positionname: posname,
-                                positiondes: posdes
-                            },
-                            success: function(response) {
-                                if (response != "") {
-                                    alert(response);
-                                }
-                                formClear();
-                                reloadTable();
+                    $.ajax({
+                        url:"backCandidate/addPosition.php",
+                        method:"post",
+                        data:{
+                            addbtn: temp,
+                            heirarchy: hid,
+                            positionname: posname,
+                            positiondes: posdes
+                        },
+                        success:function(response) {
+                            if (response != "") {
+                               alert(response);
                             }
-                        });
-                    } else { //if you are editing a position
-                        $.ajax({
-                            url: 'backCandidate/addPosition.php',
-                            method: 'post',
-                            data: {
-                                id: posid,
-                                heirarchy: hid,
-                                positionname: posname,
-                                positiondes: posdes
-                            },
-                            success: function(response) {
-                                $(document).html(response);
-                                formClear();
-                                reloadTable();
-                            }
-                        });
-                    }
+                            formClear();
+                            reloadTable();
+                        }
+                    });
                 }
             });
+            //editing the position
+            $("#editForm").submit(function(e) {
+                e.preventDefault();
+                $("#edit").modal("hide");
+                var temp = true;
+                var posid = $("#positionId").attr("posid");
+                var posname = $.trim($("#edit_Pos").val());
+                var posdes = $.trim($("#edit_Desc").val());
+
+                if (posname == "" || posdes == "") { //no input in one or more fields
+                    alert("Please dont leave any fields blank.");
+                } else {
+                    $.ajax({
+                        url:"backCandidate/addPosition.php",
+                        method:"post",
+                        data:{
+                            id:posid,
+                            positionname: posname,
+                            positiondes: posdes
+                        },
+                        success:function(response) {
+                            if (response != "") {
+                               alert(response);
+                            }
+                            formClear();
+                            reloadTable();
+                        }
+                    });
+                }
+            });
+
             //vote allow toggle 
             $(document).on("click", ".vote_allow", function() {
                 var position_id = $(this).closest('tr').attr("posid");
@@ -151,19 +175,17 @@ include "navAdmin.php";
     <div class="Uheader" id="CM_Header">
         <h2 class="Uheader-txt">Candidate Information Management</h2>
     </div>
-
-    <form autocomplete="off">
         
     <div class="right">
         <!--Added container and row to accomodate table responsiveness-->
         <div class="container">
             <div class="btn-toolbar" style="margin-left: 18px;">
-                <button type="submit" id="defaultButton" name="" class="btn btn-button1 btn-s" data-toggle="modal" data-target="#load" > 
+                <button id="defaultButton" name="" class="btn btn-button1 btn-s" data-toggle="modal" data-target="#load" > 
                 <span class = "fas fa-portrait"></span> 
                 Load Default Positions 
                 </button>
 
-        <button type = "submit" id = "add_button"  class = "btn btn-button1 btn-s" data-toggle = "modal" data-target = "#add"> 
+        <button id="add_button" class="btn btn-button1 btn-s" data-toggle="modal" data-target="#add" title="Add" data-placement="top"> 
             <span class = "fas fa-plus"></span>
             Add Position 
         </button>
@@ -220,19 +242,22 @@ include "navAdmin.php";
               <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
               <h4 class="modal-title custom_align" id="HeadingAdd">Edit Position</h4>
           </div>
-          <form autocomplete = "off" method="post" action="" id="">
+          <form autocomplete = "off" method="post" action="backCandidate/addPosition.php" id="editForm">
               <div class="modal-body">
+                <div id="positionId" posid=""></div>
                   <div class="form-group">              
-                      <input class="form-control" name="editName" id="edit_Pos" type="text" placeholder="Enter Position Name" required>
+                      <input class="form-control" id="edit_Hid" name="edit_Hid" type="text" placeholder="Enter Hierarchy ID" disabled required>
+                  </div>
+                  <div class="form-group">              
+                      <input class="form-control" id="edit_Pos" name="edit_Pos" type="text" placeholder="Enter Position Name" required>
                   </div>
                   <div class = "form-group">
-                       <textarea class="form-control" id ="edit_Desc" name="editDesc" type="text" placeholder="Enter Position Description" required>     
-                       </textarea>
+                       <textarea class="form-control" id ="edit_Desc" name="edit_Pos" type="text" placeholder="Enter Position Description" required></textarea>
                   </div>
               </div>
               <div class="modal-footer ">
-                  <button type="submit" name="save-btn" class="btn btn-warning btn-lg" id="save-add" style="width: 100%;"><span class= "fa fa-check-circle"></span> Save</button>
-                  <button type="submit" name="cancel-btn" class="btn btn-default" id="cancel-add" style= "width:100%;" data-dismiss="modal"><span class="fa fa-times-circle"></span> Cancel</button>
+                  <button type="submit" name="save-btn" class="btn btn-warning btn-lg" id="save-edit" style="width: 100%;"><span class= "fa fa-check-circle"></span> Save</button>
+                  <button type="submit" name="cancel-btn" class="btn btn-default" id="cancel-edit" style= "width:100%;" data-dismiss="modal"><span class="fa fa-times-circle"></span> Cancel</button>
               </div>
           </form>
     </div>
@@ -246,14 +271,16 @@ include "navAdmin.php";
               <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
               <h4 class="modal-title custom_align" id="HeadingAdd">Add New Position</h4>
           </div>
-          <form autocomplete = "off" method="post" action="" id="">
+          <form autocomplete = "off" method="post" action="backCandidate/addPosition.php" id="addForm">
               <div class="modal-body">
                   <div class="form-group">              
-                      <input class="form-control" name="addPos" id="add_Pos" type="text" placeholder="Enter Position Name" required>
+                      <input class="form-control" id="add_Hid" name="add_Hid" type="text" placeholder="Enter Hierarchy ID" required>
+                  </div>
+                  <div class="form-group">              
+                      <input class="form-control" id="add_Pos" name="add_Pos" type="text" placeholder="Enter Position Name" required>
                   </div>
                   <div class = "form-group">
-                       <textarea class="form-control " id ="add_Desc" name="addDesc" type="text" placeholder="Enter Position Description" required>     
-                       </textarea>
+                       <textarea class="form-control " id ="add_Desc" name="add_Desc" type="text" placeholder="Enter Position Description" required></textarea>
                   </div>
               </div>
               <div class="modal-footer ">
@@ -297,18 +324,14 @@ include "navAdmin.php";
         var editRow = null;
 
         function positionDisplay(ctl) {
-            document.getElementById("heirarchy_id").disabled = true; /*Disables Heirarchy ID input field when editing*/
             editRow = $(ctl).parents("tr");
             var cols = editRow.children("td");
             var pid = editRow.attr("posid");
 
-            $("#pid").attr("posid", pid);
-            $("#heirarchy_id").val($(cols[0]).text());
-            $("#position_name").val($(cols[1]).text());
-            $("#position_description").val($(cols[2]).text());
-
-            // Change Update Button Text
-            $("#updateButton").text("Update");
+            $("#positionId").attr("posid", pid);
+            $("#edit_Hid").val($(cols[0]).text());
+            $("#edit_Pos").val($(cols[1]).text());
+            $("#edit_Desc").val($(cols[2]).text());
         }
 
         function deleteRow(row) {
@@ -461,11 +484,14 @@ include "navAdmin.php";
         //     }
         //     // Clear form fields
         function formClear() {
-            document.getElementById("heirarchy_id").disabled = false;
-            $("#pid").attr("posid", "");
-            $("#heirarchy_id").val("");
-            $("#position_name").val("");
-            $("#position_description").val("");
+            $("#posid").attr("posid", "");
+            $("#add_Hid").val("");
+            $("#add_Pos").val("");
+            $("#add_Desc").val("");
+            
+            $("#edit_Hid").val("");
+            $("#edit_Pos").val("");
+            $("#edit_Desc").val("");
         }
 
     /*<!-- <div class="footer">
@@ -478,12 +504,12 @@ include "navAdmin.php";
         });
 
         /**Added this move to edit/add panel function for mobile QoL**/
-        $("button").click(function() {
+        /*$("button").click(function() {
                     $('html,body').animate({
                             scrollTop: $(".left").offset().top
                         },
                         'slow');
-        });
+        });*/
     </script>
 
 </body>

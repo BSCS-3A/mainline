@@ -94,31 +94,24 @@
        
     if(isset($_POST['id'])){
         $positionId = mysqli_real_escape_string($conn,trim($_POST['id']));
-        $heirarchyId = mysqli_real_escape_string($conn,trim($_POST['heirarchy']));
         $positionName = mysqli_real_escape_string($conn,trim($_POST['positionname']));
         $positionDescription = mysqli_real_escape_string($conn,trim($_POST['positiondes']));
         
-        if(empty($positionName) || empty($heirarchyId)){ //if name or heirarchy has no value
-            echo "Heirarchy ID and Position Name are REQUIRED!";
+        if(empty($positionName)){ //if name or heirarchy has no value
+            echo "Position Name is REQUIRED!";
         } 
         else{
-            if(ctype_digit($heirarchyId)&& $heirarchyId > 0){//if herirachy is digit and heirarchy is positive
-                $sql = "UPDATE `candidate_position` SET `position_description` = '$positionDescription',`position_name` = '$positionName', `heirarchy_id` = '$heirarchyId' WHERE `candidate_position`.`position_id` = $positionId";
-                $result = mysqli_query($conn,$sql);
-                if($result){//if query update is successfull add a log to access logs 
-                    $admin_id = $_SESSION['admin_id'];
-                    date_default_timezone_set('Asia/Manila');
-		        	$time = date('H:i:s');
-                    mysqli_query($conn, "INSERT INTO admin_activity_log(activity_log_id,admin_id,activity_description,activity_date,activity_time) VALUES(NULL,$admin_id,' Updated position $positionName',CURRENT_TIMESTAMP,'$time')");
-                    $_SESSION['message'] = "edited successfully";
-                    echo "Edited succesfully";
-                }else{
-                    echo "Data did not enter database!(Please check your input)";
-                }        
+            $sql = "UPDATE `candidate_position` SET `position_description` = '$positionDescription',`position_name` = '$positionName' WHERE `candidate_position`.`position_id` = $positionId";
+            $result = mysqli_query($conn,$sql);
+            if($result){//if query update is successfull add a log to access logs 
+                $admin_id = $_SESSION['admin_id'];
+                date_default_timezone_set('Asia/Manila');
+	        	$time = date('H:i:s');
+                mysqli_query($conn, "INSERT INTO admin_activity_log(activity_log_id,admin_id,activity_description,activity_date,activity_time) VALUES(NULL,$admin_id,' Updated position $positionName',CURRENT_TIMESTAMP,'$time')");
             }else{
-                echo "Invalid input (check your hierarchy id)";
-            } 
-        }
+                echo "Data did not enter database!(Please check your input)";
+            }   
+        }     
     }   
 
  
