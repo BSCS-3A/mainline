@@ -362,9 +362,16 @@ footer {
   font-size: 25px;
   height: 26px;
   overflow: scroll;
-  overflow-x: auto;
+  overflow-x: hidden;
   overflow-y: auto;
 }
+
+
+
+.card_name::-webkit-scrollbar{
+  display: none;
+}
+
 
 #profile p {
   font-size: 14px;
