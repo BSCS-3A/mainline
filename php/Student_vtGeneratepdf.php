@@ -97,11 +97,11 @@ if(empty($vote_que->fetch_assoc())){
 $pdf->AddPage();
 $pdf->SetFont('times','',12);
 ob_start();	
-	
+// date("Y-m-d h:m:sa", $start_time)
 	//date generated
 	date_default_timezone_set("Asia/Manila");
 	$time_voted = $vote_que->fetch_assoc();
-	$today = $time_voted['time_stamp'];	
+	$today = date("M d, Y", strtotime($time_voted['time_stamp']));
 	$acadyear1 = date("Y");
 	$acadyear2 = $acadyear1 + 1;
 
