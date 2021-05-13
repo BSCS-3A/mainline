@@ -95,9 +95,10 @@ include "navAdmin.php";
                         success:function(response) {
                             if (response != "") {
                                alert(response);
+                            }else{
+                                formClear();
+                                reloadTable();
                             }
-                            formClear();
-                            reloadTable();
                         }
                     });
                 }
