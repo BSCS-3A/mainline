@@ -26,7 +26,7 @@ include('db_conn.php');
 <body>
     <?php
         // include "db_conn.php";
-        require_once 'Student_vtValSan.php';
+        // require_once 'Student_vtValSan.php';
         require 'Student_vtFetch.php';
 
         // Remove this temp session
