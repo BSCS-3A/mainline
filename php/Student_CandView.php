@@ -129,6 +129,10 @@
 
 <!--Modal Content-->
 </div>
+    <div class = "scroll_Top" style="margin-bottom: 50px !important;">
+    <button class="btn btn-button1 btn-s" style="float: right;
+    margin-bottom: 50px; margin-right: 35px; background-color: #18566e; color: white !important;" >Scroll to Top</button>
+</div>
       <div class="modal fade" id="view" tabindex="-1" role="dialog" aria-labelledby="view" aria-hidden="true"> <!--Modal Contains 2 containers 1 container for the platforms and another for the credentials-->
         
             <div class="modal-dialog">
@@ -138,6 +142,15 @@
                     <h4 class="modal-title custom_align" id="Heading">Platforms and Credentials</h4>
                 </div>
                     <div class="modal-body">
+                      <div class = "nameContainer">
+                      <h3>Name</h3>
+                      </div>
+                            <div class = "gradeContainer">
+                            <h3>Grade</h3>
+                            </div>
+                                  <div class = "positionContainer">
+                                  <h3>Position</h3>
+                                  </div>
                     <div class="credContainer">
                         <h3>Credentials</h3>
                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi lobortis laoreet metus, sit amet mollis arcu pretium in. Vestibulum arcu elit, ornare eu dictum id, rutrum et dolor. Nunc tempus commodo rhoncus. Fusce tortor ex, consequat nec tortor id, pharetra tincidunt nunc. Fusce dictum lorem vel iaculis fringilla. Curabitur tristique malesuada ex, at convallis nisl pellentesque sit amet. Nam semper enim id orci lacinia ultricies. Integer consectetur in neque id accumsan. Vivamus ac tellus efficitur, scelerisque risus id, egestas tellus. Fusce tincidunt ex urna, non volutpat ipsum posuere tempus. Vivamus imperdiet mattis tellus eget elementum. Phasellus justo lectus, sagittis ut velit a, mattis imperdiet nibh. Morbi ultricies rhoncus euismod. Morbi et dolor vitae magna vulputate placerat. Cras ac velit sapien.</p>
