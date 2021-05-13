@@ -464,7 +464,7 @@
               </div>
               <div class="modal-footer ">
                   <button type="submit" name="save-btn" class="btn btn-warning btn-lg" id="save-add" style="width: 100%;"><span class= "fa fa-check-circle"></span> Save</button>
-                  <button type="submit" name="cancel-btn" class="btn btn-default" id="cancel-add" style= "width:100%;" data-dismiss="modal"><span class="fa fa-times-circle"></span> Cancel</button>
+                  <button type="submit" name="cancel-btn" class="btn btn-warning btn-lg" id="cancel-add" style= "width:100%;" data-dismiss="modal"><span class="fa fa-times-circle"></span> Cancel</button>
               </div>
           </form>
     </div>
@@ -511,8 +511,8 @@
                   </div>
               </div>
               <div class="modal-footer ">
-                  <button type="submit" name="edit-save-btn" class="btn btn-warning btn-lg" id="save-edit" style="width: 100%;"><span class= "fa fa-check-circle"></span>Save</button>
-                  <button type="submit" name="edit-cancel-btn" class="btn btn-default" id="cancel-edit" style= "width:100%;" data-dismiss="modal"><span class="fa fa-times-circle"></span> Cancel</button>
+                    <button type="submit" name="edit-save-btn" class="btn btn-warning btn-lg" id="save-edit" style="width: 100%;"><span class= "fa fa-check-circle"></span>Save</button>
+                  <button type="submit" name="edit-cancel-btn" class="btn btn-warning btn-lg" id="cancel-edit" style= "width:100%;" data-dismiss="modal"><span class="fa fa-times-circle"></span> Cancel</button>
               </div>
           </form>
       </div>
