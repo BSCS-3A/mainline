@@ -404,3 +404,14 @@ div p.footer-txt {
   font-size: 10px;
   color: #ffffff;
 }
+
+nav img.user-profile {
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+}

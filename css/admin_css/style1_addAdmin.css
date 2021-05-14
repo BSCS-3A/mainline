@@ -477,7 +477,12 @@ img.logos {
 }
 
 nav img.user-profile {
-  margin-top: 0;
-  height: 40px;
+  display: inline-block;
   width: 40px;
+  height: 40px;
+  border-radius: 50%;
+
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
 }
