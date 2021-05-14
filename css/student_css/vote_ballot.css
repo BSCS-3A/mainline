@@ -41,6 +41,7 @@
 }
 
 #F-position {
+  text-decoration: none;
   width: 100%;
   font-size: 22px;
   text-indent: 25px;
@@ -55,6 +56,7 @@ hr {
 }
 
 #F-CandidateName {
+  text-decoration: none;
   font-size: 18px;
   color: #124254;
   font-weight: 900;
@@ -62,6 +64,7 @@ hr {
 }
 
 #F-GradeSection {
+  text-decoration: none;
   font-size: 16px;
   color: #124254;
   font-weight: 500;
@@ -69,10 +72,15 @@ hr {
 }
 
 #F-Partylist {
+  text-decoration: none;
   font-size: 16px;
   color: black;
   font-weight: 500;
   font-family: 'Roboto-regular', sans-serif;
+}
+
+#F-Platform {
+  text-decoration: none;
 }
 
 
@@ -188,9 +196,8 @@ img.candidate-photo {
 }
 
 .vote-btn {
-  font: bold 16px 'Roboto-regular', sans-serif;
+  font: 18px 'Roboto-regular', sans-serif;
   color: #eeeeee;
-  letter-spacing: 3px;
   width: 200px;
   height: 50px;
   background-color: #124254;
@@ -199,12 +206,14 @@ img.candidate-photo {
   /*border: 2px solid #124254;*/
   border-radius: 30px;
   position: relative;
+  box-shadow: 0 8px 10px 1px rgba(0, 0, 0, .14), 0 3px 14px 2px rgba(0, 0, 0, .12), 0 5px 5px -3px rgba(0, 0, 0, .2);
+  border-bottom:2px solid #0d3746;
 }
 
 .vote-btn:hover {
   color: #fece4b;
-  background-color: #124254;
-  border: 2px solid #fece4b;
+  background-color: #0c303d;
+  border-color: #124254;
   border-radius: 30px;
 }
 
@@ -243,12 +252,14 @@ img.candidate-photo {
   /* Hidden by default */
   position: fixed;
   /* Stay in place */
-  z-index: 1;
+  z-index: 1000;
   /* Sit on top */
   padding-top: 100px;
   /* Location of the box */
   left: 0;
-  top: 60px;
+  right: 0;
+  bottom: 0;
+  top: 0;
   width: 100%;
   /* Full width */
   height: 100%;
@@ -339,12 +350,13 @@ img.candidate-photo {
   background-color: #eeeeee;
   color: black;
   margin-left: 10px;
-  height: 30px;
+  height: 40px;
   width: 170px;
   font-size: 14px;
   border-radius: 30px;
   letter-spacing: 1px;
   cursor: pointer;
+  box-shadow: 0 8px 10px 1px rgba(0, 0, 0, .14), 0 3px 14px 2px rgba(0, 0, 0, .12), 0 5px 5px -3px rgba(0, 0, 0, .2);
 }
 
 .F-returnBTN span {
@@ -381,11 +393,12 @@ img.candidate-photo {
   letter-spacing: 1px;
   background-color: #124254;
   margin-right: 10px;
-  height: 30px;
+  height: 40px;
   width: 200px;
   font-size: 14px;
   border-radius: 30px;
   cursor: pointer;
+  box-shadow: 0 8px 10px 1px rgba(0, 0, 0, .14), 0 3px 14px 2px rgba(0, 0, 0, .12), 0 5px 5px -3px rgba(0, 0, 0, .2);
 }
 
 .F-confirmBTN span {
@@ -448,6 +461,7 @@ img.candidate-photo {
   border-radius: 30px;
   letter-spacing: 1px;
   cursor: pointer;
+  box-shadow: 0 8px 10px 1px rgba(0, 0, 0, .14), 0 3px 14px 2px rgba(0, 0, 0, .12), 0 5px 5px -3px rgba(0, 0, 0, .2);
 }
 
 /* Download Receipt Button */
@@ -462,11 +476,13 @@ img.candidate-photo {
   font-size: 14px;
   border-radius: 4px;
   cursor: pointer;
+  box-shadow: 0 8px 10px 1px rgba(0, 0, 0, .14), 0 3px 14px 2px rgba(0, 0, 0, .12), 0 5px 5px -3px rgba(0, 0, 0, .2);
 }
 
 @media (max-width: 1200px) {
   .F-modal {
-    top: 30px;
+    top: 0;
+    bottom: 0;
   }
   .F-modal-content {
     position: relative;

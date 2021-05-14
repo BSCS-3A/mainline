@@ -7,11 +7,11 @@
         echo '<label class="checkbox">
             <input type="radio" required name="'.$poss["heirarchy_id"].'" id="vote" value="'.$poss["candidate_id"].'" onclick="document.getElementById(\''.$poss['heirarchy_id'].'\').innerHTML = \''.$poss['fname']." ".$poss['lname'].'\'">
                 <span class="checkmark"></span>
-                    <a href=""><img src="'.$imageLoc.'" class="candidate-photo" style="float: left; width: 100px; height: 100px;" alt="Candidate" ></a>
+                    <a><img src="'.$imageLoc.'" class="candidate-photo" style="float: left; width: 100px; height: 100px;" alt="Candidate" ></a>
                     
                   <div class="candidate-info">';
                   
-        echo '<a href="" id="F-CandidateName"><b> Name: ' .$poss["fname"]. " " . $poss["lname"]. '</b></a><br><a href="" id="F-Partylist"> Party: ' .$poss["party_name"]. '</a><br><a href="" id="F-Platform"> Platform: ' . $poss["platform_info"]. '</a>
+        echo '<a id="F-CandidateName"><b> Name: ' .$poss["fname"]. " " . $poss["lname"]. '</b></a><br><a id="F-Partylist"> Party: ' .$poss["party_name"]. '</a><br><a id="F-Platform"> Platform: ' . $poss["platform_info"]. '</a>
         </div>
         </label>';
 
@@ -36,7 +36,7 @@
                     $counter = 0;
                     echo'</div>';
                     echo'<div id="F-container">';
-                    echo'<a href="" id="F-position" style="float: left;">'.$poss["position_name"].'</a><hr>';
+                    echo'<a id="F-position" style="float: left;">'.$poss["position_name"].'</a><hr>';
                     // candidate div
                     echo'<div>';
                     showAbstain($poss);         // display abstain choice

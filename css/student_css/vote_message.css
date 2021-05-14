@@ -7,6 +7,7 @@
   margin: auto;
   background-color: #f8f8f8;
   margin-top: 13%;
+  padding: 20px;
 }
 
 .error-message {
@@ -24,15 +25,20 @@
 
 .OkBTN-error {
   /* OK Button */
-  font: bold 14px 'Roboto-regular', sans-serif;
+  font: bold 16px 'Roboto-regular', sans-serif;
   background-color: #fece4b;
   color: black;
   margin: auto;
-  height: 35%;
+  height: 40px;
   width: 30%;
   border-radius: 30px;
   letter-spacing: 1px;
   cursor: pointer;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.OkBTN-error:hover {
+  background-color: #eebf40;
 }
 
 @media (max-width: 1200px) {
@@ -85,28 +91,42 @@
 
 .F-goToHomeBTN {
   /* Go to Home Button */
+  position: relative;
   background-color: #eeeeee;
   color: black;
   margin-left: 5%;
-  height: 30px;
+  margin-bottom: 50px;
+  height: 40px;
   width: 150px;
   font-size: 14px;
   border-radius: 30px;
   letter-spacing: 1px;
   cursor: pointer;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.F-goToHomeBTN:hover {
+  background-color: #dfdbdb;
 }
 
 .F-downloadReceiptBTN {
   /* Download Receipt Button */
+  position: relative;
   background-color: #fece4b;
   color: black;
   margin-right: 5%;
-  height: 30px;
+  margin-bottom: 50px;
+  height: 40px;
   width: 160px;
   font-size: 14px;
   border-radius: 30px;
   cursor: pointer;
   letter-spacing: 1px;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.F-downloadReceiptBTN:hover {
+  background-color: #eebf40;
 }
 
 @media (max-width: 1200px) {
@@ -119,5 +139,8 @@
   }
   .F-download-receipt-container {
     width: 70%;
+  }
+  .error-message-container{
+    width: 90%;
   }
 }
