@@ -160,39 +160,46 @@ if (isset($_SESSION['admin_id']) && isset($_SESSION['username'])) {
 
             }, 1000);
 
-            //send reminders 1 hour before election ends
-            $(document).ready(function() {
+          //send reminders 1 hour before election ends
+          $(document).ready(function() {
                 var end = "<?php echo $endate ?>";
-
+                var countDownEnd = new Date(end).getTime();
+                
+                
+           // Update the count down every 1 second
+           var y = setInterval(function() {
                 var today = new Date();
                 var date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
                 var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
                 var currentTime = date + ' ' + time;
                 // Set the date we're counting down to
-                var countDownEnd = new Date(end).getTime();
-                var current = new Date(currentTime).getTime();
-
-                // Update the count down every 1 second
-                var y = setInterval(function() {
-
+                
+                    
+                    
                     // Get today's date and time
                     var noww = new Date().getTime();
 
                     // Find the distance between now and the count down date
 
                     var distanceEnd = countDownEnd - noww;
-
+                    var current = new Date(currentTime).getTime();
                     // Time calculations for days, hours, minutes and seconds
                     //time ends
                     var daysEnd = Math.floor(distanceEnd / (1000 * 60 * 60 * 24));
-                    var hoursEnd = Math.floor((distanceEnd % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60) - 1);
+                    var hoursEnd = Math.floor((distanceEnd % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)-1);
                     var minutesEnd = Math.floor((distanceEnd % (1000 * 60 * 60)) / (1000 * 60));
                     var secondsEnd = Math.floor((distanceEnd % (1000 * 60)) / 1000);
 
+                    document.getElementById("daysEnd").innerHTML = daysEnd;
+                    document.getElementById("hoursEnd").innerHTML = hoursEnd;
+                    document.getElementById("minutesEnd").innerHTML = minutesEnd;
+                    document.getElementById("secondsEnd").innerHTML = secondsEnd;
 
-                    // If the count down is over, write some text 
-                    if (hoursEnd < 0) {
-                        if (countDownEnd > current) {
+                    var cdEnd = countDownEnd - 3600000; //3600000(1hr) 120000 (2mins)
+             
+                    if (hoursEnd <= 0) {
+ 
+                        if (current == cdEnd) {
 
                             $.post("./backAdmin/backFun_reminders_v0_1.php",
                                 function(data, status) {
@@ -203,7 +210,9 @@ if (isset($_SESSION['admin_id']) && isset($_SESSION['username'])) {
                             clearInterval(y);
                         }
                     }
+              
                 }, 1000);
+            
             });
         </script>
     </body>
