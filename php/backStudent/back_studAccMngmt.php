@@ -18,24 +18,23 @@ $deleteStudent = "DELETE FROM student";
 $message = '<label class="text-danger">WARNING! All stored data, such as results, list <br> of candidates, and logs, will be deleted, and all student records will be replaced.</label>';
 
 if(isset($_POST["upload"])){
-    
-    mysqli_query($connect, $deleteVote);
-
-    // delete candidate images before data in table
-    if($numrowsImg > 0){
-        while($rowImg = mysqli_fetch_assoc($resultImg)){
-            if(!(empty($rowImg['photo']))){
-                unlink($rowImg['photo']);
-            }
-        }
-    }
-
-    mysqli_query($connect, $deleteCandidate);
-    mysqli_query($connect, $deleteStudentLog);
-    
     if($_FILES['info_file']['name']){
         $filename = explode(".", $_FILES['info_file']['name']);
         if($filename[1] == "csv"){
+            
+            // delete data to be replaced by the data in the csv file
+            mysqli_query($connect, $deleteVote);
+            mysqli_query($connect, $deleteCandidate);
+            mysqli_query($connect, $deleteStudentLog);
+            
+            // delete candidate images before data in table
+            if($numrowsImg > 0){
+                while($rowImg = mysqli_fetch_assoc($resultImg)){
+                    if(!(empty($rowImg['photo']))){
+                        unlink($rowImg['photo']);
+                    }
+                }
+            }
             
         //check if there is data in the database, delete all if true
             if (mysqli_num_rows($result) != 0) {        
