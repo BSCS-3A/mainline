@@ -25,6 +25,28 @@ include('db_conn.php');
 
 <body>
     <?php
+    $sched_row = $conn->query("SELECT * FROM `vote_event` WHERE `vote_event_id` = 1");
+    $sched = $sched_row->fetch_assoc();
+    $start_time = strtotime($sched['start_date']);
+    $end_time = strtotime($sched['end_date']);
+    $access_time = time();
+    echo "<h6>Start:________".(date("Y-m-d h:m:sa", $start_time))."<br></h6>";
+    echo "<h6>Ends:________".$end_time."<br></h6>";
+    echo "<h6>Opened:_____".(date("Y-m-d h:m:sa", $access_time))."<br></h6>";
+    echo '<h6 id = "timer">Now</h6>';
+    echo '<script>
+        var myVar = setInterval(myTimer, 1000);
+        function myTimer() {
+            var d = new Date();
+            var t = d.toLocaleTimeString();
+            document.getElementById("timer").innerHTML = "Now:_____________________"+parseInt(d.getTime()/1000);';
+    // echo    time().' '.$end_time;
+    echo    'if('.$end_time.' < parseInt(d.getTime()/1000)){
+                window.location.href = "https://youtu.be/dQw4w9WgXcQ";
+            }
+        }
+        </script>';
+
         // include "db_conn.php";
         // require_once 'Student_vtValSan.php';
         require 'Student_vtFetch.php';
@@ -64,11 +86,11 @@ include('db_conn.php');
             // echo "Now: ".(date("Y-m-d h:m:sa", $access_time))."<br>";
             
             if($access_time > $end_time){
-                errorMessage("Election is already finished");
+                errorMessage("The election has already closed. Your can no longer cast your votes.");
                 exit();
             }
             else if($access_time < $start_time){
-                errorMessage("Election has not yet started");
+                errorMessage("Election has not yet started.");
                 exit();
             }
             else if($access_time >= $start_time && $access_time <= $end_time){
