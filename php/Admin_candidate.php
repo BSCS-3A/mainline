@@ -391,11 +391,11 @@
   <h2 class="Uheader-txt">Candidate Information Management</h2>
 </div>
 
-<div class="btn-toolbar" style="margin-left: 18px;">
-  <button class="btn btn-button1 btn-s" data-title="Add" data-toggle="modal" data-target="#add" data-placement="top" id="add-candidate" title="Add"> + Add New Candidate </button>      
-</div>
     
     <div class = "container">
+    <div class="btn-toolbar" style="margin-left: 18px;">
+        <button class="btn btn-button1 btn-s" data-title="Add" data-toggle="modal" data-target="#add" data-placement="top" id="add-candidate" title="Add"> + Add New Candidate </button>      
+     </div>
       <div class = "row">
         <div class="col-md-12">
             <div class ="table-responsive table-body">
