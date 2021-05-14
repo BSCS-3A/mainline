@@ -199,11 +199,17 @@ include "navAdmin.php";
                             <table class="center" id="datatable" width="100%" cellspacing="0" cellpadding="2px">
                                 <thead>
                                     <tr>
-                                        <th class="text-center">Hierarchy ID</th>
+                                        <th class="text-center"><div class = "tTip">Hierarchy ID
+                                            <span class = "tooltiptext">Hierarchy of the Election Structure with 1 being the highest</span>
+                                        </div>
+                                        </th>
                                         <th class="text-center">Position</th>
                                         <th class="padThisCell">Description</th>
                                         <th class="text-center">Manage</th>
-                                        <th class="text-center">Allow All</th>
+                                        <th class="text-center"><div class = "tTip_2" id ="allow_slide">Allow All
+                                            <span class = "tooltiptext">Turning slider on enables current data in the table to be presented in the site</span>
+                                        </div>
+                                    </th>
                                     </tr>
                                 </thead>
                                 <tbody>
