@@ -195,32 +195,32 @@ $row =  $DnT->fetch_row();
                         </div>
                         <div class="modal-body">
                             <div class="form-group">
-                                <input class="form-control " name="Add_ID" type="text" placeholder="Enter Student ID"
+                                <input autocomplete="off" class="form-control " name="Add_ID" type="text" placeholder="Enter Student ID"
                                     required="required">
                             </div>
                             <div class="form-group">
-                                <input class="form-control " name="lname" id="lname" type="text"
+                                <input autocomplete="off" class="form-control " name="lname" id="lname" type="text"
                                     placeholder="Enter Last Name" required="required">
                             </div>
                             <div class="form-group">
-                                <input class="form-control " name="fname" id="fname" type="text"
+                                <input autocomplete="off" class="form-control " name="fname" id="fname" type="text"
                                     placeholder="Enter First Name" required="required">
                             </div>
                             <div class="form-group">
                                 <!-- Do not require, not all students have middle name -->
-                                <input class="form-control " name="Mname" id="Mname" type="text"
+                                <input autocomplete="off" class="form-control " name="Mname" id="Mname" type="text"
                                     placeholder="Enter Middle Name">
                             </div>
                             <div class="form-group">
-                                <input class="form-control " name="gender" id="gender" type="text"
+                                <input autocomplete="off" class="form-control " name="gender" id="gender" type="text"
                                     placeholder="Enter Gender" required="required">
                             </div>
                             <div class="form-group">
-                                <input class="form-control " name="bumail" id="bumail" type="text"
+                                <input  autocomplete="off" class="form-control " name="bumail" id="bumail" type="text"
                                     placeholder="Enter Email" required="required">
                             </div>
                             <div class="form-group">
-                                <input class="form-control " name="grade_level" id="grade_level" type="text"
+                                <input autocomplete="off" class="form-control " name="grade_level" id="grade_level" type="text"
                                     placeholder="Enter Grade Level" required="required">
                             </div>
                         </div>
@@ -335,32 +335,32 @@ $row =  $DnT->fetch_row();
                     </div>
                     <div class="modal-body">
                         <div class="form-group">
-                            <input class="form-control " name="Update_ID" id="Update_ID" type="text" readonly="readonly"
+                            <input autocomplete="off" class="form-control " name="Update_ID" id="Update_ID" type="text" readonly="readonly"
                                 required="required">
                         </div>
                         <div class="form-group">
-                            <input class="form-control " name="lname" id="lname" type="text"
+                            <input autocomplete="off" class="form-control " name="lname" id="lname" type="text"
                                 placeholder="Enter Last Name" required="required">
                         </div>
                         <div class="form-group">
-                            <input class="form-control " name="fname" id="fname" type="text"
+                            <input autocomplete="off" class="form-control " name="fname" id="fname" type="text"
                                 placeholder="Enter First Name" required="required">
                         </div>
                         <div class="form-group">
                             <!-- Do not require, not all students have middle name -->
-                            <input class="form-control " name="Mname" id="Mname" type="text"
+                            <input autocomplete="off" class="form-control " name="Mname" id="Mname" type="text"
                                 placeholder="Enter Middle Name">
                         </div>
                         <div class="form-group">
-                            <input class="form-control " name="gender" id="gender" type="text"
+                            <inputautocomplete="off" class="form-control " name="gender" id="gender" type="text"
                                 placeholder="Enter Gender" required="required">
                         </div>
                         <div class="form-group">
-                            <input class="form-control " name="bumail" id="bumail" type="text" placeholder="Enter Email"
+                            <input autocomplete="off" class="form-control " name="bumail" id="bumail" type="text" placeholder="Enter Email"
                                 required="required">
                         </div>
                         <div class="form-group">
-                            <input class="form-control " name="grade_level" id="grade_level" type="text"
+                            <input autocomplete="off" class="form-control " name="grade_level" id="grade_level" type="text"
                                 placeholder="Enter Grade Level" required="required">
                         </div>
                     </div>
