@@ -1,18 +1,17 @@
 /* CSS FOR ERROR MESSAGES */
 
 .error-message-container {
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   /*border: 1px solid black;*/
   width: 35%;
   margin: auto;
   background-color: #f8f8f8;
-  margin-top: 13%;
-  padding: 20px;
+  margin-top: 8%;
 }
 
 .error-message {
+  padding: 20px;
   font: 'Roboto-regular', sans-serif;
-  margin-top: 10%;
   text-align: center;
 }
 
