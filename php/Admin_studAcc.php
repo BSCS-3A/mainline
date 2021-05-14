@@ -1,21 +1,3 @@
-<!--
-Proj Mngr Notes:
-- changed file name
-- db_conn_studAccMngmt.php
-
-- add "delete all" button or fix file uploading
-(when new list of students, overwrite existing list, including
-the number of students, addressed to the group already)
-- issue on db_conn_studAccMngmt can avoid the addition of delete all,
-instead, truncate all data on table then insert the new data (suggestion)
-pag kunware kasi sa existing table walang student 1-5 then if upload csv with
-student 1-33, di na uupload/insert yung student 1-5 kasi UPDATE ginamit instead
-INSERT. ang UPDATE gumagawa lng ng changes sa existing students, they dont add the
-missing students
-
--->
-
-
 <?php
 include("genotp_studAcc.php");
 include("./backStudent/back_studAccMngmt.php");
