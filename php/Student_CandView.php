@@ -174,6 +174,12 @@
     <script>
         $('.icon').click(function () {
             $('span').toggleClass("cancel");
+            
+              $("#toTop").click(function() {
+         $('html,body').animate({
+          scrollTop: $("#section-container").offset().top},
+          'slow');
+          });
         });
     </script>
 
