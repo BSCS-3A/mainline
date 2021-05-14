@@ -1221,3 +1221,56 @@ margin-left: 10px;
 margin-left: 3px;
 }
 
+.tTip{
+    text-align: center !important;
+    display: inline-block;
+    width: 100%;
+  }
+
+  .tTip{
+    text-align: center !important;
+    display: inline-block;
+    width: 100%;
+  }
+
+.tTip .tooltiptext {
+  visibility: hidden; 
+  background-color: #ffc423 !important;
+  color: #18566e;
+  padding: 5px 0;
+  border-radius: 6px;
+  margin-bottom: 90px;
+  bottom: 89%;
+  left: 0%;
+  z-index:1;
+  position: absolute;
+  font-size: .5em;
+  width: auto;
+  height: auto;
+  margin-left: 13px;
+}
+
+.tTip:hover .tooltiptext {
+  visibility: visible;
+}
+
+#allow_slide .tooltiptext {
+  visibility: hidden;
+  background-color: #ffc423 !important;
+  color: #18566e;
+  padding: 5px 0;
+  border-radius: 6px;
+  margin-bottom: 103px;
+  bottom: 88%;
+  left: 57%;
+  z-index:1;
+  position: absolute;
+  font-size: .5em;
+  width: auto;
+  height: auto;
+  margin-left: 8px;
+}
+
+#allow_slide:hover .tooltiptext {
+  visibility: visible;
+}
