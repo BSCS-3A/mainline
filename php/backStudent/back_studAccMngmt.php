@@ -32,15 +32,16 @@ if(isset($_POST["upload"])){
 
     mysqli_query($connect, $deleteCandidate);
     mysqli_query($connect, $deleteStudentLog);
-
-    //check if there is data in the database, delete all if true
-    if (mysqli_num_rows($result) != 0) {        
-        mysqli_query($connect, $deleteStudent);
-    }
     
     if($_FILES['info_file']['name']){
         $filename = explode(".", $_FILES['info_file']['name']);
         if($filename[1] == "csv"){
+            
+        //check if there is data in the database, delete all if true
+            if (mysqli_num_rows($result) != 0) {        
+                mysqli_query($connect, $deleteStudent);
+            }
+            
             $handle = fopen($_FILES['info_file']['tmp_name'], "r");
             while($data = fgetcsv($handle)){
 
