@@ -207,7 +207,7 @@ include "navAdmin.php";
                                         <th class="padThisCell">Description</th>
                                         <th class="text-center">Manage</th>
                                         <th class="text-center"><div class = "tTip_2" id ="allow_slide">Allow All
-                                            <span class = "tooltiptext">Turning slider on enables current data in the table to be presented in the site</span>
+                                            <span class = "tooltiptext">Turning slider on enables current data in the row to be presented in the site</span>
                                         </div>
                                     </th>
                                     </tr>
