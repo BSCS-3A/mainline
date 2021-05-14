@@ -320,23 +320,240 @@ img.logos {
 	max-width: 700px;
 }
 /* Responsive layout - makes the menu and the content (inside the section) sit on top of each other instead of next to each other */
-@media (max-width: 600px) {
-	body,
-	section,
-	#ADaside-container,
-	#ADcountdown,
-	#AD-CD-contents {
-		-webkit-flex-direction: column;
-		flex-direction: column;
+/* Smartphones (portrait and landscape) ----------- */
+@media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
+	body, section, #ADaside-container, #ADcountdown, #AD-CD-contents {
+	  -webkit-flex-direction: column;
+	  flex-direction: column;
+	}
+	section{
+	  display: flex;
+	  margin-left: 20px;
+	  margin-top: 100px;
+	  float: left;
+	}
+	article{
+	  width: 100%;
+	  flex-shrink: 2 !important;
 	}
 	.ADcountdown {
-		font-size: auto;
+	  font-size: auto;
+	}
+	#ADaside-container{
+	  float: left;
+	  margin-left: 60px;
+	  margin-top: -60px;
+	  margin-bottom: 40px;
+	  height: 100%;
 	}
 	#AD-CD-contents {
-		display: block;
-		font-size: auto;
+	  display: block;
+	  font-size: auto;
 	}
-}
+	.Aelec-guide-txt{
+	  margin-bottom: 60px;
+	}
+  }
+  
+  /* Smartphones (portrait) ----------- */
+  @media only screen and (max-width : 320px) {
+	body, section, #ADaside-container, #ADcountdown, #AD-CD-contents {
+	  -webkit-flex-direction: column;
+	  flex-direction: column;
+	}
+	section{
+	  display: flex;
+	  margin-left: 20px;
+	  margin-top: 100px;
+	  float: left;
+	}
+	article{
+	  width: 100%;
+	  flex-shrink: 2 !important;
+	}
+	.ADcountdown {
+	  font-size: auto;
+	}
+	#ADaside-container{
+	  float: left;
+	  margin-left: 60px;
+	  margin-top: -60px;
+	  margin-bottom: 40px;
+	  height: 100%;
+	}
+	#AD-CD-contents {
+	  display: block;
+	  font-size: auto;
+	}
+	  .Aelec-guide-txt{
+	  margin-bottom: 60px;
+	}
+  }
+	
+  
+  @media only screen and (device-width: 320px) and (device-height: 640px) and (orientation: portrait) and (-webkit-device-pixel-ratio: 2) { /*smartphones*/
+	body, section, #ADaside-container, #ADcountdown, #AD-CD-contents {
+	  -webkit-flex-direction: column;
+	  flex-direction: column;
+	}
+	section{
+	  display: flex;
+	  margin-left: 20px;
+	  margin-top: 100px;
+	  float: left;
+	}
+	article{
+	  width: 100%;
+	  flex-shrink: 2 !important;
+	}
+	.ADcountdown {
+	  font-size: auto;
+	}
+	#ADaside-container{
+	  float: left;
+	  margin-left: 60px;
+	  margin-top: -60px;
+	  margin-bottom: 40px;
+	  max-width: 240px;
+	  height: 100%;
+	}
+	#AD-CD-contents {
+	  display: block;
+	  font-size: auto;
+	}
+	.Aelec-guide-txt{
+	  margin-bottom: 60px;
+	}
+  }
+  
+  @media only screen and (device-width: 320px) and (device-height: 640px) and (orientation: landscape) and (-webkit-device-pixel-ratio: 2) { /*smartphones*/
+	body, section, #ADaside-container, #ADcountdown, #AD-CD-contents {
+	  -webkit-flex-direction: column;
+	  flex-direction: column;
+	}
+	section{
+	  display: flex;
+	  margin-left: 20px;
+	  margin-top: 100px;
+	  float: left;
+	}
+	article{
+	  width: 100%;
+	  flex-shrink: 2 !important;
+	}
+	.ADcountdown {
+	  font-size: auto;
+	}
+	#ADaside-container{
+	  float: left;
+	  margin-left: 60px;
+	  margin-top: -60px;
+	  margin-bottom: 40px;
+	  max-width: 240px;
+	  height: 100%;
+	}
+	#AD-CD-contents {
+	  display: block;
+	  font-size: auto;
+	}
+	.Aelec-guide-txt{
+	  margin-bottom: 60px;
+	}
+  }
+  
+  @media (max-width: 640px) { /*for larger phones like iphone 6-8*/
+	body, section, #ADaside-container, #ADcountdown, #AD-CD-contents {
+	  -webkit-flex-direction: column;
+	  flex-direction: column;
+	}
+	.ADcountdown {
+	  font-size: auto;
+	}
+	#ADaside-container{
+	  float: left;
+	  margin-left: 70px;
+	  margin-top: -50px;
+	}
+	#AD-CD-contents {
+	  display: block;
+	  font-size: auto;
+	}
+  }
+  
+  @media only screen and (device-width: 768px) and (orientation: portrait) and (-webkit-min-device-pixel-ratio: 1) { /*ipad portrait*/
+	body, section, #ADaside-container, #ADcountdown, #AD-CD-contents {
+	  -webkit-flex-direction: column;
+	  flex-direction: column;
+	}
+	section{
+	  margin-top: 30px;
+	  float: left;
+	  margin-left: 70px;
+	}
+	#ADaside-container{
+	  float: left;
+	  margin-left: 130px;
+	  margin-top: -50px;
+	}
+	.ADcountdown {
+	  font-size: auto;
+	}
+	#AD-CD-contents {
+	  display: block;
+	  font-size: auto;
+	}
+  }
+  
+  @media only screen and (device-width: 1024px) and (device-height: 768px) and (orientation:landscape) {  /*ipad landscape*/
+	body, section, #ADaside-container, #ADcountdown, #AD-CD-contents {
+	  -webkit-flex-direction: column;
+	  flex-direction: column;
+	}
+	section{
+	  margin-top: 20px;
+	  float: left;
+	  margin-left: 160px;
+	}
+	#ADaside-container{
+	  margin-top: -50px;
+	  float: left;
+	  margin-left: 160px;
+	  max-width: 700px;
+	}
+	#AD-CD-headline{
+	  font-weight: bold;
+	}
+	.ADcountdown {
+	  font-size: auto;
+	}
+	#AD-CD-contents {
+	  display: block;
+	  font-size: auto;
+	}
+  }
+  
+  @media only screen and (device-width: 768px) and (device-width: 1024px)  and (orientation: portrait) and (-webkit-min-device-pixel-ratio: 1) { /*ipad pro potrait*/
+	body, section, #ADaside-container, #ADcountdown, #AD-CD-contents {
+	  -webkit-flex-direction: column;
+	  flex-direction: column;
+	}
+	section{
+	  margin-top: 150px;
+	  margin-left: 110px;
+	}
+	#ADaside-container{
+	  float: left;
+	  margin-left: 110px;
+	  max-width: 800px;
+	}
+	.ADcountdown {
+	  font-size: auto;
+	}
+	#AD-CD-contents {
+	  display: block;
+	  font-size: auto;
+	}
+  }
 
 /*countdown*/
 aside {
@@ -556,7 +773,7 @@ h2.aHeader-txt {
 }
 .Bposition1 h1,
 .Bposition2 h1,
-.Bposition3 h1,
+.Bposition3 h1,  
 .Bposition4 h1,
 .Bposition5 h1 {
 	color: rgb(0, 0, 0);
@@ -821,22 +1038,56 @@ h2.aHeader-txt {
 	margin-top: -5px;
 }
 
-/*No On-going Election*/
-.Belec2 p {
-	font-family: 'Roboto-regular', sans-serif;
-	color: white;
-	font-weight: inherit;
-	font-size: 300%;
-	letter-spacing: 4px;
-	text-align: center;
-	margin-top: 190px;
+/*Election Report*/
+.Bbtn_dl{
+ 	text-align: center;
 }
-.Bon2 h1 {
-	font-family: 'Roboto-regular', sans-serif;
-	color: #e0a900;
-	font-weight: inherit;
-	font-size: 500%;
-	letter-spacing: 4px;
+.Bbtn_dlreport {
+	border: none;
+	font-style: 'Roboto-regular', sans-serif;
+	background-color: #ffc423;
+	padding: 1em 2.8em 1.1em;
+	cursor: pointer;
+	border-radius: 10px;
+	display: inline-block;
+	width: auto;
+	font-size: 90%;
+	margin-top: 12%;
+	box-shadow: 0 8px 10px 1px rgba(0, 0, 0, .14), 0 3px 14px 2px rgba(0, 0, 0, .12), 0 5px 5px -3px rgba(0, 0, 0, .2)
+}
+.Bbtn_dlreport:hover {
+	background: #e1a911;
+}
+.Bbtn_dlreport:success {
+	color: white;
+}
+.Bbtn_dlreport:disabled {
+	opacity: 0.6;
+	cursor: not-allowed;
+}
+.Bbtn_save{
 	text-align: center;
-	margin-top: 4px;
+}
+.Bbtn_save2arc{
+	border: none;
+	font-style: 'Roboto-regular', sans-serif;
+	background-color: #ffc423;
+	padding: 1em 2.1em 1.1em;
+	cursor: pointer;
+	border-radius: 10px;
+	display: inline-block;
+	width: auto;
+	font-size: 90%;
+	margin-top: 1%;
+	box-shadow: 0 8px 10px 1px rgba(0, 0, 0, .14), 0 3px 14px 2px rgba(0, 0, 0, .12), 0 5px 5px -3px rgba(0, 0, 0, .2)
+}
+.Bbtn_save2arc:hover {
+	background: #e1a911;
+}
+.Bbtn_save2arc:success {
+	color: white;
+}
+.Bbtn_save2arc:disabled {
+	opacity: 0.6;
+	cursor: not-allowed;
 }

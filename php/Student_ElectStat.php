@@ -28,6 +28,11 @@ include('db_conn.php');
         // require 'connect.php'; // Remove this when compiling
         require_once 'Student_vtValSan.php';
         
+        /*<div class="bheader">
+        <h3>
+          ELECTION STATUS
+        </h3>
+        </div>*/
         
         if(isValidUser($conn)){
             if(empty($row['vote_event_id'])){

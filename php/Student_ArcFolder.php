@@ -25,8 +25,9 @@ include('db_conn.php');
 
 <body>
     <?php include 'navStudent.php'; ?>
-    <div class="Barch">
-        <p><b>ELECTION ARCHIVES</b></p>
+
+    <div class="bheader">
+        <h3>ARCHIVES</h3>
     </div>
 
     <?php

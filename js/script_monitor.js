@@ -28,8 +28,6 @@ $(document).ready(function ($) {
 		// Show animated elements
 		animateElements();
 		$(window).scroll(animateElements);
-		
-		
-		
+	
 
 	}); //end document ready function

@@ -20,7 +20,6 @@ include("db_conn.php");
         <script src="../js/dataTables.bootstrap4.min_monitor.js"></script>
         <script src="../js/jquery-3.5.1_monitor.js"></script>
         <script src="../js/jquery.dataTables.min_monitor.js"></script>
-        <!-- <script src="../js/countdown.js"></script> -->
         <script type="text/javascript" src="../js/admin_session_timer.js"></script>
         <script src="https://cdn.datatables.net/fixedheader/3.1.8/js/dataTables.fixedHeader.min.js"></script>
       
@@ -101,9 +100,13 @@ include("db_conn.php");
                     else{
                         insertToArchive($conn, $winnerList, $last_election_date);
             ?>
-                        <div class="Bbtn_post">
-                            <button onclick="parent.open('Admin_generate-pdf.php')" class="Bbtn_postresults scs-responsive"><b>DOWNLOAD PDF</b></button>
-                        </div>
+                      <div class="Bbtn_dl">
+                      <button onclick="parent.open('Admin_generate-pdf.php')" class='Bbtn_dlreport'"><b>DOWNLOAD PDF</b></button>
+                      </div>'
+                      <div class="Bbtn_save">
+                      <button onclick="parent.open('Admin_generate-pdf.php')" class='Bbtn_save2arc'"><b>SAVE TO ARCHIVES</b></button>
+                      </div>'
+
 
             <?php
                     }

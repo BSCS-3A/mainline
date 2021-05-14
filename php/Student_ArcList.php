@@ -28,8 +28,8 @@ if (isset($_SESSION['student_id']) && isset($_SESSION['bumail'])) {
 <body>
     <?php include 'navStudent.php'; ?>
 
-    <div class="Barch">
-        <p><b>ELECTION ARCHIVES</b></p>
+    <div class="bheader">
+        <h3>ARCHIVES</h3>
     </div>
 
     <div class="Barch_year">
