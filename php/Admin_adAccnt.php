@@ -166,14 +166,14 @@ if (isset($_SESSION['admin_id']) && isset($_SESSION['username'])) {
                         <h4 class="modal-title custom_align" id="Heading">REGISTER</h4>
                     </div>
 
-                    <form id="add_form" action="backAdmin/backFun_adAccnts_v0_1.php" method="POST">
+                    <form id="add_form" action="backAdmin/backFun_adAccnts_v0_1.php" autocomplete="off" method="POST">
                         <div class="modal-body">
                             <textarea style="display:none;" name="base64" id="base64"></textarea>
                             <div class="form-group">
                                 <input class="form-control" name="admin_fname" type="text" placeholder="Firstname" required>
                             </div>
                             <div class="form-group">
-                                <input class="form-control" name="admin_mname" type="text" placeholder="Middle Name" required>
+                                <input class="form-control" name="admin_mname" type="text" placeholder="Middle Name">
                             </div>
                             <div class="form-group">
                                 <input class="form-control" name="admin_lname" type="text" placeholder="Surname" required>
@@ -188,9 +188,7 @@ if (isset($_SESSION['admin_id']) && isset($_SESSION['username'])) {
                             <div class="form-group">
                                 <label for="sel1">Admin Position:</label>
                                 <select class="form-control" name="admin_position" id="sel1" required>
-                                    <option>
-                                        <\choose>
-                                    </option>
+                                    <option value="" disabled selected><\choose></option>
                                     <option>Admin</option>
                                     <option>Head Admin</option>
                                 </select>
@@ -221,7 +219,7 @@ if (isset($_SESSION['admin_id']) && isset($_SESSION['username'])) {
         <!-- /.modal-dialog -->
         <!--######################################################################################################################################################################################-->
         <!-- EDIT MODAL -->
-        <form action="./backAdmin/backFun_editAccnts_v0_1.php" method="POST">
+        <form action="./backAdmin/backFun_editAccnts_v0_1.php" autocomplete="off" method="POST">
             <div class="modal fade" id="edit" tabindex="-1" role="dialog" aria-labelledby="edit" aria-hidden="true">
                 <div class="modal-dialog">
                     <div class="modal-content">
@@ -238,7 +236,7 @@ if (isset($_SESSION['admin_id']) && isset($_SESSION['username'])) {
                             </div>
                             <div class="form-group">
                                 <label>Middle Name:</label>
-                                <input class="form-control" name="admin_mname" id="admin_mname" type="text" placeholder="Middle Name" required>
+                                <input class="form-control" name="admin_mname" id="admin_mname" type="text" placeholder="Middle Name">
                             </div>
                             <div class="form-group">
                                 <label>Last Name:</label>
@@ -255,15 +253,13 @@ if (isset($_SESSION['admin_id']) && isset($_SESSION['username'])) {
                             <div class="form-group">
                                 <label for="sel1">Admin Position:</label>
                                 <select class="form-control" name="admin_position" id="admin_position" required>
-                                    <option>
-                                        <\choose>
-                                    </option>
+                                    <option value="" disabled selected><\choose></option>
                                     <option>Admin</option>
                                     <option>Head Admin</option>
                                 </select>
                             </div>
                             <div class="form-group">
-                                <label>Password:</label>
+                                <label>Password: <span class="label label-warning">Type new password</span></label>
                                 <input type="password" name="password" id="password" class="form-control" data-toggle="password" placeholder="*********" onChange="onChange()">
                             </div>
                             <div class="form-group">
