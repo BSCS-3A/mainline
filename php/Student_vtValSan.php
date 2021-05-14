@@ -125,7 +125,7 @@
 
         home.onclick = function() {
             // alert("waw");
-            window.location.href = "Student_studDash.php";
+            window.location.href = "../index.php";
         }
         </script>';
     }
