@@ -190,12 +190,7 @@ if (isset($_SESSION['admin_id']) && isset($_SESSION['username'])) {
                     var minutesEnd = Math.floor((distanceEnd % (1000 * 60 * 60)) / (1000 * 60));
                     var secondsEnd = Math.floor((distanceEnd % (1000 * 60)) / 1000);
 
-                    document.getElementById("daysEnd").innerHTML = daysEnd;
-                    document.getElementById("hoursEnd").innerHTML = hoursEnd;
-                    document.getElementById("minutesEnd").innerHTML = minutesEnd;
-                    document.getElementById("secondsEnd").innerHTML = secondsEnd;
-
-                    var cdEnd = countDownEnd - 3600000; //3600000(1hr) 120000 (2mins)
+                    var cdEnd = countDownEnd - 3600000; //3600000(1hr)
              
                     if (hoursEnd <= 0) {
  
