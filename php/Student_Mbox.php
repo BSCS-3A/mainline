@@ -49,7 +49,7 @@ include('db_conn.php');
                     </div>
 
           <!-- Typing area -->
-        <form method="post" class="bg-light">
+        <form autocomplete="off" method="post" class="bg-light">
             <div class="type_msg">
               <input id="usermsg" type="text" placeholder="Type a message" aria-describedby="button-addon2" class="form-control rounded-0 border-0 py-0 bg-light">
               <div class="input-group-append">

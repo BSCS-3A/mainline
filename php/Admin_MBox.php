@@ -128,7 +128,7 @@ include("db_conn.php");
         </div>
         
         <!-- Typing area -->
-        <form method="POST" class="bg-light">
+        <form autocomplete="off" method="POST" class="bg-light">
           <div class="input-group">
           <div class="input-group pr-5 pl-3 py-1" id="type">
           <input  type="text" id= "usermsg" placeholder="Type a message" aria-describedby="button-addon2" class="form-control rounded-0 border-0 py-4 pb-2 mt-1 bg-light">
