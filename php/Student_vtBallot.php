@@ -67,7 +67,7 @@ include('db_conn.php');
             // echo "Now: ".(date("Y-m-d h:m:sa", $access_time))."<br>";
             
             if($access_time > $end_time){
-                errorMessage("The election has already closed. Your can no longer cast your votes.");
+                errorMessage("The election is already closed. Your can no longer cast your votes.");
                 exit();
             }
             else if($access_time < $start_time){
