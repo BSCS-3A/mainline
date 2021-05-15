@@ -200,9 +200,9 @@ include "navAdmin.php";
                             <table class="center" id="datatable" width="100%" cellspacing="0" cellpadding="2px">
                                 <thead>
                                     <tr>
-                                        <th class="text-center">
-                                            <div class = "tTip">Hierarchy ID
-                                                 <i class="fas fa-info-circle fa-1"></i>
+                                       <th class="text-center">
+                                            <div class = "tTip"><i class="fas fa-info-circle fa-1" aria-hidden = "true"></i>Hierarchy ID
+                                                
                                                 <span class = "tooltiptext">Hierarchy of the Election Structure with 1 being the highest</span>
                                             </div>
                                         </th>
@@ -210,8 +210,7 @@ include "navAdmin.php";
                                         <th class="padThisCell">Description</th>
                                         <th class="text-center">Manage</th>
                                         <th class="text-center">
-                                            <div class = "tTip_2" id ="allow_slide">Allow All
-                                                 <i class="fas fa-info-circle fa-1"></i>
+                                            <div class = "tTip_2" id ="allow_slide"><i class="fas fa-info-circle fa-1" aria-hidden = "true"></i>Allow All
                                                 <span class = "tooltiptext">All student can vote in this position when turned on and limits the students who can vote if turned off</span>
                                             </div>
                                         </th>
