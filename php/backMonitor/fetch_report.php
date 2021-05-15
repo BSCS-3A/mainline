@@ -236,6 +236,8 @@ function Archive($conn)
         {
             $tdrop = "DROP TABLE temp_candidate";
             $conn->query($tdrop);
+	    $tdrop2 = "DROP TABLE temp_tie";
+	    $conn->query($tdrop2);
         }
 
 
