@@ -3,14 +3,19 @@
     include_once '../db_conn.php';
     session_start();
 
+    function sanitize($variables){
+        $sanitized_variables = filter_var($variables, FILTER_SANITIZE_STRING, FILTER_FLAG_STRIP_LOW | FILTER_FLAG_STRIP_HIGH);
+        return $sanitized_variables;
+    }
+
     if(isset($_POST['savebtn'])){
 
-        $lastname = mysqli_real_escape_string($conn,trim($_POST['lastname']));
-        $firstname = mysqli_real_escape_string($conn,trim($_POST['firstname']));
-        $heirarchyId = mysqli_real_escape_string($conn,trim($_POST['heirarchy_id']));
-        $partylist = mysqli_real_escape_string($conn,trim($_POST['partylist']));
-        $platform = mysqli_real_escape_string($conn,trim($_POST['platform']));
-        $credentials = mysqli_real_escape_string($conn,trim($_POST['credentials']));
+        $lastname = sanitize(mysqli_real_escape_string($conn,trim($_POST['lastname'])));
+        $firstname = sanitize(mysqli_real_escape_string($conn,trim($_POST['firstname'])));
+        $heirarchyId = sanitize(mysqli_real_escape_string($conn,trim($_POST['heirarchy_id'])));
+        $partylist = sanitize(mysqli_real_escape_string($conn,trim($_POST['partylist'])));
+        $platform = sanitize(mysqli_real_escape_string($conn,trim($_POST['platform'])));
+        $credentials = sanitize(mysqli_real_escape_string($conn,trim($_POST['credentials'])));
         $sql_name = "SELECT * FROM student WHERE fname = '$firstname' AND lname = '$lastname'";
         $result = mysqli_query($conn,$sql_name);
         if($result){    
@@ -92,12 +97,12 @@
 
     if(isset($_POST['editsavebtn'])){//preserve /n https://stackoverflow.com/questions/55332358/how-to-use-mysqli-real-escape-string-in-php-to-escape-all-characters-except-ne/5533278
         $candidateid = $_POST['candidateid'] ;
-        $lastname = mysqli_real_escape_string($conn,trim($_POST['editlastname']));
-        $firstname = mysqli_real_escape_string($conn,trim($_POST['editfirstname']));
-        $heirarchyid = mysqli_real_escape_string($conn,trim($_POST['editheirarchy_id']));
-        $partylist = mysqli_real_escape_string($conn,trim($_POST['editpartylist']));
-        $platform = mysqli_real_escape_string($conn,nl2br(trim($_POST['editplatform'])));
-        $credentials= mysqli_real_escape_string($conn,nl2br(trim($_POST['editcredentials'])));
+        $lastname = sanitize(mysqli_real_escape_string($conn,trim($_POST['editlastname'])));
+        $firstname = sanitize(mysqli_real_escape_string($conn,trim($_POST['editfirstname'])));
+        $heirarchyid = sanitize(mysqli_real_escape_string($conn,trim($_POST['editheirarchy_id'])));
+        $partylist = sanitize(mysqli_real_escape_string($conn,trim($_POST['editpartylist'])));
+        $platform = sanitize(mysqli_real_escape_string($conn,nl2br(trim($_POST['editplatform']))));
+        $credentials= sanitize(mysqli_real_escape_string($conn,nl2br(trim($_POST['editcredentials']))));
 
         
         $sql = "SELECT * FROM ((`candidate` INNER JOIN student ON `candidate`.`student_id` = `student`.`student_id`) INNER JOIN `candidate_position` ON `candidate`.`position_id` = `candidate_position`.`position_id`) WHERE `candidate_id`= '$candidateid'";

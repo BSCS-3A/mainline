@@ -24,14 +24,18 @@
             $sqlfe =  "UPDATE `candidate_position` SET `heirarchy_id` = `heirarchy_id`+1 WHERE `position_id` = '$posid'";
             mysqli_query($conn,$sqlfe); 
         }
-        
+    }
+
+    function sanitize($variables){
+        $sanitized_variables = filter_var($variables, FILTER_SANITIZE_STRING, FILTER_FLAG_STRIP_LOW | FILTER_FLAG_STRIP_HIGH);
+        return $sanitized_variables;
     }
     
     if(isset($_POST['addbtn'])){
  
-        $heirarchyId = mysqli_real_escape_string($conn,trim($_POST['heirarchy'])); 
-        $positionName = mysqli_real_escape_string($conn,trim($_POST['positionname']));
-        $positionDescription = mysqli_real_escape_string($conn,trim($_POST['positiondes']));
+        $heirarchyId = sanitize(mysqli_real_escape_string($conn,trim($_POST['heirarchy']))); 
+        $positionName = sanitize(mysqli_real_escape_string($conn,trim($_POST['positionname'])));
+        $positionDescription = sanitize(mysqli_real_escape_string($conn,trim($_POST['positiondes'])));
         $voteallow = 1;//default value true       
 
         if(!empty($positionName) || !empty($heirarchyId) ){//if there is input in position name or heirarchy id
@@ -93,9 +97,9 @@
     
        
     if(isset($_POST['id'])){
-        $positionId = mysqli_real_escape_string($conn,trim($_POST['id']));
-        $positionName = mysqli_real_escape_string($conn,trim($_POST['positionname']));
-        $positionDescription = mysqli_real_escape_string($conn,trim($_POST['positiondes']));
+        $positionId = sanitize(mysqli_real_escape_string($conn,trim($_POST['id'])));
+        $positionName = sanitize(mysqli_real_escape_string($conn,trim($_POST['positionname'])));
+        $positionDescription = sanitize(mysqli_real_escape_string($conn,trim($_POST['positiondes'])));
         
         if(empty($positionName)){ //if name or heirarchy has no value
             echo "Position Name is REQUIRED!";
