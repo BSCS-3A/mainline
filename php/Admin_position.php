@@ -202,6 +202,7 @@ include "navAdmin.php";
                                     <tr>
                                         <th class="text-center">
                                             <div class = "tTip">Hierarchy ID
+                                                 <i class="fas fa-info-circle fa-1"></i>
                                                 <span class = "tooltiptext">Hierarchy of the Election Structure with 1 being the highest</span>
                                             </div>
                                         </th>
@@ -210,6 +211,7 @@ include "navAdmin.php";
                                         <th class="text-center">Manage</th>
                                         <th class="text-center">
                                             <div class = "tTip_2" id ="allow_slide">Allow All
+                                                 <i class="fas fa-info-circle fa-1"></i>
                                                 <span class = "tooltiptext">All student can vote in this position when turned on and limits the students who can vote if turned off</span>
                                             </div>
                                         </th>
