@@ -89,7 +89,7 @@
 		//$conn->query("INSERT INTO `vote` (`vote_log_id`, `student_id`, `candidate_id`, `status`, `time_stamp`) VALUES (NULL, $stud_id, $cand_id, '$status', current_timestamp())");
 	}
 
-	$sql2 = "DROP TABLE temp_candidate";
+	$sql2 = "DROP TABLE temp_tie";
     $conn->query($sql2);
 	
 
