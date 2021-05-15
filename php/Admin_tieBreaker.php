@@ -22,7 +22,8 @@
         require 'db_conn.php'; // Remove this when compiling
         // require 'Admin_vtValSan.php';
         require 'Admin_vtFetch.php';
-        include './backMonitor/fetch_date.php';
+        require '../backMonitor/fetch_report.php';
+        include '../backMonitor/fetch_date.php';
                      if($current_date_time>$last_election_date){
                         //include 'navAdmin.php';
                         echo '<header id="F-header"  style="text-align: center;"><b>TIE BREAKER</b></header><br>';
@@ -37,11 +38,11 @@
                           
                           $QoutaAll = floor($total/2)+1; //this is the Quota for all candidate except the representatives
                           
-                           $val = $conn->query('SELECT 1 from temp_candidate LIMIT 1');
+                           $val = $conn->query('SELECT 1 from temp_tie LIMIT 1');
 
                                   if($val !== FALSE)
                                   {
-                                      $sql2 = "DROP TABLE temp_candidate";
+                                      $sql2 = "DROP TABLE temp_tie";
                                       $conn->query($sql2);
                                   }
                                   else
@@ -52,12 +53,13 @@
                            $samp = "SELECT position_id, COUNT(position_id), total_votes, COUNT(total_votes) FROM candidate GROUP BY position_id, total_votes HAVING COUNT(position_id)>1 AND COUNT(total_votes)>1";
                                 $display_res = $conn->query($samp);
                                  if($display_res->num_rows>0){
+                                     tempCandidate($conn);
                                      while($row = $display_res->fetch_assoc())
                                {
                             //echo $row['total_votes']." position id :".$row['position_id']."<br>";
                                  $samp2 = "SELECT * FROM ((candidate INNER JOIN student ON candidate.student_id = student.student_id) INNER JOIN candidate_position ON candidate.position_id = candidate_position.position_id) where candidate.position_id = ".$row['position_id']." AND total_votes = ".$row['total_votes']." ORDER BY candidate_position.heirarchy_id";
 
-                                      $sql = "CREATE TABLE `temp_candidate` (
+                                      $sql = "CREATE TABLE `temp_tie` (
                                       `candidate_id` int(11) NOT NULL,
                                       `student_id` int(11) NOT NULL,
                                       `position_id` int(11) NOT NULL,
@@ -65,7 +67,7 @@
                                       `party_name` varchar(30) NOT NULL,
                                       `platform_info` varchar(100) NOT NULL,
                                       `credentials` varchar(500) NOT NULL,
-                                      `photo` varchar(30) NOT NULL
+                                      `photo` varchar(100) NOT NULL
                                     )";
                                      $conn->query($sql);
 
@@ -77,7 +79,7 @@
                                     if($row1['vote_allow']==1){//for non-representative
                                       if($row1['total_votes']>=$QoutaAll)
                                       {
-                                       $insert_data = 'INSERT INTO temp_candidate (candidate_id, student_id, position_id, total_votes, party_name, platform_info, credentials, photo) VALUES ("'.$row1['candidate_id'].'","'.$row1['student_id'].'","'.$row1['position_id'].'","'.$row1['total_votes'].'","'.$row1['party_name'].'","'.$row1['platform_info'].'","'.$row1['credentials'].'","'.$row1['photo'].'")';
+                                       $insert_data = 'INSERT INTO temp_tie (candidate_id, student_id, position_id, total_votes, party_name, platform_info, credentials, photo) VALUES ("'.$row1['candidate_id'].'","'.$row1['student_id'].'","'.$row1['position_id'].'","'.$row1['total_votes'].'","'.$row1['party_name'].'","'.$row1['platform_info'].'","'.$row1['credentials'].'","'.$row1['photo'].'")';
 
                                        $conn->query($insert_data);
                                       }
@@ -93,7 +95,7 @@
 
                                       if($row1['total_votes']>=$QoutaAll1)
                                       {
-                                         $insert_data1 = 'INSERT INTO temp_candidate (candidate_id, student_id, position_id, total_votes, party_name, platform_info, credentials, photo) VALUES ("'.$row1['candidate_id'].'","'.$row1['student_id'].'","'.$row1['position_id'].'","'.$row1['total_votes'].'","'.$row1['party_name'].'","'.$row1['platform_info'].'","'.$row1['credentials'].'","'.$row1['photo'].'")';
+                                         $insert_data1 = 'INSERT INTO temp_tie (candidate_id, student_id, position_id, total_votes, party_name, platform_info, credentials, photo) VALUES ("'.$row1['candidate_id'].'","'.$row1['student_id'].'","'.$row1['position_id'].'","'.$row1['total_votes'].'","'.$row1['party_name'].'","'.$row1['platform_info'].'","'.$row1['credentials'].'","'.$row1['photo'].'")';
 
                                          $conn->query($insert_data1);
                                       }
@@ -106,7 +108,7 @@
                               }
                             }
                           }
-                        $table = $conn->query("SELECT * FROM ((temp_candidate INNER JOIN student ON temp_candidate.student_id = student.student_id) INNER JOIN candidate_position ON temp_candidate.position_id = candidate_position.position_id) ORDER BY candidate_position.heirarchy_id"); 
+                        $table = $conn->query("SELECT * FROM ((temp_tie INNER JOIN student ON temp_tie.student_id = student.student_id) INNER JOIN candidate_position ON temp_tie.position_id = candidate_position.position_id) ORDER BY candidate_position.heirarchy_id"); 
 
                         generateBallot($table);
                         require 'Admin_vtConfirm.php';
