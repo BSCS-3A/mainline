@@ -327,8 +327,6 @@ include "navAdmin.php";
         </div>
         <!-- /.modal-dialog -->
     </div>
-
-    Start of form panel scripts
     <script>
         // Current product being edited
         var editRow = null;
