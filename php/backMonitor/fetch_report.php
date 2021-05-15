@@ -147,4 +147,96 @@
     //Count number of candidate_position
         $result = mysqli_query($conn,"SELECT * FROM candidate_position");
         $positionSize = mysqli_num_rows($result);
+
+//======create temporary table==========
+//additional notes: --temporary tables cant be edit nor update its like backup data, it is always static
+function tempCandidate($conn)
+        {
+
+            $val = $conn->query('SELECT 1 from temp_candidate LIMIT 1');
+
+                if($val == FALSE)
+                    {
+                          $sql = "CREATE TABLE `temp_candidate` (
+                           `candidate_id` int(11) NOT NULL,
+                            `student_id` int(11) NOT NULL,
+                             `position_id` int(11) NOT NULL,
+                             `total_votes` int(11) NOT NULL,
+                             `party_name` varchar(30) NOT NULL,
+                             `platform_info` varchar(100) NOT NULL,
+                            `credentials` varchar(500) NOT NULL,
+                              `photo` varchar(100) NOT NULL
+                              )";
+
+                             $conn->query($sql);
+
+                              $cpydata = "INSERT INTO temp_candidate SELECT * FROM candidate";
+                             $conn->query($cpydata);
+                         
+                    }
+        }
+
+//=========store the final result to archive table===============
+//additional notes: if there is a tie, the tie should be resolve first before calling this function.
+function Archive($conn)
+        {
+            $sql = "SELECT candidate.student_id, student.student_id, grade_level, position_name, platform_info, vote_allow, candidate.position_id, candidate_position.position_id, Max(total_votes) AS total_votes from (candidate inner join candidate_position on candidate.position_id = candidate_position.position_id) inner join student where candidate.student_id = student.student_id group by candidate.position_id order by heirarchy_id";
+
+            $getlist = $conn->query($sql);
+             $count_query = "SELECT * FROM student";
+             $count_res = mysqli_query($conn, $count_query);
+            $total = mysqli_num_rows($count_res);
+            $QoutaAll = floor($total/2)+1;
+
+            while($row = $getlist->fetch_assoc())
+            {
+                if($row['vote_allow']==1)
+                    {
+                     if($row['total_votes']>=$QoutaAll)
+                         {
+                             $sql2 = "SELECT * from student where student_id= ".$row['student_id']."";
+                             $q1 = $conn->query($sql2);
+                             while($row1 = $q1->fetch_assoc())
+                                {
+                                     $sql_insert = "INSERT INTO archive (position_name, winner_fname, winner_mname, winner_lname, school_year, platform_info) VALUES ('".$row['position_name']."','".$row1['fname']."','".$row1['mname']."','".$row1['lname']."','".date('Y-m-d')."','".$row['platform_info']."')";
+                                     $conn->query($sql_insert);
+                
+                                 }
+                         }
+
+                      }
+                 else
+                     {
+                         $count_query1 = "SELECT * FROM student where grade_level = ".$row['grade_level']."";
+                         $count_res1 = mysqli_query($conn, $count_query1);
+                          $total1 = mysqli_num_rows($count_res1);
+                          
+                        $QoutaAll1 = floor($total1/2)+1;
+                         if($row['total_votes']>=$QoutaAll1)
+                             {
+                                 $sql2 = "SELECT * from student where student_id= ".$row['student_id']."";
+                                $q1 = $conn->query($sql2);
+                                 while($row1 = $q1->fetch_assoc())
+                                  {
+                                      $sql_insert = "INSERT INTO archive (position_name, winner_fname, winner_mname, winner_lname, school_year, platform_info) VALUES ('".$row['position_name']."','".$row1['fname']."','".$row1['mname']."','".$row1['lname']."','".date('Y-m-d')."','".$row['platform_info']."')";
+                                     $conn->query($sql_insert);
+                                    }
+                                }
+
+                     }
+
+                }           
+        }
+
+//=======drop temp_candidate table
+//additional notes: MySQL version 5.0.2 has a bug where sometimes the temp_tables are not drop even if its already expired
+//so to make sure its properly drop, use this.
+//temp are stored for hours or more
+ function dropTemp($conn)
+        {
+            $tdrop = "DROP TABLE temp_candidate";
+            $conn->query($tdrop);
+        }
+
+
 ?>
