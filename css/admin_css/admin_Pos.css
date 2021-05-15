@@ -1,5 +1,10 @@
   /*Everything here is Navbar related*/
-
+body{
+  background-attachment: fixed;
+  background-image:   url(../../img/adminBG.png);
+  background-size: cover;
+  width: auto;
+}
 
 
  @media (min-width: 600px) and (max-width: 767px){
@@ -894,14 +899,15 @@
   }
 
   .btn-button1 {
-    color: #eeeeee;
+    color: #124254;
     margin: 0px;
     padding: 0px;
-    background: #124254;
+    background: #fece4b;
     border-color: #124254;
     box-shadow: none;
     padding: 10px 20px;
     margin: 25px 0px 15px 0px!important;
+    text-transform: uppercase;
   }
 
   .panel-primary {
@@ -1198,7 +1204,8 @@ margin-left:5px !important;
 }
 
 #add_button:hover, #defaultButton:hover, #add-candidate:hover{
-  color: #ffc423 !important;
+  color: #333 !important;
+  background-color: #ffc324 !important;
 }
 
 .fa.fa-exclamation-triangle text {
