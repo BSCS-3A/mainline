@@ -25,7 +25,7 @@
                     if(mysqli_num_rows($result_pos) == 1 && mysqli_num_rows($result_can)==0){//if position matches candidate position table and student is not yet a candidate
                         $row_pos = mysqli_fetch_assoc($result_pos);
                         $positionid = $row_pos['position_id'];
-                        $sql_tunay = "INSERT INTO `candidate` (`candidate_id`,`student_id`, `position_id`, `total_votes`,`party_name`, `platform_info`,`credentials`,`photo`) VALUES (NULL,    '$studentid', ' $positionid', '0','$partylist','$platform','$credentials','')"; //photo is to be replaced by gender
+                        $sql_tunay = "INSERT INTO `candidate` (`candidate_id`,`student_id`, `position_id`, `total_votes`,`party_name`, `platform_info`,`credentials`,`photo`) VALUES (NULL,'$studentid', ' $positionid', '0','$partylist','$platform','$credentials','')"; //photo is to be replaced by gender
                         $result_tunay = mysqli_query($conn,$sql_tunay);
                         //lagay logs
                         if($result_tunay){

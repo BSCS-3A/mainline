@@ -32,7 +32,7 @@
         $heirarchyId = mysqli_real_escape_string($conn,trim($_POST['heirarchy'])); 
         $positionName = mysqli_real_escape_string($conn,trim($_POST['positionname']));
         $positionDescription = mysqli_real_escape_string($conn,trim($_POST['positiondes']));
-        $voteallow = 0;//default value false       
+        $voteallow = 1;//default value true       
 
         if(!empty($positionName) || !empty($heirarchyId) ){//if there is input in position name or heirarchy id
             $get_position = mysqli_query($conn,"SELECT * FROM `candidate_position` WHERE position_name = '$positionName' "); 
