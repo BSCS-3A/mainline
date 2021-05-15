@@ -17,7 +17,9 @@
             $candidateposition = $rowfind['position_name'];
             if(!empty($rowfind['photo'])){//if has photo delete photo in directory    
                 $path ="../".$rowfind['photo'];
-                unlink($path);
+                if(file_exists($path)){    
+                    unlink($path);
+                }
             }
             $admin_id = $_SESSION['admin_id'];
             date_default_timezone_set('Asia/Manila');

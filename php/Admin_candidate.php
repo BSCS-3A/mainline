@@ -96,10 +96,9 @@
                   formClear();
                   if(response !=""){
                       alert(response);
-                  }else{
-                      table.destroy();
-                      reloadTable();
                   }
+                    table.destroy();
+                    reloadTable();
               }
             });
         });
@@ -124,10 +123,9 @@
                   
                   if(response !=""){
                       alert(response);
-                  }else{
-                      table.destroy();
-                      reloadTable();
                   }
+                    table.destroy();
+                    reloadTable();
                   
               }
             });
@@ -146,10 +144,10 @@
                     console.log(response);
                   if(response !=""){
                       alert(response);
-                  }else{
-                      table.destroy();
-                      reloadTable();
                   }
+                  table.destroy();
+                  reloadTable();
+                
                 }
 
             });
