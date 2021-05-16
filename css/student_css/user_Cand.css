@@ -226,6 +226,9 @@ img.Alogos {
   body, section, .Uwrapper {
     -webkit-flex-direction: column;
   }
+  #ScrollToTopBtn{
+    display: hidden;
+  }
   .Uleft {
     padding-bottom: 25px;
   }
@@ -488,8 +491,37 @@ footer {
     overflow-y: scroll;
     margin-left: auto;
     height: 350px;
+
 }
-  
+    #ScrollToTopBtn{
+    display: hidden;
+  }
 .Uwrapper{
   flex-direction: column;
+}
+}
+#scrollToTopBtn{
+  float: right;  
+  background-color: #124254;
+  border: none;
+  border-radius: 50%;
+  color: white;
+  cursor: pointer;
+  font-size: 16px;
+  line-height: 48px;
+  width: 48px;
+  margin-bottom: 50px;
+  /* keep it at the top of everything else */
+  z-index: 100;
+  /* hide with opacity */
+  opacity: 0;
+  /* also add a translate effect */
+  transform: translateY(100px);
+  /* and a transition */
+  transition: all .5s ease
+}
+
+.showBtn {
+  opacity: 1;
+  transform: translateY(0)
 }
