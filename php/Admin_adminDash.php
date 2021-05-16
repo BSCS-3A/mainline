@@ -56,6 +56,31 @@ if (isset($_SESSION['admin_id']) && isset($_SESSION['username'])) {
                     <li><span id="minutes">0</span>Minutes</li>
                     <li><span id="seconds">0</span>Seconds</li>
                 </ul>
+                 <h5 id="DateToDate">
+    <?php 
+
+        include "db_conn.php";
+
+
+            $event = mysqli_query($conn, "SELECT * FROM vote_event");
+            $row=mysqli_fetch_array($event);
+   
+        if($row ==""){
+            echo " (Start Date) to (End Date)";
+        }else{
+       
+            while ($rows = mysqli_fetch_array($event)) {
+                $stdate = $rows['start_date'];
+                $endate = $rows['end_date'];
+            }
+            $startDate=date_create("$stdate");
+            $endDate=date_create("$endate");
+            echo $startDate->format('M d, Y (h:ia)');
+            echo " to ";
+            echo $endDate->format('M d, Y (h:ia)');
+        } 
+    ?>
+    </h5>
             </div>
             <p class="Aelec-guide-txt">Welcome to the official Bicol University College of Education
                 Integrated Laboratory - High School Department Online Voting System. The system aims to provide mobility among student users to vote electronically anywhere for the annual Student Supreme Government Elections. This section allows administrators to conduct the election, manage its process and other necessary information.
