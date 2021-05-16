@@ -120,7 +120,15 @@ $row =  $DnT->fetch_row();
                                 <th class="min-mobile">MIDDLE NAME</th>
                                 <th class="min-mobile">GENDER</th>
                                 <th class="min-mobile">BU EMAIL</th>
-                                <th class="min-mobile">GRADE LEVEL</th>
+                                <th style="color:#18566e" class="min-mobile"><select name ="lvl" id="lvl">
+                                    <option value="">ALL</option>
+                                    <option value="7">Grade 7</option>
+                                    <option value="8">Grade 8</option>
+                                    <option value="9">Grade 9</option>
+                                    <option value="10">Grade 10</option>
+                                    <option value="11">Grade 11</option>
+                                    <option value="12">Grade 12</option></select>
+                                </th>
                                 <th class="min-mobile">OTP</th>
                                 <th class="min-mobile">TOOLS</th>
 
@@ -408,19 +416,6 @@ $row =  $DnT->fetch_row();
         <p class="footer-txt">BS COMPUTER SCIENCE 3A © 2021</p>
     </div> -->
     <!--############################################################################################################################################################################################## -->
-    <!-- DATABLE SCRIPT -->
-    <script>
-    $(document).ready(function() {
-        $('#datatable').DataTable({
-            "lengthMenu": [
-                [10, 25, 50, -1],
-                [10, 25, 50, "All"]
-            ]
-        });
-        $("[data-toggle=tooltip]").tooltip();
-    });
-    </script>
-
     <!--############################################################################################################################################################################################## -->
     <!-- DELETE SCRIPT -->
     <script>
@@ -468,6 +463,48 @@ $row =  $DnT->fetch_row();
     });
     </script>
     <!--############################################################################################################################################################################################## -->
+<!--############################################################################################################################################################################################## -->
+<script type="text/javascript" language="javascript" >
+$(document).ready(function(){
+ load_data();
+
+ function load_data(lvl)
+ {
+  var dataTable = $('#datatable').DataTable({
+   "processing":true,
+   "serverSide":true,
+   "order":[],
+
+   "ajax":{
+    url:"sort_studAcc.php",
+    type:"POST",
+    data:{lvl:lvl}
+   },
+   "columnDefs":[
+    {
+     "targets":[6,8],
+     "orderable":false,
+
+    },
+   ],
+  });
+ }
+
+ $(document).on('change', '#lvl', function(){
+  var category = $(this).val();
+  $('#datatable').DataTable().destroy();
+  if(category != '')
+  {
+   load_data(category);
+  }
+  else
+  {
+   load_data();
+  }
+ });
+});
+</script>
+<!--################################################################################################################################################################### -->
 </body>
 
 </html>
