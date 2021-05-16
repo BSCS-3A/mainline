@@ -43,7 +43,7 @@
                 method:'post',
                 data:{heirarchy_id:selected},
                 success:function(response){ 
- 	                   $("#view-container").html(response);
+                     $("#view-container").html(response);
                 }
             });
         }
@@ -54,7 +54,7 @@
                 method:'post',
                 data:{heirarchy_id:selected},
                 success:function(response){ 
- 	                   $("#view-container").html(response);
+                     $("#view-container").html(response);
                 }
             });
         });
@@ -67,7 +67,6 @@
         });
     });
 </script>
-     
      
 </head>
 
@@ -125,15 +124,11 @@
            <div class = "Urow" id = "view-container">
             </div>
         </div>
-
-
-<!--Modal Content-->
+            <div class = "scroll_Top" style="margin-bottom: 50px !important;">
+    <button id = "scrollToTopBtn" >^</button>
 </div>
-    <div class = "scroll_Top" style="margin-bottom: 50px !important;">
-    <button class="btn btn-button1 btn-s" style="float: right;
-    margin-bottom: 50px; margin-right: 35px; background-color: #18566e; color: white !important;" >Scroll to Top</button>
 </div>
-      <div class="modal fade" id="view" tabindex="-1" role="dialog" aria-labelledby="view" aria-hidden="true"> <!--Modal Contains 2 containers 1 container for the platforms and another for the credentials-->
+     <div class="modal fade" id="view" tabindex="-1" role="dialog" aria-labelledby="view" aria-hidden="true"> <!--Modal Contains 2 containers 1 container for the platforms and another for the credentials-->
         
             <div class="modal-dialog">
                 <div class="modal-content">
@@ -175,16 +170,31 @@
         $('.icon').click(function () {
             $('span').toggleClass("cancel");
             
-              $("#toTop").click(function() {
-         $('html,body').animate({
-          scrollTop: $("#section-container").offset().top},
-          'slow');
-          });
-        });
     </script>
-
     <script>
-      
+var scrollToTopBtn = document.querySelector(".scrollToTopBtn")
+var rootElement = document.documentElement
+
+function handleScroll() {
+  // Do something on scroll
+  var scrollTotal = rootElement.scrollHeight - rootElement.clientHeight
+  if ((rootElement.scrollTop / scrollTotal ) > 0.50) {
+    // Show button
+    scrollToTopBtn.classList.add("showBtn")
+  } else {
+    // Hide button
+    scrollToTopBtn.classList.remove("showBtn")
+  }
+}
+
+function scrollToTop() {
+  rootElement.scrollTo({
+    top: 0,
+    behavior: "smooth"
+  })
+}
+scrollToTopBtn.addEventListener("click", scrollToTop)
+document.addEventListener("scroll", handleScroll)
     </script>
 </body>
 
