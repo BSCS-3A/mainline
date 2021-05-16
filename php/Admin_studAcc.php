@@ -304,33 +304,58 @@ $row =  $DnT->fetch_row();
         </div>
         <!-- /.modal-dialog -->
     </div>
-    <div class="modal fade" id="send" tabindex="-1" role="dialog" aria-labelledby="edit" aria-hidden="true">
+  
+   <!--############################################################################################################################################################################################## -->
+    <!-- SENDING EMAIL MODAL -->
+  
+    <div class="modal fade" id="send" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
                     <h4 class="modal-title custom_align" id="Heading">Once you confirm, the student will receive their
-                        login details.<br>Do you wish to proceed?</h4>
+                        login details.<br>Do you wish to proceed?</h4></div>
 
-                    <!-- Send Login credentials btn handler -->
-                    <div class="modal-footer ">
+                <div class="modal-body">
+
+                    <script type="text/javascript">
+                            enableButton = () => {
+
+                                let gradeSelected = document.querySelector('#glevel');
+                                let submitBtn = document.querySelector('#go2');
+                                submitBtn.disabled = !gradeSelected.value;
+                              
+                            }
+                                                                
+                    </script>
 
                         <form method="POST">
-                            <button type="submit" class="btn btn-success" id="go2" name="sendEmail"
-                                value="Continue"><span class="fa fa-check-circle"></span> Continue</button>
-                            <button type="button" class="btn btn-default" id="cancel2" data-dismiss="modal"><span
-                                    class="fa fa-times-circle"></span> Cancel</button>
-
+                            <select required onchange="enableButton()" id = "glevel" name = "glevel" style="height:30px;" />
+                                <option value = "">--Select Grade Level--</option>
+                                <option value = "7">Grade 7</option> 
+                                <option value = "8">Grade 8</option>
+                                <option value = "9">Grade 9</option>
+                                <option value = "10">Grade 10</option>
+                                <option value = "11">Grade 11</option>
+                                <option value = "12">Grade 12</option>
+                            </select>
+                             <!-- Send Login credentials btn handler -->
+                             <div class="modal-footer ">
+                                    <button disabled type="submit" class="btn btn-success" id="go2" name="sendEmail" value="Continue">
+                                    <span class="fa fa-check-circle"></span> Continue</type=>
+                                <button type="button" class="btn btn-default" id="cancel2" data-dismiss="modal"><span
+                                        class="fa fa-times-circle"></span> Cancel</button>
+                            </div>
                         </form>
-                    </div>
+                    </div>     
+                        
                 </div>
             </div>
             <!-- /.modal-content -->
         </div>
         <!-- /.modal-dialog -->
     </div>
-
-    </div>
+</div>
     <!--############################################################################################################################################################################################## -->
     <!-- EDIT MODAL -->
     <form action="edit_studAcc.php" method="POST">
