@@ -8,43 +8,51 @@ require '../other/composer/vendor/autoload.php';
 
 if(isset($_POST["sendEmail"])){
    
-    $mail = new PHPMailer();
-   
     while($row = mysqli_fetch_array($result)){
 
         try {
+            if(!empty($_POST['glevel'])){
+                $selected = $_POST['glevel'];
+                $grade_level = $row['grade_level'];
+
+                if($selected == $grade_level){
+                    $mail = new PHPMailer();
+
+                    $mail->isSMTP();
+                    $mail->Host = 'smtp.gmail.com';
+                    $mail->SMTPAuth = true;
+                    $mail->SMTPSecure = 'tls';
+                    $mail->Port = '587';
+
+                    // Host email and password
+                    $mail->Username = 'buceilsovs.noreply@gmail.com';
+                    $mail->Password = 'mhsyjtryvxhkkfts';
+
+                    //$mail->Username = 'christianangelodimaano.diesta@bicol-u.edu.ph';
+                    //$mail->password = '09959365940ian';
+                    
+                    /* Disable some SSL checks. */
+                    $mail->SMTPOptions = array(
+                        'ssl' => array(
+                            'verify_peer' => false,
+                            'verify_peer_name' => false,
+                            'allow_self_signed' => true
+                        )
+                    );
+
+                    $user_otp = $row['otp'];
+                    $user_email = $row['bumail'];
+
+                    //palitan na lang ang mga message
+                    $mail->SetFrom('BSCS3A@bu.com');
+                    $mail->Subject = 'User Credentials';
+                    $mail->Body = "Good day! Your one time password for the current election is $user_otp . Please do not disclose your login credentials. Thank you!";
+                    $mail->addAddress($user_email);
                 
-            $mail->isSMTP();
-            $mail->Host = 'smtp.gmail.com';
-            $mail->SMTPAuth = true;
-            $mail->SMTPSecure = 'tls';
-            $mail->Port = '587';
-
-           // Host email and password
-            $mail->Username = 'buceilsovs.noreply@gmail.com';
-            $mail->Password = 'mhsyjtryvxhkkfts';
-            
-            /* Disable some SSL checks. */
-            $mail->SMTPOptions = array(
-                'ssl' => array(
-                'verify_peer' => false,
-                'verify_peer_name' => false,
-                'allow_self_signed' => true
-                )
-            );
-
-            $user_otp = $row['otp'];
-            $user_email = $row['bumail'];
-
-            //palitan na lang ang mga message
-            $mail->SetFrom('BSCS3A@bu.com');
-            $mail->Subject = 'User Credentials';
-            $mail->Body = "Good day! Your one time password for the current election is $user_otp . Please do not disclose your login credentials. Thank you!";
-            $mail->addAddress($user_email);
-            
-        $mail->send();
-        $mail->ClearAllRecipients();
-          
+                    $mail->send();
+                    $mail->ClearAllRecipients();
+                }
+            }
         }
             catch (Exception $e){
                 echo $e->errorMessage();
