@@ -169,10 +169,12 @@ if (isset($_SESSION['admin_id']) && isset($_SESSION['username'])) {
                             if (distEnd < 0) {
                                 let headline = document.getElementById("AD-CD-headline"),
                                     countdown = document.getElementById("ADcountdown"),
-                                    content = document.getElementById("AD-CD-contents");
+                                    content = document.getElementById("AD-CD-contents"),
+                                    dateTodate = document.getElementById("DateToDate");
 
                                 headline.innerText = "The election period \n has ended!";
                                 countdown.style.display = "none";
+                                dateTodate.style.display = "none";
 
                                 clearInterval(i);
                             }
