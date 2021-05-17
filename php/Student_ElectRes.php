@@ -2,6 +2,7 @@
 <?php
     require './backMonitor/fetch_candidates.php';
 ?>
+<link rel="stylesheet" href="../css/student_css/style_monitor.css">
 
       <div class="bheader">
         <h3>
@@ -9,7 +10,17 @@
         </h3>
       </div>
 
-    <div class="Belec_container" id="candidate">  
+  <?php $samp = 50.5;?>
+  <div class="bgraph"></div>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js'></script><script  src="../js/script_monitor1.js"></script>
+
+  <script type="text/javascript">
+	donutGraph('.bgraph', <?php echo $samp;?>);
+  </script>
+
+  <hr>
+
+  <div class="Belec_container" id="candidate">  
         <?php
             foreach($candidates as $candidate){
                 echo '<div class="Bposition">';
@@ -25,4 +36,5 @@
                 echo '</div>';
             }
         ?>
-    </div>
+  </div>
+
