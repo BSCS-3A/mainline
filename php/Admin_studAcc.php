@@ -8,13 +8,12 @@ include("db_conn.php");
 // for button disable
 $checktime = "SELECT * FROM vote_event"; 
 $DnT = $connect->query($checktime);
-$row =  $DnT->fetch_row(); 
+$DTrow =  $DnT->fetch_row(); 
 // row[1] = start date, row[2] = end date
 
 ?>
 <!DOCTYPE html>
 <html>
-
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
@@ -73,7 +72,7 @@ $row =  $DnT->fetch_row();
                 <button class="btn btn-button0" data-title="add" data-toggle="modal" data-target="#add"
                     data-placement="top" data-toggle="tooltip" title="Add new student" <?php 
                     $now = date("Y-m-d G:i:s"); // G for 24hr format
-                    if($now >= $row[1] && $now <= $row[2] ){
+                    if($now >= $DTrow[1] && $now <= $DTrow[2] ){
                     ?> disabled <?php    
                     }?>>
                     <span class="fa fa-user-plus"></span> ADD</button>
@@ -81,7 +80,7 @@ $row =  $DnT->fetch_row();
                 <button class="btn btn-button1" data-title="new" data-toggle="modal" data-target="#new"
                     data-placement="top" data-toggle="tooltip" title="Import new list" <?php 
                     $now = date("Y-m-d G:i:s"); // G for 24hr format
-                    if($now >= $row[1] && $now <= $row[2] ){
+                    if($now >= $DTrow[1] && $now <= $DTrow[2] ){
                     ?> disabled <?php    
                     }?>>
                     <span class="fa fa-file-import"></span> IMPORT</button>
@@ -90,7 +89,7 @@ $row =  $DnT->fetch_row();
                 <button class="btn btn-button2" data-title="otp" data-toggle="modal" data-target="#otp"
                     data-placement="top" data-toggle="tooltip" title="Generate OTP for this list" <?php 
                     $now = date("Y-m-d G:i:s"); // G for 24hr format
-                    if($now >= $row[1] && $now <= $row[2] ){
+                    if($now >= $DTrow[1] && $now <= $DTrow[2] ){
                     ?> disabled <?php    
                     }?>>
                     <span class="fa fa-lock"></span> GENERATE OTP</button>
@@ -100,7 +99,7 @@ $row =  $DnT->fetch_row();
                 <button class="btn btn-button3" data-title="send" data-toggle="modal" data-target="#send"
                     data-placement="top" data-toggle="tooltip" title="Send Login Credentials" <?php 
                     $now = date("Y-m-d G:i:s"); // G for 24hr format
-                    if($now >= $row[1] && $now <= $row[2] ){
+                    if($now >= $DTrow[1] && $now <= $DTrow[2] ){
                     ?> disabled <?php    
                     }?>>
 
@@ -119,8 +118,9 @@ $row =  $DnT->fetch_row();
                                 <th class="min-mobile">FIRST NAME</th>
                                 <th class="min-mobile">MIDDLE NAME</th>
                                 <th class="min-mobile">GENDER</th>
-                                <th class="min-mobile">BU EMAIL</th>
-                                <th style="color:#18566e" class="min-mobile"><select name ="lvl" id="lvl">
+                                <th class="min-mobile">EMAIL</th>
+                                <th style="color:white" class="min-mobile"><select name ="lvl" id="lvl" style="background-color:#18566e;">
+                                    <option value="">Grade Level</option>
                                     <option value="">ALL</option>
                                     <option value="7">Grade 7</option>
                                     <option value="8">Grade 8</option>
@@ -136,53 +136,7 @@ $row =  $DnT->fetch_row();
                         </thead>
 
                         <tbody>
-                            <!-- Student Info from database -->
-
-                            <?php
-                            while ($row = mysqli_fetch_array($result)) {
-                                echo '
-                            <tr>
-                                <td>' . $row["student_id"] . '</td>
-                                <td>' . $row["lname"] . '</td>
-                                <td>' . $row["fname"] . '</td>
-                                <td>' . $row["Mname"] . '</td>
-                                <td>' . $row["gender"] . '</td>
-                                <td>' . $row["bumail"] . '</td>
-                                <td>' . $row["grade_level"] . '</td>
-                                <td>' . $row["otp"] . '</td>
-                                    '
-                            ?>
-                            <td style="white-space: nowrap;">
-
-                                <?php   // for button disable inside table
-                                    $DnT = $connect->query($checktime);
-                                    $row =  $DnT->fetch_row(); 
-                                ?>
-
-                                <!-- Edit Button -->
-                                <button class="btn btn-primary btn-xs EditBtn" data-title="Edit" data-toggle="modal"
-                                    data-placement="top" data-toggle="tooltip" title="Edit" <?php 
-                                        $now = date("Y-m-d G:i:s"); // G for 24hr format
-                                        if($now >= $row[1] && $now <= $row[2] ){
-                                        ?> disabled <?php    
-                                        }?>>
-
-                                    <span class="fa fa-edit"></span> EDIT</button>
-
-                                <!-- Delete Button -->
-                                <button class="btn btn-danger btn-xs DeleteBtn" data-title="Delete" data-toggle="modal"
-                                    data-placement="top" data-toggle="tooltip" title="Delete" <?php 
-                                        $now = date("Y-m-d G:i:s"); // G for 24hr format
-                                        if($now >= $row[1] && $now <= $row[2] ){
-                                        ?> disabled <?php    
-                                        }?>>
-
-                                    <span class="fa fa-trash-alt"></span> DELETE</button>
-                            </td>
-                            <?php
-                                '</tr>';
-                            }
-                            ?>
+                            
 
                         </tbody>
                     </table>
@@ -194,7 +148,7 @@ $row =  $DnT->fetch_row();
     <!-- ADD MODAL -->
     <div>
         <form action="create_studAcc.php" method="POST">
-            <div class="modal fade" id="add" tabindex="-1" role="dialog" aria-labelledby="edit" aria-hidden="true">
+        <div class="modal fade" id="add" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                 <div class="modal-dialog">
                     <div class="modal-content">
                         <div class="modal-header">
@@ -224,11 +178,11 @@ $row =  $DnT->fetch_row();
                                     placeholder="Enter Gender" required="required">
                             </div>
                             <div class="form-group">
-                                <input  autocomplete="off" class="form-control " name="bumail" id="bumail" type="text"
+                            <input  autocomplete="off" class="form-control " name="bumail" id="bumail" type="text"
                                     placeholder="Enter Email" required="required">
                             </div>
                             <div class="form-group">
-                                <input autocomplete="off" class="form-control " name="grade_level" id="grade_level" type="text"
+                            <input autocomplete="off" class="form-control " name="grade_level" id="grade_level" type="text"
                                     placeholder="Enter Grade Level" required="required">
                             </div>
                         </div>
@@ -304,34 +258,29 @@ $row =  $DnT->fetch_row();
         </div>
         <!-- /.modal-dialog -->
     </div>
-  
-   <!--############################################################################################################################################################################################## -->
+       <!--############################################################################################################################################################################################## -->
     <!-- SENDING EMAIL MODAL -->
-  
+
     <div class="modal fade" id="send" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                    <h4 class="modal-title custom_align" id="Heading">Once you confirm, the student will receive their
-                        login details.<br>Do you wish to proceed?</h4></div>
-
-                <div class="modal-body">
-
+                    <h4 class="modal-title custom_align" id="Heading">Please select grade level you wish to send their login details.<br>Click Continue to proceed.</h4></div>
                     <script type="text/javascript">
                             enableButton = () => {
 
                                 let gradeSelected = document.querySelector('#glevel');
                                 let submitBtn = document.querySelector('#go2');
                                 submitBtn.disabled = !gradeSelected.value;
-                              
+
                             }
-                                                                
+
                     </script>
 
                         <form method="POST">
                             <select required onchange="enableButton()" id = "glevel" name = "glevel" style="height:30px;" />
-                                <option value = "">--Select Grade Level--</option>
+                                <option value = "">Select Grade Level</option>
                                 <option value = "7">Grade 7</option> 
                                 <option value = "8">Grade 8</option>
                                 <option value = "9">Grade 9</option>
@@ -344,22 +293,23 @@ $row =  $DnT->fetch_row();
                                     <button disabled type="submit" class="btn btn-success" id="go2" name="sendEmail" value="Continue">
                                     <span class="fa fa-check-circle"></span> Continue</type=>
                                 <button type="button" class="btn btn-default" id="cancel2" data-dismiss="modal"><span
-                                        class="fa fa-times-circle"></span> Cancel</button>
+                                        class="fa fa-times-circle"></span> Cancel</button>
                             </div>
+
                         </form>
-                    </div>     
-                        
+                    </div>
                 </div>
             </div>
             <!-- /.modal-content -->
         </div>
         <!-- /.modal-dialog -->
     </div>
-</div>
+
+    </div>
     <!--############################################################################################################################################################################################## -->
     <!-- EDIT MODAL -->
     <form action="edit_studAcc.php" method="POST">
-        <div class="modal fade" id="edit" tabindex="-1" role="dialog" aria-labelledby="edit" aria-hidden="true">
+    <div class="modal fade" id="edit" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -441,6 +391,7 @@ $row =  $DnT->fetch_row();
         <p class="footer-txt">BS COMPUTER SCIENCE 3A © 2021</p>
     </div> -->
     <!--############################################################################################################################################################################################## -->
+
     <!--############################################################################################################################################################################################## -->
     <!-- DELETE SCRIPT -->
     <script>
@@ -487,8 +438,8 @@ $row =  $DnT->fetch_row();
         });
     });
     </script>
-    <!--############################################################################################################################################################################################## -->
-<!--############################################################################################################################################################################################## -->
+    <!-- load ############################################################################################################################################################################################## -->
+ <!--############################################################################################################################################################################################## -->
 <script type="text/javascript" language="javascript" >
 $(document).ready(function(){
  load_data();
