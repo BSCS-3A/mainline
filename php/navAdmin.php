@@ -210,7 +210,7 @@ if (time() - $_SESSION['timestamp'] > $idletime) {
                     var secondsEnd = Math.floor((distanceEnd % (1000 * 60)) / 1000);
 
                     var cdEnd = countDownEnd - 3600000; //3600000(1hr)
-                    console.log(countDownEnd +" "+current);
+                    //console.log(countDownEnd +" "+current);
                     if (hoursEnd <= 0) {
  
                         if (current == cdEnd) {
