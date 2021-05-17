@@ -2,9 +2,7 @@
     session_start();
   if (isset($_SESSION['admin_id']) && isset($_SESSION['username'])) {
          include('./backStudent/Admin_printSum.php');
-         include "db_conn.php";
-         include "navAdmin.php";
-        
+         include "db_conn.php";  
 ?>
 <!DOCTYPE html>
 <html>
@@ -28,7 +26,8 @@
     <title>Vote Summary  | BUCEILS HS Online Voting System</title>
 </head>
 <body>
-    
+    <!-- navigation bar -->
+    <?php include "navAdmin.php"; ?>
     <div class="bheader">
         <h3>VOTE SUMMARY</h3>
     </div>
