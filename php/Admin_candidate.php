@@ -32,7 +32,9 @@
         exit();
     }
     
-   
+    $sqlDate = "SELECT * FROM `vote_event";
+    $resultDate = mysqli_query($conn,$sqlDate);
+    $rowDate = mysqli_fetch_assoc($resultDate);
 
 ?> 
 <html>
@@ -62,10 +64,12 @@
     <!-- <script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script> -->
     
     <script>
+    var startDate = new Date("<?php echo $rowDate['start_date'];?>").getTime();
+    var endDate =  new Date("<?php echo $rowDate['end_date']; ?>").getTime();
+    var today = new Date().getTime();
     $(document).ready(function(){
         //adding candidate
         reloadTable();
-
         $(document).on("click","#add-candidate",function(){
             var temp = true;
             $.ajax({
@@ -73,7 +77,7 @@
             method:'post',
             data:{dropdownadd:temp},
             success:function(response){
-              $("#position-add").html(response);
+                $("#position-add").html(response);
             }
           });
         });
@@ -587,6 +591,11 @@
         url:'backCandidate/tableCandidate.php',
         success: function(response){
             $("tbody").html(response);
+            if((today>=startDate) && (today<=endDate)){//if election is on going 
+                alert("Election is ongoing. Please proceed with caution. Any changes done during the election may affect the results.");
+                $(".btn-button1").attr("disabled",true);
+                $(".btn-danger").attr("disabled",true);
+            }
             table = $('#datatable').DataTable({
                 "lengthMenu": [
                   [ 10, 25, 50, -1],

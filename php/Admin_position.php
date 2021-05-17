@@ -10,21 +10,26 @@ Need:
 
 <!DOCTYPE html>
 <?php
-include "db_conn.php";
-session_start();
-if (isset($_SESSION['admin_id']) && isset($_SESSION['username'])) {
-    $idletime = 900; //after 15 minutes the user gets logged out
+    include "db_conn.php";
+    session_start();
+    if (isset($_SESSION['admin_id']) && isset($_SESSION['username'])) {
+        $idletime = 900; //after 15 minutes the user gets logged out
 
-    if (time() - $_SESSION['timestamp'] > $idletime) {
-        $_GET['inactivityError'] = "Session ended: You are logged out due to inactivity.";
-        header("Location: AdminLogout.php");
+        if (time() - $_SESSION['timestamp'] > $idletime) {
+            $_GET['inactivityError'] = "Session ended: You are logged out due to inactivity.";
+            header("Location: AdminLogout.php");
+        } else {
+            $_SESSION['timestamp'] = time();
+        }
     } else {
-        $_SESSION['timestamp'] = time();
+        header("Location: AdminLogin.php");
+        exit();
     }
-} else {
-    header("Location: AdminLogin.php");
-    exit();
-}
+
+    $sqlDate = "SELECT * FROM `vote_event";
+    $resultDate = mysqli_query($conn,$sqlDate);
+    $rowDate = mysqli_fetch_assoc($resultDate);
+
 
 include "navAdmin.php";
 
@@ -62,12 +67,21 @@ include "navAdmin.php";
     <script>
         $(document).ready(function() {
             reloadTable();
-
-            function reloadTable() {
+            var startDate = new Date("<?php echo $rowDate['start_date'];?>").getTime();
+            var endDate =  new Date("<?php echo $rowDate['end_date']; ?>").getTime();
+            var today = new Date().getTime();
+                                            
+            function reloadTable() {       
                 $.ajax({
                     url: 'backCandidate/tablePosition.php',
                     success: function(response) {
                         $("tbody").html(response);
+                        if((today>=startDate) && (today<=endDate)){//if election is on going 
+                            alert("Election is ongoing. Please proceed with caution. Any changes done during the election may affect the results.");
+                            $("#add_button").attr("disabled",true);
+                            $(".btn-danger").attr("disabled",true);
+                            $(".vote_allow").attr("disabled",true);
+                        }
                     }
                 });
             }
@@ -165,6 +179,7 @@ include "navAdmin.php";
                     }
                 });
             });
+            
 
         });
         //edit
