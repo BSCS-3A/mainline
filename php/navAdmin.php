@@ -18,7 +18,7 @@ SOLVED ^^ font-awesome_addAdmin may kasalanan lol, + dataTables.bootstrap
 
 <?php
 date_default_timezone_set('Asia/Manila');
-require_once( 'db_conn.php');
+require_once('db_conn.php');
 $idletime = 60 * 60; //after 1 hr the user gets logged out
 if (time() - $_SESSION['timestamp'] > $idletime) {
     //$_GET['inactivityError'] = "Session ended: You are logged out due to inactivity.";
@@ -64,6 +64,10 @@ if (time() - $_SESSION['timestamp'] > $idletime) {
     </script>
 
 </head>
+
+    <script type="text/javascript">
+        $.noConflict();
+    </script>
 
 <body>
 
@@ -130,11 +134,11 @@ if (time() - $_SESSION['timestamp'] > $idletime) {
             <li><a href="#">ABOUT US</a></li>
             <li>
                 <label for="btn-7" class="Ashow"><?php echo $_SESSION['admin_fname'] . " " . $_SESSION['admin_lname']; ?></label>
-                <a class="user" href="#"><img class="user-profile" src="<?php 
-                // change path for photo - den
-                $adminPhoto = $_SESSION['photo'];
-                echo str_replace("../../", "../", $adminPhoto); 
-                ?>"></a>
+                <a class="user" href="#"><img class="user-profile" src="<?php
+                                                                        // change path for photo - den
+                                                                        $adminPhoto = $_SESSION['photo'];
+                                                                        echo str_replace("../../", "../", $adminPhoto);
+                                                                        ?>"></a>
                 <input type="checkbox" id="btn-7">
                 <ul>
 
@@ -178,56 +182,55 @@ if (time() - $_SESSION['timestamp'] > $idletime) {
     }
     ?>
     <script>
+        //send reminders 1 hour before election ends
+        $(document).ready(function() {
+            var end = "<?php echo $endate ?>";
+            var countDownEnd = new Date(end).getTime();
 
-    //send reminders 1 hour before election ends
-    $(document).ready(function() {
-                var end = "<?php echo $endate ?>";
-                var countDownEnd = new Date(end).getTime();
-                
-                
-           // Update the count down every 1 second
-           var y = setInterval(function() {
+
+            // Update the count down every 1 second
+            var y = setInterval(function() {
                 var today = new Date();
                 var date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
                 var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
                 var currentTime = date + ' ' + time;
                 // Set the date we're counting down to
-                
-                    
-                    
-                    // Get today's date and time
-                    var noww = new Date().getTime();
 
-                    // Find the distance between now and the count down date
 
-                    var distanceEnd = countDownEnd - noww;
-                    var current = new Date(currentTime).getTime();
-                    // Time calculations for days, hours, minutes and seconds
-                    //time ends
-                    var daysEnd = Math.floor(distanceEnd / (1000 * 60 * 60 * 24));
-                    var hoursEnd = Math.floor((distanceEnd % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)-1);
-                    var minutesEnd = Math.floor((distanceEnd % (1000 * 60 * 60)) / (1000 * 60));
-                    var secondsEnd = Math.floor((distanceEnd % (1000 * 60)) / 1000);
 
-                    var cdEnd = countDownEnd - 3600000; //3600000(1hr)
-                    //console.log(countDownEnd +" "+current);
-                    if (hoursEnd <= 0) {
- 
-                        if (current == cdEnd) {
+                // Get today's date and time
+                var noww = new Date().getTime();
 
-                            $.post("./backAdmin/backFun_reminders_v0_1.php",
-                                function(data, status) {
-                                    //alert("Message sent with status" + status);
-                                    //location.reload(true);
+                // Find the distance between now and the count down date
 
-                                });
-                            clearInterval(y);
-                        }
+                var distanceEnd = countDownEnd - noww;
+                var current = new Date(currentTime).getTime();
+                // Time calculations for days, hours, minutes and seconds
+                //time ends
+                var daysEnd = Math.floor(distanceEnd / (1000 * 60 * 60 * 24));
+                var hoursEnd = Math.floor((distanceEnd % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60) - 1);
+                var minutesEnd = Math.floor((distanceEnd % (1000 * 60 * 60)) / (1000 * 60));
+                var secondsEnd = Math.floor((distanceEnd % (1000 * 60)) / 1000);
+
+                var cdEnd = countDownEnd - 3600000; //3600000(1hr)
+                //console.log(countDownEnd +" "+current);
+                if (hoursEnd <= 0) {
+
+                    if (current == cdEnd) {
+
+                        $.post("./backAdmin/backFun_reminders_v0_1.php",
+                            function(data, status) {
+                                //alert("Message sent with status" + status);
+                                //location.reload(true);
+
+                            });
+                        clearInterval(y);
                     }
-              
-                }, 1000);
-            
-            });
+                }
+
+            }, 1000);
+
+        });
     </script>
 
 
