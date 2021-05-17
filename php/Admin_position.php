@@ -72,13 +72,14 @@ include "navAdmin.php";
             var today = new Date().getTime();
                                             
             function reloadTable() {       
-                $.ajax({
+                $.ajax({    
                     url: 'backCandidate/tablePosition.php',
                     success: function(response) {
                         $("tbody").html(response);
                         if((today>=startDate) && (today<=endDate)){//if election is on going 
                             alert("Election is ongoing. Please proceed with caution. Any changes done during the election may affect the results.");
                             $("#add_button").attr("disabled",true);
+                            $( "#icon_add").removeClass(".fas fa-portrait" ).addClass(".fa fa-lock" );
                             $(".btn-danger").attr("disabled",true);
                             $(".vote_allow").attr("disabled",true);
                         }

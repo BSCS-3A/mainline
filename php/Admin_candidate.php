@@ -608,7 +608,7 @@
 
     var table ="";
 
-    function reloadTable(){
+     function reloadTable(){
       $.ajax({
         url:'backCandidate/tableCandidate.php',
         success: function(response){
@@ -616,6 +616,7 @@
             if((today>=startDate) && (today<=endDate)){//if election is on going 
                 alert("Election is ongoing. Please proceed with caution. Any changes done during the election may affect the results.");
                 $(".btn-button1").attr("disabled",true);
+                $( "#icon_add" ).removeClass( ".fas fa-portrait" ).addClass( ".fa fa-lock" );
                 $(".btn-danger").attr("disabled",true);
             }
             table = $('#datatable').DataTable({
