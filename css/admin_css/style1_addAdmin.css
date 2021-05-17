@@ -133,6 +133,12 @@ iframe {
   height: 700px;
 }
 
+.flex-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
 .btn {
   font-family: 'Roboto-regular', sans-serif;
   display: inline-block;
@@ -153,15 +159,17 @@ iframe {
   user-select: none;
   background-image: none;
   border: 1px solid transparent;
+  box-shadow: 1px 1px 5px #888888;
 }
 
 .btn-primary {
   color: #fff;
-  margin: 0px;
   padding: 0px;
   background: #5cb85c!important;
   border-color: #5cb85c!important;
-  box-shadow: none;
+  box-shadow: 1px 1px 5px #888888;
+  width: 70px;
+  margin-bottom: 3px!important;
 }
 
 .btn-primary:hover {
@@ -170,11 +178,12 @@ iframe {
 
 .btn-danger {
   color: #fff;
-  margin: 0px;
+  margin-bottom: 3px!important;
   padding: 0px;
   background: #d9534f!important;
   border-color: #d9534f!important;
-  box-shadow: none;
+  box-shadow: 1px 1px 5px #888888;
+  width: 70px;
 }
 
 .btn-danger:hover {
@@ -196,17 +205,28 @@ iframe {
 }
 
 .btn-button2 {
-  color: #eeeeee;
-  background: #124254;
-  border-color: #124254;
-  box-shadow: none;
+  color: #124254;
+  background-color: #fece4b;
+  border-bottom: 2px solid #fece4b;
   padding: 10px 20px;
   margin: 25px 5px 15px 0px!important;
 }
 
-.btn-button2:hover {
-  background-color: #18566e !important;
-  color: #EEEEEE!important;
+.btn-button2:hover,
+.btn-button2:focus,
+.open>.dropdown-toggle.btn-button2 {
+  color: #124254;
+  background-color: #ffc324;
+  border-bottom: 2px solid #ffc324;
+  outline: none;
+}
+
+.btn-button2:active,
+.btn-button2.active {
+  color: #124254;
+  background-color: #ffea36;
+  border-top: 2px solid #ffea36;
+  margin-top: 2px;
 }
 
 .btn-button3 {
@@ -328,11 +348,12 @@ iframe {
 #continue {
   background-color: #d9534f;
   color: #fff;
+  border: #d9534f;
+  margin-right: 5px;
 }
 
 .continue:hover {
-  background-color: #18566e !important;
-  color: #EEEEEE!important;
+  background-color: #d93e39!important;
 }
 
 #cancel2 {
@@ -347,6 +368,9 @@ iframe {
 #go {
   color: #fff;
   background: #124254;
+  border: #124254;
+  box-shadow: 1px 1px 5px #888888;
+  height: 33px!important;
 }
 
 .go:hover {

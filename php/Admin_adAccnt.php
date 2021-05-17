@@ -86,12 +86,12 @@ if (isset($_SESSION['admin_id']) && isset($_SESSION['username'])) {
         </div>
         <div class="container">
             <section>
-                <div class="btn-toolbar">
-                    <button name="AddAccountButton" class="btn btn-button2" data-title="otp" data-toggle="modal" data-target="#otp" data-placement="top" data-toggle="modal" title="Add Account" <?php if ($_SESSION['admin_position'] == "Admin") {
-                                                                                                                                                                                                    ?> disabled <?php
-                                                                                                                                                                                                            } ?>>
-
-                        <span class="fa fa-user-plus"></span> ADD ACCOUNT</button>
+                <div class="flex-container">
+                    <button name="AddAccountButton" class="btn btn-button2" data-title="otp" data-toggle="modal" 
+                    data-target="#otp" data-placement="top" data-toggle="modal" title="Add Account" 
+                    <?php if ($_SESSION['admin_position'] == "Admin") {?> disabled <?php
+                    } ?>>
+                    <span class="fa fa-user-plus"></span> ADD ACCOUNT</button>
                 </div>
                 <?php //echo("{$_SESSION['admin_position']}") 
                 ?>
