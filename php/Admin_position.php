@@ -26,7 +26,7 @@ Need:
         exit();
     }
 
-    $sqlDate = "SELECT * FROM `vote_event";
+    $sqlDate = "SELECT * FROM `vote_event`";
     $resultDate = mysqli_query($conn,$sqlDate);
     $rowDate = mysqli_fetch_assoc($resultDate);
 
