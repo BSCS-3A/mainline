@@ -138,6 +138,7 @@
                   			}
                     		table.destroy();
                     		reloadTable();
+                    		formClear();
                   
               				}
             			});
@@ -145,6 +146,9 @@
             		}
             		else if(response == "Not_exist"){
             			alert("Candidate does not exist");
+            			table.destroy();
+            			reloadTable();
+            			formClear();
             		}
             		else{
             			console.log(response);
@@ -663,6 +667,7 @@
       $("#delpos").text($(cols[3]).text());
   }
   function formClear(){
+  	  $("#cid").attr("candidate", "");
       $("#lastnamesearch").val("");
       $("#firstnamesearch").val("");
       $("#etc-add1").val("");
