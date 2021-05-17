@@ -119,19 +119,37 @@
             var plat = $("#etc-edit2").val();
             var cred = $("#etc-edit3").val();
 
+            var flag = false;
             $.ajax({
-              url:'backCandidate/addCandidate.php',
-              method:'post',
-              data:{editsavebtn:temp,candidateid:candid,editlastname:lname,editfirstname:fname,editheirarchy_id:hid,editpartylist:party,editplatform:plat,editcredentials:cred},
-              success:function(response){
+            	url: 'backCandidate/checkTable.php',
+            	method: 'post',
+            	data: {check: temp, candidateid: candid, checklastname: lname, checkfirstname: fname, checkhid: hid},
+            	success:function(response){
+            		console.log(response);
+            		if(response == "Exists"){
+            			$.ajax({
+             				url:'backCandidate/addCandidate.php',
+              				method:'post',
+              				data:{editsavebtn:temp,candidateid:candid,editlastname:lname,editfirstname:fname,editheirarchy_id:hid,editpartylist:party,editplatform:plat,editcredentials:cred},
+              				success:function(response){
                   
-                  if(response !=""){
-                      alert(response);
-                  }
-                    table.destroy();
-                    reloadTable();
+                  			if(response !=""){
+                      			alert(response);
+                  			}
+                    		table.destroy();
+                    		reloadTable();
                   
-              }
+              				}
+            			});
+            		
+            		}
+            		else if(response == "Not_exist"){
+            			alert("Candidate does not exist");
+            		}
+            		else{
+            			console.log(response);
+            		}
+            	}
             });
         });
         //deleting a candidate

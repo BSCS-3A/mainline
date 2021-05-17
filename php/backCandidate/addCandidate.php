@@ -12,7 +12,7 @@
 
         $lastname = sanitize(mysqli_real_escape_string($conn,trim($_POST['lastname'])));
         $firstname = sanitize(mysqli_real_escape_string($conn,trim($_POST['firstname'])));
-        $heirarchyId = sanitize(mysqli_real_escape_string($conn,trim($_POST['heirarchy_id'])));
+        $heirarchyId = sanitize(mysqli_real_escape_string($conn,trim($_POST['heirarchy_id']))); // hid value can be change through inspect element
         $partylist = sanitize(mysqli_real_escape_string($conn,trim($_POST['partylist'])));
         $platform = sanitize(mysqli_real_escape_string($conn,trim($_POST['platform'])));
         $credentials = sanitize(mysqli_real_escape_string($conn,trim($_POST['credentials'])));
