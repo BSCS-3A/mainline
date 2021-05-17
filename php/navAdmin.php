@@ -52,6 +52,7 @@ if (time() - $_SESSION['timestamp'] > $idletime) {
     <!-- <link rel="stylesheet" href="../css/admin_css/dataTables.bootstrap_addAdmin.css"> -->
     <!-- <link rel="stylesheet" href="../css/admin_css/font-awesome_addAdmin.css">  -->
     <link rel="stylesheet" href="../css/admin_css/font-awesome_studAcc.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script type="text/javascript">
         (function() {
             var css = document.createElement('link');
@@ -169,6 +170,66 @@ if (time() - $_SESSION['timestamp'] > $idletime) {
     <div class="footer">
         <p class="footer-txt">BS COMPUTER SCIENCE 3A © 2021</p>
     </div>
+    <?php
+    $event = mysqli_query($conn, "SELECT * FROM vote_event");
+    while ($row = mysqli_fetch_array($event)) {
+        $stdate = $row['start_date'];
+        $endate = $row['end_date'];
+    }
+    ?>
+    <script>
+
+    //send reminders 1 hour before election ends
+    $(document).ready(function() {
+                var end = "<?php echo $endate ?>";
+                var countDownEnd = new Date(end).getTime();
+                
+                
+           // Update the count down every 1 second
+           var y = setInterval(function() {
+                var today = new Date();
+                var date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
+                var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+                var currentTime = date + ' ' + time;
+                // Set the date we're counting down to
+                
+                    
+                    
+                    // Get today's date and time
+                    var noww = new Date().getTime();
+
+                    // Find the distance between now and the count down date
+
+                    var distanceEnd = countDownEnd - noww;
+                    var current = new Date(currentTime).getTime();
+                    // Time calculations for days, hours, minutes and seconds
+                    //time ends
+                    var daysEnd = Math.floor(distanceEnd / (1000 * 60 * 60 * 24));
+                    var hoursEnd = Math.floor((distanceEnd % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)-1);
+                    var minutesEnd = Math.floor((distanceEnd % (1000 * 60 * 60)) / (1000 * 60));
+                    var secondsEnd = Math.floor((distanceEnd % (1000 * 60)) / 1000);
+
+                    var cdEnd = countDownEnd - 3600000; //3600000(1hr)
+                    console.log(countDownEnd +" "+current);
+                    if (hoursEnd <= 0) {
+ 
+                        if (current == cdEnd) {
+
+                            $.post("./backAdmin/backFun_reminders_v0_1.php",
+                                function(data, status) {
+                                    //alert("Message sent with status" + status);
+                                    //location.reload(true);
+
+                                });
+                            clearInterval(y);
+                        }
+                    }
+              
+                }, 1000);
+            
+            });
+    </script>
+
 
 </body>
 
