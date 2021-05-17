@@ -260,3 +260,7 @@ $fileJson = file_get_contents('../other/sig_array.json');
 // -------------------Output PDF
 ob_end_clean();
 $pdf->Output('Official Election Result.pdf', 'I');
+
+//For Logs
+$_SESSION['action'] = 'generated Election Report PDF.';
+include 'backFun_actLogs_v0_1.php';
