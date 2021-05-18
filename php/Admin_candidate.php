@@ -136,9 +136,9 @@
                   			if(response !=""){
                       			alert(response);
                   			}
-                    		table.destroy();
-                    		reloadTable();
-                    		formClear();
+                        		table.destroy();
+                        		reloadTable();
+                        		formClear();
                   
               				}
             			});
