@@ -3,7 +3,11 @@
     require './backMonitor/fetch_candidates.php';
 ?>
 <link rel="stylesheet" href="../css/student_css/style_monitor.css">
-
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery-circle-progress/1.2.2/circle-progress.min.js'></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>
+<script src="../js/script_monitor1.js?v=<?php echo time(); ?>"></script> 
+<script src="../js/script_monitor2.js?v=<?php echo time(); ?>"></script>
 
   <div class="bheader">
         <h3>
@@ -227,30 +231,75 @@
             </div>
 
             <?php
-            //additional notes:
-            // yung mga ganito =  <br><a href='Admin_Vstat.php?level=12'><b> GRADE 12</b></a>
-            //sya yung sa label baga na pag tig click maga redirect
             ?>
 
 
         </div>
     </div>
 
-
-    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
-    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery-circle-progress/1.2.2/circle-progress.min.js'></script>
-    <script src="../js/script_monitor1.js?v=<?php echo time(); ?>"></script>
-
-
   <div class="bheader2">
         <h4>
-          VOTE TALLY PER CANDIDATE
+          VOTE TALLY
         </h4>
   </div>
 
-
   <div class="Belec_container" id="candidate">  
-        <?php
+  <section>
+  <ul class="style-1">
+      <li>
+        <em>PRESIDENT</em>
+      </li>
+    </ul>
+    <ul class="style-2">
+      <li>
+        <em>Joshua Alex Llander (Danilo Medina Supporters)</em>
+        <span>127</span>
+      </li>
+      <li>
+        <em>John Kenneth Maronilla (Lany Thru These Tears)</em>
+        <span>98</span>
+      </li>
+    </ul>
+  </section>
+  <section>
+  <ul class="style-1">
+      <li>
+        <em>PRESIDENT</em>
+      </li>
+    </ul>
+    <ul class="style-2">
+      <li>
+        <em>Joshua Alex Llander (Danilo Medina Supporters)</em>
+        <span>127</span>
+      </li>
+      <li>
+        <em>John Kenneth Maronilla (Lany Thru These Tears)</em>
+        <span>98</span>
+      </li>
+    </ul>
+  </section>
+  <section>
+  <ul class="style-1">
+      <li>
+        <em>PRESIDENT</em>
+      </li>
+    </ul>
+    <ul class="style-2">
+      <li>
+        <em>Joshua Alex Llander (Danilo Medina Supporters)</em>
+        <span>127</span>
+      </li>
+      <li>
+        <em>John Kenneth Maronilla (Lany Thru These Tears)</em>
+        <span>98</span>
+      </li>
+    </ul>
+  </section>
+  </div>
+
+
+  <!--<div class="Belec_container" id="candidate">  
+       // <?php
             foreach($candidates as $candidate){
                 echo '<div class="Bposition">';
                 if(empty($candidate['photo'])){
