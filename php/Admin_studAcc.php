@@ -277,7 +277,7 @@ $DTrow =  $DnT->fetch_row();
                             }
 
                     </script>
-
+                     <div class="modal-body">
                         <form method="POST">
                             <select required onchange="enableButton()" id = "glevel" name = "glevel" style="height:30px;" />
                                 <option value = "">Select Grade Level</option>
@@ -287,7 +287,7 @@ $DTrow =  $DnT->fetch_row();
                                 <option value = "10">Grade 10</option>
                                 <option value = "11">Grade 11</option>
                                 <option value = "12">Grade 12</option>
-                            </select>
+                            </select>     </div>
                              <!-- Send Login credentials btn handler -->
                              <div class="modal-footer ">
                                     <button disabled type="submit" class="btn btn-success" id="go2" name="sendEmail" value="Continue">
