@@ -205,7 +205,7 @@ include "navAdmin.php";
                 </button>
 
         <button id="add_button" class="btn btn-button1 btn-s" data-toggle="modal" data-target="#add" title="Add" data-placement="top"> 
-            <span class = "fas fa-plus"></span>
+            <span class = "fas fa-plus" id = "icon_add"></span>
             Add Position 
         </button>
         </div>
