@@ -110,7 +110,7 @@ $DTrow =  $DnT->fetch_row();
         <div class="row">
             <div class="col-md-12">
                 <div class="table-responsive">
-                    <table class="table-center" id="datatable" style="width:100%">
+                    <table class="table-center" id="datatable" width="100%">
                         <thead>
                             <tr>
                                 <th class="min-mobile">STUDENT ID</th>
@@ -120,7 +120,7 @@ $DTrow =  $DnT->fetch_row();
                                 <th class="min-mobile">GENDER</th>
                                 <th class="min-mobile">EMAIL</th>
                                 <th style="color:white" class="min-mobile"><select name ="lvl" id="lvl" style="background-color:#18566e;">
-                                    <option value="">Grade Level</option>
+                                    <option value="">GRADE LEVEL</option>
                                     <option value="">ALL</option>
                                     <option value="7">Grade 7</option>
                                     <option value="8">Grade 8</option>
