@@ -279,7 +279,7 @@ $DTrow =  $DnT->fetch_row();
                     </script>
                      <div class="modal-body">
                         <form method="POST">
-                            <select required onchange="enableButton()" id = "glevel" name = "glevel" style="height:30px;" />
+                            <select required onchange="enableButton()" id = "glevel" name = "glevel" style="height:30px;background-color:#18566e;color:white;" />
                                 <option value = "">Select Grade Level</option>
                                 <option value = "7">Grade 7</option> 
                                 <option value = "8">Grade 8</option>
