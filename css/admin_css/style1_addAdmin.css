@@ -253,9 +253,13 @@ iframe {
   .btn-button3 {
     margin: 0px 0px 15px 0px!important;
   }
-  .btn-button4 {
-    width: 25% !important;
-    margin: 30px 15px 10px 0px!important;
+  .btn-cancel2 {
+    width: 30% !important;
+    margin: 20px 15px 10px 0px!important;
+  }
+  .btn-cancel {
+    width: 30% !important;
+    margin: 20px 15px 10px 0px!important;
   }
   
 }
@@ -268,15 +272,65 @@ iframe {
   }
 }
 
-.btn-button4 {
+.btn-cancel {
   background: #dddddd;
-  box-shadow: none;
+  height: 33px!important;
+  box-shadow: 1px 1px 5px #888888;
   width: 15%;
-  margin-top: 10px;
+  padding: 10px 20px;
+  margin-top: 8px;
+  margin-left: 2px!important;
+  box-shadow: 1px 1px 1px #888888;
 }
 
-.btn-button4:hover {
+.btn-cancel:hover {
   background-color: #c1c1c1!important;
+}
+
+.btn-cancel2 {
+  background: #dddddd;
+  height: 33px!important;
+  box-shadow: 1px 1px 5px #888888;
+  width: 17%;
+  padding: 10px 20px;
+  margin-top: 8px;
+  margin-left: 2px!important;
+  box-shadow: 1px 1px 1px #888888;
+}
+
+.btn-cancel2:hover {
+  background-color: #c1c1c1!important;
+}
+
+.btn-cancelcrop {
+  background: #dddddd;
+  height: 33px!important;
+  box-shadow: 1px 1px 5px #888888;
+  width: 10%;
+  padding: 10px 20px;
+  margin-top: 8px;
+  margin-left: 2px!important;
+  box-shadow: 1px 1px 1px #888888;
+}
+
+.btn-cancelcrop:hover {
+  background-color: #c1c1c1!important;
+}
+
+.btn-button6 {
+  color: #fff;
+  background: #124254;
+  border: #124254;
+  border-bottom: 2px solid #fece4b;
+  padding: 10px 20px;
+  margin: 25px 5px 15px 0px!important;
+  box-shadow: 1px 1px 5px #888888;
+  height: 33px!important;
+}
+
+.btn-button6:hover {
+  background-color: #18566e !important;
+  color: #EEEEEE!important;
 }
 
 .btn-button5 {
@@ -338,11 +392,12 @@ iframe {
 #cancel {
   background-color: #dddddd;
   margin: auto;
+  box-shadow: 1px 1px 1px #888888;
+  height: 33px!important;
 }
 
-.cancel:hover {
-  background-color: #18566e !important;
-  color: #EEEEEE!important;
+#cancel:hover {
+  background-color: #c1c1c1!important;
 }
 
 #continue {
@@ -352,17 +407,18 @@ iframe {
   margin-right: 5px;
 }
 
-.continue:hover {
-  background-color: #d93e39!important;
+#continue:hover {
+  background-color: #C23B22 !important;
 }
 
 #cancel2 {
   background-color: #dddddd;
+  box-shadow: 1px 1px 1px #888888;
+  height: 33px!important;
 }
 
 .cancel2:hover {
-  background-color: #18566e !important;
-  color: #EEEEEE!important;
+  background-color: #c1c1c1!important;
 }
 
 #go {
@@ -386,6 +442,10 @@ div.container {
   border: 2px solid #124254;
   width: 80%;
   height: auto;
+}
+
+div.container.upload {
+  border: none;
 }
 
 @media only screen and (max-width: 600px) {

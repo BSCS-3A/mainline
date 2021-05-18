@@ -73,7 +73,7 @@ if (isset($_POST['updateData'])) {
                     $path = $rowfindphoto['photo'];
                     unlink($path);
                 }
-                echo "upload successful";
+                //echo "upload successful";
             }
         } else {
             // UPDATE USER DATA               

@@ -36,8 +36,6 @@ if (isset($_SESSION['admin_id']) && isset($_SESSION['username'])) {
         </script>
         <!--additional scripts-->
         <script src="../js/bootstrap-show-password.min_addAdmin.js"></script>
-        <!--<script src="../assets/js/customized.js"></script>-->
-        <link rel="stylesheet" href="../css/admin_css/customized_addAdmin.css">
 
         <!--for upload photo crop-->
         <link href="https://unpkg.com/cropperjs/dist/cropper.css" rel="stylesheet" />
@@ -87,11 +85,9 @@ if (isset($_SESSION['admin_id']) && isset($_SESSION['username'])) {
         <div class="container">
             <section>
                 <div class="flex-container">
-                    <button name="AddAccountButton" class="btn btn-button2" data-title="otp" data-toggle="modal" 
-                    data-target="#otp" data-placement="top" data-toggle="modal" title="Add Account" 
-                    <?php if ($_SESSION['admin_position'] == "Admin") {?> disabled <?php
-                    } ?>>
-                    <span class="fa fa-user-plus"></span> ADD ACCOUNT</button>
+                    <button name="AddAccountButton" class="btn btn-button2" data-title="otp" data-toggle="modal" data-target="#otp" data-placement="top" data-toggle="modal" title="Add Account" <?php if ($_SESSION['admin_position'] == "Admin") { ?> disabled <?php
+                                                                                                                                                                                                                                                            } ?>>
+                        <span class="fa fa-user-plus"></span> ADD ACCOUNT</button>
                 </div>
                 <?php //echo("{$_SESSION['admin_position']}") 
                 ?>
@@ -188,7 +184,9 @@ if (isset($_SESSION['admin_id']) && isset($_SESSION['username'])) {
                             <div class="form-group">
                                 <label for="sel1">Admin Position:</label>
                                 <select class="form-control" name="admin_position" id="sel1" required>
-                                    <option value="" disabled selected><\choose></option>
+                                    <option value="" disabled selected>
+                                        <\choose>
+                                    </option>
                                     <option>Admin</option>
                                     <option>Head Admin</option>
                                 </select>
@@ -201,14 +199,14 @@ if (isset($_SESSION['admin_id']) && isset($_SESSION['username'])) {
                                 <label>Confirm Password:</label>
                                 <input type="password" name="conpassword" class="form-control" data-toggle="password" placeholder="*********" onChange="onChange()" required>
                             </div>
-                            <div class="container">
+                            <div class="container upload">
                                 <label for="photo" width="70%">Upload photo</label><br />
                                 <input type="file" name="image" id="my_image" required><br />
                                 <span id="admin_newupload_errorloc" class="error"></span>
                             </div>
                             <div class="modal-footer ">
-                                <button type="submit" name="saveAccount" class="btn btn-success" id="go"><span class="fa fa-check-circle"></span> Save Account</button>
-                                <button type="button" class="btn btn-default" id="cancel2" data-dismiss="modal"><span class="fa fa-times-circle"></span> Cancel</button>
+                                <button type="submit" name="saveAccount" class="btn btn-button6"><span class="fa fa-check-circle"></span> Save Account</button>
+                                <button type="button" class="btn btn-cancel2" data-dismiss="modal"><span class="fa fa-times-circle"></span> Cancel</button>
                             </div>
                         </div>
                     </form>
@@ -253,7 +251,9 @@ if (isset($_SESSION['admin_id']) && isset($_SESSION['username'])) {
                             <div class="form-group">
                                 <label for="sel1">Admin Position:</label>
                                 <select class="form-control" name="admin_position" id="admin_position" required>
-                                    <option value="" disabled selected><\choose></option>
+                                    <option value="" disabled selected>
+                                        <\choose>
+                                    </option>
                                     <option>Admin</option>
                                     <option>Head Admin</option>
                                 </select>
@@ -266,15 +266,15 @@ if (isset($_SESSION['admin_id']) && isset($_SESSION['username'])) {
                                 <label>Confirm Password:</label>
                                 <input type="password" name="conpassword" id="conpassword" class="form-control" data-toggle="password" placeholder="*********" onChange="onChange()">
                             </div>
-                            <div class="container">
+                            <div class="container upload">
                                 <label for="photo" width="70%">Upload photo</label><br />
                                 <input type="file" name="my_image_edit" id="my_image_edit"><br />
                                 <span id="admin_newupload_errorloc" class="error"></span>
                             </div>
                         </div>
                         <div class="modal-footer ">
-                            <button type="submit" class="btn btn-success" name="updateData" id="go"><span class="fa fa-check-circle"></span> Update Account</button>
-                            <button type="button" class="btn btn-default" id="cancel2" data-dismiss="modal"><span class="fa fa-times-circle"></span> Cancel</button>
+                            <button type="submit" class="btn btn-button6" name="updateData" id="go"><span class="fa fa-check-circle"></span> Update Account</button>
+                            <button class="btn btn-cancel" data-dismiss="modal"><span class="fa fa-times-circle"></span> Cancel</button>
                         </div>
                     </div>
                     <!-- /.modal-content -->
@@ -298,7 +298,7 @@ if (isset($_SESSION['admin_id']) && isset($_SESSION['username'])) {
                         </div>
                         <div class="modal-footer ">
                             <button type="submit" class="btn btn-success" name="yes_delete" id="continue"><span class="fa fa-check-circle"></span> Yes</button>
-                            <button type="button" class="btn btn-default" id="no" data-dismiss="modal"><span class="fa fa-times-circle"></span> No</button>
+                            <button type="button" class="btn btn-default" id="cancel" data-dismiss="modal"><span class="fa fa-times-circle"></span> No</button>
                         </div>
                     </form>
                 </div>
@@ -330,8 +330,8 @@ if (isset($_SESSION['admin_id']) && isset($_SESSION['username'])) {
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" id="crop" class="btn btn-primary">Crop</button>
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                        <button type="button" id="crop" class="btn btn-button6">Crop</button>
+                        <button class="btn btn-cancelcrop" data-dismiss="modal"><span class="fa fa-times-circle"></span> Cancel</button>
                     </div>
                 </div>
             </div>
@@ -360,8 +360,8 @@ if (isset($_SESSION['admin_id']) && isset($_SESSION['username'])) {
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" id="crop_edit" class="btn btn-primary">Crop</button>
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal_edit">Cancel</button>
+                        <button type="button" id="crop_edit" class="btn btn-button6">Crop</button>
+                        <button class="btn btn-cancelcrop" data-dismiss="modal_edit"><span class="fa fa-times-circle"></span> Cancel</button>
                     </div>
                 </div>
             </div>
@@ -372,7 +372,7 @@ if (isset($_SESSION['admin_id']) && isset($_SESSION['username'])) {
     </div> -->
 
         <!-- DATATABLES JAVASCRIPT -->
-        <script>
+        <!-- <script>
             $(document).ready(function() {
                 $('#datatable').DataTable({
                     "lengthMenu": [
@@ -380,6 +380,35 @@ if (isset($_SESSION['admin_id']) && isset($_SESSION['username'])) {
                         [5, 10, 25, 50, "All"]
                     ]
                 });
+                $("[data-toggle=tooltip]").tooltip();
+            });
+        </script> -->
+
+        <script>
+            $(document).ready(function() {
+                var t = $('#datatable').DataTable({
+                    "columnDefs": [{
+                        "searchable": false,
+                        "orderable": false,
+                        "targets": 0
+                    }],
+                    "order": [
+                        [1, 'asc']
+                    ],
+                    "lengthMenu": [
+                        [5, 10, 25, 50, -1],
+                        [5, 10, 25, 50, "All"]
+                    ]
+                });
+
+                t.on('order.dt search.dt', function() {
+                    t.column(0, {
+                        search: 'applied',
+                        order: 'applied'
+                    }).nodes().each(function(cell, i) {
+                        cell.innerHTML = i + 1;
+                    });
+                }).draw();
                 $("[data-toggle=tooltip]").tooltip();
             });
         </script>
