@@ -11,6 +11,30 @@
   letter-spacing: 6px;
 }
 
+.bheader1 {
+  z-index: 100;
+  padding: 2px 2px;
+  color: #1f6f8f;
+  font-weight: 400;
+  width: 100%;
+  text-align: center;
+  font-family: 'Roboto-regular', sans-serif;
+  letter-spacing: 6px;
+  margin-top: 1%;
+}
+.bheader2 {
+  z-index: 100;
+  padding: 2px 2px;
+  margin-top: 10%;
+  color: #1f6f8f;
+  font-weight: 400;
+  width: 100%;
+  text-align: center;
+  font-family: 'Roboto-regular', sans-serif;
+  letter-spacing: 6px;
+  margin-top: 1%;
+}
+
 /* On-Going Election*/
 
 .Belec1 p {
@@ -269,6 +293,59 @@
 
 /*Election Results*/
 
+.Bcon {
+	width: 80%;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.Bvcontainer{ 
+	position: relative;
+	max-width: 1500px;
+	justify-content: space-around;
+	display: grid; 
+	grid-column-gap: 10%; 
+	grid-row-gap: 5%;
+	grid-template-columns: repeat(auto-fit, minmax(100px, 2fr));
+	grid-template-rows: repeat(1, 200%);  
+}
+.Bvcontainer .Bcard {
+	position: relative;
+	width: 100%;
+	display: grid;
+	justify-content: center;
+	align-items: center;
+	height: 300px;
+	border-radius: 4px;
+	text-align: center;
+	transition: 0.5s;
+}
+.Bvcontainer .Bcard:before {
+	content: "";
+	position: absolute;
+	top: 0;
+	left: 0%;
+	width: 100%;
+	height: rgba(73, 163, 0, 0.03);
+	pointer-events: none;
+}
+.Bbox1 a {
+	color: #ffb700;
+	font-family: 'Roboto-regular', sans-serif;
+	font-size: 15px;
+	text-align: center;
+	padding: 10px;
+	background-color: black;
+}
+.Bbox1 a:hover{
+	color: white ;
+}
+.circle{
+	color:  black; 
+	font-size: 200%;
+	font-family: 'Roboto-regular', sans-serif;
+  }
+
 .Belec_container {
   padding: 60px;
   display: grid;
@@ -307,7 +384,7 @@
 .Bposition {
   font-family: 'Roboto-regular', sans-serif;;
   font-size: 2%;
-  color:#1d6986;
+  color:#2597c4 ;
   font-weight: bold;
   text-align: center;
 
@@ -320,45 +397,6 @@
   text-align: center;
 }
 
-.bgraph {
-  position: relative;
-  width: 150px;
-  height: 150px;
-  position: absolute;
-  top: 40%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
 
-/*Vote Percentage*/
-.bgraph svg {
-  width: 100%;
-  height: 100%;
-}
-
-.bgraph svg text {
-  font-family: 'Roboto-regular', sans-serif;
-  font-weight: bold;
-  font-size: 150%;
-  fill: #264A60;
-  text-align: center;
-}
-
-.bgraph svg .background {
-  fill: #264A60;
-}
-
-.bgraph svg .visual {
-  fill: #EFC100;
-}
-
-hr {
-  display: block;
-  margin-top: 20%;
-  margin-left: auto;
-  margin-right: auto;
-  border-width: 10px;
-  color: black;
-}
 
 /*Bar Graph*/

@@ -1,57 +1,33 @@
-function donutGraph(selector, percentage){
-
-    'use strict';
-
-    var height, width, radius, data, color, svg, g, bgArc, visArc, pie, path, vis;
-
-    height = 150;
-    width = 150;
-    radius = Math.min(width, height) / 2;
-
-    svg = d3.select(selector)
-        .append('svg')
-        .attr('viewBox', '0 0 ' + width + ' ' + height)
-        .attr('preserveAspectRatio', 'none');
-
-    g = svg.append('g')
-        .attr('transform', 'translate(' + (width / 2) + ',' + (height / 2) + ')');
-  
-    g.append('text')
-        .text(percentage + '%')
-        .attr('alignment-baseline', 'middle')
-        .attr('text-anchor', 'middle');
-  
-    bgArc = d3.svg.arc()
-        .innerRadius(radius / 1.25)
-        .outerRadius(radius)
-        .startAngle(0) //converting from degs to radians
-        .endAngle(degTOrad(perTOdeg(100))); //just radians
-
-    visArc = d3.svg.arc()
-        .innerRadius(radius / 1.20)
-        .outerRadius(radius)
-        .cornerRadius(20)
-        .startAngle(0) //converting from degs to radians
-        .endAngle(degTOrad(perTOdeg(percentage))); //just radians
-
-    g.append("path")
-        .attr("d", bgArc)
-        .attr('class', 'background');
-
-    g.append("path")
-        .attr("d", visArc)
-        .attr('class', 'visual');
-
-    function perTOdeg(per) {
-        'use strict';
-        return 360 * per / 100;
+$(document).ready(function ($) {
+    function animateElements() {
+        $('.progressbar').each(function () {
+            var elementPos = $(this).offset().top;
+            var topOfWindow = $(window).scrollTop();
+            var percent = $(this).find('.circle').attr('data-percent');
+            var percentage = parseInt(percent, 10) / parseInt(100, 10);
+            var animate = $(this).data('animate');
+            if (elementPos < topOfWindow + $(window).height() - 30 && !animate) {
+                $(this).data('animate', true);
+                $(this).find('.circle').circleProgress({
+                    startAngle: -Math.PI / 2,
+                    value: percent / 100,
+                    size: 130,
+                    thickness: 20,
+                    strokeWidth: 10,
+                    emptyFill: '#1d6986',
+                    fill: {
+                        color: '#ffb701'
+                    }
+                }).on('circle-animation-progress', function (event, progress, stepValue) {
+                    $(this).find('div').text((stepValue*100).toFixed(1) + "%");
+                }).stop();
+            }
+        });
     }
 
-    function degTOrad(deg) {
-        'use strict';
-        return deg * (Math.PI / 180);
-    }
-
-}
+    // Show animated elements
+    animateElements();
+    $(window).scroll(animateElements);
 
 
+}); //end document ready function
