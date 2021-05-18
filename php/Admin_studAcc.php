@@ -200,7 +200,7 @@ $DTrow =  $DnT->fetch_row();
         </form>
     </div>
 
-    <div class="modal fade" id="new" tabindex="-1" role="dialog" aria-labelledby="edit" aria-hidden="true">
+    <div class="modal fade" data-backdrop="static" id="new" tabindex="-1" role="dialog" aria-labelledby="edit" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
@@ -236,7 +236,7 @@ $DTrow =  $DnT->fetch_row();
         </div>
     </div>
 
-    <div class="modal fade" id="otp" tabindex="-1" role="dialog" aria-labelledby="edit" aria-hidden="true">
+    <div class="modal fade" data-backdrop="static" id="otp" tabindex="-1" role="dialog" aria-labelledby="edit" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
@@ -361,7 +361,7 @@ $DTrow =  $DnT->fetch_row();
     </form>
     <!--############################################################################################################################################################################################## -->
     <!-- DELETE MODAL -->
-    <div class="modal fade" id="delete" tabindex="-1" role="dialog" aria-labelledby="edit" aria-hidden="true">
+    <div class="modal fade" id="delete" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="edit" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
