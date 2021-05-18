@@ -322,28 +322,28 @@ $DTrow =  $DnT->fetch_row();
                                 required="required">
                         </div>
                         <div class="form-group">
-                            <input autocomplete="off" class="form-control " name="lname" id="lname" type="text"
+                            <input autocomplete="off" class="form-control " name="lname" id="elname" type="text"
                                 placeholder="Enter Last Name" required="required">
                         </div>
                         <div class="form-group">
-                            <input autocomplete="off" class="form-control " name="fname" id="fname" type="text"
+                            <input autocomplete="off" class="form-control " name="fname" id="efname" type="text"
                                 placeholder="Enter First Name" required="required">
                         </div>
                         <div class="form-group">
                             <!-- Do not require, not all students have middle name -->
-                            <input autocomplete="off" class="form-control " name="Mname" id="Mname" type="text"
+                            <input autocomplete="off" class="form-control " name="Mname" id="eMname" type="text"
                                 placeholder="Enter Middle Name">
                         </div>
                         <div class="form-group">
-                            <inputautocomplete="off" class="form-control " name="gender" id="gender" type="text"
+                            <inputautocomplete="off" class="form-control " name="gender" id="egender" type="text"
                                 placeholder="Enter Gender" required="required">
                         </div>
                         <div class="form-group">
-                            <input autocomplete="off" class="form-control " name="bumail" id="bumail" type="text" placeholder="Enter Email"
+                            <input autocomplete="off" class="form-control " name="bumail" id="ebumail" type="text" placeholder="Enter Email"
                                 required="required">
                         </div>
                         <div class="form-group">
-                            <input autocomplete="off" class="form-control " name="grade_level" id="grade_level" type="text"
+                            <input autocomplete="off" class="form-control " name="grade_level" id="egrade_level" type="text"
                                 placeholder="Enter Grade Level" required="required">
                         </div>
                     </div>
@@ -428,12 +428,12 @@ $DTrow =  $DnT->fetch_row();
             console.log(data);
 
             $('#Update_ID').val(data[0]);
-            $('#lname').val(data[1]);
-            $('#fname').val(data[2]);
-            $('#Mname').val(data[3]);
-            $('#gender').val(data[4]);
-            $('#bumail').val(data[5]);
-            $('#grade_level').val(data[6]);
+            $('#elname').val(data[1]);
+            $('#efname').val(data[2]);
+            $('#eMname').val(data[3]);
+            $('#egender').val(data[4]);
+            $('#ebumail').val(data[5]);
+            $('#egrade_level').val(data[6]);
 
         });
     });

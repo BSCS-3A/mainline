@@ -67,14 +67,14 @@ while($row = mysqli_fetch_array($result))
  $sub_array[] = $row["grade_level"];
  $sub_array[] = $row["otp"];
  if($now >= $rowx[1] && $now <= $rowx[2]){
- $sub_array[] = '<button disabled class="btn btn-primary btn-xs EditBtn" data-title="Edit" data-toggle="modal"
+ $sub_array[] = '<button class="btn btn-primary btn-xs EditBtn" data-title="Edit" data-toggle="modal"
     data-placement="top" data-toggle="tooltip" title="Edit"><span class="fa fa-edit"></span> EDIT</button> 
                 <button disabled class="btn btn-danger btn-xs DeleteBtn" data-title="Delete" data-toggle="modal"
     data-placement="top" data-toggle="tooltip" title="Delete"><span class="fa fa-trash-alt"></span> DELETE</button> ';
  }
  else{
      if(isset($xzzz['student_id']) && $xzzz['student_id'] == $row['student_id']){
-    $sub_array[] = '<button disabled class="btn btn-primary btn-xs EditBtn" data-title="Edit" data-toggle="modal"
+    $sub_array[] = '<button class="btn btn-primary btn-xs EditBtn" data-title="Edit" data-toggle="modal"
     data-placement="top" data-toggle="tooltip" title="Edit"><span class="fa fa-edit"></span> EDIT</button>
                     <button disabled class="btn btn-danger btn-xs DeleteBtn" data-title="Delete" data-toggle="modal"
     data-placement="top" data-toggle="tooltip" title="Delete"><span class="fa fa-trash-alt"></span> DELETE</button> ';
