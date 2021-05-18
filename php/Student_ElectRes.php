@@ -11,13 +11,13 @@
 
   <div class="bheader">
         <h3>
-          ELECTION RESULTS
+          2020 ELECTION RESULTS
         </h3>
   </div>
   
   <div class="bheader1">
         <h4>
-          VOTER'S TURNOUT FOR 2020 ELECTIONS 
+          VOTER'S TURNOUT
         </h4>
   </div>
 
