@@ -75,13 +75,17 @@
 
                                  $display_res2 = $conn->query($samp2);
                                    while($row1 = $display_res2->fetch_assoc()){
+                                       $pos_hold = $row1['position_id']; // hold pos id
 
                                     if($row1['vote_allow']==1){//for non-representative
+                                        
                                       if($row1['total_votes']>=$QoutaAll)
                                       {
+                                           if(getMax($conn, $pos_hold)==$row1['total_votes']){
                                        $insert_data = 'INSERT INTO temp_tie (candidate_id, student_id, position_id, total_votes, party_name, platform_info, credentials, photo) VALUES ("'.$row1['candidate_id'].'","'.$row1['student_id'].'","'.$row1['position_id'].'","'.$row1['total_votes'].'","'.$row1['party_name'].'","'.$row1['platform_info'].'","'.$row1['credentials'].'","'.$row1['photo'].'")';
 
                                        $conn->query($insert_data);
+                                           }
                                       }
 
                                     }
@@ -95,9 +99,11 @@
 
                                       if($row1['total_votes']>=$QoutaAll1)
                                       {
+                                           if(getMax($conn, $pos_hold)==$row1['total_votes']){
                                          $insert_data1 = 'INSERT INTO temp_tie (candidate_id, student_id, position_id, total_votes, party_name, platform_info, credentials, photo) VALUES ("'.$row1['candidate_id'].'","'.$row1['student_id'].'","'.$row1['position_id'].'","'.$row1['total_votes'].'","'.$row1['party_name'].'","'.$row1['platform_info'].'","'.$row1['credentials'].'","'.$row1['photo'].'")';
 
                                          $conn->query($insert_data1);
+                                           }
                                       }
 
 
