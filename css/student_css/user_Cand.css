@@ -511,17 +511,29 @@ footer {
   line-height: 48px;
   width: 48px;
   margin-bottom: 50px;
-  /* keep it at the top of everything else */
-  z-index: 100;
-  /* hide with opacity */
-  opacity: 0;
-  /* also add a translate effect */
-  transform: translateY(100px);
-  /* and a transition */
-  transition: all .5s ease
+
 }
 
-.showBtn {
-  opacity: 1;
-  transform: translateY(0)
+.positionContainer{
+      position: relative;
+    padding: 15px;
+    font-family: Roboto Regular, sans-serif;
+    font-size: 15px;
+    text-align: justify;
+}
+
+.gradeContainer{
+      position: relative;
+    padding: 15px;
+    font-family: Roboto Regular, sans-serif;
+    font-size: 15px;
+    text-align: justify;
+}
+
+.nameContainer{
+      position: relative;
+    padding: 15px;
+    font-family: Roboto Regular, sans-serif;
+    font-size: 15px;
+    text-align: justify;
 }
