@@ -1,6 +1,4 @@
 <?php
-	require 'front_Report_v11_1.php';
-
 	$table = $conn->query("SELECT * FROM ((candidate INNER JOIN student ON candidate.student_id = student.student_id) INNER JOIN candidate_position ON candidate.position_id = candidate_position.position_id) ORDER BY candidate_position.heirarchy_id"); // get positions
 	
 	$choice_final = array();
