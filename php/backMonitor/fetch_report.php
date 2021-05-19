@@ -240,5 +240,18 @@ function Archive($conn)
 	    $conn->query($tdrop2);
         }
 
+//get max votes from candidate using specific pos id
+ function getMax($conn, $pos_id)
+        {
+             $getMax = "SELECT MAX(total_votes) as max_votes from candidate where position_id = ".$pos_id."";
+             $getRekt = mysqli_query($conn, $getMax);
+             $compareMax = mysqli_fetch_array($getRekt);
+
+
+             return $compareMax['max_votes'];
+                                
+        }
+
+
 
 ?>
