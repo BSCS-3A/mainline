@@ -19,7 +19,7 @@
 <body>
 	<?php
 		require "db_conn.php";
-		// require "Admin_vtValSan.php";
+		require "Admin_vtValSan.php";
     // $text = "Warning: A tampered ballot has been submitted!<br>Details Used:<br>".$_SESSION['bumail'];
     // notifyAdmin($text);
     // $table = $conn->query("SELECT * FROM ((candidate INNER JOIN student ON candidate.student_id = student.student_id) INNER JOIN candidate_position ON candidate.position_id = candidate_position.position_id) ORDER BY candidate_position.heirarchy_id"); // get positions
@@ -27,14 +27,14 @@
 
     function receiptMsg($message){
       include 'navAdmin.php';
-      echo '<header id="F-header"  style="text-align: center;"><b>VOTE RECEIPT</b></header><br>';
+      echo '<header id="F-header"  style="text-align: center;"><b>ELECTION REPORT</b></header><br>';
         echo '<main>';
         echo '<div id="download-receipt-page" class="F-download-receipt-container">';
         echo '<div class="F-receipt-message">';
         echo "<h3>".$message."</h3>";
         echo '</div></div>';
         echo '<div id="receipt-page-buttons" class="F-receipt-page-buttons">
-        <button type="button" class="F-downloadReceiptBTN" id="F-downloadReceiptBTN">Download Receipt</button>
+        <button type="button" class="F-downloadReceiptBTN" id="F-downloadReceiptBTN">Download PDF</button>
         <button type="button" class="F-goToHomeBTN" id="F-goToHomeBTN">Go to Home</button>
       </div>
     </main>';
@@ -86,7 +86,7 @@
         var home = document.getElementById("F-goToHomeBTN");
 
         download.onclick = function() {
-        location.href = "'Admin_generate-pdf.php'"; // generate reciept & show receipt
+        location.href = "Admin_generate-pdf.php"; // generate reciept & show receipt
         }
 
         home.onclick = function() {
