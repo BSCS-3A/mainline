@@ -130,11 +130,12 @@
         <div class="Uright">
            <div class = "Urow" id = "view-container">
             </div>
+</div>
         </div>
             <div class = "scroll_Top" style="margin-bottom: 50px !important;">
     <button id = "scrollToTopBtn" >^</button>
 </div>
-</div>
+    
      <div class="modal fade" id="view" tabindex="-1" role="dialog" aria-labelledby="view" aria-hidden="true"> <!--Modal Contains 2 containers 1 container for the platforms and another for the credentials-->
         
             <div class="modal-dialog">
