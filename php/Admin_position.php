@@ -128,26 +128,43 @@ include "navAdmin.php";
                 var posname = $.trim($("#edit_Pos").val());
                 var posdes = $.trim($("#edit_Desc").val());
 
-                if (posname == "" || posdes == "") { //no input in one or more fields
-                    alert("Please dont leave any fields blank.");
-                } else {
-                    $.ajax({
-                        url:"backCandidate/addPosition.php",
-                        method:"post",
-                        data:{
+                var flag = false;
+                $.ajax({
+                  url: 'backCandidate/checkPosition.php',
+                  method: 'post',
+                  data: {check: temp, positionid: posid, checkposname: posname},
+                  success:function(response){
+                    console.log(response);
+                    if(response == "Exists"){
+                        $.ajax({
+                          url:"backCandidate/addPosition.php",
+                          method:"post",
+                          data:{
                             id:posid,
                             positionname: posname,
                             positiondes: posdes
-                        },
-                        success:function(response) {
+                          },
+                          success:function(response) {
                             if (response != "") {
                                alert(response);
                             }
-                            formClear();
+                            table.destroy();
                             reloadTable();
-                        }
-                    });
-                }
+                            formClear();
+                          }
+                        });
+                    }
+                    else if(response == "Not_exist"){
+                        alert("Position does not exist");
+                        table.destroy();
+                        reloadTable();
+                        formClear();
+                    }
+                    else{
+                        console.log(response);
+                    }
+                  }
+                });
             });
 
             //vote allow toggle 
@@ -510,7 +527,7 @@ include "navAdmin.php";
         //     }
         //     // Clear form fields
         function formClear() {
-            $("#posid").attr("posid", "");
+            $("#positionId").attr("posid", "");
             $("#add_Hid").val("");
             $("#add_Pos").val("");
             $("#add_Desc").val("");
