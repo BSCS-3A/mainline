@@ -134,7 +134,7 @@ if(!(isValidUser($conn))){
           <div><h3>You have been logged out due to inactivity.</h3></div>
     </div>
         <div class="modal-footer ">
-        <button type="submit" name="continue-btn" class="btn btn-warning" id="continue" ><span "></span><h4> Continue</h4></button>
+        <button type="submit" name="continue-btn" class="btn btn-warning" id="continue" ><span></span><h4> Continue</h4></button>
       </div>    
         </div>
     <!-- /.modal-content --> 
