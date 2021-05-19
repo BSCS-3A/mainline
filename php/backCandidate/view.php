@@ -11,6 +11,10 @@
 	        $result = mysqli_query($conn, $sql);
 	        if(mysqli_num_rows($result) > 0){
 		        while($row = mysqli_fetch_assoc($result)){
+		        	$Mname = $row['Mname'];
+	        		if($Mname!=""){
+	        			$Mname = $Mname[0];
+	        		}
 		            if(!empty($row['photo'])){	    
 		    	        echo '<div class = "column">
 			                    <div class = "card" id ="profile"> 
@@ -20,7 +24,7 @@
 			    		        <h3 class = "card_name">'.$row['lname'].', '.$row['fname'].'</h3>
 			    		        <p class = "card_partylist">'.$row['party_name'].'</p> 
 			    		        <p class = "card_position">'.$row['position_name'].'</p>
-			    		        <button credentials="'.$row['credentials'].'" platform="'.$row['platform_info'].'" id="modalbtn" class="btn btn-primary btn-xs" data-title="View" data-toggle="modal" data-target="#view" data-pacement="top" title="View"> View More</button>
+			    		        <button credentials="'.$row['credentials'].'" platform="'.$row['platform_info'].'" Mname="'.$Mname.'" grade="'.$row['grade_level'].'"id="modalbtn" class="btn btn-primary btn-xs" data-title="View" data-toggle="modal" data-target="#view" data-pacement="top" title="View"> View More</button>
 			    		    </div>
 			    	        </div>';
 		            }else{
@@ -28,12 +32,12 @@
 		                <div id="hidden_id" style="display:none;">'.$row['candidate_id'].'</div>
 			                    <div class = "card" id ="profile">
 			    		            <div class="avatar">    
-			    		                <img class="pic" src = "../img/admin.png">
+			    		                <img class="pic" src = "../img/user.png">
 			    		            </div>
 			    		        <h3 class = "card_name">'.$row['lname'].', '.$row['fname'].'</h3>
 			    		        <p class = "card_partylist">'.$row['party_name'].'</p>
 			    		        <p class = "card_position">'.$row['position_name'].'</p>
-			    		        <button credentials="'.$row['credentials'].'" platform="'.$row['platform_info'].'" id="modalbtn" class="btn btn-primary btn-xs" data-title="View" data-toggle="modal" data-target="#view" data-pacement="top" title="View"> View More</button>
+			    		        <button credentials="'.$row['credentials'].'" platform="'.$row['platform_info'].'" Mname="'.$Mname.'" grade="'.$row['grade_level'].'"id="modalbtn" class="btn btn-primary btn-xs" data-title="View" data-toggle="modal" data-target="#view" data-pacement="top" title="View"> View More</button>
 			    		    </div>
 			    	        </div>';
 		            }
@@ -45,6 +49,10 @@
 	        $result = mysqli_query($conn, $sql);
 	        if(mysqli_num_rows($result) > 0){
 		        while($row = mysqli_fetch_assoc($result)){
+		        	$Mname = $row['Mname'];
+	        		if($Mname!=""){
+	        			$Mname = $Mname[0];
+	        		}
 		            if(!empty($row['photo'])){	    
 		    	        echo '<div class = "column">
 			                    <div class = "card" id ="profile">
@@ -54,7 +62,7 @@
 			    		        <h3 class = "card_name">'.$row['lname'].', '.$row['fname'].'</h3>
 			    		        <p class = "card_partylist">'.$row['party_name'].'</p>
 			    		        <p class = "card_position">'.$row['position_name'].'</p>
-			    		        <button credentials="'.$row['credentials'].'" platform="'.$row['platform_info'].'" id="modalbtn" class="btn btn-primary btn-xs" data-title="View" data-toggle="modal" data-target="#view" data-pacement="top" title="View"> View More</button>
+			    		        <button credentials="'.$row['credentials'].'" platform="'.$row['platform_info'].'" Mname="'.$Mname.'" grade="'.$row['grade_level'].'" id="modalbtn" class="btn btn-primary btn-xs" data-title="View" data-toggle="modal" data-target="#view" data-pacement="top" title="View"> View More</button>
 			    		    </div>
 			    	        </div>';
 		            }else{
@@ -62,12 +70,12 @@
 		                <div id="hidden_id" style="display:none;">'.$row['candidate_id'].'</div>
 			                    <div class = "card" id ="profile">
 			    		            <div class="avatar">    
-			    		                <img class="pic" src = "../img/admin.png">
+			    		                <img class="pic" src = "../img/user.png">
 			    		            </div>
 			    		        <h3 class = "card_name">'.$row['lname'].', '.$row['fname'].'</h3>
 			    		        <p class = "card_partylist">'.$row['party_name'].'</p>
 			    		        <p class = "card_position">'.$row['position_name'].'</p>
-			    		        <button credentials="'.$row['credentials'].'" platform="'.$row['platform_info'].'" id="modalbtn" class="btn btn-primary btn-xs" data-title="View" data-toggle="modal" data-target="#view" data-pacement="top" title="View"> View More</button>
+			    		        <button credentials="'.$row['credentials'].'" platform="'.$row['platform_info'].'" Mname="'.$Mname.'" grade="'.$row['grade_level'].'"id="modalbtn" class="btn btn-primary btn-xs" data-title="View" data-toggle="modal" data-target="#view" data-pacement="top" title="View"> View More</button>
 			    		    </div>
 			    	        </div>';
 		            }

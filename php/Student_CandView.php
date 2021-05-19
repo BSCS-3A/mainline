@@ -54,13 +54,20 @@
                 method:'post',
                 data:{heirarchy_id:selected},
                 success:function(response){ 
-                     $("#view-container").html(response);
+                    $("#view-container").html(response);
                 }
             });
         });
         $(document).on("click","#modalbtn",function(){
             $(".credContainer").children("p").html($(this).attr("credentials"));
             $(".platContainer").children("p").html($(this).attr("platform"));
+            var name = $(this).siblings("h3").text() + " ";
+            if($(this).attr("mname")!= ""){
+              name += $(this).attr("mname") + ".";
+            }
+            $(".nameContainer").children("p").html(name);
+            $(".gradeContainer").children("p").html($(this).attr("grade"));
+            $(".positionContainer").children("p").html($(this).prev("p").text());
         });
         $("img.pic").on("error",function(){
             console.log($(this).get(0));
@@ -139,12 +146,15 @@
                     <div class="modal-body">
                       <div class = "nameContainer">
                       <h3>Name</h3>
+                      <p>Lorem ipsum</p>
                       </div>
                             <div class = "gradeContainer">
-                            <h3>Grade</h3>
+                            <h3>Grade Level</h3>
+                            <p>Lorem ipsum</p>
                             </div>
                                   <div class = "positionContainer">
                                   <h3>Position</h3>
+                                  <p>Lorem ipsum</p>
                                   </div>
                     <div class="credContainer">
                         <h3>Credentials</h3>
@@ -167,23 +177,20 @@
             </footer> -->
 
     <script>
-        $('.icon').click(function () {
+        /*$('.icon').click(function () {
             $('span').toggleClass("cancel");
-            
-    </script>
-    <script>
-var scrollToTopBtn = document.querySelector(".scrollToTopBtn")
-var rootElement = document.documentElement
+var scrollToTopBtn = document.querySelector(".scrollToTopBtn");
+var rootElement = document.documentElement;
 
 function handleScroll() {
   // Do something on scroll
-  var scrollTotal = rootElement.scrollHeight - rootElement.clientHeight
+  var scrollTotal = rootElement.scrollHeight - rootElement.clientHeight;
   if ((rootElement.scrollTop / scrollTotal ) > 0.50) {
     // Show button
-    scrollToTopBtn.classList.add("showBtn")
+    scrollToTopBtn.classList.add("showBtn");
   } else {
     // Hide button
-    scrollToTopBtn.classList.remove("showBtn")
+    scrollToTopBtn.classList.remove("showBtn");
   }
 }
 
@@ -191,10 +198,10 @@ function scrollToTop() {
   rootElement.scrollTo({
     top: 0,
     behavior: "smooth"
-  })
+  });
 }
-scrollToTopBtn.addEventListener("click", scrollToTop)
-document.addEventListener("scroll", handleScroll)
+scrollToTopBtn.addEventListener("click", scrollToTop);
+document.addEventListener("scroll", handleScroll);*/
     </script>
 </body>
 
