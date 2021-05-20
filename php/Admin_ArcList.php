@@ -18,7 +18,6 @@ include("db_conn.php");
     <link rel="stylesheet" type="text/css" href="../css/admin_css/style_monitor.css">
     <link rel="stylesheet" href="../css/admin_css/bootstrap4.5.2_monitor.css">
     <link rel="stylesheet" href="../css/admin_css/dataTables.bootstrap4.min_monitor.css">
-    <link rel="stylesheet" href="../css/admin_css/font-awesome.css">
     <link rel="stylesheet" href="../css/admin_css/jquery.dataTables.min_monitor.css">
     <!-- <script src="assets/js/a076d05399.js"></script> -->
     <script src="../js/dataTables.bootstrap4.min_monitor.js"></script>

@@ -43,7 +43,6 @@ include "navAdmin.php";
     <link rel="icon" href="../img/BUHS LOGO.png" type="image/png">
     <link rel="stylesheet" type="text/css" href="../css/admin_css/admin_Pos.css">
     <link rel="stylesheet" href="../css/admin_css/bootstrap_Pos.css">
-    <link rel="stylesheet" href="../css/admin_css/font-awesome_Pos.css">
 
     <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
@@ -53,15 +52,6 @@ include "navAdmin.php";
     <!-- <script src="../js/jQuery.dataTables.min_Pos.js"></script> -->
     <script src="../js/bootstrap.min_Pos.js"></script>
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
-    <script type="text/javascript">
-        (function() {
-            var css = document.createElement('link');
-            css.href = 'https://use.fontawesome.com/releases/v5.1.0/css/all.css';
-            css.rel = 'stylesheet';
-            css.type = 'text/css';
-            document.getElementsByTagName('head')[0].appendChild(css);
-        })();
-    </script>
 
     <title>BUCEILS Voting System</title>
     <script>

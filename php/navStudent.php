@@ -59,16 +59,18 @@ if(!(isValidUser($conn))){
     <link rel="icon" href="../img/BUHS LOGO.png" type="image/png">
     <link rel="stylesheet" type="text/css" href="../css/student_css/style_studNav.css">
     <!-- <link rel="stylesheet" href="../css/admin_css/bootstrap4.5.2_AdminDash.css"> -->
-    <!-- <link rel="stylesheet" href="../css/admin_css/font-awesome_AdminDash.css"> -->
-    
-    <!-- <link rel="stylesheet" type="text/css" href="../css/admin_css/style1_addAdmin.css"> -->
-    <!-- <link rel="stylesheet" href="../css/admin_css/bootstrap_addAdmin.css"> -->
     <link rel="stylesheet" href="../css/student_css/bootstrap_studNav.css">
-    <!-- <link rel="stylesheet" href="../css/admin_css/dataTables.bootstrap_addAdmin.css"> -->
-    <!-- <link rel="stylesheet" href="../css/admin_css/font-awesome_addAdmin.css">  -->
     <link rel="stylesheet" type="text/css" href="../css/student_css/modal_error_messages.css">
-    <!-- for disabling inspect element -->
-    <!-- <script src="../js/scripts_vote.js"></script> -->
+    
+    <script type="text/javascript">
+        (function() {
+            var css = document.createElement('link');
+            css.href = 'https://use.fontawesome.com/releases/v5.13.0/css/all.css';
+            css.rel = 'stylesheet';
+            css.type = 'text/css';
+            document.getElementsByTagName('head')[0].appendChild(css);
+        })();
+    </script>
 </head>
 
 <body>
