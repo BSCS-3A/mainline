@@ -12,31 +12,68 @@
     background-attachment: fixed;
     width: auto;
     min-height: 100%;
+    margin-bottom: 5%;
   }
   
+.aboutheader {
+    position: relative;
+    z-index: -2;
+    padding: 0.4% 0.4% 0.8% 0.4%;
+    font-size: 1%;
+    background: #124254;
+    font-weight: 400;
+    color: #ffc423;
+    width: 100%;
+    text-align: center;
+    font-family: 'Roboto-regular', sans-serif;
+    letter-spacing: 6px;
+    text-transform: uppercase;
+}
+
+.text-contain{
+    /* background-color: black; */
+    width: 90%;
+    height: 50%;
+    margin: 1% auto 1% auto;
+    padding: 2%;
+}
+
+.about-title{
+    color: white;
+    font-family: 'genericaregular', sans-serif;
+    font-weight: 600;
+    font-size: 250%;
+    letter-spacing: 7px;
+    margin-bottom: 1%;
+}
+
+.text-des{
+    color: #d4eaf1;
+    background-color: rgba(18, 66, 84, 0.8);
+    padding: 30px;
+    font-size: 130%;
+    /* text-align: justify; */
+    letter-spacing: 1px;
+}
+
+.userMan:link, :visited{
+    background-color: #fece4b;
+    margin: 0% auto 0% auto;
+    color: #124254;
+    text-align: center;
+    padding: 2%;
+}
+
+.userMan:hover{
+    background-color: #ffc423;
+    color: #08232d;
+    text-decoration: none;
+}
+
+
   
-  
-  /* Responsive layout - makes the menu and the content (inside the section) sit on top of each other instead of next to each other */
-  
-  /* Smartphones (portrait and landscape) ----------- */
-  @media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
-  }
-    
-  /*smartphones*/
-  @media only screen and (device-width: 320px) and (device-height: 640px) and (orientation: portrait) and (-webkit-device-pixel-ratio: 2) { 
-  }
-  
-  @media (max-width: 640px) { /*for larger phones like iphone 6-8*/
-  } 
-  
-  @media only screen and (device-width: 768px) and (orientation: portrait) and (-webkit-min-device-pixel-ratio: 1) { /*ipad portrait*/
-  } 
-  
-  @media only screen and (device-width: 1024px) and (device-height: 768px) and (orientation:landscape) {  /*ipad landscape*/
-  }
-  
-  @media only screen and (device-width: 768px) and (device-width: 1024px)  and (orientation: portrait) and (-webkit-min-device-pixel-ratio: 1) { /*ipad pro potrait*/
-    
-  }
-  
- 
+ @media screen and (max-device-width: 600px){
+     body{
+         margin-bottom: 20%;
+     }
+ }

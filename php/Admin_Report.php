@@ -1,7 +1,7 @@
 <!--ELECTION RESULTS REPORT (ADMIN)-->
 <!-- This file enables winners to be inserted to archive -->
 <?php
-// session_start();
+session_start();
 include("db_conn.php");
   // if (isset($_SESSION['admin_id']) && isset($_SESSION['username'])) {
 ?>
