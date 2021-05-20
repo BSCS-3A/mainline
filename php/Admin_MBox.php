@@ -13,12 +13,13 @@ include("db_conn.php");
     <!-- <link rel="icon" href="assets/img/buceils-logo.png"> -->
     <link rel="icon" href="../img/BUHS LOGO.png" type="image/png">
     <link rel="stylesheet" type="text/css" href="../css/admin_css/style_msgBox.css">
+    <link rel="stylesheet" href="../css/admin_css/font-awesome.min.css">
     <link rel="stylesheet" href="../css/admin_css/bootstrap4.3.1.min_msgbox.css">
     <script src="../js/jquery-3.3.1.slim.min_msgbox.js"></script>
     <script src="../js/bootstrap.bundle.min_msgbox.js"></script>   
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
     <script type="text/javascript" src="../js/admin_session_timer.js"></script>
-    <!-- <script type="text/javascript"> (function() { var css = document.createElement('link'); css.href = 'https://use.fontawesome.com/releases/v5.1.0/css/all.css'; css.rel = 'stylesheet'; css.type = 'text/css'; document.getElementsByTagName('head')[0].appendChild(css); })(); </script> -->
+    <script type="text/javascript"> (function() { var css = document.createElement('link'); css.href = 'https://use.fontawesome.com/releases/v5.1.0/css/all.css'; css.rel = 'stylesheet'; css.type = 'text/css'; document.getElementsByTagName('head')[0].appendChild(css); })(); </script>
     <title> Message Box  | BUCEILS HS Online Voting System</title>
 </head>
 <body>

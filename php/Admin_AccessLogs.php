@@ -14,7 +14,7 @@ include("db_conn.php");
     <link rel="stylesheet" type="text/css" href="../css/admin_css/style_AdminDash.css">
     <link rel="stylesheet" href="../css/admin_css/bootstrap4.5.2_AdminDash.css">
     <link rel="stylesheet" href="../css/admin_css/dataTables.bootstrap4.min_AdminDash.css">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css" crossorigin="anonymous">
+    <link rel="stylesheet" href="../css/admin_css/font-awesome.css">
     <link rel="stylesheet" href="../css/admin_css/jquery.dataTables.min_AdminDash.css">
     <!-- <script src="../js/a076d05399.js"></script> -->
     <script src="../js/jquery-3.5.1_adminDash.js"></script>
