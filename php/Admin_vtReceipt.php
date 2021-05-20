@@ -51,25 +51,26 @@
         $sched = $sched_row->fetch_assoc();
 
         
-        if(empty($sched)){
-          errorMessage("No election has been scheduled");
-        }
-        else{
+        // if(empty($sched)){
+        //   errorMessage("No election has been scheduled");
+        // }
+        // else{
           $start_time = strtotime($sched['start_date']);
           $end_time = strtotime($sched['end_date']);
           $access_time = time();
 
-          if($access_time < $end_time){
-              errorMessage("Election is in Progress");
-          }
-          else if($access_time < $start_time){
-              errorMessage("Election has not yet started");
-          }
-          else if($access_time >= $start_time && $access_time >= $end_time){
+          // if($access_time < $end_time){
+          //     errorMessage("Election is in Progress");
+          // }
+          // else if($access_time < $start_time){
+          //     errorMessage("Election has not yet started");
+          // }
+          // else 
+            if($access_time >= $start_time && $access_time >= $end_time){
             require "Admin_vtSubmit.php";
-            receiptMsg("Your vote were submitted successfully!");
+            // receiptMsg("Your vote were submitted successfully!");
           }
-        } 
+        // } 
       //}
      // else{ // Already Voted
        // receiptMsg("You have already voted. Here is a copy of your vote receipt.");
