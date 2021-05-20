@@ -33,7 +33,7 @@
 .text-contain{
     /* background-color: black; */
     width: 90%;
-    height: 50%;
+    height: auto;
     margin: 1% auto 1% auto;
     padding: 2%;
 }
@@ -79,12 +79,69 @@ a.a-userMan:hover{
     background-color: #ffc423;
 }
 
+.devContain{
+    margin: 1% auto 5% auto;
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    grid-column-gap: 1%;
+    grid-row-gap: 1%;
+}
 
+.devCard1{
+    background-color: #d4eaf1;
+    color: #124254;
+    margin: 3% auto 1% auto;
+    padding: 4%;
+    font-weight: bold;
+    font-size: 120%;
+    text-align: center;
+    letter-spacing: 2px;
+}
+
+p.devName1{
+    margin-top: 2%;
+    font-size: 90%;
+    text-align: center;
+    font-weight: normal;
+    letter-spacing: 1px;
+}
+
+p.devStand1{
+    margin-top: -1%;
+    font-size: 50%;
+    text-align: center;
+    font-weight: normal;
+}
+
+.devCard{
+    background-color: #d4eaf1;
+    color: #124254;
+    padding: 4%;
+    font-weight: bold;
+    font-size: 120%;
+    text-align: center;
+    letter-spacing: 2px;
+}
+
+p.devName{
+    margin-top: 2%;
+    font-size: 90%;
+    text-align: center;
+    font-weight: normal;
+    letter-spacing: 1px;
+}
+
+p.devStand{
+    margin-top: -2%;
+    font-size: 50%;
+    text-align: center;
+    font-weight: normal;
+}
 
   
  @media screen and (max-device-width: 600px){
      body{
-         margin-bottom: 20%;
+         margin-bottom: 30%;
      }
 
      .userMan{
@@ -95,10 +152,103 @@ a.a-userMan:hover{
      .about-title{
          font-size: 6vw;
      }
+
+     .devContain{
+         margin: 1% auto 120% auto;
+     }
+
+     .devCard{
+        background-color: #d4eaf1;
+        color: #124254;
+        padding: 4%;
+        font-weight: bold;
+        font-size: 75%;
+        text-align: center;
+        letter-spacing: 2px;
+    }
+
+    .devCard1{
+        background-color: #d4eaf1;
+        color: #124254;
+        margin: 3% auto 1% auto;
+        padding: 4%;
+        font-weight: bold;
+        font-size: 75%;
+        text-align: center;
+        letter-spacing: 2px;
+    }
  }
 
- @media screen and (max-device-width: 360px){
+ @media screen and (max-device-width: 400px){
     .userMan{
         font-size: 6vw;
     }
+     
+    .devCard{
+        background-color: #d4eaf1;
+        color: #124254;
+        padding: 4%;
+        font-weight: bold;
+        font-size: 50%;
+        text-align: center;
+        letter-spacing: 2px;
+    }
+    
+    p.devName{
+        margin-top: 2%;
+        font-size: 90%;
+        text-align: center;
+        font-weight: normal;
+        letter-spacing: 1px;
+    }
+    
+    p.devStand{
+        margin-top: -2%;
+        font-size: 50%;
+        text-align: center;
+        font-weight: normal;
+        letter-spacing: 1px;
+    }
+
+    .devCard1{
+        background-color: #d4eaf1;
+        color: #124254;
+        margin: 3% auto 1% auto;
+        padding: 4%;
+        font-weight: bold;
+        font-size: 50%;
+        text-align: center;
+        letter-spacing: 3px;
+    }
+    
+    p.devName1{
+        margin-top: 2%;
+        font-size: 90%;
+        text-align: center;
+        font-weight: normal;
+        letter-spacing: 1px;
+    }
+    
+    p.devStand1{
+        margin-top: -2%;
+        font-size: 50%;
+        text-align: center;
+        font-weight: normal;
+        letter-spacing: 1px;
+    }
+}
+
+@media screen and (max-device-width: 950px){
+    .devContain{
+        margin: 1% auto 10% auto;
+        display: grid;
+        grid-template-columns: repeat(1, auto);
+        grid-column-gap: 1%;
+        grid-row-gap: 0.5%;
+    }
+
+    .devCard1{
+        margin: 3% auto 2% auto;
+    }
+    
 }

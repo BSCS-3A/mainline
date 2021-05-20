@@ -5,7 +5,7 @@
 ?>
 
 <!DOCTYPE html>
-    <html lang="en">
+<html lang="en">
 
     <head>
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -53,11 +53,41 @@
                 THE DEVELOPERS
             </div>
             <div class="text-des" id="text-des">
-            The BUCEILS HS OVS is a system developed by third year block A students taking the program Bachelor of Science in Computer Science at Bicol University College of Science during the academic year 2020 - 2021. The project is an academic requirement for CS 117 and CS 118 (Software Engineering 1 & 2).
-            </div>
+            The BUCEILS HS OVS is a system developed by third year block A students taking the program Bachelor of Science in Computer Science at Bicol University College of Science during the academic year 2020 - 2021. The project is an academic requirement for CS 117 and CS 118 (Software Engineering 1 & 2) under the supervision of Prof. Lany L. Maceda and Prof. Christian Y. Sy.
+
+            <?php
+                // read developers from txt file to display on page
+                $inputFile = fopen("../other/developers.txt","r") or die("Unable to open file");
+                while(!feof($inputFile)){
+                    // for proj leaders
+                    echo "<div class='devCard1'>";
+                    echo fgets($inputFile);
+                    $firstString = fgets($inputFile);
+                        while((strlen($firstString)) > 3){      // 0 string is 3 in length, i dunno why
+                            echo "<p class='devName1'>". $firstString ."</p>";
+                            echo "<p class='devStand1'>". fgets($inputFile) ."</p>";
+                            $firstString = fgets($inputFile);
+                        }
+                    echo "</div>";
+
+                    // for every team
+                    echo "<div class='devContain'>";
+                    for($count = 0; $count < 6; $count++){
+                        echo "<div class='devCard'>";
+                        echo fgets($inputFile);
+                        $firstString = fgets($inputFile);
+                            while((strlen($firstString)) > 3){      // 0 string is 3 in length, i dunno why
+                                echo "<p class='devName'>". $firstString ."</p>";
+                                echo "<p class='devStand'>". fgets($inputFile) ."</p>";
+                                $firstString = fgets($inputFile);
+                            }
+                        echo "</div>";
+                    }
+                    echo "</div>";
+                }
+            ?>
+
+            </div>    
         </div>
-
-
     </body>
-
-    </html>
+</html>
