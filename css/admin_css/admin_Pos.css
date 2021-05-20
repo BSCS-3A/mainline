@@ -245,7 +245,7 @@ body{
     border: 2px solid #124254;
     width: 95%;
     height: auto;
-    /* opacity: 80%; */
+    /**opacity: 80%;**/
     font-size: .8rem;
   }
 
@@ -288,7 +288,6 @@ body{
     max-height: 150px;
     overflow: hidden;
     font-size: .8rem;
-    background-color: #ddd;
   }
 
   #ADheader {
@@ -390,7 +389,7 @@ body{
     padding: 0;
     background: #5cb85c!important;
     border-color: #5cb85c!important;
-    box-shadow: none;
+    box-shadow: 1px 1px 5px #888888;
   }
 
   .btn-danger {
@@ -399,19 +398,9 @@ body{
     padding: 0;
     background: #d9534f!important;
     border-color: #d9534f!important;
-    box-shadow: none;
+     box-shadow: 1px 1px 5px #888888;
   }
 
-  .btn-button1 {
-    color: #eeeeee;
-    padding: 0;
-    background: #124254;
-    border-color: #124254;
-    box-shadow: none;
-    padding: 10px 20px;
-    margin: 25px 5px 15px 0px!important;
-    float: center;
-  }
 
   #save {
     color: #fff;
@@ -455,6 +444,7 @@ body{
     table-layout: auto;
     margin: 0px;
     text-align: center;
+    background-color: rgba(255, 255, 255, 0.6);
   }
 
   table.center {
@@ -908,6 +898,7 @@ body{
     padding: 10px 20px;
     margin: 25px 0px 15px 0px!important;
     text-transform: uppercase;
+    box-shadow: 1px 1px 5px #888888;
   }
 
   .panel-primary {
@@ -950,9 +941,7 @@ body{
     background-color: gray;
   }
 
-  tr:nth-child(even) {
-    background-color: #dddddd !important;
-  }
+
 
   textarea {
     resize: none;
@@ -989,18 +978,6 @@ body{
 
   table.dataTable thead .sorting {
     background-image: none !important;
-  }
-
-  table.dataTable tbody .odd {
-    background-color: #dddddd !important;
-  }
-
-  table.dataTable tbody .even {
-    background-color: #dddddd !important;
-  }
-
-  .dataTables_wrapper .dataTables_paginate .paginate_button {
-    color: white !important;
   }
 
   .switch {
@@ -1072,7 +1049,7 @@ body{
   }
 
   a.paginate_button:hover {
-    background-color: #124254 !important;
+
     color: #ddd;
   }
 
@@ -1129,6 +1106,7 @@ label.button{
   font-weight: bold;
   color: white;
   font-family: 'Roboto-regular',sans-serif;
+   box-shadow: 1px 1px 5px #888888;
 }
 
 .hide{
@@ -1280,4 +1258,32 @@ margin-left: 3px;
 
 #allow_slide:hover .tooltiptext {
   visibility: visible;
+}
+
+#datatable tbody tr:hover{
+background-color:#D3D3D3
+}
+
+#datatable tbody tr{
+background-color: rgb(236, 239, 240);
+}
+
+.dataTables_paginate{
+  margin-top: 25px;
+    background-color: #EEEEEE !important;
+    border-color: #ddd;
+    padding-top: 0 !important;
+}
+
+.paginate_button.disabled{
+    color: #777777;
+    cursor: not-allowed !important;
+    border-color: #ddd;
+}
+
+.dataTables_wrapper .dataTables_paginate .paginate_button.current{
+  background-color: #124254 !important;
+  color: white !important;
+  background: #124254 !important;
+  border: none !important;
 }
