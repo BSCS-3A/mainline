@@ -56,7 +56,7 @@
     <script src="../js/jQuery.dataTables.min_Pos.js"></script>
     <!-- <script src="../js/jquery.dataTables.min_studAcc.js"></script> -->
     <script src="../js/bootstrap.min_Pos.js"></script> 
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css" crossorigin="anonymous">
+    <!-- <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css" crossorigin="anonymous"> -->
     <link href="https://unpkg.com/cropperjs/dist/cropper.css" rel="stylesheet"/>
     <link type="text/javascript" href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.11/cropper.min.js">
     <script src="../js/cropper.js"></script>

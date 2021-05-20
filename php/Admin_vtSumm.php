@@ -14,7 +14,6 @@
     <link rel="stylesheet" type="text/css" href="../css/admin_css/style_studAcc.css">
     <link rel="stylesheet" href="../css/admin_css/bootstrap_studAcc.css">
     <link rel="stylesheet" href="../css/admin_css/dataTables.bootstrap_studAcc.css">
-    <link rel="stylesheet" href="../css/admin_css/font-awesome.css">
     <script src="../js/jquery-1.11.1.min_studAcc.js"></script>
     <script src="../js/jquery.dataTables.min_studAcc.js"></script>
     <script src="../js/dataTables.bootstrap_studAcc.js"></script>
