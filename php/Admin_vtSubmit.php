@@ -56,13 +56,12 @@
 	foreach($choice_final as $value){
 		$candidate = $conn->real_escape_string($value);
 		$conn->query("UPDATE candidate SET total_votes = total_votes + 1 WHERE candidate.candidate_id = $candidate");
+		// return to election page
+		receiptMsg("Finalized");
+		echo "<script>setTimeout(\"location.href = 'http://localhost/voting-main/php/Admin_Report.php';\",1500);</script>";
 
-// 		minus($sub);
-// 		winString($sub, $candidate);
-
-// 		$tiedStatus--;
-// 		$winnerList = $winnerList." || candidate_id = ".$candidate."";	
-
+		// header('location: http://localhost/voting-main/php/Admin_Report.php?notify=tiefinalized');
+        die;
 	}
 
 	// Submission
