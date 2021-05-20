@@ -56,19 +56,29 @@
     letter-spacing: 1px;
 }
 
-.userMan:link, :visited{
+.userMan{
     background-color: #fece4b;
-    margin: 0% auto 0% auto;
+    margin: 2% auto 2% auto;
     color: #124254;
     text-align: center;
     padding: 2%;
+    max-width: 1200px;
+    max-height: 200px;
+}
+
+a.a-userMan:link, a.a-userMan:visited{
+    color: #124254;
+    text-decoration: none;
+}
+
+a.a-userMan:hover{
+    color: #0c323f;
 }
 
 .userMan:hover{
     background-color: #ffc423;
-    color: #08232d;
-    text-decoration: none;
 }
+
 
 
   
@@ -76,4 +86,19 @@
      body{
          margin-bottom: 20%;
      }
+
+     .userMan{
+         padding: 5%;
+         margin: 10% auto 10% auto;
+     }
+
+     .about-title{
+         font-size: 6vw;
+     }
  }
+
+ @media screen and (max-device-width: 360px){
+    .userMan{
+        font-size: 6vw;
+    }
+}
