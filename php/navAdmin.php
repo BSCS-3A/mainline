@@ -123,7 +123,7 @@ if (time() - $_SESSION['timestamp'] > $idletime) {
                 </ul>
             </li>
             <li><a href="Admin_MBox.php">MESSAGES</a></li>
-            <li><a href="#">ABOUT US</a></li>
+            <li><a href="Admin_about.php">ABOUT US</a></li>
             <li>
                 <label for="btn-7" class="Ashow"><?php echo $_SESSION['admin_fname'] . " " . $_SESSION['admin_lname']; ?></label>
                 <a class="user" href="#"><img class="user-profile" src="<?php

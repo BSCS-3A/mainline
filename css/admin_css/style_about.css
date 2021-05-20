@@ -1,0 +1,42 @@
+/* * {
+    margin: 0;
+    padding: 0;
+    user-select: none;
+    box-sizing: border-box;
+    list-style: none;
+  } */
+  
+  body {
+    background-image: url('../../img/adminBG.png');
+    background-size: cover;
+    background-attachment: fixed;
+    width: auto;
+    min-height: 100%;
+  }
+  
+  
+  
+  /* Responsive layout - makes the menu and the content (inside the section) sit on top of each other instead of next to each other */
+  
+  /* Smartphones (portrait and landscape) ----------- */
+  @media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
+  }
+    
+  /*smartphones*/
+  @media only screen and (device-width: 320px) and (device-height: 640px) and (orientation: portrait) and (-webkit-device-pixel-ratio: 2) { 
+  }
+  
+  @media (max-width: 640px) { /*for larger phones like iphone 6-8*/
+  } 
+  
+  @media only screen and (device-width: 768px) and (orientation: portrait) and (-webkit-min-device-pixel-ratio: 1) { /*ipad portrait*/
+  } 
+  
+  @media only screen and (device-width: 1024px) and (device-height: 768px) and (orientation:landscape) {  /*ipad landscape*/
+  }
+  
+  @media only screen and (device-width: 768px) and (device-width: 1024px)  and (orientation: portrait) and (-webkit-min-device-pixel-ratio: 1) { /*ipad pro potrait*/
+    
+  }
+  
+ 
