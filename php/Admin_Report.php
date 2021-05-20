@@ -1,9 +1,9 @@
 <!--ELECTION RESULTS REPORT (ADMIN)-->
 <!-- This file enables winners to be inserted to archive -->
 <?php
-// session_start();
+session_start();
 include("db_conn.php");
-  // if (isset($_SESSION['admin_id']) && isset($_SESSION['username'])) {
+  if (isset($_SESSION['admin_id']) && isset($_SESSION['username'])) {
 ?>
 <!DOCTYPE html>
 <html>
@@ -221,9 +221,9 @@ include("db_conn.php");
         </script>
     </body>
 </html>
-<!-- <?php
-// }else{
-    // header("Location: AdminLogin.php");
-    //  exit();
-// }
- ?> -->
+<?php
+}else{
+    header("Location: AdminLogin.php");
+     exit();
+}
+ ?>
