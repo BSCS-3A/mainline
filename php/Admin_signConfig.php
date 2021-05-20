@@ -14,6 +14,7 @@ if (isset($_SESSION['admin_id']) && isset($_SESSION['username'])) {
     <link rel="stylesheet" type="text/css" href="../css/admin_css/style1_addAdmin.css">
     <link rel="stylesheet" href="../css/admin_css/bootstrap_addAdmin.css">
     <link rel="stylesheet" href="../css/admin_css/dataTables.bootstrap_addAdmin.css">
+    <link rel="stylesheet" href="../css/admin_css/font-awesome.css">
     <link rel="stylesheet" href="../css/admin_css/autocomplete_signatory.css">
     <script src="../js/jquery-1.11.1.min_addAdmin.js"></script>
     <script src="../js/jquery.dataTables.min_addAdmin.js"></script>

@@ -22,6 +22,7 @@ $DTrow =  $DnT->fetch_row();
     <link rel="stylesheet" type="text/css" href="../css/admin_css/style_studAcc.css">
     <link rel="stylesheet" href="../css/admin_css/bootstrap_studAcc.css">
     <link rel="stylesheet" href="../css/admin_css/dataTables.bootstrap_studAcc.css">
+    <link rel="stylesheet" href="../css/admin_css/font-awesome_studAcc.css">
 
     <script src="../js/jquery-1.11.1.min_studAcc.js"></script>
     <script src="../js/jquery.dataTables.min_studAcc.js"></script>
@@ -30,14 +31,14 @@ $DTrow =  $DnT->fetch_row();
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
     <script type="text/javascript" src="../js/admin_session_timer.js"></script>
     <script type="text/javascript">
-    // (function() {
-    //     var css = document.createElement('link');
-    //     css.href = 'https://use.fontawesome.com/releases/v5.1.0/css/all.css';
-    //     css.rel = 'stylesheet';
-    //     css.type = 'text/css';
-    //     document.getElementsByTagName('head')[0].appendChild(css);
-    // })();
-    // </script>
+    (function() {
+        var css = document.createElement('link');
+        css.href = 'https://use.fontawesome.com/releases/v5.1.0/css/all.css';
+        css.rel = 'stylesheet';
+        css.type = 'text/css';
+        document.getElementsByTagName('head')[0].appendChild(css);
+    })();
+    </script>
     <title> Student Account Management | BUCEILS HS Online Voting System</title>
 </head>
 
