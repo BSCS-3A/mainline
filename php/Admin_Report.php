@@ -150,20 +150,33 @@ include("db_conn.php");
 
           if ($tie_position_counter == 0)
           {
+    // START
+
+      if(isset($_POST['save_btn'])) {
+        Archive($conn);
+      }
+      if(isset($_POST['dl_btn'])) {
+        // do nothing
+      }
+      
+    //END
 ?>
-            <br><br><br><br>
 
-            <!-- check if archive has been clicked once -->
-            <div class="Bbtn_save">
-              <button name='save_btn' onclick="parent.open('Admin_generate-pdf.php')" class='Bbtn_save2arc'"><b>SAVE TO ARCHIVES</b></button>
-            </div>
+    <form method="post">
+      <br><br><br><br>
 
-            <br>
+      <!-- check if archive has been clicked once -->
+      <div class="Bbtn_save">
+        <button name='save_btn' class='Bbtn_save2arc'"><b>SAVE TO ARCHIVES</b></button>
+      </div>
 
-            <!-- cannot be clicked if archive has not been clicked yet -->
-            <div class="Bbtn_dl">
-              <button name='dl_btn' onclick="parent.open('Admin_generate-pdf.php')" class='Bbtn_dlreport'"><b>DOWNLOAD PDF</b></button>
-            </div>
+      <br>
+          
+      <!-- cannot be clicked if archive has not been clicked yet -->
+      <div class="Bbtn_dl">
+        <button name='dl_btn' onclick="parent.open('Admin_generate-pdf.php')" class='Bbtn_dlreport'"><b>DOWNLOAD PDF</b></button>
+      </div>
+    </form>
 
 <?php
           }
