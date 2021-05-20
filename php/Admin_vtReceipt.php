@@ -1,19 +1,27 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <meta charset="utf-8">
-    <link rel="icon" href="../img/BUHS LOGO.png" type="image/png">
-    <link rel="stylesheet" href="../css/student_css/bootstrap_vote.css">
-    <link rel="stylesheet" href="../css/student_css/font-awesome_vote.css">
-    <link rel="stylesheet" type="text/css" href="../css/student_css/vote_message.css">
-    <!-- <link rel="stylesheet" href="../css/bootstrap.css">
-    <link rel="stylesheet" href="../css/font-awesome.css">
-    <link rel="stylesheet" type="text/css" href="../css/vote-message.css"> -->
-    <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
-    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
-    <title>Download PDF Report</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta charset="utf-8">
+  <link rel="icon" href="../img/BUHS LOGO.png" type="image/png">
+  <link rel="stylesheet" type="text/css" href="../css/admin_css/style_monitor.css">
+  <link rel="stylesheet" href="../css/admin_css/bootstrap4.5.2_monitor.css">
+  <link rel="stylesheet" href="../css/admin_css/dataTables.bootstrap4.min_monitor.css">
+  <link rel="stylesheet" href="../css/admin_css/font-awesome.css">
+  <link rel="stylesheet" href="../css/admin_css/jquery.dataTables.min_monitor.css">
+  <script src="../js/dataTables.bootstrap4.min_monitor.js"></script>
+  <script src="../js/jquery-3.5.1_monitor.js"></script>
+  <script src="../js/jquery.dataTables.min_monitor.js"></script>
+  <script type="text/javascript" src="../js/admin_session_timer.js"></script>
+  <script src="https://cdn.datatables.net/fixedheader/3.1.8/js/dataTables.fixedHeader.min.js"></script>
+
+  <link rel="stylesheet" href="../css/student_css/bootstrap_vote.css">
+  <link rel="stylesheet" href="../css/student_css/font-awesome_vote.css">
+  <link rel="stylesheet" type="text/css" href="../css/student_css/vote_message.css">
+  <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+  <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+  <title>Download PDF Report</title>
 </head>
 
 <body>
@@ -27,17 +35,15 @@
 
     function receiptMsg($message){
       include 'navAdmin.php';
-      echo '<header id="F-header"  style="text-align: center;"><b>ELECTION REPORT</b></header><br>';
-        echo '<main>';
-        echo '<div id="download-receipt-page" class="F-download-receipt-container">';
-        echo '<div class="F-receipt-message">';
-        echo "<h3>".$message."</h3>";
-        echo '</div></div>';
-        echo '<div id="receipt-page-buttons" class="F-receipt-page-buttons">
-        <button type="button" class="F-downloadReceiptBTN" id="F-downloadReceiptBTN">Download PDF</button>
-        <button type="button" class="F-goToHomeBTN" id="F-goToHomeBTN">Go to Home</button>
-      </div>
-    </main>';
+      echo '<div class="ADheader" id="ADheader">';
+      echo '<h2 class="aHeader-txt">ELECTION REPORT</h2>';
+      echo '</div>';
+      echo '<br><br><br>';
+      echo '<main>';
+      echo '<div id="download-receipt-page" class="F-download-receipt-container">';
+      echo '<div class="F-receipt-message">';
+      echo "<h3>".$message."</h3>";
+      echo '</main>';
     }
    // if(isValidUser($conn)){
       //if(!isVoted($conn)){
@@ -77,21 +83,5 @@
       exit();
     }*/
   ?>
-          <!-- <embed src="PDF/generatepdf.php" width="600px" height="800px" /> -->
-  <script>
-        // Get Download Receipt button
-        var download = document.getElementById("F-downloadReceiptBTN");
-    
-        // Get Home button
-        var home = document.getElementById("F-goToHomeBTN");
-
-        download.onclick = function() {
-        location.href = "Admin_generate-pdf.php"; // generate reciept & show receipt
-        }
-
-        home.onclick = function() {
-          location.href = "#";
-        }
-  </script>
 </body>
 </html>
