@@ -1,9 +1,9 @@
 <!--ELECTION RESULTS REPORT (ADMIN)-->
 <!-- This file enables winners to be inserted to archive -->
 <?php
-session_start();
+// session_start();
 include("db_conn.php");
-  if (isset($_SESSION['admin_id']) && isset($_SESSION['username'])) {
+  // if (isset($_SESSION['admin_id']) && isset($_SESSION['username'])) {
 ?>
 <!DOCTYPE html>
 <html>
@@ -47,13 +47,20 @@ include("db_conn.php");
     </div>
 
     <?php
-      if(!empty($sched))
+      $sched_row = $conn->query("SELECT * FROM `vote_event` ORDER BY `vote_event_id` DESC LIMIT 1");
+      $sched = $sched_row->fetch_assoc();
+
+      if(empty($sched))
       {
         include '../html/admin_no_election_scheduled.html';
       }
       else
       {
-        if($current_date_time>$last_election_date)
+        $start_time = strtotime($sched['start_date']);
+        $end_time = strtotime($sched['end_date']);
+        $access_time = time();
+
+        if($access_time > $end_time)
         {
           $tie_position_counter = 0;
 
@@ -151,13 +158,22 @@ include("db_conn.php");
           if ($tie_position_counter == 0)
           {
     // START
-
       if(isset($_POST['save_btn'])) {
-        Archive($conn);
+        static $is_called = false;
+
+        if ($is_called)
+        {
+          Archive($conn);
+          $is_called = true;
+        }
+        else
+        {
+          echo 'Results already archived.';
+        }
       }
-      if(isset($_POST['dl_btn'])) {
-        // do nothing
-      }
+      // if(isset($_POST['dl_btn'])) {
+      //   // do nothing
+      // }
       
     //END
 ?>
@@ -170,8 +186,6 @@ include("db_conn.php");
         <button name='save_btn' class='Bbtn_save2arc'"><b>SAVE TO ARCHIVES</b></button>
       </div>
 
-      <br>
-          
       <!-- cannot be clicked if archive has not been clicked yet -->
       <div class="Bbtn_dl">
         <button name='dl_btn' onclick="parent.open('Admin_generate-pdf.php')" class='Bbtn_dlreport'"><b>DOWNLOAD PDF</b></button>
@@ -191,11 +205,9 @@ include("db_conn.php");
               generateBallot($table);
               require 'Admin_vtConfirm.php';
               echo '</div>';
-              echo '<div id="vote-button"><button id="vote-btn" name = "vote-button" class="vote-btn" type = "button">SUBMIT</button></div>
-                            </form>';
+              echo '<div id="vote-button"><button id="vote-btn" name = "vote-button" class="vote-btn" type = "button">SUBMIT</button></div></form>';
               echo '</main>';
-              echo '<br>
-              <script src = "../js/modals.js"></script>';
+              echo '<br><script src = "../js/modals.js"></script>';
             
             // you can put the button of archive and pdf here
             }//end of head admin session check
@@ -221,9 +233,9 @@ include("db_conn.php");
         </script>
     </body>
 </html>
-<?php
-}else{
-    header("Location: AdminLogin.php");
-     exit();
-}
- ?>
+<!-- <?php
+// }else{
+    // header("Location: AdminLogin.php");
+    //  exit();
+// }
+ ?> -->
