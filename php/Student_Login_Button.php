@@ -15,7 +15,7 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
 		 }
 	 //gets the input from the textbox in the StudentLogin.php
 		 $address = "@bicol-u.edu.ph";
-		 if(str_contains($userName, $address)){
+		 if(strpos($userName, $address)){
 			$username = validate($conn, $userName);
 		 }else{
 		 	$username = validate($conn, $userName).$address;
