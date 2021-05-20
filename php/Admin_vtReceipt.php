@@ -8,7 +8,6 @@
   <link rel="stylesheet" type="text/css" href="../css/admin_css/style_monitor.css">
   <link rel="stylesheet" href="../css/admin_css/bootstrap4.5.2_monitor.css">
   <link rel="stylesheet" href="../css/admin_css/dataTables.bootstrap4.min_monitor.css">
-  <link rel="stylesheet" href="../css/admin_css/font-awesome.css">
   <link rel="stylesheet" href="../css/admin_css/jquery.dataTables.min_monitor.css">
   <script src="../js/dataTables.bootstrap4.min_monitor.js"></script>
   <script src="../js/jquery-3.5.1_monitor.js"></script>
@@ -51,25 +50,26 @@
         $sched = $sched_row->fetch_assoc();
 
         
-        if(empty($sched)){
-          errorMessage("No election has been scheduled");
-        }
-        else{
+        // if(empty($sched)){
+        //   errorMessage("No election has been scheduled");
+        // }
+        // else{
           $start_time = strtotime($sched['start_date']);
           $end_time = strtotime($sched['end_date']);
           $access_time = time();
 
-          if($access_time < $end_time){
-              errorMessage("Election is in Progress");
-          }
-          else if($access_time < $start_time){
-              errorMessage("Election has not yet started");
-          }
-          else if($access_time >= $start_time && $access_time >= $end_time){
+          // if($access_time < $end_time){
+          //     errorMessage("Election is in Progress");
+          // }
+          // else if($access_time < $start_time){
+          //     errorMessage("Election has not yet started");
+          // }
+          // else 
+            if($access_time >= $start_time && $access_time >= $end_time){
             require "Admin_vtSubmit.php";
-            receiptMsg("Your vote were submitted successfully!");
+            // receiptMsg("Your vote were submitted successfully!");
           }
-        } 
+        // } 
       //}
      // else{ // Already Voted
        // receiptMsg("You have already voted. Here is a copy of your vote receipt.");
