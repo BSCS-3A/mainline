@@ -37,7 +37,7 @@ include("db_conn.php");
         <div class="row">
             <div class="col-md-12">
                 <div class="table-responsive-sm">
-                    <table id="ADdataTable" class="table table-hover" style="width:100%">
+                    <table id="ADdataTable" class="table-center" style="width:100%">
                         <thead>
                             <tr>
                                 <th class="min-mobile">Access Date</th>

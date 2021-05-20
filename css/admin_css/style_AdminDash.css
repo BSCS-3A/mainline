@@ -386,14 +386,15 @@ nav img.user-profile {
 /*Datatable*/
 
 div.container {
-  background-color: #dddddd;
+  /* background-color: #dddddd; */
   padding: 1rem;
   margin-top: 3%;
   margin-bottom: 3%;
   border: 2px solid #124254;
   width: 100% !important;
   height: auto;
-  opacity: 80%;
+  opacity: 100%;
+  background-color: rgba(255, 255, 255, 0.7);
   /* font-size: 10ptrem; */
 }
 
@@ -402,8 +403,9 @@ div.container {
   table-layout: auto;
   margin: 0px;
   text-align: center;
-  opacity: 100%;
   width: 100% !important;
+  font-family: 'Roboto-regular', sans-serif;
+  background: rgba(255, 255, 255, 0.6);
 }
 
 #ADdataTable2 {
@@ -411,8 +413,9 @@ div.container {
   table-layout: auto;
   margin: 0px;
   text-align: center;
-  opacity: 100%;
   width: 100% !important;
+  font-family: 'Roboto-regular', sans-serif;
+  background: rgba(255, 255, 255, 0.6);
 }
 
 thead {
@@ -420,7 +423,6 @@ thead {
   color: #EEEEEE;
   background-color: #18566e;
   text-align: center;
-  opacity: 100%;
 }
 
 thead input {
@@ -445,6 +447,10 @@ td {
   max-height: 150px;
   overflow: hidden;
   font-size: 10pt;
+}
+
+tr:hover {
+  background-color: #D3D3D3 !important;
 }
 
 #ADheader {
