@@ -16,9 +16,9 @@
   </div>
   
   <div class="bheader1">
-        <h4>
-          VOTER'S TURNOUT
-        </h4>
+        <h3>
+          <b>VOTER'S TURNOUT</b>
+        </h3>
   </div>
 
   <?php
@@ -153,10 +153,8 @@
                        <div class="circle" data-percent=<?php echo '' . $gr7_percent . ''; ?>>
                             <div></div>
                         </div>
-                       
                     </div>
-
-                     <br><a href='Admin_Vstat.php?level=7'><b> GRADE 7</b></a>
+                    <p><b> GRADE 8</b></p>
                 </div>
             </div>
 
@@ -169,7 +167,7 @@
 
                         </div>
                     </div>
-                     <br><a href='Admin_Vstat.php?level=8'><b> GRADE 8</b></a>
+                    <p><b> GRADE 8</b></p>
                 </div>
             </div>
 
@@ -182,8 +180,7 @@
 
                         </div>
                     </div>
-                     <br><a href='Admin_Vstat.php?level=9'><b> GRADE 9</b></a>
-
+                    <p><b> GRADE 9</b></p>
                 </div>
             </div>
 
@@ -197,8 +194,7 @@
 
                         </div>
                     </div>
-                     <br><a href='Admin_Vstat.php?level=10'><b> GRADE 10</b></a>
-
+                    <p><b> GRADE 10</b></p>
                 </div>
             </div>
 
@@ -208,11 +204,9 @@
                                                                     ?>
                         <div class="circle" data-percent=<?php echo '' . $gr11_percent . ''; ?>>
                             <div></div>
-
                         </div>
                     </div>
-                     <br><a href='Admin_Vstat.php?level=11'><b> GRADE 11</b></a>
-
+                    <p><b> GRADE 11</b></p>
                 </div>
             </div>
 
@@ -222,11 +216,9 @@
                                                                     ?>
                         <div class="circle" data-percent=<?php echo '' . $gr12_percent . ''; ?>>
                             <div></div>
-
                         </div>
                     </div>
-                     <br><a href='Admin_Vstat.php?level=12'><b> GRADE 12</b></a>
-
+                     <p><b> GRADE 12</b></p>
                 </div>
             </div>
 
@@ -238,9 +230,9 @@
     </div>
 
   <div class="bheader2">
-        <h4>
-          VOTE TALLY
-        </h4>
+        <h3>
+          <b>VOTE TALLY</b>
+        </h3>
   </div>
 
   <div class="Belec_container" id="candidate">  

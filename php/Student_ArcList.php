@@ -33,7 +33,7 @@ if (isset($_SESSION['student_id']) && isset($_SESSION['bumail'])) {
     </div>
 
     <div class="Barch_year">
-        <p><b><?php echo $year ?> ELECTION</b></p>
+        <h3><b><?php echo $year ?> ELECTION</b></h3>
     </div>
 
     <div class="Barch_container">

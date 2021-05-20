@@ -32,7 +32,7 @@ include("db_conn.php");
     <br><br>
     <div class="Bvs_gradelevel">
         <?php $samp = $_GET['level']; //gets the value from prev page
-        echo '<p>GRADE ' . $samp . '</p>'; ?>
+        echo '<h3><b>GRADE ' . $samp . '</b></h3>'; ?>
     </div>
 
     <div class="container"><br>

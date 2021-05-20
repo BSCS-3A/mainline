@@ -390,7 +390,6 @@ img.logos {
 	}
   }
 	
-  
   @media only screen and (device-width: 320px) and (device-height: 640px) and (orientation: portrait) and (-webkit-device-pixel-ratio: 2) { /*smartphones*/
 	body, section, #ADaside-container, #ADcountdown, #AD-CD-contents {
 	  -webkit-flex-direction: column;
@@ -651,9 +650,9 @@ nav img.user-profile {
   
   thead {
 	border: 1px solid #124254;
-	color: #EEEEEE;
-	background-color: #18566e;
-	text-align: center;
+    color: #EEEEEE;
+    background-color: #18566e;
+    text-align: center;
   }
   
   tbody {
@@ -661,31 +660,43 @@ nav img.user-profile {
   }
   
   th {
-	font-size: large;
-	border: 1px solid #124254;
-	color: #EEEEEE;
+	color: #ffffff;
 	background-color: #18566e;
 	text-align: center;
+	font-size: 13pt;
+	font-family: 'Roboto-regular', sans-serif;
+	text-transform: uppercase;
+	letter-spacing: 2px;
+	border: 1px solid #124254 !important;
+	padding: 0.5%!important;
   }
   
   td {
-	font-size: large;
+	font-family: 'Roboto-regular', sans-serif!t;
+	font-size: 13pt;
 	border: 1px solid #124254;
-	padding: 0px;
 	max-width: 150px;
 	max-height: 150px;
-	overflow: hidden;
+    padding: 0.5%!important;
+    overflow: hidden;
+    word-wrap: break-word;
   }
 
   .container {
-	padding:2rem;
-	background-color: rgba(255,255,255, 0.7);
-	margin-top: 3%;
+	background-color: rgba(255, 255, 255, 0.7);
+	padding: 1rem;
+	margin-top: 2%;
 	margin-bottom: 3%;
 	border: 2px solid #124254;
-	width: 80%;
-	height: auto;
+	width: 95% !important;
+	height: 150%;
+	opacity: 100%;
+	font-size: 10ptrem;
   }
+
+  table tbody tr:hover {
+    background-color: #D3D3D3;
+}
 
 .pagination>li {
   display: inline;
@@ -939,27 +950,29 @@ h2.aHeader-txt {
   }
 
 /*Vote Status Per Grade Level*/
-.Bvs_gradelevel p{
-	position: relative;
+.Bvs_gradelevel h3{
 	z-index: -1;
-	color: #ffc423;
+	color: white;
 	text-align: center;
 	font-family: 'Roboto-regular', sans-serif;
 	letter-spacing: 6px;
 	text-transform: uppercase;
+	margin-top: -1%;
 }
 
 /*Election Archives List*/
 
-.Barch_year p{
-	font-family: 'Roboto-regular', sans-serif;
-	color:  white;
-	font-weight: inherit;
-	font-size: 200%;
-	position: relative;
-	letter-spacing: 3px;
+.Barch_year h3 {    
+	z-index: 100;
+	padding: 2px 2px;
+	color: white;
+	font-weight: 400;
+	width: 100%;
 	text-align: center;
-}
+	font-family: 'Roboto-regular', sans-serif;
+	letter-spacing: 6px;
+	margin-top: 1%;
+	}
 
 .Barch_container {
 	padding: 30px;
