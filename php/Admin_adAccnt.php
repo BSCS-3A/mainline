@@ -77,9 +77,9 @@ if (isset($_SESSION['admin_id']) && isset($_SESSION['username'])) {
         <div class="container">
             <section>
                 <div class="flex-container">
-                    <button name="AddAccountButton" class="btn btn-button2" data-title="otp" data-toggle="modal" data-target="#otp" data-placement="top" data-toggle="modal" title="Add Account" <?php if ($_SESSION['admin_position'] == "Admin") { ?> disabled <?php
-                                                                                                                                                                                                                                                            } ?>>
-                        <span class="fa fa-user-plus"></span> ADD ACCOUNT</button>
+                    <button name="AddAccountButton" class="btn btn-button2" data-title="add" data-toggle="modal" data-target="#add" <?php if ($_SESSION['admin_position'] == "Admin") { ?> disabled <?php
+                                                                                                                                                                                                } ?>>
+                        <span data-toggle="tooltip" data-placement="top" title="Add New Account"><span class="fa fa-user-plus"></span> ADD ACCOUNT</span></button>
                 </div>
                 <?php //echo("{$_SESSION['admin_position']}") 
                 ?>
@@ -146,7 +146,7 @@ if (isset($_SESSION['admin_id']) && isset($_SESSION['username'])) {
         </div>
         <!--######################################################################################################################################################################################-->
         <!-- ADD MODAL -->
-        <div class="modal fade" id="otp" tabindex="-1" role="dialog" aria-labelledby="edit" aria-hidden="true">
+        <div class="modal fade" id="add" tabindex="-1" role="dialog" aria-labelledby="edit" aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -168,7 +168,7 @@ if (isset($_SESSION['admin_id']) && isset($_SESSION['username'])) {
                             </div>
 
                             <div class="form-group">
-                                <input class="form-control" name="username" type="email" aria-describedby="emailHelp" placeholder="Enter Email Address">
+                                <input class="form-control" name="username" type="text" placeholder="Enter Username" required>
                             </div>
                             <div class="form-group">
                                 <input class="form-control" name="comelec_position" type="text" placeholder="COMELEC Position" required>
@@ -233,8 +233,8 @@ if (isset($_SESSION['admin_id']) && isset($_SESSION['username'])) {
                                 <input class="form-control" name="admin_lname" id="admin_lname" type="text" placeholder="Surname" required>
                             </div>
                             <div class="form-group">
-                                <label>Username (e-mail):</label>
-                                <input class="form-control" name="username" id="username" type="email" aria-describedby="emailHelp" placeholder="Enter Email Address">
+                                <label>Username:</label>
+                                <input class="form-control" name="username" id="username" type="text" placeholder="Enter Username" required>
                             </div>
                             <div class="form-group">
                                 <label>COMELEC Position:</label>
@@ -251,7 +251,7 @@ if (isset($_SESSION['admin_id']) && isset($_SESSION['username'])) {
                                 </select>
                             </div>
                             <div class="form-group">
-                                <label>Password: <span class="label label-warning">Type new password</span></label>
+                                <label>Password: <span class="label label-warning">Change your password</span></label>
                                 <input type="password" name="password" id="password" class="form-control" data-toggle="password" placeholder="*********" onChange="onChange()">
                             </div>
                             <div class="form-group">
@@ -323,7 +323,7 @@ if (isset($_SESSION['admin_id']) && isset($_SESSION['username'])) {
                     </div>
                     <div class="modal-footer">
                         <button type="button" id="crop" class="btn btn-button6">Crop</button>
-                        <button class="btn btn-cancelcrop" data-dismiss="modal"><span class="fa fa-times-circle"></span> Cancel</button>
+                        <button class="btn btn-cancelcrop" data-dismiss="modal"  id="cancel_crop"><span class="fa fa-times-circle"></span> Cancel</button>
                     </div>
                 </div>
             </div>
@@ -353,7 +353,7 @@ if (isset($_SESSION['admin_id']) && isset($_SESSION['username'])) {
                     </div>
                     <div class="modal-footer">
                         <button type="button" id="crop_edit" class="btn btn-button6">Crop</button>
-                        <button class="btn btn-cancelcrop" data-dismiss="modal_edit"><span class="fa fa-times-circle"></span> Cancel</button>
+                        <button class="btn btn-cancelcrop" data-dismiss="modal" id="cancel_crop_edit"><span class="fa fa-times-circle"></span> Cancel</button>
                     </div>
                 </div>
             </div>
@@ -452,7 +452,16 @@ if (isset($_SESSION['admin_id']) && isset($_SESSION['username'])) {
 
         <!-- JS FOR CLEARING INPUT IN TEXT FIELDS -->
         <script>
-            $('#otp').on('hidden.bs.modal', function(e) {
+            $('#add').on('hidden.bs.modal', function(e) {
+                $(this)
+                    .find("input,textarea,select")
+                    .val('')
+                    .end()
+                    .find("input[type=checkbox], input[type=radio]")
+                    .prop("checked", "")
+                    .end();
+            })
+            $('#edit').on('hidden.bs.modal', function(e) {
                 $(this)
                     .find("input,textarea,select")
                     .val('')
@@ -475,6 +484,8 @@ if (isset($_SESSION['admin_id']) && isset($_SESSION['username'])) {
                 }
             }
         </script>
+
+
 
         <!-- CROP BEFORE UPLOAD FOR ADD-->
         <script>
@@ -527,6 +538,9 @@ if (isset($_SESSION['admin_id']) && isset($_SESSION['username'])) {
                     $(".image").val('');
                     cropper.destroy();
                     cropper = null;
+                });
+                $('#cancel_crop').click('hide.bs.modal', function() {
+                    $('#my_image').val('')
                 });
                 $("#crop").click(function() {
                     canvas = cropper.getCroppedCanvas({
@@ -600,6 +614,9 @@ if (isset($_SESSION['admin_id']) && isset($_SESSION['username'])) {
                     $(".image").val('');
                     cropper.destroy();
                     cropper = null;
+                });
+                $('#cancel_crop_edit').click('hide.bs.modal', function() {
+                    $('#my_image_edit').val('')
                 });
                 $("#crop_edit").click(function() {
                     canvas = cropper.getCroppedCanvas({
