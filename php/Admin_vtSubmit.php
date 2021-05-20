@@ -60,7 +60,9 @@
 		// receiptMsg("Finalized");
 		// echo "<script>setTimeout(\"location.href = 'http://localhost/voting-main/php/Admin_Report.php';\",1500);</script>";
 
-		header('location: http://localhost/voting-main/php/Admin_Report.php');
+		//Change when online
+		// header('location: https://buceilsvoting.online/main/php/Admin_Report.php');	
+		header('location: http://localhost/mainline-main/php/Admin_Report.php');
         die;
 	}
 

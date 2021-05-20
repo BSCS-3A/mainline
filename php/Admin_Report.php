@@ -204,9 +204,11 @@ include("db_conn.php");
               generateBallot($table);
               require 'Admin_vtConfirm.php';
               echo '</div>';
-              echo '<div id="vote-button"><button id="vote-btn" name = "vote-button" class="vote-btn" type = "button">SUBMIT</button></div></form>';
+              echo '<div id="vote-button"><button id="vote-btn" name = "vote-button" class="vote-btn" type = "button">SUBMIT</button></div>
+                </form>';
               echo '</main>';
-              echo '<br><script src = "../js/modals.js"></script>';
+              echo '<br>
+                <script src = "../js/modals_vote.js"></script>';
             
             // you can put the button of archive and pdf here
             }//end of head admin session check
