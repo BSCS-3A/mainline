@@ -1,4 +1,5 @@
 <?php
+	require 'db_conn.php';
 	// Function to get quota
         function getQuota($total)
         {
@@ -177,4 +178,36 @@
 
         return $compareMax['max_votes'];
       }
+
+//===================stand alone=================
+         function fixDataType($data){
+        $data = trim($data);
+        // $data = cleanInput($data);
+        $data = stripslashes($data);
+        $data = htmlspecialchars($data);
+        $data = intval($data);
+        if(is_int($data)){
+            return $data;
+        }
+        else{
+            $page = "vtBallot.php";
+            $sec = "0";
+            // inseert sending message to admin about tampered data
+            header("url=$page");
+        }
+    }  
+         function cleanInput($input) {
+        $search = array(
+            '@<script[^>]*?>.*?</script>@si',   // Strip out javascript
+            '@<[\/\!]*?[^<>]*?>@si',            // Strip out HTML tags
+            '@<style[^>]*?>.*?</style>@siU',    // Strip style tags properly
+            '@<![\s\S]*?--[ \t\n\r]*>@'         // Strip multi-line comments
+        );
+    
+        $output = preg_replace($search, '', $input);
+        $output = fixDataType($output);
+        // $output = mysql_real_escape_string($input)
+        return $output;
+    }
+//=========================================
 ?>
