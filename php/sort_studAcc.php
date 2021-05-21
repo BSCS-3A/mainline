@@ -66,7 +66,7 @@ while($row = mysqli_fetch_array($result))
  $sub_array[] = $row["bumail"];
  $sub_array[] = $row["grade_level"];
  $sub_array[] = $row["otp"];
- if(isset($DTrow) & $now >= $rowx[1] && $now <= $rowx[2]){
+ if(isset($DTrow) && $now >= $rowx[1] && $now <= $rowx[2]){
  $sub_array[] = '<button class="btn btn-primary btn-xs EditBtn" data-title="Edit" data-toggle="modal"
     data-placement="top" data-toggle="tooltip" title="Edit"><span class="fa fa-edit"></span> EDIT</button> 
                 <button disabled class="btn btn-danger btn-xs DeleteBtn" data-title="Delete" data-toggle="modal"
