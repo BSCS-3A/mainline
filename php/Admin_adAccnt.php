@@ -70,6 +70,111 @@ if (isset($_SESSION['admin_id']) && isset($_SESSION['username'])) {
         }
     </style>
 
+    <style>
+        .container form {
+            margin: 20px 5px 10px 5px;
+            position: relative;
+        }
+
+        .container form .field {
+            height: 45px;
+            width: 100%;
+            display: flex;
+            position: relative;
+        }
+
+        form .field input {
+            width: 100%;
+            height: 100%;
+            border: 1px solid lightgrey;
+            padding-left: 15px;
+            outline: none;
+            border-radius: 5px;
+            font-size: 17px;
+            transition: all 0.3s;
+        }
+
+        form .field input:focus {
+            border-color: #27ae60;
+            box-shadow: inset 0 0 3px #2fd072;
+        }
+
+        /* form .field .showBtn {
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 15px;
+            font-weight: 600;
+            cursor: pointer;
+            display: none;
+            user-select: none;
+        } */
+
+        form .indicator {
+            height: 10px;
+            margin: 10px 0;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            display: none;
+        }
+
+        form .indicator span {
+            position: relative;
+            height: 100%;
+            width: 100%;
+            background: lightgrey;
+            border-radius: 5px;
+        }
+
+        form .indicator span:nth-child(2) {
+            margin: 0 3px;
+        }
+
+        form .indicator span.active:before {
+            position: absolute;
+            content: '';
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            border-radius: 5px;
+        }
+
+        .indicator span.weak:before {
+            background-color: #ff4757;
+        }
+
+        .indicator span.medium:before {
+            background-color: orange;
+        }
+
+        .indicator span.strong:before {
+            background-color: #23ad5c;
+        }
+
+        form .text {
+            font-size: 15px;
+            font-weight: 500;
+            display: none;
+            margin-bottom: -10px;
+            text-align: center;
+        }
+
+        form .text.weak {
+            color: #ff4757;
+        }
+
+        form .text.medium {
+            color: orange;
+        }
+
+        form .text.strong {
+            color: #23ad5c;
+        }
+    </style>
+
     <body>
         <div class="cheader" id="Dheader">
             <h3 class="Dheader-txt">ADMINISTRATOR ACCOUNT MANAGEMENT</h3>
@@ -147,7 +252,7 @@ if (isset($_SESSION['admin_id']) && isset($_SESSION['username'])) {
         <!--######################################################################################################################################################################################-->
         <!-- ADD MODAL -->
         <div class="modal fade" id="add" tabindex="-1" role="dialog" aria-labelledby="edit" aria-hidden="true">
-            <div class="modal-dialog" role="document">
+            <div class="modal-dialog modal-dialog-scrollable" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
@@ -185,7 +290,16 @@ if (isset($_SESSION['admin_id']) && isset($_SESSION['username'])) {
                             </div>
                             <div class="form-group">
                                 <label>Password:</label>
-                                <input type="password" name="password" class="form-control" data-toggle="password" placeholder="*********" onChange="onChange()" required>
+                                <div class="field">
+                                    <input id="password_main" type="password" name="password" class="form-control" data-toggle="password" placeholder="*********" onChange="onChange()" required>
+                                    <!-- <span class="showBtn">SHOW</span> -->
+                                </div>
+                                <div class="indicator">
+                                    <span class="weak"></span>
+                                    <span class="medium"></span>
+                                    <span class="strong"></span>
+                                </div>
+                                <div class="text"></div>
                             </div>
                             <div class="form-group">
                                 <label>Confirm Password:</label>
@@ -198,7 +312,7 @@ if (isset($_SESSION['admin_id']) && isset($_SESSION['username'])) {
                             </div>
                             <div class="modal-footer ">
                                 <button type="submit" name="saveAccount" class="btn btn-button6"><span class="fa fa-check-circle"></span> Save Account</button>
-                                <button type="button" class="btn btn-cancel2" data-dismiss="modal"><span class="fa fa-times-circle"></span> Cancel</button>
+                                <button id="cancel_add" type="button" class="btn btn-cancel2" data-dismiss="modal"><span class="fa fa-times-circle"></span> Cancel</button>
                             </div>
                         </div>
                     </form>
@@ -323,7 +437,7 @@ if (isset($_SESSION['admin_id']) && isset($_SESSION['username'])) {
                     </div>
                     <div class="modal-footer">
                         <button type="button" id="crop" class="btn btn-button6">Crop</button>
-                        <button class="btn btn-cancelcrop" data-dismiss="modal"  id="cancel_crop"><span class="fa fa-times-circle"></span> Cancel</button>
+                        <button class="btn btn-cancelcrop" data-dismiss="modal" id="cancel_crop"><span class="fa fa-times-circle"></span> Cancel</button>
                     </div>
                 </div>
             </div>
@@ -460,6 +574,7 @@ if (isset($_SESSION['admin_id']) && isset($_SESSION['username'])) {
                     .find("input[type=checkbox], input[type=radio]")
                     .prop("checked", "")
                     .end();
+                    
             })
             $('#edit').on('hidden.bs.modal', function(e) {
                 $(this)
@@ -470,6 +585,71 @@ if (isset($_SESSION['admin_id']) && isset($_SESSION['username'])) {
                     .prop("checked", "")
                     .end();
             })
+        </script>
+
+        <script>
+            const indicator = document.querySelector(".indicator");
+            const input = document.getElementById('password_main');
+            const weak = document.querySelector(".weak");
+            const medium = document.querySelector(".medium");
+            const strong = document.querySelector(".strong");
+            const text = document.querySelector(".text");
+            const showBtn = document.querySelector(".showBtn");
+            let regExpWeak = /[a-z]/;
+            let regExpMedium = /\d+/;
+            let regExpStrong = /.[!,@,#,$,%,^,&,*,?,_,~,-,(,)]/;
+
+            $("input").keyup(function() {
+                if (input.value != "") {
+                    indicator.style.display = "block";
+                    indicator.style.display = "flex";
+                    if (input.value.length <= 3 && (input.value.match(regExpWeak) || input.value.match(regExpMedium) || input.value.match(regExpStrong))) no = 1;
+                    if (input.value.length >= 6 && ((input.value.match(regExpWeak) && input.value.match(regExpMedium)) || (input.value.match(regExpMedium) && input.value.match(regExpStrong)) || (input.value.match(regExpWeak) && input.value.match(regExpStrong)))) no = 2;
+                    if (input.value.length >= 6 && input.value.match(regExpWeak) && input.value.match(regExpMedium) && input.value.match(regExpStrong)) no = 3;
+                    if (no == 1) {
+                        weak.classList.add("active");
+                        text.style.display = "block";
+                        text.textContent = "Your password is too weak";
+                        text.classList.add("weak");
+                    }
+                    if (no == 2) {
+                        medium.classList.add("active");
+                        text.textContent = "Your password is medium";
+                        text.classList.add("medium");
+                    } else {
+                        medium.classList.remove("active");
+                        text.classList.remove("medium");
+                    }
+                    if (no == 3) {
+                        weak.classList.add("active");
+                        medium.classList.add("active");
+                        strong.classList.add("active");
+                        text.textContent = "Your password is strong";
+                        text.classList.add("strong");
+                    } else {
+                        strong.classList.remove("active");
+                        text.classList.remove("strong");
+                    }
+                    // showBtn.style.display = "block";
+                    // showBtn.onclick = function() {
+                    //     if (input.type == "password") {
+                    //         input.type = "text";
+                    //         showBtn.textContent = "HIDE";
+                    //         showBtn.style.color = "#23ad5c";
+                    //     } else {
+                    //         input.type = "password";
+                    //         showBtn.textContent = "SHOW";
+                    //         showBtn.style.color = "#000";
+                    //     }
+                    // }
+                } else {
+                    indicator.style.display = "none";
+                    text.style.display = "none";
+                    // $(document).keyup("#password_main", function() {
+                    //     alert("Test");
+                    // });
+                }
+            });
         </script>
 
         <!-- CONFIRM PASSWORD -->
