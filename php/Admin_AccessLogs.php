@@ -129,7 +129,6 @@ include("db_conn.php");
                     [10, 25, 50, "All"]
                 ]
             });
-            $("[data-toggle=tooltip]").tooltip();
         });
     </script>
 </body>
