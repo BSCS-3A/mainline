@@ -498,7 +498,8 @@
               </div>
               <div class="modal-footer ">
                   <button type="submit" name="save-btn" class="btn btn-warning btn-lg" id="save-add" style="width: 100%;"><span class= "fa fa-check-circle"></span> Save</button>
-                  <button type="submit" name="cancel-btn" class="btn btn-warning btn-lg" id="cancel-add" style= "width:100%;" data-dismiss="modal"><span class="fa fa-times-circle"></span> Cancel</button>
+                  <button type="button" class="btn btn-default" id="cancel-add" style="width:100%;"
+                                data-dismiss="modal"><span class="fa fa-times-circle"></span> Cancel</button>
               </div>
           </form>
     </div>
@@ -545,8 +546,10 @@
                   </div>
               </div>
               <div class="modal-footer ">
-                  <button type="submit" name="edit-save-btn" class="btn btn-warning btn-lg" id="save-edit" style="width: 100%;"><span class= "fa fa-check-circle"></span>Save</button>
-                  <button type="submit" name="edit-cancel-btn" class="btn btn-warning btn-lg" id="cancel-edit" style= "width:100%;" data-dismiss="modal"><span class="fa fa-times-circle"></span> Cancel</button>
+                  <button type="submit" name="add" class="btn btn-warning btn-lg" id="save"
+                                style="width: 100%;"><span class="fa fa-check-circle"></span> Save</button>
+                 <button type="button" class="btn btn-default" id="cancel-edit" style="width:100%;"
+                                data-dismiss="modal"><span class="fa fa-times-circle"></span> Cancel</button>
               </div>
           </form>
       </div>
@@ -556,7 +559,7 @@
     </div>       
 
 
-    <div class="modal fade" id="delete" tabindex="-1" role="dialog" aria-labelledby="edit" aria-hidden="true">
+    <div class="modal fade" id="delete" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
           <div class="modal-dialog">
     <div class="modal-content">
           <div class="modal-header">
@@ -568,8 +571,8 @@
     </div>
     <form action="./backCandidate/confirmDeleteCandidate.php" method="POST" id="deleteForm">
         <div class="modal-footer ">
-        <button type="submit" name="continue-delete-btn" class="btn btn-success" id="continue" ><span class= "fa fa-check-circle"></span><text id = "text_confirm-delete">Continue</text></button>
-        <button type="button" name="cancel-delete-btn" class="btn btn-default" id= "cancel2" data-dismiss="modal"><span class="fa fa-times-circle"></span><text id = "text_confirm-delete">Cancel</text></button>
+        <button type="submit" name="continue-delete-btn" class="btn btn-success" id="continue" ><span class= "fa fa-check-circle"></span><text id = "text_confirm-delete"> Continue</text></button>
+        <button type="button" name="cancel-delete-btn" class="btn btn-default" id= "cancel2" data-dismiss="modal"><span class="fa fa-times-circle"></span><text id = "text_confirm-delete"> Cancel</text></button>
       </div> 
     </form>    
         </div>
@@ -600,8 +603,8 @@
                   </div>
                 </div>
                 <div class="modal-footer">
-                  <button type="button" id="crop" class="btn btn-primary">Crop</button>
-                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                  <button type="button" id="crop" class="btn btn-primary"> Crop</button>
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal"> Cancel</button>
                 </div>
             </div>
           </div>
