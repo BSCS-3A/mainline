@@ -210,18 +210,16 @@
 	margin-left: auto;
 	margin-right: auto;
 }
-
-.Bvcontainer{ 
+.Bvcontainer{
 	position: relative;
-	max-width: auto;
+	margin-top: 5%;
+	width: 100%;
 	justify-content: space-around;
 	display: grid; 
-	grid-column-gap: 10%; 
 	grid-row-gap: 5%;
 	grid-template-columns: repeat(auto-fit, minmax(100px, 2fr));
-	grid-template-rows: repeat(5, 200%);  
 }
-.Bvcontainer .Bcard {
+.Bvcontainer .Bcard1 {
 	position: relative;
 	width: 100%;
 	display: grid;
@@ -232,15 +230,7 @@
 	text-align: center;
 	transition: 0.5s;
 }
-.Bvcontainer .Bcard:before {
-	content: "";
-	position: absolute;
-	top: 0;
-	left: 0%;
-	width: 100%;
-	height: rgba(73, 163, 0, 0.03);
-	pointer-events: none;
-}
+
 .Bbox1 p {
 	color: #ffb700;
 	font-family: 'Roboto-regular', sans-serif;
@@ -259,14 +249,11 @@
   }
 
 /*Bar Graph*/
-
-
-
 .Belec_container {
   padding: 5%;
   display: grid;
   grid-gap: 20px;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 2fr));
+  grid-template-columns: repeat(auto-fit, minmax(auto, 2fr));
   grid-template-rows: repeat(5, auto);
   text-align: center;
   z-index: -1;
@@ -288,6 +275,7 @@
 }
 .style-1 em {
   font-style: normal;
+  font-size: 150%;
   padding: 9px;
   display: inline-block;
 }
@@ -318,7 +306,7 @@
   text-align: right;
   border-radius: 2px;
   padding: 8px;
-  width: 70px;
+  max-width: auto;
   background: rgba(0, 0, 0, 0.3);
   animation: grow-padding-left 1s;
 }

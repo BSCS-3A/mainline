@@ -147,7 +147,7 @@
 
     <div class="Bcon">
         <div class="Bvcontainer">
-            <div class="Bcard">
+            <div class="Bcard1">
                 <div class="Bbox1">
                     <div class="progressbar" data-animate="false" > <?php //ang gr7_percent sya yung gagamitin para sa bar, yung naga pakita kung ilang percent na ?>
                        <div class="circle" data-percent=<?php echo '' . $gr7_percent . ''; ?>>
@@ -158,7 +158,7 @@
                 </div>
             </div>
 
-            <div class="Bcard">
+            <div class="Bcard1">
                 <div class="Bbox1">
                     <div class="progressbar" data-animate="false"><?php //ang gr8_percent sya yung gagamitin para sa bar, yung naga pakita kung ilang percent na
                                                                     ?>
@@ -171,7 +171,7 @@
                 </div>
             </div>
 
-            <div class="Bcard">
+            <div class="Bcard1">
                 <div class="Bbox1">
                     <div class="progressbar" data-animate="false"><?php //ang gr9_percent sya yung gagamitin para sa bar, yung naga pakita kung ilang percent na
                                                                     ?>
@@ -185,7 +185,7 @@
             </div>
 
             
-            <div class="Bcard">
+            <div class="Bcard1">
                 <div class="Bbox1">
                     <div class="progressbar" data-animate="false"><?php //ang gr10_percent sya yung gagamitin para sa bar, yung naga pakita kung ilang percent na
                                                                     ?>
@@ -198,7 +198,7 @@
                 </div>
             </div>
 
-            <div class="Bcard">
+            <div class="Bcard1">
                 <div class="Bbox1">
                     <div class="progressbar" data-animate="false"><?php //ang gr11_percent sya yung gagamitin para sa bar, yung naga pakita kung ilang percent na
                                                                     ?>
@@ -210,7 +210,7 @@
                 </div>
             </div>
 
-            <div class="Bcard">
+            <div class="Bcard1">
                 <div class="Bbox1">
                     <div class="progressbar" data-animate="false"><?php //ang gr12_percent sya yung gagamitin para sa bar, yung naga pakita kung ilang percent na
                                                                     ?>
@@ -229,7 +229,7 @@
         </div>
     </div>
 
-  <div class="bheader2">
+  <!--<div class="bheader2">
         <h3>
           <b>VOTE TALLY</b>
         </h3>
