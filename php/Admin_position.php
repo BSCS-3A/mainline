@@ -57,22 +57,32 @@ include "navAdmin.php";
     <script>
         $(document).ready(function() {
             reloadTable();
-            var startDate = new Date("<?php echo $rowDate['start_date'];?>").getTime();
-            var endDate =  new Date("<?php echo $rowDate['end_date']; ?>").getTime();
-            var today = new Date().getTime();
-                                            
+            var temp = "<?php echo !(empty($rowDate['start_date']));?>";
+            var startDate,endDate,today;
+
+            if(temp == "1"){
+                startDate = new Date("<?php echo $rowDate['start_date'];?>").getTime();
+                endDate =  new Date("<?php echo $rowDate['end_date']; ?>").getTime();
+            }
+            else{
+                startDate =0;
+                endDate=0;
+            }
+            today = new Date().getTime();
             function reloadTable() {       
                 $.ajax({    
                     url: 'backCandidate/tablePosition.php',
                     success: function(response) {
                         $("tbody").html(response);
-                        if((today>=startDate) && (today<=endDate)){//if election is on going 
-                            alert("Election is ongoing. Please proceed with caution. Any changes done during the election may affect the results.");
-                            $("#add_button").attr("disabled",true);
-                            $('#icon_add').removeClass('.fas fa-plus');
-                            $('#icon_add').addClass('.fa fa-lock');
-                            $(".btn-danger").attr("disabled",true);
-                            $(".vote_allow").attr("disabled",true);
+                        if(startDate != 0 && endDate != 0){
+                            if((today>=startDate) && (today<=endDate)){//if election is on going 
+                                alert("Election is ongoing. Please proceed with caution. Any changes done during the election may affect the results.");
+                                $("#add_button").attr("disabled",true);
+                                $('#icon_add').removeClass('.fas fa-plus');
+                                $('#icon_add').addClass('.fa fa-lock');
+                                $(".btn-danger").attr("disabled",true);
+                                $(".vote_allow").attr("disabled",true);
+                            }
                         }             
                     }
                 });

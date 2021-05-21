@@ -47,7 +47,7 @@
     <link rel="stylesheet" href="../css/admin_css/bootstrap_Pos.css"> 
     <link rel="stylesheet" href="../css/admin_css/font-awesome.css">
     <link rel="stylesheet" href="https://unpkg.com/simplebar@2.0.1/umd/simplebar.css" />
-    <link rel="stylesheet" type="text/css" href="../css/admin_css/jquery.dataTables.min_AdminDash">
+    <link rel="stylesheet" type="text/css" href="../css/admin_css/jquery.dataTables.min_AdminDash.css">
     
 
      
@@ -64,9 +64,18 @@
     <!-- <script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script> -->
     
     <script>
-    var startDate = new Date("<?php echo $rowDate['start_date'];?>").getTime();
-    var endDate =  new Date("<?php echo $rowDate['end_date']; ?>").getTime();
-    var today = new Date().getTime();
+    var temp = "<?php echo !(empty($rowDate['start_date']));?>";
+    var startDate,endDate,today;
+
+    if(temp == "1"){
+        var startDate = new Date("<?php echo $rowDate['start_date'];?>").getTime();
+        var endDate =  new Date("<?php echo $rowDate['end_date']; ?>").getTime();
+    }
+    else{
+        startDate =0;
+        endDate=0;
+    }
+    today = new Date().getTime();
     $(document).ready(function(){
         //adding candidate
         reloadTable();
@@ -613,12 +622,14 @@
         url:'backCandidate/tableCandidate.php',
         success: function(response){
             $("tbody").html(response);
-            if((today>=startDate) && (today<=endDate)){//if election is on going 
-                alert("Election is ongoing. Please proceed with caution. Any changes done during the election may affect the results.");
-                $(".btn-button1").attr("disabled",true);
-                $('#icon_add').removeClass('.fas fa-user-plus');
-                $('#icon_add').addClass('.fa fa-lock');
-                $(".btn-danger").attr("disabled",true);
+            if(startDate != 0 && endDate != 0){
+                if((today>=startDate) && (today<=endDate)){//if election is on going 
+                    alert("Election is ongoing. Please proceed with caution. Any changes done during the election may affect the results.");
+                    $(".btn-button1").attr("disabled",true);
+                    $('#icon_add').removeClass('.fas fa-user-plus');
+                    $('#icon_add').addClass('.fa fa-lock');
+                    $(".btn-danger").attr("disabled",true);
+                }
             }
             table = $('#datatable').DataTable({
                 "lengthMenu": [
