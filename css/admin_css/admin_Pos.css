@@ -391,6 +391,9 @@ body{
     border-color: #5cb85c!important;
     box-shadow: 1px 1px 5px #888888;
   }
+  .btn-primary:hover{
+  background-color: #4a934a!important;
+  }
 
   .btn-danger {
     color: #fff;
@@ -400,31 +403,41 @@ body{
     border-color: #d9534f!important;
      box-shadow: 1px 1px 5px #888888;
   }
+  .btn-danger:hover{
+   background-color: #d93e39!important;
+  }
 
 
   #save {
     color: #fff;
     background: #124254;
     margin-bottom: 5px;
+    box-shadow: 1px 1px 5px #888888;
   }
 
-  #cancel {
+  #cancel, #cancel2 {
     background-color: #dddddd;
     margin: auto;
+    box-shadow: 1px 1px 1px #888888;
+    height: 33px!important;
   }
-
+#cancel:hover, #cancel2:hover{
+      background-color: #c1c1c1!important;
+}
 .delete_confirm{
   font-family: 'Roboto-regular', sans-serif;
 }
   #continue, #continue-delete {
     background-color: #d9534f;
     color: #fff;
-
+    border: #d9534f;
+    margin-right: 5px;
+    box-shadow: 1px 1px 5px #888888;
+  }
+  #continue-delete:hover, #continue:hover{
+  background-color: #C23B22 !important;
   }
 
-  #cancel2 {
-    background-color: #dddddd;
-  }
 
   #go {
     color: #fff;
@@ -1155,7 +1168,8 @@ margin-left:5px !important;
 }
 
 #save-add.btn.btn-warning.btn-lg, #save-edit{
-  margin-left: 5px !important;
+  margin-bottom: 5px !important;
+  box-shadow: 1px 1px 5px #888888;
 }
 
 .modal-header{
@@ -1191,12 +1205,15 @@ margin-left: 10px;
 }
 
 #cancel-add, #cancel-edit{
-  margin-top: 10px;
-  color:#333 !important;
-  background-color: #fff !important;
-  border-color: #ccc !important;
+    background-color: #dddddd;
+    margin: auto;
+    box-shadow: 1px 1px 1px #888888;
+    height: 33px!important;
 }
 
+#cancel-add:hover, #cancel-edit:hover, #cancel-load:hover {
+    background-color: #c1c1c1!important;
+}
 
 #text_cancel-load, #text_cancel-delete, #text_confirm-load, #text_confirm-delete{
 margin-left: 3px;
@@ -1320,4 +1337,28 @@ a.paginate_button.current:hover{
 
 div.btn-toolbar{
   margin-left: 0 !important;
+}
+
+#save-add:hover, #save-edit:hover, #continue-load:hover, #save:hover{
+      background-color: #18566e !important;
+    color: #EEEEEE!important;
+}
+
+#continue-load{
+      color: #fff;
+    background: #124254;
+    border: #124254;
+    margin: 25px 5px 15px 0px!important;
+    box-shadow: 1px 1px 5px #888888;
+    height: 33px!important;
+}
+
+#cancel-load{
+      background: #dddddd;
+    height: 33px!important;
+    box-shadow: 1px 1px 5px #888888;
+    width: 15%;
+    margin-top: 8px;
+    margin-left: 2px!important;
+    box-shadow: 1px 1px 1px #888888;
 }
