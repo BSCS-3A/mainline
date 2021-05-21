@@ -260,7 +260,7 @@ include "navAdmin.php";
         </div>
     </div>
     </div>
-    <div class="modal fade" id="load" tabindex="-1" role="dialog" aria-labelledby="load" aria-hidden="true">
+    <div class="modal fade" id="load" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
@@ -271,15 +271,15 @@ include "navAdmin.php";
                     <div class="alert alert-danger" id="loadD"><span class="fa fa-exclamation-triangle"></span>Are you sure you want to delete existing positions and replace it with the system default?</div>
                 </div>
                 <div class="modal-footer ">
-                    <button type="submit" name="continue-delete-btn" class="btn btn-success" id="continue-load"><span class="fa fa-check-circle"></span>Continue</button>
-                    <button type="button" name="cancel-delete-btn" class="btn btn-default" id="cancel-load" data-dismiss="modal"><span class="fa fa-times-circle"></span>Cancel</button>
+                    <button type="submit" name="continue-delete-btn" class="btn btn-button6" id="continue-load"><span class="fa fa-check-circle"></span> Continue</button>
+                    <button type="button" name="cancel-delete-btn" class="btn btn-button4" id="cancel-load" data-dismiss="modal"><span class="fa fa-times-circle"></span> Cancel</button>
                 </div>
             </div>
             <!-- /.modal-content -->
         </div>
     </div>
 
-        <div class="modal fade" id="edit" tabindex="-1" role="dialog" aria-labelledby="edit" aria-hidden="true">
+        <div class="modal fade" id="edit" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
       <div class="modal-dialog">
     <div class="modal-content">
           <div class="modal-header">
@@ -308,7 +308,7 @@ include "navAdmin.php";
 </div>
 </div>
 
-<div class="modal fade" id="add" tabindex="-1" role="dialog" aria-labelledby="add" aria-hidden="true">
+<div class="modal fade" id="add" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
       <div class="modal-dialog">
     <div class="modal-content">
           <div class="modal-header">
@@ -340,7 +340,7 @@ include "navAdmin.php";
 
 
         <!-- /.modal-dialog -->
-    <div class="modal fade" id="delete" tabindex="-1" role="dialog" aria-labelledby="delete" aria-hidden="true">
+    <div class="modal fade" id="delete" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
@@ -352,8 +352,8 @@ include "navAdmin.php";
                 </div>
                 <div class="modal-footer ">
                     <form method="post" id="delete-form">
-                        <button type="submit" name="continue-delete-btn" class="btn btn-success" id="continue-delete"><span class="fa fa-check-circle"></span>Continue</button>
-                        <button type="button" name="cancel-delete-btn" class="btn btn-default" id="cancel" data-dismiss="modal"><span class="fa fa-times-circle"></span>Cancel</button>
+                        <button type="submit" name="continue-delete-btn" class="btn btn-button6" id="continue-delete"><span class="fa fa-check-circle"></span> Continue</button>
+                        <button type="button" name="cancel-delete-btn" class="btn btn-button4" id="cancel" data-dismiss="modal"><span class="fa fa-times-circle"></span> Cancel</button>
                     </form>
                 </div>
             </div>
