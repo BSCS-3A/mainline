@@ -154,44 +154,41 @@ include("db_conn.php");
           //after all those process finally, we can send filtered data to generateBallot
           $table = $conn->query("SELECT * FROM ((temp_tie INNER JOIN student ON temp_tie.student_id = student.student_id) INNER JOIN candidate_position ON temp_tie.position_id = candidate_position.position_id) ORDER BY candidate_position.heirarchy_id"); 
 
-          if ($tie_position_counter == 0)
-          {
-    // START
-      if(isset($_POST['save_btn'])) {
-        static $is_called = false;
+        	if ($tie_position_counter == 0)
+        	{
+	          	$end_date = new DateTime($sched['end_date']);
+	          	$archive_sql = ($conn->query("SELECT * FROM `archive` ORDER BY `archive_id` DESC LIMIT 1"));
+      			$archive_row = $archive_sql->fetch_assoc();
+      			$archive_sy = $archive_row['school_year'];
+      			
+      			if(empty($archive_row))
+      				$check = true;
+      			else
+      				$check = false;
 
-        if ($is_called)
-        {
-          Archive($conn);
-          $is_called = true;
-        }
-        else
-        {
-          echo 'Results already archived.';
-        }
-      }
-      // if(isset($_POST['dl_btn'])) {
-      //   // do nothing
-      // }
-      
-    //END
-?>
+			    if($check || ($end_date->format('Y-m-d') == $archive_sy))
+		       	{
+		       		echo '<br><br><br><br><br><br><br><br><br>';
+					echo '<form method="post"> <div class="Bbtn_save">';
+					echo '<button name=\'save_btn\' class=\'Bbtn_save2arc\'"><b>SAVE TO ARCHIVES</b></button>';
+					echo '</div></form>';
 
-    <form method="post">
-      <br><br><br><br>
+		          	if(isset($_POST['save_btn']))
+				    {
+				        Archive($conn, $end_date->format('Y-m-d'));
+				        location.reload( 'http://localhost/mainline-main/php/Admin_Report.php');
+					}
 
-      <!-- check if archive has been clicked once -->
-      <div class="Bbtn_save">
-        <button name='save_btn' class='Bbtn_save2arc'"><b>SAVE TO ARCHIVES</b></button>
-      </div>
+					$check = false;
+		        }
+			    else
+			    {
+					echo '<div class="Bbtn_dl">';
+				    echo '<button name=\'dl_btn\' onclick="parent.open(\'Admin_generate-pdf.php\')" class=\'Bbtn_dlreport\'"><b>DOWNLOAD PDF</b></button>';
+				    echo '</div>';
+		        }
 
-      <!-- cannot be clicked if archive has not been clicked yet -->
-      <div class="Bbtn_dl">
-        <button name='dl_btn' onclick="parent.open('Admin_generate-pdf.php')" class='Bbtn_dlreport'"><b>DOWNLOAD PDF</b></button>
-      </div>
-    </form>
-
-<?php
+	          	
           }
           else
           {  // start tie display
@@ -221,7 +218,7 @@ include("db_conn.php");
           include '../html/ongoing.html';
         }
       }//end of else election is not empty       
-    ?>
+?>
 <!-- Space before footer -->
         <br><br><br><br><br><br><br><br>
 
