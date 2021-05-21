@@ -1,4 +1,5 @@
 <?php
+require '../backMonitor/fetch_report.php';
 	$table = $conn->query("SELECT * FROM ((candidate INNER JOIN student ON candidate.student_id = student.student_id) INNER JOIN candidate_position ON candidate.position_id = candidate_position.position_id) ORDER BY candidate_position.heirarchy_id"); // get positions
 	
 	$choice_final = array();
@@ -16,7 +17,7 @@
 			else{
 				$_POST[$poss['heirarchy_id']] = filter_var($_POST[$poss['heirarchy_id']], FILTER_SANITIZE_STRING);;
 				// $choice = $_POST[$poss['heirarchy_id']];
-				$choice = cleanInput($_POST[$poss['heirarchy_id']]);
+				$choice = cleanInputM($_POST[$poss['heirarchy_id']]);
 			}
 
 			//if(isValidCandidate($conn, $choice, $poss['heirarchy_id'])){
@@ -62,7 +63,7 @@
 
 		//Change when online
 		// header('location: https://buceilsvoting.online/main/php/Admin_Report.php');	
-		header('location: http://localhost/mainline-main/php/Admin_Report.php');
+		
         die;
 	}
 
@@ -89,7 +90,8 @@
 	}
 
 	$sql2 = "DROP TABLE temp_tie";
-    $conn->query($sql2);
+        $conn->query($sql2);
+	header('location: http://localhost/mainline-main/php/Admin_Report.php');// change this when put to hosting site
 	
 
 	// update voter's status

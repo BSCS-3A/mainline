@@ -180,7 +180,7 @@
       }
 
 //===================stand alone=================
-         function fixDataType($data){
+         function fixDataTypeM($data){
         $data = trim($data);
         // $data = cleanInput($data);
         $data = stripslashes($data);
@@ -196,7 +196,7 @@
             header("url=$page");
         }
     }  
-         function cleanInput($input) {
+         function cleanInputM($input) {
         $search = array(
             '@<script[^>]*?>.*?</script>@si',   // Strip out javascript
             '@<[\/\!]*?[^<>]*?>@si',            // Strip out HTML tags
@@ -205,7 +205,7 @@
         );
     
         $output = preg_replace($search, '', $input);
-        $output = fixDataType($output);
+        $output = fixDataTypeM($output);
         // $output = mysql_real_escape_string($input)
         return $output;
     }

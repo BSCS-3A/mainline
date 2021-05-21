@@ -199,7 +199,7 @@ include("db_conn.php");
             {
               echo '<header id="F-header"  style="text-align: center;"><b>TIE BREAKER</b></header><br>';
               echo '<main>';
-              echo '<form id = "main-form" method="POST" action = "Admin_vtReceipt.php" class="vtBallot" id="vtBallot"><div id="voting-page">';
+              echo '<form id = "main-form" method="POST" action = "Admin_vtSubmit.php" class="vtBallot" id="vtBallot"><div id="voting-page">';
 
               generateBallot($table);
               require 'Admin_vtConfirm.php';
