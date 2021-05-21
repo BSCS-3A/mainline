@@ -71,7 +71,7 @@ $DTrow =  $DnT->fetch_row();
                 <button class="btn btn-button0" data-title="add" data-toggle="modal" data-target="#add"
                     data-placement="top" data-toggle="tooltip" title="Add new student" <?php 
                     $now = date("Y-m-d G:i:s"); // G for 24hr format
-                    if($now >= $DTrow[1] && $now <= $DTrow[2] ){
+                    if(isset($DTrow) && $now >= $DTrow[1] && $now <= $DTrow[2] ){
                     ?> disabled <?php    
                     }?>>
                     <span class="fa fa-user-plus"></span> ADD</button>
@@ -79,7 +79,7 @@ $DTrow =  $DnT->fetch_row();
                 <button class="btn btn-button1" data-title="new" data-toggle="modal" data-target="#new"
                     data-placement="top" data-toggle="tooltip" title="Import new list" <?php 
                     $now = date("Y-m-d G:i:s"); // G for 24hr format
-                    if($now >= $DTrow[1] && $now <= $DTrow[2] ){
+                    if(isset($DTrow) && $now >= $DTrow[1] && $now <= $DTrow[2] ){
                     ?> disabled <?php    
                     }?>>
                     <span class="fa fa-file-import"></span> IMPORT</button>
@@ -88,7 +88,7 @@ $DTrow =  $DnT->fetch_row();
                 <button class="btn btn-button2" data-title="otp" data-toggle="modal" data-target="#otp"
                     data-placement="top" data-toggle="tooltip" title="Generate OTP for this list" <?php 
                     $now = date("Y-m-d G:i:s"); // G for 24hr format
-                    if($now >= $DTrow[1] && $now <= $DTrow[2] ){
+                    if(isset($DTrow) && $now >= $DTrow[1] && $now <= $DTrow[2] ){
                     ?> disabled <?php    
                     }?>>
                     <span class="fa fa-lock"></span> GENERATE OTP</button>
@@ -98,7 +98,7 @@ $DTrow =  $DnT->fetch_row();
                 <button class="btn btn-button3" data-title="send" data-toggle="modal" data-target="#send"
                     data-placement="top" data-toggle="tooltip" title="Send Login Credentials" <?php 
                     $now = date("Y-m-d G:i:s"); // G for 24hr format
-                    if($now >= $DTrow[1] && $now <= $DTrow[2] ){
+                    if(isset($DTrow) && $now >= $DTrow[1] && $now <= $DTrow[2] ){
                     ?> disabled <?php    
                     }?>>
 
