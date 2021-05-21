@@ -57,17 +57,16 @@ include "navAdmin.php";
     <script>
         $(document).ready(function() {
             reloadTable();
-            var temp = "<?php echo !(empty($rowDate['start_date']));?>";
             var startDate,endDate,today;
-
-            if(temp == "1"){
-                startDate = new Date("<?php echo $rowDate['start_date'];?>").getTime();
-                endDate =  new Date("<?php echo $rowDate['end_date']; ?>").getTime();
-            }
-            else{
-                startDate =0;
-                endDate=0;
-            }
+            <?php
+                if(!(empty($rowDate['start_date']))){
+                    echo "startDate = new Date('". $rowDate['start_date']."').getTime();";
+                    echo "endDate = new Date('". $rowDate['end_date']."').getTime();";
+                }else{
+                    echo "startDate = 0;";
+                    echo "endDate = 0;";
+                }
+            ?>
             today = new Date().getTime();
             function reloadTable() {       
                 $.ajax({    

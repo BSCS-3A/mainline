@@ -64,10 +64,7 @@
     <!-- <script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script> -->
     
     <script>
-    // var temp = "<?php //echo !(empty($rowDate['start_date']));?>";
-    //var temp = <?php //if(!(empty($rowDate['start_date']))){ echo "1";}else{ echo "0"; } ?>;
     var startDate,endDate,today;
-
     <?php
         if(!(empty($rowDate['start_date']))){
             echo "startDate = new Date('". $rowDate['start_date']."').getTime();";
@@ -77,16 +74,6 @@
             echo "endDate = 0;";
         }
     ?>
-
-    // if(temp!=0){
-    //     startDate = new Date(<?php //echo $rowDate['start_date'];?>).getTime();
-    //     endDate =  new Date(<?php// echo $rowDate['end_date']; ?>).getTime();
-    // }
-    // else{
-    //     startDate = 0;
-    //     endDate = 0;
-    // }
-
     today = new Date().getTime();
     $(document).ready(function(){
         //adding candidate
