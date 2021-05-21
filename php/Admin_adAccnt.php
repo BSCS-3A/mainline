@@ -574,7 +574,7 @@ if (isset($_SESSION['admin_id']) && isset($_SESSION['username'])) {
                     .find("input[type=checkbox], input[type=radio]")
                     .prop("checked", "")
                     .end();
-                    
+
             })
             $('#edit').on('hidden.bs.modal', function(e) {
                 $(this)
@@ -599,7 +599,7 @@ if (isset($_SESSION['admin_id']) && isset($_SESSION['username'])) {
             let regExpMedium = /\d+/;
             let regExpStrong = /.[!,@,#,$,%,^,&,*,?,_,~,-,(,)]/;
 
-            $("input").keyup(function() {
+            $("input").on('input', function() {
                 if (input.value != "") {
                     indicator.style.display = "block";
                     indicator.style.display = "flex";
@@ -650,6 +650,11 @@ if (isset($_SESSION['admin_id']) && isset($_SESSION['username'])) {
                     // });
                 }
             });
+            $("#cancel_add").click(function() {
+                indicator.style.display = "none";
+                text.style.display = "none";
+            });
+
         </script>
 
         <!-- CONFIRM PASSWORD -->
