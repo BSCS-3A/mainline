@@ -63,7 +63,7 @@ require '../backMonitor/fetch_report.php';
 
 		//Change when online
 		// header('location: https://buceilsvoting.online/main/php/Admin_Report.php');	
-		header('location: http://localhost/mainline-main/php/Admin_Report.php');
+		
         die;
 	}
 
@@ -90,7 +90,8 @@ require '../backMonitor/fetch_report.php';
 	}
 
 	$sql2 = "DROP TABLE temp_tie";
-    $conn->query($sql2);
+        $conn->query($sql2);
+	header('location: http://localhost/mainline-main/php/Admin_Report.php');// change this when put to hosting site
 	
 
 	// update voter's status
