@@ -1,5 +1,8 @@
 <?php
-require '../backMonitor/fetch_report.php';
+	session_start();
+	require "db_conn.php";
+	require './backMonitor/fetch_report.php';
+	
 	$table = $conn->query("SELECT * FROM ((candidate INNER JOIN student ON candidate.student_id = student.student_id) INNER JOIN candidate_position ON candidate.position_id = candidate_position.position_id) ORDER BY candidate_position.heirarchy_id"); // get positions
 	
 	$choice_final = array();
@@ -62,8 +65,9 @@ require '../backMonitor/fetch_report.php';
 		// echo "<script>setTimeout(\"location.href = 'http://localhost/voting-main/php/Admin_Report.php';\",1500);</script>";
 
 		//Change when online
-		// header('location: https://buceilsvoting.online/main/php/Admin_Report.php');	
-		
+		// header('location: https://buceilsvoting.online/main/php/Admin_Report.php');
+
+		header('location: http://localhost/mainline-main/php/Admin_Report.php');
         die;
 	}
 
@@ -91,9 +95,7 @@ require '../backMonitor/fetch_report.php';
 
 	$sql2 = "DROP TABLE temp_tie";
         $conn->query($sql2);
-	header('location: http://localhost/mainline-main/php/Admin_Report.php');// change this when put to hosting site
 	
-
 	// update voter's status
 	// $conn->query("UPDATE `student` SET `voting_status` = true WHERE `student`.`student_id` = '$stud_id'");
 ?>
