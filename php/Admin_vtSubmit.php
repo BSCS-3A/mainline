@@ -17,7 +17,7 @@ require '../backMonitor/fetch_report.php';
 			else{
 				$_POST[$poss['heirarchy_id']] = filter_var($_POST[$poss['heirarchy_id']], FILTER_SANITIZE_STRING);;
 				// $choice = $_POST[$poss['heirarchy_id']];
-				$choice = cleanInput($_POST[$poss['heirarchy_id']]);
+				$choice = cleanInputM($_POST[$poss['heirarchy_id']]);
 			}
 
 			//if(isValidCandidate($conn, $choice, $poss['heirarchy_id'])){
