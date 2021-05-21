@@ -1,3 +1,4 @@
+
 /*Header*/
 .bheader {
   z-index: 100;
@@ -34,7 +35,7 @@
   letter-spacing: 6px;
   margin-top: auto;
 }
-
+  
 /* On-Going Election*/
 
 .Belec1 p {
@@ -213,10 +214,10 @@
 .Bvcontainer{
 	position: relative;
 	margin-top: 5%;
-	width: 100%;
 	justify-content: space-around;
 	display: grid; 
-	grid-row-gap: 5%;
+  grid-column-gap: 10%;
+	grid-row-gap: -1%;
 	grid-template-columns: repeat(auto-fit, minmax(100px, 2fr));
 }
 .Bvcontainer .Bcard1 {
@@ -249,16 +250,21 @@
   }
 
 /*Bar Graph*/
-.Belec_container {
-  padding: 5%;
-  display: grid;
-  grid-gap: 20px;
-  grid-template-columns: repeat(auto-fit, minmax(auto, 2fr));
-  grid-template-rows: repeat(5, auto);
-  text-align: center;
-  z-index: -1;
+.con1 {
+	max-width: 80%;
+  z-index: 1000;
+	margin-left: auto;
+	margin-right: auto;
 }
-
+.Belec_container{
+	position: relative;
+	margin-top: 5%;
+	justify-content: space-around;
+	display: grid; 
+  grid-column-gap: 5%;
+	grid-row-gap: 5%;
+	grid-template-columns: repeat(auto-fit, minmax(100px, 2fr));
+}
 .style-1 {
   list-style-type: none;
   padding: 0;
@@ -267,7 +273,6 @@
   background: #ffb700;
   color: black;
   font-weight: bold;
-  max-width: auto;
   margin-bottom: 4px;
   border-radius: 2px;
   white-space: nowrap;
@@ -275,7 +280,6 @@
 }
 .style-1 em {
   font-style: normal;
-  font-size: 150%;
   padding: 9px;
   display: inline-block;
 }
@@ -290,7 +294,6 @@
   background: #1f6f8f;
   color: white;
   font-weight: bold;
-  max-width: auto;
   margin-bottom: 4px;
   border-radius: 2px;
   white-space: nowrap;
@@ -306,7 +309,6 @@
   text-align: right;
   border-radius: 2px;
   padding: 8px;
-  max-width: auto;
   background: rgba(0, 0, 0, 0.3);
   animation: grow-padding-left 1s;
 }

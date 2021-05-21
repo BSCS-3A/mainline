@@ -224,17 +224,16 @@
 
             <?php
             ?>
-
-
         </div>
     </div>
 
-  <!--<div class="bheader2">
+  <div class="bheader2">
         <h3>
           <b>VOTE TALLY</b>
         </h3>
   </div>
 
+  <div class="con1">
   <div class="Belec_container" id="candidate">  
   <section>
   <ul class="style-1">
@@ -256,7 +255,7 @@
   <section>
   <ul class="style-1">
       <li>
-        <em>PRESIDENT</em>
+        <em>VICE-PRESIDENT</em>
       </li>
     </ul>
     <ul class="style-2">
@@ -273,7 +272,7 @@
   <section>
   <ul class="style-1">
       <li>
-        <em>PRESIDENT</em>
+        <em>SECRETARY</em>
       </li>
     </ul>
     <ul class="style-2">
@@ -288,6 +287,7 @@
     </ul>
   </section>
   </div>
+</div>
 
 
   <!--<div class="Belec_container" id="candidate">  
