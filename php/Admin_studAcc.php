@@ -452,7 +452,7 @@ $(document).ready(function(){
 
    "ajax":{
     url:"sort_studAcc.php",
-    type:"POST",
+    type:"GET",
     data:{lvl:lvl}
    },
    "columnDefs":[
