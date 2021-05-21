@@ -47,7 +47,7 @@
     <link rel="stylesheet" href="../css/admin_css/bootstrap_Pos.css"> 
     <link rel="stylesheet" href="../css/admin_css/font-awesome.css">
     <link rel="stylesheet" href="https://unpkg.com/simplebar@2.0.1/umd/simplebar.css" />
-    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.24/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" type="text/css" href="../css/admin_css/jquery.dataTables.min_AdminDash">
     
 
      
