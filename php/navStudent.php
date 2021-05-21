@@ -1,7 +1,6 @@
 <?php
 date_default_timezone_set('Asia/Manila');
 include('db_conn.php');
-
 //SESSION TIMER
 $idletime=60*60;//after 1 hr the user gets logged out
 if (time()-$_SESSION['timestamp']>$idletime){
@@ -112,7 +111,21 @@ if(!(isValidUser($conn))){
 
             <li>
                 <label for="btn-5" class="Ashow"><img class="Auser-profile" src="../img/user.png"></label>
-                <a class="user" href="#"><img class="Auser-profile" src="../img/user.png"></a>
+                <a class="user" href="#">
+                    <!-- <img class="Auser-profile" src="../img/user.png"> -->
+                    <?php
+                        $userGender = $_SESSION['gender'];
+                        if($userGender == "male"){
+                            echo "<img class='Auser-profile' src='../img/user_male.png'>";
+                        }
+                        else if($userGender == "female"){
+                            echo "<img class='Auser-profile' src='../img/user_female.png'>";
+                        }
+                        else{
+                            echo "<img class='Auser-profile' src='../img/student.png'>";
+                        }
+                    ?>
+                </a>
                 <input class="nav-toggle4" type="checkbox" id="btn-5">
                 <ul>
                     <li><a class="username" href="#"><?php echo $_SESSION['fname']." ".$_SESSION['lname']; ?> </a></li>
