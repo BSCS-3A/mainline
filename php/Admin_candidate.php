@@ -417,7 +417,7 @@
 
     
     <div class = "container">
-    <div class="btn-toolbar" style="margin-left: 18px;">
+    <div class="btn-toolbar">
         <button class="btn btn-button1 btn-s" data-title="Add" data-toggle="modal" data-target="#add" data-placement="top" id="add-candidate" title="Add">
             <span class="fa fa-user-plus" id="icon_add"></span> Add New Candidate </button>      
      </div>
