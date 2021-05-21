@@ -114,7 +114,7 @@
 
     //=========store the final result to archive table===============
     //additional notes: if there is a tie, the tie should be resolve first before calling this function.
-      function Archive($conn)
+      function Archive($conn, $school_year)
       {
         $sql = "SELECT candidate.student_id, student.student_id, grade_level, position_name, platform_info, vote_allow, candidate.position_id, candidate_position.position_id, Max(total_votes) AS total_votes from (candidate inner join candidate_position on candidate.position_id = candidate_position.position_id) inner join student where candidate.student_id = student.student_id group by candidate.position_id order by heirarchy_id";
 
@@ -134,7 +134,7 @@
               $q1 = $conn->query($sql2);
               while($row1 = $q1->fetch_assoc())
               {
-                  $sql_insert = "INSERT INTO archive (position_name, winner_fname, winner_mname, winner_lname, school_year, platform_info) VALUES ('".$row['position_name']."','".$row1['fname']."','".$row1['mname']."','".$row1['lname']."','".date('Y-m-d')."','".$row['platform_info']."')";
+                  $sql_insert = "INSERT INTO archive (position_name, winner_fname, winner_mname, winner_lname, school_year, platform_info) VALUES ('".$row['position_name']."','".$row1['fname']."','".$row1['mname']."','".$row1['lname']."','".$school_year."','".$row['platform_info']."')";
                 $conn->query($sql_insert);
               }
             }
@@ -152,7 +152,7 @@
               $q1 = $conn->query($sql2);
               while($row1 = $q1->fetch_assoc())
               {
-                $sql_insert = "INSERT INTO archive (position_name, winner_fname, winner_mname, winner_lname, school_year, platform_info) VALUES ('".$row['position_name']."','".$row1['fname']."','".$row1['mname']."','".$row1['lname']."','".date('Y-m-d')."','".$row['platform_info']."')";
+                $sql_insert = "INSERT INTO archive (position_name, winner_fname, winner_mname, winner_lname, school_year, platform_info) VALUES ('".$row['position_name']."','".$row1['fname']."','".$row1['Mname']."','".$row1['lname']."','".$school_year."','".$row['platform_info']."')";
                 $conn->query($sql_insert);
               }
             }
