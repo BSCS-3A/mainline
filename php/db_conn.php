@@ -19,6 +19,7 @@
         exit();
     }
 
+    $conn->query('SET NAMES utf8');
     $connect  = $conn;
     $db = $conn;
     $connection = $conn;
