@@ -41,7 +41,7 @@ if(mysqli_num_rows($fname_query_run) >0){
 
 
         //For Logs
-        $_SESSION['action'] = 'deleted Signatory : ' . $siglname . ', ' . $sigfname ;
+        $_SESSION['action'] = 'deleted Signatory : ' . $sigid ;
         include 'backFun_actLogs_v0_1.php';
         }
       }
