@@ -42,7 +42,7 @@
 
 		// Activity Log if submission is final
 		//For Logs
-                $_SESSION['action'] = 'issued a tie breaker for :' . $choice_final[$poss['heirarchy_id']];
+                $_SESSION['action'] = 'issued a Tie Breaker for :' . $candidate_id;
                 include 'backFun_actLogs_v0_1.php';
 		
 		// return to election page
