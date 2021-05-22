@@ -10,7 +10,6 @@
 
 	// Sanitation and Validation
 	mysqli_data_seek($table, 0);
-	//$stud_id = $_SESSION['student_id'];
 	$status = "";
 	while($poss = $table->fetch_assoc()){   // loop through all positions
 		if(($poss["vote_allow"] == 0 && $_SESSION['admin_position'] == "Head Admin") || $poss["vote_allow"] == 1){
@@ -23,7 +22,6 @@
 				$choice = cleanInputM($_POST[$poss['heirarchy_id']]);
 			}
 
-			//if(isValidCandidate($conn, $choice, $poss['heirarchy_id'])){
 				if($poss['candidate_id'] == $choice){
 					$choice_final[$poss['heirarchy_id']] = $poss['candidate_id'];
 					$status = "Voted";
@@ -31,25 +29,6 @@
 				else{
 					$status = "Abstain";
 				}
-			//}
-			/*else{
-				// notify admin & return to ballot
-				// echo "Ballot tampering detected.";
-				errorMessage("Ballot tampering detected. You have been banned from voting and reported to the admins.");
-				// Submit records marked invalid
-				mysqli_data_seek($table, 0);
-				while($poss = $table->fetch_assoc()){
-					$cand_id = $conn->real_escape_string($poss['candidate_id']);
-					$stud_id = $conn->real_escape_string($stud_id);
-					$conn->query("INSERT INTO `vote` (`vote_log_id`, `student_id`, `candidate_id`, `status`, `time_stamp`) VALUES (NULL, $stud_id, $cand_id, 'Invalid', current_timestamp())");
-				}
-				// update voter's status
-				//$conn->query("UPDATE `student` SET `voting_status` = true WHERE `student`.`student_id` = '$stud_id'");
-				// notify admin
-				notifyAdmin("Warning: An attempt to submit a tampered ballot was made! The user was automatically banned from voting.");
-				exit();
-				// header("Location: index.php");
-			}*/
 		}
 		else{
 			$status = " Abstain";
@@ -60,42 +39,20 @@
 	foreach($choice_final as $value){
 		$candidate = $conn->real_escape_string($value);
 		$conn->query("UPDATE candidate SET total_votes = total_votes + 1 WHERE candidate.candidate_id = $candidate");
+
+		// Activity Log if submission is final
+		
 		// return to election page
-		// receiptMsg("Finalized");
-		// echo "<script>setTimeout(\"location.href = 'http://localhost/voting-main/php/Admin_Report.php';\",1500);</script>";
-
-		//Change when online
-		// header('location: https://buceilsvoting.online/main/php/Admin_Report.php');
-
 		header('location: http://localhost/mainline-main/php/Admin_Report.php');
         die;
 	}
-
-	// Submission
-	// mysqli_data_seek($table, 0);
-	// while($poss = $table->fetch_assoc()){
-	// 	// echo $poss['heirarchy_id'];
-	// 	if(($poss["vote_allow"] == 0 && $_SESSION['grade_level'] == $poss["grade_level"]) || $poss["vote_allow"] == 1){
-	// 		$choice = $choice_final[$poss['heirarchy_id']];
-	// 		if($poss['candidate_id'] == $choice){
-	// 			$candidate = $conn->real_escape_string($poss['candidate_id']);
-	// 			// $candidate = $poss['candidate_id'];
-	// 			$conn->query("UPDATE candidate SET total_votes = total_votes + 1 WHERE candidate.candidate_id = $candidate");	
-	// 		}
-	// 	}
-	// }
 	
 	mysqli_data_seek($table, 0);
 	while($poss = $table->fetch_assoc()){
 		$status = $conn->real_escape_string($vote_table[$poss['candidate_id']]);
 		$cand_id = $conn->real_escape_string($poss['candidate_id']);
-		//$stud_id = $conn->real_escape_string($stud_id);
-		//$conn->query("INSERT INTO `vote` (`vote_log_id`, `student_id`, `candidate_id`, `status`, `time_stamp`) VALUES (NULL, $stud_id, $cand_id, '$status', current_timestamp())");
 	}
 
 	$sql2 = "DROP TABLE temp_tie";
         $conn->query($sql2);
-	
-	// update voter's status
-	// $conn->query("UPDATE `student` SET `voting_status` = true WHERE `student`.`student_id` = '$stud_id'");
 ?>
