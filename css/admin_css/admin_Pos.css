@@ -1325,6 +1325,7 @@ a.paginate_button{
 .paginate_button.current{
       background-color: #124254 !important;
       color: white;
+      background: #124254 !important;
 }
 
 .paginate_button:hover{
