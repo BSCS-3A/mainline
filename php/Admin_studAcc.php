@@ -177,7 +177,7 @@ $DTrow =  $DnT->fetch_row();
                                     placeholder="Enter Gender" required="required">
                             </div>
                             <div class="form-group">
-                            <input  autocomplete="off" class="form-control " name="bumail" id="bumail" type="text"
+                            <input type="email"  pattern=".+@bicol-u.edu.ph"  autocomplete="off" class="form-control " name="bumail" id="bumail"
                                     placeholder="Enter Email" required="required">
                             </div>
                             <div class="form-group">
@@ -338,7 +338,7 @@ $DTrow =  $DnT->fetch_row();
                                 placeholder="Enter Gender" required="required">
                         </div>
                         <div class="form-group">
-                            <input autocomplete="off" class="form-control " name="bumail" id="ebumail" type="text" placeholder="Enter Email"
+                            <input type="email"  pattern=".+@bicol-u.edu.ph" autocomplete="off" class="form-control " name="bumail" id="ebumail" placeholder="Enter Email"
                                 required="required">
                         </div>
                         <div class="form-group">
