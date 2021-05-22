@@ -40,7 +40,7 @@
     }
 
 
-    // STUDENT POPULATION COUNTERS USED IN front_Report_v11_0.php AND generate-pdf.php
+    // STUDENT POPULATION COUNTERS USED IN Admin_Report.php AND Admin_generate-pdf.php
         // Counts per year-level and overall enrolled student
             $queryEnrolled=mysqli_query($conn, "SELECT sum(case when grade_level = '7' then 1 else 0 end) AS g7,
                 sum(case when grade_level = '8' then 1 else 0 end) AS g8,
@@ -50,6 +50,19 @@
                 sum(case when grade_level = '12' then 1 else 0 end) AS g12,
                 count(student_id) AS totalEnrolled FROM student");
             $enrolled = mysqli_fetch_array($queryEnrolled);
-            // accessed through: $enrolled[0] --> g7, $enrolled[1] --> g8 ... $enrolled[6] --> total
+            // accessed through: $enrolled[0] --> g7, $enrolled[1] --> g8 ... $enrolled[6] --> totalEnrolled
+
+
+    // VOTER'S POPULATION COUNTERS USED IN Admin_generate-pdf.php
+        // Counts per year-level and overall enrolled student
+            $queryVoted=mysqli_query($conn, "SELECT sum(case when grade_level = '7' then voting_status end) AS g7Voted,
+                sum(case when grade_level = '8' then voting_status end) AS g8Voted,
+                sum(case when grade_level = '9' then voting_status end) AS g9Voted,
+                sum(case when grade_level = '10' then voting_status end) AS g10Voted,
+                sum(case when grade_level = '11' then voting_status end) AS g11Voted,
+                sum(case when grade_level = '12' then voting_status end) AS g12Voted,
+                count(student_id) AS totalVoted FROM student");
+            $studVoted = mysqli_fetch_array($queryVoted);
+            // accessed through: $studVoted[0] --> g7, $studVoted[1] --> g8 ... $studVoted[6] --> totalVoted
 
 ?>
