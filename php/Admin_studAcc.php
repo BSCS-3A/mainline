@@ -334,7 +334,7 @@ $DTrow =  $DnT->fetch_row();
                                 placeholder="Enter Middle Name">
                         </div>
                         <div class="form-group">
-                            <inputautocomplete="off" class="form-control " name="gender" id="egender" type="text"
+                            <input autocomplete="off" class="form-control " name="gender" id="egender" type="text"
                                 placeholder="Enter Gender" required="required">
                         </div>
                         <div class="form-group">

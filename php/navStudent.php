@@ -115,10 +115,10 @@ if(!(isValidUser($conn))){
                     <!-- <img class="Auser-profile" src="../img/user.png"> -->
                     <?php
                         $userGender = $_SESSION['gender'];
-                        if($userGender == "male"){
+                        if($userGender == "male" || $userGender == "Male" || $userGender == "m" || $userGender == "M"){
                             echo "<img class='Auser-profile' src='../img/user_male.png'>";
                         }
-                        else if($userGender == "female"){
+                        else if($userGender == "female" || $userGender == "Female" || $userGender == "f" || $userGender == "F"){
                             echo "<img class='Auser-profile' src='../img/user_female.png'>";
                         }
                         else{
