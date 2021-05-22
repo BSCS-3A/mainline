@@ -161,7 +161,7 @@
 	 
 	//For Logs
 	$_SESSION['action'] = 'Archived the Election Result.' ;
-	include '../backAdmin/backFun_actLogs_v0_1.php';
+	include './backAdmin/backFun_actLogs_v0_1.php';
       }
 
     //=======drop temp_candidate table
