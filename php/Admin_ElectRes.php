@@ -36,65 +36,65 @@ require './backMonitor/fetch_date.php';
   <?php include 'navAdmin.php'; ?>
   
   <?php
-    if(!empty($row['vote_event_id'])){
-    echo '<div class="ADheader" id="ADheader">';
-      echo '<h2 class="aHeader-txt">ELECTION RESULTS</h2>';
-    echo'</div>';
+    if($row_count > 0){
+      echo '<div class="ADheader" id="ADheader">';
+        echo '<h2 class="aHeader-txt">ELECTION RESULTS</h2>';
+      echo'</div>';
 
-    echo '<div class="Belection_container" id="election_res">';
+      echo '<div class="Belection_container" id="election_res">';
 
-      for ($i = 0; $i < $size; $i++) {
-        echo '<div class="Bposition1">';
-        echo '<h1><b>' . $candidate_positions[$i]['position_name'] . '</b></h1>';
-        foreach ($candidates as $candidate) {
-          if ($candidate['position'] == $candidate_positions[$i]['position_name']) { 
-            if ($position_votes[$i]['votes_per_position'] != 0) {
-              $percentage = round(($candidate['total_votes'] / $position_votes[$i]['votes_per_position']) * 100);
-            } else {
-              $percentage = 0;
-            }
-            
-            if(($current_date_time > $row['end_date'])){
-              if(empty($candidate['middle_name'])){
-                echo '<div class ="Bcan"><b>'.$candidate['first_name'].' '.$candidate['last_name'].'</b></div>';
-              }else{
-                echo '<div class ="Bcan"><b>'.$candidate['first_name'].' '.$candidate['middle_name'][0].'. '.$candidate['last_name'].'</b></div>';
+        for ($i = 0; $i < $size; $i++) {
+          echo '<div class="Bposition1">';
+          echo '<h1><b>' . $candidate_positions[$i]['position_name'] . '</b></h1>';
+          foreach ($candidates as $candidate) {
+            if ($candidate['position'] == $candidate_positions[$i]['position_name']) { 
+              if ($position_votes[$i]['votes_per_position'] != 0) {
+                $percentage = round(($candidate['total_votes'] / $position_votes[$i]['votes_per_position']) * 100);
+              } else {
+                $percentage = 0;
               }
-              echo '<div class ="Bparty"><b>'.$candidate['party_name'].'</b></div>';
-              echo '<div class="Bbar1">';
-              echo '<img class="Banon" src="'.$candidate['photo'].'" width="40px" height="40px">';
-              echo '<div class="Bvote_percentage">';
-              echo '<div class="Bvote_level" style="width:' . $percentage . '%">';
-              echo '<b><span>'.$candidate['total_votes'].'</span></b>';
-              echo '</div>';
-              echo '</div>';
-              echo '</div>';
-            }else {
-              echo '<div class ="Bcan"><b>Candidate Name</b></div>';
-              echo '<div class ="Bparty"><b>Party</b></div>';
-              echo '<div class="Bbar1">';
-              echo '<img class="Banon" src="../img/anon.png" width="40px" height="40px">';
-              echo '<div class="Bvote_percentage">';
-              echo '<div class="Bvote_level" style="width:'.$percentage.'%">';
-              echo '<b><span>'.$percentage.'%</span></b>';
-              echo '</div>';
-              echo '</div>';
-              echo '</div>';
+              
+              if(($current_date_time > $row['end_date'])){
+                if(empty($candidate['middle_name'])){
+                  echo '<div class ="Bcan"><b>'.$candidate['first_name'].' '.$candidate['last_name'].'</b></div>';
+                }else{
+                  echo '<div class ="Bcan"><b>'.$candidate['first_name'].' '.$candidate['middle_name'][0].'. '.$candidate['last_name'].'</b></div>';
+                }
+                echo '<div class ="Bparty"><b>'.$candidate['party_name'].'</b></div>';
+                echo '<div class="Bbar1">';
+                echo '<img class="Banon" src="'.$candidate['photo'].'" width="40px" height="40px">';
+                echo '<div class="Bvote_percentage">';
+                echo '<div class="Bvote_level" style="width:' . $percentage . '%">';
+                echo '<b><span>'.$candidate['total_votes'].'</span></b>';
+                echo '</div>';
+                echo '</div>';
+                echo '</div>';
+              }else {
+                echo '<div class ="Bcan"><b>Candidate Name</b></div>';
+                echo '<div class ="Bparty"><b>Party</b></div>';
+                echo '<div class="Bbar1">';
+                echo '<img class="Banon" src="../img/anon.png" width="40px" height="40px">';
+                echo '<div class="Bvote_percentage">';
+                echo '<div class="Bvote_level" style="width:'.$percentage.'%">';
+                echo '<b><span>'.$percentage.'%</span></b>';
+                echo '</div>';
+                echo '</div>';
+                echo '</div>';
+              }
             }
           }
+          echo '</div>';
         }
-        echo '</div>';
-      }
-    echo '</div>';
-    echo '<form action="Admin_ElectRes.php" method="post" target="_self">';
-    echo '<div class="Bbtn_post">';
-    echo "<button onclick='return confirm('Are you sure?')' type='submit' id='post_button' name='post_button' class='Bbtn_postresults scs-responsive'><b>POST RESULT</b></button>";
-    echo '</div>';
+      echo '</div>';
+      echo '<form action="Admin_ElectRes.php" method="post" target="_self">';
+      echo '<div class="Bbtn_post">';
+      echo "<button onclick='return confirm('Are you sure?')' type='submit' id='post_button' name='post_button' class='Bbtn_postresults scs-responsive'><b>POST RESULT</b></button>";
+      echo '</div>';
 
-    echo '<div class="Bbtn_reset">';
-    echo "<button onclick='return confirm('Are you sure?')' type='submit' id='reset_button' name='reset_button' class='Bbtn_resetresults scs-responsive'><b>RESET ELECTION</b></button>";
-    echo '</div>';
-    echo '</form>';
+      echo '<div class="Bbtn_reset">';
+      echo "<button onclick='return confirm('Are you sure?')' type='submit' id='reset_button' name='reset_button' class='Bbtn_resetresults scs-responsive'><b>RESET ELECTION</b></button>";
+      echo '</div>';
+      echo '</form>';
     }else{
       require '../html/admin_no_election.html';
     }
@@ -132,12 +132,7 @@ require './backMonitor/fetch_date.php';
     <p class="footer-txt">BS COMPUTER SCIENCE 3A © 2021</p>
   </div>
 
-  <script>
-    // $(document).ready(function() {
-    //   let autorefresh = setInterval(function() {
-
-    //   }, 1000);
-    // }); 
+  <script> 
     $('.ADicon').click(function() {
       $('span').toggleClass("cancel");
     });

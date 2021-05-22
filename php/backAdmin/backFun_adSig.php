@@ -51,7 +51,7 @@ $position_query_run = mysqli_query($connection, $position_query);
                 ";
 
                 // session action for logs
-                $_SESSION['action'] = 'added Signatory : ' . $siglname . ', '. $sigfname ;
+                $_SESSION['action'] = 'added Signatory : ' . $sigid ;
                 include 'backFun_actLogs_v0_1.php';
               }
             }
