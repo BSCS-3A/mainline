@@ -178,15 +178,11 @@ include("db_conn.php");
 				        Archive($conn, $end_date->format('Y-m-d'));
 				        $check = false;
 					}
-				?>
+				
 		        
 					echo '<div class="Bbtn_dl">';
 				    echo '<button name=\'dl_btn\' onclick="parent.open(\'Admin_generate-pdf.php\')" class=\'Bbtn_dlreport\'"><b>DOWNLOAD PDF</b></button>';
-				    echo '</div>';
-	<?php
-		        
-
-	          	
+				    echo '</div>';          	
           }
           else
           {  // start tie display
