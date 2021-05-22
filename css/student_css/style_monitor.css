@@ -1,3 +1,4 @@
+
 /*Header*/
 .bheader {
   z-index: 100;
@@ -27,14 +28,14 @@
   padding: 2px 2px;
   margin-top: 10%;
   color: #1f6f8f;
-  font-weight: 400;
+  font-weight: inherit;
   width: 100%;
   text-align: center;
   font-family: 'Roboto-regular', sans-serif;
   letter-spacing: 6px;
-  margin-top: 1%;
+  margin-top: auto;
 }
-
+  
 /* On-Going Election*/
 
 .Belec1 p {
@@ -77,95 +78,7 @@
   font-size: 100%;
 }
 
-/*No On-going Election*/
-
-.Belec2 p {
-  font-family:'Roboto-regular', sans-serif;;
-  color: #1f6f8f;
-  font-weight: inherit;
-  font-size: 400%;
-  margin-top: 10%;
-  letter-spacing: 4px;
-  text-align: center;
-}
-
-.Bon2 h1 {
-  font-family: 'Roboto-regular', sans-serif;;
-  color: #142d4f;
-  font-weight: inherit;
-  font-size: 550%;
-  letter-spacing: 4px;
-  text-align: center;
-  margin-top: 1%;
-}
-
-.Bon3 h1 {
-  font-family: 'Roboto-regular', sans-serif;;
-  color: #142d4f;
-  font-weight: inherit;
-  font-size: 100%;
-  letter-spacing: 4px;
-  text-align: center;
-  margin-top: 8%;
-}
-
-/* End of Election*/
-
-.Belec_end1 p {
-  font-family: 'Roboto-regular', sans-serif;;
-  color: #1f6f8f;
-  font-weight: inherit;
-  font-size: 400%;
-  margin-top: 4%;
-  letter-spacing: 4px;
-  text-align: center;
-}
-
-.Belec_end2 h1 {
-  font-family: 'Roboto-regular', sans-serif;;
-  color: #142d4f;
-  font-weight: inherit;
-  font-size: 550%;
-  position: relative;
-  letter-spacing: 4px;
-  text-align: center;
-  margin-top: -0.8%;
-}
-
-.Belec_end3 p {
-  font-family:'Roboto-regular', sans-serif;;
-  color: #1f6f8f;
-  font-weight: inherit;
-  font-size: 500%;
-  margin-top: -4%;
-  letter-spacing: 4px;
-  text-align: center;
-}
-
-.Bres_end h1 {
-  font-family: 'Roboto-regular', sans-serif;;
-  color: #142d4f;
-  font-weight: inherit;
-  font-size: 150%;
-  position: relative;
-  letter-spacing: 4px;
-  text-align: center;
-  margin-top: 100px;
-}
-
-
 /* Election Archives Folder*/
-
-.Barch p {
-  font-family: Roboto regular, sans-serif;
-  color: #142d4f;
-  font-weight: inherit;
-  font-size: 300%;
-  position: relative;
-  letter-spacing: 1px;
-  text-align: center;
-  margin-top: 40px;
-}
 
 .Bimg img {
   position: relative;
@@ -201,19 +114,19 @@
   border-radius: 60%;
 }
 
-
 /*Election Archives List*/
 
-.Barch_year {
-  font-family: 'Roboto-regular', sans-serif;;
+.Barch_year h3 {    
+  z-index: 100;
+  padding: 2px 2px;
   color: #1f6f8f;
-  font-weight: inherit;
-  font-size: 200%;
-  position: relative;
-  letter-spacing: 3px;
+  font-weight: 400;
+  width: 100%;
   text-align: center;
-  margin-top: 50%;
-}
+  font-family: 'Roboto-regular', sans-serif;
+  letter-spacing: 6px;
+  margin-top: 1%;
+  }
 
 .Barch_container {
   padding: 30px;
@@ -223,8 +136,8 @@
   grid-template-columns: repeat(auto-fit, minmax(200px, 5fr));
   grid-template-rows: repeat(autofit, 30%);
   text-align: center;
-  margin-top: -5px;
   max-width: 80%;
+  margin-top: 3%;
   margin-left: auto;
   margin-right: auto;
 }
@@ -291,25 +204,23 @@
   margin-top: -5px;
 }
 
-/*Election Results*/
-
+/*Circular Progress Graph*/
 .Bcon {
-	width: 80%;
+	max-width: 80%;
+  z-index: 1000;
 	margin-left: auto;
 	margin-right: auto;
 }
-
-.Bvcontainer{ 
+.Bvcontainer{
 	position: relative;
-	max-width: 1500px;
+	margin-top: 5%;
 	justify-content: space-around;
 	display: grid; 
-	grid-column-gap: 10%; 
-	grid-row-gap: 5%;
+  grid-column-gap: 10%;
+	grid-row-gap: -1%;
 	grid-template-columns: repeat(auto-fit, minmax(100px, 2fr));
-	grid-template-rows: repeat(1, 200%);  
 }
-.Bvcontainer .Bcard {
+.Bvcontainer .Bcard1 {
 	position: relative;
 	width: 100%;
 	display: grid;
@@ -320,16 +231,8 @@
 	text-align: center;
 	transition: 0.5s;
 }
-.Bvcontainer .Bcard:before {
-	content: "";
-	position: absolute;
-	top: 0;
-	left: 0%;
-	width: 100%;
-	height: rgba(73, 163, 0, 0.03);
-	pointer-events: none;
-}
-.Bbox1 a {
+
+.Bbox1 p {
 	color: #ffb700;
 	font-family: 'Roboto-regular', sans-serif;
 	font-size: 15px;
@@ -337,7 +240,7 @@
 	padding: 10px;
 	background-color: black;
 }
-.Bbox1 a:hover{
+.Bbox1 p:hover{
 	color: white ;
 }
 .circle{
@@ -346,17 +249,22 @@
 	font-family: 'Roboto-regular', sans-serif;
   }
 
-
-/*Bar Graph*/
-.Belec_container {
-  padding: 60px;
-  display: grid;
-  grid-gap: 20px;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 2fr));
-  grid-template-rows: repeat(5, 100px);
-  text-align: center;
+/*Bar Graph
+.con1 {
+	max-width: 80%;
+  z-index: 1000;
+	margin-left: auto;
+	margin-right: auto;
 }
-
+.Belec_container{
+	position: relative;
+	margin-top: 5%;
+	justify-content: space-around;
+	display: grid; 
+  grid-column-gap: 5%;
+	grid-row-gap: 5%;
+	grid-template-columns: repeat(auto-fit, minmax(100px, 2fr));
+}
 .style-1 {
   list-style-type: none;
   padding: 0;
@@ -365,7 +273,6 @@
   background: #ffb700;
   color: black;
   font-weight: bold;
-  max-width: 500px;
   margin-bottom: 4px;
   border-radius: 2px;
   white-space: nowrap;
@@ -387,7 +294,6 @@
   background: #1f6f8f;
   color: white;
   font-weight: bold;
-  max-width: 500px;
   margin-bottom: 4px;
   border-radius: 2px;
   white-space: nowrap;
@@ -403,7 +309,60 @@
   text-align: right;
   border-radius: 2px;
   padding: 8px;
-  width: 70px;
   background: rgba(0, 0, 0, 0.3);
   animation: grow-padding-left 1s;
+}*/
+
+.Belec_container {
+  margin-left: 11%;
+  margin-right: 11%;
+  display: grid;
+  grid-gap: 30px;
+  grid-column: 30px;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 2fr));
+  grid-template-rows: repeat(10, 200px);
+  text-align: center;
+  margin-top: 2%;
+}
+
+.Belec_container>div>img {
+  border-radius: 50%;
+}
+
+.Belec_container>div>p {
+  font-family: 'Roboto-regular', sans-serif;;
+  font-size: 15px;
+  object-fit: cover;
+  text-align: center;
+}
+.Bnum_votes {
+  margin-top: 1%;
+  font-family: 'Roboto-regular', sans-serif;;
+  color: rgb(177, 88, 88);
+  font-weight: bold;
+  text-align: center;
+  background-color: #fece4b;
+}
+.Bname {
+  font-family: 'Roboto-regular', sans-serif;;
+  font-size: 5%;
+  object-fit: cover;
+  text-align: center;
+  color: #003d55;
+}
+
+.Bposition {
+  font-family: 'Roboto-regular', sans-serif;;
+  font-size: 2%;
+  color:#1d6986;
+  font-weight: bold;
+  text-align: center;
+
+}
+
+.Bparty {
+  font-family: 'Roboto-regular', sans-serif;;
+  font-size: 2%;
+  color:black;
+  text-align: center;
 }

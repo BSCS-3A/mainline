@@ -22,7 +22,6 @@ $DTrow =  $DnT->fetch_row();
     <link rel="stylesheet" type="text/css" href="../css/admin_css/style_studAcc.css">
     <link rel="stylesheet" href="../css/admin_css/bootstrap_studAcc.css">
     <link rel="stylesheet" href="../css/admin_css/dataTables.bootstrap_studAcc.css">
-    <link rel="stylesheet" href="../css/admin_css/font-awesome_studAcc.css">
 
     <script src="../js/jquery-1.11.1.min_studAcc.js"></script>
     <script src="../js/jquery.dataTables.min_studAcc.js"></script>
@@ -31,14 +30,14 @@ $DTrow =  $DnT->fetch_row();
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
     <script type="text/javascript" src="../js/admin_session_timer.js"></script>
     <script type="text/javascript">
-    (function() {
-        var css = document.createElement('link');
-        css.href = 'https://use.fontawesome.com/releases/v5.1.0/css/all.css';
-        css.rel = 'stylesheet';
-        css.type = 'text/css';
-        document.getElementsByTagName('head')[0].appendChild(css);
-    })();
-    </script>
+    // (function() {
+    //     var css = document.createElement('link');
+    //     css.href = 'https://use.fontawesome.com/releases/v5.1.0/css/all.css';
+    //     css.rel = 'stylesheet';
+    //     css.type = 'text/css';
+    //     document.getElementsByTagName('head')[0].appendChild(css);
+    // })();
+    // </script>
     <title> Student Account Management | BUCEILS HS Online Voting System</title>
 </head>
 
@@ -72,7 +71,7 @@ $DTrow =  $DnT->fetch_row();
                 <button class="btn btn-button0" data-title="add" data-toggle="modal" data-target="#add"
                     data-placement="top" data-toggle="tooltip" title="Add new student" <?php 
                     $now = date("Y-m-d G:i:s"); // G for 24hr format
-                    if($now >= $DTrow[1] && $now <= $DTrow[2] ){
+                    if(isset($DTrow) && $now >= $DTrow[1] && $now <= $DTrow[2] ){
                     ?> disabled <?php    
                     }?>>
                     <span class="fa fa-user-plus"></span> ADD</button>
@@ -80,7 +79,7 @@ $DTrow =  $DnT->fetch_row();
                 <button class="btn btn-button1" data-title="new" data-toggle="modal" data-target="#new"
                     data-placement="top" data-toggle="tooltip" title="Import new list" <?php 
                     $now = date("Y-m-d G:i:s"); // G for 24hr format
-                    if($now >= $DTrow[1] && $now <= $DTrow[2] ){
+                    if(isset($DTrow) && $now >= $DTrow[1] && $now <= $DTrow[2] ){
                     ?> disabled <?php    
                     }?>>
                     <span class="fa fa-file-import"></span> IMPORT</button>
@@ -89,7 +88,7 @@ $DTrow =  $DnT->fetch_row();
                 <button class="btn btn-button2" data-title="otp" data-toggle="modal" data-target="#otp"
                     data-placement="top" data-toggle="tooltip" title="Generate OTP for this list" <?php 
                     $now = date("Y-m-d G:i:s"); // G for 24hr format
-                    if($now >= $DTrow[1] && $now <= $DTrow[2] ){
+                    if(isset($DTrow) && $now >= $DTrow[1] && $now <= $DTrow[2] ){
                     ?> disabled <?php    
                     }?>>
                     <span class="fa fa-lock"></span> GENERATE OTP</button>
@@ -99,7 +98,7 @@ $DTrow =  $DnT->fetch_row();
                 <button class="btn btn-button3" data-title="send" data-toggle="modal" data-target="#send"
                     data-placement="top" data-toggle="tooltip" title="Send Login Credentials" <?php 
                     $now = date("Y-m-d G:i:s"); // G for 24hr format
-                    if($now >= $DTrow[1] && $now <= $DTrow[2] ){
+                    if(isset($DTrow) && $now >= $DTrow[1] && $now <= $DTrow[2] ){
                     ?> disabled <?php    
                     }?>>
 
@@ -113,7 +112,7 @@ $DTrow =  $DnT->fetch_row();
                     <table class="table-center" id="datatable" width="100%">
                         <thead>
                             <tr>
-                                <th class="min-mobile">STUDENT ID</th>
+                                <th class="min-mobile" id="tableth">STUDENT ID</th>
                                 <th class="min-mobile">LAST NAME</th>
                                 <th class="min-mobile">FIRST NAME</th>
                                 <th class="min-mobile">MIDDLE NAME</th>
@@ -335,7 +334,7 @@ $DTrow =  $DnT->fetch_row();
                                 placeholder="Enter Middle Name">
                         </div>
                         <div class="form-group">
-                            <inputautocomplete="off" class="form-control " name="gender" id="egender" type="text"
+                            <input autocomplete="off" class="form-control " name="gender" id="egender" type="text"
                                 placeholder="Enter Gender" required="required">
                         </div>
                         <div class="form-group">
@@ -453,7 +452,7 @@ $(document).ready(function(){
 
    "ajax":{
     url:"sort_studAcc.php",
-    type:"POST",
+    type:"GET",
     data:{lvl:lvl}
    },
    "columnDefs":[

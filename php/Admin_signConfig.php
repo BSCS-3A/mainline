@@ -14,7 +14,6 @@ if (isset($_SESSION['admin_id']) && isset($_SESSION['username'])) {
     <link rel="stylesheet" type="text/css" href="../css/admin_css/style1_addAdmin.css">
     <link rel="stylesheet" href="../css/admin_css/bootstrap_addAdmin.css">
     <link rel="stylesheet" href="../css/admin_css/dataTables.bootstrap_addAdmin.css">
-    <link rel="stylesheet" href="../css/admin_css/font-awesome.css">
     <link rel="stylesheet" href="../css/admin_css/autocomplete_signatory.css">
     <script src="../js/jquery-1.11.1.min_addAdmin.js"></script>
     <script src="../js/jquery.dataTables.min_addAdmin.js"></script>
@@ -53,23 +52,33 @@ if (isset($_SESSION['admin_id']) && isset($_SESSION['username'])) {
           error_reporting(E_ERROR | E_PARSE);
           ?>
 
-          <table class="table table-hover" id="datatable" width="100%">
+          <table class="table table-hover" id="datatable" width="100%"style="overflow-x:auto;"  >
             <thead>
               <tr>
                 <th class="text-center">FIRST NAME</th>
                 <th class="text-center">LAST NAME</th>
                 <th class="text-center">POSITION</th>
+                <th style="display:none;"></th>
+                <th style="display:none;"></th>
+                <th class="text-center">E-SIGNATURE</th>
                 <th class="text-center">ACTION</th>
               </tr>
             </thead>
             <tbody>
-              <?php while ($row = mysqli_fetch_array($query_run)) { #START OF FETCHING OF RECORDS FROM DATABASE  
+              <?php while ($row = mysqli_fetch_array($query_run)) { #START OF FETCHING OF RECORDS FROM DATABASE
               ?>
 
                 <tr>
                   <td><?php echo $row['admin_fname']; ?></td>
                   <td><?php echo $row['admin_lname']; ?></td>
                   <td><?php echo $row['comelec_position']; ?></td>
+                  <td style="display:none;"><?php echo $row['admin_id']; ?></td>
+                  <td style="display:none;"><?php echo $row['esignature']; ?></td>
+                  <td>
+                  <img style ="  max-width: 100%;height: auto;"src="<?php echo $row['esignature']; ?>"> <br><br>
+                  <button class="btn btn-primary btn-xs upbtn" data-title="otp" data-toggle="modal" data-target="#e_sig" data-placement="top" title="Add"><span class="fa fa-user-plus" aria-hidden="true"></span> Upload</button>
+                  <button class="btn btn-danger btn-xs esigdeletebtn" data-title="Delete" data-toggle="modal" data-target="#sigdelete"><span class="fa fa-trash"></span> DELETE</button>
+                  </td>
                   <td>
                     <button class="btn btn-danger btn-xs deletebtn" data-title="Delete" data-toggle="modal" data-target="#delete"><span class="fa fa-trash"></span> DELETE</button>
                   </td>
@@ -99,6 +108,7 @@ if (isset($_SESSION['admin_id']) && isset($_SESSION['username'])) {
             $fname = array();
             $lname = array();
             $pos = array();
+            $id = array();
 
             if (mysqli_num_rows($result) > 0) {
               while ($row = mysqli_fetch_assoc($result)) {
@@ -131,6 +141,14 @@ if (isset($_SESSION['admin_id']) && isset($_SESSION['username'])) {
               <?php } ?>
             </script>
 
+            <script type="text/javascript" language="javascript">
+              var array4 = new Array();
+              <?php foreach ($data as $key) {
+                $id = $key['admin_id']; ?>
+                array4.push('<?php echo $id; ?>');
+              <?php } ?>
+            </script>
+
             <div class="modal-body">
               <div class="autocomplete">
                 <input class="form-ac" type="text" placeholder="First Name" required name="sigfname" id="sigfname">
@@ -146,11 +164,43 @@ if (isset($_SESSION['admin_id']) && isset($_SESSION['username'])) {
                 <input class="form-ac" type="text" placeholder="Position" required name="sigpos" id="sigpos">
               </div>
               <br>
-
+              <div class="autocomplete">
+                <input class="form-ac" type="hidden" placeholder="id" name="sigid" id="sigid">
+              </div>
             </div>
 
             <div class="modal-footer ">
               <button type="submit" class="btn btn-success" id="go"><span class="fa fa-user-plus" name="saveSignatory"></span> ADD</button>
+              <button type="button" class="btn btn-default" id="cancel2" data-dismiss="modal"><span class="fa fa-times-circle"></span> CANCEL</button>
+
+            </div>
+          </form>
+        </div>
+      </div>
+      <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+    </div>
+
+    <div class="modal fade" id="e_sig" tabindex="-1" role="dialog" aria-labelledby="edit" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+
+            <h4 class="modal-title custom_align" id="Heading">Upload an E-signature</h4>
+          </div>
+
+          <form action="./backAdmin/backFun_esignature.php" method="POST" enctype="multipart/form-data">
+          <div class="modal-body">
+
+            <input type="hidden" name="sigid2" id="sigid2">
+            <input type="hidden" name="e_sigloc" id="e_sigloc">
+            <input type="file" name="upfile"id="upfile">
+            </div>
+
+            <div class="modal-footer ">
+              <button type="submit" name="upload" class="btn btn-success" id="upload" value="Save name"><span class="fa fa-user-plus"></span> Upload</button>
               <button type="button" class="btn btn-default" id="cancel2" data-dismiss="modal"><span class="fa fa-times-circle"></span> CANCEL</button>
 
             </div>
@@ -174,6 +224,7 @@ if (isset($_SESSION['admin_id']) && isset($_SESSION['username'])) {
               <input type="hidden" name="signatory_fname" id="signatory_fname">
               <input type="hidden" name="signatory_lname" id="signatory_lname">
               <input type="hidden" name="signatory_position" id="signatory_position">
+              <input type="hidden" name="signatory_id" id="signatory_id">
               <div class="alert alert-danger"><span class="fa fa-exclamation-triangle"></span> Are you sure you want to delete this signatory?</div>
               <div class="modal-footer ">
                 <button type="submit" class="btn btn-success" name="yes" id="continue"><span class="fa fa-check-circle"></span> Yes</button>
@@ -186,7 +237,42 @@ if (isset($_SESSION['admin_id']) && isset($_SESSION['username'])) {
       </div>
       <!-- /.modal-dialog -->
     </div>
-    
+
+    <!-- /.modal-content -->
+  </div>
+  <!-- /.modal-dialog -->
+  </div>
+
+  <div class="modal fade" id="sigdelete" tabindex="-1" role="dialog" aria-labelledby="edit" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+          <h4 class="modal-title custom_align" id="Heading">Delete E-signature</h4>
+        </div>
+        <div class="modal-body">
+          <form action="./backAdmin/backFun_delEsig.php" method="POST" autocomplete="off">
+            <input type="hidden" name="signid" id="signid">
+            <input type="hidden" name="esigloc" id="esigloc">
+            <div class="alert alert-danger"><span class="fa fa-exclamation-triangle"></span> Are you sure you want to delete this E-signature?</div>
+            <div class="modal-footer ">
+              <button type="submit" class="btn btn-success" name="yep" id="continue1"><span class="fa fa-check-circle"></span> Yes</button>
+              <button type="button" class="btn btn-default" id="cancel3" data-dismiss="modal"><span class="fa fa-times-circle"></span> No</button>
+            </div>
+        </div>
+        </form>
+      </div>
+      <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+  </div>
+
+  <!-- /.modal-content -->
+</div>
+<!-- /.modal-dialog -->
+</div>
+
+
     <div class="footer">
       <p class="footer-txt">BS COMPUTER SCIENCE 3A © 2021</p>
     </div>
@@ -233,6 +319,7 @@ if (isset($_SESSION['admin_id']) && isset($_SESSION['username'])) {
                 inp2.value = arr2[number];
                 document.getElementById("siglname").value = array2[number];
                 document.getElementById("sigpos").value = array3[number];
+                document.getElementById("sigid").value = array4[number];
                 /*close the list of autocompleted values,
                 (or any other open lists of autocompleted values:*/
                 closeAllLists();
@@ -353,16 +440,64 @@ if (isset($_SESSION['admin_id']) && isset($_SESSION['username'])) {
           $('#signatory_fname').val(data[0]);
           $('#signatory_lname').val(data[1]);
           $('#signatory_position').val(data[2]);
+          $('#signatory_id').val(data[3]);
 
         });
       });
     </script>
 
     <script>
-      $('.icon').click(function() {
-        $('span').toggleClass("cancel");
+      $(document).ready(function() {
+        $('.upbtn').on('click', function() {
+
+          $tr = $(this).closest('tr');
+
+          var data = $tr.children("td").map(function() {
+            return $(this).text();
+          }).get();
+          console.log(data);
+          $('#sigid2').val(data[3]);
+          $('#e_sigloc').val(data[4]);
+
+        });
       });
     </script>
+    <script>
+            $(document).ready(function() {
+                $('#datatable').on('click', '.esigdeletebtn', function() {
+
+                    $tr = $(this).closest('tr');
+
+                    var data = $tr.children("td").map(function() {
+                        return $(this).text();
+                    }).get();
+
+                    console.log(data);
+
+                    $('#Delete_ID').val(data[1]);
+
+                });
+            });
+        </script>
+
+        <script>
+          $(document).ready(function() {
+            $('.esigdeletebtn').on('click', function() {
+
+              $tr = $(this).closest('tr');
+
+              var data = $tr.children("td").map(function() {
+                return $(this).text();
+              }).get();
+              console.log(data);
+              $('#signid').val(data[3]);
+              $('#esigloc').val(data[4]);
+
+
+            });
+          });
+        </script>
+
   </body>
 
   </html>

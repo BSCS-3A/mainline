@@ -5,12 +5,12 @@
 
 <?php
 
-include('../Admin_schedConfig.php');
-require '../../other/composer/vendor/autoload.php';
+include('Admin_schedConfig.php');
+require '../other/composer/vendor/autoload.php';
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 // $db = mysqli_connect('localhost', 'root', '', 'bucielsmain2');
-include '../db_conn.php';
+include 'db_conn.php';
 $results = mysqli_query($db, "SELECT * FROM student");
 
 $mail = new PHPMailer(TRUE);
@@ -23,7 +23,7 @@ $mail = new PHPMailer(TRUE);
       
       // Display the alert box  
       echo "<script>
-         window.location.href='../Admin_schedConfig.php';
+         window.location.href='Admin_schedConfig.php';
          alert('$msg');
     </script>"; 
   } 
@@ -87,7 +87,7 @@ $mail = new PHPMailer(TRUE);
 	
     //For Logs
     $_SESSION['action'] = 'sent Election Reminders.';
-    include 'backFun_actLogs_v0_1.php';
+    include './backAdmin/backFun_actLogs_v0_1.php';
        
    }
    }else{

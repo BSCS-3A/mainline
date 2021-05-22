@@ -89,6 +89,9 @@ body {
   span.cancel:before {
     content: '\f00d';
   }
+  div.cropper-container.cropper-bg{
+    width:auto !important;
+    }
 }
 
 #Dheader{
@@ -559,4 +562,9 @@ img.logos {
     flex-direction: column;
   }
 }
+
+#edit {
+    overflow-y:scroll;
+}
+
 

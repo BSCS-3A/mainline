@@ -9,27 +9,27 @@ $query = "
  SELECT * FROM student";
 
 $query .= " WHERE ";
-if(isset($_POST["lvl"]) AND $_POST["lvl"] != 1)
+if(isset($_GET["lvl"]) AND $_GET["lvl"] != 1)
 {
- $query .= "grade_level = ".$_POST["lvl"]." AND";
+ $query .= "grade_level = ".$_GET["lvl"]." AND";
 }
 else{
  $query .= "grade_level < '13' AND ";
 }
 
-if(isset($_POST["search"]["value"]))
+if(isset($_GET["search"]["value"]))
 {
- $query .= '(student_id LIKE "%'.$_POST["search"]["value"].'%" ';
- $query .= 'OR lname LIKE "%'.$_POST["search"]["value"].'%" ';
- $query .= 'OR Mname LIKE "%'.$_POST["search"]["value"].'%" ';
- $query .= 'OR fname LIKE "%'.$_POST["search"]["value"].'%" ';
- $query .= 'OR gender LIKE "%'.$_POST["search"]["value"].'%" ';
- $query .= 'OR bumail LIKE "%'.$_POST["search"]["value"].'%" ';
- $query .= 'OR otp LIKE "%'.$_POST["search"]["value"].'%") ';
+ $query .= '(student_id LIKE "%'.$_GET["search"]["value"].'%" ';
+ $query .= 'OR lname LIKE "%'.$_GET["search"]["value"].'%" ';
+ $query .= 'OR Mname LIKE "%'.$_GET["search"]["value"].'%" ';
+ $query .= 'OR fname LIKE "%'.$_GET["search"]["value"].'%" ';
+ $query .= 'OR gender LIKE "%'.$_GET["search"]["value"].'%" ';
+ $query .= 'OR bumail LIKE "%'.$_GET["search"]["value"].'%" ';
+ $query .= 'OR otp LIKE "%'.$_GET["search"]["value"].'%") ';
 }
-if(isset($_POST["order"]))
+if(isset($_GET["order"]))
 {
- $query .= 'ORDER BY '.$column[$_POST['order']['0']['column']].' '.$_POST['order']['0']['dir'].' ';
+ $query .= 'ORDER BY '.$column[$_GET['order']['0']['column']].' '.$_GET['order']['0']['dir'].' ';
 }
 else
 {
@@ -38,9 +38,9 @@ else
 
 $query1 = '';
 
-if($_POST["length"] != 1)
+if($_GET["length"] != 1)
 {
- $query1 .= 'LIMIT ' . $_POST['start'] . ', ' . $_POST['length'];
+ $query1 .= 'LIMIT ' . $_GET['start'] . ', ' . $_GET['length'];
 }
 
 
@@ -66,7 +66,7 @@ while($row = mysqli_fetch_array($result))
  $sub_array[] = $row["bumail"];
  $sub_array[] = $row["grade_level"];
  $sub_array[] = $row["otp"];
- if($now >= $rowx[1] && $now <= $rowx[2]){
+ if(isset($DTrow) && $now >= $rowx[1] && $now <= $rowx[2]){
  $sub_array[] = '<button class="btn btn-primary btn-xs EditBtn" data-title="Edit" data-toggle="modal"
     data-placement="top" data-toggle="tooltip" title="Edit"><span class="fa fa-edit"></span> EDIT</button> 
                 <button disabled class="btn btn-danger btn-xs DeleteBtn" data-title="Delete" data-toggle="modal"
@@ -99,7 +99,7 @@ function get_all_data($connect)
 }
 
 $output = array(
- "draw"    => intval($_POST["draw"]),
+ "draw"    => intval($_GET["draw"]),
  "recordsTotal"  =>  get_all_data($connect),
  "recordsFiltered" => $number_filter_row,
  "data"    => $data

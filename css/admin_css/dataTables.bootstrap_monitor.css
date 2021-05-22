@@ -21,7 +21,7 @@ div.dataTables_filter label {
 
 div.dataTables_filter input {
     margin-left: 0.5em;
-    display: inline-block;
+    display: inline-block;  
 }
 
 div.dataTables_info {
@@ -64,23 +64,23 @@ table.dataTable thead .sorting, table.dataTable thead .sorting_asc, table.dataTa
 }
 
 table.dataTable thead .sorting {
-    background: url("../img/sort_both.png") no-repeat center right;
+    background: url("../../img/sort_both.png") no-repeat center right;
 }
 
 table.dataTable thead .sorting_asc {
-    background: url("../img/sort_asc.png") no-repeat center right;
+    background: url("../../img/sort_asc.png") no-repeat center right;
 }
 
 table.dataTable thead .sorting_desc {
-    background: url("../img/sort_desc.png") no-repeat center right;
+    background: url("../../img/sort_desc.png") no-repeat center right;
 }
 
 table.dataTable thead .sorting_asc_disabled {
-    background: url("../img/sort_asc_disabled.png") no-repeat center right;
+    background: url("../../img/sort_asc_disabled.png") no-repeat center right;
 }
 
 table.dataTable thead .sorting_desc_disabled {
-    background: url("../img/sort_desc_disabled.png") no-repeat center right;
+    background: url("../../img/sort_desc_disabled.png") no-repeat center right;
 }
 
 table.dataTable thead>tr>th {
@@ -161,7 +161,7 @@ div.dataTables_scrollHead table.table-bordered {
 }
 
 .table.dataTable tbody tr.active th>a, .table.dataTable tbody tr.active td>a {
-    color:white;
+    color: white;
 }
 
 .table-striped.dataTable tbody tr.active:nth-child(odd) td, .table-striped.dataTable tbody tr.active:nth-child(odd) th {
@@ -243,7 +243,7 @@ div.dataTables_processing {
     padding-bottom: 20px;
     text-align: center;
     font-size: 1.2em;
-    background-color: ;
+    background-color: white;
     background: -webkit-gradient(linear, left top, right top, color-stop(0%, rgba(255, 255, 255, 0)), color-stop(25%, rgba(255, 255, 255, 0.9)), color-stop(75%, rgba(255, 255, 255, 0.9)), color-stop(100%, rgba(255, 255, 255, 0)));
     background: -webkit-linear-gradient(left, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.9) 25%, rgba(255, 255, 255, 0.9) 75%, rgba(255, 255, 255, 0) 100%);
     background: -moz-linear-gradient(left, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.9) 25%, rgba(255, 255, 255, 0.9) 75%, rgba(255, 255, 255, 0) 100%);

@@ -130,11 +130,12 @@
         <div class="Uright">
            <div class = "Urow" id = "view-container">
             </div>
+</div>
         </div>
             <div class = "scroll_Top" style="margin-bottom: 50px !important;">
     <button id = "scrollToTopBtn" >^</button>
 </div>
-</div>
+    
      <div class="modal fade" id="view" tabindex="-1" role="dialog" aria-labelledby="view" aria-hidden="true"> <!--Modal Contains 2 containers 1 container for the platforms and another for the credentials-->
         
             <div class="modal-dialog">
@@ -176,32 +177,23 @@
             BS COMPUTER SCIENCE 3A © 2021
             </footer> -->
 
-    <script>
-        /*$('.icon').click(function () {
+     <script>
+        $('.icon').click(function () {
             $('span').toggleClass("cancel");
-var scrollToTopBtn = document.querySelector(".scrollToTopBtn");
-var rootElement = document.documentElement;
 
-function handleScroll() {
-  // Do something on scroll
-  var scrollTotal = rootElement.scrollHeight - rootElement.clientHeight;
-  if ((rootElement.scrollTop / scrollTotal ) > 0.50) {
-    // Show button
-    scrollToTopBtn.classList.add("showBtn");
-  } else {
-    // Hide button
-    scrollToTopBtn.classList.remove("showBtn");
-  }
-}
+    </script>
+    <script>
+      var scrollToTopBtn = document.getElementById("scrollToTopBtn")
+      var rootElement = document.documentElement
 
-function scrollToTop() {
-  rootElement.scrollTo({
+    function scrollToTop() {
+  // Scroll to top logic
+    rootElement.scrollTo({
     top: 0,
     behavior: "smooth"
-  });
+  })
 }
-scrollToTopBtn.addEventListener("click", scrollToTop);
-document.addEventListener("scroll", handleScroll);*/
+scrollToTopBtn.addEventListener("click", scrollToTop)
     </script>
 </body>
 

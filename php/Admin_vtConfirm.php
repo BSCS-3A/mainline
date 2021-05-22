@@ -41,7 +41,7 @@
                                 echo 
                                 '<tr id="display-vote-info">
                                   <td id="F-preview-Position">'.$poss["position_name"].':</td>
-                                  <td id="F-preview-CandidateName"><span id = "'.$poss["heirarchy_id"].'">Abstain</span></td>
+                                  <td id="F-preview-CandidateName"><span id = "'.$poss["heirarchy_id"].'"><b>Not yet finalized</b></span></td>
                                 </tr>
                                 <br>';
                             // end of position div 

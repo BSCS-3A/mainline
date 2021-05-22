@@ -16,9 +16,9 @@
   </div>
   
   <div class="bheader1">
-        <h4>
-          VOTER'S TURNOUT
-        </h4>
+        <h3>
+          <b>VOTER'S TURNOUT</b>
+        </h3>
   </div>
 
   <?php
@@ -147,20 +147,18 @@
 
     <div class="Bcon">
         <div class="Bvcontainer">
-            <div class="Bcard">
+            <div class="Bcard1">
                 <div class="Bbox1">
                     <div class="progressbar" data-animate="false" > <?php //ang gr7_percent sya yung gagamitin para sa bar, yung naga pakita kung ilang percent na ?>
                        <div class="circle" data-percent=<?php echo '' . $gr7_percent . ''; ?>>
                             <div></div>
                         </div>
-                       
                     </div>
-
-                     <br><a href='Admin_Vstat.php?level=7'><b> GRADE 7</b></a>
+                    <p><b> GRADE 8</b></p>
                 </div>
             </div>
 
-            <div class="Bcard">
+            <div class="Bcard1">
                 <div class="Bbox1">
                     <div class="progressbar" data-animate="false"><?php //ang gr8_percent sya yung gagamitin para sa bar, yung naga pakita kung ilang percent na
                                                                     ?>
@@ -169,11 +167,11 @@
 
                         </div>
                     </div>
-                     <br><a href='Admin_Vstat.php?level=8'><b> GRADE 8</b></a>
+                    <p><b> GRADE 8</b></p>
                 </div>
             </div>
 
-            <div class="Bcard">
+            <div class="Bcard1">
                 <div class="Bbox1">
                     <div class="progressbar" data-animate="false"><?php //ang gr9_percent sya yung gagamitin para sa bar, yung naga pakita kung ilang percent na
                                                                     ?>
@@ -182,13 +180,12 @@
 
                         </div>
                     </div>
-                     <br><a href='Admin_Vstat.php?level=9'><b> GRADE 9</b></a>
-
+                    <p><b> GRADE 9</b></p>
                 </div>
             </div>
 
             
-            <div class="Bcard">
+            <div class="Bcard1">
                 <div class="Bbox1">
                     <div class="progressbar" data-animate="false"><?php //ang gr10_percent sya yung gagamitin para sa bar, yung naga pakita kung ilang percent na
                                                                     ?>
@@ -197,52 +194,67 @@
 
                         </div>
                     </div>
-                     <br><a href='Admin_Vstat.php?level=10'><b> GRADE 10</b></a>
-
+                    <p><b> GRADE 10</b></p>
                 </div>
             </div>
 
-            <div class="Bcard">
+            <div class="Bcard1">
                 <div class="Bbox1">
                     <div class="progressbar" data-animate="false"><?php //ang gr11_percent sya yung gagamitin para sa bar, yung naga pakita kung ilang percent na
                                                                     ?>
                         <div class="circle" data-percent=<?php echo '' . $gr11_percent . ''; ?>>
                             <div></div>
-
                         </div>
                     </div>
-                     <br><a href='Admin_Vstat.php?level=11'><b> GRADE 11</b></a>
-
+                    <p><b> GRADE 11</b></p>
                 </div>
             </div>
 
-            <div class="Bcard">
+            <div class="Bcard1">
                 <div class="Bbox1">
                     <div class="progressbar" data-animate="false"><?php //ang gr12_percent sya yung gagamitin para sa bar, yung naga pakita kung ilang percent na
                                                                     ?>
                         <div class="circle" data-percent=<?php echo '' . $gr12_percent . ''; ?>>
                             <div></div>
-
                         </div>
                     </div>
-                     <br><a href='Admin_Vstat.php?level=12'><b> GRADE 12</b></a>
-
+                     <p><b> GRADE 12</b></p>
                 </div>
             </div>
 
             <?php
             ?>
-
-
         </div>
     </div>
 
   <div class="bheader2">
-        <h4>
-          VOTE TALLY
-        </h4>
+        <h3>
+          <b>VOTE TALLY</b>
+        </h3>
   </div>
 
+
+
+
+  <div class="Belec_container" id="candidate">  
+        <?php
+            foreach($candidates as $candidate){
+                echo '<div class="Bposition">';
+                if(empty($candidate['photo'])){
+                  echo '<img src="../img/admin_anon.png" width="40px" height="40px"/>';
+                }else{
+                  echo '<img src="'.$candidate['photo'].'" width="40px" height="40px"/>';
+                }
+                echo '<p class="Bnum_votes">TOTAL VOTES: '.$candidate['total_votes'].'</p>';
+                echo '<p class="Bname">'.$candidate['first_name'].' '.$candidate['middle_name'].' '.$candidate['last_name'].'</p>';
+                echo '<p class="Bposition">'.$candidate['position'].'</p>';
+                echo '<p class="Bparty">'.$candidate['party_name'].'</p>';
+                echo '</div>';
+            }
+        ?>
+  </div>
+
+  <!--<div class="con1">
   <div class="Belec_container" id="candidate">  
   <section>
   <ul class="style-1">
@@ -264,7 +276,7 @@
   <section>
   <ul class="style-1">
       <li>
-        <em>PRESIDENT</em>
+        <em>VICE-PRESIDENT</em>
       </li>
     </ul>
     <ul class="style-2">
@@ -281,7 +293,7 @@
   <section>
   <ul class="style-1">
       <li>
-        <em>PRESIDENT</em>
+        <em>SECRETARY</em>
       </li>
     </ul>
     <ul class="style-2">
@@ -296,23 +308,4 @@
     </ul>
   </section>
   </div>
-
-
-  <!--<div class="Belec_container" id="candidate">  
-       // <?php
-            foreach($candidates as $candidate){
-                echo '<div class="Bposition">';
-                if(empty($candidate['photo'])){
-                  echo '<img src="../img/admin_anon.png" width="40px" height="40px"/>';
-                }else{
-                  echo '<img src="'.$candidate['photo'].'" width="40px" height="40px"/>';
-                }
-                echo '<p class="Bnum_votes">TOTAL VOTES: '.$candidate['total_votes'].'</p>';
-                echo '<p class="Bname">'.$candidate['first_name'].' '.$candidate['middle_name'].' '.$candidate['last_name'].'</p>';
-                echo '<p class="Bposition">'.$candidate['position'].'</p>';
-                echo '<p class="Bparty">'.$candidate['party_name'].'</p>';
-                echo '</div>';
-            }
-        ?>
-  </div>
-
+</div>

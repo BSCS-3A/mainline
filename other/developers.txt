@@ -1,0 +1,96 @@
+PROJECT LEADERS
+Kathrin Denise M. Taclas
+Project Manager
+Joshua Alex I. Llander
+System Analyst
+Lizelle A. Peñarubia
+System Analyst
+John Paul R. Asis
+Database Analyst, Monitoring Team Leader
+Maedel Joice B. Castro
+Software Engineer, Dashboard & Authentication Team Leader
+Mendrix C. Manlangit
+Software Engineer, Candidate Management Team Leader
+John Kenneth E. Maronilla
+Software Engineer, Admin Management Team Leader
+Karlo Rhommel C. Sta. Ana
+Software Engineer, Student Management Team Leader
+John Paul J. Azore
+Software Engineer, Voting Process Team Leader
+0
+MONITORING TEAM
+John Paul R. Asis
+Leader, Back-End Developer
+Mika-Ella L. Jarapa
+Back-End Developer
+Ivee L. Jintalan
+Back-End Developer
+Krisha Louise S. Muñoz
+Back-End Developer
+Lizelle A. Peñarubia
+Back-End Developer
+Darlene Rogero
+Front-End Developer
+0
+DASHBOARD & AUTHENTICATION TEAM
+Maedel Joice B. Castro
+Leader, Font-End Developer
+Jan Harold L. Dela Cruz
+Front-End Developer
+Jose David M. De Los Santos
+Database Developer
+Joshua Alex I. Llander
+Back-End Security Developer
+Alyssa Mae C. Olaño
+Back-End Functionality Developer
+0
+CANDIDATE MANAGEMENT TEAM
+Mendrix C. Manlangit
+Leader, Back-End Security Developer
+Jay D. Majadas
+Back-End Security Developer
+Joshua Isaiah M. Codorniz
+Front-End Developer
+Benazir G. Barrameda
+Back-End Functionality Developer
+Gay B. Alarcon
+Back-End Database Developer
+0
+ADMIN MANAGEMENT TEAM
+John Kenneth E. Maronilla
+Leader, Back-End Developer
+Dhan Japhet V. Ador
+Back-End Database Security Developer
+Jessica A. Ajero
+Front-End Developer
+Steven Andrei B. Barrios
+Back-End Database Developer
+Kerby M. Bartolay
+Back-End Developer
+0
+STUDENT MANAGEMENT TEAM
+Karlo Rhommel C. Sta. Ana
+Leader, Back-End Functionality Developer
+Jon Jayve G. Llaneta
+Back-End Security Developer
+Christian Angelo D. Diesta
+Back-End Developer
+Carlos Gabriel E. Del Rosario
+Back-End Developer
+Kaycee L. Ballesteros
+Front-End Developer
+0
+VOTING PROCESS TEAM
+John Paul J. Azore
+Leader, Back-End Developer
+Ma. Veronica S. Gallos
+Front-End Developer
+Rica Mae Vega
+Front-End Developer
+Christopher B. Belen
+Back-End Developer
+Keen B. Padilla
+Back-End Developer
+Allianah Gaile Malate
+Back-End Developer
+0

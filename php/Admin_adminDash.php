@@ -15,7 +15,6 @@ if (isset($_SESSION['admin_id']) && isset($_SESSION['username'])) {
         <link rel="stylesheet" type="text/css" href="../css/admin_css/style_AdminDash.css">
         <link rel="stylesheet" href="../css/admin_css/bootstrap4.5.2_AdminDash.css">
         <link rel="stylesheet" href="../css/admin_css/dataTables.bootstrap4.min_AdminDash.css">
-        <link rel="stylesheet" href="../css/admin_css/font-awesome.css">
         <link rel="stylesheet" href="../css/admin_css/jquery.dataTables.min_AdminDash.css">
         <!-- <script src="assets/js/a076d05399.js"></script> -->
         <script src="../js/dataTables.bootstrap4.min_adminDash.js"></script>

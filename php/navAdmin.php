@@ -41,22 +41,14 @@ if (time() - $_SESSION['timestamp'] > $idletime) {
     <meta charset="utf-8">
     <link rel="icon" href="../img/BUHS LOGO.png" type="image/png">
     <link rel="stylesheet" type="text/css" href="../css/admin_css/style_adminNav.css">
-    <!-- <link rel="stylesheet" href="../css/admin_css/bootstrap4.5.2_AdminDash.css"> -->
-    <!-- <link rel="stylesheet" href="../css/admin_css/font-awesome_AdminDash.css"> -->
-
-    <!-- <link rel="stylesheet" type="text/css" href="../css/admin_css/style1_addAdmin.css"> -->
-    <!-- <link rel="stylesheet" href="../css/admin_css/bootstrap_addAdmin.css"> -->
     <link rel="stylesheet" href="../css/admin_css/bootstrap_navAdmin.css">
     <link rel="stylesheet" type="text/css" href="../css/student_css/modal_error_messages.css">
     <script type="text/javascript" src="../js/admin_session_timer.js"></script>
-    <!-- <link rel="stylesheet" href="../css/admin_css/dataTables.bootstrap_addAdmin.css"> -->
-    <!-- <link rel="stylesheet" href="../css/admin_css/font-awesome_addAdmin.css">  -->
-    <link rel="stylesheet" href="../css/admin_css/font-awesome_studAcc.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script type="text/javascript">
         (function() {
             var css = document.createElement('link');
-            css.href = 'https://use.fontawesome.com/releases/v5.1.0/css/all.css';
+            css.href = 'https://use.fontawesome.com/releases/v5.13.0/css/all.css';
             css.rel = 'stylesheet';
             css.type = 'text/css';
             document.getElementsByTagName('head')[0].appendChild(css);
@@ -131,7 +123,7 @@ if (time() - $_SESSION['timestamp'] > $idletime) {
                 </ul>
             </li>
             <li><a href="Admin_MBox.php">MESSAGES</a></li>
-            <li><a href="#">ABOUT US</a></li>
+            <li><a href="Admin_about.php">ABOUT US</a></li>
             <li>
                 <label for="btn-7" class="Ashow"><?php echo $_SESSION['admin_fname'] . " " . $_SESSION['admin_lname']; ?></label>
                 <a class="user" href="#"><img class="user-profile" src="<?php

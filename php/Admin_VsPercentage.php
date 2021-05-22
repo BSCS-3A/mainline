@@ -15,11 +15,13 @@ include("db_conn.php");
     <link rel="stylesheet" href="../css/admin_css/style_monitor.css?v=<?php echo time(); ?>">
     <link rel="stylesheet" href="../css/admin_css/bootstrap4.5.2_monitor.css">
     <link rel="stylesheet" href="../css/admin_css/dataTables.bootstrap4.min_monitor.css">
-    <link rel="stylesheet" href="../css/admin_css/font-awesome.css">
     <link rel="stylesheet" href="../css/admin_css/jquery.dataTables.min_monitor.css">
     <script src="../js/jquery.dataTables.min_monitor.js"></script>
     <script type="text/javascript" src="../js/admin_session_timer.js"></script>
     <script src="https://cdn.datatables.net/fixedheader/3.1.8/js/dataTables.fixedHeader.min.js"></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery-circle-progress/1.2.2/circle-progress.min.js'></script>
+    <script src="../js/script_monitor.js?v=<?php echo time(); ?>"></script>
     <title>Election Vote Status  | BUCEILS HS Online Voting System</title>
 </head>
 
@@ -245,14 +247,8 @@ include("db_conn.php");
             //sya yung sa label baga na pag tig click maga redirect
             ?>
 
-
         </div>
     </div>
-
-
-    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
-    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery-circle-progress/1.2.2/circle-progress.min.js'></script>
-    <script src="../js/script_monitor.js?v=<?php echo time(); ?>"></script>
 
 </body>
 

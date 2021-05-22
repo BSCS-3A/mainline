@@ -14,7 +14,12 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
 			return $data;
 		 }
 	 //gets the input from the textbox in the StudentLogin.php
-		 $username = validate($conn, $userName);
+		 $address = "@bicol-u.edu.ph";
+		 if(strpos($userName, $address)){
+			$username = validate($conn, $userName);
+		 }else{
+		 	$username = validate($conn, $userName).$address;
+		 }
 		 $pass = validate($conn, $passWord); //hash here
 	 
 		 if (empty($username)) {
@@ -35,6 +40,7 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
 					$_SESSION['fname'] = $row['fname'];
 					$_SESSION['mname'] = $row['Mname'];
 					$_SESSION['lname'] = $row['lname'];
+					$_SESSION['gender'] = $row['gender'];
 					$_SESSION['student_id'] = $row['student_id'];
 					$_SESSION['grade_level'] = $row['grade_level']; //added for voting : 03/04/2021 , 11:48am
 					$_SESSION['timestamp']=time(); //added for time session

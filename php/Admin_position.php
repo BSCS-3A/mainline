@@ -43,7 +43,6 @@ include "navAdmin.php";
     <link rel="icon" href="../img/BUHS LOGO.png" type="image/png">
     <link rel="stylesheet" type="text/css" href="../css/admin_css/admin_Pos.css">
     <link rel="stylesheet" href="../css/admin_css/bootstrap_Pos.css">
-    <link rel="stylesheet" href="../css/admin_css/font-awesome_Pos.css">
 
     <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
@@ -53,36 +52,36 @@ include "navAdmin.php";
     <!-- <script src="../js/jQuery.dataTables.min_Pos.js"></script> -->
     <script src="../js/bootstrap.min_Pos.js"></script>
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
-    <script type="text/javascript">
-        (function() {
-            var css = document.createElement('link');
-            css.href = 'https://use.fontawesome.com/releases/v5.1.0/css/all.css';
-            css.rel = 'stylesheet';
-            css.type = 'text/css';
-            document.getElementsByTagName('head')[0].appendChild(css);
-        })();
-    </script>
 
     <title>BUCEILS Voting System</title>
     <script>
         $(document).ready(function() {
             reloadTable();
-            var startDate = new Date("<?php echo $rowDate['start_date'];?>").getTime();
-            var endDate =  new Date("<?php echo $rowDate['end_date']; ?>").getTime();
-            var today = new Date().getTime();
-                                            
+            var startDate,endDate,today;
+            <?php
+                if(!(empty($rowDate['start_date']))){
+                    echo "startDate = new Date('". $rowDate['start_date']."').getTime();";
+                    echo "endDate = new Date('". $rowDate['end_date']."').getTime();";
+                }else{
+                    echo "startDate = 0;";
+                    echo "endDate = 0;";
+                }
+            ?>
+            today = new Date().getTime();
             function reloadTable() {       
                 $.ajax({    
                     url: 'backCandidate/tablePosition.php',
                     success: function(response) {
                         $("tbody").html(response);
-                        if((today>=startDate) && (today<=endDate)){//if election is on going 
-                            alert("Election is ongoing. Please proceed with caution. Any changes done during the election may affect the results.");
-                            $("#add_button").attr("disabled",true);
-                            $('#icon_add').removeClass('.fas fa-plus');
-                            $('#icon_add').addClass('.fa fa-lock');
-                            $(".btn-danger").attr("disabled",true);
-                            $(".vote_allow").attr("disabled",true);
+                        if(startDate != 0 && endDate != 0){
+                            if((today>=startDate) && (today<=endDate)){//if election is on going 
+                                alert("Election is ongoing. Please proceed with caution. Any changes done during the election may affect the results.");
+                                $("#add_button").attr("disabled",true);
+                                $('#icon_add').removeClass('.fas fa-plus');
+                                $('#icon_add').addClass('.fa fa-lock');
+                                $(".btn-danger").attr("disabled",true);
+                                $(".vote_allow").attr("disabled",true);
+                            }
                         }             
                     }
                 });
@@ -259,7 +258,7 @@ include "navAdmin.php";
         </div>
     </div>
     </div>
-    <div class="modal fade" id="load" tabindex="-1" role="dialog" aria-labelledby="load" aria-hidden="true">
+    <div class="modal fade" id="load" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
@@ -270,15 +269,15 @@ include "navAdmin.php";
                     <div class="alert alert-danger" id="loadD"><span class="fa fa-exclamation-triangle"></span>Are you sure you want to delete existing positions and replace it with the system default?</div>
                 </div>
                 <div class="modal-footer ">
-                    <button type="submit" name="continue-delete-btn" class="btn btn-success" id="continue-load"><span class="fa fa-check-circle"></span>Continue</button>
-                    <button type="button" name="cancel-delete-btn" class="btn btn-default" id="cancel-load" data-dismiss="modal"><span class="fa fa-times-circle"></span>Cancel</button>
+                    <button type="submit" name="continue-delete-btn" class="btn btn-button6" id="continue-load"><span class="fa fa-check-circle"></span> Continue</button>
+                    <button type="button" name="cancel-delete-btn" class="btn btn-button4" id="cancel-load" data-dismiss="modal"><span class="fa fa-times-circle"></span> Cancel</button>
                 </div>
             </div>
             <!-- /.modal-content -->
         </div>
     </div>
 
-        <div class="modal fade" id="edit" tabindex="-1" role="dialog" aria-labelledby="edit" aria-hidden="true">
+        <div class="modal fade" id="edit" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
       <div class="modal-dialog">
     <div class="modal-content">
           <div class="modal-header">
@@ -307,7 +306,7 @@ include "navAdmin.php";
 </div>
 </div>
 
-<div class="modal fade" id="add" tabindex="-1" role="dialog" aria-labelledby="add" aria-hidden="true">
+<div class="modal fade" id="add" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
       <div class="modal-dialog">
     <div class="modal-content">
           <div class="modal-header">
@@ -339,7 +338,7 @@ include "navAdmin.php";
 
 
         <!-- /.modal-dialog -->
-    <div class="modal fade" id="delete" tabindex="-1" role="dialog" aria-labelledby="delete" aria-hidden="true">
+    <div class="modal fade" id="delete" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
@@ -351,8 +350,8 @@ include "navAdmin.php";
                 </div>
                 <div class="modal-footer ">
                     <form method="post" id="delete-form">
-                        <button type="submit" name="continue-delete-btn" class="btn btn-success" id="continue-delete"><span class="fa fa-check-circle"></span>Continue</button>
-                        <button type="button" name="cancel-delete-btn" class="btn btn-default" id="cancel" data-dismiss="modal"><span class="fa fa-times-circle"></span>Cancel</button>
+                        <button type="submit" name="continue-delete-btn" class="btn btn-button6" id="continue-delete"><span class="fa fa-check-circle"></span> Continue</button>
+                        <button type="button" name="cancel-delete-btn" class="btn btn-button4" id="cancel" data-dismiss="modal"><span class="fa fa-times-circle"></span> Cancel</button>
                     </form>
                 </div>
             </div>

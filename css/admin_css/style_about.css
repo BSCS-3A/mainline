@@ -1,0 +1,254 @@
+/* * {
+    margin: 0;
+    padding: 0;
+    user-select: none;
+    box-sizing: border-box;
+    list-style: none;
+  } */
+  
+  body {
+    background-image: url('../../img/adminBG.png');
+    background-size: cover;
+    background-attachment: fixed;
+    width: auto;
+    min-height: 100%;
+    margin-bottom: 5%;
+  }
+  
+.aboutheader {
+    position: relative;
+    z-index: -2;
+    padding: 0.4% 0.4% 0.8% 0.4%;
+    font-size: 1%;
+    background: #124254;
+    font-weight: 400;
+    color: #ffc423;
+    width: 100%;
+    text-align: center;
+    font-family: 'Roboto-regular', sans-serif;
+    letter-spacing: 6px;
+    text-transform: uppercase;
+}
+
+.text-contain{
+    /* background-color: black; */
+    width: 90%;
+    height: auto;
+    margin: 1% auto 1% auto;
+    padding: 2%;
+}
+
+.about-title{
+    color: white;
+    font-family: 'genericaregular', sans-serif;
+    font-weight: 600;
+    font-size: 250%;
+    letter-spacing: 7px;
+    margin-bottom: 1%;
+}
+
+.text-des{
+    color: #d4eaf1;
+    background-color: rgba(18, 66, 84, 0.8);
+    padding: 30px;
+    font-size: 130%;
+    /* text-align: justify; */
+    letter-spacing: 1px;
+}
+
+.userMan{
+    background-color: #fece4b;
+    margin: 2% auto 2% auto;
+    color: #124254;
+    text-align: center;
+    padding: 2%;
+    max-width: 1200px;
+    max-height: 200px;
+}
+
+a.a-userMan:link, a.a-userMan:visited{
+    color: #124254;
+    text-decoration: none;
+}
+
+a.a-userMan:hover{
+    color: #0c323f;
+}
+
+.userMan:hover{
+    background-color: #ffc423;
+}
+
+.devContain{
+    margin: 1% auto 5% auto;
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    grid-column-gap: 1%;
+    grid-row-gap: 1%;
+}
+
+.devCard1{
+    background-color: #d4eaf1;
+    color: #124254;
+    margin: 3% auto 1% auto;
+    padding: 4%;
+    font-weight: bold;
+    font-size: 120%;
+    text-align: center;
+    letter-spacing: 2px;
+}
+
+p.devName1{
+    margin-top: 2%;
+    font-size: 90%;
+    text-align: center;
+    font-weight: normal;
+    letter-spacing: 1px;
+}
+
+p.devStand1{
+    margin-top: -1%;
+    font-size: 50%;
+    text-align: center;
+    font-weight: normal;
+}
+
+.devCard{
+    background-color: #d4eaf1;
+    color: #124254;
+    padding: 4%;
+    font-weight: bold;
+    font-size: 120%;
+    text-align: center;
+    letter-spacing: 2px;
+}
+
+p.devName{
+    margin-top: 2%;
+    font-size: 90%;
+    text-align: center;
+    font-weight: normal;
+    letter-spacing: 1px;
+}
+
+p.devStand{
+    margin-top: -2%;
+    font-size: 50%;
+    text-align: center;
+    font-weight: normal;
+}
+
+  
+ @media screen and (max-device-width: 600px){
+     body{
+         margin-bottom: 30%;
+     }
+
+     .userMan{
+         padding: 5%;
+         margin: 10% auto 10% auto;
+     }
+
+     .about-title{
+         font-size: 6vw;
+     }
+
+     .devContain{
+         margin: 1% auto 120% auto;
+     }
+
+     .devCard{
+        background-color: #d4eaf1;
+        color: #124254;
+        padding: 4%;
+        font-weight: bold;
+        font-size: 75%;
+        text-align: center;
+        letter-spacing: 2px;
+    }
+
+    .devCard1{
+        background-color: #d4eaf1;
+        color: #124254;
+        margin: 3% auto 1% auto;
+        padding: 4%;
+        font-weight: bold;
+        font-size: 75%;
+        text-align: center;
+        letter-spacing: 2px;
+    }
+ }
+
+ @media screen and (max-device-width: 400px){
+    .userMan{
+        font-size: 6vw;
+    }
+     
+    .devCard{
+        background-color: #d4eaf1;
+        color: #124254;
+        padding: 4%;
+        font-weight: bold;
+        font-size: 50%;
+        text-align: center;
+        letter-spacing: 2px;
+    }
+    
+    p.devName{
+        margin-top: 2%;
+        font-size: 90%;
+        text-align: center;
+        font-weight: normal;
+        letter-spacing: 1px;
+    }
+    
+    p.devStand{
+        margin-top: -2%;
+        font-size: 50%;
+        text-align: center;
+        font-weight: normal;
+        letter-spacing: 1px;
+    }
+
+    .devCard1{
+        background-color: #d4eaf1;
+        color: #124254;
+        margin: 3% auto 1% auto;
+        padding: 4%;
+        font-weight: bold;
+        font-size: 50%;
+        text-align: center;
+        letter-spacing: 3px;
+    }
+    
+    p.devName1{
+        margin-top: 2%;
+        font-size: 90%;
+        text-align: center;
+        font-weight: normal;
+        letter-spacing: 1px;
+    }
+    
+    p.devStand1{
+        margin-top: -2%;
+        font-size: 50%;
+        text-align: center;
+        font-weight: normal;
+        letter-spacing: 1px;
+    }
+}
+
+@media screen and (max-device-width: 950px){
+    .devContain{
+        margin: 1% auto 10% auto;
+        display: grid;
+        grid-template-columns: repeat(1, auto);
+        grid-column-gap: 1%;
+        grid-row-gap: 0.5%;
+    }
+
+    .devCard1{
+        margin: 3% auto 2% auto;
+    }
+    
+}

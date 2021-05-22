@@ -47,7 +47,7 @@
     <link rel="stylesheet" href="../css/admin_css/bootstrap_Pos.css"> 
     <link rel="stylesheet" href="../css/admin_css/font-awesome.css">
     <link rel="stylesheet" href="https://unpkg.com/simplebar@2.0.1/umd/simplebar.css" />
-    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.24/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" type="text/css" href="../css/admin_css/jquery.dataTables.min_AdminDash.css">
     
 
      
@@ -56,7 +56,7 @@
     <script src="../js/jQuery.dataTables.min_Pos.js"></script>
     <!-- <script src="../js/jquery.dataTables.min_studAcc.js"></script> -->
     <script src="../js/bootstrap.min_Pos.js"></script> 
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css" crossorigin="anonymous">
+    <!-- <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css" crossorigin="anonymous"> -->
     <link href="https://unpkg.com/cropperjs/dist/cropper.css" rel="stylesheet"/>
     <link type="text/javascript" href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.11/cropper.min.js">
     <script src="../js/cropper.js"></script>
@@ -64,9 +64,17 @@
     <!-- <script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script> -->
     
     <script>
-    var startDate = new Date("<?php echo $rowDate['start_date'];?>").getTime();
-    var endDate =  new Date("<?php echo $rowDate['end_date']; ?>").getTime();
-    var today = new Date().getTime();
+    var startDate,endDate,today;
+    <?php
+        if(!(empty($rowDate['start_date']))){
+            echo "startDate = new Date('". $rowDate['start_date']."').getTime();";
+            echo "endDate = new Date('". $rowDate['end_date']."').getTime();";
+        }else{
+            echo "startDate = 0;";
+            echo "endDate = 0;";
+        }
+    ?>
+    today = new Date().getTime();
     $(document).ready(function(){
         //adding candidate
         reloadTable();
@@ -416,7 +424,7 @@
 
     
     <div class = "container">
-    <div class="btn-toolbar" style="margin-left: 18px;">
+    <div class="btn-toolbar">
         <button class="btn btn-button1 btn-s" data-title="Add" data-toggle="modal" data-target="#add" data-placement="top" id="add-candidate" title="Add">
             <span class="fa fa-user-plus" id="icon_add"></span> Add New Candidate </button>      
      </div>
@@ -489,7 +497,8 @@
               </div>
               <div class="modal-footer ">
                   <button type="submit" name="save-btn" class="btn btn-warning btn-lg" id="save-add" style="width: 100%;"><span class= "fa fa-check-circle"></span> Save</button>
-                  <button type="submit" name="cancel-btn" class="btn btn-warning btn-lg" id="cancel-add" style= "width:100%;" data-dismiss="modal"><span class="fa fa-times-circle"></span> Cancel</button>
+                  <button type="button" class="btn btn-default" id="cancel-add" style="width:100%;"
+                                data-dismiss="modal"><span class="fa fa-times-circle"></span> Cancel</button>
               </div>
           </form>
     </div>
@@ -536,8 +545,10 @@
                   </div>
               </div>
               <div class="modal-footer ">
-                  <button type="submit" name="edit-save-btn" class="btn btn-warning btn-lg" id="save-edit" style="width: 100%;"><span class= "fa fa-check-circle"></span>Save</button>
-                  <button type="submit" name="edit-cancel-btn" class="btn btn-warning btn-lg" id="cancel-edit" style= "width:100%;" data-dismiss="modal"><span class="fa fa-times-circle"></span> Cancel</button>
+                  <button type="submit" name="add" class="btn btn-warning btn-lg" id="save"
+                                style="width: 100%;"><span class="fa fa-check-circle"></span> Save</button>
+                 <button type="button" class="btn btn-default" id="cancel-edit" style="width:100%;"
+                                data-dismiss="modal"><span class="fa fa-times-circle"></span> Cancel</button>
               </div>
           </form>
       </div>
@@ -547,7 +558,7 @@
     </div>       
 
 
-    <div class="modal fade" id="delete" tabindex="-1" role="dialog" aria-labelledby="edit" aria-hidden="true">
+    <div class="modal fade" id="delete" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
           <div class="modal-dialog">
     <div class="modal-content">
           <div class="modal-header">
@@ -559,8 +570,8 @@
     </div>
     <form action="./backCandidate/confirmDeleteCandidate.php" method="POST" id="deleteForm">
         <div class="modal-footer ">
-        <button type="submit" name="continue-delete-btn" class="btn btn-success" id="continue" ><span class= "fa fa-check-circle"></span><text id = "text_confirm-delete">Continue</text></button>
-        <button type="button" name="cancel-delete-btn" class="btn btn-default" id= "cancel2" data-dismiss="modal"><span class="fa fa-times-circle"></span><text id = "text_confirm-delete">Cancel</text></button>
+        <button type="submit" name="continue-delete-btn" class="btn btn-success" id="continue" ><span class= "fa fa-check-circle"></span><text id = "text_confirm-delete"> Continue</text></button>
+        <button type="button" name="cancel-delete-btn" class="btn btn-default" id= "cancel2" data-dismiss="modal"><span class="fa fa-times-circle"></span><text id = "text_confirm-delete"> Cancel</text></button>
       </div> 
     </form>    
         </div>
@@ -591,8 +602,8 @@
                   </div>
                 </div>
                 <div class="modal-footer">
-                  <button type="button" id="crop" class="btn btn-primary">Crop</button>
-                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                  <button type="button" id="crop" class="btn btn-primary"> Crop</button>
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal"> Cancel</button>
                 </div>
             </div>
           </div>
@@ -612,12 +623,14 @@
         url:'backCandidate/tableCandidate.php',
         success: function(response){
             $("tbody").html(response);
-            if((today>=startDate) && (today<=endDate)){//if election is on going 
-                alert("Election is ongoing. Please proceed with caution. Any changes done during the election may affect the results.");
-                $(".btn-button1").attr("disabled",true);
-                $('#icon_add').removeClass('.fas fa-user-plus');
-                $('#icon_add').addClass('.fa fa-lock');
-                $(".btn-danger").attr("disabled",true);
+            if(startDate != 0 && endDate != 0){
+                if((today>=startDate) && (today<=endDate)){//if election is on going 
+                    alert("Election is ongoing. Please proceed with caution. Any changes done during the election may affect the results.");
+                    $(".btn-button1").attr("disabled",true);
+                    $('#icon_add').removeClass('.fas fa-user-plus');
+                    $('#icon_add').addClass('.fa fa-lock');
+                    $(".btn-danger").attr("disabled",true);
+                }
             }
             table = $('#datatable').DataTable({
                 "lengthMenu": [

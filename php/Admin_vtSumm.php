@@ -10,11 +10,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta charset="utf-8">
-    <link rel="icon" href="assets/img/buceils-logo.png">
+    <link rel="icon" href="../img/BUHS LOGO.png">
     <link rel="stylesheet" type="text/css" href="../css/admin_css/style_studAcc.css">
     <link rel="stylesheet" href="../css/admin_css/bootstrap_studAcc.css">
     <link rel="stylesheet" href="../css/admin_css/dataTables.bootstrap_studAcc.css">
-    <link rel="stylesheet" href="../css/admin_css/font-awesome.css">
     <script src="../js/jquery-1.11.1.min_studAcc.js"></script>
     <script src="../js/jquery.dataTables.min_studAcc.js"></script>
     <script src="../js/dataTables.bootstrap_studAcc.js"></script>

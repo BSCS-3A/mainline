@@ -87,7 +87,7 @@ nav:after {
 
 h2.aLogo-txt1 {
   margin-top: 3px;
-  font-family: 'Roboto-regular', sans-serif;
+  font-family: 'Roboto-bold', sans-serif;
   font-weight: inherit;
   font-size: 100%;
   margin-bottom: 0px;
@@ -109,7 +109,7 @@ h3.aLogo-txt2 {
   font-size: 100%;
   margin-bottom: 0px;
   letter-spacing: 6px;
-  font-family: 'genericaregular', sans-serif;
+  font-family: 'genericabold', sans-serif;
 }
 
 h3.aLogo-txt2 a {

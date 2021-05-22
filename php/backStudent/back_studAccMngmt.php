@@ -1,7 +1,7 @@
 <?php
 
 include "db_conn.php";
-
+$connect->query('SET NAMES LATIN1');
 
 $query = "SELECT * FROM student";
 $result = mysqli_query($connect, $query);

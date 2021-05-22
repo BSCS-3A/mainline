@@ -4,6 +4,7 @@ include "../db_conn.php";
 $sigfname = $_POST['sigfname'];
 $siglname = $_POST['siglname'];
 $sigpos = $_POST['sigpos'];
+$sigid = $_POST['sigid'];
 $file = file_get_contents('../../other/sig_array.json');
 $decode = json_decode($file, true);
 $arrtab = explode(",",$decode);
@@ -23,7 +24,7 @@ $position_query_run = mysqli_query($connection, $position_query);
       if(mysqli_num_rows($position_query_run) >0){
 
 
-        $sql = "SELECT * FROM admin WHERE admin_lname ='$siglname'";
+        $sql = "SELECT * FROM admin WHERE admin_id ='$sigid'";
         $result = mysqli_query($connection,$sql);
           if(mysqli_num_rows($result) > 0) {
             while ($row = mysqli_fetch_assoc($result)) {
@@ -44,11 +45,11 @@ $position_query_run = mysqli_query($connection, $position_query);
                 file_put_contents('../../other/sig_array.json',($encodedString));
                 echo"<script language='javascript'>
                 alert('Signatory Added');
-                
+
                 window.location.href = '../Admin_signConfig.php';
                 </script>
                 ";
-          
+
                 // session action for logs
                 $_SESSION['action'] = 'added Signatory : ' . $siglname . ', '. $sigfname ;
                 include 'backFun_actLogs_v0_1.php';
@@ -81,5 +82,5 @@ $position_query_run = mysqli_query($connection, $position_query);
     ";
   }
 
-  
+
 ?>

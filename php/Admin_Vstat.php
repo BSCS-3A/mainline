@@ -14,7 +14,6 @@ include("db_conn.php");
     <link rel="stylesheet" type="text/css" href="../css/admin_css/style_monitor.css">
     <link rel="stylesheet" href="../css/admin_css/bootstrap_monitor.css">
     <link rel="stylesheet" href="../css/admin_css/dataTables.bootstrap_monitor.css">
-    <link rel="stylesheet" href="../css/admin_css/font-awesome.css">
     <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
     <script src="../js/jquery-1.11.1.min_monitor.js"></script>
     <script src="../js/jquery.dataTables.min_monitor.js"></script>
@@ -32,7 +31,7 @@ include("db_conn.php");
     <br><br>
     <div class="Bvs_gradelevel">
         <?php $samp = $_GET['level']; //gets the value from prev page
-        echo '<p>GRADE ' . $samp . '</p>'; ?>
+        echo '<h3><b>GRADE ' . $samp . '</b></h3>'; ?>
     </div>
 
     <div class="container"><br>

@@ -6,14 +6,14 @@
 
 <?php
 
-include('../Admin_schedConfig.php');
-include "../db_conn.php";
+include('Admin_schedConfig.php');
+include "db_conn.php";
 
 function function_alert($msg) { 
       
     // Display the alert box  
     echo "<script>
-    window.location.href='../Admin_schedConfig.php';
+    window.location.href='Admin_schedConfig.php';
     alert('$msg');
     </script>"; 
 } 
@@ -36,7 +36,7 @@ if (isset($_POST['editsched'])) {
     
       //For Logs
       $_SESSION['action'] = 'set Election Countdown.';
-      include 'backFun_actLogs_v0_1.php';
+      include './backAdmin/backFun_actLogs_v0_1.php';
 
 
  }else{
