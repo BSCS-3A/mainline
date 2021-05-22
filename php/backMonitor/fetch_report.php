@@ -162,7 +162,7 @@
      
     //For Logs
     $_SESSION['action'] = 'Archived the Election Result.' ;
-    include 'backFun_actLogs_v0_1.php';
+    include '../backAdmin/backFun_actLogs_v0_1.php';
 
     //=======drop temp_candidate table
     //additional notes: MySQL version 5.0.2 has a bug where sometimes the temp_tables are not drop even if its already expired

@@ -43,7 +43,7 @@
 		// Activity Log if submission is final
 		//For Logs
                 $_SESSION['action'] = 'issued a Tie Breaker for :' . $candidate_id;
-                include 'backFun_actLogs_v0_1.php';
+                include 'backAdmin/backFun_actLogs_v0_1.php';
 		
 		// return to election page
 		header('location: http://localhost/mainline-main/php/Admin_Report.php');
