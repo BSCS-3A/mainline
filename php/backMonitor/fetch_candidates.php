@@ -38,7 +38,8 @@
 			"last_name"=>strtoupper($candidate['last_name']),
 			"total_votes"=>$candidate['total_votes'],
 			"position"=>$candidate['position'],
-			"party_name"=>$candidate['party_name']
+			"party_name"=>$candidate['party_name'],
+			"heirarchy_order"=>$candidate['heirarchy_order']
         	);
 	}
 ?>

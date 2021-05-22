@@ -27,5 +27,4 @@
     
     fclose($o_file);
 
-    mysqli_free_result($result);
 ?>
