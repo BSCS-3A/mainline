@@ -81,6 +81,7 @@ include "navAdmin.php";
                                 $('#icon_add').addClass('.fa fa-lock');
                                 $(".btn-danger").attr("disabled",true);
                                 $(".vote_allow").attr("disabled",true);
+                                $("#default_button").attr("disabled",true);
                             }
                         }             
                     }
