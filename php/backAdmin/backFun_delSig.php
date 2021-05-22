@@ -4,6 +4,7 @@ include "../db_conn.php";
 $sigfname = (isset($_POST['signatory_fname']) ? $_POST['signatory_fname'] : '');
 $siglname = (isset($_POST['signatory_lname']) ? $_POST['signatory_lname'] : '');
 $sigpos = (isset($_POST['signatory_position']) ? $_POST['signatory_position'] : '');
+$sigid = (isset($_POST['signatory_id']) ? $_POST['signatory_id'] : '');
 $file = file_get_contents('../../other/sig_array.json');
 $decode = json_decode($file, true);
 
@@ -19,7 +20,7 @@ if(mysqli_num_rows($fname_query_run) >0){
   if(mysqli_num_rows($lname_query_run) >0){
     if(mysqli_num_rows($position_query_run) >0){
 
-      $sql = "SELECT * FROM admin WHERE admin_lname ='$siglname'";
+      $sql = "SELECT * FROM admin WHERE admin_id ='$sigid'";
       $result = mysqli_query($connection,$sql);
       if(mysqli_num_rows($result) > 0) {
         while ($row = mysqli_fetch_assoc($result)) {
@@ -33,12 +34,12 @@ if(mysqli_num_rows($fname_query_run) >0){
         file_put_contents('../../other/sig_array.json',($encodedString));
         echo"<script language='javascript'>
         alert('Signatory Deleted');
-        
+
         window.location.href = '../Admin_signConfig.php';
         </script>
         ";
-        
-        
+
+
         //For Logs
         $_SESSION['action'] = 'deleted Signatory : ' . $siglname . ', ' . $sigfname ;
         include 'backFun_actLogs_v0_1.php';
