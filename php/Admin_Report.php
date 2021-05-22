@@ -27,6 +27,13 @@ include("db_conn.php");
         <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
         <script src="https://kit.fontawesome.com/a076d05399.js"></script>
         <script src="../js/scripts.js"></script>
+	 
+	 <!-- short js to disable button -->
+	   <script type="text/javascript">
+	   function updateState(context){
+           context.setAttribute('disabled',true)
+             }
+	    </script>
       
         <title>Election Report Generation  | BUCEILS HS Online Voting System</title>
     </head>
@@ -165,24 +172,30 @@ include("db_conn.php");
       				$check = true;
       			else
       				$check = false;
-			?>
+			
+	    
+	    		 if($check || ($end_date->format('Y-m-d')> $archive_sy))
+			 {
 			
 
-		       		<br><br><br><br><br><br><br><br><br>
-					<form method="post"> <div class="Bbtn_save">
-					<button name='save_btn' class='Bbtn_save2arc'<?php if($check || ($end_date->format('Y-m-d')< $archive_sy)) {?>disabled="disabled" <?php }?>><b>SAVE TO ARCHIVES</b></button>
-					</div></form>
-				<?php
+		       		echo '<br><br><br><br><br><br><br><br><br>';
+					echo '<form method="post"> <div class="Bbtn_save">';
+					echo '<button onclick="updateState(this)" name=\'save_btn\' class=\'Bbtn_save2arc\' ><b>SAVE TO ARCHIVES</b></button>
+					</div></form>';
+			
 		          	if(isset($_POST['save_btn']))
 				    {
 				        Archive($conn, $end_date->format('Y-m-d'));
 				        $check = false;
 					}
 				
-		        
+			 }
+			else
+			{
 					echo '<div class="Bbtn_dl">';
 				    echo '<button name=\'dl_btn\' onclick="parent.open(\'Admin_generate-pdf.php\')" class=\'Bbtn_dlreport\'"><b>DOWNLOAD PDF</b></button>';
-				    echo '</div>';          	
+				    echo '</div>';  
+			}
           }
           else
           {  // start tie display
