@@ -41,19 +41,15 @@
 
 }
   
-  /* body{  
-    font-family: Roboto,Roboto Thin,Generica, sans-serif;
-    background-image: url('../../img/adminBG.png');
-    background-size: cover;
+  body{  
     font-size: 100%;
-    background-attachment: fixed;
     width: auto;
     min-height: 100%;
-  } */
+  }
 
 nav {
   background: #1d6986;
-  box-shadow: 0 10px 20px rgba(0, 0, 0, .15), 0 3px 6px rgba(0, 0, 0, .23) !important;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, .15), 0 3px 6px rgba(0, 0, 0, .23);
   width: auto;
   z-index: 500;
   display: flex;
@@ -127,7 +123,7 @@ nav ul li {
 }
 
 nav ul li a {
-  color: rgb(255, 255, 255) !important;
+  color: rgb(255, 255, 255);
   line-height: 70px;
   text-decoration: none;
   font-size: 1.2em;
@@ -140,7 +136,7 @@ nav ul li a:visited, nav ul li a:link{
   text-decoration: none;
   border: 0;
   outline: none;
-  box-shadow: none !important;
+  box-shadow: none;
 }
 
 nav ul li a:hover {
@@ -159,7 +155,7 @@ nav ul li:hover {
 }
 
 :link:focus, :visited:focus {
-  outline: none !important;
+  outline: none;
 }
 
 .isDisabled{

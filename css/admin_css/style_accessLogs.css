@@ -1,9 +1,14 @@
+body {
+  background-image: url('../../img/adminBG.png');
+  background-size: cover;
+  background-attachment: fixed;
+  width: auto;
+  min-height: 100%;
+  margin: 0;
+}
+
 /*Datatable*/
-div.dataTables_wrapper {
-    margin: 0 auto;
-    width: 100%;
-  }
-  
+
   .container {
     width: 100% !;
     position: relative !important;
@@ -21,7 +26,7 @@ div.dataTables_wrapper {
     table-layout: auto;
     margin: 0px;
     text-align: center;
-    width: inherit !important;
+    width: 100%;
     font-family: 'Roboto-regular', sans-serif;
     background: rgba(255, 255, 255, 0.6);
   }
@@ -31,7 +36,7 @@ div.dataTables_wrapper {
     table-layout: auto;
     margin: 0px;
     text-align: center;
-    width: inherit !important;
+    width: 100%;
     font-family: 'Roboto-regular', sans-serif;
     background: rgba(255, 255, 255, 0.6);
   }
@@ -66,8 +71,8 @@ div.dataTables_wrapper {
     padding: 1% !important;
   }
   
-  tr:hover {
-    background-color: #D3D3D3 !important;
+  td:hover {
+    background-color: #D3D3D3;
   }
   
   /*Header*/

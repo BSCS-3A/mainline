@@ -14,7 +14,7 @@ include("db_conn.php");
     <link rel="stylesheet" type="text/css" href="../css/admin_css/style_accessLogs.css">
     <link rel="stylesheet" href="../css/admin_css/bootstrap4.5.2_AdminDash.css">
     <link rel="stylesheet" href="../css/admin_css/dataTables.bootstrap4.min_AdminDash.css">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css" crossorigin="anonymous">
+    <!-- <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css" crossorigin="anonymous"> -->
     <link rel="stylesheet" href="../css/admin_css/jquery.dataTables.min_AdminDash.css">
     <!-- <script src="../js/a076d05399.js"></script> -->
     <script src="../js/jquery-3.5.1_adminDash.js"></script>
@@ -74,7 +74,7 @@ include("db_conn.php");
         <div class="row">
             <div class="col-md-12">
                 <div class="table-responsive-sm">
-                    <table id="ADdataTable2" class="table table-hover" style="width:100%">
+                    <table id="ADdataTable2" class="table-center" style="width:100%">
                         <thead>
                             <tr>
                                 <th class="min-mobile">Access Date</th>
@@ -102,13 +102,6 @@ include("db_conn.php");
             </div>
         </div>
     </div>
-
-
-    <!-- footer -->
-    <!-- <div class="footer">
-        <p class="footer-txt">BS COMPUTER SCIENCE 3A © 2021</p>
-    </div> -->
-
     <!-- <script>
         $('.ADicon').click(function () {
             $('span').toggleClass("cancel");
@@ -117,9 +110,7 @@ include("db_conn.php");
     </script> -->
     <script>
         $(document).ready(function() {
-            $('#ADdataTable').css("width","100%")  
             $('#ADdataTable').DataTable({
-                "autoWidth": false,
                 "lengthMenu": [
                     [10, 25, 50, -1],
                     [10, 25, 50, "All"]
@@ -133,11 +124,6 @@ include("db_conn.php");
             }); 
         });
     </script>
-    <!-- <script>
-        $(document).ready(function(){ 
-            $('#ADdataTable').css("width","100%")
-         });    
-    </script> -->
 </body>
 
 </html>
