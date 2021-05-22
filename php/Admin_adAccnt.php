@@ -16,6 +16,7 @@ if (isset($_SESSION['admin_id']) && isset($_SESSION['username'])) {
         <link rel="stylesheet" href="../css/admin_css/bootstrap_addAdmin.css">
         <link rel="stylesheet" href="../css/admin_css/dataTables.bootstrap_addAdmin.css">
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://unpkg.com/simplebar@2.0.1/umd/simplebar.css" />
 
         <script src="../js/jquery-1.11.1.min_addAdmin.js"></script>
         <script src="../js/jquery.dataTables.min_addAdmin.js"></script>
@@ -251,8 +252,8 @@ if (isset($_SESSION['admin_id']) && isset($_SESSION['username'])) {
         </div>
         <!--######################################################################################################################################################################################-->
         <!-- ADD MODAL -->
-        <div class="modal fade" id="add" tabindex="-1" role="dialog" aria-labelledby="edit" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-scrollable" role="document">
+        <div class="modal fade" id="add" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
@@ -273,10 +274,19 @@ if (isset($_SESSION['admin_id']) && isset($_SESSION['username'])) {
                             </div>
 
                             <div class="form-group">
-                                <input class="form-control" name="username" type="text" placeholder="Enter Username" required>
+                                <input class="form-control" name="username" type="text" placeholder="Username : e.g surname_Comelec" required>
                             </div>
                             <div class="form-group">
-                                <input class="form-control" name="comelec_position" type="text" placeholder="COMELEC Position" required>
+                                <label for="sel2">Comelec Position:</label>
+                                <select class="form-control" name="comelec_position" id="sel2" required>
+                                    <option value="" disabled selected>
+                                        <\choose>
+                                    </option>
+                                    <option>Adviser</option>
+                                    <option>Chairperson</option>
+                                    <option>Co-Chairperson</option>
+                                    <option>Board Member</option>
+                                </select>
                             </div>
                             <div class="form-group">
                                 <label for="sel1">Admin Position:</label>
@@ -351,8 +361,16 @@ if (isset($_SESSION['admin_id']) && isset($_SESSION['username'])) {
                                 <input class="form-control" name="username" id="username" type="text" placeholder="Enter Username" required>
                             </div>
                             <div class="form-group">
-                                <label>COMELEC Position:</label>
-                                <input class="form-control" name="comelec_position" id="comelec_position" type="text" placeholder="COMELEC Position" required>
+                                <label for="sel2">Comelec Position:</label>
+                                <select class="form-control" name="comelec_position" id="comelec_position" required>
+                                    <option value="" disabled selected>
+                                        <\choose>
+                                    </option>
+                                    <option>Adviser</option>
+                                    <option>Chairperson</option>
+                                    <option>Co-Chairperson</option>
+                                    <option>Board Member</option>
+                                </select>
                             </div>
                             <div class="form-group">
                                 <label for="sel1">Admin Position:</label>
@@ -645,16 +663,12 @@ if (isset($_SESSION['admin_id']) && isset($_SESSION['username'])) {
                 } else {
                     indicator.style.display = "none";
                     text.style.display = "none";
-                    // $(document).keyup("#password_main", function() {
-                    //     alert("Test");
-                    // });
                 }
             });
             $("#cancel_add").click(function() {
                 indicator.style.display = "none";
                 text.style.display = "none";
             });
-
         </script>
 
         <!-- CONFIRM PASSWORD -->
