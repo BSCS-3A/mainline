@@ -127,7 +127,6 @@
             var plat = $("#etc-edit2").val();
             var cred = $("#etc-edit3").val();
 
-            var flag = false;
             $.ajax({
             	url: 'backCandidate/checkTable.php',
             	method: 'post',
