@@ -180,7 +180,7 @@ include("db_conn.php");
 
 		       		echo '<br><br><br><br><br><br><br><br><br>';
 					echo '<form method="post"> <div class="Bbtn_save">';
-					echo '<button onclick="updateState(this)" name=\'save_btn\' class=\'Bbtn_save2arc\' ><b>SAVE TO ARCHIVES</b></button>
+					echo '<button name=\'save_btn\' class=\'Bbtn_save2arc\' ><b>SAVE TO ARCHIVES</b></button>
 					</div></form>';
 			
 		          	if(isset($_POST['save_btn']))
