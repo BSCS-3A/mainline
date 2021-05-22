@@ -181,7 +181,7 @@ $DTrow =  $DnT->fetch_row();
                                     placeholder="Enter Email" required="required">
                             </div>
                             <div class="form-group">
-                            <input text="number" min="7" max="12" autocomplete="off" class="form-control " name="grade_level" id="grade_level"
+                            <input type="number" min="7" max="12" autocomplete="off" class="form-control " name="grade_level" id="grade_level"
                                     placeholder="Enter Grade Level" required="required">
                             </div>
                         </div>
@@ -342,7 +342,7 @@ $DTrow =  $DnT->fetch_row();
                                 required="required">
                         </div>
                         <div class="form-group">
-                            <input text="number" min="7" max="12" autocomplete="off" class="form-control " name="grade_level" id="egrade_level"
+                            <input type="number" min="7" max="12" autocomplete="off" class="form-control " name="grade_level" id="egrade_level"
                                 placeholder="Enter Grade Level" required="required">
                         </div>
                     </div>
