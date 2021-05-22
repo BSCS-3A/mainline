@@ -134,7 +134,7 @@
               $q1 = $conn->query($sql2);
               while($row1 = $q1->fetch_assoc())
               {
-                  $sql_insert = "INSERT INTO archive (position_name, winner_fname, winner_mname, winner_lname, school_year, platform_info) VALUES ('".$row['position_name']."','".$row1['fname']."','".$row1['mname']."','".$row1['lname']."','".$school_year."','".$row['platform_info']."')";
+                  $sql_insert = "INSERT INTO archive (position_name, winner_fname, winner_mname, winner_lname, school_year, platform_info) VALUES ('".$row['position_name']."','".$row1['fname']."','".$row1['Mname']."','".$row1['lname']."','".$school_year."','".$row['platform_info']."')";
                 $conn->query($sql_insert);
               }
             }
