@@ -122,7 +122,7 @@ if(!(isValidUser($conn))){
                             echo "<img class='Auser-profile' src='../img/user_female.png'>";
                         }
                         else{
-                            echo "<img class='Auser-profile' src='../img/student.png'>";
+                            echo "<img class='Auser-profile' src='../img/user_both.png'>";
                         }
                     ?>
                 </a>
