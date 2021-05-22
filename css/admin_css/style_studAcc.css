@@ -414,7 +414,8 @@ iframe {
     background: #5cb85c!important;
     border-color: #5cb85c!important;
     box-shadow: 1px 1px 5px #888888;
-    width: 70px;
+    width: 80px;
+    font-size: 10pt!important;
     margin-bottom: 3px!important;
 }
 
@@ -429,7 +430,8 @@ iframe {
     background: #d9534f!important;
     border-color: #d9534f!important;
     box-shadow: 1px 1px 5px #888888;
-    width: 70px;
+    width: 80px;
+    font-size: 10pt!important;
 }
 
 .btn-danger:hover {
@@ -441,7 +443,7 @@ iframe {
     background-color: #fece4b;
     border-bottom: 2px solid #fece4b;
     padding: 10px 20px;
-    margin: 25px 5px 15px 0px!important;
+    margin: 30px 5px 15px 0px!important;
 }
 
 .btn-button0:hover,
@@ -466,7 +468,7 @@ iframe {
     background-color: #fece4b;
     border-bottom: 2px solid #fece4b;
     padding: 10px 20px;
-    margin: 25px 5px 15px 0px!important;
+    margin: 30px 5px 15px 0px!important;
 }
 
 .btn-button1:hover,
@@ -491,7 +493,7 @@ iframe {
     background-color: #fece4b;
     border-bottom: 2px solid #fece4b;
     padding: 10px 20px;
-    margin: 25px 5px 15px 0px!important;
+    margin: 30px 5px 15px 0px!important;
 }
 
 .btn-button2:hover,
@@ -516,7 +518,7 @@ iframe {
     background-color: #fece4b;
     border-bottom: 2px solid #fece4b;
     padding: 10px 20px;
-    margin: 25px 5px 15px 0px!important;
+    margin: 30px 5px 15px 0px!important;
 }
 
 .btn-button3:hover,
@@ -588,7 +590,7 @@ iframe {
     background-color: #fece4b;
     border-bottom: 2px solid #fece4b;
     padding: 10px 20px;
-    margin: 25px 5px 15px 0px!important;
+    margin: 30px 5px 15px 0px!important;
 }
 
 .btn-button5:hover,
@@ -708,7 +710,7 @@ div.container {
     margin-top: 3%;
     margin-bottom: 3%;
     border: 2px solid #124254;
-    width: 80%;
+    width: 95%;
     height: auto;
 }
 
@@ -752,6 +754,13 @@ th {
     color: #EEEEEE;
     background-color: #18566e;
     text-align: center;
+    font-size: 12pt!important;
+    letter-spacing: 2px!important;
+}
+
+#tableth {
+    padding: 0.6%!important;
+    padding-right: 15px!important;
 }
 
 td {
@@ -761,6 +770,8 @@ td {
     max-height: 150px;
     overflow: hidden;
     word-wrap: break-word;
+    padding: 0.5%!important;
+    font-size: 12pt!important;
 }
 
 table tbody tr:hover {
