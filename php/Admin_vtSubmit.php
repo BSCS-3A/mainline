@@ -41,6 +41,9 @@
 		$conn->query("UPDATE candidate SET total_votes = total_votes + 1 WHERE candidate.candidate_id = $candidate");
 
 		// Activity Log if submission is final
+		//For Logs
+                $_SESSION['action'] = 'issued a tie breaker for :' . $choice_final[$poss['heirarchy_id']];
+                include 'backFun_actLogs_v0_1.php';
 		
 		// return to election page
 		header('location: http://localhost/mainline-main/php/Admin_Report.php');
