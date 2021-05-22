@@ -166,7 +166,7 @@ include("db_conn.php");
       			else
       				$check = false;
 
-			    if($check || ($end_date->format('Y-m-d') == $archive_sy))
+			    if($check || ($end_date->format('Y-m-d')> $archive_sy))
 		       	{
 		       		echo '<br><br><br><br><br><br><br><br><br>';
 					echo '<form method="post"> <div class="Bbtn_save">';
@@ -176,10 +176,8 @@ include("db_conn.php");
 		          	if(isset($_POST['save_btn']))
 				    {
 				        Archive($conn, $end_date->format('Y-m-d'));
-				        location.reload( 'http://localhost/mainline-main/php/Admin_Report.php');
+				        $check = false;
 					}
-
-					$check = false;
 		        }
 			    else
 			    {
