@@ -10,9 +10,9 @@
 
     if(isset($_POST['check'])){
     	$posid = sanitize(mysqli_real_escape_string($conn, trim($_POST['positionid'])));
-        $posname = sanitize(mysqli_real_escape_string($conn, trim($_POST['checkposname'])));
+        $hid = sanitize(mysqli_real_escape_string($conn, trim($_POST['checkhid'])));
 
-    	$sql = "SELECT * FROM `candidate_position` WHERE `position_id` = '$posid' AND `position_name` = '$posname'";
+    	$sql = "SELECT * FROM `candidate_position` WHERE `position_id` = '$posid' AND `heirarchy_id` = '$hid'";
     	$result = mysqli_query($conn, $sql);
     	if(mysqli_num_rows($result) == 1){
     		echo "Exists";

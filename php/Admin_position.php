@@ -125,14 +125,14 @@ include "navAdmin.php";
                 $("#edit").modal("hide");
                 var temp = true;
                 var posid = $("#positionId").attr("posid");
+                var hid = $.trim($("#edit_Hid").val());
                 var posname = $.trim($("#edit_Pos").val());
                 var posdes = $.trim($("#edit_Desc").val());
 
-                var flag = false;
                 $.ajax({
                   url: 'backCandidate/checkPosition.php',
                   method: 'post',
-                  data: {check: temp, positionid: posid, checkposname: posname},
+                  data: {check: temp, positionid: posid, checkhid: hid},
                   success:function(response){
                     console.log(response);
                     if(response == "Exists"){
@@ -148,15 +148,13 @@ include "navAdmin.php";
                             if (response != "") {
                                alert(response);
                             }
-                            table.destroy();
-                            reloadTable();
-                            formClear();
+                              reloadTable();
+                              formClear();
                           }
                         });
                     }
                     else if(response == "Not_exist"){
                         alert("Position does not exist");
-                        table.destroy();
                         reloadTable();
                         formClear();
                     }
