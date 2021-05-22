@@ -314,12 +314,10 @@
 }*/
 
 .Belec_container {
-  margin-left: 11%;
-  margin-right: 11%;
   display: grid;
-  grid-gap: 30px;
-  grid-column: 30px;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 2fr));
+  grid-gap: 20px;
+  grid-column: 100px;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 2fr));
   grid-template-rows: repeat(10, 200px);
   text-align: center;
   margin-top: 2%;
@@ -342,10 +340,11 @@
   font-weight: bold;
   text-align: center;
   background-color: #fece4b;
+  margin-left: 25%;
+  width: 50%;
 }
 .Bname {
   font-family: 'Roboto-regular', sans-serif;;
-  font-size: 5%;
   object-fit: cover;
   text-align: center;
   color: #003d55;
@@ -353,16 +352,15 @@
 
 .Bposition {
   font-family: 'Roboto-regular', sans-serif;;
-  font-size: 2%;
   color:#1d6986;
   font-weight: bold;
   text-align: center;
-
+  margin-top: -3.5%;
 }
 
 .Bparty {
   font-family: 'Roboto-regular', sans-serif;;
-  font-size: 2%;
-  color:black;
+  color:rgb(221, 46, 46);
   text-align: center;
+  margin-top: -3.5%;
 }
