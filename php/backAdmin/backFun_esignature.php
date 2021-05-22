@@ -9,7 +9,6 @@ $temp_loc = "../".$image_loc;
 if (file_exists($temp_loc))
  {
    unlink($temp_loc);
-    echo "File Successfully Delete.";
 }
 $target_dir = "../../user/sig/";
 $image_loc ="../user/sig/";
@@ -22,7 +21,6 @@ $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
 if(isset($_POST["upload"])) {
   $check = getimagesize($_FILES["upfile"]["tmp_name"]);
   if($check !== false) {
-    echo "File is an image - " . $check["mime"] . ".";
     $uploadOk = 1;
   } else {
     echo"<script language='javascript'>
