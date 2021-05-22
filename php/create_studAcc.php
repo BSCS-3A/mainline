@@ -11,9 +11,11 @@
         $Mname = $_POST['Mname'];
         $gender = $_POST['gender'];
         $bumail = $_POST['bumail'];
+        $otp = 0;
+        $vs = 0;
         $grade_level = $_POST['grade_level'];
 
-        $AddStudent = "INSERT into student(student_id, fname, Mname, lname, gender, bumail, grade_level, otp) values ('$student_id', '$fname', '$Mname', '$lname', '$gender', '$bumail', '$grade_level', '$otp')";
+        $AddStudent = "INSERT into student(student_id, fname, Mname, lname, gender, bumail, grade_level, otp, voting_status) values ('$student_id', '$fname', '$Mname', '$lname', '$gender', '$bumail', '$grade_level', '$otp', '$vs')";
         $query_run = mysqli_query($conn, $AddStudent);
 
         if ($query_run) {
