@@ -37,7 +37,7 @@ h2.aHeader-txt {
 	grid-template-columns: repeat(auto-fit, minmax(200px, 5fr));
 	grid-template-rows: repeat(autofit, 30%);
 	text-align: center;
-	margin-top: -20px;
+	margin-top: 18px;
 	max-width: 80%;
 	margin-left: auto;
 	margin-right: auto;
@@ -65,8 +65,7 @@ h2.aHeader-txt {
 }
 .Bpstn .Bname {
 	margin-top: 10px;
-	/* color:  #142d4f; */
-	color: #ffffff;
+	color: #e1a911;
 	font-weight: bold;
 	font-size: 20px;
 	text-transform: uppercase;
@@ -74,27 +73,33 @@ h2.aHeader-txt {
 	border-top-style: solid;
 	border-top-width: 90%;
 	padding-top: 10px;
+	font-family: 'Roboto-regular', sans-serif;
+	letter-spacing: 2px;
 }
 .Bpstn .Bpstn {
 	margin-top: -10px;
-	color: #ffb700;
+	color: black;
 	font-weight: bold;
 	font-size: 130%;
 	border-bottom-color: white;
 	border-bottom-style: solid;
 	border-bottom-width: 90%;
-	padding-bottom: 10px;
+	text-align: center;
+	font-style:italic;
+	font-family: 'Roboto-regular', sans-serif;
 }
 .Bpstn .Bplat1 {
 	margin-top: 15px;
-	color: white;
+	color:#e1a911;
 	font-weight: bold;
+	font-family: 'Roboto-regular', sans-serif;
 	font-size: 90%;
 	letter-spacing: 1px;
 }
 .Bpstn .Bplat2 {
-	color: #ffb700;
+	color: white;
 	font-size: 85%;
+	font-family: 'Roboto-regular', sans-serif;
 	margin-top: -5px;
 }
 
@@ -436,41 +441,4 @@ iframe {
 .Bbtn_save2arc:disabled {
 	opacity: 0.6;
 	cursor: not-allowed;
-}
-
-/* Samsung Galaxy S3 & S4 ----------- */
-@media only screen and (min-device-width: 320px) and (max-device-height: 640px) and (orientation : landscape) and (-webkit-device-pixel-ratio: 3){
-	.Bcon {
-		width: 80%;
-		margin-left: auto;
-		margin-right: auto;
-	}
-	.Bvcontainer{ 
-		position: relative;
-		max-width: 1500px; 
-		justify-content: space-around;
-		display: grid; 
-		grid-column-gap: 10%; 
-		grid-row-gap: 4%;
-		grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-		grid-template-rows: repeat(1, 250px);  
-	}
-}
-	
-@media only screen and (min-device-width: 320px) and (max-device-height: 640px) and (orientation : portrait) and (-webkit-device-pixel-ratio: 3){
-	.Bcon {
-		width: 80%;
-		margin-left: auto;
-		margin-right: auto;
-	}
-	.Bvcontainer{ 
-		position: relative;
-		max-width: 1500px; 
-		justify-content: space-around;
-		display: grid; 
-		grid-column-gap: 10%; 
-		grid-row-gap: 2%;
-		grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-		grid-template-rows: repeat(1, 250px);  
-	}
 }

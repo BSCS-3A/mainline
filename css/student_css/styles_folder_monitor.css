@@ -27,3 +27,13 @@ a {
     width: 160px;
     height: 180px;
 }
+	
+@media only screen and (min-device-width: 320px) and (max-device-height: 640px) and (orientation : portrait) and (-webkit-device-pixel-ratio: 3){
+    .items figure { 
+        margin-left: -20px;
+        text-decoration: none;
+        background-color: transparent;
+        width: 100px;
+        height: 180px;
+    }
+}
