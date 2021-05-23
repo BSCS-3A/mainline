@@ -196,7 +196,7 @@ if (isset($_SESSION['admin_id']) && isset($_SESSION['username'])) {
 
             <input type="hidden" name="sigid2" id="sigid2">
             <input type="hidden" name="e_sigloc" id="e_sigloc">
-            <input type="file" name="upfile"id="upfile">
+            <input type="file" name="upfile"id="upfile"onchange="validateFile(this)">
             </div>
 
             <div class="modal-footer ">
@@ -497,6 +497,22 @@ if (isset($_SESSION['admin_id']) && isset($_SESSION['username'])) {
             });
           });
         </script>
+  
+       <script>
+
+        function validateFile(fileInput) {
+        var files = fileInput.files;
+        if (files.length === 0) {
+            return;
+        }
+
+        var fileName = files[0].name;
+        if (fileName.length > 30) {
+            alert('File input name too long');
+            window.location.href = 'Admin_signConfig.php';
+        }
+    }
+</script>
 
   </body>
 
