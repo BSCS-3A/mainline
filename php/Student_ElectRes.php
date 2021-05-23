@@ -251,7 +251,7 @@
                 }
                 echo '<div class ="Bcan">';
                     if(empty($candidate['middle_name'])){
-                        echo '<b>'.$candidate['first_name'].' '.$candidate['last_name'].' ('.$evr_candidate['party_name'].')<span>'.$evr_candidate['total_votes'].'</span></b>';
+                        echo '<b>'.$candidate['first_name'].' '.$candidate['last_name'].' ('.$candidate['party_name'].')<span>'.$candidate['total_votes'].'</span></b>';
                     }else{
                         echo '<b>'.$candidate['first_name'].' '.$candidate['middle_name'][0].'. '.$candidate['last_name'].' ('.$candidate['party_name'].')<span>'.$candidate['total_votes'].'</span></b>';
                     }
