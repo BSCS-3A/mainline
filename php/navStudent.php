@@ -123,7 +123,7 @@ if(!(isValidUser($conn))){
                             case 'M':   echo "<img class='Auser-profile' src='../img/user_male.png'>";
                                         break;
                             case 'female':
-                            case 'Feale':
+                            case 'Female':
                             case "FEMALE":
                             case 'f':
                             case 'F':   echo "<img class='Auser-profile' src='../img/user_female.png'>";
