@@ -173,8 +173,12 @@ $DTrow =  $DnT->fetch_row();
                                     placeholder="Enter Middle Name">
                             </div>
                             <div class="form-group">
-                                <input autocomplete="off" class="form-control " name="gender" id="gender" type="text"
+                                <select required onchange = "enableButton()" class="form-control " name="gender" id="gender" type="text"
                                     placeholder="Enter Gender" required="required">
+                                    <option value = "">Gender </option>
+                                    <option value = "female">Female</option>
+                                    <option value = "male">Male</option>
+                                </select>
                             </div>
                             <div class="form-group">
                             <input type="email"  pattern=".+@bicol-u.edu.ph"  autocomplete="off" class="form-control " name="bumail" id="bumail"
@@ -334,8 +338,12 @@ $DTrow =  $DnT->fetch_row();
                                 placeholder="Enter Middle Name">
                         </div>
                         <div class="form-group">
-                            <input autocomplete="off" class="form-control " name="gender" id="egender" type="text"
+                            <select required onchange = "enableButton()" class="form-control " name="gender" id="egender" type="text"
                                 placeholder="Enter Gender" required="required">
+                                <option value = "">Gender </option>
+                                <option value = "female">Female</option>
+                                <option value = "male">Male</option>
+                            </select>
                         </div>
                         <div class="form-group">
                             <input type="email"  pattern=".+@bicol-u.edu.ph" autocomplete="off" class="form-control " name="bumail" id="ebumail" placeholder="Enter Email"
