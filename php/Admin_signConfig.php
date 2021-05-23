@@ -73,9 +73,9 @@ if (isset($_SESSION['admin_id']) && isset($_SESSION['username'])) {
                   <td><?php echo $row['admin_lname']; ?></td>
                   <td><?php echo $row['comelec_position']; ?></td>
                   <td style="display:none;"><?php echo $row['admin_id']; ?></td>
-                  <td style="display:none;"><?php echo $row['esignature']; ?></td>
+                  <td style="display:none;"><?php echo $row['eSignature']; ?></td>
                   <td>
-                  <img style ="  max-width: 100%;height: auto;"src="<?php echo $row['esignature']; ?>"> <br><br>
+                  <img style ="  max-width: 100%;height: auto;"src="<?php echo $row['eSignature']; ?>"> <br><br>
                   <button class="btn btn-primary btn-xs upbtn" data-title="otp" data-toggle="modal" data-target="#e_sig" data-placement="top" title="Add"><span class="fa fa-user-plus" aria-hidden="true"></span> Upload</button>
                   <button class="btn btn-danger btn-xs esigdeletebtn" data-title="Delete" data-toggle="modal" data-target="#sigdelete"><span class="fa fa-trash"></span> DELETE</button>
                   </td>
