@@ -44,6 +44,7 @@ include("db_conn.php");
         require './backMonitor/student_count.php';                     // Counts student
         require './backMonitor/fetch_report.php';                      // Contains necessary functions and query
         require 'Admin_vtFetch.php';
+        require_once 'Admin_Notif.php';
         include "navAdmin.php";                                 // Adds the navBar and footer
       ?>
 
@@ -52,19 +53,13 @@ include("db_conn.php");
     </div>
 
     <?php
-      // $sched_row = $conn->query("SELECT * FROM `vote_event` ORDER BY `vote_event_id` DESC LIMIT 1");
-      // $sched = $sched_row->fetch_assoc();
-
       if(empty($sched))
       {
-        include '../html/admin_no_election_scheduled.html';
+        notifMessage("No election has been scheduled");
+        exit();
       }
       else
       {
-        // $start_time = strtotime($sched['start_date']);
-        // $end_time = strtotime($sched['end_date']);
-        // $access_time = time();
-
         if($access_time > $end_time)
         {
           $tie_position_counter = 0;
@@ -162,66 +157,59 @@ include("db_conn.php");
 
         	if ($tie_position_counter == 0)
         	{
-	        //  	$end_date = new DateTime($sched['end_date']);
-	        //   $archive_sql = ($conn->query("SELECT * FROM `archive` ORDER BY `archive_id` DESC LIMIT 1"));
-      			// $archive_row = $archive_sql->fetch_assoc();
-      			// $archive_sy = $archive_row['school_year'];
-      			
-      			if(empty($archive_row))
+	          if(empty($archive_row))
       				$check = true;
       			else
       				$check = false;
 			
 	    
-	    		 if($check || ($end_date->format('Y-m-d')> $archive_sy))
-			 {
-			
-
-		       		echo '<br><br><br><br><br><br><br><br><br>';
-					echo '<form method="post"> <div class="Bbtn_save">';
-					echo '<button name=\'save_btn\' class=\'Bbtn_save2arc\' ><b>SAVE TO ARCHIVES</b></button>
-					</div></form>';
-			
-		          	if(isset($_POST['save_btn']))
-				    {
-				        Archive($conn, $end_date->format('Y-m-d'));
-				        $check = false;
-					}
-				
-			 }
-			else
-			{
-					echo '<div class="Bbtn_dl">';
-				    echo '<button name=\'dl_btn\' onclick="parent.open(\'Admin_generate-pdf.php\')" class=\'Bbtn_dlreport\'"><b>DOWNLOAD PDF</b></button>';
-				    echo '</div>';  
-			}
+  	    		if($check || ($end_date->format('Y-m-d')> $archive_sy))
+  			    {
+  			      echo '<br><br><br><br><br><br><br><br><br>
+        					 <form method="post"> <div class="Bbtn_save">
+        					  <button name=\'save_btn\' class=\'Bbtn_save2arc\' ><b>SAVE TO ARCHIVES</b></button>
+        					    </div></form>';
+  			
+  		        if(isset($_POST['save_btn']))
+  				    {
+  				        Archive($conn, $end_date->format('Y-m-d'));
+  				        $check = false;
+  					  }
+              // resMsg("Election Results have been finalized<br><br>Save to Archive", "SAVE");
+  				
+  			    }
+      			else
+      			{
+      			  resMsg("Election Report has been successfully generated", "DOWNLOAD");
+      			}
           }
           else
           {  // start tie display
             if($_SESSION['admin_position']=="Head Admin")
             {
-              echo '<header id="F-header"  style="text-align: center;"><b>TIE BREAKER</b></header><br>';
-              echo '<main>';
-              echo '<form id = "main-form" method="POST" action = "Admin_vtSubmit.php" class="vtBallot" id="vtBallot"><div id="voting-page">';
+              echo '<header id="F-header"  style="text-align: center;"><b>TIE BREAKER</b></header><br>
+              <main>
+              <form id = "main-form" method="POST" action = "Admin_vtSubmit.php" class="vtBallot" id="vtBallot"><div id="voting-page">';
 
               generateBallot($table);
               require 'Admin_vtConfirm.php';
-              echo '</div>';
-              echo '<div id="vote-button"><button id="vote-btn" name = "vote-button" class="vote-btn" type = "button">SUBMIT</button></div></form>';
-              echo '</main>';
-              echo '<br><script src = "../js/modals_vote.js"></script>';
-            
-            // you can put the button of archive and pdf here
+              echo '</div>
+                      <div id="vote-button"><button id="vote-btn" name = "vote-button" class="vote-btn" type = "button">SUBMIT</button></div></form>
+                      </main>
+                      <br><script src = "../js/modals_vote.js"></script>';
+
             }//end of head admin session check
             else
             {
-              include '../html/admin_tiebreaker_prompt.html';
+              notifMessage("<h4>The election result has</h4><h2><b>Unresolved Tied Results</b></h2><br><h4>Results should be finalized by the Head Admin as soon as possible.</h4>");
+              exit();
             }
           } // end tie display
         }
         else
         {
-          include '../html/ongoing.html';
+          notifMessage("Election is ongoing<br><br>Results will be out soon");
+          exit();
         }
       }//end of else election is not empty       
 ?>
