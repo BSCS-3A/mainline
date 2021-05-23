@@ -256,6 +256,8 @@ iframe {
   margin-top: 2px;
 }
 
+/*BUTTON FOR SIGNATORY*/
+
 .btn-button3 {
   color: #124254;
   background-color: #fece4b;
@@ -280,6 +282,8 @@ iframe {
   border-top: 2px solid #ffea36;
   margin-top: 2px;
 }
+
+/*END BUTTON FOR SIGNATORY*/
 @media only screen and (max-width: 600px) {
   .btn-button1 {
     margin: 25px 2px 5px 0px!important;
@@ -387,23 +391,8 @@ iframe {
   color: #EEEEEE!important;
 }
 
-/*BUTTON FOR SIGNATORY*/
 
-/* .btn-button3 {
-  color: #eeeeee;
-  margin-bottom: 4px !important;
-  padding: 0px;
-  background: #124254;
-  border-color: #124254;
-  box-shadow: none;
-  padding: 10px 20px;
-  margin: 0px 15px 15px 25px;
-}
 
-.btn-button3:hover {
-  background-color: #18566e !important;
-  color: #EEEEEE!important;
-} */
 
 .container {
   max-width: 100%;
