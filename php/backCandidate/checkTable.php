@@ -12,9 +12,8 @@
     	$candid = sanitize(mysqli_real_escape_string($conn, trim($_POST['candidateid'])));
     	$lname = sanitize(mysqli_real_escape_string($conn, trim($_POST['checklastname'])));
     	$fname = sanitize(mysqli_real_escape_string($conn, trim($_POST['checkfirstname'])));
-    	$hid = sanitize(mysqli_real_escape_string($conn, trim($_POST['checkhid'])));
 
-    	$sql = "SELECT * FROM ((`candidate` INNER JOIN student ON `candidate`.`student_id` = `student`.`student_id`) INNER JOIN `candidate_position` ON `candidate`.`position_id` = `candidate_position`.`position_id`) WHERE `lname` = '$lname' AND `fname` = '$fname' AND `heirarchy_id` = '$hid' AND `candidate_id` = '$candid'";
+    	$sql = "SELECT * FROM ((`candidate` INNER JOIN student ON `candidate`.`student_id` = `student`.`student_id`) INNER JOIN `candidate_position` ON `candidate`.`position_id` = `candidate_position`.`position_id`) WHERE `lname` = '$lname' AND `fname` = '$fname' AND `candidate_id` = '$candid'";
     	$result = mysqli_query($conn, $sql);
     	if(mysqli_num_rows($result) == 1){
     		echo "Exists";

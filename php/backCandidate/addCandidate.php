@@ -3,6 +3,10 @@
     include_once '../db_conn.php';
     session_start();
 
+    function sanitize_name($variables){
+        $sanitized_variables = filter_var($variables, FILTER_SANITIZE_STRING, FILTER_FLAG_STRIP_LOW);
+        return $sanitized_variables;
+    }
     function sanitize($variables){
         $sanitized_variables = filter_var($variables, FILTER_SANITIZE_STRING, FILTER_FLAG_STRIP_LOW | FILTER_FLAG_STRIP_HIGH);
         return $sanitized_variables;
@@ -10,8 +14,8 @@
 
     if(isset($_POST['savebtn'])){
 
-        $lastname = sanitize(mysqli_real_escape_string($conn,trim($_POST['lastname'])));
-        $firstname = sanitize(mysqli_real_escape_string($conn,trim($_POST['firstname'])));
+        $lastname = sanitize_name(mysqli_real_escape_string($conn,trim($_POST['lastname'])));
+        $firstname = sanitize_name(mysqli_real_escape_string($conn,trim($_POST['firstname'])));
         $heirarchyId = sanitize(mysqli_real_escape_string($conn,trim($_POST['heirarchy_id']))); // hid value can be change through inspect element
         $partylist = sanitize(mysqli_real_escape_string($conn,trim($_POST['partylist'])));
         $platform = sanitize(mysqli_real_escape_string($conn,trim($_POST['platform'])));
@@ -97,8 +101,8 @@
 
     if(isset($_POST['editsavebtn'])){//preserve /n https://stackoverflow.com/questions/55332358/how-to-use-mysqli-real-escape-string-in-php-to-escape-all-characters-except-ne/5533278
         $candidateid = $_POST['candidateid'] ;
-        $lastname = sanitize(mysqli_real_escape_string($conn,trim($_POST['editlastname'])));
-        $firstname = sanitize(mysqli_real_escape_string($conn,trim($_POST['editfirstname'])));
+        $lastname = sanitize_name(mysqli_real_escape_string($conn,trim($_POST['editlastname'])));
+        $firstname = sanitize_name(mysqli_real_escape_string($conn,trim($_POST['editfirstname'])));
         $heirarchyid = sanitize(mysqli_real_escape_string($conn,trim($_POST['editheirarchy_id'])));
         $partylist = sanitize(mysqli_real_escape_string($conn,trim($_POST['editpartylist'])));
         $platform = sanitize(mysqli_real_escape_string($conn,nl2br(trim($_POST['editplatform']))));
