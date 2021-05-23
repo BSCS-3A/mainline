@@ -75,6 +75,9 @@ img.logos {
   max-width: 700px;
 }
 
+img {
+  pointer-events: none;
+}
 /*countdown*/
 
 aside {
