@@ -55,13 +55,13 @@ if (isset($_SESSION['admin_id']) && isset($_SESSION['username'])) {
           <table class="table table-hover" id="datatable" width="100%"style="overflow-x:auto;"  >
             <thead>
               <tr>
-                <th class="text-center">FIRST NAME</th>
-                <th class="text-center">LAST NAME</th>
-                <th class="text-center">POSITION</th>
+                <th class="min-mobile">FIRST NAME</th>
+                <th class="min-mobile">LAST NAME</th>
+                <th class="min-mobile">POSITION</th>
                 <th style="display:none;"></th>
                 <th style="display:none;"></th>
-                <th class="text-center">E-SIGNATURE</th>
-                <th class="text-center">ACTION</th>
+                <th class="min-mobile">E-SIGNATURE</th>
+                <th class="min-mobile">ACTION</th>
               </tr>
             </thead>
             <tbody>

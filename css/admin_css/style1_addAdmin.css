@@ -469,7 +469,7 @@ div.container {
   margin-top: 3%;
   margin-bottom: 3%;
   border: 2px solid #124254;
-  width: 80%;
+  width: 95%;
   height: auto;
 }
 
@@ -521,11 +521,13 @@ th {
 
 td {
   border: 1px solid #124254;
-  padding: 0px;
+  padding: 0.6% !important;
   max-width: 150px;
-  max-height: 150px;
+  height: 40px;
   overflow: hidden;
   word-wrap: break-word;
+  font-size: 11pt;
+  position: relative;
 }
 
 table tbody tr:hover {

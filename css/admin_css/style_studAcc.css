@@ -444,6 +444,12 @@ iframe {
     border-bottom: 2px solid #fece4b;
     padding: 10px 20px;
     margin: 30px 5px 15px 0px!important;
+    box-shadow:
+    inset 0 0 2px 0 rgba(255,255,255,.4),
+    inset 0 0 3px 0 rgba(255, 255, 255, 0.8),
+    inset 0 0 3px 5px rgba(255, 255, 255, 0.07),
+    2px 2px 4px 0 rgba(0,0,0,.25);
+    border-radius: 4px;
 }
 
 .btn-button0:hover,
@@ -469,6 +475,12 @@ iframe {
     border-bottom: 2px solid #fece4b;
     padding: 10px 20px;
     margin: 30px 5px 15px 0px!important;
+    box-shadow:
+    inset 0 0 2px 0 rgba(255,255,255,.4),
+    inset 0 0 3px 0 rgba(255, 255, 255, 0.8),
+    inset 0 0 3px 5px rgba(255, 255, 255, 0.07),
+    2px 2px 4px 0 rgba(0,0,0,.25);
+    border-radius: 4px;
 }
 
 .btn-button1:hover,
@@ -494,6 +506,12 @@ iframe {
     border-bottom: 2px solid #fece4b;
     padding: 10px 20px;
     margin: 30px 5px 15px 0px!important;
+    box-shadow:
+    inset 0 0 2px 0 rgba(255,255,255,.4),
+    inset 0 0 3px 0 rgba(255, 255, 255, 0.8),
+    inset 0 0 3px 5px rgba(255, 255, 255, 0.07),
+    2px 2px 4px 0 rgba(0,0,0,.25);
+    border-radius: 4px;
 }
 
 .btn-button2:hover,
@@ -519,6 +537,12 @@ iframe {
     border-bottom: 2px solid #fece4b;
     padding: 10px 20px;
     margin: 30px 5px 15px 0px!important;
+    box-shadow:
+    inset 0 0 2px 0 rgba(255,255,255,.4),
+    inset 0 0 3px 0 rgba(255, 255, 255, 0.8),
+    inset 0 0 3px 5px rgba(255, 255, 255, 0.07),
+    2px 2px 4px 0 rgba(0,0,0,.25);
+    border-radius: 4px;
 }
 
 .btn-button3:hover,
@@ -573,12 +597,16 @@ iframe {
 .btn-button4 {
     background: #dddddd;
     height: 33px!important;
-    box-shadow: 1px 1px 5px #888888;
     width: 15%;
     padding: 10px 20px;
     margin-top: 8px;
     margin-left: 2px!important;
-    box-shadow: 1px 1px 1px #888888;
+    box-shadow:
+    inset 0 0 2px 0 rgba(255,255,255,.4),
+    inset 0 0 3px 0 rgba(255, 255, 255, 0.8),
+    inset 0 0 3px 5px rgba(255, 255, 255, 0.07),
+    2px 2px 4px 0 rgba(0,0,0,.25);
+    border-radius: 4px;
 }
 
 .btn-button4:hover {
@@ -757,6 +785,7 @@ th {
     font-size: 10pt!important;
     letter-spacing: 2px!important;
     font-weight: 700;
+    padding: 10px;
 }
 
 #tableth {
@@ -768,11 +797,10 @@ td {
     border: 1px solid #124254;
     padding: 3px!important;
     max-width: 150px;
-    max-height: 150px;
     overflow: hidden;
     word-wrap: break-word;
-    padding: 0.5%!important;
-    font-size: 12pt!important;
+    padding: 3px;
+    font-size: 11pt;
 }
 
 table tbody tr:hover {

@@ -121,63 +121,6 @@ body{
     font-family: 'genericaregular', sans-serif;
   }
 
-  /* Container for flexboxes */
-
-  section {
-    display: -webkit-flex;
-    display: flex;
-    margin-left: 30px;
-    margin-top: 100px;
-    float: left;
-  }
-
-  article p {
-    font-family: 'Roboto-regular', sans-serif;
-    color: white;
-    font-weight: inherit;
-    font-size: 20px;
-    letter-spacing: 3px;
-    position: relative;
-  }
-
-  article h1 {
-    font-family: 'genericaregular', sans-serif;
-    color: #ffc423;
-    font-weight: inherit;
-    font-size: 55px;
-    position: relative;
-    letter-spacing: 3px;
-    margin-top: 10px;
-  }
-
-  /* Style the content */
-
-  article {
-    -webkit-flex: 3;
-    -ms-flex: 3;
-    flex: 3;
-    padding: 10px;
-  }
-
-  /*For logos on top of welcome banner*/
-
-  img.logos {
-    float: left;
-    padding-left: 10px;
-    height: 90px;
-    width: 100px;
-    margin-bottom: 2em;
-  }
-
-  .logo-container {
-    position: relative;
-    /* float: left; */
-    display: -webkit-flex;
-    display: flex;
-    margin-left: 0px;
-    margin-top: 0px;
-    max-width: 700px;
-  }
 
   /* Responsive layout - makes the menu and the content (inside the section) sit on top of each other instead of next to each other */
 
@@ -204,36 +147,6 @@ body{
 
   }
 
-  
-
-  /*footer*/
-
-  .footer {
-    position: fixed;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    height: auto;
-    padding: 5px;
-    background-color: #124254;
-    text-align: center;
-  }
-
-  div p.footer-txt {
-    position: relative;
-    margin-top: auto;
-    margin-bottom: auto;
-    font-family: 'Roboto-regular', sans-serif;
-    letter-spacing: 7px;
-    font-size: 10px;
-    color: #ffffff;
-  }
-
-  nav img.user-profile {
-    margin-top: 0;
-    height: 40px;
-    width: 40px;
-  }
 
   /*Datatable*/
 
@@ -245,25 +158,7 @@ body{
     border: 2px solid #124254;
     width: 95%;
     height: auto;
-    /**opacity: 80%;**/
     font-size: .8rem;
-  }
-
-  #ADdataTable {
-    border-collapse: collapse !important;
-    table-layout: auto;
-    margin: 0;
-    text-align: center;
-    opacity: 100%;
-    width: 100% !important;
-  }
-
-  thead {
-    width: 100%;
-    color: #EEEEEE;
-    background-color: #18566e;
-    text-align: center;
-    font-size: 12px;
   }
 
   thead input {
@@ -274,45 +169,15 @@ body{
     color: #ffffff;
     background-color: #18566e;
     text-align: center;
-    font-size: .8rem;
-    font-family: Roboto regular, sans-serif;
+    font-size: 10pt;
+    font-family: 'Roboto-regular', sans-serif;
     text-transform: uppercase;
     letter-spacing: 2px;
     border: 1px solid #124254 !important;
   }
-
-  td {
-    border: 1px solid #124254;
-    padding: 0;
-    max-width: 150px;
-    max-height: 150px;
-    overflow: hidden;
-    font-size: .8rem;
-  }
-
-  #ADheader {
-    position: relative;
-    z-index: -1;
-    padding: 6px;
-    background: #124254;
-    color: #ffffff;
-    width: 100%;
-    text-align: center;
-    font-family: 'Roboto-regular', sans-serif;
-    letter-spacing: 6px;
-  }
-
-  h2.aHeader-txt {
-    font-size: 24px;
-    margin-top: .5%;
-    margin-bottom: .5%;
-  }
-
   .row {
     margin: 0;
   }
-
-  /*Everything here is for the NavBar*/
 
   /*Datatables*/
 
@@ -338,6 +203,45 @@ body{
   #CPTable2 {
     padding-top: 35px;
     /* width: 160%; */
+  }
+
+  #datatable {
+    width: 100%;
+    border: 1px solid #124254;
+    font-family: 'Roboto-regular', sans-serif;
+    border-collapse: collapse;
+    table-layout: auto;
+    margin: 0px;
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.6);
+  }
+
+  table.center {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  thead {
+    border: 1px solid #124254;
+    color: #EEEEEE;
+    background-color: #18566e;
+    text-align: center;
+    height: 20px;
+  }
+
+  tbody {
+    overflow: hidden;
+  }
+
+  #datatable td {
+    border: 1px solid #124254;
+    padding: 3px;
+    max-width: 150px;
+    height: 40px;
+    overflow: hidden;
+    word-wrap: break-word;
+    padding: 0.5%!important;
+    font-size: 11pt;
   }
 
   .pagination>li {
@@ -438,7 +342,6 @@ body{
   background-color: #C23B22 !important;
   }
 
-
   #go {
     color: #fff;
     background: #124254;
@@ -449,110 +352,9 @@ body{
     margin: 30px 15px 25px 15px;
   }
 
-  #datatable {
-    width: 100%;
-    border: 1px solid #124254;
-    font-family: 'Roboto-regular', sans-serif;
-    border-collapse: collapse;
-    table-layout: auto;
-    margin: 0px;
-    text-align: center;
-    background-color: rgba(255, 255, 255, 0.6);
-  }
-
-  table.center {
-    margin-left: auto;
-    margin-right: auto;
-  }
-
-  thead {
-    border: 1px solid #124254;
-    color: #EEEEEE;
-    background-color: #18566e;
-    text-align: center;
-  }
-
-  tbody {
-    overflow: hidden;
-  }
-
-  th {
-    color: #EEEEEE;
-    background-color: #18566e;
-    text-align: center;
-    overflow: hidden;
-    font-size: 1.6em;
-  }
-
-  td {
-    border: 1px solid #124254;
-    padding: 0px;
-    max-width: 150px;
-    max-height: 150px;
-    overflow: hidden;
-  }
-
-  #datatable td {
-    padding: 12px 12px 12px 12px;
-    max-width: 150px;
-    max-height: 150px;
-    overflow: hidden;
-    font-size: 15px;
-    color: #2f4f4f;
-    font-family: 'Roboto-regular',sans-serif;
-  }
-
-  article p {
-    font-family: 'Roboto-regular', sans-serif;
-    color: white;
-    font-weight: inherit;
-    font-size: 20px;
-    letter-spacing: 3px;
-    position: relative;
-  }
-
-  article h1 {
-    font-family: 'genericaregular', sans-serif;
-    color: #ffc423;
-    font-weight: inherit;
-    font-size: 55px;
-    position: relative;
-    letter-spacing: 3px;
-    margin-top: 10px;
-  }
-
-  /* Style the content */
-
-  article {
-    -webkit-flex: 3;
-    -ms-flex: 3;
-    flex: 3;
-    padding: 10px;
-  }
-
-  /*For logos on top of welcome banner*/
-
-  img.logos {
-    float: left;
-    padding-left: 10px;
-    height: 90px;
-    width: 100px;
-    margin-bottom: 2em;
-  }
-
-  .logo-container {
-    position: relative;
-    /* float: left; */
-    display: -webkit-flex;
-    display: flex;
-    margin-left: 0;
-    margin-top: 0;
-    max-width: 700px;
-  }
 
   /* Responsive layout - makes the menu and the content (inside the section) sit on top of each other instead of next to each other */
 
-  }
   @media (max-width: 600px) {
     body, section, .container {
       -webkit-flex-direction: column;
@@ -564,33 +366,6 @@ body{
     .center {
       width: 100% !important;
     }
-  }
-
-  .footer {
-    position: fixed;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    height: auto;
-    padding: .5px;
-    background-color: #124254;
-    text-align: center;
-    z-index: 999999;
-  }
-
-  div p.footer-txt {
-    position: relative;
-    top: .5em;
-    font-family: 'Roboto-regular', sans-serif;
-    letter-spacing: 7px;
-    font-size: 1em;
-    color: #ffffff;
-  }
-
-  nav img.user-profile {
-    margin-top: 0;
-    height: 40px;
-    width: 40px;
   }
 
   .panel-primary {
@@ -1114,7 +889,13 @@ label.button{
   font-weight: bold;
   color: white;
   font-family: 'Roboto-regular',sans-serif;
-   box-shadow: 1px 1px 5px #888888;
+  box-shadow:
+  inset 0 0 2px 0 rgba(255,255,255,.4),
+  inset 0 0 3px 0 rgba(0,0,0,.4),
+  inset 0 0 3px 5px rgba(0,0,0,.05),
+  2px 2px 4px 0 rgba(0,0,0,.25);
+  border-radius: 4px;
+  line-height: 14px;
 }
 
 .hide{

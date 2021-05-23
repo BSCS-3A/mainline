@@ -436,14 +436,14 @@
                     <thead>
                         <tr> 
 
-                            <th class="text-center">Upload Photo</th>
-                            <th class="text-center">Last Name</th>
-                            <th class="text-center">First Name</th>
-                            <th class="text-center">Position</th>    
-                            <th class="text-center">Partylist</th>   
-                            <th class="text-center">Platorm/s</th>
-                            <th class ="text-center">Credential/s</th>
-                            <th class ="text-center">Manage</th>
+                            <th class="min-mobile">Upload Photo</th>
+                            <th class="min-mobile">Last Name</th>
+                            <th class="min-mobile">First Name</th>
+                            <th class="min-mobile">Position</th>    
+                            <th class="min-mobile">Partylist</th>   
+                            <th class="min-mobile">Platorm/s</th>
+                            <th class ="min-mobile">Credential/s</th>
+                            <th class ="min-mobile">Manage</th>
 
                         </tr> 
                     </thead> 
