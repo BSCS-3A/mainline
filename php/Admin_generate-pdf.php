@@ -3,7 +3,6 @@
 
 require 'db_conn.php';						// Link to database
 require './backMonitor/student_count.php';			// Link to queries
-require './backMonitor/fetch_date.php';				// Link to queries in date
 require './backMonitor/fetch_report.php';			// Link to queries in archive
 require_once('../other/TCPDF-main/tcpdf.php'); 			// Include the main TCPDF library
 
@@ -126,11 +125,11 @@ $query=mysqli_query($conn, "SELECT temp_candidate.candidate_id, temp_candidate.s
 
 			$string = '';
 			// if candidate is winner, set fill color to green
-				if (isWinner($conn, $data['fname'], $data['mname'], $data['lname'], $last_election_date))
+				if (isWinner($conn, $data['fname'], $data['mname'], $data['lname'], $end_date->format('Y-m-d')))
 				{
 					$pdf->SetFillColor(144,238,144);
 					$color = 1;
-					if (numTie($conn, $pos_id, $max)>1)
+					if ((numTie($conn, $pos_id, $max))>1)
 					{ // add '+1' beside votes if winner in tie
 						$string = ' +1';
 					}
