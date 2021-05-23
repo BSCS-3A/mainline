@@ -64,10 +64,11 @@ include('db_conn.php');
         if($row ==""){
             echo " (Start Date) to (End Date)";
         }else{
-       
-            while ($rows = mysqli_fetch_array($event)) {
-                $stdate = $rows['start_date'];
-                $endate = $rows['end_date'];
+		
+       	    $event = mysqli_query($conn, "SELECT * FROM vote_event");
+            while ($row = mysqli_fetch_array($event)) {
+                $stdate = $row['start_date'];
+                $endate = $row['end_date'];
             }
             $startDate=date_create("$stdate");
             $endDate=date_create("$endate");
