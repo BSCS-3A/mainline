@@ -1,4 +1,3 @@
-
 /*Header*/
 .bheader {
   z-index: 100;
@@ -11,7 +10,6 @@
   font-family: 'Roboto-regular', sans-serif;
   letter-spacing: 6px;
 }
-
 .bheader1 {
   z-index: 100;
   padding: 2px 2px;
@@ -35,87 +33,8 @@
   letter-spacing: 6px;
   margin-top: auto;
 }
-  
-/* On-Going Election*/
-
-.Belec1 p {
-  font-family: 'Roboto-regular', sans-serif;;
-  color: #1f6f8f;
-  font-weight: inherit;
-  font-size: 400%;
-  margin-top: 6%;
-  letter-spacing: 4px;
-  text-align: center;
-}
-
-.Bon1 h1 {
-  font-family: 'Roboto-regular', sans-serif;;
-  color: #142d4f;
-  font-weight: inherit;
-  font-size: 550%;
-  position: relative;
-  letter-spacing: 4px;
-  margin-top: 4px;
-  text-align: center;
-}
-
-.Bres {
-  margin: auto;
-  padding: 1em 2.1em 1.1em;
-  cursor: pointer;
-  display: inline-block;
-  width: 100%;
-  border-radius: 10px;
-  display: inline-block;
-  font-size: 150%;
-  text-align: center;
-  position: relative;
-}
-
-.Bres p {
-  font-family:'Roboto-regular', sans-serif;;
-  letter-spacing: 1px;
-  font-size: 100%;
-}
-
-/* Election Archives Folder*/
-
-.Bimg img {
-  position: relative;
-  z-index: -1000;
-  max-width: 100%;
-  height: auto;
-}
-
-.Bbox a {
-  color: #1f6f8f;
-  font-family: Roboto regular, sans-serif ;
-  font-size: 200%;
-  text-align: center;
-  margin-top: -5px;
-}
-
-.Bbox a:hover {
-  color: #124254;
-}
-
-.Bcard {
-  position: relative;
-  width: 200px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 220px;
-  border-radius: 4px;
-  text-align: center;
-  margin: auto;
-  margin-top: 20px;
-  transition: 0.5s;
-  border-radius: 60%;
-}
 
 /*Election Archives List*/
-
 .Barch_year h3 {    
   z-index: 100;
   padding: 2px 2px;
@@ -127,7 +46,6 @@
   letter-spacing: 6px;
   margin-top: 1%;
   }
-
 .Barch_container {
   padding: 30px;
   color: black;
@@ -141,32 +59,27 @@
   margin-left: auto;
   margin-right: auto;
 }
-
 .Barch_container>div {
   border-radius: 20px;
   background-color: rgba(21, 54, 69, 0.85);
   padding: 20px;
 }
-
 .Barch_container>div>img {
   border-radius: 50%;
   width: 80px;
 }
-
 .Barch_container>div>img>p {
   width: 100%;
   height: 0;
   object-fit: cover;
   text-align: center;
 }
-
 .Barch_container>div>p {
   font-family: 'Roboto-regular', sans-serif;;
   font-size: 15px;
   object-fit: cover;
   text-align: center;
 }
-
 .Bpstn .Bname {
   margin-top: 10px;
   color: #ffffff;
@@ -178,7 +91,6 @@
   border-top-width: 90%;
   padding-top: 10px;
 }
-
 .Bpstn .Bpstn {
   margin-top: -10px;
   color: #ffb700;
@@ -189,7 +101,6 @@
   border-bottom-width: 90%;
   padding-bottom: 10px;
 }
-
 .Bpstn .Bplat1 {
   margin-top: 15px;
   color: white;
@@ -197,14 +108,50 @@
   font-size: 120%;
   letter-spacing: 1px;
 }
-
 .Bpstn .Bplat2 {
   color: #ffb700;
   font-size: 100%;
   margin-top: -5px;
 }
-
-/*Circular Progress Graph*/
+  
+/*Election Results*/
+.Belec1 p {
+  font-family: 'Roboto-regular', sans-serif;;
+  color: #1f6f8f;
+  font-weight: inherit;
+  font-size: 400%;
+  margin-top: 6%;
+  letter-spacing: 4px;
+  text-align: center;
+}
+.Bon1 h1 {
+  font-family: 'Roboto-regular', sans-serif;;
+  color: #142d4f;
+  font-weight: inherit;
+  font-size: 550%;
+  position: relative;
+  letter-spacing: 4px;
+  margin-top: 4px;
+  text-align: center;
+}
+.Bres {
+  margin: auto;
+  padding: 1em 2.1em 1.1em;
+  cursor: pointer;
+  display: inline-block;
+  width: 100%;
+  border-radius: 10px;
+  display: inline-block;
+  font-size: 150%;
+  text-align: center;
+  position: relative;
+}
+.Bres p {
+  font-family:'Roboto-regular', sans-serif;;
+  letter-spacing: 1px;
+  font-size: 100%;
+}
+/*Circular Progress Graph - Voter's Turnout*/
 .Bcon {
 	max-width: 80%;
   z-index: 1000;
@@ -231,7 +178,6 @@
 	text-align: center;
 	transition: 0.5s;
 }
-
 .Bbox1 p {
 	color: #ffb700;
 	font-family: 'Roboto-regular', sans-serif;
@@ -249,7 +195,7 @@
 	font-family: 'Roboto-regular', sans-serif;
   }
 
-/*Bar Graph
+/*Bar Graph-Vote Tally
 .con1 {
 	max-width: 80%;
   z-index: 1000;
@@ -313,6 +259,7 @@
   animation: grow-padding-left 1s;
 }*/
 
+/*Vote Tally*/
 .Belec_container {
   display: grid;
   grid-gap: 20px;
@@ -322,11 +269,9 @@
   text-align: center;
   margin-top: 2%;
 }
-
 .Belec_container>div>img {
   border-radius: 50%;
 }
-
 .Belec_container>div>p {
   font-family: 'Roboto-regular', sans-serif;;
   font-size: 15px;
@@ -349,7 +294,6 @@
   text-align: center;
   color: #003d55;
 }
-
 .Bposition {
   font-family: 'Roboto-regular', sans-serif;;
   color:#1d6986;
@@ -357,7 +301,6 @@
   text-align: center;
   margin-top: -3.5%;
 }
-
 .Bparty {
   font-family: 'Roboto-regular', sans-serif;;
   color:rgb(221, 46, 46);
