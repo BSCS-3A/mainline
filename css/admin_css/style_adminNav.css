@@ -41,11 +41,10 @@
 
 }
   
-  body{  
-    font-size: 100%;
-    width: auto;
-    min-height: 100%;
-  }
+body{  
+  font-size: 100%;
+  overflow: hidden;
+}
 
 nav {
   background: #1d6986;
@@ -53,6 +52,7 @@ nav {
   width: auto;
   z-index: 500;
   display: flex;
+  padding: 0;
 }
 
 nav:after {
