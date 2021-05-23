@@ -117,7 +117,7 @@ include("db_conn.php");
                 //checks first if candidate is representative or not
                 if($row1['vote_allow']==1)
                 {//for non-representative
-                  if($row1['total_votes']>=$QoutaAll)//checks if they met the quota
+                  if($row1['total_votes']>=($QoutaAll-1))//checks if they met the quota
                   {
                     //get the highest vote from their position, then compare if matches
                     //if matches then its a legit tie
@@ -142,7 +142,7 @@ include("db_conn.php");
                           
                   $QoutaAll1 = floor($total1/2)+1;
                   /*==========END==============*/              
-                  if($row1['total_votes']>=$QoutaAll1)
+                  if($row1['total_votes']>=($QoutaAll1-1))
                   {
                     if(getMax($conn, $pos_hold)==$row1['total_votes'])
                     {
