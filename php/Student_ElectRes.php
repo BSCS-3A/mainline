@@ -234,9 +234,52 @@
   </div>
 
 
+  <div class="Belection_container">
+        <div class="Bposition1">
+            <h1><b>President</b></h1>
+                <div class ="Bcan">
+                    <b>Candidate Name (Party)<span>15</span></b>
+                </div>
+            <div class ="Bbar1">
+            </div>
+                <div class ="Bcan">
+                    <b>Candidate Name (Party)<span>15</span></b>
+                </div>
+            <div class ="Bbar2">
+            </div>
+        </div>
+        <div class="Bposition2">
+            <h1><b>Vice-President</b></h1>
+                <div class ="Bcan">
+                    <b>Candidate Name (Party)<span>15</span></b>
+                </div>
+            <div class ="Bbar1">
+                <div class="Bvote_percentage">
+                </div>
+            </div>
+                <div class ="Bcan">
+                    <b>Candidate Name (Party)<span>15</span></b>
+                </div>
+            <div class ="Bbar2">
+            </div>
+        </div>
+        <div class="Bposition3">
+            <h1><b>Secretary</b></h1>
+                <div class ="Bcan">
+                    <b>Candidate Name (Party)<span>15</span></b>
+                </div>
+            <div class ="Bbar1">
+            </div>
+                <div class ="Bcan">
+                    <b>Candidate Name (Party)<span>15</span></b>
+                </div>
+            </div>
+        </div>
+        </div>
+    </div>
 
 
-  <div class="Belec_container" id="candidate">  
+  <!--<div class="Belec_container" id="candidate">  
         <?php
             foreach($candidates as $candidate){
                 echo '<div class="Bposition">';
@@ -309,3 +352,5 @@
   </section>
   </div>
 </div>
+
+
