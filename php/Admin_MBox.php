@@ -31,7 +31,7 @@ include("db_conn.php");
 <?php
   $server = strtolower($_SERVER['HTTP_USER_AGENT']);
   $isMob = is_numeric(strpos($server, "mobile"));
-  if($isMob){
+  if($isMob && !strstr($_SERVER['HTTP_USER_AGENT'], 'iPad')){
     echo '<div class="alert alert-secondary" id="alert"><button type="button" class="close" data-dismiss="alert">x</button>
     You are using a mobile device! It is recommended to switch into landscape mode.</div>';
   }
