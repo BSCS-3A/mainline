@@ -1,5 +1,17 @@
 <?php
 	require 'db_conn.php';
+
+    // Report and PDF date/time
+    $sched_row = $conn->query("SELECT * FROM `vote_event` ORDER BY `vote_event_id` DESC LIMIT 1");
+    $sched = $sched_row->fetch_assoc();
+    $start_time = strtotime($sched['start_date']);
+    $end_time = strtotime($sched['end_date']);
+    $access_time = time();
+    $end_date = new DateTime($sched['end_date']);
+    $archive_sql = ($conn->query("SELECT * FROM `archive` ORDER BY `archive_id` DESC LIMIT 1"));
+    $archive_row = $archive_sql->fetch_assoc();
+    $archive_sy = $archive_row['school_year'];
+
 	// Function to get quota
         function getQuota($total)
         {
@@ -12,7 +24,7 @@
     // Function to get number of tied winning candidates per position
         function numTie($conn, $i, $max)
         {
-            return mysqli_num_rows($conn->query("SELECT * FROM candidate WHERE position_id = '$i' AND total_votes='$max'"));
+            return mysqli_num_rows($conn->query("SELECT * FROM temp_candidate WHERE position_id = '$i' AND total_votes='$max'"));
         } // end numTie
 
         function getTiedCandidates($conn, $i, $max, & $tiedCandidates){
@@ -21,25 +33,6 @@
         		$tiedStudents= mysqli_fetch_array($tieQuery);
             	$tiedCandidates = $tiedCandidates." || candidate_id = ".$tiedStudents['candidate_id']."";
             }
-        }
-
-    // Function to INSERT to archive
-        function insertToArchive($conn, $winnerList, $last_election_date )
-        {
-        	$winnersString = "SELECT * FROM candidate INNER JOIN student ON candidate.student_id = student.student_id INNER JOIN candidate_position ON candidate.position_id = candidate_position.position_id ".$winnerList." ORDER BY candidate_position.heirarchy_id";
-        	// mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
-        	$queryWinners = $conn->query($winnersString);
-        	while ($winner=mysqli_fetch_array($queryWinners))
-        	{
-        		$w_posName = $winner['position_name'];
-        		$w_fname = $winner['fname'];
-        		$w_mname = $winner['mname'];
-        		$w_lname = $winner['lname'];
-        		$w_sy = $last_election_date ;
-        		$w_platform = $winner['platform_info'];
-
-        		$conn->query("INSERT INTO `archive` (`archive_id`, `position_name`, `winner_fname`, `winner_mname`, `winner_lname`, `school_year`, `platform_info`) VALUES (NULL, '$w_posName', '$w_fname', '$w_mname', '$w_lname', '$w_sy', '$w_platform')");
-        	}
         }
 
     // Function to get lists of tied candidates and winners
@@ -157,11 +150,7 @@
               }
             }
           }
-        } 
-	 
-	//For Logs
-	$_SESSION['action'] = 'Archived the Election Result.' ;
-	include './backAdmin/backFun_actLogs_v0_1.php';
+        }           
       }
 
     //=======drop temp_candidate table
