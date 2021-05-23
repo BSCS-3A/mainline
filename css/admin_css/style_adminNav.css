@@ -278,7 +278,7 @@ nav ul ul li .logout::before {
     margin-left: 40px;
   } */
 
-@media all and (max-width: 968px) {
+@media all and (max-width: 1000px) {
   nav ul {
     margin-right: 0px;
     margin-left: 0px;
