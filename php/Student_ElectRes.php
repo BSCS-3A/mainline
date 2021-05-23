@@ -1,7 +1,6 @@
 <!--Election Results (Student)-->
 <?php
     require './backMonitor/fetch_candidates.php';
-    require 'backMonitor_Election_Result.php';
 ?>
 <link rel="stylesheet" href="../css/student_css/style_monitor.css">
 <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
@@ -233,28 +232,33 @@
           <b>VOTE TALLY</b>
         </h3>
   </div>
-  
+
     <div class="Belection_container">
         <?php
             $set_flag = 0;
             $temp = "yes";
-            foreach($candidates_all as $evr_candidate){
-                if($temp=="yes" || ($temp != $evr_candidate['position'])){
+            foreach($candidates as $candidate){
+                if($temp=="yes" || ($temp != $candidate['position'])){
                     $set_flag = 0;
                 }
-                if($evr_candidate['position']!="President"&&($set_flag==0)){
+                if($candidate['position']!="President"&&($set_flag==0)){
                     echo '</div>';
                 }
                 if($set_flag==0){
                     echo '<div class="Bposition1">';
-                    echo '<h1><b>'.$evr_candidate['position'].'</b></h1>';
+                    echo '<h1><b>'.$candidate['position'].'</b></h1>';
                     $set_flag = 1;
                 }
                 echo '<div class ="Bcan">';
-                    echo '<b>'.$evr_candidate['name'].' ('.$evr_candidate['party_name'].')<span>'.$evr_candidate['total_votes'].'</span></b>';
+                    if(empty($candidate['middle_name'])){
+                        echo '<b>'.$candidate['first_name'].' '.$candidate['last_name'].' ('.$evr_candidate['party_name'].')<span>'.$evr_candidate['total_votes'].'</span></b>';
+                    }else{
+                        echo '<b>'.$candidate['first_name'].' '.$candidate['middle_name'][0].'. '.$candidate['last_name'].' ('.$candidate['party_name'].')<span>'.$candidate['total_votes'].'</span></b>';
+                    }
+                    
                 echo '</div>';
 
-                $temp = $evr_candidate['position'];
+                $temp = $candidate['position'];
             }
         ?>
         </div>
