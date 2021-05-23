@@ -677,7 +677,7 @@ body{
     position: relative;
   }
 
-  .btn-button1 {
+  .btn-button1{
     color: #124254;
     margin: 0px;
     padding: 0px;
@@ -687,7 +687,12 @@ body{
     padding: 10px 20px;
     margin: 25px 0px 15px 0px!important;
     text-transform: uppercase;
-    box-shadow: 1px 1px 5px #888888;
+    box-shadow:
+    inset 0 0 2px 0 rgba(255,255,255,.4),
+    inset 0 0 3px 0 rgba(255, 255, 255, 0.8),
+    inset 0 0 3px 5px rgba(255, 255, 255, 0.07),
+    2px 2px 4px 0 rgba(0,0,0,.25) !important;
+    border-radius: 4px;
   }
 
   .panel-primary {
