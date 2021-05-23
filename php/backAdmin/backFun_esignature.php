@@ -2,7 +2,7 @@
 include "../db_conn.php";
 
 if (isset($_POST['upload'])) {
-
+error_reporting(E_ERROR | E_PARSE);
 $sigid = $_POST['sigid2'];
 $image_loc = $_POST['e_sigloc'];
 $temp_loc = "../".$image_loc;
