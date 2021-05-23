@@ -165,17 +165,17 @@ include("db_conn.php");
 	    
   	    		if($check || ($end_date->format('Y-m-d')> $archive_sy))
   			    {
-  			      echo '<br><br><br><br><br><br><br><br><br>
-        					 <form method="post"> <div class="Bbtn_save">
-        					  <button name=\'save_btn\' class=\'Bbtn_save2arc\' ><b>SAVE TO ARCHIVES</b></button>
-        					    </div></form>';
+  			      // echo '<br><br><br><br><br><br><br><br><br>
+        			// 		 <form method="post"> <div class="Bbtn_save">
+        			// 		  <button name=\'save_btn\' class=\'Bbtn_save2arc\' ><b>SAVE TO ARCHIVES</b></button>
+        			// 		    </div></form>';
   			
-  		        if(isset($_POST['save_btn']))
-  				    {
-  				        Archive($conn, $end_date->format('Y-m-d'));
-  				        $check = false;
-  					  }
-              // resMsg("Election Results have been finalized<br><br>Save to Archive", "SAVE");
+  		     //    if(isset($_POST['save_btn']))
+  				   //  {
+  				   //      Archive($conn, $end_date->format('Y-m-d'));
+  				   //      $check = false;
+  					  // }
+              resMsg("Election Results have been finalized<br><br>Save to Archive", "SAVE");
   				
   			    }
       			else

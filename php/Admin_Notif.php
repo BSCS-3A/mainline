@@ -52,19 +52,23 @@
     }
     else
     {
-?>
-      <script>
+      include('db_conn.php');
+      require './backMonitor/archive.php';
+      $date = $end_date->format('Y-m-d');
+
+      echo '<script>
         var archive = document.getElementById("msg-ok-button");
         archive.onclick = function()
-        {
-<?php
-          include('db_conn.php');
-          require_once './backMonitor/fetch_report.php';
-          Archive($conn, $end_date->format('Y-m-d'));
-?>
-        }
-      </script>;
-<?php
+        {';
+          insertToArchive($conn, $date);
+          // header('location: http://localhost/mainline-main/php/Admin_Report.php');
+          // die;
+          // header("Refresh:0");
+          // resMsg($message, "DOWNLOAD");
+
+        echo '}
+      </script>';
+
     }//end of else
   }//end of function
  ?>
