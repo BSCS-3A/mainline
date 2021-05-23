@@ -1,6 +1,7 @@
 <!--Election Results (Student)-->
 <?php
     require './backMonitor/fetch_candidates.php';
+    require 'backMonitor_Election_Result.php';
 ?>
 <link rel="stylesheet" href="../css/student_css/style_monitor.css">
 <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
@@ -232,125 +233,31 @@
           <b>VOTE TALLY</b>
         </h3>
   </div>
-
-
-  <div class="Belection_container">
-        <div class="Bposition1">
-            <h1><b>President</b></h1>
-                <div class ="Bcan">
-                    <b>Candidate Name (Party)<span>15</span></b>
-                </div>
-            <div class ="Bbar1">
-            </div>
-                <div class ="Bcan">
-                    <b>Candidate Name (Party)<span>15</span></b>
-                </div>
-            <div class ="Bbar2">
-            </div>
-        </div>
-        <div class="Bposition2">
-            <h1><b>Vice-President</b></h1>
-                <div class ="Bcan">
-                    <b>Candidate Name (Party)<span>15</span></b>
-                </div>
-            <div class ="Bbar1">
-                <div class="Bvote_percentage">
-                </div>
-            </div>
-                <div class ="Bcan">
-                    <b>Candidate Name (Party)<span>15</span></b>
-                </div>
-            <div class ="Bbar2">
-            </div>
-        </div>
-        <div class="Bposition3">
-            <h1><b>Secretary</b></h1>
-                <div class ="Bcan">
-                    <b>Candidate Name (Party)<span>15</span></b>
-                </div>
-            <div class ="Bbar1">
-            </div>
-                <div class ="Bcan">
-                    <b>Candidate Name (Party)<span>15</span></b>
-                </div>
-            </div>
-        </div>
-        </div>
-    </div>
-
-
-  <!--<div class="Belec_container" id="candidate">  
+  
+    <div class="Belection_container">
         <?php
-            foreach($candidates as $candidate){
-                echo '<div class="Bposition">';
-                if(empty($candidate['photo'])){
-                  echo '<img src="../img/admin_anon.png" width="50px" height="50px"/>';
-                }else{
-                  echo '<img src="'.$candidate['photo'].'" width="50px" height="50px"/>';
+            $set_flag = 0;
+            $temp = "yes";
+            foreach($candidates_all as $evr_candidate){
+                if($temp=="yes" || ($temp != $evr_candidate['position'])){
+                    $set_flag = 0;
                 }
-                echo '<p class="Bnum_votes">TOTAL VOTES: '.$candidate['total_votes'].'</p>';
-                echo '<p class="Bname">'.$candidate['first_name'].' '.$candidate['middle_name'].' '.$candidate['last_name'].' </p>';
-                echo '<p class="Bposition">'.$candidate['position'].'</p>';
-                echo '<p class="Bparty">'.$candidate['party_name'].'</p>';
+                if($evr_candidate['position']!="President"&&($set_flag==0)){
+                    echo '</div>';
+                }
+                if($set_flag==0){
+                    echo '<div class="Bposition1">';
+                    echo '<h1><b>'.$evr_candidate['position'].'</b></h1>';
+                    $set_flag = 1;
+                }
+                echo '<div class ="Bcan">';
+                    echo '<b>'.$evr_candidate['name'].' ('.$evr_candidate['party_name'].')<span>'.$evr_candidate['total_votes'].'</span></b>';
                 echo '</div>';
+
+                $temp = $evr_candidate['position'];
             }
         ?>
-  </div>
-
-  <!--<div class="con1">
-  <div class="Belec_container" id="candidate">  
-  <section>
-  <ul class="style-1">
-      <li>
-        <em>PRESIDENT</em>
-      </li>
-    </ul>
-    <ul class="style-2">
-      <li>
-        <em>Joshua Alex Llander (Danilo Medina Supporters)</em>
-        <span>127</span>
-      </li>
-      <li>
-        <em>John Kenneth Maronilla (Lany Thru These Tears)</em>
-        <span>98</span>
-      </li>
-    </ul>
-  </section>
-  <section>
-  <ul class="style-1">
-      <li>
-        <em>VICE-PRESIDENT</em>
-      </li>
-    </ul>
-    <ul class="style-2">
-      <li>
-        <em>Joshua Alex Llander (Danilo Medina Supporters)</em>
-        <span>127</span>
-      </li>
-      <li>
-        <em>John Kenneth Maronilla (Lany Thru These Tears)</em>
-        <span>98</span>
-      </li>
-    </ul>
-  </section>
-  <section>
-  <ul class="style-1">
-      <li>
-        <em>SECRETARY</em>
-      </li>
-    </ul>
-    <ul class="style-2">
-      <li>
-        <em>Joshua Alex Llander (Danilo Medina Supporters)</em>
-        <span>127</span>
-      </li>
-      <li>
-        <em>John Kenneth Maronilla (Lany Thru These Tears)</em>
-        <span>98</span>
-      </li>
-    </ul>
-  </section>
-  </div>
-</div>
+        </div>
+    </div>
 
 

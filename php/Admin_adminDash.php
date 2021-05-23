@@ -14,8 +14,9 @@ if (isset($_SESSION['admin_id']) && isset($_SESSION['username'])) {
         <link rel="icon" href="../img/BUHS LOGO.png" type="image/png">
         <link rel="stylesheet" type="text/css" href="../css/admin_css/style_AdminDash.css">
         <link rel="stylesheet" href="../css/admin_css/bootstrap4.5.2_AdminDash.css">
+        <script src="../js/jquery-3.5.1_adminDash.js"></script>
         <!-- <script src="assets/js/a076d05399.js"></script> -->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> -->
         <title>Home (Administrators) | BUCEILS HS Online Voting System</title>
     </head>
 

@@ -203,7 +203,7 @@ if (isset($_SESSION['admin_id']) && isset($_SESSION['username'])) {
                                     <th class="text-center">FIRST NAME</th>
                                     <th class="text-center">MIDDLE NAME</th>
                                     <th class="text-center">LAST NAME</th>
-                                    <th class="text-center">EMAIL ADDRESS</th>
+                                    <th class="text-center">USERNAME</th>
                                     <th class="text-center">COMELEC POSITION</th>
                                     <th class="text-center">ADMIN POSITION</th>
                                     <th class="text-center">ACTION</th>
@@ -252,9 +252,9 @@ if (isset($_SESSION['admin_id']) && isset($_SESSION['username'])) {
         </div>
         <!--######################################################################################################################################################################################-->
         <!-- ADD MODAL -->
-        <div class="modal fade" id="add" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal fade" id="add" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="false">
             <div class="modal-dialog" role="document">
-                <div class="modal-content">
+                <div class="modal-content" id="scroll_add">
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
                         <h4 class="modal-title custom_align" id="Heading">REGISTER</h4>
@@ -613,7 +613,7 @@ if (isset($_SESSION['admin_id']) && isset($_SESSION['username'])) {
             const strong = document.querySelector(".strong");
             const text = document.querySelector(".text");
             const showBtn = document.querySelector(".showBtn");
-            let regExpWeak = /[a-z]/;
+            let regExpWeak = /[a-zA-Z]/;
             let regExpMedium = /\d+/;
             let regExpStrong = /.[!,@,#,$,%,^,&,*,?,_,~,-,(,)]/;
 

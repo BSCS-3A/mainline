@@ -1,6 +1,6 @@
 <?php
 include "../db_conn.php";
-
+error_reporting(E_ERROR | E_PARSE);
 $sigid = $_POST['signid'];
 $image_loc = $_POST['esigloc'];
 $temp_loc = "../".$image_loc;

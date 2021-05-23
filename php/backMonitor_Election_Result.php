@@ -68,5 +68,5 @@
         
     }
 
-    echo json_encode($candidates_all);
+    json_encode($candidates_all);
 ?>

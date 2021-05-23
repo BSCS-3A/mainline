@@ -2,100 +2,99 @@ body {
   background-image: url('../../img/adminBG.png');
   background-size: cover;
   background-attachment: fixed;
-  width: auto;
-  min-height: 100%;
+  width: 100%;
   margin: 0;
+  padding: 0;
 }
-
 /*Datatable*/
 
-  .container {
-    width: 100% !;
-    position: relative !important;
-    padding: 1rem;
-    margin-top: 3%;
-    margin-bottom: 3%;
-    border: 2px solid #124254;
-    height: 100%;
-    opacity: 100%;
-    background-color: rgba(255, 255, 255, 0.7);
-  }
-  
-  #ADdataTable {
-    border-collapse: collapse !important;
-    table-layout: auto;
-    margin: 0px;
-    text-align: center;
-    width: 100%;
-    font-family: 'Roboto-regular', sans-serif;
-    background: rgba(255, 255, 255, 0.6);
-  }
-  
-  #ADdataTable2 {
-    border-collapse: collapse !important;
-    table-layout: auto;
-    margin: 0px;
-    text-align: center;
-    width: 100%;
-    font-family: 'Roboto-regular', sans-serif;
-    background: rgba(255, 255, 255, 0.6);
-  }
-  
-  thead {
-    width: 100%;
-    color: #EEEEEE;
-    background-color: #18566e;
-    text-align: center;
-  }
-  
-  thead input {
-    width: 100%;
-  }
-  
-  th {
-    color: #ffffff;
-    background-color: #18566e;
-    text-align: center;
-    font-size: 10pt;
-    font-family: 'Roboto-regular', sans-serif;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    border: 1px solid #124254 !important;
-  }
-  
-  td {
-    border: 1px solid #124254;
-    padding: 0px;
-    overflow: hidden;
-    font-size: 10pt;
-    padding: 1% !important;
-  }
-  
-  td:hover {
-    background-color: #D3D3D3;
-  }
-  
-  /*Header*/
-  
-  #ADheader {
-    position: relative;
-    z-index: -1;
-    padding: 6px;
-    background: #124254;
-    width: 100%;
-    text-align: center;
-    font-family: 'Roboto-regular', sans-serif;
-    letter-spacing: 6px;
-  }
-  
-  h2.aHeader-txt {
-    color: rgb(255, 196, 35);
-    font-size: 24px;
-    margin-top: .5%;
-    margin-bottom: .5%;
-  }
-  
-  .row {
-    margin: 0;
-    width: auto;
-  }
+.container {
+  width: 100% !;
+  position: relative !important;
+  padding: 1rem;
+  margin-top: 3%;
+  margin-bottom: 3%;
+  border: 2px solid #124254;
+  height: 100%;
+  opacity: 100%;
+  background-color: rgba(255, 255, 255, 0.7);
+}
+
+#ADdataTable {
+  border-collapse: collapse !important;
+  table-layout: auto;
+  margin: 0px;
+  text-align: center;
+  width: 100%;
+  font-family: 'Roboto-regular', sans-serif;
+  background: rgba(255, 255, 255, 0.6);
+}
+
+#ADdataTable2 {
+  border-collapse: collapse !important;
+  table-layout: auto;
+  margin: 0px;
+  text-align: center;
+  width: 100%;
+  font-family: 'Roboto-regular', sans-serif;
+  background: rgba(255, 255, 255, 0.6);
+}
+
+thead {
+  width: 100%;
+  color: #EEEEEE;
+  background-color: #18566e;
+  text-align: center;
+}
+
+thead input {
+  width: 100%;
+}
+
+th {
+  color: #ffffff;
+  background-color: #18566e;
+  text-align: center;
+  font-size: 10pt;
+  font-family: 'Roboto-regular', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  border: 1px solid #124254 !important;
+}
+
+td {
+  border: 1px solid #124254;
+  padding: 0px;
+  overflow: hidden;
+  font-size: 10pt;
+  padding: 1% !important;
+}
+
+td:hover {
+  background-color: #D3D3D3;
+}
+
+/*Header*/
+
+#ADheader {
+  position: relative;
+  z-index: -1;
+  padding: 6px;
+  background: #124254;
+  width: 100%;
+  text-align: center;
+  font-family: 'Roboto-regular', sans-serif;
+  letter-spacing: 6px;
+}
+
+h2.aHeader-txt {
+  color: rgb(255, 196, 35);
+  font-size: 24px;
+  margin-top: .5%;
+  margin-bottom: .5%;
+}
+
+.row {
+  margin: 0;
+  width: auto;
+}
