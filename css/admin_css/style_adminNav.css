@@ -40,11 +40,18 @@
   font-style: normal;
 
 }
+
+*{
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
   
 body{  
   font-size: 100%;
   margin: 0;
   padding: 0;
+  overflow-y: scroll;
 }
 
 nav {
