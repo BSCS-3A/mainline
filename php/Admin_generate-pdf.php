@@ -97,7 +97,7 @@ ob_start();
 		$pdf->Cell(14.6,5,'11',1,0,'C',1);   
 		$pdf->Cell(14.7,5,'12',1,1,'C',1);
 
-$query=mysqli_query($conn, "SELECT candidate.candidate_id, candidate.student_id, candidate.position_id, candidate.total_votes, student.lname, student.fname, student.mname, candidate_position.heirarchy_id, candidate_position.position_name FROM candidate INNER JOIN student ON candidate.student_id = student.student_id INNER JOIN candidate_position ON candidate.position_id = candidate_position.heirarchy_id ORDER BY heirarchy_id"); 
+$query=mysqli_query($conn, "SELECT temp_candidate.candidate_id, temp_candidate.student_id, temp_candidate.position_id, temp_candidate.total_votes, student.lname, student.fname, student.mname, candidate_position.heirarchy_id, candidate_position.position_name FROM temp_candidate INNER JOIN student ON temp_candidate.student_id = student.student_id INNER JOIN candidate_position ON temp_candidate.position_id = candidate_position.heirarchy_id ORDER BY heirarchy_id"); 
 
 		$flag = 0;
 		$temp = 0;
@@ -120,7 +120,7 @@ $query=mysqli_query($conn, "SELECT candidate.candidate_id, candidate.student_id,
 
 				// Max votes per position to determine tie
 					$pos_id = $data['position_id'];
-					$rowSQL = mysqli_query($conn, "SELECT MAX(total_votes) AS tempWinner FROM candidate WHERE position_id = '$pos_id'");
+					$rowSQL = mysqli_query($conn, "SELECT MAX(total_votes) AS tempWinner FROM temp_candidate WHERE position_id = '$pos_id'");
 			        list($max) = mysqli_fetch_row($rowSQL);
 			}//end if
 
@@ -180,7 +180,7 @@ $query=mysqli_query($conn, "SELECT candidate.candidate_id, candidate.student_id,
 				$temp = $data['heirarchy_id'];
 
 //----------DISPLAYS ABSTAIN
-$queryGroup=mysqli_query($conn, "SELECT max(student_id) as last FROM candidate group by position_id");
+$queryGroup=mysqli_query($conn, "SELECT max(student_id) as last FROM temp_candidate group by position_id");
 while($lastCandidate = mysqli_fetch_array($queryGroup)){
 		if($data['student_id']==$lastCandidate['last']){ 
 			$pdf->SetFont('','',12);
