@@ -58,11 +58,37 @@
   background: transparent;
 } */
 
+/* Scrollbar to all pages */
+html{
+  overflow-y: scroll;
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #172732;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #304857;
+  border-radius: 100px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #3d5c6f;
+  /* background: rgb(236, 199, 95) */
+}
+
 body{  
   font-size: 100%;
   margin: 0;
   padding: 0;
-  overflow-y: scroll;
 }
 
 nav {
