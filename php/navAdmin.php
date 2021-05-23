@@ -26,6 +26,11 @@ if (time() - $_SESSION['timestamp'] > $idletime) {
 } else {
     $_SESSION['timestamp'] = time();
 }
+if(!(isValidUser($conn))){
+    // Invalid user; destroy session and return to login
+    notifyAdmin("Warning: A user with invalid credentials attempted to access the system");
+    header("location: AdminLogout.php");
+}//end checking
 ?>
 
 <!DOCTYPE html>

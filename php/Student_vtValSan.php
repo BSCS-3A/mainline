@@ -46,16 +46,31 @@
     }
 
     function isValidUser($conn){  // checks if user is registered
-        $studd_id = $conn->real_escape_string($_SESSION['student_id']);
-        $voter = $conn->query("SELECT * FROM student WHERE student_id = $studd_id");
-        $poss = $voter->fetch_assoc();
-        // echo $studd_id;
-        // echo $poss["fname"]." ".$poss["lname"]." ".$poss["student_id"];
-        if($poss != NULL && ($poss["lname"] === $_SESSION['lname'] && $poss["fname"] === $_SESSION['fname'] && $poss["student_id"] == $_SESSION['student_id'] && $poss["bumail"] === $_SESSION['bumail'])){
-            return true;
+        if(isset($_SESSION['student_id'])){
+            $studd_id = $conn->real_escape_string($_SESSION['student_id']);
+            $voter = $conn->query("SELECT * FROM student WHERE student_id = $studd_id");
+            $poss = $voter->fetch_assoc();
+            // echo $studd_id;
+            // echo $poss["fname"]." ".$poss["lname"]." ".$poss["student_id"];
+            if($poss != NULL && ($poss["lname"] === $_SESSION['lname'] && $poss["fname"] === $_SESSION['fname'] && $poss["student_id"] == $_SESSION['student_id'] && $poss["bumail"] === $_SESSION['bumail'])){
+                return true;
+            }
+            else{
+                return false;
+            }
         }
-        else{
-            return false;
+        else if(isset($_SESSION['admin_id'])){
+            $admin_id = $conn->real_escape_string($_SESSION['admin_id']);
+            $account = $conn->query("SELECT * FROM `admin` WHERE `admin_id` = $admin_id");
+            $poss = $account->fetch_assoc();
+            // echo $studd_id;
+            // echo $poss["fname"]." ".$poss["lname"]." ".$poss["student_id"];
+            if($poss != NULL && ($poss["admin_lname"] === $_SESSION['admin_lname'] && $poss["admin_fname"] === $_SESSION['admin_fname'] && $poss["admin_id"] == $_SESSION['admin_id'] && $poss["username"] === $_SESSION['username'] && $poss["admin_position"] === $_SESSION['admin_position'])){
+                return true;
+            }
+            else{
+                return false;
+            }
         }
     }
 
@@ -141,15 +156,28 @@
 
     function notifyAdmin($text){
         if($text != ""){
-            date_default_timezone_set("Asia/Singapore");
-            $session_info = "<br><br>More info about the sender: <br>Student Name: ".$_SESSION['fname']." ".$_SESSION['lname'].
-            "<br>Grade Level: ".$_SESSION['grade_level'].
-            "<br>Email: ".$_SESSION['bumail'].
-            "<br>Student ID: ".$_SESSION['student_id'].
-            "<br>TIme Attempted: ".date("h:i:sa");
-            $text_message = "1||".$text.$session_info."||".date('h:i')."||".date('Y/m/d')."||unread"."##\n";
-            $file = "../user/msg/system.html";
-            file_put_contents($file, $text_message, FILE_APPEND | LOCK_EX);
+            if(isset($_SESSION['student_id'])){
+                date_default_timezone_set("Asia/Singapore");
+                $session_info = "<br><br>More info about the sender: <br>Student Name: ".$_SESSION['fname']." ".$_SESSION['lname'].
+                "<br>Grade Level: ".$_SESSION['grade_level'].
+                "<br>Email: ".$_SESSION['bumail'].
+                "<br>Student ID: ".$_SESSION['student_id'].
+                "<br>TIme Attempted: ".date("h:i:sa");
+                $text_message = "1||".$text.$session_info."||".date('h:i')."||".date('Y/m/d')."||unread"."##\n";
+                $file = "../user/msg/system.html";
+                file_put_contents($file, $text_message, FILE_APPEND | LOCK_EX);
+            }
+            else if(isset($_SESSION['admin_id'])){
+                date_default_timezone_set("Asia/Singapore");
+                $session_info = "<br><br>More info about the sender: <br>Admin Name: ".$_SESSION['admin_fname']." ".$_SESSION['admin_lname'].
+                "<br>Admin Position: ".$_SESSION['admin_position'].
+                "<br>Username: ".$_SESSION['username'].
+                "<br>Admin ID: ".$_SESSION['admin_id'].
+                "<br>TIme Attempted: ".date("h:i:sa");
+                $text_message = "1||".$text.$session_info."||".date('h:i')."||".date('Y/m/d')."||unread"."##\n";
+                $file = "../user/msg/system.html";
+                file_put_contents($file, $text_message, FILE_APPEND | LOCK_EX);
+            }
         }
     }
 ?>

@@ -66,12 +66,12 @@ td {
   border: 1px solid #124254;
   padding: 0px;
   overflow: hidden;
-  font-size: 10pt;
+  font-size: 11pt;
   padding: 1% !important;
 }
 
-td:hover {
-  background-color: #D3D3D3;
+tr:hover {
+  background-color: #D3D3D3 !important;
 }
 
 /*Header*/

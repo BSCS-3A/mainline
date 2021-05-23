@@ -55,13 +55,13 @@ if (isset($_SESSION['admin_id']) && isset($_SESSION['username'])) {
           <table class="table table-hover" id="datatable" width="100%"style="overflow-x:auto;"  >
             <thead>
               <tr>
-                <th class="text-center">FIRST NAME</th>
-                <th class="text-center">LAST NAME</th>
-                <th class="text-center">POSITION</th>
+                <th class="min-mobile">FIRST NAME</th>
+                <th class="min-mobile">LAST NAME</th>
+                <th class="min-mobile">POSITION</th>
                 <th style="display:none;"></th>
                 <th style="display:none;"></th>
-                <th class="text-center">E-SIGNATURE</th>
-                <th class="text-center">ACTION</th>
+                <th class="min-mobile">E-SIGNATURE</th>
+                <th class="min-mobile">ACTION</th>
               </tr>
             </thead>
             <tbody>
@@ -73,9 +73,9 @@ if (isset($_SESSION['admin_id']) && isset($_SESSION['username'])) {
                   <td><?php echo $row['admin_lname']; ?></td>
                   <td><?php echo $row['comelec_position']; ?></td>
                   <td style="display:none;"><?php echo $row['admin_id']; ?></td>
-                  <td style="display:none;"><?php echo $row['esignature']; ?></td>
+                  <td style="display:none;"><?php echo $row['eSignature']; ?></td>
                   <td>
-                  <img style ="  max-width: 100%;height: auto;"src="<?php echo $row['esignature']; ?>"> <br><br>
+                  <img style ="  max-width: 100%;height: auto;"src="<?php echo $row['eSignature']; ?>"> <br><br>
                   <button class="btn btn-primary btn-xs upbtn" data-title="otp" data-toggle="modal" data-target="#e_sig" data-placement="top" title="Add"><span class="fa fa-user-plus" aria-hidden="true"></span> Upload</button>
                   <button class="btn btn-danger btn-xs esigdeletebtn" data-title="Delete" data-toggle="modal" data-target="#sigdelete"><span class="fa fa-trash"></span> DELETE</button>
                   </td>
@@ -196,7 +196,7 @@ if (isset($_SESSION['admin_id']) && isset($_SESSION['username'])) {
 
             <input type="hidden" name="sigid2" id="sigid2">
             <input type="hidden" name="e_sigloc" id="e_sigloc">
-            <input type="file" name="upfile"id="upfile">
+            <input type="file" name="upfile"id="upfile"onchange="validateFile(this)">
             </div>
 
             <div class="modal-footer ">
@@ -497,6 +497,22 @@ if (isset($_SESSION['admin_id']) && isset($_SESSION['username'])) {
             });
           });
         </script>
+  
+       <script>
+
+        function validateFile(fileInput) {
+        var files = fileInput.files;
+        if (files.length === 0) {
+            return;
+        }
+
+        var fileName = files[0].name;
+        if (fileName.length > 30) {
+            alert('File input name too long');
+            window.location.href = 'Admin_signConfig.php';
+        }
+    }
+</script>
 
   </body>
 

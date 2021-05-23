@@ -6,7 +6,7 @@ $image_loc = $_POST['esigloc'];
 $temp_loc = "../".$image_loc;
 unlink($temp_loc);
 $blank = "";
-$query = "UPDATE admin SET esignature = '$blank' WHERE admin_id = '$sigid'";
+$query = "UPDATE admin SET eSignature = '$blank' WHERE admin_id = '$sigid'";
 $query_run = mysqli_query($connection,$query);
 if($query_run){
   //For Logs

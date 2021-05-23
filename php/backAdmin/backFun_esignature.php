@@ -72,7 +72,7 @@ if ($uploadOk == 0) {
 // if everything is ok, try to upload file
 } else {
   if (move_uploaded_file($_FILES["upfile"]["tmp_name"], $target_file)) {
-    $query = "UPDATE admin SET esignature = '$target_file2' WHERE admin_id = '$sigid'";
+    $query = "UPDATE admin SET eSignature = '$target_file2' WHERE admin_id = '$sigid'";
     mysqli_query($connection,$query);
     echo"<script language='javascript'>
     alert('The file ". htmlspecialchars( basename( $_FILES["upfile"]["name"])). " has been uploaded');

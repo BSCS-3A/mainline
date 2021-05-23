@@ -198,15 +198,15 @@ if (isset($_SESSION['admin_id']) && isset($_SESSION['username'])) {
                         <table class="table-center" id="datatable" width="100%">
                             <thead>
                                 <tr>
-                                    <th class="text-center">NO.</th>
+                                    <th class="min-mobile">NO.</th>
                                     <th style="display:none;"></th>
-                                    <th class="text-center">FIRST NAME</th>
-                                    <th class="text-center">MIDDLE NAME</th>
-                                    <th class="text-center">LAST NAME</th>
-                                    <th class="text-center">USERNAME</th>
-                                    <th class="text-center">COMELEC POSITION</th>
-                                    <th class="text-center">ADMIN POSITION</th>
-                                    <th class="text-center">ACTION</th>
+                                    <th class="min-mobile">FIRST NAME</th>
+                                    <th class="min-mobile">MIDDLE NAME</th>
+                                    <th class="min-mobile">LAST NAME</th>
+                                    <th class="min-mobile">USERNAME</th>
+                                    <th class="min-mobile">COMELEC POSITION</th>
+                                    <th class="min-mobile">ADMIN POSITION</th>
+                                    <th class="min-mobile">ACTION</th>
                                     <th style="display:none;"></th>
                                     <th style="display:none;"></th>
                                 </tr>
