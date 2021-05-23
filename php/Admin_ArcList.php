@@ -37,7 +37,7 @@ include("db_conn.php");
     </div>
     
     <div class="Barch_year">
-        <h3><b><?php echo $year ?> ELECTION</b></h3>
+        <h3><b><?php echo strtoupper($year) ?> ELECTION</b></h3>
     </div>
 
     <div class="Barch_container">
@@ -50,14 +50,15 @@ include("db_conn.php");
     }
     //echo "Connected successfully";
 
-    $schoolYear = mysqli_query($conn, "SELECT YEAR(school_year) AS schyear FROM archive");
+    $schoolYear = mysqli_query($conn, "SELECT 
+    DATE_FORMAT(school_year, '%M %Y') AS election_date FROM archive");
     $archive = mysqli_query($conn, "SELECT * FROM archive ORDER BY archive_id");
 
 
     
 
     while (($shyear = mysqli_fetch_array($schoolYear)) && ($archRow = mysqli_fetch_array($archive))) {
-        if ($year === $shyear['schyear']) {
+        if ($year === $shyear['election_date']) {
             //echo $year;
             //require('ArchWinnerInfo.php');
             // echo '<div class="Bpstn">';
