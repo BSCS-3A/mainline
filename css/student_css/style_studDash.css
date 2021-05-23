@@ -66,7 +66,7 @@ article p {
   font-family: 'Roboto-regular', sans-serif;
   color: #124254;
   font-weight: inherit;
-  font-size: 20px;
+  font-size: 18px;
   letter-spacing: 3px;
   position: relative;
 }
@@ -96,6 +96,7 @@ article {
   -ms-flex: 3;
   flex: 3;
   padding: 10px;
+  width: 50vw;
 }
 
 /*For logos on top of welcome banner*/
