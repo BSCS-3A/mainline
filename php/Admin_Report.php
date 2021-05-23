@@ -43,7 +43,6 @@ include("db_conn.php");
         require './backMonitor/fetch_date.php';                        // Fetches important datetime
         require './backMonitor/student_count.php';                     // Counts student
         require './backMonitor/fetch_report.php';                      // Contains necessary functions and query
-        // require 'Admin_vtValSan.php';
         require 'Admin_vtFetch.php';
         include "navAdmin.php";                                 // Adds the navBar and footer
       ?>
@@ -53,8 +52,8 @@ include("db_conn.php");
     </div>
 
     <?php
-      $sched_row = $conn->query("SELECT * FROM `vote_event` ORDER BY `vote_event_id` DESC LIMIT 1");
-      $sched = $sched_row->fetch_assoc();
+      // $sched_row = $conn->query("SELECT * FROM `vote_event` ORDER BY `vote_event_id` DESC LIMIT 1");
+      // $sched = $sched_row->fetch_assoc();
 
       if(empty($sched))
       {
@@ -62,9 +61,9 @@ include("db_conn.php");
       }
       else
       {
-        $start_time = strtotime($sched['start_date']);
-        $end_time = strtotime($sched['end_date']);
-        $access_time = time();
+        // $start_time = strtotime($sched['start_date']);
+        // $end_time = strtotime($sched['end_date']);
+        // $access_time = time();
 
         if($access_time > $end_time)
         {
@@ -163,10 +162,10 @@ include("db_conn.php");
 
         	if ($tie_position_counter == 0)
         	{
-	          	$end_date = new DateTime($sched['end_date']);
-	          	$archive_sql = ($conn->query("SELECT * FROM `archive` ORDER BY `archive_id` DESC LIMIT 1"));
-      			$archive_row = $archive_sql->fetch_assoc();
-      			$archive_sy = $archive_row['school_year'];
+	        //  	$end_date = new DateTime($sched['end_date']);
+	        //   $archive_sql = ($conn->query("SELECT * FROM `archive` ORDER BY `archive_id` DESC LIMIT 1"));
+      			// $archive_row = $archive_sql->fetch_assoc();
+      			// $archive_sy = $archive_row['school_year'];
       			
       			if(empty($archive_row))
       				$check = true;
