@@ -30,10 +30,10 @@ a {
 	
 @media only screen and (min-device-width: 320px) and (max-device-height: 640px) and (orientation : portrait) and (-webkit-device-pixel-ratio: 3){
     .items figure { 
-        margin-left: -20px;
+        margin-left: -50px;
         text-decoration: none;
         background-color: transparent;
-        width: 100px;
+        width: 80px;
         height: 180px;
     }
 }
