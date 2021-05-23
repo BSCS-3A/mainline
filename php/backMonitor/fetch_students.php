@@ -12,9 +12,9 @@
 	$students = array();
 	while($student=mysqli_fetch_array($result)){
 		if($student['voting_status']==1){
-			$status = 'VOTED';
+			$status = 'VOTE CASTED';
 		}else{
-			$status = '<font color=red>NOT YET VOTED</font>';
+			$status = '<font color=red>VOTE NOT CASTED</font>';
 		}
 		$students[] = array( 
 		"lname"=>$student['lname'],

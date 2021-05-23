@@ -1,6 +1,7 @@
 <?php
     session_start();
     include 'db_conn.php';
+    if (isset($_SESSION['admin_id']) && isset($_SESSION['username'])) {
     include 'navAdmin.php';
 ?>
 
@@ -91,3 +92,9 @@
         </div>
     </body>
 </html>
+<?php
+}else{
+    header("Location: AdminLogin.php");
+     exit();
+}
+ ?>

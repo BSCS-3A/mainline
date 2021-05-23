@@ -4,7 +4,6 @@ $(document).ready(function ($) {
 				var elementPos = $(this).offset().top;
 				var topOfWindow = $(window).scrollTop();
 				var percent = $(this).find('.circle').attr('data-percent');
-				var percentage = parseInt(percent, 10) / parseInt(100, 10);
 				var animate = $(this).data('animate');
 				if (elementPos < topOfWindow + $(window).height() - 30 && !animate) {
 					$(this).data('animate', true);

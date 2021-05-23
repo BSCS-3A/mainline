@@ -2,7 +2,7 @@
 session_start();
 
 // Create connection
-include '../db_conn.php';
+require '../db_conn.php';
 
 if (isset($_POST['saveAccount'])) {
 
@@ -35,7 +35,7 @@ if (isset($_POST['saveAccount'])) {
 
           //For Logs
           $_SESSION['action'] = 'created Admin Account : ' . $_POST['username'];
-          include 'backFun_actLogs_v0_1.php';
+          require 'backFun_actLogs_v0_1.php';
 
           header("Location: ../Admin_adAccnt.php");
   }

@@ -14,21 +14,14 @@ if (isset($_SESSION['admin_id']) && isset($_SESSION['username'])) {
         <link rel="icon" href="../img/BUHS LOGO.png" type="image/png">
         <link rel="stylesheet" type="text/css" href="../css/admin_css/style_AdminDash.css">
         <link rel="stylesheet" href="../css/admin_css/bootstrap4.5.2_AdminDash.css">
-        <link rel="stylesheet" href="../css/admin_css/dataTables.bootstrap4.min_AdminDash.css">
-        <link rel="stylesheet" href="../css/admin_css/jquery.dataTables.min_AdminDash.css">
         <!-- <script src="assets/js/a076d05399.js"></script> -->
-        <script src="../js/dataTables.bootstrap4.min_adminDash.js"></script>
-        <script src="../js/jquery-3.5.1_adminDash.js"></script>
-        <script src="../js/jquery.dataTables.min_adminDash.js"></script>
-        <!-- <script src="../js/countdown.js"></script> -->
-        <script src="https://cdn.datatables.net/fixedheader/3.1.8/js/dataTables.fixedHeader.min.js"></script>
-        <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>-->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
         <title>Home (Administrators) | BUCEILS HS Online Voting System</title>
     </head>
 
     <body>
 
-        <?php include "navAdmin.php" ?>
+        <?php include "navAdmin.php"; ?>
 
         <section>
             <!--Left Content-->
@@ -55,31 +48,31 @@ if (isset($_SESSION['admin_id']) && isset($_SESSION['username'])) {
                     <li><span id="minutes">0</span>Minutes</li>
                     <li><span id="seconds">0</span>Seconds</li>
                 </ul>
-                 <h5 id="DateToDate">
-    <?php 
+                <h5 id="DateToDate">
+                    <?php
 
-        include "db_conn.php";
+                    include "db_conn.php";
 
 
-            $event = mysqli_query($conn, "SELECT * FROM vote_event");
-            $row=mysqli_fetch_array($event);
-   
-        if($row ==""){
-            echo " (Start Date) to (End Date)";
-        }else{
-       
-            while ($rows = mysqli_fetch_array($event)) {
-                $stdate = $rows['start_date'];
-                $endate = $rows['end_date'];
-            }
-            $startDate=date_create("$stdate");
-            $endDate=date_create("$endate");
-            echo $startDate->format('M d, Y (h:ia)');
-            echo " to ";
-            echo $endDate->format('M d, Y (h:ia)');
-        } 
-    ?>
-    </h5>
+                    $event = mysqli_query($conn, "SELECT * FROM vote_event");
+                    $row = mysqli_fetch_array($event);
+
+                    if ($row == "") {
+                        echo " (Start Date) to (End Date)";
+                    } else {
+
+                        while ($rows = mysqli_fetch_array($event)) {
+                            $stdate = $rows['start_date'];
+                            $endate = $rows['end_date'];
+                        }
+                        $startDate = date_create("$stdate");
+                        $endDate = date_create("$endate");
+                        echo $startDate->format('M d, Y (h:ia)');
+                        echo " to ";
+                        echo $endDate->format('M d, Y (h:ia)');
+                    }
+                    ?>
+                </h5>
             </div>
             <p class="Aelec-guide-txt">Welcome to the official Bicol University College of Education
                 Integrated Laboratory - High School Department Online Voting System. The system aims to provide mobility among student users to vote electronically anywhere for the annual Student Supreme Government Elections. This section allows administrators to conduct the election, manage its process and other necessary information.
@@ -185,7 +178,6 @@ if (isset($_SESSION['admin_id']) && isset($_SESSION['username'])) {
                 }
 
             }, 1000);
-
         </script>
     </body>
 
