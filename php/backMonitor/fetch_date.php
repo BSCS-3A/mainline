@@ -17,6 +17,7 @@
     if(!(empty($row['vote_event_id'])))
     {
         $last_election_date = date('Y-m-d H:i:s', strtotime($row['end_date']));
+        $start_date = date('Y-m-d H:i:s', strtotime($row['start_date']));
     } else {
         $last_election_date = 0;
     }

@@ -3,9 +3,6 @@ session_start();
 include("db_conn.php");
 if (isset($_SESSION['admin_id']) && isset($_SESSION['username'])){
 // front_Election_v5_0.php
-require './backMonitor/fetch_candidates.php';
-require './backMonitor/fetch_candidate_position.php';
-require './backMonitor/position_vote_count.php';
 require './backMonitor/fetch_date.php';
 ?>
 
@@ -33,37 +30,47 @@ require './backMonitor/fetch_date.php';
 </head>
 
 <body>
-  <?php include 'navAdmin.php'; ?>
+  <?php include 'navAdmin.php';?>
   
+  <div class="ADheader" id="ADheader">';
+    <h2 class="aHeader-txt">ELECTION RESULTS</h2>
+  </div>
+  <div id="freezeLayer" class="freeze-layer" style="display:none;"></div>
   <?php 
-  if($row_count > 0){ 
-    echo '<div class="ADheader" id="ADheader">';
-        echo '<h2 class="aHeader-txt">ELECTION RESULTS</h2>';
-    echo'</div>'
+  if($row_count==0){
+    require_once 'Admin_Notif.php';
+    notifMessage("No election has been scheduled");
+    exit();
+  }else{
   ?>
-
   <div class="Belection_container" id="election_res">
 
     </div> <!-- end of ajax output -->
   </div> <!-- End of #election-res div -->
   
-  <form action="" method="post" target="_self" class="form-buttons">
-    <div class="Bbtn_post" id="post_b">
-      <button onclick='' type='submit' id='post_button' name='post_button' class='Bbtn_postresults scs-responsive'><b>POST RESULT</b></button>
-    </div>
+  <div class="Bbtn_post" id="post_b">
+    <button formmethod="post" onclick="confirmModal.show('POST?', postButtonConfirm);" type="submit" id="post_button" name="post_button" class="Bbtn_postresults scs-responsive" <?php if ($current_date_time<$last_election_date){ ?> disabled <?php   } ?>><b>POST RESULT</b></button>
+  </div>
 
-    <div class="Bbtn_reset" id="reset_b">
-      <button onclick='' type='submit' id='reset_button' name='reset_button' class='Bbtn_resetresults scs-responsive'><b>RESET ELECTION</b></button>
-    </div>
-  </form>
+  <div class="Bbtn_reset" id="reset_b">
+    <button formmethod="post" onclick="confirmModal.show('RESET?', resetButtonConfirm);" type="submit" id="reset_button" name="reset_button" class="Bbtn_resetresults scs-responsive" <?php if ($current_date_time<$last_election_date){ ?> disabled <?php   } ?>><b>RESET ELECTION</b></button>
+  </div>
   
+  <!-- Modal Pop up -->
+  <div id="dialogCont" class="dlg-container">
+        <div class="dlg-header"><center>Confirm Dialog</center></div>
+        <div id="dlgBody" class="dlg-body">Do you want to continue?</div>
+        <div class="dlg-footer">
+            <a onclick="confirmModal.okay();">Yes</a>
+            <a onclick="confirmModal.close();">No</a>
+        </div>
+  </div>
+  <!-- End of Modal container -->
   <?php
-  }else{
-    require '../html/admin_no_election.html';
   }
   ?>
   
-  <?php
+  <!-- <?php
     if(isset($_POST['post_button'])){
       $file = fopen("../other/post_result.txt", "w") or die("Unable to open file!");
       
@@ -85,7 +92,7 @@ require './backMonitor/fetch_date.php';
 
       fclose($file);
     }
-  ?>
+  ?> -->
 
   <br>
   <br>
@@ -177,6 +184,51 @@ require './backMonitor/fetch_date.php';
     );
   </script>
   <script> 
+      function postButtonConfirm(){
+          $.ajax({
+                type: "POST",
+                url: "./backMonitor/post.php",
+                success : function() { 
+                    alert("POSTED");
+                    window.location.href = window.location.href;
+
+                }
+          });
+      }
+      function resetButtonConfirm(){
+          $.ajax({
+                type: "POST",
+                url: "./backMonitor/reset.php",
+                success : function() { 
+                    alert("RESET");
+                    window.location.href = "Admin_adminDash.php";
+
+                }
+          });
+      }
+
+      var confirmModal = new function(){
+          this.show = function(msg, callback){
+              var dlg = document.getElementById('dialogCont');
+              var dlgBody = dlg.querySelector('#dlgBody');
+              dlg.style.top = '30%';
+              dlg.style.opacity = 1;
+              dlgBody.textContent = msg;
+              this.callback = callback;
+              document.getElementById('freezeLayer').style.display = '';
+          };
+
+          this.okay = function(){
+              this.callback();
+              this.close();
+          };
+          this.close = function(){
+              var dlg = document.getElementById('dialogCont');
+              dlg.style.top = '-30%';
+              dlg.style.opacity = 0;
+              document.getElementById('freezeLayer').style.display = 'none';
+          };
+      }
     $('.ADicon').click(function() {
       $('span').toggleClass("cancel");
     });

@@ -7,9 +7,9 @@
 	color: #ffc423;
 	width: 100%;
 	text-align: center;
-	font-family: 'Roboto-regular', sans-serif;
+	font-family: "Roboto-regular", sans-serif;
 	letter-spacing: 6px;
-	text-transform: uppercase
+	text-transform: uppercase;
 }
 h2.aHeader-txt {
 	font-size: 24px;
@@ -18,17 +18,17 @@ h2.aHeader-txt {
 }
 
 /*Election Archives List*/
-.Barch_year h3 {    
+.Barch_year h3 {
 	z-index: 100;
 	padding: 2px 2px;
 	color: white;
 	font-weight: 400;
 	width: 100%;
 	text-align: center;
-	font-family: 'Roboto-regular', sans-serif;
+	font-family: "Roboto-regular", sans-serif;
 	letter-spacing: 6px;
 	margin-top: 1%;
-	}
+}
 .Barch_container {
 	padding: 30px;
 	color: black;
@@ -73,7 +73,7 @@ h2.aHeader-txt {
 	border-top-style: solid;
 	border-top-width: 90%;
 	padding-top: 10px;
-	font-family: 'Roboto-regular', sans-serif;
+	font-family: "Roboto-regular", sans-serif;
 	letter-spacing: 2px;
 }
 .Bpstn .Bpstn {
@@ -85,21 +85,21 @@ h2.aHeader-txt {
 	border-bottom-style: solid;
 	border-bottom-width: 90%;
 	text-align: center;
-	font-style:italic;
-	font-family: 'Roboto-regular', sans-serif;
+	font-style: italic;
+	font-family: "Roboto-regular", sans-serif;
 }
 .Bpstn .Bplat1 {
 	margin-top: 15px;
-	color:#e1a911;
+	color: #e1a911;
 	font-weight: bold;
-	font-family: 'Roboto-regular', sans-serif;
+	font-family: "Roboto-regular", sans-serif;
 	font-size: 90%;
 	letter-spacing: 1px;
 }
 .Bpstn .Bplat2 {
 	color: white;
 	font-size: 85%;
-	font-family: 'Roboto-regular', sans-serif;
+	font-family: "Roboto-regular", sans-serif;
 	margin-top: -5px;
 }
 
@@ -109,15 +109,15 @@ h2.aHeader-txt {
 	margin-left: auto;
 	margin-right: auto;
 }
-.Bvcontainer{ 
+.Bvcontainer {
 	position: relative;
-	max-width: 1500px; 
+	max-width: 1500px;
 	justify-content: space-around;
-	display: grid; 
-	grid-column-gap: 10%; 
+	display: grid;
+	grid-column-gap: 10%;
 	grid-row-gap: 4%;
 	grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-	grid-template-rows: repeat(1, 250px);  
+	grid-template-rows: repeat(1, 250px);
 }
 .Bvcontainer .Bcard {
 	position: relative;
@@ -141,27 +141,27 @@ h2.aHeader-txt {
 }
 .Bbox a {
 	color: white;
-	font-family: 'Roboto-regular', sans-serif;
+	font-family: "Roboto-regular", sans-serif;
 	font-size: 20px;
 	text-align: center;
 	padding: 10px;
 	background-color: black;
 }
-.Bbox a:hover{
-	color:#ffb700;
+.Bbox a:hover {
+	color: #ffb700;
 }
-.circle{
-	color: #ffc423; 
+.circle {
+	color: #ffc423;
 	font-size: 200%;
-	font-family: 'Roboto-regular', sans-serif;
+	font-family: "Roboto-regular", sans-serif;
 }
 
 /*Vote Status Per Grade Level*/
-.Bvs_gradelevel h3{
+.Bvs_gradelevel h3 {
 	z-index: -1;
 	color: white;
 	text-align: center;
-	font-family: 'Roboto-regular', sans-serif;
+	font-family: "Roboto-regular", sans-serif;
 	letter-spacing: 6px;
 	text-transform: uppercase;
 	margin-top: -1%;
@@ -170,48 +170,48 @@ h2.aHeader-txt {
 #datatable {
 	width: 100%;
 	border: 2px solid #124254;
-	font-family:'Roboto-regular', sans-serif;
+	font-family: "Roboto-regular", sans-serif;
 	border-collapse: collapse;
 	table-layout: auto;
 	margin: 0px;
 	text-align: center;
 	background: rgba(255, 255, 255, 0.6);
-  }
-  table.center {
+}
+table.center {
 	margin-left: auto;
 	margin-right: auto;
-  }
-  thead {
+}
+thead {
 	border: 1px solid #124254;
-    color: #EEEEEE;
-    background-color: #18566e;
-    text-align: center;
-  }
-  tbody {
+	color: #eeeeee;
+	background-color: #18566e;
+	text-align: center;
+}
+tbody {
 	border: 1px solid #124254;
-  }
-  th {
+}
+th {
 	color: #ffffff;
 	background-color: #18566e;
 	text-align: center;
 	font-size: 13pt;
-	font-family: 'Roboto-regular', sans-serif;
+	font-family: "Roboto-regular", sans-serif;
 	text-transform: uppercase;
 	letter-spacing: 2px;
 	border: 1px solid #124254 !important;
-	padding: 0.5%!important;
-  }
-  td {
-	font-family: 'Roboto-regular', sans-serif;
+	padding: 0.5% !important;
+}
+td {
+	font-family: "Roboto-regular", sans-serif;
 	font-size: 13pt;
 	border: 1px solid #124254;
 	max-width: 150px;
 	max-height: 150px;
-    padding: 0.5%!important;
-    overflow: hidden;
-    word-wrap: break-word;
-  }
-  .container {
+	padding: 0.5% !important;
+	overflow: hidden;
+	word-wrap: break-word;
+}
+.container {
 	background-color: rgba(255, 255, 255, 0.7);
 	padding: 1rem;
 	margin-top: 2%;
@@ -221,27 +221,29 @@ h2.aHeader-txt {
 	height: 150%;
 	opacity: 100%;
 	font-size: 10ptrem;
-  }
-  table tbody tr:hover {
-    background-color: #D3D3D3;
 }
-.pagination>li {
-  display: inline;
-  padding: 0px;
-  margin: 0px;
-  border: none;
+table tbody tr:hover {
+	background-color: #d3d3d3;
 }
-.pagination>li>a, .pagination>li>span {
-  background-color: #EEEEEE !important
+.pagination > li {
+	display: inline;
+	padding: 0px;
+	margin: 0px;
+	border: none;
 }
-.pagination>li.active>a, .pagination>li.active>span {
-  background-color: #124254 !important
+.pagination > li > a,
+.pagination > li > span {
+	background-color: #eeeeee !important;
+}
+.pagination > li.active > a,
+.pagination > li.active > span {
+	background-color: #124254 !important;
 }
 .modal-backdrop {
-  z-index: -1!important;
+	z-index: -1 !important;
 }
 iframe {
-  height: 700px;
+	height: 700px;
 }
 
 /* Election*/
@@ -289,12 +291,12 @@ iframe {
 }
 .Bposition1 h1,
 .Bposition2 h1,
-.Bposition3 h1,  
+.Bposition3 h1,
 .Bposition4 h1,
 .Bposition5 h1 {
 	color: rgb(0, 0, 0);
 	text-transform: uppercase;
-	font-family: 'Roboto-regular', sans-serif;
+	font-family: "Roboto-regular", sans-serif;
 	font-size: 120%;
 	position: relative;
 	text-align: center;
@@ -308,7 +310,7 @@ iframe {
 .Bposition11 h1 {
 	color: rgb(0, 0, 0);
 	text-transform: uppercase;
-	font-family: 'Roboto-regular', sans-serif;
+	font-family: "Roboto-regular", sans-serif;
 	font-size: 200%;
 	position: relative;
 	text-align: center;
@@ -329,7 +331,7 @@ iframe {
 	border-radius: 1px;
 	color: #1d6986;
 	text-indent: 5px;
-	font-family: 'Roboto-regular', sans-serif;
+	font-family: "Roboto-regular", sans-serif;
 	font-size: 130%;
 }
 .Banon {
@@ -341,7 +343,7 @@ iframe {
 }
 .Bbtn_postresults {
 	border: none;
-	font-style: 'Roboto-regular', sans-serif;
+	font-style: "Roboto-regular", sans-serif;
 	background-color: #ffc423;
 	padding: 1em 2.1em 1.1em;
 	cursor: pointer;
@@ -350,11 +352,11 @@ iframe {
 	width: auto;
 	font-size: 90%;
 	margin-top: 3%;
-	box-shadow: inset 0 0 2px 0 rgba(255,255,255,.4),
-    inset 0 0 3px 0 rgba(255, 255, 255, 0.8),
-    inset 0 0 3px 5px rgba(255, 255, 255, 0.07),
-    2px 2px 4px 0 rgba(0,0,0,.25) !important;
-    border-radius: 9px;
+	box-shadow: inset 0 0 2px 0 rgba(255, 255, 255, 0.4),
+		inset 0 0 3px 0 rgba(255, 255, 255, 0.8),
+		inset 0 0 3px 5px rgba(255, 255, 255, 0.07),
+		2px 2px 4px 0 rgba(0, 0, 0, 0.25) !important;
+	border-radius: 9px;
 }
 .Bbtn_postresults:hover {
 	background: #e1a911;
@@ -371,7 +373,7 @@ iframe {
 }
 .Bbtn_resetresults {
 	border: none;
-	font-style: 'Roboto-regular', sans-serif;
+	font-style: "Roboto-regular", sans-serif;
 	background-color: #ffc423;
 	padding: 1em 1.3em 1.1em;
 	cursor: pointer;
@@ -380,11 +382,11 @@ iframe {
 	font-size: 90%;
 	width: auto;
 	margin-top: 1%;
-	box-shadow: inset 0 0 2px 0 rgba(255,255,255,.4),
-    inset 0 0 3px 0 rgba(255, 255, 255, 0.8),
-    inset 0 0 3px 5px rgba(255, 255, 255, 0.07),
-    2px 2px 4px 0 rgba(0,0,0,.25) !important;
-    border-radius: 9px;
+	box-shadow: inset 0 0 2px 0 rgba(255, 255, 255, 0.4),
+		inset 0 0 3px 0 rgba(255, 255, 255, 0.8),
+		inset 0 0 3px 5px rgba(255, 255, 255, 0.07),
+		2px 2px 4px 0 rgba(0, 0, 0, 0.25) !important;
+	border-radius: 9px;
 }
 .Bbtn_resetresults:hover {
 	background: #e1a911;
@@ -398,12 +400,12 @@ iframe {
 }
 
 /*Election Report*/
-.Bbtn_dl{
- 	text-align: center;
+.Bbtn_dl {
+	text-align: center;
 }
 .Bbtn_dlreport {
 	border: none;
-	font-style: 'Roboto-regular', sans-serif;
+	font-style: "Roboto-regular", sans-serif;
 	background-color: #ffc423;
 	padding: 1em 2.8em 1.1em;
 	cursor: pointer;
@@ -412,7 +414,8 @@ iframe {
 	width: auto;
 	font-size: 90%;
 	margin-top: 12%;
-	box-shadow: 0 8px 10px 1px rgba(0, 0, 0, .14), 0 3px 14px 2px rgba(0, 0, 0, .12), 0 5px 5px -3px rgba(0, 0, 0, .2)
+	box-shadow: 0 8px 10px 1px rgba(0, 0, 0, 0.14),
+		0 3px 14px 2px rgba(0, 0, 0, 0.12), 0 5px 5px -3px rgba(0, 0, 0, 0.2);
 }
 .Bbtn_dlreport:hover {
 	background: #e1a911;
@@ -424,12 +427,12 @@ iframe {
 	opacity: 0.6;
 	cursor: not-allowed;
 }
-.Bbtn_save{
+.Bbtn_save {
 	text-align: center;
 }
-.Bbtn_save2arc{
+.Bbtn_save2arc {
 	border: none;
-	font-style: 'Roboto-regular', sans-serif;
+	font-style: "Roboto-regular", sans-serif;
 	background-color: #ffc423;
 	padding: 1em 2.1em 1.1em;
 	cursor: pointer;
@@ -438,7 +441,8 @@ iframe {
 	width: auto;
 	font-size: 90%;
 	margin-top: 1%;
-	box-shadow: 0 8px 10px 1px rgba(0, 0, 0, .14), 0 3px 14px 2px rgba(0, 0, 0, .12), 0 5px 5px -3px rgba(0, 0, 0, .2)
+	box-shadow: 0 8px 10px 1px rgba(0, 0, 0, 0.14),
+		0 3px 14px 2px rgba(0, 0, 0, 0.12), 0 5px 5px -3px rgba(0, 0, 0, 0.2);
 }
 .Bbtn_save2arc:hover {
 	background: #e1a911;
@@ -449,4 +453,57 @@ iframe {
 .Bbtn_save2arc:disabled {
 	opacity: 0.6;
 	cursor: not-allowed;
+}
+
+/* Popup Confirm Modal */
+.dlg-container {
+	position: absolute;
+	left: 50%;
+	top: -30%;
+	transform: translateX(-50%) translateY(-50%);
+	width: 400px;
+	background: #fff;
+	padding: 10px;
+	border: 2px solid #ddd;
+	box-shadow: 1px 1px 5px 1px #ccc;
+	border-radius: 10px;
+	opacity: 0;
+	transition: all 0.3s linear 0s;
+	z-index: 2;
+}
+.dlg-header {
+	padding: 10px;
+	font-weight: bold;
+	background: #1c6987;
+	color: #f6f7f8;
+}
+.dlg-body {
+	padding: 10px;
+	line-height: 30px;
+}
+.dlg-footer {
+	text-align: center;
+	background: #f5f5f2;
+	padding: 3px 0;
+}
+.dlg-footer a {
+	display: inline-block;
+	width: 100px;
+	padding: 5px 0;
+	border: 1px solid #ccc;
+	border-radius: 10px;
+	cursor: pointer;
+}
+.dlg-footer a:active {
+	box-shadow: inset 2px 2px 4px 0 #ccc;
+	color: #666;
+}
+.freeze-layer {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: rgba(0, 0, 0, 0.1);
+	z-index: 1;
 }
