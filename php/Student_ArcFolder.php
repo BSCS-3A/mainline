@@ -39,18 +39,21 @@ include('db_conn.php');
     }
     //echo "Connected successfully";
 
-    $result1 = mysqli_query($conn, "SELECT YEAR(start_date) AS year FROM vote_event;");
+    $result1 = mysqli_query($conn, "SELECT 
+    DATE_FORMAT(start_date, '%M %Y') AS election_date
+    FROM vote_event
+    ORDER BY election_date");
 
     while ($row1 = mysqli_fetch_array($result1)) {
-        if (empty($row1['year'])) {
+        if (empty($row1['election_date'])) {
             echo "no content";
         } else {
-            $year = $row1['year'];
+            $year = $row1['election_date'];
             echo '<div class="items">';
             echo '<figure>';
             echo '<b><a href="Student_ArcList.php?year='.$year.'">';
             echo '<img src="../img/folder.png" width="140px" height="140px">';
-            echo '<figcaption>'.$year.'</figcaption>';
+            echo '<figcaption>'.strtoupper($year).'</figcaption>';
             echo '</a></b>';
             echo '</figure>';
             echo '</div>';
