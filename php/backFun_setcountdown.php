@@ -25,9 +25,9 @@ if (isset($_POST['editsched'])) {
     $endDate = $_POST['dateEnd'];
 
 
-   if($startDate >= $endDate){
-      function_alert("Incorrect Input"); 
-    }else{
+   //if($startDate >= $endDate){
+      //function_alert("Incorrect Input"); 
+   // }else{
       
     $truncate = mysqli_query($conn, "TRUNCATE TABLE vote_event"); 
 
