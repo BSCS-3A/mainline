@@ -19,7 +19,9 @@
 <html>   
 <head>  
 <script src="https://www.google.com/recaptcha/api.js"></script>
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta charset="utf-8">
 <script type="text/javascript" src="./js/loginLink.js"></script>
 <link rel="stylesheet" type="text/css" href="./css/style_Login.css">
 <link rel="stylesheet" type="text/css" href="css/session_modal.css">
@@ -51,8 +53,8 @@
      
 
     <!-- Login Form -->
-    <form action="./php/Student_Login_Button.php" method="post">   
-        <div class="Acontainer">
+    <div class="Acontainer">
+        <form action="./php/Student_Login_Button.php" method="post">   
             <img src="./img/student.png" alt="Logo" title="Logo" width="138">
             <h1>SIGN IN AS</h1>
                 <div class="Aselect">
@@ -77,9 +79,9 @@
             ?>  
             
 
-            <button type="submit">LOG IN</button>
-        </div>   
-    </form>
+            <button type="submit">LOG IN</button>   
+        </form>
+    </div>
     <!-- end Login Form --> 
             <!-- Error Message Modal content -->
             <div id="No-election-scheduled" class="F-modal-error">
@@ -96,7 +98,7 @@
     </div>
 
     <!-- for modal script and disabling inspect element -->
-    <!-- <script src="js/scripts_nav.js"></script> -->
+    <script src="js/scripts_nav.js"></script>
 <!-- end err modal -->
 
     <!-- FOR MODAL FIRING -->
