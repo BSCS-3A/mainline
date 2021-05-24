@@ -62,7 +62,7 @@ include('db_conn.php');
             $row=mysqli_fetch_array($event);
    
         if($row ==""){
-            echo " (Start Date) to (End Date)";
+            echo " No Election Schedule";
         }else{
 		
        	    $event = mysqli_query($conn, "SELECT * FROM vote_event");

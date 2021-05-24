@@ -96,7 +96,7 @@
     </div>
 
     <!-- for modal script and disabling inspect element -->
-    <script src="js/scripts_nav.js"></script>
+    <!-- <script src="js/scripts_nav.js"></script> -->
 <!-- end err modal -->
 
     <!-- FOR MODAL FIRING -->

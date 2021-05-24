@@ -3,6 +3,7 @@
 .error-message-container {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   /*border: 1px solid black;*/
+  max-width: max-content;
   width: 35%;
   margin: auto;
   background-color: #f8f8f8;
@@ -11,9 +12,14 @@
 }
 
 .error-message {
+  position: relative;
   padding: 20px;
   font: 'Roboto-regular', sans-serif;
   text-align: center;
+}
+
+p{
+  margin-left: 15px;
 }
 
 .error-button {
@@ -44,7 +50,32 @@
 @media (max-width: 1200px) {
   .error-message-container {
     min-width: 65%;
-    margin-top: 35%;
+    margin-top: 25%;
+  }
+  .error-message{
+    margin-right: 15px;
+  }
+}
+
+@media screen and (max-width:767px) {
+  table tr > *{
+      display: block;
+  }
+  table tr {
+      display: table-cell;
+  }
+}
+
+@media (max-width: 450px){
+  .error-message-container{
+    min-width: 90%;
+    margin-top: 15%;
+  }
+}
+
+@media (max-height: 800px){
+  .error-message-container{
+    margin-bottom: 15%;
   }
 }
 
@@ -94,8 +125,8 @@
   position: relative;
   background-color: #eeeeee;
   color: black;
-  margin-left: 5%;
   margin-bottom: 50px;
+  margin-left: 5%;
   height: 40px;
   width: 150px;
   font-size: 14px;
@@ -115,8 +146,9 @@
   position: relative;
   background-color: #fece4b;
   color: black;
-  margin-right: 5%;
   margin-bottom: 50px;
+  margin-right: 5%;
+  margin: auto;
   height: 40px;
   width: 160px;
   font-size: 14px;
@@ -142,7 +174,17 @@
   .F-download-receipt-container {
     width: 70%;
   }
-  .error-message-container{
-    margin-top: 15%;
+}
+@media screen and (max-width: 540px) {
+  .F-receipt-page-buttons{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 40px;
+  }
+  .F-goToHomeBTN{
+    margin-top: 10px;
+    margin-right: 15px;
   }
 }
