@@ -160,7 +160,7 @@ $DTrow =  $DnT->fetch_row();
                                     required="required">
                             </div>
                             <div class="form-group">
-                                <input autocomplete="off" class="form-control " name="lname" id="lname" type="text"
+                                <input autocomplete="off" class="form-control " name="lname" id="lname" type="number"
                                     placeholder="Enter Last Name" required="required">
                             </div>
                             <div class="form-group">
