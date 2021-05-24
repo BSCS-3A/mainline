@@ -74,179 +74,150 @@ table.center {
   margin-left: 40px;
 } */
 
-@media all and (max-width: 1200px) {
-  .Uright {
-    margin-left: 100px;
-  }
-}
 
-@media all and (max-width: 968px) {
-  .Uright {
-    margin-left: 100px;
-  }
-  nav ul {
-    margin-right: 0px;
-    margin-left: 0px;
-    float: left;
-  }
-  /* nav .logo{
-    padding-left: 30px;
-    width: auto;
-    float: left;
-  } */
-  .Ashow+a, ul {
-    display: none;
-  }
-  nav ul li, nav ul ul li {
-    border-top: 3px solid #18566e;
-    display: block;
-    width: 100%;
-  }
-  nav ul li a:hover {
-    box-shadow: none;
-  }
-  .Ashow {
-    display: block;
-    background-color: #18566e;
-    color: white;
-    font-size: 1.2em;
-    padding: 0 20px;
-    line-height: 70px;
-    cursor: pointer;
-  }
-  .Ashow:hover {
-    color: white;
-  }
-  .Aicon {
-    display: block;
-    color: black;
-    position: absolute;
-    top: 0;
-    right: 40px;
-    line-height: 70px;
-    cursor: pointer;
-    font-size: 25px;
-  }
-  nav ul ul {
-    top: 70px;
-    border-top: 0px;
-    border-bottom: 0px;
-    float: none;
-    position: static;
-    display: none;
-    opacity: 1;
-    visibility: visible;
-  }
-  nav ul ul a {
-    left: 0;
-  }
-  /* nav ul ul ul a{
-    padding-left: 80px;
-  }
-  nav ul ul ul li{
-    position: static;
-  } */
-  [id^=btn]:checked+ul {
-    width: 100%;
-    left: 0;
-    display: block;
-  }
-  nav ul ul li {
-    border-top: 0px;
-    border-bottom: 0px;
-  }
-  span.cancel:before {
-    content: '\f00d';
-  }
-}
-
-article p {
-  font-family: Roboto regular, sans-serif;
-  color: #124254;
-  font-weight: inherit;
-  font-size: 20px;
-  letter-spacing: 3px;
-  position: relative;
-}
-
-article h1 {
-  font-family: Generica regular, sans-serif;
-  color: #18566e;
-  font-weight: inherit;
-  font-size: 55px;
-  position: relative;
-  letter-spacing: 3px;
-  margin-top: 10px;
-}
-
-/* Container for flexboxes */
-
-section {
-  display: -webkit-flex;
-  display: flex;
-  margin-left: 30px;
-  margin-top: 100px;
-  max-width: 800px;
-  float: left;
-}
-
-/* Style the content */
-
-article {
-  -webkit-flex: 3;
-  -ms-flex: 3;
-  flex: 3;
-  padding: 10px;
-}
-
-/*For logos on top of welcome banner*/
-
-img.Alogos {
-  float: left;
-  padding-left: 10px;
-  height: 90px;
-  width: 100px;
-  margin-bottom: 2em;
-  border-radius: 0 !important;
-}
-
-.Alogo-container {
-  position: relative;
-  /* float: left; */
-  display: -webkit-flex;
-  display: flex;
-  margin-left: 0px;
-  margin-top: 0px;
-  max-width: 700px;
-}
 
 /* Responsive layout - makes the menu and the content (inside the section) sit on top of each other instead of next to each other */
 
-@media (max-width: 600px) {
-  body, section, .Uwrapper {
-    -webkit-flex-direction: column;
-  }
-  #ScrollToTopBtn{
-    display: hidden;
-  }
-  .Uleft {
-    padding-bottom: 25px;
-  }
-  .Uright {
+@media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
+    body, section, .Uwrapper {
+      -webkit-flex-direction: column;
+      flex-direction: column;
+    }
+    .Cand_header{
+      max-width: 
+    }
+    .Uwrapper{
+      margin-bottom: 45px;
+    }
+    .Uleft{
+      display: contents;
+    }
+    table#side_pos.center{
+      width: auto;
+    }
+    .Uright{
     overflow-y: scroll;
-    margin-left: auto;
     height: 350px;
-    margin-right: auto;
-    width: 320px;
+    margin-left: 0 !important;
+    }
+    #scrollToTopBtn{
+    display: none;
+    }
+    .Urow{
+      flex-wrap: wrap !important;
+    }
   }
-  .column {
-    margin: 0px;
+  @media only screen and (max-width : 320px) {
+     body, section, .Uwrapper {
+      -webkit-flex-direction: column;
+      flex-direction: column;
+    }
+    .Uleft{
+      display: contents;
+    }
+    table#side_pos.center{
+      width: auto;
+    }
+    .Uright{
+    overflow-y: scroll;
+    height: 350px;
+    margin-left: 0 !important;
+    }
+    #scrollToTopBtn{
+    display: none;
+    }
+     .Urow{
+      flex-wrap: wrap !important;
+    }
+    .scroll_Top{
+      display: 50px;
+    }
   }
-  .scroll {
-    padding-bottom: 5px;
+  @media only screen and (device-width: 320px) and (device-height: 640px) and (orientation: portrait) and (-webkit-device-pixel-ratio: 2) {
+      body, section, .Uwrapper {
+      -webkit-flex-direction: column;
+      flex-direction: column;
+    }
+    .Uleft{
+      display: contents;
+    }
+    table#side_pos.center{
+      width: auto;
+    }
+    .Uright{
+    overflow-y: scroll;
+    height: 350px;
+    margin-left: 0 !important;
+    }
+    #scrollToTopBtn{
+    display: none;
+    }
+    .Uwrapper{
+      padding-bottom: 50px;
+    }
+    .scroll_Top{
+      margin-top: 50px;
+    }
+     .Urow{
+      flex-wrap: wrap !important;
+    }
+  }
+@media only screen and (device-width: 320px) and (device-height: 640px) and (orientation: landscape) and (-webkit-device-pixel-ratio: 2) { /*smartphones*/
+      body, section, .Uwrapper {
+      -webkit-flex-direction: column;
+      flex-direction: column;
+    }
+    .Uleft{
+      display: contents;
+    }
+    table#side_pos.center{
+      width: auto;
+    }
+    .Uright{
+    overflow-y: scroll;
+    height: 350px;
+    margin-left: 0 !important;
+    }
+    #scrollToTopBtn{
+    display: none;
+    }
+    .Uwrapper{
+      padding-bottom: 50px;
+    }
+    .scroll_Top{
+      margin-top: 50px;
+    }
+  }
+  @media (min-width:481px) and (max-width: 640px) { 
+    body, section, .Uwrapper {
+    -webkit-flex-direction: column;
+    flex-direction: column;
+    }
+    table#side_pos.center{
+      width: auto;
+    }
+    .Uright{
+    overflow-y: scroll;
+    width: 580px;
+    margin-left: 10px !important;
+    }
+    #scrollToTopBtn{
+    display: none;
+    }
+    .Uwrapper{
+      padding-bottom: 50px;
+    }
+     .Urow{
+      flex-wrap: nowrap !important;
+    }
+  }
+  @media only screen and (device-width: 768px) and (orientation: portrait) and (-webkit-min-device-pixel-ratio: 1) { 
+    .Uwrapper{
+      display: none;
+    }
+
   }
 }
-
 /*countdown*/
 
 aside {
@@ -304,10 +275,17 @@ aside p.Aelec-guide-txt {
   padding-bottom: 5%;
 }
 
-#section-container {
-  min-height: 100%;
-  overflow: auto;
-  padding-bottom: 5%;
+.Cand_header {
+    z-index: 100;
+    padding: 2px 2px;
+    background: #fece4b;
+    color: black;
+    font-weight: 400;
+    width: 100%;
+    text-align: center;
+    font-family: 'Roboto-regular', sans-serif;
+    letter-spacing: 6px;
+    margin-bottom: 10%;
 }
 
 footer {
@@ -396,13 +374,7 @@ footer {
   clear: both;
 }
 
-@media screen and (max-width: 600px) {
-  .column {
-    width: 100%;
-    display: block;
-    margin-bottom: 20px;
-  }
-}
+
 
 .credContainer {
   position: relative;
@@ -486,20 +458,7 @@ footer {
   text-align: left;
 }
 
-@media (min-width: 600px) and (max-width: 968px){
-.Uright{
-    overflow-y: scroll;
-    margin-left: auto;
-    height: 350px;
 
-}
-    #ScrollToTopBtn{
-    display: hidden;
-  }
-.Uwrapper{
-  flex-direction: column;
-}
-}
 #scrollToTopBtn{
   float: right;  
   background-color: #124254;
@@ -537,3 +496,4 @@ footer {
     font-size: 15px;
     text-align: justify;
 }
+
