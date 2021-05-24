@@ -39,13 +39,13 @@ include('db_conn.php');
             $access_time = time();
             if(isVoted($conn)){// If already voted
                 if(empty($sched)){
-                    errorMessage("No election has been scheduled");
+                    errorMessage("No election has been scheduled.");
                     exit();
                 }
                 
                 if($access_time < $start_time){
                     notifyAdmin("Warning: A user was marked as \"Voted\" even when the election has not yet started. Their voting status and their votes were automatically reset.");
-                    errorMessage("Election has not yet started");
+                    errorMessage("Election has not yet started.");
                     exit();
                 }
 
@@ -67,7 +67,7 @@ include('db_conn.php');
             // echo "Now: ".(date("Y-m-d h:m:sa", $access_time))."<br>";
             
             if($access_time > $end_time){
-                errorMessage("The election is already closed. Your can no longer cast your votes.");
+                errorMessage("The election is already closed. You can no longer cast your votes.");
                 exit();
             }
             else if($access_time < $start_time){
@@ -103,7 +103,7 @@ include('db_conn.php');
             }
         }
         else{// Invalid user; destroy session and return to login
-            notifyAdmin("Warning: A user with invalid credentials attmpted to access the Voting Page");
+            notifyAdmin("Warning: A user with invalid credentials attmpted to access the Voting Page.");
             header("Location: StudentLogout.php");
             exit();
         }
