@@ -16,13 +16,13 @@
         <meta charset="utf-8">
         <link rel="icon" href="../img/BUHS LOGO.png" type="image/png">
         <link rel="stylesheet" type="text/css" href="../css/student_css/style_process.css">
-        <title> Election Process Details | BUCEILS HS Online Voting System</title>
+        <title> Election Guide | BUCEILS HS Online Voting System</title>
     </head>
 
     <body>
 
         <div class="aboutheader" id="aboutheader">
-            <h3>ELECTION PROCESS DETAILS</h3>
+            <h3>ELECTION GUIDE AND OTHER DETAILS</h3>
         </div>
 
         <div class="text-contain" id="text-contain">
@@ -39,9 +39,19 @@
                 HOW TO VOTE
             </div>
             <div class="text-des" id="text-des">
-            The BUCEILS HS OVS is a system developed by third year block A students taking the program Bachelor of Science in Computer Science at Bicol University College of Science during the academic year 2020 - 2021. The project is an academic requirement for CS 117 and CS 118 (Software Engineering 1 & 2) under the supervision of Prof. Lany L. Maceda and Prof. Christian Y. Sy.
-
-
+            The ballot shall only be accessible during the said schedule of the election. If the student had already voted, the “Vote” navigation will allow the students to re-download their vote receipt.
+            <br>
+            <br> 1.	On your navigation bar, click on “Vote”.
+            <br> 2.	Select your preferred candidate by clicking the button on the left side of the candidate; otherwise, select “Abstain”.
+            <br> <center><img src="../img/ep1.png" class="guideImg"></center>
+            <br> 3.	After selecting your preferred candidates for each position, click on “Submit”.
+            <br> <center><img src="../img/ep2.png" class="guideImg"></center>
+            <br> 4.	A pop-up box will appear, showing the summary of your selection. If you wish to proceed, click on “Confirm Submission”; otherwise, to make changes, click on “Return to Voting”.
+            <br> <center><img src="../img/ep3.png" class="guideImg"></center>
+            <br> 5. After submitting your votes, the software will provide you a copy of your votes in a PDF file.
+            <br> <center><img src="../img/ep4.png" class="guideImg"></center>
+            <br>
+            Note: If the election timeframe has ended while the student is still voting, the votes will not be accepted.
             </div>    
         </div>
     </body>
