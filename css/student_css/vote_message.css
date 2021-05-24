@@ -51,7 +51,7 @@
 /* CSS FOR VOTE RECEIPT */
 
 #F-header {
-  font-family: 'genericaregular', sans-serif;
+  font-family: 'Roboto-regular', sans-serif;
   color: #124254;
   font-weight: inherit;
   font-size: 30px;
@@ -103,6 +103,7 @@
   letter-spacing: 1px;
   cursor: pointer;
   box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  font-family: 'Roboto-regular', sans-serif;
 }
 
 .F-goToHomeBTN:hover {
@@ -123,6 +124,7 @@
   cursor: pointer;
   letter-spacing: 1px;
   box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  font-family: 'Roboto-regular', sans-serif;
 }
 
 .F-downloadReceiptBTN:hover {

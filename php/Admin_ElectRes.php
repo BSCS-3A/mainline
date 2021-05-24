@@ -32,16 +32,16 @@ require './backMonitor/fetch_date.php';
 <body>
   <?php include 'navAdmin.php';?>
   
-  <div class="ADheader" id="ADheader">';
+  <div class="ADheader" id="ADheader">
     <h2 class="aHeader-txt">ELECTION RESULTS</h2>
   </div>
   <div id="freezeLayer" class="freeze-layer" style="display:none;"></div>
   <?php 
   if($row_count==0){
     require_once 'Admin_Notif.php';
-    notifMessage("No election has been scheduled");
+    notifMessage("NO ELECTION HAS BEEN SCHEDULED");
     exit();
-  }else{
+  }else{ 
   ?>
   <div class="Belection_container" id="election_res">
 
@@ -49,20 +49,20 @@ require './backMonitor/fetch_date.php';
   </div> <!-- End of #election-res div -->
   
   <div class="Bbtn_post" id="post_b">
-    <button formmethod="post" onclick="confirmModal.show('POST?', postButtonConfirm);" type="submit" id="post_button" name="post_button" class="Bbtn_postresults scs-responsive" <?php if ($current_date_time<$last_election_date){ ?> disabled <?php   } ?>><b>POST RESULT</b></button>
+    <button formmethod="post" onclick="confirmModal.show('POST ELECTION RESULTS?', postButtonConfirm);" type="submit" id="post_button" name="post_button" class="Bbtn_postresults scs-responsive" <?php if ($current_date_time<$last_election_date){ ?> disabled <?php   } ?>><b>POST RESULT</b></button>
   </div>
 
   <div class="Bbtn_reset" id="reset_b">
-    <button formmethod="post" onclick="confirmModal.show('RESET?', resetButtonConfirm);" type="submit" id="reset_button" name="reset_button" class="Bbtn_resetresults scs-responsive" <?php if ($current_date_time<$last_election_date){ ?> disabled <?php   } ?>><b>RESET ELECTION</b></button>
+    <button formmethod="post" onclick="confirmModal.show('RESET ELECTION RESULTS?', resetButtonConfirm);" type="submit" id="reset_button" name="reset_button" class="Bbtn_resetresults scs-responsive" <?php if ($current_date_time<$last_election_date){ ?> disabled <?php   } ?>><b>RESET ELECTION</b></button>
   </div>
   
   <!-- Modal Pop up -->
   <div id="dialogCont" class="dlg-container">
-        <div class="dlg-header"><center>Confirm Dialog</center></div>
-        <div id="dlgBody" class="dlg-body">Do you want to continue?</div>
+        <div class="dlg-header"><center>CONFIRM DIALOG</center></div>
+        <div id="dlgBody" class="dlg-body">DO YOU WANT TO CONTINUE?</div>
         <div class="dlg-footer">
-            <a onclick="confirmModal.okay();">Yes</a>
-            <a onclick="confirmModal.close();">No</a>
+            <a onclick="confirmModal.okay();">YES</a>
+            <a onclick="confirmModal.close();">N0</a>
         </div>
   </div>
   <!-- End of Modal container -->
@@ -72,7 +72,7 @@ require './backMonitor/fetch_date.php';
   
   <!-- <?php
     if(isset($_POST['post_button'])){
-      $file = fopen("../other/post_result.txt", "w") or die("Unable to open file!");
+      $file = fopen("../other/post_result.txt", "w") or die("UNABLE TO OPEN FILE!");
       
       $flag_post = 1;
 
@@ -84,14 +84,14 @@ require './backMonitor/fetch_date.php';
     if(isset($_POST['reset_button'])){
       $truncate_record = mysqli_query($conn, 'TRUNCATE TABLE vote_event');
 
-      $file = fopen("../other/post_result.txt", "w") or die("Unable to open file!");
+      $file = fopen("../other/post_result.txt", "w") or die("UNABLE TO OPEN FILE!");
 
       $flag_post = 0;
 
       fwrite($file, $flag_post);
 
       fclose($file);
-    }
+    }  
   ?> -->
 
   <br>
@@ -211,7 +211,7 @@ require './backMonitor/fetch_date.php';
           this.show = function(msg, callback){
               var dlg = document.getElementById('dialogCont');
               var dlgBody = dlg.querySelector('#dlgBody');
-              dlg.style.top = '30%';
+              dlg.style.top = '60%';
               dlg.style.opacity = 1;
               dlgBody.textContent = msg;
               this.callback = callback;
