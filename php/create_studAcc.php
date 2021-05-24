@@ -7,14 +7,14 @@
 
         $student_id = $_POST['Add_ID'];
         $lname = $_POST['lname'];
-        $lname = strip_tags($lname);
+        $lname = cleanOutput(strval($lname));
         $fname = $_POST['fname'];
-        $fname = strip_tags($fname);
+        $fname = cleanOutput(strval($fname));
         $Mname = $_POST['Mname'];
-        $Mname = strip_tags($Mname);
+        $Mname = cleanOutput(strval($Mname));
         $gender = $_POST['gender'];
         $bumail = $_POST['bumail'];
-        $bumail = strip_tags($bumail);
+        $bumail = cleanOutput(strval($bumail));
         $otp = 0;
         $vs = 0;
         $grade_level = $_POST['grade_level'];

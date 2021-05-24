@@ -59,11 +59,11 @@ while($row = mysqli_fetch_array($result))
 
  $sub_array = array();
  $sub_array[] = $row["student_id"];
- $sub_array[] = $row["lname"];
- $sub_array[] = $row["fname"];
- $sub_array[] = $row["Mname"];
+ $sub_array[] = cleanOutput($row["lname"]);
+ $sub_array[] = cleanOutput($row["fname"]);
+ $sub_array[] = cleanOutput($row["Mname"]);
  $sub_array[] = $row["gender"];
- $sub_array[] = $row["bumail"];
+ $sub_array[] = cleanOutput($row["bumail"]);
  $sub_array[] = $row["grade_level"];
  $sub_array[] = $row["otp"];
  if(isset($DTrow) && $now >= $rowx[1] && $now <= $rowx[2]){
