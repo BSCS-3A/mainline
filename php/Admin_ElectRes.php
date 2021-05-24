@@ -189,7 +189,7 @@ require './backMonitor/fetch_date.php';
                 type: "POST",
                 url: "./backMonitor/post.php",
                 success : function() { 
-                    alert("POSTED");
+                    alert("Results have been posted!");
                     window.location.href = window.location.href;
 
                 }
@@ -201,7 +201,8 @@ require './backMonitor/fetch_date.php';
                 url: "./backMonitor/reset.php",
                 success : function() { 
                     alert("RESET");
-                    window.location.href = "Admin_adminDash.php";
+                    window.location.href = "../index.php";
+                    // window.location.href = "Admin_adminDash.php";
 
                 }
           });
