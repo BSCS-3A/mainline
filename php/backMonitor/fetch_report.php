@@ -133,7 +133,7 @@
         			  }
 			 else
          			 {
-         				   $count_query1 = "SELECT * FROM student where grade_level = ".$row['grade_level']."";
+         				   $count_query1 = "SELECT * FROM student where grade_level = ".$row1['grade_level']."";
           				   $count_res1 = mysqli_query($conn, $count_query1);
            				   $total1 = mysqli_num_rows($count_res1);
                                 
