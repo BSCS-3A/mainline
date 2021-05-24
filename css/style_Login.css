@@ -102,8 +102,9 @@ p {
   background-color: #eceff1;
   box-shadow: 0 10px 20px rgba(0, 0, 0, .19);
   text-align: center;
-  float: left;
-  position: relative;
+  right: 10px;
+  position: absolute;
+  float: right;
   margin-top: 100px;
   margin-left: 200px;
 }
