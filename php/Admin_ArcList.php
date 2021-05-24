@@ -59,21 +59,15 @@ include("db_conn.php");
 
     while (($shyear = mysqli_fetch_array($schoolYear)) && ($archRow = mysqli_fetch_array($archive))) {
         if ($year === $shyear['election_date']) {
-            //echo $year;
-            //require('ArchWinnerInfo.php');
-            // echo '<div class="Bpstn">';
-            // echo '<img src="../img/dp/1.jpg" />';
-            // echo '<p class="Bname">'.$archRow['winner_fname'].' '.$archRow['winner_mname'].' '.$archRow['winner_lname'].'</p>';
-            // echo '<p class="Bpstn">'.$archRow['position_name'].'</p>';
-            // echo '</div>';
-
             echo '<div class="Bpstn">';
+            echo '<hr>';
             if(!(empty($archRow['winner_mname']))){
                 echo '<p class="Bname">'.$archRow['winner_fname'].' '.$archRow['winner_mname'][0].'. '.$archRow['winner_lname'].'</p>';
             } else {
                 echo '<p class="Bname">'.$archRow['winner_fname'].' '.$archRow['winner_lname'].'</p>';
             }
             echo '<p class="Bpstn">'.$archRow['position_name'].'</p>';
+            echo '<hr>';
             echo '<p class="Bplat1"> PLATFORMS </p>';
             echo '<p class="Bplat2">' .$archRow['platform_info']. '</p>';
             echo '</div>';
