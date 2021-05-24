@@ -70,7 +70,7 @@
             $poss = $voter->fetch_assoc();
             // echo $studd_id;
             // echo $poss["fname"]." ".$poss["lname"]." ".$poss["student_id"];
-            if($poss != NULL && ($poss["lname"] === $_SESSION['lname'] && $poss["fname"] === $_SESSION['fname'] && $poss["student_id"] == $_SESSION['student_id'] && $poss["bumail"] === $_SESSION['bumail'])){
+            if($poss != NULL && ($poss["lname"] === $_SESSION['lname'] && $poss["fname"] === $_SESSION['fname'] && $poss["student_id"] == $_SESSION['student_id'] && $poss["bumail"] === $_SESSION['bumail'] && password_verify($poss['bumail'].$poss['otp'], $_SESSION['otp'])=='true')){
                 return true;
             }
             else{
@@ -83,7 +83,7 @@
             $poss = $account->fetch_assoc();
             // echo $studd_id;
             // echo $poss["fname"]." ".$poss["lname"]." ".$poss["student_id"];
-            if($poss != NULL && ($poss["admin_lname"] === $_SESSION['admin_lname'] && $poss["admin_fname"] === $_SESSION['admin_fname'] && $poss["admin_id"] == $_SESSION['admin_id'] && $poss["username"] === $_SESSION['username'] && $poss["admin_position"] === $_SESSION['admin_position'])){
+            if($poss != NULL && ($poss["admin_lname"] === $_SESSION['admin_lname'] && $poss["admin_fname"] === $_SESSION['admin_fname'] && $poss["admin_id"] == $_SESSION['admin_id'] && $poss["username"] === $_SESSION['username'] && $poss["admin_position"] === $_SESSION['admin_position'] && password_verify($poss['username'].$poss['password'], $_SESSION['password'])=='true')){
                 return true;
             }
             else{

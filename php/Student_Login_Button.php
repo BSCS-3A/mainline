@@ -16,11 +16,11 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
 	 //gets the input from the textbox in the StudentLogin.php
 		 $address = "@bicol-u.edu.ph";
 		 if(strpos($userName, $address)){
-			$username = validate($conn, $userName);
+			$username = cleanOutput(validate($conn, $userName));
 		 }else{
-		 	$username = validate($conn, $userName).$address;
+		 	$username = cleanOutput(validate($conn, $userName).$address);
 		 }
-		 $pass = validate($conn, $passWord); //hash here
+		 $pass = cleanOutput(validate($conn, $passWord)); //hash here
 	 
 		 if (empty($username)) {
 			 header("Location: ..\index.php?error=E-mail is required");
@@ -42,6 +42,7 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
 					$_SESSION['lname'] = $row['lname'];
 					$_SESSION['gender'] = $row['gender'];
 					$_SESSION['student_id'] = $row['student_id'];
+					$_SESSION['otp'] = password_hash($row['bumail'].$row['otp'], PASSWORD_DEFAULT);
 					$_SESSION['grade_level'] = $row['grade_level']; //added for voting : 03/04/2021 , 11:48am
 					$_SESSION['timestamp']=time(); //added for time session
 					$student_id = $row['student_id'];

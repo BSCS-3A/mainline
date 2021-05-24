@@ -14,8 +14,8 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
 			return $data;
 		 }
 	 //gets the input from the textbox in the StudentLogin.php
-		 $username = validate($conn, $userName);
-		 $pass = validate($conn, $passWord); 
+		 $username = cleanOutput(validate($conn, $userName));
+		 $pass = cleanOutput(validate($conn, $passWord)); 
 	
 		if (empty($username)) {
 			header("Location: AdminLogin.php?error=E-mail is required");
@@ -37,6 +37,7 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
 						$_SESSION['admin_lname'] = $row['admin_lname'];
 						$_SESSION['admin_id'] = $row['admin_id'];
 						$_SESSION['photo'] = $row['photo'];
+						$_SESSION['password'] = password_hash($row['username'].$row['password'], PASSWORD_DEFAULT);
 						$_SESSION['admin_position'] = $row['admin_position'];  	//added for enabling/hiding some features for admin (04/04/2021, 2:36pm)
 						$_SESSION['timestamp']=time(); //added for time session
 						$admin_id = $row['admin_id'];
