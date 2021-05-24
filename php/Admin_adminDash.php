@@ -59,7 +59,7 @@ if (isset($_SESSION['admin_id']) && isset($_SESSION['username'])) {
                     $row = mysqli_fetch_array($event);
 
                     if ($row == "") {
-                        echo " (Start Date) to (End Date)";
+                        echo " No Election Schedule";
                     } else {
                         
                         $event = mysqli_query($conn, "SELECT * FROM vote_event");
@@ -99,7 +99,7 @@ if (isset($_SESSION['admin_id']) && isset($_SESSION['username'])) {
             });
 
 
-            var start = "<?php echo $stdate ?>";
+            var start = "<?php echo $stdate; ?>";
 
             // Set the date we're counting down to
             var countDownStart = new Date(start).getTime();
@@ -134,7 +134,7 @@ if (isset($_SESSION['admin_id']) && isset($_SESSION['username'])) {
                     headlines.innerText = "Time before \n election ends";
                     //delete the data in vote_event table in database after election ends
                     $(document).ready(function() {
-                        var dend = "<?php echo $endate ?>";
+                        var dend = "<?php echo $endate; ?>";
                         // Set the date we're counting down to
                         var cdEnd = new Date(dend).getTime();
 
