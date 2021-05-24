@@ -28,7 +28,7 @@ if (isset($_SESSION['admin_id']) && isset($_SESSION['username'])) {
         <script type="text/javascript" src="../js/admin_session_timer.js"></script>
 
         <!--additional scripts-->
-        <script src="../js/bootstrap-show-password.min_addAdmin.js"></script>
+        <!-- <script src="../js/bootstrap-show-password.min_addAdmin.js"></script> -->
 
         <!--for upload photo crop-->
         <link href="https://unpkg.com/cropperjs/dist/cropper.css" rel="stylesheet" />
@@ -303,7 +303,7 @@ if (isset($_SESSION['admin_id']) && isset($_SESSION['username'])) {
                                 <div class="field">
                                     <input id="password_main" type="password" name="password" class="form-control" data-toggle="password" placeholder="*********" onChange="onChange()" required>
                                     <!-- <span class="showBtn">SHOW</span> -->
-                                    <!-- <i toggle="#password-field" class="fa fa-fw fa-eye field_icon toggle-password"></i> -->
+                                    <span toggle="#password-field" class="fa fa-fw fa-eye field_icon toggle-password"></span>
                                 </div>
                                 <div class="indicator">
                                     <span class="weak"></span>
@@ -509,7 +509,7 @@ if (isset($_SESSION['admin_id']) && isset($_SESSION['username'])) {
             });
         </script> -->
 
-        <!-- <script>
+        <script>
             $(document).on('click', '.toggle-password', function() {
 
                 $(this).toggleClass("fa-eye fa-eye-slash");
@@ -517,7 +517,7 @@ if (isset($_SESSION['admin_id']) && isset($_SESSION['username'])) {
                 var input = $("#password_main");
                 input.attr('type') === 'password' ? input.attr('type', 'text') : input.attr('type', 'password')
             });
-        </script> -->
+        </script>
 
         <script>
             $(document).ready(function() {
