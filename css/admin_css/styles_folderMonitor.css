@@ -2,13 +2,13 @@ body {
     background-color: rgb(221, 221, 221);
 }
 
-a {
+.Byear_arc {
     text-decoration: none;
     font-size: large;
     color: aliceblue;
 }
 
-a :hover, a :active {
+.Byear_arc :hover, Byear_arc :active {
     text-decoration: none;
 }
 
@@ -50,6 +50,7 @@ figcaption {
         color: white;
         text-decoration: none;
 	}
+}
 	
 @media only screen and (min-device-width: 360px) and (max-device-height: 640px) and (orientation : portrait) and (-webkit-device-pixel-ratio: 3){
     .items {

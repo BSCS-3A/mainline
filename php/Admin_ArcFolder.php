@@ -55,7 +55,7 @@ include("db_conn.php");
             $year = $row1['election_date'];
             echo '<div class="items">';
             echo '<figure>';
-            echo '<b><a href="Admin_ArcList.php?year='.$year.'">';
+            echo '<b class ="Byear_arc"><a href="Admin_ArcList.php?year='.$year.'">';
             echo '<img src="../img/folder.png" width="140px" height="140px">';
             echo '<figcaption>'.strtoupper($year).'</figcaption>';
             echo '</a></b>';
