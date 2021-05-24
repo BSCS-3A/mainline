@@ -15,7 +15,7 @@ $deleteCandidate = "DELETE FROM candidate";
 $deleteStudentLog = "DELETE FROM student_access_log";
 $deleteStudent = "DELETE FROM student";
 
-$message = '<label class="text-danger">WARNING! All stored data, such as results, list <br> of candidates, and logs, will be deleted, and all student records will be replaced.</label>';
+$message = '<b>Select a new file (Only in CSV Format)</b>';
 
 if(isset($_POST["upload"])){
     if($_FILES['info_file']['name']){
@@ -75,11 +75,11 @@ if(isset($_POST["upload"])){
             header("location: Admin_studAcc.php");
         }
         else{
-            $message = '<label class="text-danger">Please Select CSV File only</label>';
+            $message = '<b>Please Select CSV File only</b>';
         }
     }
     else{
-        $message = '<label class="text-danger">No file selected, Please Select CSV File</label>';
+        $message = '<b>No file selected, Please Select a CSV File</b>';
     }
 }
 ?>

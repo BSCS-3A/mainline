@@ -87,6 +87,23 @@ include('db_conn.php');
                 if(isset($_POST['confirm-button'])){
                   while($poss = $table->fetch_assoc()){   // loop through all positions
                     if(($poss["vote_allow"] == 0 && $_SESSION['grade_level'] == $poss["grade_level"]) || $poss["vote_allow"] == 1){
+                      if(!isset($_POST[$poss['heirarchy_id']])){
+                        // Submit records marked invalid
+                        mysqli_data_seek($table, 0);
+                        while($poss = $table->fetch_assoc()){
+                          $cand_id = $conn->real_escape_string($poss['candidate_id']);
+                          $stud_id = $conn->real_escape_string($stud_id);
+                          $conn->query("INSERT INTO `vote` (`vote_log_id`, `student_id`, `candidate_id`, `status`, `time_stamp`) VALUES (NULL, $stud_id, $cand_id, 'Invalid', current_timestamp())");
+                        }
+                        // update voter's status
+                        $conn->query("UPDATE `student` SET `voting_status` = true WHERE `student`.`student_id` = '$stud_id'");
+                        // notify admin
+                        notifyAdmin("Warning: An attempt to submit a tampered ballot was made! The user was automatically banned from voting.");
+                        // notify admin & return to ballot
+                        errorMessage("Ballot tampering detected. You have been banned from voting and have been reported to the admins.", "Student_studDash.php");
+                        exit();
+                      }
+                      
                       if(empty(filter_var($_POST[$poss['heirarchy_id']], FILTER_SANITIZE_STRING))){
                         $choice = 0;
                       }

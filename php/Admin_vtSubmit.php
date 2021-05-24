@@ -44,11 +44,12 @@
 		//For Logs
                 $_SESSION['action'] = 'issued a Tie Breaker for :' . $candidate_id;
                 include './backAdmin/backFun_actLogs_v0_1.php';
-		
-		// return to election page
-		header('location: http://localhost/mainline-main/php/Admin_Report.php');
-        die;
 	}
+
+		// return to election page
+		// header('location: http://localhost/mainline-main/php/Admin_Report.php');
+	header('location: Admin_Report.php');
+        die;
 	
 	mysqli_data_seek($table, 0);
 	while($poss = $table->fetch_assoc()){
