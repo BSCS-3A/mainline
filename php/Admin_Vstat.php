@@ -41,11 +41,7 @@ include("db_conn.php");
                     <table class="center" id="datatable" width="100%" cellspacing="0" cellpadding="2px">
                         <thead>
                             <tr>
-<<<<<<< Updated upstream
-                                <th class="text-center" id="Bth_pad">LASTNAME</th>
-=======
                                 <th class="text-center" id="tablehead">LASTNAME</th>
->>>>>>> Stashed changes
                                 <th class="text-center">FIRSTNAME</th>
                                 <th class="text-center">MIDDLENAME</th>
                                 <th class="text-center">STATUS</th>
