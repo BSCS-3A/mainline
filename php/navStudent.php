@@ -57,7 +57,6 @@ if(!(isValidUser($conn))){
     <meta charset="utf-8">
     <link rel="icon" href="../img/BUHS LOGO.png" type="image/png">
     <link rel="stylesheet" type="text/css" href="../css/student_css/style_studNav.css">
-    <!-- <link rel="stylesheet" href="../css/admin_css/bootstrap4.5.2_AdminDash.css"> -->
     <link rel="stylesheet" href="../css/student_css/bootstrap_studNav.css">
     <link rel="stylesheet" type="text/css" href="../css/student_css/modal_error_messages.css">
     
@@ -93,7 +92,7 @@ if(!(isValidUser($conn))){
                 <a href="#">ELECTION</a>
                 <input class="nav-toggle4" type="checkbox" id="btn-2">
                 <ul>
-                    <li><a href="#">PROCESS</a></li>
+                    <li><a href="Student_process.php">PROCESS</a></li>
                     <li><a href="Student_ArcFolder.php">ARCHIVE</a></li>
                     <li><a href="Student_ElectStat.php">RESULTS</a></li>
                 </ul>
@@ -112,7 +111,6 @@ if(!(isValidUser($conn))){
             <li>
                 <label for="btn-5" class="Ashow"><img class="Auser-profile" src="../img/user.png"></label>
                 <a class="user" href="#">
-                    <!-- <img class="Auser-profile" src="../img/user.png"> -->
                     <?php
                         $userGender = $_SESSION['gender'];
                         switch($userGender){

@@ -67,11 +67,6 @@ body{
   overflow-y: scroll;
 }
 
-/* Scrollbar to all pages */
-/* html{
-  overflow-y: scroll;
-} */
-
 /* width */
 ::-webkit-scrollbar {
   width: 12px;

@@ -60,6 +60,29 @@ body {
   width: auto;
   min-height: 100%;
   margin-bottom: 50px;
+  overflow-y: scroll;
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #EFEFEF;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #c8c8c8;
+  border-radius: 100px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #adadad;
+  /* background: rgb(236, 199, 95) */
 }
 
 /* Top Navigation */
@@ -105,11 +128,11 @@ h3.aLogo-txt2 {
   margin-top: 0px;
   color: #1b1b1b;
   padding-top: 5px;
-  font-weight: inherit;
+  font-weight: 1000;
   font-size: 100%;
   margin-bottom: 0px;
   letter-spacing: 6px;
-  font-family: 'genericabold', sans-serif;
+  font-family: 'genericaregular', sans-serif;
 }
 
 h3.aLogo-txt2 a {
