@@ -201,20 +201,23 @@ th {
 	color: #ffffff;
 	background-color: #18566e;
 	text-align: center;
-	font-size: 13pt;
-	font-family: "Roboto-regular", sans-serif;
+	font-size: 10pt;
+	font-family: 'Roboto-regular', sans-serif;
 	text-transform: uppercase;
 	letter-spacing: 2px;
 	border: 1px solid #124254 !important;
-	padding: 0.5% !important;
+  }
+  
+#tablehead {
+	padding: 10px!important;
 }
 td {
 	font-family: "Roboto-regular", sans-serif;
-	font-size: 13pt;
+	font-size: 11pt;
 	border: 1px solid #124254;
 	max-width: 150px;
 	max-height: 150px;
-	padding: 0.5% !important;
+	padding: 13px !important;
 	overflow: hidden;
 	word-wrap: break-word;
 }
