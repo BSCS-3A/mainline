@@ -564,6 +564,9 @@ aside p.Aelec-guide-txt {
     margin-top: 100px;
     margin-left: 60px;
   }
+  article{
+    width: 800px;
+  }
   #ADaside-container{
     float: left;
     margin-left: 60px;
@@ -591,6 +594,11 @@ aside p.Aelec-guide-txt {
     margin-top: 20px;
     float: left;
     margin-left: 160px;
+  }
+  article{
+    margin-top: -50px;
+    width: 700px;
+    margin-left: 81px;
   }
   #ADaside-container{
     margin-top: -50px;
