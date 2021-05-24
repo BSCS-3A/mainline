@@ -55,7 +55,7 @@ include("db_conn.php");
     <?php
       if(empty($sched))
       {
-        notifMessage("NO ELECTION HAS BEEN SCHEDULED");
+        notifMessage("No election has been scheduled");
         exit();
       }
       else
@@ -175,12 +175,12 @@ include("db_conn.php");
   				   //      Archive($conn, $end_date->format('Y-m-d'));
   				   //      $check = false;
   					  // }
-              resMsg("ELECTION RESULTS HAVE BEEN FINALIZED<br><br>Save to Archive", "SAVE");
+              resMsg("Election Results have been finalized<br><br>Save to Archive", "SAVE");
   				
   			    }
       			else
       			{
-      			  resMsg("ELECTION REPORT HAS BEEN SUCCESSFULLY GENERATED", "DOWNLOAD");
+      			  resMsg("Election Report has been successfully generated", "DOWNLOAD");
       			}
           }
           else

@@ -474,17 +474,23 @@ iframe {
 .dlg-header {
 	padding: 10px;
 	font-weight: bold;
-	background: #1c6987;
-	color: #f6f7f8;
+	background: #1d6986;
+	color: white;
+	font-style: "Roboto-regular", sans-serif;
+	letter-spacing: 2px;
 }
 .dlg-body {
 	padding: 10px;
 	line-height: 30px;
+	font-style: "Roboto-regular", sans-serif;
+	text-align: center;
 }
 .dlg-footer {
 	text-align: center;
 	background: #f5f5f2;
+	color: #e1a911;
 	padding: 3px 0;
+	font-style: "Roboto-regular", sans-serif;
 }
 .dlg-footer a {
 	display: inline-block;
@@ -493,6 +499,7 @@ iframe {
 	border: 1px solid #ccc;
 	border-radius: 10px;
 	cursor: pointer;
+	font-style: "Roboto-regular", sans-serif;
 }
 .dlg-footer a:active {
 	box-shadow: inset 2px 2px 4px 0 #ccc;
@@ -507,3 +514,12 @@ iframe {
 	background: rgba(0, 0, 0, 0.1);
 	z-index: 1;
 }
+
+/* Samsung Galaxy S3, S4, S5 ----------- */
+@media only screen and (min-device-width: 360px) and (max-device-height: 640px) and (orientation : landscape) and (-webkit-device-pixel-ratio: 3){
+	/* Styles */
+	}
+	
+	@media only screen and (min-device-width: 360px) and (max-device-height: 640px) and (orientation : portrait) and (-webkit-device-pixel-ratio: 3){
+	/* Styles */
+	}

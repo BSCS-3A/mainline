@@ -38,3 +38,26 @@ a :hover, a :active {
 figcaption {
     color: white;
 }
+
+/* Samsung Galaxy S3, S4, S5 ----------- */
+@media only screen and (min-device-width: 360px) and (max-device-height: 640px) and (orientation : landscape) and (-webkit-device-pixel-ratio: 3){
+	.items {
+        text-align: center;
+        float: left;
+        margin-top: 30px;
+        margin-left: 100px;
+        align-self: auto;
+        color: white;
+        text-decoration: none;
+	}
+	
+@media only screen and (min-device-width: 360px) and (max-device-height: 640px) and (orientation : portrait) and (-webkit-device-pixel-ratio: 3){
+    .items {
+        text-align: center;
+        float: left;
+        margin-top: 150px;
+        align-self: auto;
+        color: white;
+        text-decoration: none;
+    }    
+}

@@ -154,7 +154,7 @@
                             <div></div>
                         </div>
                     </div>
-                    <p><b> GRADE 8</b></p>
+                    <p><b> GRADE 7</b></p>
                 </div>
             </div>
 
