@@ -39,7 +39,7 @@ require './backMonitor/fetch_date.php';
   <?php 
   if($row_count==0){
     require_once 'Admin_Notif.php';
-    notifMessage("NO ELECTION HAS BEEN SCHEDULED");
+    notifMessage("No Election has been scheduled.");
     exit();
   }else{ 
   ?>
@@ -72,7 +72,7 @@ require './backMonitor/fetch_date.php';
   
   <!-- <?php
     if(isset($_POST['post_button'])){
-      $file = fopen("../other/post_result.txt", "w") or die("UNABLE TO OPEN FILE!");
+      $file = fopen("../other/post_result.txt", "w") or die("Unable to open file!");
       
       $flag_post = 1;
 
@@ -84,7 +84,7 @@ require './backMonitor/fetch_date.php';
     if(isset($_POST['reset_button'])){
       $truncate_record = mysqli_query($conn, 'TRUNCATE TABLE vote_event');
 
-      $file = fopen("../other/post_result.txt", "w") or die("UNABLE TO OPEN FILE!");
+      $file = fopen("../other/post_result.txt", "w") or die("Unable to open file.!");
 
       $flag_post = 0;
 

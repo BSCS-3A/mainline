@@ -217,9 +217,7 @@
 	text-align: center;
   margin-top:2%;
   font-family: 'Roboto-regular', sans-serif;
- 
 }
-
 .Bcan b{
   color: white;
   font-family: 'Roboto-regular', sans-serif;
@@ -284,3 +282,260 @@
 	margin-top: -5px;
 }
 
+/* Samsung Galaxy S3 & S4 ----------- */
+@media only screen and (min-device-width: 320px) and (max-device-height: 640px) and (orientation : portrait) and (-webkit-device-pixel-ratio: 2){
+	.Belection_container{
+    display: grid;
+    grid-column-gap: 30px;
+    grid-row-gap: 2px;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 2fr));
+    grid-template-rows: repeat(5, auto);
+    margin-top: -1%;
+  }
+  .Bcan{
+    background-color:#1f6f8f;
+    font-weight: initial;
+    width: auto;
+    height: 20%;
+    text-align: center;
+    margin-top:2%;
+    font-family: 'Roboto-regular', sans-serif;
+    padding: 1px;
+  }
+  .Bcan b{
+    color: white;
+    font-family: 'Roboto-regular', sans-serif;
+    padding-top: 50px;
+    font-size: 60%;
+  }
+  .Bcan span{
+    background: #0f3849;
+    width: 5%;
+    height: 100%;
+    font-family: 'Roboto-regular', sans-serif;
+    float: right;
+    padding: 4px;
+    color: white;
+  }
+}
+	
+/* Samsung Galaxy S5 ----------- */
+@media only screen and (min-device-width: 360px) and (max-device-height: 640px) and (orientation : portrait) and (-webkit-device-pixel-ratio: 3){
+  .Belection_container {
+    display: grid;
+    grid-column-gap: 30px;
+    grid-row-gap: 2px;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 2fr));
+    grid-template-rows: repeat(5, auto);
+  }
+  .Bcan {
+    background-color:#1f6f8f;
+    font-weight: initial;
+    width: auto;
+    height: 20%;
+    text-align: center;
+    margin-top:2%;
+    font-family: 'Roboto-regular', sans-serif;
+    padding: 1px;
+  }
+  .Bcan b{
+    color: white;
+    font-family: 'Roboto-regular', sans-serif;
+    padding-top: 50px;
+    font-size: 60%;
+  }
+  .Bcan span{
+    background: #0f3849;
+    width: 10%;
+    height: 100%;
+    font-family: 'Roboto-regular', sans-serif;
+    float: right;
+    padding: 4px;
+    color: white;
+  }
+}
+
+/* Blackberry Playbook ----------- */
+@media only screen and (min-device-width: 1024px) and (max-device-height: 600px) and (orientation : landscape){
+  .Bcon {
+    max-width: 90%;
+    z-index: 1000;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .Bvcontainer{
+    position: relative;
+    margin-top: 1%;
+    justify-content: space-around;
+    display: grid; 
+    grid-column-gap: 6%;
+    grid-row-gap: -1%;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 2fr));
+  }
+}
+
+/* Kindle Fire HDX ----------- */
+@media only screen and (min-device-width: 800px) and (max-device-height: 1280px) and (orientation : portrait){
+  .Bcon {
+    max-width: 70%;
+    z-index: 1000;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .Bvcontainer{
+    position: relative;
+    margin-top: 1%;
+    justify-content: space-around;
+    display: grid; 
+    grid-column-gap: 10%;
+    grid-row-gap: -1%;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 2fr));
+  }
+}
+@media only screen and (min-device-width: 1280px) and (max-device-height: 800px) and (orientation : landscape){
+  .Bcon {
+    max-width: 90%;
+    z-index: 1000;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .Bvcontainer{
+    position: relative;
+    margin-top: 1%;
+    justify-content: space-around;
+    display: grid; 
+    grid-column-gap: 7%;
+    grid-row-gap: -1%;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 2fr));
+  }
+}
+
+/* Kindle Fire HDX ----------- */
+@media only screen and (min-device-width: 800px) and (max-device-height: 1280px) and (orientation : portrait){
+  .Bcon {
+    max-width: 70%;
+    z-index: 1000;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .Bvcontainer{
+    position: relative;
+    margin-top: 1%;
+    justify-content: space-around;
+    display: grid; 
+    grid-column-gap: 10%;
+    grid-row-gap: -1%;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 2fr));
+  }
+}
+
+/* LG Optimus L70 ----------- */
+@media only screen and (min-device-width: 384px) and (max-device-height: 640px) and (orientation : portrait){
+  .Belection_container {
+    display: grid;
+    grid-column-gap: 30px;
+    grid-row-gap: 2px;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 2fr));
+    grid-template-rows: repeat(5, auto);
+  }
+  .Bcan {
+    background-color:#1f6f8f;
+    font-weight: initial;
+    width: auto;
+    height: 20%;
+    text-align: center;
+    margin-top:2%;
+    font-family: 'Roboto-regular', sans-serif;
+    padding: 1px;
+  }
+
+  .Bcan b{
+    color: white;
+    font-family: 'Roboto-regular', sans-serif;
+    padding-top: 50px;
+    font-size: 60%;
+  }
+  .Bcan span{
+    background: #0f3849;
+    width: 12%;
+    height: 100%;
+    font-family: 'Roboto-regular', sans-serif;
+    float: right;
+    padding: 4px;
+    color: white;
+  }  
+}
+
+/* Lappy ----------- */
+@media only screen and (min-device-width: 1440px) and (max-device-height: 900px) and (orientation : landscape){
+  .Bcon {
+    max-width: 90%;
+    z-index: 1000;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .Bvcontainer{
+    position: relative;
+    margin-top: 1%;
+    justify-content: space-around;
+    display: grid; 
+    grid-column-gap: 7%;
+    grid-row-gap: -1%;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 2fr));
+  }
+}
+
+/* Lappy ----------- */
+@media only screen and (min-device-width: 1280px) and (max-device-height: 950px) and (orientation : landscape){
+  .Bcon {
+    max-width: 90%;
+    z-index: 1000;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .Bvcontainer{
+    position: relative;
+    margin-top: 1%;
+    justify-content: space-around;
+    display: grid; 
+    grid-column-gap: 6%;
+    grid-row-gap: -1%;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 2fr));
+  }
+}
+
+/* Samsung Galaxy S5 ----------- */
+@media only screen and (min-device-width: 360px) and (max-device-height: 640px) and (orientation : portrait){
+  .Belection_container {
+    display: grid;
+    grid-column-gap: 30px;
+    grid-row-gap: 2px;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 2fr));
+    grid-template-rows: repeat(5, auto);
+  }
+  .Bcan {
+    background-color:#1f6f8f;
+    font-weight: initial;
+    width: auto;
+    height: 20%;
+    text-align: center;
+    margin-top:2%;
+    font-family: 'Roboto-regular', sans-serif;
+    padding: 1px;
+  }
+  .Bcan b{
+    color: white;
+    font-family: 'Roboto-regular', sans-serif;
+    padding-top: 50px;
+    font-size: 60%;
+  }
+  .Bcan span{
+    background: #0f3849;
+    width: 13%;
+    height: 100%;
+    font-family: 'Roboto-regular', sans-serif;
+    float: right;
+    padding: 4px;
+    color: white;
+  }
+}
