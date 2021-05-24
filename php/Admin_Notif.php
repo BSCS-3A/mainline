@@ -24,7 +24,7 @@
           </script>';
   }
 
-  function resMsg($message, $button)
+  function dlMsg($message)
   {
     echo '<link rel="stylesheet" type="text/css" href="../css/student_css/vote_message.css">';
     require_once 'navAdmin.php';
@@ -35,40 +35,17 @@
               </div>
 
               <div id="error-button" class="error-button">
-                      <button type="button" id="msg-ok-button" class="OkBTN-error">'.$button.'</button>
+                      <button type="button" id="msg-ok-button" class="OkBTN-error">DOWNLOAD</button>
                     </div>
                   </div>
           </main>';
 
-    if($button=="DOWNLOAD")
-    {
-      echo '<script>
+    echo '<script>
               var download = document.getElementById("msg-ok-button");
               download.onclick = function()
               {
                 location.href = "Admin_generate-pdf.php"; // generate report
               }
             </script>';
-    }
-    else
-    {
-      include('db_conn.php');
-      require './backMonitor/archive.php';
-      $date = $end_date->format('Y-m-d');
-
-      echo '<script>
-        var archive = document.getElementById("msg-ok-button");
-        archive.onclick = function()
-        {';
-          insertToArchive($conn, $date);
-          // header('location: http://localhost/mainline-main/php/Admin_Report.php');
-          // die;
-          // header("Refresh:0");
-          // resMsg($message, "DOWNLOAD");
-
-        echo '}
-      </script>';
-
-    }//end of else
   }//end of function
  ?>
