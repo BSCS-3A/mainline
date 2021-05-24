@@ -9,7 +9,7 @@ use of session for admin_id
 	//$_SESSION['action'] = 'Added an Account' or 'Updated an Account' or 'Set and Sent Reminder' or 'Sent last Reminder' or 'Set Signatories' or 'Set Election Time and Date'
 
 	// Create connection
-	require '../db_conn.php';
+	require './db_conn.php';
 
 	$activity_description = $_SESSION['action'];
 	unset($_SESSION['action']);
