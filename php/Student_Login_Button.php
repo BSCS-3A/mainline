@@ -16,11 +16,11 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
 	 //gets the input from the textbox in the StudentLogin.php
 		 $address = "@bicol-u.edu.ph";
 		 if(strpos($userName, $address)){
-			$username = cleanOutput(validate($conn, $userName));
+			$username = validate($conn, $userName);
 		 }else{
-		 	$username = cleanOutput(validate($conn, $userName).$address);
+		 	$username = validate($conn, $userName).$address;
 		 }
-		 $pass = cleanOutput(validate($conn, $passWord)); //hash here
+		 $pass = validate($conn, $passWord); //hash here
 	 
 		 if (empty($username)) {
 			 header("Location: ..\index.php?error=E-mail is required");

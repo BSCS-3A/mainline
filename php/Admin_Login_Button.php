@@ -14,8 +14,8 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
 			return $data;
 		 }
 	 //gets the input from the textbox in the StudentLogin.php
-		 $username = cleanOutput(validate($conn, $userName));
-		 $pass = cleanOutput(validate($conn, $passWord)); 
+		 $username = validate($conn, $userName);
+		 $pass = validate($conn, $passWord); 
 	
 		if (empty($username)) {
 			header("Location: AdminLogin.php?error=E-mail is required");
