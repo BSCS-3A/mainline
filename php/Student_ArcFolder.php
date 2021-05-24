@@ -24,14 +24,14 @@ include('db_conn.php');
 </head>
 
 <body>
-    <?php include 'navStudent.php'; ?>
+    <?php include 'navStudent.php'; ?>  
 
     <div class="bheader">
         <h3>ARCHIVES</h3>
     </div>
 
+    <div class="Barch_container">
     <?php
-    //  Election Archives Folders (Admin)
     require "db_conn.php";
     // Check connection
     if ($conn->connect_error) {
@@ -51,7 +51,7 @@ include('db_conn.php');
             $year = $row1['election_date'];
             echo '<div class="items">';
             echo '<figure>';
-            echo '<b class ="Byear_arc"><a href="Student_ArcList.php?year='.$year.'">';
+            echo '<b><a href="Student_ArcList.php?year='.$year.'">';
             echo '<img src="../img/folder.png" width="140px" height="140px">';
             echo '<figcaption>'.strtoupper($year).'</figcaption>';
             echo '</a></b>';
@@ -60,10 +60,7 @@ include('db_conn.php');
         }
     }
     ?>
-
-    <!-- <div class="footer">
-        <p class="footer-txt">BS COMPUTER SCIENCE 3A © 2021</p>
-    </div> -->
+    </div>
 
     <script>
         $('.icon').click(function() {
