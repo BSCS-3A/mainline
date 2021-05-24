@@ -211,22 +211,21 @@ $DTrow =  $DnT->fetch_row();
                     <h4 class="modal-title custom_align" id="Heading">Upload File</h4>
                 </div>
                 <div class="modal-body">
-                    <div class="alert alert-danger"><span class="fa fa-exclamation-triangle"></span> WARNING! <br> By
-                        uploading a new file, the existing student record will be replaced, and all student related
-                        data, such as results, list of candidates, and logs, will be deleted. <br><br><b>Select a new
-                            file (Only in CSV Format)</b></div>
+                    <div class="alert alert-danger">
+                        <span class="fa fa-exclamation-triangle"></span> WARNING! <br> 
+                            By uploading a new file, the existing student record will be replaced, and all student related
+                            data, such as results, list of candidates, and logs, will be deleted. <br>
+                            <br>
+                            <?php echo $message; ?>
+                    </div>
                 </div>
 
                 <div class="modal-footer ">
-
                     <!-- import button -->
                     <br />
                     <form method="POST" enctype="multipart/form-data">
                         <p><label></label></p>
                         <input type="file" name="info_file" />
-
-                        <?php //echo $message; ?>
-
                         <br />
                         <button type="submit" name="upload" class="btn btn-button6"><span
                                 class="fa fa-check-circle"></span> Upload</button>
