@@ -64,7 +64,7 @@ include("db_conn.php");
         }
     }
     ?>
-
+    
     <script>
         $('.icon').click(function() {
             $('span').toggleClass("cancel");
