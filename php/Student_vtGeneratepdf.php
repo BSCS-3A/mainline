@@ -133,15 +133,15 @@ ob_start();
 	$pdf->Cell(90,10,'',0,0); //spacer
 	$pdf->Cell(90,10,'',0,1); //spacer
 	$pdf->Cell(90,10,'Name of Voter',1,0,'C');
-	$pdf->Cell(90,10, cleanOutput($st_full), 1,0,'C',0);
+	$pdf->Cell(90,10, cleanOutput($conn, $st_full), 1,0,'C',0);
 	// $pdf->Cell(60,10,'',1,0,'C',0);
 	$pdf->Cell(90,10,'',0,1); //spacer
 	$pdf->Cell(90,10,'Grade Level',1,0,'C');
-	$pdf->Cell(90,10, cleanOutput($st_glevel), 1,0,'C',0);
+	$pdf->Cell(90,10, cleanOutput($conn, $st_glevel), 1,0,'C',0);
 	// $pdf->Cell(60,10,'',1,0,'C',0);
 	$pdf->Cell(90,10,'',0,1); //spacer
 	$pdf->Cell(90,10,'Date Voted',1,0,'C');
-	$pdf->Cell(90,10, cleanOutput($today), 1,0,'C',0);
+	$pdf->Cell(90,10, cleanOutput($conn, $today), 1,0,'C',0);
 	// $pdf->Cell(60,10,'',1,0,'C',0);
 	$pdf->Cell(90,10,'',0,1); //spacer
 
@@ -179,7 +179,7 @@ ob_start();
 	while($voted = $vote_que->fetch_assoc()){   // loop through all positions
 		if(($voted["vote_allow"] == 0 && $_SESSION['grade_level'] == $voted["grade_level"]) || $voted["vote_allow"] == 1){
 			if($heir_id != $voted["heirarchy_id"]){
-				$pdf->Cell(60,10,cleanOutput($voted['position_name']),1,0,'C');
+				$pdf->Cell(60,10,cleanOutput($conn, $voted['position_name']),1,0,'C');
 				$heir_id = $voted["heirarchy_id"];
 				if($flag == 0){
 					$candidate_name = "";
@@ -204,8 +204,8 @@ ob_start();
 					$candidate_name = "Invalid";
 					$party_name = "N/A";
 				}
-				$pdf->Cell(60,10,cleanOutput($candidate_name),1,0,'C',0);
-				$pdf->Cell(60,10,cleanOutput($party_name),1,0,'C',0);
+				$pdf->Cell(60,10,cleanOutput($conn, $candidate_name),1,0,'C',0);
+				$pdf->Cell(60,10,cleanOutput($conn, $party_name),1,0,'C',0);
 				$pdf->Cell(60,10,'',0,1); //spacer
 			}
 		}

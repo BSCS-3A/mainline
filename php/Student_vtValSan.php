@@ -16,28 +16,30 @@
     }  
 
     // remove malicious bits; calls fixDataType()
-    function cleanInput($input) {
+    function cleanInput($conn, $input) {
         $search = array(
             '@<script[^>]*?>.*?</script>@si',   // Strip out javascript
             '@<[\/\!]*?[^<>]*?>@si',            // Strip out HTML tags
             '@<style[^>]*?>.*?</style>@siU',    // Strip style tags properly
             '@<![\s\S]*?--[ \t\n\r]*>@'         // Strip multi-line comments
         );
-    
+        
+        $output = $conn -> real_escape_string($input);
         $output = preg_replace($search, '', $input);
         $output = fixDataType($output);
         // $output = mysql_real_escape_string($input)
         return $output;
     }
 
-    function cleanOutput($input) {
+    function cleanOutput($conn, $input) {
         $search = array(
             '@<script[^>]*?>.*?</script>@si',   // Strip out javascript
             '@<[\/\!]*?[^<>]*?>@si',            // Strip out HTML tags
             '@<style[^>]*?>.*?</style>@siU',    // Strip style tags properly
             '@<![\s\S]*?--[ \t\n\r]*>@'         // Strip multi-line comments
         );
-    
+        
+        $output = $conn -> real_escape_string($input);
         $output = preg_replace($search, '', $input);
         $output = trim($output);
         $output = stripslashes($output);
