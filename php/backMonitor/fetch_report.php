@@ -77,33 +77,28 @@
     //======create temporary table==========
     //additional notes: --temporary tables cant be edit nor update its like backup data, it is always static
       function tempCandidate($conn)
-              {
+      {
+          $val = $conn->query('SELECT 1 from temp_candidate LIMIT 1');
 
-                  $val = $conn->query('SELECT 1 from temp_candidate LIMIT 1');
+          if($val == FALSE)
+          {
+              $sql = "CREATE TABLE `temp_candidate`(
+                      `candidate_id` int(11) NOT NULL,
+                      `student_id` int(11) NOT NULL,
+                      `position_id` int(11) NOT NULL,
+                      `total_votes` int(11) NOT NULL,
+                      `party_name` varchar(30) NOT NULL,
+                      `platform_info` varchar(100) NOT NULL,
+                      `credentials` varchar(500) NOT NULL,
+                      `photo` varchar(100) NOT NULL
+              )";
 
-                      if($val != FALSE)
-                          {
-                               $drp = "DROP TABLE temp_candidate";
-			      	$conn->query($drp);
-                               
-                          }
-				 $sql = "CREATE TABLE `temp_candidate` (
-                                 `candidate_id` int(11) NOT NULL,
-                                  `student_id` int(11) NOT NULL,
-                                   `position_id` int(11) NOT NULL,
-                                   `total_votes` int(11) NOT NULL,
-                                   `party_name` varchar(30) NOT NULL,
-                                   `platform_info` varchar(100) NOT NULL,
-                                  `credentials` varchar(500) NOT NULL,
-                                    `photo` varchar(100) NOT NULL
-                                    )";
+            $conn->query($sql);
 
-                                   $conn->query($sql);
-
-                                    $cpydata = "INSERT INTO temp_candidate SELECT * FROM candidate";
-                                   $conn->query($cpydata);
-			
-              }
+            $cpydata = "INSERT INTO temp_candidate SELECT * FROM candidate";
+            $conn->query($cpydata);
+          } 
+			}
 
     //=========store the final result to archive table===============
     //additional notes: if there is a tie, the tie should be resolve first before calling this function.
