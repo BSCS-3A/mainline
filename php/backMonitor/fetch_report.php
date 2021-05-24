@@ -4,10 +4,13 @@
     // Report and PDF date/time
     $sched_row = $conn->query("SELECT * FROM `vote_event` ORDER BY `vote_event_id` DESC LIMIT 1");
     $sched = $sched_row->fetch_assoc();
-    $start_time = strtotime($sched['start_date']);
-    $end_time = strtotime($sched['end_date']);
-    $access_time = time();
-    $end_date = new DateTime($sched['end_date']);
+
+    if($sched != NULL){
+        $start_time = strtotime($sched['start_date']);
+        $end_time = strtotime($sched['end_date']);
+        $access_time = time();
+        $end_date = new DateTime($sched['end_date']);
+    }  
     $archive_sql = ($conn->query("SELECT * FROM `archive` ORDER BY `archive_id` DESC LIMIT 1"));
     $archive_row = $archive_sql->fetch_assoc();
     $archive_sy = $archive_row['school_year'];
