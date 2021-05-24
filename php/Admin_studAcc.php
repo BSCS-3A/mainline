@@ -156,11 +156,11 @@ $DTrow =  $DnT->fetch_row();
                         </div>
                         <div class="modal-body">
                             <div class="form-group">
-                                <input autocomplete="off" class="form-control " name="Add_ID" type="text" placeholder="Enter Student ID"
+                                <input autocomplete="off" class="form-control " name="Add_ID" type="number" placeholder="Enter Student ID"
                                     required="required">
                             </div>
                             <div class="form-group">
-                                <input autocomplete="off" class="form-control " name="lname" id="lname" type="number"
+                                <input autocomplete="off" class="form-control " name="lname" id="lname" type="text"
                                     placeholder="Enter Last Name" required="required">
                             </div>
                             <div class="form-group">

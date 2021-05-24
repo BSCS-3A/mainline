@@ -303,6 +303,7 @@ if (isset($_SESSION['admin_id']) && isset($_SESSION['username'])) {
                                 <div class="field">
                                     <input id="password_main" type="password" name="password" class="form-control" data-toggle="password" placeholder="*********" onChange="onChange()" required>
                                     <!-- <span class="showBtn">SHOW</span> -->
+                                    <!-- <i toggle="#password-field" class="fa fa-fw fa-eye field_icon toggle-password"></i> -->
                                 </div>
                                 <div class="indicator">
                                     <span class="weak"></span>
@@ -384,11 +385,11 @@ if (isset($_SESSION['admin_id']) && isset($_SESSION['username'])) {
                             </div>
                             <div class="form-group">
                                 <label>Password: <span class="label label-warning">Change your password</span></label>
-                                <input type="password" name="password" id="password" class="form-control" data-toggle="password" placeholder="*********" onChange="onChange()">
+                                <input type="password" name="password" id="password_edit" class="form-control" data-toggle="password" placeholder="*********">
                             </div>
                             <div class="form-group">
                                 <label>Confirm Password:</label>
-                                <input type="password" name="conpassword" id="conpassword" class="form-control" data-toggle="password" placeholder="*********" onChange="onChange()">
+                                <input type="password" name="conpassword" id="conpassword_edit" class="form-control" data-toggle="password" placeholder="*********">
                             </div>
                             <div class="container upload">
                                 <label for="photo" width="70%">Upload photo</label><br />
@@ -508,6 +509,16 @@ if (isset($_SESSION['admin_id']) && isset($_SESSION['username'])) {
             });
         </script> -->
 
+        <!-- <script>
+            $(document).on('click', '.toggle-password', function() {
+
+                $(this).toggleClass("fa-eye fa-eye-slash");
+
+                var input = $("#password_main");
+                input.attr('type') === 'password' ? input.attr('type', 'text') : input.attr('type', 'password')
+            });
+        </script> -->
+
         <script>
             $(document).ready(function() {
                 var t = $('#datatable').DataTable({
@@ -605,6 +616,35 @@ if (isset($_SESSION['admin_id']) && isset($_SESSION['username'])) {
             })
         </script>
 
+        <!-- CONFIRM PASSWORD -->
+        <script>
+            function onChange() {
+                const password = document.querySelector('input[name=password]');
+                const confirm = document.querySelector('input[name=conpassword]');
+                if (confirm.value === password.value) {
+                    confirm.setCustomValidity('');
+                } else {
+                    confirm.setCustomValidity('Passwords do not match');
+                }
+            }
+        </script>
+
+        <script>
+            var password = document.getElementById("password_edit"),
+                confirm_password = document.getElementById("conpassword_edit");
+
+            function validatePassword() {
+                if (password.value != confirm_password.value) {
+                    confirm_password.setCustomValidity("Passwords Don't Match");
+                } else {
+                    confirm_password.setCustomValidity('');
+                }
+            }
+
+            password.onchange = validatePassword;
+            confirm_password.onkeyup = validatePassword;
+        </script>
+
         <script>
             const indicator = document.querySelector(".indicator");
             const input = document.getElementById('password_main');
@@ -629,11 +669,13 @@ if (isset($_SESSION['admin_id']) && isset($_SESSION['username'])) {
                         text.style.display = "block";
                         text.textContent = "Your password is too weak";
                         text.classList.add("weak");
+                        input.setCustomValidity("Please change your password. Hint: The password should be at least 6 characters long. To make it stronger, use upper and lower case letters, numbers, and symbols like !.\"?$%^&/.");
                     }
                     if (no == 2) {
                         medium.classList.add("active");
                         text.textContent = "Your password is medium";
                         text.classList.add("medium");
+                        input.setCustomValidity('');
                     } else {
                         medium.classList.remove("active");
                         text.classList.remove("medium");
@@ -644,6 +686,7 @@ if (isset($_SESSION['admin_id']) && isset($_SESSION['username'])) {
                         strong.classList.add("active");
                         text.textContent = "Your password is strong";
                         text.classList.add("strong");
+                        input.setCustomValidity('');
                     } else {
                         strong.classList.remove("active");
                         text.classList.remove("strong");
@@ -670,21 +713,6 @@ if (isset($_SESSION['admin_id']) && isset($_SESSION['username'])) {
                 text.style.display = "none";
             });
         </script>
-
-        <!-- CONFIRM PASSWORD -->
-        <script>
-            function onChange() {
-                const password = document.querySelector('input[name=password]');
-                const confirm = document.querySelector('input[name=conpassword]');
-                if (confirm.value === password.value) {
-                    confirm.setCustomValidity('');
-                } else {
-                    confirm.setCustomValidity('Passwords do not match');
-                }
-            }
-        </script>
-
-
 
         <!-- CROP BEFORE UPLOAD FOR ADD-->
         <script>

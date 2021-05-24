@@ -33,6 +33,7 @@ include("db_conn.php");
         <h2 class="aHeader-txt">ARCHIVES</h2>
     </div>
 
+    <div class="Barch_container">
     <?php
     //  Election Archives Folders (Admin)
     require "db_conn.php";
@@ -64,6 +65,7 @@ include("db_conn.php");
         }
     }
     ?>
+    </div>
     
     <script>
         $('.icon').click(function() {

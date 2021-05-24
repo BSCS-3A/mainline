@@ -14,6 +14,15 @@
     min-height: 100%;
     margin-bottom: 5%;
   }
+
+.guideImg{
+    width: 60vw;
+    margin: 2% auto 1% auto;
+    border-color:  rgb(171, 171, 171);
+    border-width: 2px;
+    border-style: solid;
+
+}
   
 .aboutheader {
     position: relative;
@@ -22,7 +31,7 @@
     font-size: 1%;
     background: rgb(254,206,75);
     font-weight: 400;
-    color: black;
+    color:  rgb(21, 21, 21);
     width: 100%;
     text-align: center;
     font-family: 'Roboto-regular', sans-serif;

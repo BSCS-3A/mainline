@@ -92,7 +92,7 @@ if(!(isValidUser($conn))){
                 <a href="#">ELECTION</a>
                 <input class="nav-toggle4" type="checkbox" id="btn-2">
                 <ul>
-                    <li><a href="Student_process.php">PROCESS</a></li>
+                    <li><a href="Student_process.php">GUIDE</a></li>
                     <li><a href="Student_ArcFolder.php">ARCHIVE</a></li>
                     <li><a href="Student_ElectStat.php">RESULTS</a></li>
                 </ul>

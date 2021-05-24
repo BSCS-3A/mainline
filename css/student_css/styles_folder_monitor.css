@@ -2,38 +2,43 @@ body {
     background-color: rgb(221, 221, 221);
 }
 
-a {
+.Barc_container{
+    width:80%;
+    background-color: white;
+}
+
+.Byear_arc {
     text-decoration: none;
     font-size: large;
     color: aliceblue;
 }
 
+.Byear_arc :hover, Byear_arc :active {
+    text-decoration: none;
+}
+
 .items {
     text-align: center;
     float: left;
-    margin-top: 30px;
-    margin-left: 100px;
+    margin-left: auto;
+    margin-right: auto;
     align-self: auto;
+    color: white;
+    text-decoration: none;
 }
 
 .items:hover {
-    background-color: rgb(255, 255, 255, 0.6);
+    background-color: rgb(255, 255, 255, 0.3);
+    text-decoration: none;
 }
 
 .items figure {
-    margin: 0px 20px;
     text-decoration: none;
     background-color: transparent;
     width: 160px;
     height: 180px;
 }
-	
-@media only screen and (min-device-width: 320px) and (max-device-height: 640px) and (orientation : portrait) and (-webkit-device-pixel-ratio: 3){
-    .items figure { 
-        margin-left: -50px;
-        text-decoration: none;
-        background-color: transparent;
-        width: 80px;
-        height: 180px;
-    }
+
+figcaption {
+    color: white;
 }
