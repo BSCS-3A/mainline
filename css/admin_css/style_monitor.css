@@ -38,7 +38,7 @@ h2.aHeader-txt {
 	grid-template-rows: repeat(autofit, 30%);
 	text-align: center;
 	margin-top: 18px;
-	max-width: 80%;
+	max-width: 60%;
 	margin-left: auto;
 	margin-right: auto;
 }
@@ -515,11 +515,3 @@ iframe {
 	z-index: 1;
 }
 
-/* Samsung Galaxy S3, S4, S5 ----------- */
-@media only screen and (min-device-width: 360px) and (max-device-height: 640px) and (orientation : landscape) and (-webkit-device-pixel-ratio: 3){
-	/* Styles */
-	}
-	
-	@media only screen and (min-device-width: 360px) and (max-device-height: 640px) and (orientation : portrait) and (-webkit-device-pixel-ratio: 3){
-	/* Styles */
-	}
