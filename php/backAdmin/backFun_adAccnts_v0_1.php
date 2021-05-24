@@ -6,10 +6,10 @@ require '../db_conn.php';
 
 if (isset($_POST['saveAccount'])) {
 
-  $admin_lname = cleanOutput($_POST['admin_lname']);
-  $admin_fname = cleanOutput($_POST['admin_fname']);
-  $admin_mname = cleanOutput($_POST['admin_mname']);
-  $username = cleanOutput($_POST['username']);
+  $admin_lname = cleanOutput($conn, $_POST['admin_lname']);
+  $admin_fname = cleanOutput($conn, $_POST['admin_fname']);
+  $admin_mname = cleanOutput($conn, $_POST['admin_mname']);
+  $username = cleanOutput($conn, $_POST['username']);
   $admin_position = $_POST['admin_position'];
   $comelec_position = $_POST['comelec_position'];
   $password = $_POST['password'];
