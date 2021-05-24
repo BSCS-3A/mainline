@@ -42,6 +42,7 @@
             The ballot shall only be accessible during the said schedule of the election. If the student had already voted, the “Vote” navigation will allow the students to re-download their vote receipt.
             <br>
             <br> 1.	On your navigation bar, click on “Vote”.
+            <br> <center><img src="../img/ep0.png" class="guideImg"></center>
             <br> 2.	Select your preferred candidate by clicking the button on the left side of the candidate; otherwise, select “Abstain”.
             <br> <center><img src="../img/ep1.png" class="guideImg"></center>
             <br> 3.	After selecting your preferred candidates for each position, click on “Submit”.
@@ -50,8 +51,13 @@
             <br> <center><img src="../img/ep3.png" class="guideImg"></center>
             <br> 5. After submitting your votes, the software will provide you a copy of your votes in a PDF file.
             <br> <center><img src="../img/ep4.png" class="guideImg"></center>
+            <br><i> Sample Vote Receipt </i>
+            <br> <center><img src="../img/ep6.png" class="guideImg"></center>
             <br>
-            Note: If the election timeframe has ended while the student is still voting, the votes will not be accepted.
+            Please take note of the following: <br> 
+                - If the election timeframe has ended while the student is still voting, the votes will not be accepted. <br>
+                - Do not vote on behalf of others. <br>
+                - You are not allowed to tamper the ballot. <br>
             </div>    
         </div>
     </body>
