@@ -47,7 +47,7 @@ $DTrow =  $DnT->fetch_row();
     <?php include "navAdmin.php"; ?>
 
     <div class="cheader">
-        <h3>STUDENT ACCOUNT MANAGEMENT</h3>
+        <h3 class="cheader-txt">STUDENT ACCOUNT MANAGEMENT</h3>
     </div>
 
 
@@ -112,7 +112,7 @@ $DTrow =  $DnT->fetch_row();
                     <table class="table-center" id="datatable" width="100%">
                         <thead>
                             <tr>
-                                <th class="min-mobile" id="tableth">STUDENT ID</th>
+                                <th class="min-mobile" id="tableh">STUDENT ID</th>
                                 <th class="min-mobile">LAST NAME</th>
                                 <th class="min-mobile">FIRST NAME</th>
                                 <th class="min-mobile">MIDDLE NAME</th>
