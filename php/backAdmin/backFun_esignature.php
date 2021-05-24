@@ -1,5 +1,5 @@
 <?php
-include "./db_conn.php";
+include "../db_conn.php";
 
 if (isset($_POST['upload'])) {
 error_reporting(E_ERROR | E_PARSE);
