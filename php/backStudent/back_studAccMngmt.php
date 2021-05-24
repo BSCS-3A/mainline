@@ -58,9 +58,17 @@ if(isset($_POST["upload"])){
 
                 $grade_level = mysqli_real_escape_string($connect, $data[6]);
 
-                $otp = mysqli_real_escape_string($connect, $data[7]);
+                if(!(empty($data[7]))){     // if cell is empty in case admin forgot to fill 0
+                    $otp = mysqli_real_escape_string($connect, $data[7]);
+                }else{
+                    $otp = 0;
+                }
 
-                $voting_status = mysqli_real_escape_string($connect, $data[8]);
+                if(!(empty($data[8]))){     // if cell is empty in case admin forgot to fill 0
+                    $voting_status = mysqli_real_escape_string($connect, $data[8]);
+                }else{
+                    $voting_status = 0;
+                }
 
                 $query = "INSERT into student(student_id, fname, Mname, lname, gender, bumail, grade_level, otp, voting_status) values ('$student_id', '$fname', '$Mname', '$lname', '$gender', '$bumail', '$grade_level', '$otp', '$voting_status')";
 
