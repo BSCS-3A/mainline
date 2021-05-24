@@ -13,13 +13,18 @@
 
         if (isset($_POST['save'])) {
 
-                $student_id = $_POST['Update_ID'];
-                $lname = $_POST['lname'];
-                $fname = $_POST['fname'];
-                $Mname = $_POST['Mname'];
-                $gender = $_POST['gender'];
-                $bumail = $_POST['bumail'];
-                $grade_level = $_POST['grade_level'];
+            
+            $student_id = $_POST['Update_ID'];
+            $lname = $_POST['lname'];
+            $lname = strip_tags($lname);
+            $fname = $_POST['fname'];
+            $fname = strip_tags($fname);
+            $Mname = $_POST['Mname'];
+            $Mname = strip_tags($Mname);
+            $gender = $_POST['gender'];
+            $bumail = $_POST['bumail'];
+            $bumail = strip_tags($bumail);
+            $grade_level = $_POST['grade_level'];
 
                 $query = "UPDATE student SET lname = '$lname', fname = '$fname', Mname = '$Mname', gender = '$gender', bumail = '$bumail', grade_level = '$grade_level'
                          WHERE student_id = '$student_id' ";
