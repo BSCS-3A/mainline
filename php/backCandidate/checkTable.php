@@ -4,7 +4,7 @@
     session_start();
 
     function sanitize($variables){
-        $sanitized_variables = filter_var($variables, FILTER_SANITIZE_STRING, FILTER_FLAG_STRIP_LOW | FILTER_FLAG_STRIP_HIGH);
+        $sanitized_variables = filter_var($variables, FILTER_SANITIZE_STRING, FILTER_FLAG_STRIP_LOW);
         return $sanitized_variables;
     }
 
