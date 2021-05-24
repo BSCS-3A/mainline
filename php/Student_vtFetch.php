@@ -5,19 +5,19 @@
             $imageLoc = "../img/admin.png";
         }
         echo '<label class="checkbox">
-            <input type="radio" required name="'.$poss["heirarchy_id"].'" id="vote" value="'.$poss["candidate_id"].'" onclick="document.getElementById(\''.$poss['heirarchy_id'].'\').innerHTML = \''.$poss['fname']." ".$poss['lname'].'\'">
+            <input type="radio" required name="'.cleanInput($poss["heirarchy_id"]).'" id="vote" value="'.cleanInput($poss["candidate_id"]).'" onclick="document.getElementById(\''.cleanInput($poss['heirarchy_id']).'\').innerHTML = \''.cleanOutput($poss['fname'])." ".cleanOutput($poss['lname']).'\'">
                 <span class="checkmark"></span>
                     <a><img src="'.$imageLoc.'" class="candidate-photo" style="float: left; width: 100px; height: 100px;" alt="Candidate" ></a>
                     
                   <div class="candidate-info">';
                   
-        echo '<a id="F-CandidateName"><b> Name: ' .$poss["fname"]. " " . $poss["lname"]. '</b></a><br><a id="F-Partylist"> Party: ' .$poss["party_name"]. '</a><br><a id="F-Platform"> Platform: ' . $poss["platform_info"]. '</a>
+        echo '<a id="F-CandidateName"><b> Name: ' .cleanOutput($poss["fname"]). " " .cleanOutput($poss["lname"]). '</b></a><br><a id="F-Partylist"> Party: ' .cleanOutput($poss["party_name"]). '</a><br><a id="F-Platform"> Platform: ' .cleanOutput($poss["platform_info"]). '</a>
         </div>
         </label>';
 
     }
     function showAbstain($poss){
-        echo'<label class="checkbox"><input type="radio" required checked name="'.$poss["heirarchy_id"].'"  id="vote" value = "0" onclick="document.getElementById(\''.$poss["heirarchy_id"].'\').innerHTML = \'Abstain\'"><span class="checkmark"></span><b> Abstain </b></label></div>';
+        echo'<label class="checkbox"><input type="radio" required checked name="'.cleanInput($poss["heirarchy_id"]).'"  id="vote" value = "0" onclick="document.getElementById(\''.cleanInput($poss["heirarchy_id"]).'\').innerHTML = \'Abstain\'"><span class="checkmark"></span><b> Abstain </b></label></div>';
     }
 
     function generateBallot($table){
@@ -36,7 +36,7 @@
                     $counter = 0;
                     echo'</div>';
                     echo'<div id="F-container">';
-                    echo'<a id="F-position" style="float: left;">'.$poss["position_name"].'</a><hr>';
+                    echo'<a id="F-position" style="float: left;">'.cleanOutput($poss["position_name"]).'</a><hr>';
                     // candidate div
                     echo'<div>';
                     showAbstain($poss);         // display abstain choice

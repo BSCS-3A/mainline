@@ -30,6 +30,22 @@
         return $output;
     }
 
+    function cleanOutput($input) {
+        $search = array(
+            '@<script[^>]*?>.*?</script>@si',   // Strip out javascript
+            '@<[\/\!]*?[^<>]*?>@si',            // Strip out HTML tags
+            '@<style[^>]*?>.*?</style>@siU',    // Strip style tags properly
+            '@<![\s\S]*?--[ \t\n\r]*>@'         // Strip multi-line comments
+        );
+    
+        $output = preg_replace($search, '', $input);
+        $output = trim($output);
+        $output = stripslashes($output);
+        $output = htmlspecialchars($output);
+        // $output = mysql_real_escape_string($input)
+        return $output;
+    }
+
     function isVoted($conn){
         // check if user has already voted
         $stud_id = $conn->real_escape_string($_SESSION['student_id']);
