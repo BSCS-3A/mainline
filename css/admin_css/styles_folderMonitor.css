@@ -20,8 +20,8 @@ body {
 .items {
     text-align: center;
     float: left;
-    margin-top: 30px;
     margin-left: auto;
+    margin-right: auto;
     align-self: auto;
     color: white;
     text-decoration: none;
@@ -33,7 +33,6 @@ body {
 }
 
 .items figure {
-    margin: 0px 20px;
     text-decoration: none;
     background-color: transparent;
     width: 160px;
@@ -42,48 +41,4 @@ body {
 
 figcaption {
     color: white;
-}
-
-/* Samsung Galaxy S3 ----------- */
-@media only screen and (min-device-width: 320px) and (max-device-height: 640px) and (orientation : landscape) and (-webkit-device-pixel-ratio: 2){
-    /* Styles */
-    }
-    
-@media only screen and (min-device-width: 320px) and (max-device-height: 640px) and (orientation : portrait) and (-webkit-device-pixel-ratio: 2){
-    .items figure {
-        margin: -20px;
-        text-decoration: none;
-        background-color: transparent;
-        width: 20px;
-        height: 20px;
-    }
-
-    .Byear_arc {
-        text-decoration: none;
-        font-size: large;
-        color: rgb(24, 28, 32);
-    }
-    .items:hover {
-        background-color: orange;
-        text-decoration: none;
-    }
-    
-}
-    
-/* Samsung Galaxy S4 ----------- */
-@media only screen and (min-device-width: 320px) and (max-device-height: 640px) and (orientation : landscape) and (-webkit-device-pixel-ratio: 3){
-    /* Styles */
-}
-    
-@media only screen and (min-device-width: 320px) and (max-device-height: 640px) and (orientation : portrait) and (-webkit-device-pixel-ratio: 3){
-/* Styles */
-}
-    
-/* Samsung Galaxy S5 ----------- */
-@media only screen and (min-device-width: 360px) and (max-device-height: 640px) and (orientation : landscape) and (-webkit-device-pixel-ratio: 3){
- /* Styles */
-}
-    
-@media only screen and (min-device-width: 360px) and (max-device-height: 640px) and (orientation : portrait) and (-webkit-device-pixel-ratio: 3){
-    /* Styles */
 }
