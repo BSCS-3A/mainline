@@ -198,7 +198,7 @@ if (isset($_SESSION['admin_id']) && isset($_SESSION['username'])) {
                         <table class="table-center" id="datatable" width="100%">
                             <thead>
                                 <tr>
-                                    <th class="min-mobile">NO.</th>
+                                    <th class="min-mobile" id="tablehead">NO.</th>
                                     <th style="display:none;"></th>
                                     <th class="min-mobile">FIRST NAME</th>
                                     <th class="min-mobile">MIDDLE NAME</th>

@@ -524,10 +524,18 @@ tbody {
 }
 
 th {
-  border: 1px solid #124254;
-  color: #EEEEEE;
+  color: #ffffff;
   background-color: #18566e;
   text-align: center;
+  font-size: 10pt;
+  font-family: 'Roboto-regular', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  border: 1px solid #124254 !important;
+}
+
+#tablehead {
+  padding: 10px!important;
 }
 
 td {
