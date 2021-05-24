@@ -7,14 +7,14 @@
 
         $student_id = $_POST['Add_ID'];
         $lname = $_POST['lname'];
-        $lname = cleanOutput(strval($lname));
+        $lname = cleanOutput($conn,strval($lname));
         $fname = $_POST['fname'];
-        $fname = cleanOutput(strval($fname));
+        $fname = cleanOutput($conn,strval($fname));
         $Mname = $_POST['Mname'];
-        $Mname = cleanOutput(strval($Mname));
+        $Mname = cleanOutput($conn,strval($Mname));
         $gender = $_POST['gender'];
         $bumail = $_POST['bumail'];
-        $bumail = cleanOutput(strval($bumail));
+        $bumail = cleanOutput($conn,strval($bumail));
         $otp = 0;
         $vs = 0;
         $grade_level = $_POST['grade_level'];
