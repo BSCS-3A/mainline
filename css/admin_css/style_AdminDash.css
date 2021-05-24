@@ -100,7 +100,8 @@ aside {
   font-size: 2.5em;
   color: black;
   margin-bottom: .8em;
-  font-family: 'Roboto-regular', sans-serif;
+  font-family: 'genericaregular', sans-serif;
+  font-weight: 1000;
 }
 
 #AD-CD-contents {
@@ -128,8 +129,9 @@ div li span {
 aside p.Aelec-guide-txt {
   font-family: 'Roboto-regular', sans-serif;
   text-align: justify;
-  font-size: 1em;
-  margin-top: 1em;
+  font-size: 1.1em;
+  margin-top: 3em;
+  color: black;
   /* margin-bottom: 0; */
 }
 
@@ -137,6 +139,15 @@ aside p.Aelec-guide-txt {
   min-height: 100%;
   /* overflow: auto; */
   padding-bottom: 50px;
+}
+
+#DateToDate{
+  color: #000;
+  margin-top: 16px;
+  font-family: 'Roboto-bold', sans-serif;
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 16px;
 }
 
 /* nav img.user-profile {

@@ -42,6 +42,7 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
 					$_SESSION['lname'] = $row['lname'];
 					$_SESSION['gender'] = $row['gender'];
 					$_SESSION['student_id'] = $row['student_id'];
+					$_SESSION['otp'] = password_hash($row['bumail'].$row['otp'], PASSWORD_DEFAULT);
 					$_SESSION['grade_level'] = $row['grade_level']; //added for voting : 03/04/2021 , 11:48am
 					$_SESSION['timestamp']=time(); //added for time session
 					$student_id = $row['student_id'];

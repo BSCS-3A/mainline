@@ -16,14 +16,14 @@
             
             $student_id = $_POST['Update_ID'];
             $lname = $_POST['lname'];
-            $lname = cleanOutput($lname);
+            $lname = cleanOutput($conn,$lname);
             $fname = $_POST['fname'];
-            $fname = cleanOutput($fname);
+            $fname = cleanOutput($conn,$fname);
             $Mname = $_POST['Mname'];
-            $Mname = cleanOutput($Mname);
+            $Mname = cleanOutput($conn,$Mname);
             $gender = $_POST['gender'];
             $bumail = $_POST['bumail'];
-            $bumail = cleanOutput($bumail);
+            $bumail = cleanOutput($conn,$bumail);
             $grade_level = $_POST['grade_level'];
 
                 $query = "UPDATE student SET lname = '$lname', fname = '$fname', Mname = '$Mname', gender = '$gender', bumail = '$bumail', grade_level = '$grade_level'

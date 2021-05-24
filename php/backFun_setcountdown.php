@@ -23,6 +23,11 @@ if (isset($_POST['editsched'])) {
     
     $startDate = $_POST['date'];
     $endDate = $_POST['dateEnd'];
+    $timeStart = $_POST['tstart'];
+    $timeEnds = $_POST['tends'];
+
+    $startDate .= " $timeStart";
+    $endDate .= " $timeEnds";
 
 
    //if($startDate >= $endDate){
