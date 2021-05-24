@@ -7,21 +7,7 @@ body{
 }
 
 
- @media (min-width: 600px) and (max-width: 767px){
-  #add_modal{}
- }
-
-  @media (min-width: 768px){
-    .col-sm-6{
-      width: 100% !important;
-    }
-
-    .center{
-      width: 100% !important;
-    }
-
-
-  }
+  
   @media all and (max-width: 968px) {
     .wrapper{
       flex-direction: column;
@@ -121,21 +107,89 @@ body{
     font-family: 'genericaregular', sans-serif;
   }
 
+  /* Container for flexboxes */
+
+  section {
+    display: -webkit-flex;
+    display: flex;
+    margin-left: 30px;
+    margin-top: 100px;
+    float: left;
+  }
+
+  article p {
+    font-family: 'Roboto-regular', sans-serif;
+    color: white;
+    font-weight: inherit;
+    font-size: 20px;
+    letter-spacing: 3px;
+    position: relative;
+  }
+
+  article h1 {
+    font-family: 'genericaregular', sans-serif;
+    color: #ffc423;
+    font-weight: inherit;
+    font-size: 55px;
+    position: relative;
+    letter-spacing: 3px;
+    margin-top: 10px;
+  }
+
+  /* Style the content */
+
+  article {
+    -webkit-flex: 3;
+    -ms-flex: 3;
+    flex: 3;
+    padding: 10px;
+  }
+
+  /*For logos on top of welcome banner*/
+
+  img.logos {
+    float: left;
+    padding-left: 10px;
+    height: 90px;
+    width: 100px;
+    margin-bottom: 2em;
+  }
+
+  .logo-container {
+    position: relative;
+    /* float: left; */
+    display: -webkit-flex;
+    display: flex;
+    margin-left: 0px;
+    margin-top: 0px;
+    max-width: 700px;
+  }
 
   /* Responsive layout - makes the menu and the content (inside the section) sit on top of each other instead of next to each other */
-
-  @media (max-width: 600px) {
-    body, section, #ADaside-container, #ADcountdown, #AD-CD-contents, .wrapper {
+@media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
+    body, section, .wrapper {
       -webkit-flex-direction: column;
       flex-direction: column;
     }
-
-    .ADcountdown {
-      font-size: auto;
+    .btn-toolbar{
+    display: grid;
+    margin-left: 0 !important;
     }
-    #AD-CD-contents {
-      display: block;
-      font-size: auto;
+    #datatable_length{
+    display:revert !important;
+    }
+    .dataTables_info{
+    display:block !important;
+    }
+    #datatable_paginate{
+    display:grid;
+    }
+    .modal-footer{
+    text-align: center !important;
+    }
+    .prev{
+      margin-left: auto !important;
+      margin-right: auto !important;
     }
     .img-container{
      overflow:hidden;
@@ -147,6 +201,225 @@ body{
 
   }
 
+  @media only screen and (max-width : 320px) {
+    body, section, .wrapper {
+    -webkit-flex-direction: column;
+    flex-direction: column;
+    }
+
+    .btn-toolbar{
+    display: grid;
+    margin-left: 0 !important;
+    }
+    #datatable_length{
+    display:revert !important;
+    }
+    .dataTables_info{
+    display:block !important;
+    }
+    #datatable_paginate{
+    display:grid;
+    }
+    .modal-footer{
+    text-align: center !important;
+    }
+    .prev{
+      margin-left: auto !important;
+      margin-right: auto !important;
+    }
+    .img-container{
+     overflow:hidden;
+     width: 100%;
+    }
+    div.cropper-container.cropper-bg{
+    width:auto !important;
+    }
+  }
+
+  @media only screen and (device-width: 320px) and (device-height: 640px) and (orientation: portrait) and (-webkit-device-pixel-ratio: 2) { /*smartphones*/
+      body, section, .wrapper {
+    -webkit-flex-direction: column;
+    flex-direction: column;
+    }
+    .btn-toolbar{
+    display: grid;
+    margin-left: 0 !important;
+    }
+    #datatable_length{
+    display:revert !important;
+    }
+    .dataTables_info{
+    display:block !important;
+    }
+    #datatable_paginate{
+    display:grid;
+    }
+    .modal-footer{
+    text-align: center !important;
+    }
+    .prev{
+      margin-left: auto !important;
+      margin-right: auto !important;
+    }
+    .img-container{
+     overflow:hidden;
+     width: 100%;
+    }
+    div.cropper-container.cropper-bg{
+    width:auto !important;
+    }
+  }
+
+  @media only screen and (device-width: 320px) and (device-height: 640px) and (orientation: landscape) and (-webkit-device-pixel-ratio: 2) {
+    body, section, .wrapper {
+    -webkit-flex-direction: column;
+    flex-direction: column;
+    }
+    .btn-toolbar{
+    display: grid;
+    margin-left: 0 !important;
+    }
+    #datatable_length{
+    display:revert !important;
+    }
+    .dataTables_info{
+    display:block !important;
+    }
+    #datatable_paginate{
+    display:grid;
+    }
+    .modal-footer{
+    text-align: center !important;
+    }
+    .prev{
+      margin-left: auto !important;
+      margin-right: auto !important;
+    }
+    .img-container{
+     overflow:hidden;
+     width: 100%;
+    }
+    div.cropper-container.cropper-bg{
+    width:auto !important;
+    }
+  }
+  @media (min-width: 481px) and (max-width: 640px) {
+    body, section, .wrapper {
+    -webkit-flex-direction: column;
+    flex-direction: column;
+    }
+    #datatable_filter{
+    float: right;
+    text-align: right;
+    }
+    #datatable_paginate{
+    float: right;
+    text-align: right;
+    margin-top: 25px;
+    }
+    .img-container{
+     overflow:hidden;
+     width: 100%;
+    }
+    div.cropper-container.cropper-bg{
+    width:auto !important;
+    }
+  }
+  @media only screen and (device-width: 768px) and (orientation: portrait) and (-webkit-min-device-pixel-ratio: 1) {
+    body, section, .wrapper {
+    -webkit-flex-direction: column;
+    flex-direction: column;
+    }
+    #datatable_filter{
+    float: right;
+    text-align: right;
+    }
+    #datatable_paginate{
+    float: right;
+    text-align: right;
+    margin-top: 25px;
+    }
+    .img-container{
+     overflow:hidden;
+     width: 100%;
+    }
+    div.cropper-container.cropper-bg{
+    width:auto !important;
+    }
+  }
+  @media only screen and (device-width: 1024px) and (device-height: 768px) and (orientation:landscape) {
+    body, section, .wrapper {
+    -webkit-flex-direction: column;
+    flex-direction: column;
+    }
+    #datatable_filter{
+    float: right;
+    text-align: right;
+    }
+    #datatable_paginate{
+    float: right;
+    text-align: right;
+    margin-top: 25px;
+    }
+    .img-container{
+     overflow:hidden;
+     width: 100%;
+    }
+    div.cropper-container.cropper-bg{
+    width:auto !important;
+    }
+  }
+  @media only screen and (device-width: 768px) and (device-width: 1024px)  and (orientation: portrait) and (-webkit-min-device-pixel-ratio: 1) {
+    body, section, .wrapper {
+    -webkit-flex-direction: column;
+    flex-direction: column;
+    }
+    #datatable_filter{
+    float: right;
+    text-align: right;
+    }
+    #datatable_paginate{
+    float: right;
+    text-align: right;
+    margin-top: 25px;
+    }
+    .img-container{
+     overflow:hidden;
+     width: 100%;
+    }
+    div.cropper-container.cropper-bg{
+    width:auto !important;
+    }
+  }
+
+  /*footer*/
+
+  .footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: auto;
+    padding: 5px;
+    background-color: #124254;
+    text-align: center;
+  }
+
+  div p.footer-txt {
+    position: relative;
+    margin-top: auto;
+    margin-bottom: auto;
+    font-family: 'Roboto-regular', sans-serif;
+    letter-spacing: 7px;
+    font-size: 10px;
+    color: #ffffff;
+  }
+
+  nav img.user-profile {
+    margin-top: 0;
+    height: 40px;
+    width: 40px;
+  }
 
   /*Datatable*/
 
@@ -158,7 +431,25 @@ body{
     border: 2px solid #124254;
     width: 95%;
     height: auto;
+    /**opacity: 80%;**/
     font-size: .8rem;
+  }
+
+  #ADdataTable {
+    border-collapse: collapse !important;
+    table-layout: auto;
+    margin: 0;
+    text-align: center;
+    opacity: 100%;
+    width: 100% !important;
+  }
+
+  thead {
+    width: 100%;
+    color: #EEEEEE;
+    background-color: #18566e;
+    text-align: center;
+    font-size: 12px;
   }
 
   thead input {
@@ -169,15 +460,45 @@ body{
     color: #ffffff;
     background-color: #18566e;
     text-align: center;
-    font-size: 10pt;
-    font-family: 'Roboto-regular', sans-serif;
+    font-size: .8rem;
+    font-family: Roboto regular, sans-serif;
     text-transform: uppercase;
     letter-spacing: 2px;
     border: 1px solid #124254 !important;
   }
+
+  td {
+    border: 1px solid #124254;
+    padding: 0;
+    max-width: 150px;
+    max-height: 150px;
+    overflow: hidden;
+    font-size: .8rem;
+  }
+
+  #ADheader {
+    position: relative;
+    z-index: -1;
+    padding: 6px;
+    background: #124254;
+    color: #ffffff;
+    width: 100%;
+    text-align: center;
+    font-family: 'Roboto-regular', sans-serif;
+    letter-spacing: 6px;
+  }
+
+  h2.aHeader-txt {
+    font-size: 24px;
+    margin-top: .5%;
+    margin-bottom: .5%;
+  }
+
   .row {
     margin: 0;
   }
+
+  /*Everything here is for the NavBar*/
 
   /*Datatables*/
 
@@ -203,45 +524,6 @@ body{
   #CPTable2 {
     padding-top: 35px;
     /* width: 160%; */
-  }
-
-  #datatable {
-    width: 100%;
-    border: 1px solid #124254;
-    font-family: 'Roboto-regular', sans-serif;
-    border-collapse: collapse;
-    table-layout: auto;
-    margin: 0px;
-    text-align: center;
-    background-color: rgba(255, 255, 255, 0.6);
-  }
-
-  table.center {
-    margin-left: auto;
-    margin-right: auto;
-  }
-
-  thead {
-    border: 1px solid #124254;
-    color: #EEEEEE;
-    background-color: #18566e;
-    text-align: center;
-    height: 20px;
-  }
-
-  tbody {
-    overflow: hidden;
-  }
-
-  #datatable td {
-    border: 1px solid #124254;
-    padding: 3px;
-    max-width: 150px;
-    height: 40px;
-    overflow: hidden;
-    word-wrap: break-word;
-    padding: 0.5%!important;
-    font-size: 11pt;
   }
 
   .pagination>li {
@@ -342,6 +624,7 @@ body{
   background-color: #C23B22 !important;
   }
 
+
   #go {
     color: #fff;
     background: #124254;
@@ -352,9 +635,110 @@ body{
     margin: 30px 15px 25px 15px;
   }
 
+  #datatable {
+    width: 100%;
+    border: 1px solid #124254;
+    font-family: 'Roboto-regular', sans-serif;
+    border-collapse: collapse;
+    table-layout: auto;
+    margin: 0px;
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.6);
+  }
+
+  table.center {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  thead {
+    border: 1px solid #124254;
+    color: #EEEEEE;
+    background-color: #18566e;
+    text-align: center;
+  }
+
+  tbody {
+    overflow: hidden;
+  }
+
+  th {
+    color: #EEEEEE;
+    background-color: #18566e;
+    text-align: center;
+    overflow: hidden;
+    font-size: 1.6em;
+  }
+
+  td {
+    border: 1px solid #124254;
+    padding: 0px;
+    max-width: 150px;
+    max-height: 150px;
+    overflow: hidden;
+  }
+
+  #datatable td {
+    padding: 12px 12px 12px 12px;
+    max-width: 150px;
+    max-height: 150px;
+    overflow: hidden;
+    font-size: 15px;
+    color: #2f4f4f;
+    font-family: 'Roboto-regular',sans-serif;
+  }
+
+  article p {
+    font-family: 'Roboto-regular', sans-serif;
+    color: white;
+    font-weight: inherit;
+    font-size: 20px;
+    letter-spacing: 3px;
+    position: relative;
+  }
+
+  article h1 {
+    font-family: 'genericaregular', sans-serif;
+    color: #ffc423;
+    font-weight: inherit;
+    font-size: 55px;
+    position: relative;
+    letter-spacing: 3px;
+    margin-top: 10px;
+  }
+
+  /* Style the content */
+
+  article {
+    -webkit-flex: 3;
+    -ms-flex: 3;
+    flex: 3;
+    padding: 10px;
+  }
+
+  /*For logos on top of welcome banner*/
+
+  img.logos {
+    float: left;
+    padding-left: 10px;
+    height: 90px;
+    width: 100px;
+    margin-bottom: 2em;
+  }
+
+  .logo-container {
+    position: relative;
+    /* float: left; */
+    display: -webkit-flex;
+    display: flex;
+    margin-left: 0;
+    margin-top: 0;
+    max-width: 700px;
+  }
 
   /* Responsive layout - makes the menu and the content (inside the section) sit on top of each other instead of next to each other */
 
+  }
   @media (max-width: 600px) {
     body, section, .container {
       -webkit-flex-direction: column;
@@ -366,6 +750,33 @@ body{
     .center {
       width: 100% !important;
     }
+  }
+
+  .footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: auto;
+    padding: .5px;
+    background-color: #124254;
+    text-align: center;
+    z-index: 999999;
+  }
+
+  div p.footer-txt {
+    position: relative;
+    top: .5em;
+    font-family: 'Roboto-regular', sans-serif;
+    letter-spacing: 7px;
+    font-size: 1em;
+    color: #ffffff;
+  }
+
+  nav img.user-profile {
+    margin-top: 0;
+    height: 40px;
+    width: 40px;
   }
 
   .panel-primary {
@@ -677,13 +1088,10 @@ body{
     position: relative;
   }
 
-  .btn-button1{
+  .btn-button1 {
     color: #124254;
     margin: 0px;
     padding: 0px;
-    background: #fece4b;
-    border-color: #124254;
-    box-shadow: none;
     padding: 10px 20px;
     margin: 25px 0px 15px 0px!important;
     text-transform: uppercase;
@@ -702,7 +1110,7 @@ body{
   .modal-open {
     padding: 0 !important;
   }
-
+  
   #show-list::-webkit-scrollbar-track {
     -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
     background-color: transparent;
@@ -894,13 +1302,7 @@ label.button{
   font-weight: bold;
   color: white;
   font-family: 'Roboto-regular',sans-serif;
-  box-shadow:
-  inset 0 0 2px 0 rgba(255,255,255,.4),
-  inset 0 0 3px 0 rgba(0,0,0,.4),
-  inset 0 0 3px 5px rgba(0,0,0,.05),
-  2px 2px 4px 0 rgba(0,0,0,.25);
-  border-radius: 4px;
-  line-height: 14px;
+   box-shadow: 1px 1px 5px #888888;
 }
 
 .hide{
@@ -1123,7 +1525,7 @@ a.paginate_button.current:hover{
 }
 
 div.btn-toolbar{
-  margin-left: 0 !important;
+  /* margin-left: 0 !important; */
 }
 
 #save-add:hover, #save-edit:hover, #continue-load:hover, #save:hover{
@@ -1144,8 +1546,30 @@ div.btn-toolbar{
       background: #dddddd;
     height: 33px!important;
     box-shadow: 1px 1px 5px #888888;
-    width: 15%;
     margin-top: 8px;
     margin-left: 2px!important;
     box-shadow: 1px 1px 1px #888888;
 }
+
+#crop, .btn.btn-secondary{
+font-family: 'Roboto-regular', sans-serif;
+}
+
+#crop{
+background-color: #124254 !important;
+}
+
+ @media (min-width: 600px) and (max-width: 767px){  
+  #add_modal{}  
+ }  
+
+  @media (min-width: 768px){  
+    .col-sm-6{  
+      width: 100% !important; 
+    } 
+
+    .center{  
+      width: 100% !important; 
+    } 
+  }
+
