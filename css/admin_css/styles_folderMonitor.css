@@ -2,13 +2,18 @@ body {
     background-color: rgb(221, 221, 221);
 }
 
-a {
+.Barc_container{
+    width:80%;
+    background-color: white;
+}
+
+.Byear_arc {
     text-decoration: none;
     font-size: large;
     color: aliceblue;
 }
 
-a :hover, a :active {
+.Byear_arc :hover, Byear_arc :active {
     text-decoration: none;
 }
 
@@ -16,7 +21,7 @@ a :hover, a :active {
     text-align: center;
     float: left;
     margin-top: 30px;
-    margin-left: 100px;
+    margin-left: auto;
     align-self: auto;
     color: white;
     text-decoration: none;
@@ -39,25 +44,46 @@ figcaption {
     color: white;
 }
 
-/* Samsung Galaxy S3, S4, S5 ----------- */
+/* Samsung Galaxy S3 ----------- */
+@media only screen and (min-device-width: 320px) and (max-device-height: 640px) and (orientation : landscape) and (-webkit-device-pixel-ratio: 2){
+    /* Styles */
+    }
+    
+@media only screen and (min-device-width: 320px) and (max-device-height: 640px) and (orientation : portrait) and (-webkit-device-pixel-ratio: 2){
+    .items figure {
+        margin: -20px;
+        text-decoration: none;
+        background-color: transparent;
+        width: 20px;
+        height: 20px;
+    }
+
+    .Byear_arc {
+        text-decoration: none;
+        font-size: large;
+        color: rgb(24, 28, 32);
+    }
+    .items:hover {
+        background-color: orange;
+        text-decoration: none;
+    }
+    
+}
+    
+/* Samsung Galaxy S4 ----------- */
+@media only screen and (min-device-width: 320px) and (max-device-height: 640px) and (orientation : landscape) and (-webkit-device-pixel-ratio: 3){
+    /* Styles */
+}
+    
+@media only screen and (min-device-width: 320px) and (max-device-height: 640px) and (orientation : portrait) and (-webkit-device-pixel-ratio: 3){
+/* Styles */
+}
+    
+/* Samsung Galaxy S5 ----------- */
 @media only screen and (min-device-width: 360px) and (max-device-height: 640px) and (orientation : landscape) and (-webkit-device-pixel-ratio: 3){
-	.items {
-        text-align: center;
-        float: left;
-        margin-top: 30px;
-        margin-left: 100px;
-        align-self: auto;
-        color: white;
-        text-decoration: none;
-	}
-	
+ /* Styles */
+}
+    
 @media only screen and (min-device-width: 360px) and (max-device-height: 640px) and (orientation : portrait) and (-webkit-device-pixel-ratio: 3){
-    .items {
-        text-align: center;
-        float: left;
-        margin-top: 150px;
-        align-self: auto;
-        color: white;
-        text-decoration: none;
-    }    
+    /* Styles */
 }
