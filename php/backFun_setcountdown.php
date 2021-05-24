@@ -20,6 +20,14 @@ function function_alert($msg) {
 
    //edit timeframe
 if (isset($_POST['editsched'])) {
+    
+    $startDate = $_POST['date'];
+    $endDate = $_POST['dateEnd'];
+
+
+   if($startDate >= $endDate){
+      function_alert("Incorrect Input"); 
+    }else{
       
     $truncate = mysqli_query($conn, "TRUNCATE TABLE vote_event"); 
 
@@ -37,7 +45,7 @@ if (isset($_POST['editsched'])) {
       //For Logs
       $_SESSION['action'] = 'set Election Countdown.';
       include './backAdmin/backFun_actLogs_v0_1.php';
-
+   }
 
  }else{
    function_alert("Updating failed");
