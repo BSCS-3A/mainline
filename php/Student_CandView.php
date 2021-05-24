@@ -82,12 +82,9 @@
     <?php include "navStudent.php"; ?>
 
 
-     <section id="section-container">
-        <!--Left Content-->
-        <article>
-            <h1>OFFICIAL CANDIDATES</h1>
-        </article>
-    </section>
+<div class = "Cand_header">
+  <h3>OFFICIAL CANDIDATES</h3>
+</div>
 
     <div class= "Uwrapper">
         <div class="Uleft">
@@ -132,7 +129,7 @@
             </div>
 </div>
         </div>
-            <div class = "scroll_Top" style="margin-bottom: 50px !important;">
+            <div class = "scroll_Top">
     <button id = "scrollToTopBtn" >^</button>
 </div>
     
