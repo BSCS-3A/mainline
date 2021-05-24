@@ -220,10 +220,12 @@ img.candidate-photo {
 /* Responsive layout - makes the menu and the content (inside the section) sit on top of each other instead of next to each other */
 
 @media (max-width: 1200px) {
-  header {
-    text-align: center;
+  #F-header {
+    margin-right: 10px;
+    margin-left: 10px;
   }
   #F-container {
+    max-width: 90%;
     min-width: 90%;
     position: relative;
   }
@@ -240,6 +242,15 @@ img.candidate-photo {
 @media screen and (max-width: 450px) {
   .candidate-info {
     display: inline-block;
+  }
+}
+
+@media screen and (max-width: 280px) {
+  .checkmark{
+    margin-top: 45px;
+  }
+  #F-position{
+    margin-left: 10px;
   }
 }
 
