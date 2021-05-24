@@ -222,7 +222,6 @@ select {
   .Acontainer{
     position: relative; /* or absolute */
     display: inline-block;
-    float: none;
     max-width: 100%;
     top: -150px;
   }
