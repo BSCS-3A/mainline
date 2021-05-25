@@ -16,6 +16,7 @@ include('db_conn.php');
     <link rel="stylesheet" type="text/css" href="../css/student_css/bootstrap.min-vote.css">
     <link rel="stylesheet" type="text/css" href="../css/student_css/bootstrap_vote.css">
     <link rel="stylesheet" type="text/css" href="../css/student_css/vote_ballot.css">
+    <link rel="stylesheet" type="text/css" href="../css/student_css/style_studDash.css">
     <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
     <script src="../js/scripts_vote.js"></script>
