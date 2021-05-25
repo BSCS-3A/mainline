@@ -22,8 +22,8 @@ include("db_conn.php");
     <script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
     <script src="../js/dataTables.bootstrap4.min_AdminDash.js"></script>
     <script src="../js/jquery.dataTables.min_adminDash.js"></script>
-    <script src="../js/dataTables.responsive.min_AdminDash"></script>
     <script type="text/javascript" src="../js/admin_session_timer.js"></script>
+    <script src="https://cdn.datatables.net/responsive/2.2.7/js/responsive.bootstrap4.min.js"></script>
     <title>Access Logs | BUCEILS HS Online Voting System</title>
 </head>
 
@@ -116,7 +116,7 @@ include("db_conn.php");
                 "lengthMenu": [
                     [10, 25, 50, -1],
                     [10, 25, 50, "All"]
-                ]    
+                ]
             });
             $('#ADdataTable2').DataTable({
                 "lengthMenu": [
