@@ -183,102 +183,22 @@ aside p.Aelec-guide-txt {
 
 
 
+@media only screen and (max-device-width: 1000px) {
+  body, section, #ADaside-container, #ADcountdown, #AD-CD-contents {
+    -webkit-flex-direction: column;
+    flex-direction: column;
+  }
+}
+
 /* Responsive layout - makes the menu and the content (inside the section) sit on top of each other instead of next to each other */
-@media (max-width: 640px) { /*landscape galaxy s5*/
-  body, section, aside, #aside-container, #acountdown, #AD-CD-contents {
-    -webkit-flex-direction: column;
-    flex-direction: column;
-  }
-  #acountdown {
-    font-size: auto;
-  }
-  #ADaside-container{
-    float: left;
-    margin-left: 70px;
-    margin-top: -50px;
-  }
-  #AD-CD-contents {
-    display: block;
-    font-size: auto;
-  }
-}
-
-@media only screen and (device-width: 768px) and (orientation: portrait) and (-webkit-min-device-pixel-ratio: 1) { /*ipad portrait*/
-  body, section, aside, #aside-container, #acountdown, #AD-CD-contents {
-    -webkit-flex-direction: column;
-    flex-direction: column;
-  }
-  section{
-    margin-top: 30px;
-    float: left;
-    margin-left: 70px;
-  }
-  #aside-container{
-    float: left;
-    margin-left: 130px;
-    margin-top: -50px;
-  }
-  #acountdown {
-    font-size: auto;
-  }
-  #AD-CD-contents {
-    display: block;
-    font-size: auto;
-  }
-}
-
-@media only screen and (device-width: 1024px) and (device-height: 768px) and (orientation:landscape) {  /*ipad landscape*/
-  body, section, aside, #aside-container, #acountdown, #AD-CD-contents {
-    -webkit-flex-direction: column;
-    flex-direction: column;
-  }
-  section{
-    margin-top: 20px;
-    float: left;
-    margin-left: 160px;
-  }
-  #aside-container{
-    margin-top: -50px;
-    float: left;
-    margin-left: 160px;
-    max-width: 700px;
-  }
-  #AD-CD-contents{
-    display: block;
-    font-size: auto;
-    font-weight: bold;
-  }
-  #acountdown {
-    font-size: auto;
-  }
-}
-
-@media only screen and (device-width: 1024px) and (orientation: portrait) and (-webkit-min-device-pixel-ratio: 1) { /*ipad pro potrait*/
-  body, section, aside, #aside-container, #acountdown, #AD-CD-contents {
-    -webkit-flex-direction: column;
-    flex-direction: column;
-  }
-  section{
-    margin-top: 150px;
-    margin-left: 110px;
-  }
-  #aside-container{
-    float: left;
-    margin-left: 110px;
-    max-width: 800px;
-  }
-  #acountdown {
-    font-size: auto;
-  }
-  #AD-CD-contents {
-    display: block;
-    font-size: auto;
-  }
-}
-
-/* iPhone 6/7/8+ landscape */
-@media only screen and (min-device-width: 414px)  and (orientation : landscape) and (-webkit-device-pixel-ratio: 3){
-  body, section, aside, #aside-container, #acountdown, #AD-CD-contents {
+/* S5 Portrait */
+@media screen 
+  and (device-width: 360px) 
+  and (device-height: 640px) 
+  and (-webkit-device-pixel-ratio: 4) 
+  and (orientation: portrait) {
+  
+  body, section, #aside-container, #acountdown, #AD-CD-contents {
     -webkit-flex-direction: column;
     flex-direction: column;
   }
@@ -290,79 +210,233 @@ aside p.Aelec-guide-txt {
   }
   article{
     width: 100%;
+    flex-shrink: 2 !important;
   }
   #acountdown {
     font-size: auto;
   }
-  #aside-container{
-    float: left;
-    margin-left: 90px;
-    margin-top: -60px;
-    margin-bottom: 40px;
-    max-width: 646px; /*736px - 90px*/
-    height: 100%;
-  }
-  #AD-CD-contents{
-    display: block;
-    font-size: auto;
-  }
-  .Aelec-guide-txt{
-    margin-bottom: 60px;
-  }
-}
-
-/* ----------- iPhone 5, 5S, 5C and 5SE ----------- */
-/* portrait */
-@media only screen and (device-height: 568px) {
-  body, section, aside, #aside-container, #acountdown, #AD-CD-contents {
-    -webkit-flex-direction: column;
-    flex-direction: column;
-  }
-  section{
-    display: flex;
-    margin-left: 20px;
-    margin-top: 100px;
-    float: left;
-  }
-  article p, article h1 {
-    width: 100%;
-    margin-right: 10px;
-    max-width: 90%;
-  }
-  #acountdown{
-    font-size: auto;
-  }
-  #aside-container{
-    float: left;
-    margin-left: 40px;
-    margin-top: -60px;
-    margin-bottom: 40px;
-    height: 100%;
-    /* transform: translate(-20px, 10px); */
-  }
-  #AD-CD-contents {
-    display: block;
-    font-size: auto;
-  }
-  .Aelec-guide-txt{
-    margin-bottom: 60px;
-  }
-}
-
-/*iphone X landscape*/
-@media only screen 
-  and (min-device-width: 375px) 
-  and (max-device-width: 812px) 
-  and (-webkit-min-device-pixel-ratio: 3)
-  and (orientation: landscape) {
-
   #aside-container{
     float: left;
     margin-left: 60px;
     margin-top: -60px;
     margin-bottom: 40px;
-    max-width: 752px; /*812px - 60px*/
     height: 100%;
+    max-width: 320px;
+  }
+  #AD-CD-contents {
+    display: block;
+    font-size: auto;
+  }
+  .Aelec-guide-txt{
+    margin-bottom: 60px;
+  }
+}
+
+/* Smartphones (portrait and landscape) ----------- */
+@media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
+  body, section, #aside-container, #acountdown, #AD-CD-contents {
+    -webkit-flex-direction: column;
+    flex-direction: column;
+  }
+  section{
+    display: flex;
+    margin-left: 20px;
+    margin-top: 100px;
+    float: left;
+  }
+  .Alogos{
+    object-fit: scale-down;
+    max-width: 100%;
+    max-height: 100%;
+  }
+  article{
+    width: 100%;
+    flex-shrink: 2 !important;
+  }
+  #acountdown {
+    font-size: auto;
+  }
+  #aside-container{
+    float: left;
+    margin-left: 60px;
+    margin-top: -60px;
+    margin-bottom: 40px;
+    height: 100%;
+    max-width: 300px;
+  }
+  #AD-CD-contents {
+    display: block;
+    font-size: auto;
+  }
+  .Aelec-guide-txt{
+    margin-bottom: 60px;
+  }
+}
+
+/*smartphones portrait specific height*/
+@media only screen and (device-width: 320px) and (device-height: 640px) and (orientation: portrait) and (-webkit-device-pixel-ratio: 2) {
+  body, section, #aside-container, #acountdown, #AD-CD-contents {
+    -webkit-flex-direction: column;
+    flex-direction: column;
+  }
+  section{
+    display: flex;
+    margin-left: 20px;
+    margin-top: 100px;
+    float: left;
+  }
+  article{
+    width: 100%;
+    flex-shrink: 2 !important;
+  }
+  #acountdown {
+    font-size: auto;
+  }
+  #aside-container{
+    float: left;
+    margin-left: 60px;
+    margin-top: -60px;
+    margin-bottom: 40px;
+    max-width: 240px;
+    height: 100%;
+  }
+  #AD-CD-contents {
+    display: block;
+    font-size: auto;
+  }
+  .Aelec-guide-txt{
+    margin-bottom: 60px;
+  }
+}
+
+/*smartphones landscape with specific height*/
+@media only screen and (device-width: 320px) and (device-height: 640px) and (orientation: landscape) and (-webkit-device-pixel-ratio: 2) {
+  body, section, #aside-container, #acountdown, #AD-CD-contents {
+    -webkit-flex-direction: column;
+    flex-direction: column;
+  }
+  section{
+    display: flex;
+    margin-left: 20px;
+    margin-top: 100px;
+    float: left;
+  }
+  article{
+    width: 100%;
+    flex-shrink: 2;
+  }
+  #acountdown {
+    font-size: auto;
+  }
+  #aside-container{
+    float: left;
+    margin-left: 60px;
+    margin-top: -60px;
+    margin-bottom: 40px;
+    max-width: 240px;
+    height: 100%;
+  }
+  #AD-CD-contents {
+    display: block;
+    font-size: auto;
+  }
+  .Aelec-guide-txt{
+    margin-bottom: 60px;
+  }
+}
+
+/*smartphones portrait with specific height*/
+@media only screen and (device-width: 320px) and (device-height: 640px) and (orientation: portrait) and (-webkit-device-pixel-ratio: 2) {
+  body, section, #aside-container, #acountdown, #AD-CD-contents {
+    -webkit-flex-direction: column;
+    flex-direction: column;
+  }
+  section{
+    display: flex;
+    margin-left: 20px;
+    margin-top: 100px;
+    float: left;
+  }
+  article{
+    width: 100%;
+    flex-shrink: 2 !important;
+  }
+  #acountdown {
+    font-size: auto;
+  }
+  #aside-container{
+    float: left;
+    margin-left: 60px !important;
+    margin-top: -60px;
+    margin-bottom: 40px;
+    max-width: 240px;
+    height: 100%;
+  }
+  #AD-CD-contents {
+    display: block;
+    font-size: auto;
+  }
+  .Aelec-guide-txt{
+    margin-bottom: 60px;
+  }
+}
+
+/*for larger landscape smartphones*/
+@media only screen and (max-width: 640px) {
+  body, section, #aside-container, #acountdown, #AD-CD-contents {
+    -webkit-flex-direction: column;
+    flex-direction: column;
+  }
+  .Alogos{
+    object-fit: scale-down;
+    max-width:100%;
+    max-height:100%;
+  }
+  #acountdown {
+    font-size: auto;
+  }
+  #aside-container{
+    float: left;
+    margin-left: 60px;
+    margin-top: -50px;
+  }
+  #AD-CD-contents {
+    display: block;
+    font-size: auto;
+  }
+}
+
+/*iPhone 4 portrait*/
+@media only screen and (device-height: 480px){
+  body, section, #aside-container, #acountdown, #AD-CD-contents {
+    -webkit-flex-direction: column;
+    flex-direction: column;
+  }
+  section{
+    display: flex;
+    margin-left: 20px;
+    margin-top: 100px;
+    float: left;
+  }
+  .Alogos{
+    object-fit: scale-down;
+    max-width: 100%;
+    max-height: 100%;
+  }
+  article{
+    width: 100%;
+    flex-shrink: 2 !important;
+  }
+  #acountdown {
+    font-size: auto;
+  }
+  #aside-container{
+    float: left;
+    margin-left: 40px;
+    margin-top: -60px;
+    margin-bottom: 40px;
+    height: 100%;
+    max-width: 260px;
   }
   #AD-CD-contents {
     display: block;
@@ -376,7 +450,7 @@ aside p.Aelec-guide-txt {
 /* ----------- iPhone 5, 5S, 5C and 5SE ----------- */
 /* portrait */
 @media only screen and (device-height: 568px) {
-  body, section, aside, #aside-container, #acountdown, #AD-CD-contents {
+  body, section, #aside-container, #acountdown, #AD-CD-contents {
     -webkit-flex-direction: column;
     flex-direction: column;
   }
@@ -406,7 +480,7 @@ aside p.Aelec-guide-txt {
     display: block;
     font-size: auto;
   }
-  .Aelec-guide-txt{
+    .Aelec-guide-txt{
     margin-bottom: 60px;
   }
 }
@@ -425,7 +499,7 @@ aside p.Aelec-guide-txt {
 }
 /* iPhone 6/7/8+ landscape */
 @media only screen and (min-device-width: 414px)  and (orientation : landscape) and (-webkit-device-pixel-ratio: 3){
-  body, section, aside, #aside-container, #acountdown, #AD-CD-contents {
+  body, section, #aside-container, #acountdown, #AD-CD-contents {
     -webkit-flex-direction: column;
     flex-direction: column;
   }
@@ -458,37 +532,56 @@ aside p.Aelec-guide-txt {
   }
 }
 
-/*iPhone 4 portrait*/
-@media only screen and (device-height: 480px){
-  body, section, #aside-container, #acountdown, #AD-CD-contents {
-    -webkit-flex-direction: column;
-    flex-direction: column;
-  }
-  section{
-    display: flex;
-    margin-left: 20px;
-    margin-top: 100px;
-    float: left;
-  }
-  .Alogos{
-    object-fit: scale-down;
-    max-width: 100%;
-    max-height: 100%;
-  }
-  article{
-    width: 100%;
-    flex-shrink: 2 !important;
-  }
-  #acountdown{
-    font-size: auto;
-  }
+/* iPhone 6 ----------- */
+@media only screen and (min-device-width: 375px) and (max-device-height: 667px) and (orientation : landscape) and (-webkit-device-pixel-ratio: 2){
+    body, section, #aside-container, #acountdown, #AD-CD-contents {
+      -webkit-flex-direction: column;
+      flex-direction: column;
+    }
+    section{
+      display: flex;
+      margin-left: 20px;
+      margin-top: 100px;
+      float: left;
+    }
+    article{
+      width: 100%;
+      flex-shrink: 2 !important;
+    }
+    #acountdown {
+      font-size: auto;
+    }
+    #aside-container{
+      float: left;
+      margin-left: 60px;
+      margin-top: -60px;
+      margin-bottom: 40px;
+      max-width: 607px; /*667 width - 60 margin left*/
+      height: 100%;
+    }
+    #AD-CD-contents {
+      display: block;
+      font-size: auto;
+    }
+    .Aelec-guide-txt{
+      margin-bottom: 60px;
+    }
+}
+
+/*iphone X landscape*/
+@media only screen 
+  and (min-device-width: 375px) 
+  and (max-device-width: 812px) 
+  and (-webkit-min-device-pixel-ratio: 3)
+  and (orientation: landscape) {
+
   #aside-container{
-    float: left;
-    margin-left: 40px;
+    float: left !important;
+    margin-left: 60px;
     margin-top: -60px;
     margin-bottom: 40px;
+    max-width: 752px; /*812px - 60px*/
     height: 100%;
-    max-width: 260px;
   }
   #AD-CD-contents {
     display: block;
@@ -496,5 +589,120 @@ aside p.Aelec-guide-txt {
   }
   .Aelec-guide-txt{
     margin-bottom: 60px;
+  }
+}
+
+/*ipad portrait*/
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: portrait) and (-webkit-min-device-pixel-ratio: 1) {
+  body, section, #aside-container, #acountdown, #AD-CD-contents {
+    -webkit-flex-direction: column;
+    flex-direction: column;
+  }
+  section{
+    margin-top: 100px;
+    margin-left: 60px;
+  }
+  article{
+    width: 800px;
+  }
+  #aside-container{
+    float: left;
+    margin-left: 60px;
+    max-width: 800px;
+  }
+  #acountdown {
+    font-size: auto;
+  }
+  #AD-CD-contents {
+    display: block;
+    font-size: auto;
+  }
+  #aheadline{
+    font-weight: normal;
+  }
+}
+
+/*ipad landscape*/
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation:landscape) {
+  body, section, #aside-container, #acountdown, #AD-CD-contents {
+    -webkit-flex-direction: column;
+    flex-direction: column;
+  }
+  section{
+    margin-top: 20px;
+    float: left;
+    margin-left: 160px;
+  }
+  article{
+    margin-top: -50px;
+    width: 700px;
+    margin-left: 81px;
+  }
+  #aside-container{
+    margin-top: -50px;
+    float: left;
+    margin-left: 160px;
+    max-width: 700px;
+  }
+  #acountdown {
+    font-size: auto;
+  }
+  #AD-CD-contents {
+    display: block;
+    font-size: auto;
+  }
+}
+
+/*ipad pro potrait*/
+@media only screen and (min-device-width: 1024px) and (max-device-width: 1366px)  and (orientation: portrait) and (-webkit-min-device-pixel-ratio: 1) {
+  body, section, #aside-container, #acountdown, #AD-CD-contents {
+    -webkit-flex-direction: column;
+    flex-direction: column;
+  }
+  section{
+    margin-top: 150px;
+    margin-left: 110px;
+  }
+  #aside-container{
+    float: left;
+    margin-left: 110px;
+    max-width: 800px;
+  }
+  #acountdown {
+    font-size: auto;
+  }
+  #AD-CD-contents {
+    display: block;
+    font-size: auto;
+  }
+  #aheadline{
+    font-weight: normal;
+  }
+}
+
+/*ipad pro landscape*/
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape)  and (-webkit-min-device-pixel-ratio: 1) {
+  body, section, #aside-container, #acountdown, #AD-CD-contents {
+    -webkit-flex-direction: column;
+    flex-direction: column;
+  }
+  section{
+    margin-top: 150px;
+    margin-left: 110px;
+  }
+  #aside-container{
+    float: left;
+    margin-left: 110px;
+    max-width: 800px;
+  }
+  #acountdown {
+    font-size: auto;
+  }
+  #AD-CD-contents {
+    display: block;
+    font-size: auto;
+  }
+  #aheadline{
+    font-weight: normal;
   }
 }
