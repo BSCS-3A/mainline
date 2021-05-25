@@ -12,6 +12,10 @@ if (isset($_POST['yes_delete'])) {
     $resultphotofind = mysqli_query($conn, $slqphotofind);
     $rowfindphoto = mysqli_fetch_assoc($resultphotofind);
 
+    $signature = "SELECT eSignature FROM admin WHERE admin_id = '$admin_id'";
+    $sigquery = mysqli_query($conn, $signature);
+    $row = mysqli_fetch_assoc($sigquery);
+	
     $query = "DELETE FROM admin_activity_log WHERE admin_id ='$admin_id'";
 	$query_run = mysqli_query($conn, $query);
     $query = "DELETE FROM admin WHERE admin_id ='$admin_id'";
@@ -38,6 +42,14 @@ if (isset($_POST['yes_delete'])) {
         $_SESSION['message'] = 'Record has not been deleted!';
         $_SESSION['msg_type'] = 'danger';
         header("Location: ../Admin_adAccnt.php");
+    }
+    if ($query_run){
+    	if(!empty($row['eSignature'])) {
+   	 $tempsig = $row['eSignature'];
+    	$tempath = $tempsig;
+   	 $path2 = "../".$tempath;
+   	 unlink($path2);
+        }
     }
 }
 ?>

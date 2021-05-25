@@ -96,6 +96,8 @@ nav {
   z-index: 500;
   display: flex;
   padding: 0;
+  position: sticky;
+  top: 0;
 }
 
 nav:after {
