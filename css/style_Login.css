@@ -188,8 +188,8 @@ select {
     right: 0;
     max-width: 100%;
     top: -20px;
-    margin-left: 10px;
-    margin-right: 10px;
+    margin-left: 5px;
+    margin-right: 5px;
   }
   .Alogo-banner {
     display: inline-block;
@@ -242,7 +242,8 @@ select {
       right: 0;
       max-width: 100%;
       top: -20px;
-      left: -100px;
+      margin-left: 120px;
+      margin-right: 120px;
     }
   }
 
@@ -270,3 +271,101 @@ select {
       left: -250px;
     }
   }
+
+
+
+  @media (min-width: 600px) and (max-width: 900px) {
+
+    body{
+      -webkit-flex-direction: column;
+      flex-direction: column;
+    }
+  
+    .Awelcome-banner {
+      display: none;
+    }
+    .Acontainer{
+      position: relative; /* or absolute */
+      display: inline-block;
+      float: none;
+      right: 0px;
+      max-width: 100%;
+      top: -20px;
+      margin-left: 120px;
+      margin-right: 120px;
+    }
+    .Alogo-banner {
+      display: inline-block;
+      font-size: 1em;
+      position: relative;
+      text-align: center;
+      top: 50px;
+    }
+    .Arlogo {
+      display: inline-block;
+      position: relative;
+      padding: 0px 30px 0px 10px;
+      height: 15%;
+      width: 15%;
+    }
+  }
+
+  /* ----------- iPhone 5, 5S, 5C and 5SE ----------- */
+
+/* Landscape */
+@media only screen 
+  and (min-device-width: 320px) 
+  and (max-device-width: 568px)
+  and (-webkit-min-device-pixel-ratio: 2)
+  and (orientation: landscape) {
+
+    body{
+      -webkit-flex-direction: column;
+      flex-direction: column;
+    }
+  
+    .Awelcome-banner {
+      display: none;
+    }
+    .Acontainer{
+      position: relative; /* or absolute */
+      display: inline-block;
+      float: none;
+      right: 0px;
+      max-width: 100%;
+      top: -20px;
+      margin-left: 120px;
+      margin-right: 120px;
+    }
+    .Alogo-banner {
+      display: inline-block;
+      font-size: 1em;
+      position: relative;
+      text-align: center;
+      top: 50px;
+    }
+    .Arlogo {
+      display: inline-block;
+      position: relative;
+      padding: 0px 30px 0px 10px;
+      height: 15%;
+      width: 15%;
+    }
+}
+
+@media only screen and (min-device-width: 481px) and (max-device-width: 1024px) and (orientation:landscape) {
+  body{
+    -webkit-flex-direction: column;
+    flex-direction: column;
+  }
+  .Acontainer{
+    position: relative; /* or absolute */
+    display: inline-block;
+    float: none;
+    right: 0px;
+    max-width: 100%;
+    top: -20px;
+    margin-left: 120px;
+    margin-right: 120px;
+  }
+}

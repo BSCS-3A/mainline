@@ -45,9 +45,9 @@
 
         <div class="Alogo-banner">
             <p class="Abanner-text">BUCEILS HS ONLINE VOTING SYSTEM</p>
-            <img class="Arlogo" src="./img/BU logo.png">
-            <img class="Arlogo" src="./img/BUHS LOGO.png">
             <img class="Arlogo" src="./img/SSG LOGO.png">
+            <img class="Arlogo" src="./img/BUHS LOGO.png">
+            <img class="Arlogo" src="./img/BU logo.png">
         </div>
     <!-- end Login Banner --> 
      

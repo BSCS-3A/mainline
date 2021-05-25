@@ -43,9 +43,9 @@
         <div class="Awelcome-banner">
         <h2>ONLINE</h2>
         <div class="Alogo-container">
-        <img class="Alogos" src="../img/BU logo.png">
-        <img class="Alogos" src="../img/BUHS LOGO.png">
         <img class="Alogos" src="../img/SSG LOGO.png">
+        <img class="Alogos" src="../img/BUHS LOGO.png">
+        <img class="Alogos" src="../img/BU logo.png">
         </div>
         <h2>VOTING SYSTEM</h2>
         <p>BICOL UNIVERSITY COLLEGE OF EDUCATION<br>INTEGRATED LABORATORY SCHOOL HIGH SCHOOL DEPT.</p>
