@@ -16,11 +16,13 @@ include("db_conn.php");
     <link rel="stylesheet" href="../css/admin_css/dataTables.bootstrap4.min_AdminDash.css">
     <!-- <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css" crossorigin="anonymous"> -->
     <link rel="stylesheet" href="../css/admin_css/jquery.dataTables.min_AdminDash.css">
+    <link rel="stylesheet" href="../css/admin_css/responsive.dataTables.min_AdminDash.css">
     <!-- <script src="../js/a076d05399.js"></script> -->
     <script src="../js/jquery-3.5.1_adminDash.js"></script>
     <script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
     <script src="../js/dataTables.bootstrap4.min_AdminDash.js"></script>
     <script src="../js/jquery.dataTables.min_adminDash.js"></script>
+    <script src="../js/dataTables.responsive.min_AdminDash"></script>
     <script type="text/javascript" src="../js/admin_session_timer.js"></script>
     <title>Access Logs | BUCEILS HS Online Voting System</title>
 </head>
@@ -36,8 +38,8 @@ include("db_conn.php");
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <div class="table-responsive-md">
-                    <table id="ADdataTable" class="table-center" style="width:100%">
+                <div class="table-responsive-sm">
+                    <table id="ADdataTable" class="table dt-responsive" style="width:100%">
                         <thead>
                             <tr>
                                 <th class="min-mobile">Access Date</th>

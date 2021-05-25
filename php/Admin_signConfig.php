@@ -55,7 +55,7 @@ if (isset($_SESSION['admin_id']) && isset($_SESSION['username'])) {
           <table class="table table-hover" id="datatable" width="100%"style="overflow-x:auto;"  >
             <thead>
               <tr>
-                <th class="min-mobile">FIRST NAME</th>
+                <th class="min-mobile" id="tablehead">FIRST NAME</th>
                 <th class="min-mobile">LAST NAME</th>
                 <th class="min-mobile">POSITION</th>
                 <th style="display:none;"></th>

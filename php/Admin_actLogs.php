@@ -80,7 +80,7 @@ if (isset($_SESSION['admin_id']) && isset($_SESSION['username'])) {
                                 <table class="center" id="datatable" width="100%" cellspacing="0" cellpadding="2px">
                                     <thead>
                                         <tr>
-                                            <th class="text-center">DATE</th>
+                                            <th class="text-center" id="tablehead">DATE</th>
                                             <th class="text-center">TIME</th>
                                             <th class="text-center">ADMIN USERNAME</th>
                                             <th class="text-center">ACTION</th>
