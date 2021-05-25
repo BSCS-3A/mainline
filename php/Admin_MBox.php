@@ -178,14 +178,14 @@ include("db_conn.php");
                           for(i = 0 ; i<res.length-1;i++){
                             var each = res[i].split("||");
                             if(each[0]==0){
-                              me +='<div class="media w-50 ml-auto mb-3" >';
+                              me +='<div class="media w-50 ml-auto mb-3" id="box">';
                               me += '<div class="media-body">';
                               me += '<div class="bg-primary rounded py-3 px-3 mb-2"id="receive">';
                               me += '<p class="text-small mb-0 text-white">'+each[1]+'</p></div>';
                               me += '<p class="small text-muted">'+each[2]+' '+each[3]+'</p></div></div>';
                             }
                             else if(each[0]==1){
-                              me += '<div class="media w-50 mb-3" alt="user" width="50" class="rounded-circle">';
+                              me += '<div class="media w-50 mb-3" alt="user" width="50" class="rounded-circle" id="box">';
                               me += '<div class="media-body ml-3">';
                               me += '<div class="bg-light rounded py-3 px-3 mb-2">';
                               me += '<p class="text-small mb-0 text-muted">'+each[1]+'</p></div>';
