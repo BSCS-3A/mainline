@@ -109,7 +109,7 @@ include('db_conn.php');
                       }
                       else{
                         $_POST[$poss['heirarchy_id']] = filter_var(stripslashes($_POST[$poss['heirarchy_id']]), FILTER_SANITIZE_STRING);;
-                        $choice = cleanInput(stripslashes($_POST[$poss['heirarchy_id']]));
+                        $choice = cleanInput($conn, stripslashes($_POST[$poss['heirarchy_id']]));
                       }
                 
                       if(isValidCandidate($conn, $choice, $poss['heirarchy_id'])){
