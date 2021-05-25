@@ -310,7 +310,7 @@ iframe {
 }
 
 /*END BUTTON FOR SIGNATORY*/
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 500px) {
   .btn-button1 {
     margin: 25px 2px 5px 0px!important;
   }
@@ -408,9 +408,6 @@ iframe {
   background-color: #18566e !important;
   color: #EEEEEE!important;
 }
-
-
-
 
 .container {
   max-width: 100%;
@@ -637,23 +634,187 @@ img.logos {
   max-width: 700px;
 }
 
-/* #add::-webkit-scrollbar-track {
-  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
-  background-color: transparent;
+/* CROPPER CSS FOR ADD*/
+img.imagine {
+  display: block;
+  max-width: 100%;
 }
 
-#add::-webkit-scrollbar {
-  width: 10px;
-  background-color: #F5F5F5;
+.prev {
+  overflow: hidden;
+  width: 160px;
+  height: 160px;
+  margin: 10px;
+  border: 1px solid red;
 }
 
-#add::-webkit-scrollbar-thumb {
-  border-radius: 10px;
-  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, .3);
-  background-color: gray;
-} */
-/* Responsive layout - makes the menu and the content (inside the section) sit on top of each other instead of next to each other */
+/* CROPPER CSS FOR EDIT*/
+img.imagine_edit {
+    display: block;
+    max-width: 100%;
+}
+
+.prev_edit {
+    overflow: hidden;
+    width: 160px;
+    height: 160px;
+    margin: 10px;
+    border: 1px solid red;
+}
 
 
+/* PASSWORD STRENGTH CHECKER FOR ADD */
+.container form {
+    margin: 20px 5px 10px 5px;
+    position: relative;
+}
 
+.container form .field {
+    height: 45px;
+    width: 100%;
+    display: flex;
+    position: relative;
+}
 
+form .field input {
+    width: 100%;
+    height: 100%;
+    border: 1px solid lightgrey;
+    padding-left: 15px;
+    outline: none;
+    border-radius: 5px;
+    font-size: 17px;
+    transition: all 0.3s;
+}
+
+form .field input:focus {
+    border-color: #27ae60;
+    box-shadow: inset 0 0 3px #2fd072;
+}
+
+form .indicator {
+    height: 10px;
+    margin: 10px 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    display: none;
+}
+
+form .indicator span {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    background: lightgrey;
+    border-radius: 5px;
+}
+
+form .indicator span:nth-child(2) {
+    margin: 0 3px;
+}
+
+form .indicator span.active:before {
+    position: absolute;
+    content: '';
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    border-radius: 5px;
+}
+
+.indicator span.weak:before {
+    background-color: #ff4757;
+}
+
+.indicator span.medium:before {
+    background-color: orange;
+}
+
+.indicator span.strong:before {
+    background-color: #23ad5c;
+}
+
+form .text {
+    font-size: 15px;
+    font-weight: 500;
+    display: none;
+    margin-bottom: -10px;
+    text-align: center;
+}
+
+form .text.weak {
+    color: #ff4757;
+}
+
+form .text.medium {
+    color: orange;
+}
+
+form .text.strong {
+    color: #23ad5c;
+}
+
+/* PASSWORD STRENGTH CHECKER FOR EDIT */
+form .indicator_edit {
+    height: 10px;
+    margin: 10px 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    display: none;
+}
+
+form .indicator_edit span {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    background: lightgrey;
+    border-radius: 5px;
+}
+
+form .indicator_edit span:nth-child(2) {
+    margin: 0 3px;
+}
+
+form .indicator_edit span.active:before {
+    position: absolute;
+    content: '';
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    border-radius: 5px;
+}
+
+.indicator_edit span.weak_edit:before {
+    background-color: #ff4757;
+}
+
+.indicator_edit span.medium_edit:before {
+    background-color: orange;
+}
+
+.indicator_edit span.strong_edit:before {
+    background-color: #23ad5c;
+}
+
+form .text_edit {
+    font-size: 15px;
+    font-weight: 500;
+    display: none;
+    margin-bottom: -10px;
+    text-align: center;
+}
+
+form .text_edit.weak_edit {
+    color: #ff4757;
+}
+
+form .text_edit.medium_edit {
+    color: orange;
+}
+
+form .text_edit.strong_edit {
+    color: #23ad5c;
+}
