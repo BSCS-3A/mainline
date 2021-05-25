@@ -44,7 +44,14 @@ require './backMonitor/fetch_date.php';
   }else{ 
   ?>
   <div class="Belection_container" id="election_res">
-
+    <link rel="stylesheet" type="text/css" href="../css/student_css/vote_message.css">
+      <main>
+			<div id="error-message-container" class="error-message-container">			
+				<div id="election-finished-msg" class="error-message">
+					<h3 style = "padding: 50px">Loading results...</h3>
+				</div>
+      </div>
+		</main>
     </div> <!-- end of ajax output -->
   </div> <!-- End of #election-res div -->
   
@@ -180,8 +187,9 @@ require './backMonitor/fetch_date.php';
               }
             }
             xhr.send();
-        }, 100
+        }, 5000
     );
+    
   </script>
   <script> 
       function postButtonConfirm(){
