@@ -211,6 +211,27 @@ table.center {
       flex-wrap: nowrap !important;
     }
   }
+  @media (min-width:641px) and (max-width: 767px) {
+     body, section, .Uwrapper {
+    -webkit-flex-direction: column;
+    flex-direction: column;
+    }
+    table#side_pos.center{
+      width: auto;
+    }
+    .Uright{
+    overflow-y: scroll;
+    width: 580px;
+    margin-left: 10px !important;
+    }
+    #scrollToTopBtn{
+    display: none;
+    }
+     .Urow{
+      flex-wrap: nowrap !important;
+    }
+    }
+
   @media only screen and (device-width: 768px) and (orientation: portrait) and (-webkit-min-device-pixel-ratio: 1) { 
     .Uwrapper{
       flex-direction: column;
@@ -218,7 +239,24 @@ table.center {
     .Uleft{
       display: grid; ;
     }
-
+  }
+  @media only screen and (device-width: 1024px) and (device-height: 768px) and (orientation:landscape) {
+    .Uwrapper{
+    flex-direction: column;
+    }
+    .Uleft{
+      display: grid; 
+      margin-left: 0;
+    }
+  }
+  @media only screen and (device-width: 768px) and (device-width: 1024px)  and (orientation: portrait) and (-webkit-min-device-pixel-ratio: 1) {
+     .Uwrapper{
+    flex-direction: column;
+    }
+    .Uleft{
+      display: grid; 
+      margin-left: 0;
+    }
   }
 
 /*countdown*/
