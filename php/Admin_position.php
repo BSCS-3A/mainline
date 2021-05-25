@@ -135,6 +135,7 @@ include "navAdmin.php";
                   data: {check: temp, positionid: posid, checkhid: hid},
                   success:function(response){
                     console.log(response);
+                    console.log(posid+" "+hid+" "+posname+" ");
                     if(response == "Exists"){
                         $.ajax({
                           url:"backCandidate/addPosition.php",
@@ -295,7 +296,7 @@ include "navAdmin.php";
                       <input class="form-control" id="edit_Pos" name="edit_Pos" type="text" placeholder="Enter Position Name" required>
                   </div>
                   <div class = "form-group">
-                       <textarea class="form-control" id ="edit_Desc" name="edit_Pos" type="text" placeholder="Enter Position Description" required></textarea>
+                       <textarea class="form-control" id ="edit_Desc" name="edit_Desc" type="text" placeholder="Enter Position Description" required></textarea>
                   </div>
               </div>
               <div class="modal-footer ">
