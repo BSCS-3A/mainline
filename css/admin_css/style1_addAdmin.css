@@ -16,60 +16,11 @@ body {
   width: auto;
 }
 
-.input-icons i {
-  position: absolute;
-}
-
-/* .input-icons {
-  width: 100%;
-  margin-bottom: 10px;          
-} */
-
-.icon {
- padding: 9px;
- min-width: 42px;
- right: 1.5rem;
- color: #555555;
- background-color: #eeeeee;
- border: 1px solid #ccc;
- background-color: #eeeeee;
- border-radius: 4px;
- border-top-left-radius: 0px;
- border-bottom-left-radius: 0px;
- line-height: 1;
- text-align: center;
- display: inline-block;
- cursor: pointer;
+.fa{
+  cursor: pointer;
 }
 
 @media all and (max-width: 968px) {
-
-  .input-icons i {
-    position: absolute;
-  }
-  
-  .input-icons {
-    width: 100%;
-    margin-bottom: 10px;          
-  }
-  
-  .icon {
-   padding: 9px;
-   min-width: 50px;
-   right: 1.5rem;
-   color: #555555;
-   background-color: #eeeeee;
-   border: 1px solid #ccc;
-   background-color: #eeeeee;
-   border-radius: 4px;
-   border-top-left-radius: 0px;
-   border-bottom-left-radius: 0px;
-   line-height: 1;
-   text-align: center;
-   display: inline-block;
-   cursor: pointer;
-  }
-  
   nav ul {
     margin-right: 0px;
     margin-left: 0px;
@@ -379,31 +330,6 @@ iframe {
   }
   div.cropper-container.cropper-bg{
     width:auto !important;
-  }
-  .input-icons i {
-    position: absolute;
-  }
-  
-  .input-icons {
-    width: 100%;
-    margin-bottom: 10px;          
-  }
-  
-  .icon {
-   padding: 9px;
-   min-width: 42px;
-   right: 1.5rem;
-   color: #555555;
-   background-color: #eeeeee;
-   border: 1px solid #ccc;
-   background-color: #eeeeee;
-   border-radius: 4px;
-   border-top-left-radius: 0px;
-   border-bottom-left-radius: 0px;
-   line-height: 1;
-   text-align: center;
-   display: inline-block;
-   cursor: pointer;
   }
   
 }

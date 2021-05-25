@@ -41,7 +41,7 @@
       <table class= "center" id="datatable" width="100%" cellspacing="0" cellpadding="0">
                           <thead>
                               <tr> 
-                                  <th rowspan="2" colspan="1" class="text-center" id="tableh2">STUDENT <span class="fa fa-info-circle" data-placement="top" data-toggle="tooltip" title="Student Name is encrypted for privacy purposes."></span></th>
+                                  <th rowspan="2" colspan="1" class="text-center" id="tableh2">STUDENT <br><span class="fa fa-info-circle" data-placement="right" data-toggle="tooltip" title="Student Name is encrypted for privacy purposes."></span></th>
                                   <th rowspan="2" colspan="1" class="text-center">PRESIDENT</th>
                                   <th rowspan="2" colspan="1" class="text-center">VICE PRESIDENT</th>
                                   <th rowspan="2" colspan="1" class="text-center">SECRETARY</th>    

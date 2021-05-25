@@ -363,10 +363,16 @@ if (isset($_SESSION['admin_id']) && isset($_SESSION['username'])) {
                             </div>
                             <div class="form-group">
                                 <label>Password:</label>
-                                <div class="input-icons">
+                                <!-- <div class="input-icons">
                                     <i toggle="#password-field" class="fa fa-eye icon toggle-password"></i>
                                     <input id="password_main" type="password" name="password" class="form-control" onInput="CheckStrength()" placeholder="*********" onChange="onChange()" required>
-                                    <!-- <span class="showBtn">SHOW</span> -->
+                                     <span class="showBtn">SHOW</span>
+                                </div> -->
+                                <div class="input-group">
+                                    <input id="password_main" type="password" name="password" class="form-control left-border-none" onInput="CheckStrength()" placeholder="*********" onChange="onChange()" required>
+                                    <span class="input-group-addon transparent">
+                                        <i toggle="#password-field" class='fa fa-fw fa-eye toggle-password' aria-hidden='true'></i>
+                                    </span>
                                 </div>
                                 <div class="indicator">
                                     <span class="weak"></span>
@@ -448,11 +454,11 @@ if (isset($_SESSION['admin_id']) && isset($_SESSION['username'])) {
                             </div>
                             <div class="form-group">
                                 <label>Password:</label>
-                                <div class="input-icons">
-                                    <i toggle="#password-field" class="fa fa-eye icon toggle-password"></i>
-                                    <input id="password_edit" type="password" name="password" class="form-control" onInput="CheckStrength_edit()" placeholder="*********" onChange="onChange()" required>
-                                    <!-- <span class="showBtn">SHOW</span> -->
-                                    <!-- <span toggle="#password-field" class="fa fa-fw fa-eye field_icon toggle-password"></span> -->
+                                <div class="input-group">
+                                    <input id="password_edit" type="password" name="password" class="form-control left-border-none" onInput="CheckStrength_edit()" placeholder="*********">
+                                    <span class="input-group-addon transparent">
+                                        <i toggle="#password-field" class='fa fa-fw fa-eye toggle-password' aria-hidden='true'></i>
+                                    </span>
                                 </div>
                                 <div class="indicator_edit">
                                     <span class="weak_edit"></span>
@@ -470,11 +476,12 @@ if (isset($_SESSION['admin_id']) && isset($_SESSION['username'])) {
                                 <input type="file" name="my_image_edit" id="my_image_edit"><br />
                                 <span id="admin_newupload_errorloc" class="error"></span>
                             </div>
+                            <div class="modal-footer ">
+                                <button type="submit" class="btn btn-button6" name="updateData" id="go"><span class="fa fa-check-circle"></span> Update Account</button>
+                                <button class="btn btn-cancel2" data-dismiss="modal"><span class="fa fa-times-circle"></span> Cancel</button>
+                            </div>
                         </div>
-                        <div class="modal-footer ">
-                            <button type="submit" class="btn btn-button6" name="updateData" id="go"><span class="fa fa-check-circle"></span> Update Account</button>
-                            <button class="btn btn-cancel" data-dismiss="modal"><span class="fa fa-times-circle"></span> Cancel</button>
-                        </div>
+
                     </div>
                     <!-- /.modal-content -->
                 </div>
