@@ -16,7 +16,6 @@ if (isset($_SESSION['admin_id']) && isset($_SESSION['username'])) {
         <link rel="stylesheet" href="../css/admin_css/bootstrap_addAdmin.css">
         <link rel="stylesheet" href="../css/admin_css/dataTables.bootstrap_addAdmin.css">
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css" crossorigin="anonymous">
-        <link rel="stylesheet" href="https://unpkg.com/simplebar@2.0.1/umd/simplebar.css" />
 
         <script src="../js/jquery-1.11.1.min_addAdmin.js"></script>
         <script src="../js/jquery.dataTables.min_addAdmin.js"></script>
@@ -28,7 +27,7 @@ if (isset($_SESSION['admin_id']) && isset($_SESSION['username'])) {
         <script type="text/javascript" src="../js/admin_session_timer.js"></script>
 
         <!--additional scripts-->
-        <!-- <script src="../js/bootstrap-show-password.min_addAdmin.js"></script> -->
+        <script src="../js/bootstrap-show-password.min_addAdmin.js"></script>
 
         <!--for upload photo crop-->
         <link href="https://unpkg.com/cropperjs/dist/cropper.css" rel="stylesheet" />
@@ -176,6 +175,71 @@ if (isset($_SESSION['admin_id']) && isset($_SESSION['username'])) {
         }
     </style>
 
+    <style>
+        form .indicator_edit {
+            height: 10px;
+            margin: 10px 0;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            display: none;
+        }
+
+        form .indicator_edit span {
+            position: relative;
+            height: 100%;
+            width: 100%;
+            background: lightgrey;
+            border-radius: 5px;
+        }
+
+        form .indicator_edit span:nth-child(2) {
+            margin: 0 3px;
+        }
+
+        form .indicator_edit span.active:before {
+            position: absolute;
+            content: '';
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            border-radius: 5px;
+        }
+
+        .indicator_edit span.weak_edit:before {
+            background-color: #ff4757;
+        }
+
+        .indicator_edit span.medium_edit:before {
+            background-color: orange;
+        }
+
+        .indicator_edit span.strong_edit:before {
+            background-color: #23ad5c;
+        }
+
+        form .text_edit {
+            font-size: 15px;
+            font-weight: 500;
+            display: none;
+            margin-bottom: -10px;
+            text-align: center;
+        }
+
+        form .text_edit.weak_edit {
+            color: #ff4757;
+        }
+
+        form .text_edit.medium_edit {
+            color: orange;
+        }
+
+        form .text_edit.strong_edit {
+            color: #23ad5c;
+        }
+    </style>
+
     <body>
         <div class="cheader" id="Dheader">
             <h3 class="Dheader-txt">ADMINISTRATOR ACCOUNT MANAGEMENT</h3>
@@ -183,9 +247,8 @@ if (isset($_SESSION['admin_id']) && isset($_SESSION['username'])) {
         <div class="container">
             <section>
                 <div class="flex-container">
-                    <button name="AddAccountButton" class="btn btn-button2" data-title="add" data-toggle="modal" data-target="#add" <?php if ($_SESSION['admin_position'] == "Admin") { ?> disabled <?php
-                                                                                                                                                                                                } ?>>
-                        <span data-toggle="tooltip" data-placement="top" title="Add New Account"><span class="fa fa-user-plus"></span> ADD ACCOUNT</span></button>
+                    <button name="AddAccountButton" class="btn btn-button2" data-title="add" data-toggle="modal" data-target="#add" title="Add New Account" <?php if ($_SESSION['admin_position'] == "Admin") { ?> disabled <?php                                                                                                                                                                                        } ?>>
+                        <span class="fa fa-user-plus"></span> ADD ACCOUNT</span></button>
                 </div>
                 <?php //echo("{$_SESSION['admin_position']}") 
                 ?>
@@ -237,9 +300,9 @@ if (isset($_SESSION['admin_id']) && isset($_SESSION['username'])) {
                                                                                                                                                                                                                                 ?> disabled <?php
                                                                                                                                                                                                                                         } ?>>
                                                 <span class="fa fa-edit"></span> EDIT</button>
-                                            <button class="btn btn-danger btn-xs deletebtn" data-title="Delete" data-toggle="modal" data-target="#delete" <?php if ($_SESSION['admin_position'] == "Admin") {
-                                                                                                                                                            ?> disabled <?php
-                                                                                                                                                                    } ?>><span class="fa fa-trash"></span> DELETE</button>
+                                            <button class="btn btn-danger btn-xs deletebtn" data-title="Delete" data-toggle="modal" data-target="#delete" title="Delete" <?php if ($_SESSION['admin_position'] == "Admin") {
+                                                                                                                                                                            ?> disabled <?php
+                                                                                                                                                                                    } ?>><span class="fa fa-trash"></span> DELETE</button>
                                         </td>
                                     </tr>
                                 <?php } ?>
@@ -253,15 +316,15 @@ if (isset($_SESSION['admin_id']) && isset($_SESSION['username'])) {
         <!--######################################################################################################################################################################################-->
         <!-- ADD MODAL -->
         <div class="modal fade" id="add" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="false">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content" id="scroll_add">
+            <div class="modal-dialog " role="document">
+                <div class="modal-content">
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                        <h4 class="modal-title custom_align" id="Heading">REGISTER</h4>
+                        <h4 class="modal-title custom_align" id="Heading">Add Admin Account</h4>
                     </div>
 
                     <form id="add_form" action="backAdmin/backFun_adAccnts_v0_1.php" autocomplete="off" method="POST">
-                        <div class="modal-body">
+                        <div class="modal-body scroll">
                             <textarea style="display:none;" name="base64" id="base64"></textarea>
                             <div class="form-group">
                                 <input class="form-control" name="admin_fname" type="text" placeholder="Firstname" required>
@@ -300,10 +363,10 @@ if (isset($_SESSION['admin_id']) && isset($_SESSION['username'])) {
                             </div>
                             <div class="form-group">
                                 <label>Password:</label>
-                                <div class="field">
-                                    <input id="password_main" type="password" name="password" class="form-control" data-toggle="password" placeholder="*********" onChange="onChange()" required>
+                                <div class="input-icons">
+                                    <i toggle="#password-field" class="fa fa-eye icon toggle-password"></i>
+                                    <input id="password_main" type="password" name="password" class="form-control" onInput="CheckStrength()" placeholder="*********" onChange="onChange()" required>
                                     <!-- <span class="showBtn">SHOW</span> -->
-                                    <span toggle="#password-field" class="fa fa-fw fa-eye field_icon toggle-password"></span>
                                 </div>
                                 <div class="indicator">
                                     <span class="weak"></span>
@@ -335,7 +398,7 @@ if (isset($_SESSION['admin_id']) && isset($_SESSION['username'])) {
         <!--######################################################################################################################################################################################-->
         <!-- EDIT MODAL -->
         <form action="./backAdmin/backFun_editAccnts_v0_1.php" autocomplete="off" method="POST">
-            <div class="modal fade" id="edit" tabindex="-1" role="dialog" aria-labelledby="edit" aria-hidden="true">
+            <div class="modal fade" id="edit" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="false">
                 <div class="modal-dialog">
                     <div class="modal-content">
                         <textarea style="display:none;" name="base64_edit" id="base64_edit"></textarea>
@@ -343,7 +406,7 @@ if (isset($_SESSION['admin_id']) && isset($_SESSION['username'])) {
                             <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
                             <h4 class="modal-title custom_align" id="Heading">Edit Admin Information</h4>
                         </div>
-                        <div class="modal-body">
+                        <div class="modal-body scroll">
                             <input type="hidden" name="update_id" id="update_id">
                             <div class="form-group">
                                 <label>First Name:</label>
@@ -384,8 +447,19 @@ if (isset($_SESSION['admin_id']) && isset($_SESSION['username'])) {
                                 </select>
                             </div>
                             <div class="form-group">
-                                <label>Password: <span class="label label-warning">Change your password</span></label>
-                                <input type="password" name="password" id="password_edit" class="form-control" data-toggle="password" placeholder="*********">
+                                <label>Password:</label>
+                                <div class="input-icons">
+                                    <i toggle="#password-field" class="fa fa-eye icon toggle-password"></i>
+                                    <input id="password_edit" type="password" name="password" class="form-control" onInput="CheckStrength_edit()" placeholder="*********" onChange="onChange()" required>
+                                    <!-- <span class="showBtn">SHOW</span> -->
+                                    <!-- <span toggle="#password-field" class="fa fa-fw fa-eye field_icon toggle-password"></span> -->
+                                </div>
+                                <div class="indicator_edit">
+                                    <span class="weak_edit"></span>
+                                    <span class="medium_edit"></span>
+                                    <span class="strong_edit"></span>
+                                </div>
+                                <div class="text_edit"></div>
                             </div>
                             <div class="form-group">
                                 <label>Confirm Password:</label>
@@ -420,10 +494,10 @@ if (isset($_SESSION['admin_id']) && isset($_SESSION['username'])) {
                         <div class="modal-body">
                             <input type="hidden" name="Delete_ID" id="Delete_ID">
                             <div class="alert alert-danger"><span class="fa fa-exclamation-triangle"></span> Are you sure you want to delete this account?</div>
-                        </div>
-                        <div class="modal-footer ">
-                            <button type="submit" class="btn btn-success" name="yes_delete" id="continue"><span class="fa fa-check-circle"></span> Yes</button>
-                            <button type="button" class="btn btn-default" id="cancel" data-dismiss="modal"><span class="fa fa-times-circle"></span> No</button>
+                            <div class="modal-footer ">
+                                <button type="submit" class="btn btn-success" name="yes_delete" id="continue"><span class="fa fa-check-circle"></span> Yes</button>
+                                <button type="button" class="btn btn-default" id="cancel" data-dismiss="modal"><span class="fa fa-times-circle"></span> No</button>
+                            </div>
                         </div>
                     </form>
                 </div>
@@ -442,7 +516,7 @@ if (isset($_SESSION['admin_id']) && isset($_SESSION['username'])) {
                             <span aria-hidden="true">×</span>
                         </button>
                     </div>
-                    <div class="modal-body">
+                    <div class="modal-body scroll">
                         <div class="img-container">
                             <div class="row">
                                 <div class="col-md-8">
@@ -472,7 +546,7 @@ if (isset($_SESSION['admin_id']) && isset($_SESSION['username'])) {
                             <span aria-hidden="true">×</span>
                         </button>
                     </div>
-                    <div class="modal-body">
+                    <div class="modal-body scroll">
                         <div class="img-container">
                             <div class="row">
                                 <div class="col-md-8">
@@ -516,6 +590,9 @@ if (isset($_SESSION['admin_id']) && isset($_SESSION['username'])) {
 
                 var input = $("#password_main");
                 input.attr('type') === 'password' ? input.attr('type', 'text') : input.attr('type', 'password')
+
+                var input_edit = $("#password_edit");
+                input_edit.attr('type') === 'password' ? input_edit.attr('type', 'text') : input_edit.attr('type', 'password')
             });
         </script>
 
@@ -646,18 +723,20 @@ if (isset($_SESSION['admin_id']) && isset($_SESSION['username'])) {
         </script>
 
         <script>
-            const indicator = document.querySelector(".indicator");
-            const input = document.getElementById('password_main');
-            const weak = document.querySelector(".weak");
-            const medium = document.querySelector(".medium");
-            const strong = document.querySelector(".strong");
-            const text = document.querySelector(".text");
-            const showBtn = document.querySelector(".showBtn");
-            let regExpWeak = /[a-zA-Z]/;
-            let regExpMedium = /\d+/;
-            let regExpStrong = /.[!,@,#,$,%,^,&,*,?,_,~,-,(,)]/;
+            function CheckStrength() {
+                var modal = $('#add')
+                const indicator = document.querySelector(".indicator");
+                const input = document.getElementById("password_main");
+                const weak = document.querySelector(".weak");
+                const medium = document.querySelector(".medium");
+                const strong = document.querySelector(".strong");
+                const text = document.querySelector(".text");
+                // const showBtn = document.querySelector(".showBtn");
 
-            $("input").on('input', function() {
+                let regExpWeak = /[a-zA-Z]/;
+                let regExpMedium = /\d+/;
+                let regExpStrong = /.[!,@,#,$,%,^,&,*,?,_,~,-,(,)]/;
+
                 if (input.value != "") {
                     indicator.style.display = "block";
                     indicator.style.display = "flex";
@@ -707,11 +786,80 @@ if (isset($_SESSION['admin_id']) && isset($_SESSION['username'])) {
                     indicator.style.display = "none";
                     text.style.display = "none";
                 }
-            });
-            $("#cancel_add").click(function() {
-                indicator.style.display = "none";
-                text.style.display = "none";
-            });
+                modal.on('hidden.bs.modal', function CheckStrength() {
+                    indicator.style.display = "none";
+                    text.style.display = "none";
+                });
+            }
+
+            function CheckStrength_edit() {
+                var modal = $('#edit')
+                const indicator = document.querySelector(".indicator_edit");
+                const input = document.getElementById("password_edit");
+                const weak = document.querySelector(".weak_edit");
+                const medium = document.querySelector(".medium_edit");
+                const strong = document.querySelector(".strong_edit");
+                const text = document.querySelector(".text_edit");
+                // const showBtn = document.querySelector(".showBtn");
+
+                let regExpWeak = /[a-zA-Z]/;
+                let regExpMedium = /\d+/;
+                let regExpStrong = /.[!,@,#,$,%,^,&,*,?,_,~,-,(,)]/;
+
+                if (input.value != "") {
+                    indicator.style.display = "block";
+                    indicator.style.display = "flex";
+                    if (input.value.length <= 3 && (input.value.match(regExpWeak) || input.value.match(regExpMedium) || input.value.match(regExpStrong))) no = 1;
+                    if (input.value.length >= 6 && ((input.value.match(regExpWeak) && input.value.match(regExpMedium)) || (input.value.match(regExpMedium) && input.value.match(regExpStrong)) || (input.value.match(regExpWeak) && input.value.match(regExpStrong)))) no = 2;
+                    if (input.value.length >= 6 && input.value.match(regExpWeak) && input.value.match(regExpMedium) && input.value.match(regExpStrong)) no = 3;
+                    if (no == 1) {
+                        weak.classList.add("active");
+                        text.style.display = "block";
+                        text.textContent = "Your password is too weak";
+                        text.classList.add("weak");
+                        input.setCustomValidity("Please change your password. Hint: The password should be at least 6 characters long. To make it stronger, use upper and lower case letters, numbers, and symbols like !.\"?$%^&/.");
+                    }
+                    if (no == 2) {
+                        medium.classList.add("active");
+                        text.textContent = "Your password is medium";
+                        text.classList.add("medium");
+                        input.setCustomValidity('');
+                    } else {
+                        medium.classList.remove("active");
+                        text.classList.remove("medium");
+                    }
+                    if (no == 3) {
+                        weak.classList.add("active");
+                        medium.classList.add("active");
+                        strong.classList.add("active");
+                        text.textContent = "Your password is strong";
+                        text.classList.add("strong");
+                        input.setCustomValidity('');
+                    } else {
+                        strong.classList.remove("active");
+                        text.classList.remove("strong");
+                    }
+                    // showBtn.style.display = "block";
+                    // showBtn.onclick = function() {
+                    //     if (input.type == "password") {
+                    //         input.type = "text";
+                    //         showBtn.textContent = "HIDE";
+                    //         showBtn.style.color = "#23ad5c";
+                    //     } else {
+                    //         input.type = "password";
+                    //         showBtn.textContent = "SHOW";
+                    //         showBtn.style.color = "#000";
+                    //     }
+                    // }
+                } else {
+                    indicator.style.display = "none";
+                    text.style.display = "none";
+                }
+                modal.on('hidden.bs.modal', function CheckStrength() {
+                    indicator.style.display = "none";
+                    text.style.display = "none";
+                });
+            }
         </script>
 
         <!-- CROP BEFORE UPLOAD FOR ADD-->
