@@ -21,20 +21,20 @@ include("db_conn.php");
         <script src="../js/jquery.dataTables.min_monitor.js"></script>
         <script type="text/javascript" src="../js/admin_session_timer.js"></script>
         <script src="https://cdn.datatables.net/fixedheader/3.1.8/js/dataTables.fixedHeader.min.js"></script>
-      
+
         <!--       Tie Breaker UI -->
         <link rel="stylesheet" type="text/css" href="../css/student_css/vote_ballot.css">
         <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
         <script src="https://kit.fontawesome.com/a076d05399.js"></script>
         <script src="../js/scripts.js"></script>
-	 
-	 <!-- short js to disable button -->
-	   <script type="text/javascript">
-	   function updateState(context){
+
+   <!-- short js to disable button -->
+     <script type="text/javascript">
+     function updateState(context){
            context.setAttribute('disabled',true)
              }
-	    </script>
-      
+      </script>
+
         <title>Election Report Generation  | BUCEILS HS Online Voting System</title>
     </head>
 
@@ -67,31 +67,31 @@ include("db_conn.php");
           $count_student = "SELECT * FROM student";
           $count_result = mysqli_query($conn, $count_student);
           $total = mysqli_num_rows($count_result);
-                            
+
           $QoutaAll = floor($total/2)+1; //this is the Quota for all candidate except the representatives
-                            
+          tempCandidate($conn); // create temporary candidate table
           $val = $conn->query('SELECT 1 from temp_tie LIMIT 1');// checks if table is already created
 
-          if($val !== FALSE)// if true do drop 
+          if($val != FALSE)// if true do drop
           {
             $tbDrop = "DROP TABLE temp_tie";
             $conn->query($tbDrop);
           }
-            
-          //using query, retrieve all the data from candidate that have ties then group them by position id and total votes for easy data and code manipulation                        
+
+          //using query, retrieve all the data from candidate that have ties then group them by position id and total votes for easy data and code manipulation
           $tieGet = "SELECT position_id, COUNT(position_id), total_votes, COUNT(total_votes) FROM candidate GROUP BY position_id, total_votes HAVING COUNT(position_id)>1 AND COUNT(total_votes)>1";
           $display_res = $conn->query($tieGet);
-            
+
           if($display_res->num_rows>0)
           {
-            tempCandidate($conn);// create a temp candidate table
+           // create a temp candidate table
             while($row = $display_res->fetch_assoc())
             {
              //this will filter the retrieve done in tieGet by getting all the tied candidates individually
               $tieGet2 = "SELECT * FROM ((candidate INNER JOIN student ON candidate.student_id = student.student_id) INNER JOIN candidate_position ON candidate.position_id = candidate_position.position_id) where candidate.position_id = ".$row['position_id']." AND total_votes = ".$row['total_votes']." ORDER BY candidate_position.heirarchy_id";
 
               //creates a temp table that will hold the data of tied candidates
-              //note temp tables are uneditable nor updatable 
+              //note temp tables are uneditable nor updatable
               $sql = "CREATE TABLE `temp_tie` (
                 `candidate_id` int(11) NOT NULL,
                 `student_id` int(11) NOT NULL,
@@ -120,7 +120,7 @@ include("db_conn.php");
                     if(getMax($conn, $pos_hold)==$row1['total_votes'])
                     {
                       //insert into temp_tie table
-                        //note temp tables can only accept insert 
+                        //note temp tables can only accept insert
                       $insert_data = 'INSERT INTO temp_tie (candidate_id, student_id, position_id, total_votes, party_name, platform_info, credentials, photo) VALUES ("'.$row1['candidate_id'].'","'.$row1['student_id'].'","'.$row1['position_id'].'","'.$row1['total_votes'].'","'.$row1['party_name'].'","'.$row1['platform_info'].'","'.$row1['credentials'].'","'.$row1['photo'].'")';
 
                         $conn->query($insert_data);
@@ -134,9 +134,9 @@ include("db_conn.php");
                   $count_query1 = "SELECT * FROM student where grade_level = ".$row1['grade_level']."";
                   $count_res1 = mysqli_query($conn, $count_query1);
                   $total1 = mysqli_num_rows($count_res1);
-                          
+
                   $QoutaAll1 = floor($total1/2)+1;
-                  /*==========END==============*/              
+                  /*==========END==============*/
                   if($row1['total_votes']>=($QoutaAll1-1))
                   {
                     if(getMax($conn, $pos_hold)==$row1['total_votes'])
@@ -153,25 +153,25 @@ include("db_conn.php");
           }
 
           //after all those process finally, we can send filtered data to generateBallot
-          $table = $conn->query("SELECT * FROM ((temp_tie INNER JOIN student ON temp_tie.student_id = student.student_id) INNER JOIN candidate_position ON temp_tie.position_id = candidate_position.position_id) ORDER BY candidate_position.heirarchy_id"); 
+          $table = $conn->query("SELECT * FROM ((temp_tie INNER JOIN student ON temp_tie.student_id = student.student_id) INNER JOIN candidate_position ON temp_tie.position_id = candidate_position.position_id) ORDER BY candidate_position.heirarchy_id");
 
-        	if ($tie_position_counter == 0)
-        	{
-	          if(empty($archive_row))
-      				$check = true;
-      			else
-      				$check = false;
-			
-	    
-  	    		if($check || ($end_date->format('Y-m-d')> $archive_sy))
-  			    {
-  			    	Archive($conn, $end_date->format('Y-m-d'));
-              		dlMsg("Election Report has been successfully generated");
-  			    }
-      			else
-      			{
-      				dlMsg("Election Report has been successfully generated");
-      			}
+          if ($tie_position_counter == 0)
+          {
+            if(empty($archive_row))
+              $check = true;
+            else
+              $check = false;
+
+
+            if($check || ($end_date->format('Y-m-d')> $archive_sy))
+            {
+              Archive($conn, $end_date->format('Y-m-d'));
+                  dlMsg("Election Report has been successfully generated");
+            }
+            else
+            {
+              dlMsg("Election Report has been successfully generated");
+            }
           }
           else
           {  // start tie display
@@ -201,7 +201,7 @@ include("db_conn.php");
           notifMessage("Election is ongoing<br><br>Results will be out soon");
           exit();
         }
-      }//end of else election is not empty       
+      }//end of else election is not empty
 ?>
 <!-- Space before footer -->
         <br><br><br><br><br><br><br><br>
