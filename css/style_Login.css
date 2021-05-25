@@ -74,7 +74,7 @@ h1 {
 .Awelcome-banner {
   float: left;
   position: relative;
-  margin-left: 20px;
+  left: 10vh;
   margin-top: 180px;
 }
 
@@ -96,21 +96,19 @@ p {
 }
 
 .Acontainer {
+  font-family: 'Roboto-regular', sans-serif;
   max-width: 350px;
   border-radius: 5px;
   padding: 25px;
   background-color: #eceff1;
   box-shadow: 0 10px 20px rgba(0, 0, 0, .19);
   text-align: center;
-  right: 20vh;
+  right: 10vh;
   position: absolute;
   float: right;
   margin-top: 100px;
 }
 
-.Aselect{
-  font-family: 'Roboto-regular', sans-serif;
-}
 
 img.Alogos {
   display: inline-block;
@@ -134,7 +132,6 @@ button {
   cursor: pointer;
 }
 
-form {}
 
 input[type=text], input[type=password] {
   width: 100%;
