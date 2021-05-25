@@ -86,12 +86,12 @@ $DTrow =  $DnT->fetch_row();
 
                 <!--Edited button to be disabled during the election-->
                 <button class="btn btn-button2" data-title="otp" data-toggle="modal" data-target="#otp"
-                    data-placement="top" data-toggle="tooltip" title="Generate OTP for this list" <?php 
+                    data-placement="top" data-toggle="tooltip" title="Generate Password for this list" <?php 
                     $now = date("Y-m-d G:i:s"); // G for 24hr format
                     if(isset($DTrow) && $now >= $DTrow[1] && $now <= $DTrow[2] ){
                     ?> disabled <?php    
                     }?>>
-                    <span class="fa fa-lock"></span> GENERATE OTP</button>
+                    <span class="fa fa-lock"></span> GENERATE PASSWORD</button>
                 <!--Edited button to be disabled during the election-->
 
 
@@ -128,7 +128,7 @@ $DTrow =  $DnT->fetch_row();
                                     <option value="11">Grade 11</option>
                                     <option value="12">Grade 12</option></select>
                                 </th>
-                                <th class="min-mobile">OTP</th>
+                                <th class="min-mobile">PASSWORD</th>
                                 <th class="min-mobile">TOOLS</th>
 
                             </tr>
@@ -243,8 +243,7 @@ $DTrow =  $DnT->fetch_row();
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                    <h4 class="modal-title custom_align" id="Heading">Once you confirm, the system will generate one
-                        time password for this list. Do you wish to proceed?</h4>
+                    <h4 class="modal-title custom_align" id="Heading">Once you confirm, the system will generate password for this list. Do you wish to proceed?</h4>
                     <form method="POST">
                         <div class="modal-footer ">
 
