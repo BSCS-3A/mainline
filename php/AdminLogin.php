@@ -60,8 +60,8 @@
     <!-- end Login Banner --> 
 
     <!-- Login Form -->
-    <form action="Admin_Login_Button.php" method="post"> 
-        <div class="Acontainer">
+    <div class="Acontainer">
+      <form action="Admin_Login_Button.php" method="post"> 
             <img src="../img/admin.png" alt="Logo" title="Logo" width="138">
             <h1>SIGN IN AS</h1>
                 <div class="Aselect">
@@ -84,9 +84,9 @@
              echo '<div class="g-recaptcha" data-sitekey="6LflenwaAAAAAAmK_ZEd0aJwcROAUe3gH2Cbmzkg"></div>';
              }
             ?>
-            <button type="submit">LOG IN</button>   
-        </div>   
-    </form> 
+            <button type="submit">LOG IN</button>     
+      </form> 
+    </div> 
     <!-- end Login Form -->
 
     <!-- Modal -->
