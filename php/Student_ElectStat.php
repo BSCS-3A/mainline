@@ -30,7 +30,7 @@ include('db_conn.php');
         
         if(isValidUser($conn)){
             if(empty($row['vote_event_id'])){
-                errorMessage("NO ELECTION HAS BEEN SCHEDULED");
+                errorMessage("No election has been scheduled");
                 exit();
             }
             else{
@@ -42,21 +42,21 @@ include('db_conn.php');
                         require_once 'navStudent.php';
                         require 'Student_ElectRes.php';
                     }else{
-                        errorMessage("ELECTION IS ALREADY FINISHED");
+                        errorMessage("Election is already finished");
                         exit();
                     }
                 }else if($access_time < $start_time){
-                    errorMessage("ELECTION HAS NOT YET STARTERD");
+                    errorMessage("Election has not yet started");
                     exit();
                 }
                 else if($access_time >= $start_time && $access_time <= $end_time){
-                    errorMessage("ELECTION IS STILL ON-GOING");
+                    errorMessage("Election is still on-going");
                     exit();
                 }
             }
         }
         else{ // Invalid user; destroy session and return to login
-            notifyAdmin("Warning: A USER WITH INVALID CREDENTIALS ATTEMPTED TO ACCESS THE ELECTION PAGE");
+            notifyAdmin("Warning: A user with invalid credentials attmpted to access the Receipt Page!");
             session_unset();    // remove all session variables
             session_destroy();  // destroy session
             header("Location: ../index.php");
