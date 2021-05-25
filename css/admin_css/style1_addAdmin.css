@@ -654,10 +654,18 @@ img.logos {
 } */
 /* Responsive layout - makes the menu and the content (inside the section) sit on top of each other instead of next to each other */
 
-@media (max-width: 600px) {
+/* @media (max-width: 600px) {
   body, section, .container {
     -webkit-flex-direction: column;
     flex-direction: column;
+  }
+} */
+
+@media only screen and (max-width: 600px) {
+  div.container {
+      margin: 0px 0px 25px 0px;
+      width: 100%;
+      height: fit-content;
   }
 }
 
