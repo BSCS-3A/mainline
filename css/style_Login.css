@@ -273,7 +273,7 @@ select {
   }
 
 
-
+  /*Smartphones Landscape*/
   @media (min-width: 600px) and (max-width: 900px) {
 
     body{
@@ -353,6 +353,7 @@ select {
     }
 }
 
+/* iPad Landscape */
 @media only screen and (min-device-width: 481px) and (max-device-width: 1024px) and (orientation:landscape) {
   body{
     -webkit-flex-direction: column;
@@ -368,4 +369,70 @@ select {
     margin-left: 120px;
     margin-right: 120px;
   }
+}
+
+
+/* PORTRAIT:
+	Microsof Surface Pro */
+@media only screen and (max-width: 720px) and (orientation : portrait) {
+  body{
+    -webkit-flex-direction: column;
+    flex-direction: column;
+  }
+
+  .Awelcome-banner {
+    display: none;
+  }
+ 
+  .Alogo-banner {
+    display: inline-block;
+    font-size: 1em;
+    position: relative;
+    text-align: center;
+    top: 50px;
+  }
+  .Arlogo {
+    display: inline-block;
+    position: relative;
+    padding: 0px 30px 0px 10px;
+    height: 15%;
+    width: 15%;
+  }
+}
+
+@media only screen 
+  and (min-device-width: 768px) 
+  and (orientation: portrait) {
+    body{
+      -webkit-flex-direction: column;
+      flex-direction: column;
+    }
+  
+    .Awelcome-banner {
+      display: none;
+    }
+    .Acontainer{
+      position: relative; /* or absolute */
+      display: inline-block;
+      float: none;
+      right: 0px;
+      max-width: 100%;
+      top: -20px;
+      margin-left: 120px;
+      margin-right: 120px;
+    }
+    .Alogo-banner {
+      display: inline-block;
+      font-size: 1em;
+      position: relative;
+      text-align: center;
+      top: 50px;
+    }
+    .Arlogo {
+      display: inline-block;
+      position: relative;
+      padding: 0px 30px 0px 10px;
+      height: 15%;
+      width: 15%;
+    }
 }
