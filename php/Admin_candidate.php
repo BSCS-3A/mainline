@@ -130,9 +130,8 @@
             $.ajax({
             	url: 'backCandidate/checkTable.php',
             	method: 'post',
-            	data: {check: temp, candidateid: candid, checklastname: lname, checkfirstname: fname, checkhid: hid},
+            	data: {check: temp, candidateid: candid, checklastname: globalLname, checkfirstname: globalFname, checkhid: globalHid},
             	success:function(response){
-            		console.log(response);
             		if(response == "Exists"){
             			$.ajax({
              				url:'backCandidate/addCandidate.php',
@@ -533,14 +532,14 @@
                       </select>
                   </div>
                   <div class="form-group">  
-                      <input class="form-control" id="etc-edit1" name="editpartylist" type="text" placeholder="Enter Partylist" required>              
+                      <input class="form-control" id="etc-edit1" name="editpartylist" type="text" placeholder="Enter Partylist">              
                   </div>
                   <div class="form-group">  
-                      <textarea class="form-control" id="etc-edit2" name="editplatform" type="text" placeholder="Enter Platforms" required></textarea>
+                      <textarea class="form-control" id="etc-edit2" name="editplatform" type="text" placeholder="Enter Platforms"></textarea>
                       
                   </div>
                   <div class="form-group">  
-                      <textarea class="form-control" id="etc-edit3" name="editcredentials" type="text" placeholder="Enter Credentials" required></textarea>
+                      <textarea class="form-control" id="etc-edit3" name="editcredentials" type="text" placeholder="Enter Credentials"></textarea>
                       
                   </div>
               </div>
@@ -617,7 +616,7 @@
 <script>
 
     var table ="";
-
+    var globalLname,globalFname, globalHid;
     function reloadTable(){
       $.ajax({
         url:'backCandidate/tableCandidate.php',
@@ -656,7 +655,10 @@
 
       $("#cid").attr("candidate",cid);
       $("#editlastnamesearch").val($(cols[1]).text());
+      globalLname = $(cols[1]).text();
       $("#editfirstnamesearch").val($(cols[2]).text());
+      globalFname = $(cols[2]).text();
+      globalHid = $(cols[3]).attr("data-order");
       $("#etc-edit1").val($(cols[4]).text());
       $("#etc-edit2").val($(cols[5]).text());
       $("#etc-edit3").val($(cols[6]).text());
@@ -688,11 +690,11 @@
       $("#etc-add2").val("");
       $("#etc-add3").val("");
   }
-  function selectFalse(){
+  /*function selectFalse(){
       $(".vutton").each(function() {
           $(this).parent("td").attr("select","false");    
       });
-  }
+  }*/
 
     var bs_modal = $('#modal');
     var image = document.getElementById('imagine');

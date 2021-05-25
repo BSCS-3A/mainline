@@ -9,7 +9,7 @@ body {
 /*Datatable*/
 
 .container {
-  width: 100% !;
+  width: 100%;
   position: relative !important;
   padding: 1rem;
   margin-top: 3%;
@@ -25,7 +25,7 @@ body {
   table-layout: auto;
   margin: 0px;
   text-align: center;
-  width: 100%;
+  max-width: 100%;
   font-family: 'Roboto-regular', sans-serif;
   background: rgba(255, 255, 255, 0.6);
 }
@@ -35,7 +35,7 @@ body {
   table-layout: auto;
   margin: 0px;
   text-align: center;
-  width: 100%;
+  max-width: 100%;
   font-family: 'Roboto-regular', sans-serif;
   background: rgba(255, 255, 255, 0.6);
 }

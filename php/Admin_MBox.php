@@ -96,6 +96,19 @@ include("db_conn.php");
             ?>
             <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
             <script type="text/javascript"> 
+
+            if(window.innerHeight < window.innerWidth){
+            $("#alert").fadeTo(0,0);
+            }
+            window.addEventListener("orientationchange", function() {
+            if(window.innerHeight > window.innerWidth){
+            $("#alert").fadeTo(0,0);
+            }
+            else if(window.innerHeight < window.innerWidth){
+            $("#alert").fadeTo(1,500);
+            }
+            }, false);
+            
            setInterval(function loading(){
             $.ajax({
             url : './backStudent/Admin_load.php',
