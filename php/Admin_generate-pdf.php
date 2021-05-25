@@ -239,7 +239,7 @@ while($lastCandidate = mysqli_fetch_array($queryGroup)){
 	$pdf->Ln(10); 
 	$pdf->SetFont('','B',12);
 	$pdf->Cell(20,1,'Certified true and correct by:',0,0);
-	$pdf->Ln(5);
+	$pdf->Ln(7);
 
 $fileJson = file_get_contents('../other/sig_array.json');
              $decoded = json_decode($fileJson, true);
@@ -247,18 +247,15 @@ $fileJson = file_get_contents('../other/sig_array.json');
              $id = array_filter($id);
              $in = '(' . implode(',', $id) .')';
 
-			$ypos=180; 
+			$ypos=143; 
 			$querySignatory=mysqli_query($conn, "SELECT * FROM admin WHERE admin_id IN". $in);
 			while ($resSignatory = mysqli_fetch_array($querySignatory)){ 
-				$pdf->Ln(20); 						//space between lines 
-				$pdf->Image($resSignatory['eSignature'],20,$ypos, 50, 15, '', '', '', false, 300, '', false, false, 0);
-
+				
+				$pdf->Ln(23); 						//space between lines 
 				$pdf->SetFont('','',12);			//format
-                $pdf->Cell(20,5,strtoupper($resSignatory['admin_lname']).", ".strtoupper($resSignatory['admin_fname']),0,1);
- 				$pdf->SetFont('','BI',12);			//format
- 				$pdf->Cell(20,5,strtoupper($resSignatory['comelec_position']),0,1);
-
-				$ypos=$ypos+30;
+				
+                $pdf->Image($resSignatory['eSignature'],22,$ypos,50, 20, '', '', '', false, 300, '', false, false, 0).$pdf->Cell(20,5,strtoupper($resSignatory['admin_lname']).", ".strtoupper($resSignatory['admin_fname']),0,1).$pdf->SetFont('','BI',12).$pdf->Cell(20,5,strtoupper($resSignatory['comelec_position']),0,1);
+				$ypos=$ypos+33;
             }
 
 // -------------------Output PDF
