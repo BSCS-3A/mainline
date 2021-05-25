@@ -290,6 +290,8 @@ body {
 	margin-top: -5px;
 }
 
+/* ------------------------------------------------------------------------------------------- */
+
 /* Oppof1s ----------- */
 @media only screen and (min-device-width: 720px) and (max-device-height: 1280px){
   /*circle graph*/
@@ -405,7 +407,8 @@ body {
     margin-left: 8%;
     margin-bottom: 13%;
   }
-  @media only screen and (min-device-width: 640px) and (max-device-height: 320px) and (orientation : landscape){
+}
+@media only screen and (min-device-width: 640px) and (max-device-height: 320px) and (orientation : landscape){
     /*archives*/
     .Barch_container {
       color: black;
@@ -513,8 +516,6 @@ body {
     grid-template-rows: repeat(autofit, 30%);
     text-align: center;
     margin-top: 18px;
-    margin-left: 13%;
-    margin-bottom: 10%;
   }
 }
 @media only screen and (min-device-width: 640px) and (max-device-height: 360px) and (orientation : landscape){
@@ -646,6 +647,7 @@ body {
     margin-top: -5px;
   }
 }
+
 /* Lappy ----------- */
 @media only screen and (min-device-width: 1200px) and (max-device-height: 800px){
   /*circle graph*/
@@ -781,6 +783,23 @@ body {
     margin-bottom: 5%;
   }
 }
+@media only screen and (min-device-width: 320px) and (max-device-height: 568px) and (orientation :portrait){
+  .Barch_container {
+    padding: 30px;
+    color: black;
+    display: grid;
+    grid-gap: 30px;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 5fr));
+    grid-template-rows: repeat(autofit, 30%);
+    text-align: center;
+    margin-top: 18px;
+    max-width: 60%;
+    margin-left: 8%;
+    margin-right: auto;
+    margin-bottom: 5%;
+  }
+}
+
 
 /* iPhone 6 7 8 plus----------- */
 @media only screen and (min-device-width: 736px) and (max-device-height: 414px) and (orientation :landscape){
@@ -809,7 +828,7 @@ body {
     grid-template-rows: repeat(autofit, 30%);
     text-align: center;
     margin-top: 18px;
-    max-width: 60%;
+    max-width: 80%;
     margin-left: auto;
     margin-right: auto;
     margin-bottom: 5%;
@@ -831,7 +850,6 @@ body {
     margin-bottom: 5%;
   }
 }
-
 
 /* iPhone X ----------- */
 @media only screen and (min-device-width: 812px) and (max-device-height: 375px) and (orientation : landscape){
@@ -910,7 +928,7 @@ body {
     grid-template-rows: repeat(autofit, 30%);
     text-align: center;
     margin-top: 18px;
-    margin-left: auto;
+    margin-left: 15%;
     margin-right: auto;
     margin-bottom: 10%;
   }
@@ -952,6 +970,7 @@ body {
     text-align: center;
     margin-top: 2%;
   }
+  /*archives*/
   .Barch_container {
     padding: 30px;
     color: black;
@@ -963,6 +982,23 @@ body {
     margin-top: 18px;
     max-width: 60%;
     margin-left: 15%;
+    margin-right: auto;
+    margin-bottom: 10%;
+  }
+}
+@media only screen and (min-device-width: 667px) and (max-device-height: 375px) and (orientation :landscape){
+  /*archives*/
+  .Barch_container {
+    padding: 30px;
+    color: black;
+    display: grid;
+    grid-gap: 30px;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 5fr));
+    grid-template-rows: repeat(autofit, 30%);
+    text-align: center;
+    margin-top: 18px;
+    max-width: 60%;
+    margin-left: 18%;
     margin-right: auto;
     margin-bottom: 10%;
   }
@@ -1166,6 +1202,7 @@ body {
     grid-template-rows: repeat(autofit, 30%);
     text-align: center;
     margin-top: 18px;
+    max-width: 80%;
     margin-left: 17%;
     margin-bottom: 5%; 
   }
@@ -1185,6 +1222,40 @@ body {
     margin-left: 19%;
     margin-bottom: 5%; 
   }
+  /*vote tally*/
+  .Belection_container {
+    display: grid;
+    grid-gap: 40px;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 2fr));
+    grid-template-rows: repeat(5, auto);
+    padding-right: 5%;
+    padding-left: 5%;
+    margin-top: 2%;
+    margin-bottom: 5%;
+  }
+  .Bcan {
+    background-color:#1f6f8f;
+    font-weight: initial;
+    width: 100%;
+    margin-top: 10%;
+    font-family: 'Roboto-regular', sans-serif;
+    padding: 4px;
+  }
+  .Bcan b{
+    color: white;
+    font-family: 'Roboto-regular', sans-serif;
+    font-size: smaller;
+  }
+  .Bcan span{
+    background: #0f3849;
+    width: 100%;
+    font-family: 'Roboto-regular', sans-serif;
+    float: right;
+    padding: 5px;
+    color: white;
+    text-align: center;
+    margin-top: 2%;
+  }
 }
 @media only screen and (min-device-width: 823px) and (max-device-height: 411px) and (orientation : landscape){
   /*archives*/
@@ -1201,7 +1272,6 @@ body {
     margin-bottom: 5%; 
   }
 }
-
 
 /* Galaxy Fold  ----------- */
 @media only screen and (min-device-width: 280px) and (max-device-height: 653px) and (orientation : portrait){
@@ -1266,12 +1336,30 @@ body {
   grid-template-rows: repeat(autofit, 30%);
   text-align: center;
   margin-top: 18px;
-  margin-left: auto;
+  margin-left: 5%;
   margin-right: auto;
-  margin-bottom: 10%;
+  margin-bottom: 13%;
   }
 }
 @media only screen and (min-device-width:653px) and (max-device-height: 280px) and (orientation : landscape){
+  /*archives*/
+  .Barch_container {
+    padding: 30px;
+    color: black;
+    display: grid;
+    grid-gap: 30px;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 5fr));
+    grid-template-rows: repeat(autofit, 30%);
+    text-align: center;
+    margin-top: 18px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 10%;
+    }
+}
+
+/* Surface Duo ---------------- */
+@media only screen and (min-device-width:720px) and (max-device-height: 540px) and (orientation : landscape){
   /*archives*/
   .Barch_container {
     padding: 30px;
