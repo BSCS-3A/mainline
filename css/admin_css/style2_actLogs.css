@@ -273,14 +273,6 @@ div.container {
   height: auto;
 }
 
-@media only screen and (max-width: 600px) {
-  div.container {
-    margin: 0px 0px 0px 0px;
-    width: 100%;
-    height: fit-content;
-  }
-}
-
 #datatable {
   width: 100%;
   border: 1px solid #124254;

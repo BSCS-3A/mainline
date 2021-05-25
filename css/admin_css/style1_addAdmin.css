@@ -334,14 +334,6 @@ iframe {
   
 }
 
-@media only screen and (max-width: 600px) {
-  div.container {
-    margin: 0px 0px 0px 0px;
-    width: 100%;
-    height: fit-content;
-  }
-}
-
 .btn-cancel {
   background: #dddddd;
   height: 33px!important;
@@ -532,6 +524,14 @@ div.container.upload {
   }
 }
 
+@media only screen and (max-width: 600px) {
+  div.container {
+      margin: 0px 0px 25px 0px;
+      width: 100%;
+      height: fit-content;
+  }
+}
+
 #datatable {
   width: 100%;
   border: 1px solid #124254;
@@ -653,21 +653,6 @@ img.logos {
   background-color: gray;
 } */
 /* Responsive layout - makes the menu and the content (inside the section) sit on top of each other instead of next to each other */
-
-/* @media (max-width: 600px) {
-  body, section, .container {
-    -webkit-flex-direction: column;
-    flex-direction: column;
-  }
-} */
-
-@media only screen and (max-width: 600px) {
-  div.container {
-      margin: 0px 0px 25px 0px;
-      width: 100%;
-      height: fit-content;
-  }
-}
 
 
 
