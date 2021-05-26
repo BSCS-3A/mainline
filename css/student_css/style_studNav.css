@@ -312,7 +312,7 @@ nav ul ul ul li {
     margin-left: 40px;
   } */
 
-@media all and (max-width: 968px) {
+@media all and (max-width: 1000px) {
   nav ul {
     margin-right: 0px;
     margin-left: 0px;
@@ -420,4 +420,79 @@ div p.footer-txt {
   letter-spacing: 7px;
   font-size: 10px;
   /* color: #ffffff; */
+}
+
+/*----iPhone 5/SE----*/
+@media only screen and (device-height: 568px) {
+  h2.aLogo-txt1 {
+    font-size: 70%;
+    font-weight: lighter;
+    margin-top: 2px;
+    font-family: 'Roboto-regular', sans-serif;
+    margin-bottom: 0px;
+    letter-spacing: 6px;
+    text-decoration: none;
+  }
+  
+  h3.aLogo-txt2 {
+    font-size: 70%;
+    font-weight: 200;
+    margin-top: 0px;
+    color: #000000;
+    padding-top: 5px;
+    margin-bottom: 2px;
+    letter-spacing: 6px;
+  }
+  
+  h3.aLogo-txt2 a {
+    text-decoration: none;
+    color: #000000;
+    font-family: 'genericaregular', sans-serif;
+  }
+
+  .ADicon {
+    transform: translate(10px, -10px);
+  }
+  
+  span.cancel:before {
+    content: '\f00d';
+  }
+}
+
+/*----iPhone 4----*/
+@media only screen and (device-height: 480px){
+  h2.aLogo-txt1 { 
+    font-size: 70%;
+    font-weight: lighter;
+    margin-top: 2px;
+    font-family: 'Roboto-regular', sans-serif;
+    margin-bottom: 0px;
+    letter-spacing: 6px;
+    text-decoration: none;
+  }
+  
+  h3.aLogo-txt2 {
+    font-size: 70%;
+    font-weight: 200;
+    margin-top: 0px;
+    color: #000000;
+    padding-top: 5px;
+    margin-bottom: 2px;
+    letter-spacing: 6px;
+  }
+  
+  h3.aLogo-txt2 a {
+    text-decoration: none;
+    color: #000000;
+    font-family: 'genericaregular', sans-serif;
+  }
+
+  .ADicon {
+    transform: translate(10px, -10px);
+  }
+  
+  span.cancel:before {
+    content: '\f00d';
+  }
+
 }
