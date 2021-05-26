@@ -26,7 +26,13 @@
 </head>
 <body>
     <!-- navigation bar -->
-    <?php include "navAdmin.php"; ?>
+    <?php include "navAdmin.php"; 
+    /* Check Election Date and Time*/
+    $now = date("Y-m-d G:i:s"); // G for 24hr format
+    if($DTrow!=NULL ){
+       if($now < $DTrow[1] || $now > $DTrow[2]){
+   /* Check Election Date and Time*/    
+    ?>
     <div class="bheader">
         <h3 class="bheader-txt">VOTE SUMMARY</h3>
     </div>
@@ -166,6 +172,23 @@
         $("[data-toggle=tooltip]").tooltip();
         } );</script>
     
+     <!--Check Election Date and Time-->       
+     <?php
+            }
+            else if($now >= $DTrow[1] && $now <= $DTrow[2]){
+            require_once 'Admin_Notif.php';
+            notifMessage("Election is on ongoing");
+            exit();
+            }
+    }
+    else if(!isset($DTrow)){
+    require_once 'Admin_Notif.php';
+    notifMessage("No election has been scheduled.");
+    exit(); 
+    }
+    ?>
+    <!--Check Election Date and Time-->   
+
 </body>
 
 </html>
