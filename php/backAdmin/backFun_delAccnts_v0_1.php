@@ -7,7 +7,7 @@ include '../db_conn.php';
 
 if (isset($_POST['yes_delete'])) {
     $admin_id = $_POST['Delete_ID'];
-    //For Logs
+    //For Logs rin
     $username = "SELECT username FROM admin WHERE admin_id='$admin_id'";
 
     $slqphotofind = "SELECT `photo` FROM `admin` WHERE `admin_id`= '$admin_id'";
