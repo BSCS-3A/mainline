@@ -41,9 +41,16 @@ require './backMonitor/fetch_date.php';
     require_once 'Admin_Notif.php';
     notifMessage("No Election has been scheduled.");
     exit();
-  }else{ 
+  }else{
+    $trigger = 0;
+    if($current_date_time<=$last_election_date){
+      $trigger = 1;
+    }else{
+      $trigger = 0;
+    } 
   ?>
   <div class="Belection_container" id="election_res">
+      <?php if($current_date_time<=$last_election_date){ ?>
       <link rel="stylesheet" type="text/css" href="../css/student_css/vote_message.css">
       <main>
       <div id="error-message-container" class="error-message-container">			
@@ -52,6 +59,7 @@ require './backMonitor/fetch_date.php';
         </div>
       </div>
       </main>
+      <?php } ?>
       </div> <!-- end of ajax output -->
   
   </div> <!-- End of #election-res div -->
@@ -85,9 +93,10 @@ require './backMonitor/fetch_date.php';
   </div>
 
   <script>
+
     const candidatesBody = document.querySelector(".Belection_container");
 
-    let auto_refresh = setInterval(function loadCandidates(){
+    function loadCandidates(){
         const xhr = new XMLHttpRequest();
         xhr.open('POST', 'backMonitor_ajax.php', true);
 
@@ -161,8 +170,13 @@ require './backMonitor/fetch_date.php';
           }
         }
         xhr.send();
-      }, 5000
-    );
+      }
+    var trigger_func = <?php echo $trigger;?>;
+    if(trigger_func == 1){
+      auto_refresh = setInterval(loadCandidates, 5000);
+    }else{
+      window.onload = loadCandidates;
+    }
 
   </script>
   <script> 
