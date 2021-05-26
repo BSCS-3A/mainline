@@ -27,7 +27,7 @@ if (isset($_SESSION['admin_id']) && isset($_SESSION['username'])) {
         <script type="text/javascript" src="../js/admin_session_timer.js"></script>
 
         <!--additional scripts-->
-        <script src="../js/bootstrap-show-password.min_addAdmin.js"></script>
+        <!-- <script src="../js/bootstrap-show-password.min_addAdmin.js"></script> -->
 
         <!--for upload photo crop-->
         <link href="https://unpkg.com/cropperjs/dist/cropper.css" rel="stylesheet" />
@@ -41,18 +41,7 @@ if (isset($_SESSION['admin_id']) && isset($_SESSION['username'])) {
     <?php include "navAdmin.php" ?>
 
     <style type="text/css">
-        img.imagine {
-            display: block;
-            max-width: 100%;
-        }
 
-        .prev {
-            overflow: hidden;
-            width: 160px;
-            height: 160px;
-            margin: 10px;
-            border: 1px solid red;
-        }
     </style>
 
     <body>
@@ -85,8 +74,8 @@ if (isset($_SESSION['admin_id']) && isset($_SESSION['username'])) {
                                     <th class="min-mobile">COMELEC POSITION</th>
                                     <th class="min-mobile">ADMIN POSITION</th>
                                     <th class="min-mobile">ACTION</th>
-                                    <th style="display:none;"></th>
-                                    <th style="display:none;"></th>
+                                    <!-- <th style="display:none;"></th>
+                                    <th style="display:none;"></th> -->
                                 </tr>
                             </thead>
                             <tbody>
@@ -108,8 +97,8 @@ if (isset($_SESSION['admin_id']) && isset($_SESSION['username'])) {
                                         <td style="word-wrap: break-word"><?php echo $row['username']; ?></td>
                                         <td><?php echo $row['comelec_position']; ?></td>
                                         <td><?php echo $row['admin_position']; ?></td>
-                                        <td style="display:none;"><?php echo $row['password']; ?></td>
-                                        <td style="display:none;"><?php echo $row['photo']; ?></td>
+                                        <!-- <td style="display:none;"></td> -->
+                                        <!-- <td style="display:none;"></td> -->
                                         <td style="white-space: nowrap;">
                                             <button class="btn btn-primary btn-xs editbtn" data-title="Edit" name="editinfo" data-toggle="modal" data-target="#edit" data-placement="top" data-toggle="tooltip" title="Edit" <?php if ($_SESSION['admin_position'] == "Admin") {
                                                                                                                                                                                                                                 ?> disabled <?php
@@ -178,11 +167,6 @@ if (isset($_SESSION['admin_id']) && isset($_SESSION['username'])) {
                             </div>
                             <div class="form-group">
                                 <label>Password:</label>
-                                <!-- <div class="input-icons">
-                                    <i toggle="#password-field" class="fa fa-eye icon toggle-password"></i>
-                                    <input id="password_main" type="password" name="password" class="form-control" onInput="CheckStrength()" placeholder="*********" onChange="onChange()" required>
-                                     <span class="showBtn">SHOW</span>
-                                </div> -->
                                 <div class="input-group">
                                     <input id="password_main" type="password" name="password" class="form-control left-border-none" onInput="CheckStrength()" placeholder="*********" onChange="onChange()" required>
                                     <span class="input-group-addon transparent">
@@ -198,7 +182,13 @@ if (isset($_SESSION['admin_id']) && isset($_SESSION['username'])) {
                             </div>
                             <div class="form-group">
                                 <label>Confirm Password:</label>
-                                <input type="password" name="conpassword" class="form-control" data-toggle="password" placeholder="*********" onChange="onChange()" required>
+                                <!-- <input type="password" name="conpassword" class="form-control" data-toggle="password" placeholder="*********" onChange="onChange()" required> -->
+                                <div class="input-group">
+                                    <input id="conpassword_main" type="password" name="conpassword" class="form-control left-border-none" placeholder="*********" onChange="onChange()" required>
+                                    <span class="input-group-addon transparent">
+                                        <i toggle="#password-field" class='fa fa-fw fa-eye toggle-password-confirm' aria-hidden='true'></i>
+                                    </span>
+                                </div>
                             </div>
                             <div class="container upload">
                                 <label for="photo" width="70%">Upload photo</label><br />
@@ -284,7 +274,13 @@ if (isset($_SESSION['admin_id']) && isset($_SESSION['username'])) {
                             </div>
                             <div class="form-group">
                                 <label>Confirm Password:</label>
-                                <input type="password" name="conpassword" id="conpassword_edit" class="form-control" data-toggle="password" placeholder="*********">
+                                <!-- <input type="password" name="conpassword" id="conpassword_edit" class="form-control" data-toggle="password" placeholder="*********"> -->
+                                <div class="input-group">
+                                    <input id="conpassword_edit" type="password" name="conpassword" class="form-control left-border-none" placeholder="*********">
+                                    <span class="input-group-addon transparent">
+                                        <i toggle="#password-field" class='fa fa-fw fa-eye toggle-password-confirm' aria-hidden='true'></i>
+                                    </span>
+                                </div>
                             </div>
                             <div class="container upload">
                                 <label for="photo" width="70%">Upload photo</label><br />
@@ -349,10 +345,10 @@ if (isset($_SESSION['admin_id']) && isset($_SESSION['username'])) {
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" id="crop" class="btn btn-button6">Crop</button>
-                        <button class="btn btn-cancelcrop" data-dismiss="modal" id="cancel_crop"><span class="fa fa-times-circle"></span> Cancel</button>
+                        <div class="modal-footer">
+                            <button type="button" id="crop" class="btn btn-button6">Crop</button>
+                            <button class="btn btn-cancelcrop" data-dismiss="modal" id="cancel_crop"><span class="fa fa-times-circle"></span> Cancel</button>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -379,10 +375,10 @@ if (isset($_SESSION['admin_id']) && isset($_SESSION['username'])) {
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" id="crop_edit" class="btn btn-button6">Crop</button>
-                        <button class="btn btn-cancelcrop" data-dismiss="modal" id="cancel_crop_edit"><span class="fa fa-times-circle"></span> Cancel</button>
+                        <div class="modal-footer">
+                            <button type="button" id="crop_edit" class="btn btn-button6">Crop</button>
+                            <button class="btn btn-cancelcrop" data-dismiss="modal" id="cancel_crop_edit"><span class="fa fa-times-circle"></span> Cancel</button>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -405,6 +401,14 @@ if (isset($_SESSION['admin_id']) && isset($_SESSION['username'])) {
             });
         </script> -->
 
+        <!-- <script>
+            $(document).ready(function() {
+                $('#form').on('input change', function() {
+                    $('#checkout').attr('disabled', false);
+                });
+            })
+        </script> -->
+
         <script>
             $(document).on('click', '.toggle-password', function() {
 
@@ -414,6 +418,17 @@ if (isset($_SESSION['admin_id']) && isset($_SESSION['username'])) {
                 input.attr('type') === 'password' ? input.attr('type', 'text') : input.attr('type', 'password')
 
                 var input_edit = $("#password_edit");
+                input_edit.attr('type') === 'password' ? input_edit.attr('type', 'text') : input_edit.attr('type', 'password')
+            });
+
+            $(document).on('click', '.toggle-password-confirm', function() {
+
+                $(this).toggleClass("fa-eye fa-eye-slash");
+
+                var input = $("#conpassword_main");
+                input.attr('type') === 'password' ? input.attr('type', 'text') : input.attr('type', 'password')
+
+                var input_edit = $("#conpassword_edit");
                 input_edit.attr('type') === 'password' ? input_edit.attr('type', 'text') : input_edit.attr('type', 'password')
             });
         </script>
@@ -486,7 +501,7 @@ if (isset($_SESSION['admin_id']) && isset($_SESSION['username'])) {
                     $('#username').val(data[5]);
                     $('#comelec_position').val(data[6]);
                     $('#admin_position').val(data[7]);
-                    $('#base64_edit').val(data[9]);
+                    // $('#base64_edit').val(data[9]);
                 });
             });
         </script>
@@ -553,7 +568,6 @@ if (isset($_SESSION['admin_id']) && isset($_SESSION['username'])) {
                 const medium = document.querySelector(".medium");
                 const strong = document.querySelector(".strong");
                 const text = document.querySelector(".text");
-                // const showBtn = document.querySelector(".showBtn");
 
                 let regExpWeak = /[a-zA-Z]/;
                 let regExpMedium = /\d+/;
@@ -592,23 +606,12 @@ if (isset($_SESSION['admin_id']) && isset($_SESSION['username'])) {
                         strong.classList.remove("active");
                         text.classList.remove("strong");
                     }
-                    // showBtn.style.display = "block";
-                    // showBtn.onclick = function() {
-                    //     if (input.type == "password") {
-                    //         input.type = "text";
-                    //         showBtn.textContent = "HIDE";
-                    //         showBtn.style.color = "#23ad5c";
-                    //     } else {
-                    //         input.type = "password";
-                    //         showBtn.textContent = "SHOW";
-                    //         showBtn.style.color = "#000";
-                    //     }
-                    // }
                 } else {
                     indicator.style.display = "none";
                     text.style.display = "none";
+                    input.setCustomValidity('');
                 }
-                modal.on('hidden.bs.modal', function CheckStrength() {
+                modal.on('hidden.bs.modal', function() {
                     indicator.style.display = "none";
                     text.style.display = "none";
                 });
@@ -622,7 +625,6 @@ if (isset($_SESSION['admin_id']) && isset($_SESSION['username'])) {
                 const medium = document.querySelector(".medium_edit");
                 const strong = document.querySelector(".strong_edit");
                 const text = document.querySelector(".text_edit");
-                // const showBtn = document.querySelector(".showBtn");
 
                 let regExpWeak = /[a-zA-Z]/;
                 let regExpMedium = /\d+/;
@@ -634,7 +636,7 @@ if (isset($_SESSION['admin_id']) && isset($_SESSION['username'])) {
                     if (input.value.length <= 3 && (input.value.match(regExpWeak) || input.value.match(regExpMedium) || input.value.match(regExpStrong))) no = 1;
                     if (input.value.length >= 6 && ((input.value.match(regExpWeak) && input.value.match(regExpMedium)) || (input.value.match(regExpMedium) && input.value.match(regExpStrong)) || (input.value.match(regExpWeak) && input.value.match(regExpStrong)))) no = 2;
                     if (input.value.length >= 6 && input.value.match(regExpWeak) && input.value.match(regExpMedium) && input.value.match(regExpStrong)) no = 3;
-                    if (no == 1) {
+                    if (no == 1 && input.value.length != 0) {
                         weak.classList.add("active");
                         text.style.display = "block";
                         text.textContent = "Your password is too weak";
@@ -676,8 +678,9 @@ if (isset($_SESSION['admin_id']) && isset($_SESSION['username'])) {
                 } else {
                     indicator.style.display = "none";
                     text.style.display = "none";
+                    input.setCustomValidity('');
                 }
-                modal.on('hidden.bs.modal', function CheckStrength() {
+                modal.on('hidden.bs.modal', function() {
                     indicator.style.display = "none";
                     text.style.display = "none";
                 });

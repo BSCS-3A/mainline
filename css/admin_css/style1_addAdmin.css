@@ -146,30 +146,6 @@ body {
   overflow-y: auto;
 }
 
-/* .modal-open {
-  padding: 0 !important;
-}
-
-.modal-content{
-  overflow-y: scroll !important;
-}
-
-#scroll_add::-webkit-scrollbar-track {
-  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
-  background-color: transparent;
-}
-
-#scroll_add::-webkit-scrollbar {
-  width: 5px;
-  background-color: #F5F5F5;
-}
-
-#scroll_add::-webkit-scrollbar-thumb {
-  border-radius: 10px;
-  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, .3);
-  background-color: gray;
-} */
-
 iframe {
   height: 700px;
 }
@@ -309,7 +285,26 @@ iframe {
   margin-top: 2px;
 }
 
+@media only screen and (max-width: 768px) and (max-device-width: 1024px){
+  .btn-cancelcrop {
+    width: 20%!important;
+    margin: 20px 15px 10px 0px!important;
+  }
+}
+
 /*END BUTTON FOR SIGNATORY*/
+@media only screen and (max-device-width: 540px) {
+  .btn-cancel2 {
+    width: 20% !important;
+    margin: 20px 15px 10px 0px!important;
+  }
+  .btn-cancelcrop {
+    width: 20% !important;
+    margin: 20px 15px 10px 0px!important;
+  }
+}
+
+  
 @media only screen and (max-width: 500px) {
   .btn-button1 {
     margin: 25px 2px 5px 0px!important;
@@ -331,8 +326,47 @@ iframe {
   div.cropper-container.cropper-bg{
     width:auto !important;
   }
+  .btn-cancelcrop {
+    width: 33% !important;
+    margin: 20px 15px 10px 0px!important;
+  }
   
 }
+@media only screen and (max-device-width: 360px) {
+  .btn-cancel2 {
+    width: 35% !important;
+    margin: 20px 15px 10px 0px!important;
+  }
+  .btn-cancelcrop {
+    width: 33% !important;
+    margin: 20px 15px 10px 0px!important;
+  }
+}
+
+@media only screen and (max-device-width: 320px) and (max-device-width: 320px) {
+  .btn-cancel2 {
+    width: 40% !important;
+    margin: 0px 15px 10px 0px!important;
+  }
+  .btn-cancelcrop {
+    width: 38% !important;
+    margin: 20px 15px 10px 0px!important;
+  }
+}
+
+@media only screen and (max-device-width: 280px) and (max-device-width: 653px) {
+  .btn-cancel2 {
+    width: 50% !important;
+    margin: 0px 15px 10px 0px!important;
+  }
+  .btn-cancelcrop {
+    width: 45% !important;
+    margin: 20px 15px 10px 0px!important;
+  }
+}
+
+
+
 
 .btn-cancel {
   background: #dddddd;
@@ -492,23 +526,16 @@ div.container.upload {
   border: none;
 }
 
-#show-list::-webkit-scrollbar-track {
-  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
-  background-color: transparent;
-}
+/* @media only screen and (max-width: 768px) {
+  
+} */
 
-#show-list::-webkit-scrollbar {
-  width: 5px;
-  background-color: #F5F5F5;
-}
-
-#show-list::-webkit-scrollbar-thumb {
-  border-radius: 10px;
-  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, .3);
-  background-color: gray;
-}
-
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 600px) {
+  div.container {
+      margin: 0px 0px 25px 0px;
+      width: 100%;
+      height: fit-content;
+  }
   div.dataTables_length {
     text-align: left;
     float: left;
@@ -518,14 +545,6 @@ div.container.upload {
     text-align: left;
     float: left;
     margin-bottom: 5px;
-  }
-}
-
-@media only screen and (max-width: 600px) {
-  div.container {
-      margin: 0px 0px 25px 0px;
-      width: 100%;
-      height: fit-content;
   }
 }
 
