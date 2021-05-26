@@ -7,6 +7,8 @@ include '../db_conn.php';
 
 if (isset($_POST['yes_delete'])) {
     $admin_id = $_POST['Delete_ID'];
+    //For Logs
+    $username = "SELECT username FROM admin WHERE admin_id='$admin_id'";
 
     $slqphotofind = "SELECT `photo` FROM `admin` WHERE `admin_id`= '$admin_id'";
     $resultphotofind = mysqli_query($conn, $slqphotofind);
@@ -31,7 +33,6 @@ if (isset($_POST['yes_delete'])) {
 
     if ($query_run) {
         //For Logs
-        $username = "SELECT username FROM admin WHERE admin_id='$admin_id'";
         $_SESSION['action'] = 'deleted Admin Account : ' . $username;
         include 'backFun_actLogs_v0_1.php';
 
