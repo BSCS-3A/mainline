@@ -440,7 +440,7 @@
                             <th class="min-mobile">First Name</th>
                             <th class="min-mobile">Position</th>    
                             <th class="min-mobile">Partylist</th>   
-                            <th class="min-mobile">Platorm/s</th>
+                            <th class="min-mobile">Platform/s</th>
                             <th class ="min-mobile">Credential/s</th>
                             <th class ="min-mobile">Manage</th>
 
