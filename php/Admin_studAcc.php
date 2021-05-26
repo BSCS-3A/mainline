@@ -112,7 +112,7 @@ $DTrow =  $DnT->fetch_row();
                     <table class="table-center" id="datatable" width="100%">
                         <thead>
                             <tr>
-                                <th class="min-mobile" id="tableh">STUDENT ID</th>
+                                <th class="min-mobile" id="tableh">STUDENT<br>ID</th>
                                 <th class="min-mobile">LAST NAME</th>
                                 <th class="min-mobile">FIRST NAME</th>
                                 <th class="min-mobile">MIDDLE NAME</th>
