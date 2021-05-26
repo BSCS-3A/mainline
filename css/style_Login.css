@@ -170,6 +170,13 @@ select {
   display: none;
 }
 
+.Abanner-text{
+  font-family: 'Roboto-regular', sans-serif;
+  font-weight: 100;
+  letter-spacing: 4px;
+  margin-bottom: 20px;
+}
+
 
 /* Smartphones (portrait and landscape) ----------- */
 @media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
@@ -262,13 +269,18 @@ select {
     .Alogo-banner, .Arlogo{
       display: none;
     }
+
+    .Alogo-banner{
+      top: 100px !important;
+    }
+
     .Acontainer{
       position: relative; /* or absolute */
       display: inline-block;
       right: 0;
       max-width: 100%;
-      top: -20px;
-      left: -250px;
+      top: 200px !important;
+      margin-left: 240px !important;
     }
   }
 
@@ -359,18 +371,32 @@ select {
     -webkit-flex-direction: column;
     flex-direction: column;
   }
+  .Awelcome-banner {
+    margin-top: 10px !important;
+  }
   .Acontainer{
     position: relative; /* or absolute */
     display: inline-block;
     float: none;
     right: 0px;
     max-width: 100%;
-    top: -20px;
-    margin-left: 120px;
-    margin-right: 120px;
+    top: -40px;
+    margin-left: 240px;
+    /* margin-right: 120px; */
   }
 }
 
+@media only screen and (device-width: 280px) and (orientation: portrait){
+  .Acontainer {
+    margin-top: 70px;
+    right: 0;
+    margin-bottom: 20px;
+    max-height: 350px;
+  }
+  button{
+    width: 40%;
+  }
+}
 
 /* PORTRAIT:
 	Microsof Surface Pro */
