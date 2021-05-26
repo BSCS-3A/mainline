@@ -96,7 +96,7 @@ ob_start();
 		$pdf->Cell(14.6,5,'11',1,0,'C',1);   
 		$pdf->Cell(14.7,5,'12',1,1,'C',1);
 
-$query=mysqli_query($conn, "SELECT temp_candidate.candidate_id, temp_candidate.student_id, temp_candidate.position_id, temp_candidate.total_votes, student.lname, student.fname, student.mname, candidate_position.heirarchy_id, candidate_position.position_name FROM temp_candidate INNER JOIN student ON temp_candidate.student_id = student.student_id INNER JOIN candidate_position ON temp_candidate.position_id = candidate_position.heirarchy_id ORDER BY heirarchy_id"); 
+$query=mysqli_query($conn, "SELECT temp_candidate.candidate_id, temp_candidate.student_id, temp_candidate.position_id, temp_candidate.total_votes, student.lname, student.fname, student.mname, candidate_position.heirarchy_id, candidate_position.position_name, candidate_position.vote_allow FROM temp_candidate INNER JOIN student ON temp_candidate.student_id = student.student_id INNER JOIN candidate_position ON temp_candidate.position_id = candidate_position.heirarchy_id ORDER BY heirarchy_id"); 
 
 		$flag = 0;
 		$temp = 0;
@@ -121,6 +121,19 @@ $query=mysqli_query($conn, "SELECT temp_candidate.candidate_id, temp_candidate.s
 					$pos_id = $data['position_id'];
 					$rowSQL = mysqli_query($conn, "SELECT MAX(total_votes) AS tempWinner FROM temp_candidate WHERE position_id = '$pos_id'");
 			        list($max) = mysqli_fetch_row($rowSQL);
+
+			    //query to get year level of 1 candidate if vote_allow == 0
+				     if($data['vote_allow']==0)
+				     {
+				     	//get candidate yearlevel
+				     	// $candyrSQL = mysqli_query($conn,"SELECT * FROM student INNER JOIN ")
+				     	$keyword = preg_split("/[\s,]+/", $data['position_name']);
+				     	$yrLv = $data['grade_level'];
+				     } 
+				     // else
+				     // {
+				     // 	$vtAllow = 1;
+				     // }
 			}//end if
 
 			$string = '';
@@ -185,6 +198,9 @@ while($lastCandidate = mysqli_fetch_array($queryGroup)){
 			$pdf->SetFont('','',12);
 			$pdf->Cell(65,5, 'ABSTAIN',1,0,'L',0);					
 
+			// if ($vtAllow==1)
+			if ($data['vote_allow']==1)
+			{
 				//calculates number of abstained per grade level
 				$abstainedGrade7=$enrolled[0]-$sumGrade7;
 				$abstainedGrade8=$enrolled[1]-$sumGrade8;
@@ -192,6 +208,63 @@ while($lastCandidate = mysqli_fetch_array($queryGroup)){
 				$abstainedGrade10=$enrolled[3]-$sumGrade10;
 				$abstainedGrade11=$enrolled[4]-$sumGrade11;
 				$abstainedGrade12=$enrolled[5]-$sumGrade12;
+			}else{
+				if(in_array("7", $keyword))
+				{
+					$abstainedGrade7=$enrolled[0]-$sumGrade7;
+					$abstainedGrade8=0;
+					$abstainedGrade9=0;
+					$abstainedGrade10=0;
+					$abstainedGrade11=0;
+					$abstainedGrade12=0;
+				}
+				else if (in_array("8", $keyword))
+				{
+					$abstainedGrade7=0;
+					$abstainedGrade8=$enrolled[1]-$sumGrade8;
+					$abstainedGrade9=0;
+					$abstainedGrade10=0;
+					$abstainedGrade11=0;
+					$abstainedGrade12=0;
+				}
+				else if (in_array("9", $keyword))
+				{
+					$abstainedGrade7=0;
+					$abstainedGrade8=0;
+					$abstainedGrade9=$enrolled[2]-$sumGrade9;
+					$abstainedGrade10=0;
+					$abstainedGrade11=0;
+					$abstainedGrade12=0;
+				}
+				else if (in_array("10", $keyword))
+				{
+					$abstainedGrade7=0;
+					$abstainedGrade8=0;
+					$abstainedGrade9=0;
+					$abstainedGrade10=$enrolled[3]-$sumGrade10;
+					$abstainedGrade11=0;
+					$abstainedGrade12=0;
+				}
+				else if (in_array("11", $keyword))
+				{
+					$abstainedGrade7=0;
+					$abstainedGrade8=0;
+					$abstainedGrade9=0;
+					$abstainedGrade10=0;
+					$abstainedGrade11=$enrolled[4]-$sumGrade11;
+					$abstainedGrade12=0;
+				}
+				else if (in_array("12", $keyword))
+				{
+					$abstainedGrade7=0;
+					$abstainedGrade8=0;
+					$abstainedGrade9=0;
+					$abstainedGrade10=0;
+					$abstainedGrade11=0;
+					$abstainedGrade12=$enrolled[5]-$sumGrade12;
+				}
+				
+			}
 				
 				//displays abstain
 				$pdf->Cell(14.7,5,$abstainedGrade7,1,0,'C',0);  			//column total grade 7 vote
