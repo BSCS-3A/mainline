@@ -2,7 +2,12 @@
     session_start();
   if (isset($_SESSION['admin_id']) && isset($_SESSION['username'])) {
          include('./backStudent/Admin_printSum.php');
-         include "db_conn.php";  
+         include "db_conn.php"; 
+// for button disable
+$checktime = "SELECT * FROM vote_event"; 
+$DnT = $connect->query($checktime);
+$DTrow =  $DnT->fetch_row(); 
+// row[1] = start date, row[2] = end date
 ?>
 <!DOCTYPE html>
 <html>
