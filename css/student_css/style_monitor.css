@@ -59,12 +59,12 @@ body {
     padding: 30px;
     color: black;
     display: grid;
-    grid-gap: 30px;
+    grid-gap: 20px;
     grid-template-columns: repeat(auto-fit, minmax(200px, 5fr));
     grid-template-rows: repeat(autofit, 30%);
     text-align: center;
     margin-top: 18px;
-    max-width: 60%;
+    max-width: 100%;
     margin-left: auto;
     margin-right: auto;
   }
@@ -395,32 +395,6 @@ body {
     text-align: center;
     margin-top: -5px;
   }
-  /*archives*/
-  .Barch_container {
-    color: black;
-    display: grid;
-    grid-gap: 30px;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 5fr));
-    grid-template-rows: repeat(autofit, 30%);
-    text-align: center;
-    margin-top: 18px;
-    margin-left: 8%;
-    margin-bottom: 13%;
-  }
-}
-@media only screen and (min-device-width: 640px) and (max-device-height: 320px) and (orientation : landscape){
-    /*archives*/
-    .Barch_container {
-      color: black;
-      display: grid;
-      grid-gap: 30px;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 5fr));
-      grid-template-rows: repeat(autofit, 30%);
-      text-align: center;
-      margin-top: 18px;
-      margin-left: 8%;
-      margin-bottom: 5%;
-    }
 }
 
 /* Samsung Galaxy S5, Blackberry Z30, Galaxy Note 3, Galaxy Note 2, Galaxy S3, Microsoft Lumia, Moto G4, Nexus 5----------- */
@@ -506,60 +480,6 @@ body {
     position: relative;
     text-align: center;
     margin-top: -5px;
-  }
-  /*archives*/
-  .Barch_container {
-    color: black;
-    display: grid;
-    grid-gap: 30px;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 5fr));
-    grid-template-rows: repeat(autofit, 30%);
-    text-align: center;
-    margin-top: 18px;
-  }
-}
-@media only screen and (min-device-width: 640px) and (max-device-height: 360px) and (orientation : landscape){
-  /*archives*/
-  .Barch_container {
-    color: black;
-    display: grid;
-    grid-gap: 30px;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 5fr));
-    grid-template-rows: repeat(autofit, 30%);
-    text-align: center;
-    margin-top: 18px;
-    margin-left: 11%;
-    margin-bottom: 5%;
-  }
-}
-
-/* Nexus 4----------- */
-@media only screen and (min-device-width: 384px) and (max-device-height: 640px) and (orientation : portrait){
-  /*archives*/
-  .Barch_container {
-    color: black;
-    display: grid;
-    grid-gap: 30px;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 5fr));
-    grid-template-rows: repeat(autofit, 30%);
-    text-align: center;
-    margin-top: 18px;
-    margin-left: 15%;
-    margin-bottom: 5%;
-  }
-}
-@media only screen and (min-device-width: 640px) and (max-device-height: 384px) and (orientation : landscape){
-  /*archives*/
-  .Barch_container {
-    color: black;
-    display: grid;
-    grid-gap: 30px;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 5fr));
-    grid-template-rows: repeat(autofit, 30%);
-    text-align: center;
-    margin-top: 18px;
-    margin-left: 15%;
-    margin-bottom: 5%;
   }
 }
 
@@ -869,20 +789,6 @@ body {
     grid-row-gap: -1%;
     grid-template-columns: repeat(auto-fit, minmax(180px, 2fr));
   }
-  /*archives*/
-  .Barch_container {
-    padding: 30px;
-    color: black;
-    display: grid;
-    grid-gap: 30px;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 5fr));
-    grid-template-rows: repeat(autofit, 30%);
-    text-align: center;
-    margin-top: 18px;
-    margin-left: auto;
-    margin-right: auto;
-    margin-bottom: 5%;
-  }
 }
 @media only screen and (min-device-width: 375px) and (max-device-height: 812px) and (orientation : portrait){
    /*vote tally*/
@@ -971,38 +877,6 @@ body {
     color: white;
     text-align: center;
     margin-top: 2%;
-  }
-  /*archives*/
-  .Barch_container {
-    padding: 30px;
-    color: black;
-    display: grid;
-    grid-gap: 30px;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 5fr));
-    grid-template-rows: repeat(autofit, 30%);
-    text-align: center;
-    margin-top: 18px;
-    max-width: 60%;
-    margin-left: 15%;
-    margin-right: auto;
-    margin-bottom: 10%;
-  }
-}
-@media only screen and (min-device-width: 667px) and (max-device-height: 375px) and (orientation :landscape){
-  /*archives*/
-  .Barch_container {
-    padding: 30px;
-    color: black;
-    display: grid;
-    grid-gap: 30px;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 5fr));
-    grid-template-rows: repeat(autofit, 30%);
-    text-align: center;
-    margin-top: 18px;
-    max-width: 60%;
-    margin-left: 18%;
-    margin-right: auto;
-    margin-bottom: 10%;
   }
 }
 
@@ -1108,20 +982,6 @@ body {
     margin-top: 2%;
     margin-bottom: 7%;
   }
-  /*archives*/
-  .Barch_container {
-    padding: 30px;
-    color: black;
-    display: grid;
-    grid-gap: 30px;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 5fr));
-    grid-template-rows: repeat(autofit, 30%);
-    text-align: center;
-    margin-top: 18px;
-    margin-left: auto;
-    margin-right: auto;
-    margin-bottom: 10%;
-  }
 }
 @media only screen and (min-device-width: 1366px) and (max-device-height: 1024px) and (orientation : landscape){
   /*circle graph*/
@@ -1178,52 +1038,10 @@ body {
     text-align: center;
     margin-top: 2%;
   }
-  /*archives*/
-  .Barch_container {
-    padding: 30px;
-    color: black;
-    display: grid;
-    grid-gap: 30px;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 5fr));
-    grid-template-rows: repeat(autofit, 30%);
-    text-align: center;
-    margin-top: 18px;
-    max-width: 60%;
-    margin-left: auto;
-    margin-right: auto;
-    margin-bottom: 5%;
-  }
-}
-@media only screen and (min-device-width: 731px) and (max-device-height: 411px) and (orientation : landscape){
-  /*archives*/
-  .Barch_container {
-    color: black;
-    display: grid;
-    grid-gap: 30px;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 5fr));
-    grid-template-rows: repeat(autofit, 30%);
-    text-align: center;
-    margin-top: 18px;
-    max-width: 80%;
-    margin-left: 17%;
-    margin-bottom: 5%; 
-  }
 }
 
 /* Pixel 2L  ----------- */
 @media only screen and (min-device-width: 411px) and (max-device-height: 823px) and (orientation : portrait){
-  /*archives*/
-  .Barch_container {
-    color: black;
-    display: grid;
-    grid-gap: 30px;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 5fr));
-    grid-template-rows: repeat(autofit, 30%);
-    text-align: center;
-    margin-top: 18px;
-    margin-left: 19%;
-    margin-bottom: 5%; 
-  }
   /*vote tally*/
   .Belection_container {
     display: grid;
@@ -1259,22 +1077,7 @@ body {
     text-align: center;
     margin-top: 2%;
   }
-}
-@media only screen and (min-device-width: 823px) and (max-device-height: 411px) and (orientation : landscape){
-  /*archives*/
-  .Barch_container {
-    color: black;
-    display: grid;
-    grid-gap: 30px;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 5fr));
-    grid-template-rows: repeat(autofit, 30%);
-    text-align: center;
-    margin-top: 18px;
-    margin-right: auto;
-    margin-left: auto;
-    margin-bottom: 5%; 
-  }
-}
+}}
 
 /* Galaxy Fold  ----------- */
 @media only screen and (min-device-width: 280px) and (max-device-height: 653px) and (orientation : portrait){
@@ -1329,52 +1132,4 @@ body {
     text-align: center;
     margin-top: 4%;
   }
-  /*archives*/
-  .Barch_container {
-  padding: 30px;
-  color: black;
-  display: grid;
-  grid-gap: 30px;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 5fr));
-  grid-template-rows: repeat(autofit, 30%);
-  text-align: center;
-  margin-top: 18px;
-  margin-left: 5%;
-  margin-right: auto;
-  margin-bottom: 13%;
-  }
-}
-@media only screen and (min-device-width:653px) and (max-device-height: 280px) and (orientation : landscape){
-  /*archives*/
-  .Barch_container {
-    padding: 30px;
-    color: black;
-    display: grid;
-    grid-gap: 30px;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 5fr));
-    grid-template-rows: repeat(autofit, 30%);
-    text-align: center;
-    margin-top: 18px;
-    margin-left: auto;
-    margin-right: auto;
-    margin-bottom: 10%;
-    }
-}
-
-/* Surface Duo ---------------- */
-@media only screen and (min-device-width:720px) and (max-device-height: 540px) and (orientation : landscape){
-  /*archives*/
-  .Barch_container {
-    padding: 30px;
-    color: black;
-    display: grid;
-    grid-gap: 30px;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 5fr));
-    grid-template-rows: repeat(autofit, 30%);
-    text-align: center;
-    margin-top: 18px;
-    margin-left: auto;
-    margin-right: auto;
-    margin-bottom: 10%;
-    }
 }
