@@ -494,13 +494,13 @@ if (isset($_SESSION['admin_id']) && isset($_SESSION['username'])) {
 
                     console.log(data);
 
-                    $('#update_id').val(data[1]);
-                    $('#admin_fname').val(data[2]);
-                    $('#admin_mname').val(data[3]);
-                    $('#admin_lname').val(data[4]);
-                    $('#username').val(data[5]);
-                    $('#comelec_position').val(data[6]);
-                    $('#admin_position').val(data[7]);
+                    $('#update_id').val(data[1]); //admin id !important for updating/editing accounts in backfun code
+                    $('#admin_fname').val(data[2]); // FIRST NAME
+                    $('#admin_mname').val(data[3]); //MIDDLE NAME
+                    $('#admin_lname').val(data[4]); // LAST NAME
+                    $('#username').val(data[5]); //USERNAME
+                    $('#comelec_position').val(data[6]); //COMELEC POSITION
+                    $('#admin_position').val(data[7]); //ADMIN POSITION
                     // $('#base64_edit').val(data[9]);
                 });
             });
