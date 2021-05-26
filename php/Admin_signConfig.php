@@ -201,8 +201,8 @@ if (isset($_SESSION['admin_id']) && isset($_SESSION['username'])) {
             </div>
 
             <div class="modal-footer ">
-              <button type="submit" name="upload" class="btn btn-success" id="upload" value="Save name"><span class="fa fa-user-plus"></span> Upload</button>
-              <button type="button" class="btn btn-default" id="cancel2" data-dismiss="modal"><span class="fa fa-times-circle"></span> CANCEL</button>
+              <button type="submit" name="upload" class="btn btn-button6" id="upload" value="Save name"><span class="fa fa-user-plus"></span> Upload</button>
+              <button type="button" class="btn btn-cancel2" data-dismiss="modal"><span class="fa fa-times-circle"></span> CANCEL</button>
 
             </div>
           </form>
