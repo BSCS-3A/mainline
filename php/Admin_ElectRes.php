@@ -53,10 +53,11 @@ require './backMonitor/fetch_date.php';
       <?php if($current_date_time<=$last_election_date){ ?>
       <link rel="stylesheet" type="text/css" href="../css/student_css/vote_message.css">
       <main>
-      <div id="error-message-container" class="error-message-container">			
-        <div id="election-finished-msg" class="error-message">
-          <h3 style = "padding: 50px">Loading results...</h3>
-        </div>
+        <div id="error-message-container" class="error-message-container" style="margin-top:10px">			
+          <div id="election-finished-msg" class="error-message">
+          <?php include "../html/spinner.html";?>
+					<h3 style = "padding: 0px 50px">Loading results...</h3>
+				</div>
       </div>
       </main>
       <?php } ?>

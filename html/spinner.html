@@ -1,0 +1,92 @@
+<html>
+    <head>
+	<style type = "text/css">
+		.spinner 
+		{
+			margin: auto;
+			width: 196px;
+			height: 296px;
+			position: relative;
+		}
+		.cube1
+		{
+			background-color: #124254;
+			width: 100px;
+			height: 100px;
+			position: absolute;
+			top: 0;
+			left: 0;
+			-webkit-animation: cubemove 3s infinite ease-in-out;
+			animation: cubemove 3s infinite ease-in-out;
+		}
+		.cube2 
+		{
+			background-color: #fece4b;
+			width: 100px;
+			height: 100px;
+			position: absolute;
+			top: 0;
+			left: 0;
+			-webkit-animation: cubemove 3s infinite ease-in-out;
+			animation: cubemove 3s infinite ease-in-out;
+		}
+		.cube2 {
+			-webkit-animation-delay: -1.5s;
+			animation-delay: -1.5s;
+		}
+		@-webkit-keyframes cubemove {
+			25% { -webkit-transform: translateX(160px) rotate(-90deg) scale(0.5) }
+			50% { -webkit-transform: translateX(160px) translateY(160px) rotate(-180deg) }
+			75% { -webkit-transform: translateX(0px) translateY(160px) rotate(-270deg) scale(0.5) }
+			100% { -webkit-transform: rotate(-360deg) }
+		}
+		@keyframes cubemove {
+			25% { 
+				transform: translateX(160px) rotate(-90deg) scale(0.5);
+				-webkit-transform: translateX(160px) rotate(-90deg) scale(0.5);
+			} 50% { 
+				transform: translateX(160px) translateY(160px) rotate(-179deg);
+				-webkit-transform: translateX(160px) translateY(160px) rotate(-179deg);
+			} 50.1% { 
+				transform: translateX(160px) translateY(160px) rotate(-180deg);
+				-webkit-transform: translateX(160px) translateY(160px) rotate(-180deg);
+			} 75% { 
+				transform: translateX(0px) translateY(160px) rotate(-270deg) scale(0.5);
+				-webkit-transform: translateX(0px) translateY(160px) rotate(-270deg) scale(0.5);
+			} 100% { 
+				transform: rotate(-360deg);
+				-webkit-transform: rotate(-360deg);
+			}
+		}
+	</style>
+    </head>
+    <body> 
+		<div class="spinner">
+			<div class="cube1"></div>
+				<canvas id="a" width="200" height="200">
+					This text is displayed if your browser does not support HTML5 Canvas.
+				</canvas>
+			<div class="cube2"></div>
+		</div>
+		<script type="text/javascript">
+			noStroke();
+			background(0,2000,255,99);
+			fill(100,50, 0);
+			rect(0,350,400,100);
+			fill(255,255, 255);
+			stroke(0);
+			ellipse(200, 300, 150, 150);
+			ellipse(200, 200, 100, 100);
+			ellipse(200, 120, 75, 75);
+			line(150,200,100,100);
+			line(250,200,300,100);
+			ellipse(185,110,5,5);
+			ellipse(215,110,5,5);
+			arc(200,130,30,20,0,180);
+			ellipse(200,175,5,5);
+			ellipse(200,195,5,5);
+			ellipse(200,215,5,5);
+			ellipse(200,235,5,5);
+		</script>
+	</body>
+</html>
