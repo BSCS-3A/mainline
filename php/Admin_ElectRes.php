@@ -44,7 +44,7 @@ require './backMonitor/fetch_date.php';
   }else{ 
   ?>
   <div class="Belection_container" id="election_res">
-    <link rel="stylesheet" type="text/css" href="../css/student_css/vote_message.css">
+      <link rel="stylesheet" type="text/css" href="../css/student_css/vote_message.css">
       <main>
         <div id="error-message-container" class="error-message-container" style="margin-top:10px">			
           <div id="election-finished-msg" class="error-message">
@@ -52,8 +52,9 @@ require './backMonitor/fetch_date.php';
 					<h3 style = "padding: 0px 50px">Loading results...</h3>
 				</div>
       </div>
-		</main>
-    </div> <!-- end of ajax output -->
+      </main>
+      </div> <!-- end of ajax output -->
+  
   </div> <!-- End of #election-res div -->
   
   <div class="Bbtn_post" id="post_b">
@@ -77,34 +78,8 @@ require './backMonitor/fetch_date.php';
   <?php
   }
   ?>
-  
-  <!-- <?php
-    if(isset($_POST['post_button'])){
-      $file = fopen("../other/post_result.txt", "w") or die("Unable to open file!");
-      
-      $flag_post = 1;
 
-      fwrite($file, $flag_post);
-    
-      fclose($file);
-    }
-
-    if(isset($_POST['reset_button'])){
-      $truncate_record = mysqli_query($conn, 'TRUNCATE TABLE vote_event');
-
-      $file = fopen("../other/post_result.txt", "w") or die("Unable to open file.!");
-
-      $flag_post = 0;
-
-      fwrite($file, $flag_post);
-
-      fclose($file);
-    }  
-  ?> -->
-
-  <br>
-  <br>
-  <br>
+  <br><br><br>
 
   <div class="footer">
     <p class="footer-txt">BS COMPUTER SCIENCE 3A © 2021</p>
@@ -113,84 +88,83 @@ require './backMonitor/fetch_date.php';
   <script>
     const candidatesBody = document.querySelector(".Belection_container");
 
-    let auto_refresh = setInterval(
-        function loadCandidates(){
-            const xhr = new XMLHttpRequest();
-            xhr.open('POST', 'backMonitor_Election_Result.php', true);
+    let auto_refresh = setInterval(function loadCandidates(){
+        const xhr = new XMLHttpRequest();
+        xhr.open('POST', 'backMonitor_ajax.php', true);
 
-            xhr.onload = function(){
-              if(this.status == 200){
-                let candidates_all = JSON.parse(this.responseText);
+        xhr.onload = function(){
+          if(this.status == 200){
+            let candidates_all = JSON.parse(this.responseText);
 
-                let output = '';
-                let flag = 0;
-                let prev_pos = 'yes';
-                
-                for(let i in candidates_all){
-                  if(candidates_all[i].current_date > candidates_all[i].end_date){
-                    if(prev_pos=='yes' || (prev_pos != candidates_all[i].position)){
-                      flag = 0;
-                    }
-                    if((candidates_all[i].position!="President")&&(flag==0)){
-                      output += '</div>';
-                    }
-
-                    if(flag==0){
-                      output += 
-                      '<div class="Bposition1">' + 
-                      '<h1><b>'+candidates_all[i].position+'</b></h1>';
-                      flag = 1;
-                    }
-
-                    output += 
-                    '<div class ="Bcan"><b>'+candidates_all[i].name+'</b></div>' +
-                    '<div class ="Bparty"><b>'+candidates_all[i].party_name+'</b></div>' +
-                    '<div class="Bbar1">' +
-                    '<img class="Banon" src="'+candidates_all[i].photo+'" width="40px" height="40px">' +
-                    '<div class="Bvote_percentage">' +
-                    '<div class="Bvote_level" style="width:'+candidates_all[i].percentage+'%">' +
-                    '<b><span>'+candidates_all[i].total_votes+'</span></b>' +
-                    '</div>' + '</div>' + '</div>';
-                    
-                    // output += '</div>';
-                    prev_pos = candidates_all[i].position;
-                    
-                  }else{
-                    if(prev_pos=='yes' || (prev_pos != candidates_all[i].position)){
-                      flag = 0;
-                    }
-                    if((candidates_all[i].position!="President")&&(flag==0)){
-                      output += '</div>';
-                    }
-
-                    if(flag==0){
-                      output += 
-                      '<div class="Bposition1">' + 
-                      '<h1><b>'+candidates_all[i].position+'</b></h1>';
-                      flag = 1;
-                    }
-
-                    output += 
-                    '<div class ="Bcan"><b>'+candidates_all[i].name+'</b></div>' +
-                    '<div class ="Bparty"><b>'+candidates_all[i].party_name+'</b></div>' +
-                    '<div class="Bbar1">' +
-                    '<img class="Banon" src="'+candidates_all[i].photo+'" width="40px" height="40px">' +
-                    '<div class="Bvote_percentage">' +
-                    '<div class="Bvote_level" style="width:'+candidates_all[i].percentage+'%">' +
-                    '<b><span>'+candidates_all[i].percentage+'%</span></b>' +
-                    '</div>' + '</div>' + '</div>';
-                    
-                    // output += '</div>';
-                    prev_pos = candidates_all[i].position;
-                  }
+            let output = '';
+            let flag = 0;
+            let prev_pos = 'yes';
+            
+            for(let i in candidates_all){
+              if(candidates_all[i].current_date > candidates_all[i].end_date){
+                if(prev_pos=='yes' || (prev_pos != candidates_all[i].position)){
+                  flag = 0;
                 }
-                document.getElementById('election_res').innerHTML = output;
+                if((candidates_all[i].position!="President")&&(flag==0)){
+                  output += '</div>';
+                }
+
+                if(flag==0){
+                  output += 
+                  '<div class="Bposition1">' + 
+                  '<h1><b>'+candidates_all[i].position+'</b></h1>';
+                  flag = 1;
+                }
+
+                output += 
+                '<div class ="Bcan"><b>'+candidates_all[i].name+'</b></div>' +
+                '<div class ="Bparty"><b>'+candidates_all[i].party_name+'</b></div>' +
+                '<div class="Bbar1">' +
+                '<img class="Banon" src="'+candidates_all[i].photo+'" width="40px" height="40px">' +
+                '<div class="Bvote_percentage">' +
+                '<div class="Bvote_level" style="width:'+candidates_all[i].percentage+'%">' +
+                '<b><span>'+candidates_all[i].total_votes+'</span></b>' +
+                '</div>' + '</div>' + '</div>';
+                
+                // output += '</div>';
+                prev_pos = candidates_all[i].position;
+                
+              }else{
+                if(prev_pos=='yes' || (prev_pos != candidates_all[i].position)){
+                  flag = 0;
+                }
+                if((candidates_all[i].position!="President")&&(flag==0)){
+                  output += '</div>';
+                }
+
+                if(flag==0){
+                  output += 
+                  '<div class="Bposition1">' + 
+                  '<h1><b>'+candidates_all[i].position+'</b></h1>';
+                  flag = 1;
+                }
+
+                output += 
+                '<div class ="Bcan"><b>'+candidates_all[i].name+'</b></div>' +
+                '<div class ="Bparty"><b>'+candidates_all[i].party_name+'</b></div>' +
+                '<div class="Bbar1">' +
+                '<img class="Banon" src="'+candidates_all[i].photo+'" width="40px" height="40px">' +
+                '<div class="Bvote_percentage">' +
+                '<div class="Bvote_level" style="width:'+candidates_all[i].percentage+'%">' +
+                '<b><span>'+candidates_all[i].percentage+'%</span></b>' +
+                '</div>' + '</div>' + '</div>';
+                
+                // output += '</div>';
+                prev_pos = candidates_all[i].position;
               }
             }
-            xhr.send();
-        }, 5000
+            document.getElementById('election_res').innerHTML = output;
+          }
+        }
+        xhr.send();
+      }, 5000
     );
-    
+
   </script>
   <script> 
       function postButtonConfirm(){
