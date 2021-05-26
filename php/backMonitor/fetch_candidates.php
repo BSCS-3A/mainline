@@ -22,7 +22,7 @@
 		LEFT JOIN
 			student s ON c.student_id = s.student_id
 		ORDER BY
-			heirarchy_order";
+			heirarchy_order ASC, total_votes DESC, student_id ASC";
 
 	// Get Result
 	$result = mysqli_query($conn, $query);
