@@ -233,19 +233,12 @@ include "navAdmin.php";
                             <table class="center" id="datatable" width="100%" cellspacing="0" cellpadding="2px">
                                 <thead>
                                     <tr>
-                                       <th class="text-center">
-                                            <div class = "tTip"><i class="fas fa-info-circle fa-1" aria-hidden = "true"></i> Hierarchy ID
-                                                
-                                                <span class = "tooltiptext">Hierarchy of the Election Structure with 1 being the highest</span>
-                                            </div>
+                                       <th class="text-center" data-toggle="tooltip" data-placement="top" data-container="body" title="Hierarchical structure of the Election with 1 being the highest position"><i class="fa fa-info-circle" aria-hidden="true"></i> Hierarchy ID
                                         </th>
                                         <th class="text-center">Position</th>
                                         <th class="padThisCell">Description</th>
                                         <th class="text-center">Manage</th>
-                                        <th class="text-center">
-                                            <div class = "tTip_2" id ="allow_slide"><i class="fas fa-info-circle fa-1" aria-hidden = "true"></i> Allow All
-                                                <span class = "tooltiptext">All student can vote in this position when turned on and limits the students who can vote if turned off</span>
-                                            </div>
+                                        <th class="text-center" data-toggle="tooltip" data-placement="top" data-container="body" title=" Turning the slider on enables the position to be included in the voting process"><i class="fa fa-info-circle" aria-hidden="true"></i> Allow All
                                         </th>
                                     </tr>
                                 </thead>
