@@ -24,17 +24,9 @@ if(isset($_POST["sendEmail"])){
                     $mail->SMTPAuth = true;
                     $mail->SMTPSecure = 'tls';
                     $mail->Port = 587;
-
-                    /*
-                        ISSUE:
-                            - Somehow di gumagana ang buceilsovs.noreply@gmail.com na gmail sa pag send ng email, pero gumagana naman ang code nung personal gmail ko yung gamit. (could not find any solution in the web)
-                            - Some emails that are sent are located in the spam folder. 
-                            - Other than that, sending emails depending on the year level is working.
-
-                    */
                     
                     $mail->Username = 'buceilsovs.noreply@gmail.com';
-                    $mail->Password = 'mhsyjtryvxhkkfts';
+                    $mail->Password = 'glwztqusjeyuwmin';
 
                     /* Disable some SSL checks. */
                     $mail->SMTPOptions = array(
@@ -51,7 +43,7 @@ if(isset($_POST["sendEmail"])){
                     //palitan na lang ang mga message
                     $mail->setFrom('buceilsovs.noreply@gmail.com', 'buceilsovs.noreply@gmail.com');
                     $mail->Subject = 'User Credentials';
-                    $mail->Body = "Good day! Your one time password for the current election is $user_otp . Please do not disclose your login credentials. Thank you!";
+                    $mail->Body = "Good day! Your password for the current election is $user_otp . Please do not disclose your login credentials. Thank you!";
                     $mail->addAddress($user_email);
                 
                     $mail->send();
