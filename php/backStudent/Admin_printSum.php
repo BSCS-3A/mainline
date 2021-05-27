@@ -2,22 +2,37 @@
 <?php
 
         if(isset($_POST["prnt"])){
+		include "../db_conn.php";
+		//check heirarchy
+		$checkheir = "SELECT * FROM candidate_position ORDER BY heirarchy_id"; 
+		$heirarchy = $connect->query($checkheir);
+		//check heirarchy
            $output='<table border="1">
-		   <tr>
-			   <th>Name</th>
-			   <th>Pres</th>
-			   <th>Vice</th>
-			   <th>Sec</th>
-			   <th>Treasurer</th>
-			   <th>Audit</th>
-			   <th>Grade 7 Representative</th>
-			   <th>Grade 8 Representative</th>
-			   <th>Grade 9 Representative</th>
-			   <th>Grade 10 Representative</th>
-			   <th>Grade 11 Representative</th>
-			   <th>Grade 12 Representative</th>
-		   </tr>';
-		   		include "../db_conn.php";
+		   <thead>
+		   <tr> 
+			   <th rowspan="2" colspan="1" class="text-center" id="tableh2">STUDENT <br><span class="fa fa-info-circle" data-placement="right" data-toggle="tooltip" title="Student Name is encrypted for privacy purposes."></span></th>';
+		   //header conditions
+		   $flag = 0;
+		   $nheir = $heirarchy->num_rows;
+			while($position = mysqli_fetch_array($heirarchy)){
+			   $chkrep = explode(" ", $position['position_name']);
+
+			   if($chkrep[0] == "Grade" && $flag == 0){
+				   $flag = 1;
+				   $output .= '<th rowspan="1" colspan="6" class="text-center">REPRESENTATIVES</th></tr><tr>';
+				   $output .= '<th class="text-center">'.$chkrep[1].'</th>' ;
+			   }
+			   else if($chkrep[0] == "Grade" && $flag == 1){
+				$output .= '<th class="text-center">'.$chkrep[1].'</th>' ;
+			   }
+			   else if($chkrep[0] != "Grade" && $flag == 1){
+				$output .= '<th class="text-center">'.$position['position_name'].'</th>' ;
+				   }
+			   else{
+				$output .= '<th rowspan="2" colspan="1" class="text-center">'.$position['position_name'].'</th>' ;
+			   }
+			}
+			 //header conditions
 		   		$db = $conn;
 	                        // $db = mysqli_connect('localhost', 'root', '', 'bucielsmain2');
 	                        //get the all votes of each student (discard abstain)
@@ -25,8 +40,8 @@
 	                        $query = mysqli_query($db,$sqlget);
 				if (mysqli_num_rows($query) != null){
 	                        $name = "";
-	                        $pos = array_fill(0,11,0);
-	                        $flname = array_fill(0,11," ");
+	                        $pos = array_fill(0,$nheir,0);
+	                        $flname = array_fill(0,$nheir," ");
 	                        $flag = 0;
  	                        while($rowx = mysqli_fetch_array($query)){
 	    	                if($rowx['student_id']!=$name && $flag == 0){
@@ -48,7 +63,7 @@
 		                    }
 		
 		                    else if($rowx['student_id']!=$name && $flag == 1){
-			                    for($x = 0; $x < 11; $x++){	
+			                    for($x = 0; $x < $nheir; $x++){	
 				                    if($pos[$x]==1){
                                     $output .= '<td>'.$flname[$x].'</td>';
 			                         }
@@ -61,8 +76,8 @@
                             $output .= '<td>'.md5($rowx['student_id']).'</td>';
 			                unset($pos);
 			                unset ($flname);
-			                $pos = array_fill(0,11,0);
-			                $flname = array_fill(0,11," ");
+			                $pos = array_fill(0,$nheir,0);
+			                $flname = array_fill(0,$nheir," ");
 			                $sqlget2 = "SELECT student_id, position_id FROM candidate WHERE candidate_id = ".$rowx['candidate_id'];
                             $query2 = mysqli_query($db,$sqlget2);
                             $rowy = mysqli_fetch_array($query2);
@@ -94,7 +109,7 @@
                         
                     }
                     
-                            for($x = 0; $x < 11; $x++){	
+                            for($x = 0; $x < $nheir; $x++){	
                                 if($pos[$x]==1){
 		                       $output .= '<td>'.$flname[$x].'</td>';
 		                       }

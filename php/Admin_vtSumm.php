@@ -8,6 +8,10 @@ $checktime = "SELECT * FROM vote_event";
 $DnT = $connect->query($checktime);
 $DTrow =  $DnT->fetch_row(); 
 // row[1] = start date, row[2] = end date
+//check heirarchy
+$checkheir = "SELECT * FROM candidate_position ORDER BY heirarchy_id"; 
+$heirarchy = $connect->query($checkheir);
+//check heirarchy
 ?>
 <!DOCTYPE html>
 <html>
@@ -52,23 +56,31 @@ $DTrow =  $DnT->fetch_row();
       <table class= "center" id="datatable" width="100%" cellspacing="0" cellpadding="0">
                           <thead>
                               <tr> 
-                                  <th rowspan="2" colspan="1" class="text-center" id="tableh2">STUDENT <br><span class="fa fa-info-circle" data-placement="right" data-toggle="tooltip" title="Student Name is encrypted for privacy purposes."></span></th>
-                                  <th rowspan="2" colspan="1" class="text-center">PRESIDENT</th>
-                                  <th rowspan="2" colspan="1" class="text-center">VICE PRESIDENT</th>
-                                  <th rowspan="2" colspan="1" class="text-center">SECRETARY</th>    
-                                  <th rowspan="2" colspan="1" class="text-center">TREASURER</th>
-                                  <th rowspan="2" colspan="1" class="text-center">AUDITOR</th>
-                                  <th rowspan="1" colspan="6" class="text-center">REPRESENTATIVES</th>
-                              </tr>
-                              <tr>
-                                <th class="text-center">7</th>    
-                                <th class="text-center">8</th>  
-                                <th class="text-center">9</th>  
-                                <th class="text-center">10</th>  
-                                <th class="text-center">11</th>  
-                                <th class="text-center">12</th> 
-                            </tr>
-                          </thead>      
+                                  <th rowspan="2" colspan="1" class="text-center" id="tableh2">STUDENT <br><span class="fa fa-info-circle" data-placement="right" data-toggle="tooltip" title="Student Name is encrypted for privacy purposes."></span></th>                     
+                         <?php
+                        $flag = 0;
+                        $nheir = $heirarchy->num_rows;
+                         while($position = mysqli_fetch_array($heirarchy)){
+                            $chkrep = explode(" ", $position['position_name']);
+
+                            if($chkrep[0] == "Grade" && $flag == 0){
+                                $flag = 1;
+                                echo '<th rowspan="1" colspan="6" class="text-center">REPRESENTATIVES</th></tr><tr>';
+                                echo '<th class="text-center">'.$chkrep[1].'</th>' ;
+                            }
+                            else if($chkrep[0] == "Grade" && $flag == 1){
+                                echo '<th class="text-center">'.$chkrep[1].'</th>' ;
+                            }
+                            else if($chkrep[0] != "Grade" && $flag == 1){
+                                echo '<th class="text-center">'.$position['position_name'].'</th>' ;
+                                }
+                            else{
+                                echo '<th rowspan="2" colspan="1" class="text-center">'.$position['position_name'].'</th>' ;
+                            }
+                         }
+                         ?>
+                          </tr>
+                          </thead> 
                           <tbody>
                              
                           <?php
@@ -77,10 +89,10 @@ $DTrow =  $DnT->fetch_row();
 	                        //get the all votes of each student (discard abstain)
 	                        $sqlget = "SELECT vote.student_id, vote.status, vote.candidate_id, student.fname FROM vote INNER JOIN student ON vote.student_id = student.student_id WHERE vote.status = 'Voted'";  
 	                        $query = mysqli_query($db,$sqlget);
-	  			if (mysqli_num_rows($query) != null){
+	  			            if (mysqli_num_rows($query) != null){
 	                        $name = "";
-	                        $pos = array_fill(0,11,0);
-	                        $flname = array_fill(0,11," ");
+	                        $pos = array_fill(0,$nheir,0);
+	                        $flname = array_fill(0,$nheir," ");
 	                        $flag = 0;
  	                        while($row = mysqli_fetch_array($query)){
 	    	                if($row['student_id']!=$name && $flag == 0){?>
@@ -102,7 +114,7 @@ $DTrow =  $DnT->fetch_row();
 		                    }
 		
 		                    else if($row['student_id']!=$name && $flag == 1){
-			                    for($x = 0; $x < 11; $x++){	
+			                    for($x = 0; $x < $nheir; $x++){	
 				                    if($pos[$x]==1){?>
                                     <td><?php echo $flname[$x];?></td><?php
 			                         }
@@ -114,8 +126,8 @@ $DTrow =  $DnT->fetch_row();
                             <td><?php echo md5($row['student_id'])?></td><?php
 			                unset($pos);
 			                unset ($flname);
-			                $pos = array_fill(0,11,0);
-			                $flname = array_fill(0,11," ");
+			                $pos = array_fill(0,$nheir,0);
+			                $flname = array_fill(0,$nheir," ");
 			                $sqlget2 = "SELECT student_id, position_id FROM candidate WHERE candidate_id = ".$row['candidate_id'];
                             $query2 = mysqli_query($db,$sqlget2);
                             $row2 = mysqli_fetch_array($query2);
@@ -146,7 +158,7 @@ $DTrow =  $DnT->fetch_row();
                         }
                     }
                     
-                            for($x = 0; $x < 11; $x++){	
+                            for($x = 0; $x < $nheir; $x++){	
                                 if($pos[$x]==1){?>
 		                       <td><?php echo $flname[$x];?></td><?php
 		                       }
