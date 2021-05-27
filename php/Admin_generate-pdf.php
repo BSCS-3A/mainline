@@ -1,10 +1,10 @@
 <?php
 // MONITORING GROUP
 
-require 'db_conn.php';						// Link to database
+require 'db_conn.php';								// Link to database
 require './backMonitor/student_count.php';			// Link to queries
 require './backMonitor/fetch_report.php';			// Link to queries in archive
-require_once('../other/TCPDF-main/tcpdf.php'); 			// Include the main TCPDF library
+require_once('../other/TCPDF-main/tcpdf.php'); 		// Include the main TCPDF library
 
 //---------------------Create header and footer
 class PDF extends TCPDF { 
@@ -12,20 +12,17 @@ class PDF extends TCPDF {
 		if (count($this->pages) === 1){ //displays header on first page only    
 			
 			//BU Seal
-			$imageFile= K_PATH_IMAGES.'Slide11.png';
-			$this->Image($imageFile,20,8,20,'','png','','T',false,300,'',false,false,0,false,false,false);
-			
+			$this->Image('../../main/img/BU-LOGO.png',20,8,19,'','png','','T',false,300,'',false,false,0,false,false,false);
+
 			//BUCEILS Seal
-			$imageFile= K_PATH_IMAGES.'Slide22.png';
-			$this->Image($imageFile,41,8,20,'','png','','T',false,300,'',false,false,0,false,false,false);
+			$this->Image('../../main/img/BUHS LOGO.png',40,8,21,'','png','','T',false,300,'',false,false,0,false,false,false);
 			
 			//SSG Seal
-			$imageFile= K_PATH_IMAGES.'Slide44.png';
-			$this->Image($imageFile,63,8,20,'','png','','T',false,300,'',false,false,0,false,false,false);
+			$this->Image('../../main/img/SSG LOGO.png',62,9,24,'','png','','T',false,300,'',false,false,0,false,false,false);
 
 			//Header text
 			$this->SetFont('times','B',12);
-			$this->Cell(96.5,3, 'COMMISSION ON ELECTION (COMELEC)',0,1,'R'); 
+			$this->Cell(93.5,3, 'COMMISSION ON ELECTION (COMELEC)',0,1,'R'); 
 			$this->SetFont('times','',12);
 			$this->Cell(170,3, 'BICOL UNIVERSITY INTEGRATED LABORATORY',0,1,'R'); 
 			$this->Cell(171,3, 'SCHOOL (BUCEILS) HIGH SCHOOL DEPARTMENT',0,1,'R'); 
@@ -37,7 +34,7 @@ class PDF extends TCPDF {
 
 	public function Footer(){
 			$this->SetY(-20); 	
-			$this->Cell(190,5,'Page '.$this->getAliasNumPage().' of '.$this->getAliasNbPages(),0,false,'R',0,'',0, false,'T','M');	//page number		
+			$this->Cell(190,5,'Page '.$this->getAliasNumPage().' of '.$this->getAliasNbPages(),0,false,'R',0,'',0, false,'T','M');	//page number	
 	}//end footer
 }//end class
 
@@ -97,7 +94,6 @@ ob_start();
 		$pdf->Cell(14.7,5,'12',1,1,'C',1);
 
 $query=mysqli_query($conn, "SELECT temp_candidate.candidate_id, temp_candidate.student_id, temp_candidate.position_id, temp_candidate.total_votes, student.lname, student.fname, student.mname, candidate_position.heirarchy_id, candidate_position.position_name, candidate_position.vote_allow FROM temp_candidate INNER JOIN student ON temp_candidate.student_id = student.student_id INNER JOIN candidate_position ON temp_candidate.position_id = candidate_position.heirarchy_id ORDER BY heirarchy_id"); 
-
 		$flag = 0;
 		$temp = 0;
 		while($data=mysqli_fetch_array($query))
@@ -166,14 +162,17 @@ $query=mysqli_query($conn, "SELECT temp_candidate.candidate_id, temp_candidate.s
 					}
 
 //----------NUMBER OF VOTES RECEIVED PER CANDIDATE PER GRADE LEVEL
-			$id = $data['candidate_id'];
-			for($i = 7,$j=0; $i <=12;$i++, $j++)
-			{
-				$result = mysqli_query($conn,"SELECT * FROM vote INNER JOIN student ON vote.student_id = student.student_id where candidate_id = '$id' and grade_level = '$i' and status='Voted' ");
-				$votesReceived[$j] = mysqli_num_rows($result);
-			}
-				$votesReceivedTotal= $votesReceived[0]+$votesReceived[1]+$votesReceived[2]+$votesReceived[3]+$votesReceived[4]+$votesReceived[5];
 
+$awaw = $data['heirarchy_id'];
+			if($awaw < 6){
+				$id = $data['candidate_id'];
+				for($i = 7,$j=0; $i <=12;$i++, $j++)
+				{
+					$result = mysqli_query($conn,"SELECT * FROM vote INNER JOIN student ON vote.student_id = student.student_id where candidate_id = '$id' and grade_level = '$i' and status='Voted' ");
+					$votesReceived[$j] = mysqli_num_rows($result);
+				}
+					$votesReceivedTotal= $votesReceived[0]+$votesReceived[1]+$votesReceived[2]+$votesReceived[3]+$votesReceived[4]+$votesReceived[5];
+				
 				$pdf->Cell(14.7,5,$votesReceived[0],1,0,'C',$color);  		//column total grade 7 vote
 				$pdf->Cell(14.7,5,$votesReceived[1],1,0,'C',$color);   		//column total grade 8 vote
 				$pdf->Cell(14.7,5,$votesReceived[2],1,0,'C',$color);  		//column total grade 9 vote
@@ -190,17 +189,42 @@ $query=mysqli_query($conn, "SELECT temp_candidate.candidate_id, temp_candidate.s
 				$sumGrade12+=$votesReceived[5];
 
 				$temp = $data['heirarchy_id'];
+			}else{
+			
+				$id = $data['candidate_id'];
+			for($i = 6,$j=0; $i <=12;$i++, $j++)
+			{
+				$result = mysqli_query($conn,"SELECT * FROM vote INNER JOIN student ON vote.student_id = student.student_id where candidate_id = '$id' and grade_level = '$i' and status='Voted' ");
+				$votesReceived[$j] = mysqli_num_rows($result);
+			}
+				$votesReceivedTotal= $votesReceived[0]+$votesReceived[1]+$votesReceived[2]+$votesReceived[3]+$votesReceived[4]+$votesReceived[5];
+			
+				$pdf->Cell(14.7,5,$votesReceived[0],1,0,'C',$color);  		//column total grade 7 vote
+				$pdf->Cell(14.7,5,$votesReceived[1],1,0,'C',$color);   		//column total grade 8 vote
+				$pdf->Cell(14.7,5,$votesReceived[2],1,0,'C',$color);  		//column total grade 9 vote
+				$pdf->Cell(14.6,5,$votesReceived[3],1,0,'C',$color);		//column total grade 10 vote
+				$pdf->Cell(14.6,5,$votesReceived[4],1,0,'C',$color);   		//column total grade 11 vote
+				$pdf->Cell(14.7,5,$votesReceived[5],1,0,'C',$color);  		//column total grade 12 vote
+				$pdf->Cell(17,5,$votesReceivedTotal.$string,1,1,'C',$color);
+			
+				$sumGrade7+=$votesReceived[0];
+				$sumGrade8+=$votesReceived[1];
+				$sumGrade9+=$votesReceived[2];
+				$sumGrade10+=$votesReceived[3];
+				$sumGrade11+=$votesReceived[4];
+				$sumGrade12+=$votesReceived[5];
+
+				$temp = $data['heirarchy_id'];
+			}
 
 //----------DISPLAYS ABSTAIN
-$queryGroup=mysqli_query($conn, "SELECT max(student_id) as last FROM temp_candidate group by position_id");
+$queryGroup=mysqli_query($conn, "SELECT max(candidate_id) as last FROM temp_candidate group by position_id");
 while($lastCandidate = mysqli_fetch_array($queryGroup)){
-		if($data['student_id']==$lastCandidate['last']){ 
+		if($data['candidate_id']==$lastCandidate['last']){ 
 			$pdf->SetFont('','',12);
 			$pdf->Cell(65,5, 'ABSTAIN',1,0,'L',0);					
 
-			// if ($vtAllow==1)
-			if ($data['vote_allow']==1)
-			{
+			if ($data['vote_allow']==1){
 				//calculates number of abstained per grade level
 				$abstainedGrade7=$enrolled[0]-$sumGrade7;
 				$abstainedGrade8=$enrolled[1]-$sumGrade8;
@@ -209,53 +233,42 @@ while($lastCandidate = mysqli_fetch_array($queryGroup)){
 				$abstainedGrade11=$enrolled[4]-$sumGrade11;
 				$abstainedGrade12=$enrolled[5]-$sumGrade12;
 			}else{
-				if(in_array("7", $keyword))
-				{
+				if(in_array("7", $keyword)){
 					$abstainedGrade7=$enrolled[0]-$sumGrade7;
 					$abstainedGrade8=0;
 					$abstainedGrade9=0;
 					$abstainedGrade10=0;
 					$abstainedGrade11=0;
 					$abstainedGrade12=0;
-				}
-				else if (in_array("8", $keyword))
-				{
+				}else if (in_array("8", $keyword)){
 					$abstainedGrade7=0;
 					$abstainedGrade8=$enrolled[1]-$sumGrade8;
 					$abstainedGrade9=0;
 					$abstainedGrade10=0;
 					$abstainedGrade11=0;
 					$abstainedGrade12=0;
-				}
-				else if (in_array("9", $keyword))
-				{
+				}else if (in_array("9", $keyword)){
 					$abstainedGrade7=0;
 					$abstainedGrade8=0;
 					$abstainedGrade9=$enrolled[2]-$sumGrade9;
 					$abstainedGrade10=0;
 					$abstainedGrade11=0;
 					$abstainedGrade12=0;
-				}
-				else if (in_array("10", $keyword))
-				{
+				}else if (in_array("10", $keyword)){
 					$abstainedGrade7=0;
 					$abstainedGrade8=0;
 					$abstainedGrade9=0;
 					$abstainedGrade10=$enrolled[3]-$sumGrade10;
 					$abstainedGrade11=0;
 					$abstainedGrade12=0;
-				}
-				else if (in_array("11", $keyword))
-				{
+				}else if (in_array("11", $keyword)){
 					$abstainedGrade7=0;
 					$abstainedGrade8=0;
 					$abstainedGrade9=0;
 					$abstainedGrade10=0;
 					$abstainedGrade11=$enrolled[4]-$sumGrade11;
 					$abstainedGrade12=0;
-				}
-				else if (in_array("12", $keyword))
-				{
+				}else if (in_array("12", $keyword)){
 					$abstainedGrade7=0;
 					$abstainedGrade8=0;
 					$abstainedGrade9=0;
@@ -263,7 +276,6 @@ while($lastCandidate = mysqli_fetch_array($queryGroup)){
 					$abstainedGrade11=0;
 					$abstainedGrade12=$enrolled[5]-$sumGrade12;
 				}
-				
 			}
 				
 				//displays abstain
@@ -320,15 +332,16 @@ $fileJson = file_get_contents('../other/sig_array.json');
              $id = array_filter($id);
              $in = '(' . implode(',', $id) .')';
 
-			$ypos=143; 
+			//$ypos=143; 
 			$querySignatory=mysqli_query($conn, "SELECT * FROM admin WHERE admin_id IN". $in);
 			while ($resSignatory = mysqli_fetch_array($querySignatory)){ 
 				
-				$pdf->Ln(23); 						//space between lines 
+				$pdf->Ln(25); 						//space between lines 
 				$pdf->SetFont('','',12);			//format
 				
-                $pdf->Image($resSignatory['eSignature'],22,$ypos,50, 20, '', '', '', false, 300, '', false, false, 0).$pdf->Cell(20,5,strtoupper($resSignatory['admin_lname']).", ".strtoupper($resSignatory['admin_fname']),0,1).$pdf->SetFont('','BI',12).$pdf->Cell(20,5,strtoupper($resSignatory['comelec_position']),0,1);
-				$ypos=$ypos+33;
+                $pdf->Image($resSignatory['eSignature'],$pdf->GetX(), $pdf->GetY()-20,50, 18, '', '', '', false, 300, '', false, false, 0);
+                $pdf->Cell(20,5,strtoupper($resSignatory['admin_lname']).", ".strtoupper($resSignatory['admin_fname']),0,1);
+                $pdf->SetFont('','BI',12).$pdf->Cell(20,5,strtoupper($resSignatory['comelec_position']),0,1);
             }
 
 // -------------------Output PDF
