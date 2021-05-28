@@ -16,7 +16,6 @@
             $sqlfe .=  "UPDATE `candidate_position` SET `heirarchy_id` = `heirarchy_id`-1 WHERE `position_id` = '$posid'".";";
             
         }
-
         mysqli_multi_query($conn,$sqlfe); 
     }
     

@@ -81,7 +81,9 @@ include "navAdmin.php";
                                 $('#icon_add').addClass('.fa fa-lock');
                                 $(".btn-danger").attr("disabled",true);
                                 $(".vote_allow").attr("disabled",true);
-                                $("#default_button").attr("disabled",true);
+                                $("#defaultButton").attr("disabled",true);
+                                $("#iconLoad").removeClass(".fas fa-portrait");
+                                $("#iconLoad").addClass("fa fa-lock");
                             }
                         }             
                     }
@@ -216,7 +218,7 @@ include "navAdmin.php";
         <div class="container">
             <div class="btn-toolbar" style="margin-left: 18px;">
                 <button id="defaultButton" name="" class="btn btn-button1 btn-s" data-toggle="modal" data-target="#load" > 
-                <span class = "fas fa-portrait"></span> 
+                <span class = "fas fa-portrait" id="iconLoad"></span> 
                 Load Default Positions 
                 </button>
 
@@ -344,10 +346,8 @@ include "navAdmin.php";
                     <div class="alert alert-danger" id="deleteD"><span class="fa fa-exclamation-triangle"></span> Are you sure you want to delete this position?</div>
                 </div>
                 <div class="modal-footer ">
-                    <form method="post" id="delete-form">
                         <button type="submit" name="continue-delete-btn" class="btn btn-button6" id="continue-delete"><span class="fa fa-check-circle"></span> Continue</button>
                         <button type="button" name="cancel-delete-btn" class="btn btn-button4" id="cancel" data-dismiss="modal"><span class="fa fa-times-circle"></span> Cancel</button>
-                    </form>
                 </div>
             </div>
             <!-- /.modal-content -->
@@ -377,7 +377,7 @@ include "navAdmin.php";
             var deletemess = "Are you sure you want to DELETE position: " + $(cols[1]).text() + " with heirarchy_id: " + $(cols[0]).text();
             $("#deleteD").text(deletemess);
 
-            $("#delete-form").submit(function() {
+            $("#continue-delete").on("click",function() {
                 $("#delete").modal("hide");
                 $.ajax({
                     url: 'backCandidate/deletePosition.php',
@@ -389,7 +389,7 @@ include "navAdmin.php";
                         if (response != "") {
                             alert(response);
                         }
-                        reloadTable();
+                            reloadTable();   
                     }
                 });
             });
