@@ -40,10 +40,11 @@ if (isset($_POST['editsched'])) {
     $dateEnd=$_POST['dateEnd'];
     $tstart= $_POST['tstart'];
     $tends= $_POST['tends'];
+    $indicator = $_POST['election'];
 
     //updating the table
-     $vtevent = "INSERT INTO vote_event (`start_date`,`end_date`) 
-      VALUES('$date $tstart', '$dateEnd $tends')";
+     $vtevent = "INSERT INTO vote_event (`start_date`,`end_date`,`vote_duration`) 
+      VALUES('$date $tstart', '$dateEnd $tends', '$indicator')";
       mysqli_query($conn, $vtevent);
         function_alert("Updating successful"); 
     
