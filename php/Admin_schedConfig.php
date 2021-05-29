@@ -64,7 +64,7 @@ if (isset($_SESSION['admin_id']) && isset($_SESSION['username'])) {
                 </div>
                 <br>
                 <div>
-                    <label for="election">Election Type:</label>
+                    <label for="election">Election Occurance:</label>
                     <select name="election" id="Elec" required>
                         <option value="">select</option>
                         <option value="1">start of school year</option>
