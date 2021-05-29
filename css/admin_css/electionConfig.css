@@ -34,6 +34,13 @@ form {
     margin-bottom: 60px;
 }
 
+#Elec{
+    font-family: 'Roboto-regular', sans-serif;
+    font-size: 3rem;
+    display: block;
+    padding: 0rem 2rem;
+}
+
 input[type="date"] {
     font-family: 'Roboto-regular', sans-serif;
     font-size: 3rem;
