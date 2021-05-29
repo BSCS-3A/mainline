@@ -64,6 +64,15 @@ if (isset($_SESSION['admin_id']) && isset($_SESSION['username'])) {
                 </div>
                 <br>
                 <div>
+                    <label for="election">Election Type:</label>
+                    <select name="election" id="Elec" required>
+                        <option value="">select</option>
+                        <option value="1">start of school year</option>
+                        <option value="0">end of school year</option>
+                    </select>
+                </div>
+                <br>
+                <div>
                     <!-- <script type="text/javascript" src="../assets/js/awaw.js"></script>onclick="passvalues();"-->
                     <!--<button class="btn" type="submit" id="btnsave" name="savesched" >SAVE</button>-->
                     <!-- onclick="myFunction('date','tstart','tends')-->
