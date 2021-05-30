@@ -12,45 +12,66 @@
         return $sanitized_variables;
     }
     function addCandidate($conn, $studentid, $positionid, $partylist, $platform, $credentials, $heirarchyId, $firstname, $lastname){
-            $sql_tunay = "INSERT INTO `candidate` (`candidate_id`,`student_id`, `position_id`, `total_votes`,`party_name`, `platform_info`,`credentials`,`photo`) VALUES (NULL,'$studentid', ' $positionid', '0','$partylist','$platform','$credentials','')"; //photo is to be replaced by gender
-            $result_tunay = mysqli_query($conn,$sql_tunay);
-            //lagay logs 
-                if($result_tunay){
-                    $admin_id = $_SESSION['admin_id'];
-                    date_default_timezone_set('Asia/Manila');
-                    $time = date('H:i:s');
-                    $candidatename = $firstname.' '.$lastname;
-                    $select_positionname =  "SELECT `position_name` FROM `candidate_position` INNER JOIN `candidate` ON `candidate_position`.`position_id` = `candidate`.`position_id` WHERE `candidate_position`.`heirarchy_id` =  '$heirarchyId'";
-                    $positionname_query = mysqli_query($conn, $select_positionname);
-                    $get_positionname = mysqli_fetch_assoc($positionname_query);
-                        if($positionname_query){
-                            $positionname = $get_positionname['position_name'];
-                            mysqli_query($conn, "INSERT INTO admin_activity_log(activity_log_id,admin_id,activity_description,activity_date,activity_time) VALUES(NULL,'$admin_id','Added candidate $candidatename to position $positionname', CURRENT_TIMESTAMP,'$time')");
-                        }
-                }
-                else{
-                    echo "Failed to insert student as a candidate(Query error)";
-                }
+        $sql_tunay = "INSERT INTO `candidate` (`candidate_id`,`student_id`, `position_id`, `total_votes`,`party_name`, `platform_info`,`credentials`,`photo`) VALUES (NULL,'$studentid', ' $positionid', '0','$partylist','$platform','$credentials','')"; //photo is to be replaced by gender
+        $result_tunay = mysqli_query($conn,$sql_tunay);
+        //lagay logs 
+            if($result_tunay){
+                $admin_id = $_SESSION['admin_id'];
+                date_default_timezone_set('Asia/Manila');
+                $time = date('H:i:s');
+                $candidatename = $firstname.' '.$lastname;
+                $select_positionname =  "SELECT `position_name` FROM `candidate_position` INNER JOIN `candidate` ON `candidate_position`.`position_id` = `candidate`.`position_id` WHERE `candidate_position`.`heirarchy_id` =  '$heirarchyId'";
+                $positionname_query = mysqli_query($conn, $select_positionname);
+                $get_positionname = mysqli_fetch_assoc($positionname_query);
+                    if($positionname_query){
+                        $positionname = $get_positionname['position_name'];
+                        mysqli_query($conn, "INSERT INTO admin_activity_log(activity_log_id,admin_id,activity_description,activity_date,activity_time) VALUES(NULL,'$admin_id','Added candidate $candidatename to position $positionname', CURRENT_TIMESTAMP,'$time')");
+                    }
+            }
+            else{
+                echo "Failed to insert student as a candidate(Query error)";
+            }
     }
     function editCandidate($conn, $candidateid, $positionid, $partylist, $platform, $credentials, $heirarchyid, $firstname, $lastname){
-            $updatesql = "UPDATE `candidate` SET `position_id` = '$positionid', `party_name` = '$partylist', `platform_info` = '$platform',`credentials`='$credentials' WHERE `candidate_id`='$candidateid'"; 
-            $updateresult = mysqli_query($conn,$updatesql);
-                if($updateresult){
-                        //admin logs
-                    $admin_id = $_SESSION['admin_id'];
-                    date_default_timezone_set('Asia/Manila');
-                    $time = date('H:i:s');
-                    $candidatename = $firstname." ".$lastname;
-                    $edit_candidatelog = "SELECT `position_name` FROM `candidate_position` WHERE `heirarchy_id` ='$heirarchyid'";
-                    $edit_candidatelog_query = mysqli_query($conn, $edit_candidatelog);
-                    $row_edit_candidate = mysqli_fetch_assoc($edit_candidatelog_query);
-                    if($edit_candidatelog_query){
-                        $edited_position = $row_edit_candidate['position_name'];
-                        mysqli_query($conn, "INSERT INTO admin_activity_log(activity_log_id,admin_id,activity_description,activity_date,activity_time) VALUES(NULL,'$admin_id','Edited candidate $candidatename to position $edited_position', CURRENT_TIMESTAMP,'$time')");
-                    }
-                }else{
-                    echo  "Candidate not updated(query error)";
+        $updatesql = "UPDATE `candidate` SET `position_id` = '$positionid', `party_name` = '$partylist', `platform_info` = '$platform',`credentials`='$credentials' WHERE `candidate_id`='$candidateid'"; 
+        $updateresult = mysqli_query($conn,$updatesql);
+            if($updateresult){
+                    //admin logs
+                $admin_id = $_SESSION['admin_id'];
+                date_default_timezone_set('Asia/Manila');
+                $time = date('H:i:s');
+                $candidatename = $firstname." ".$lastname;
+                $edit_candidatelog = "SELECT `position_name` FROM `candidate_position` WHERE `heirarchy_id` ='$heirarchyid'";
+                $edit_candidatelog_query = mysqli_query($conn, $edit_candidatelog);
+                $row_edit_candidate = mysqli_fetch_assoc($edit_candidatelog_query);
+                if($edit_candidatelog_query){
+                    $edited_position = $row_edit_candidate['position_name'];
+                    mysqli_query($conn, "INSERT INTO admin_activity_log(activity_log_id,admin_id,activity_description,activity_date,activity_time) VALUES(NULL,'$admin_id','Edited candidate $candidatename to position $edited_position', CURRENT_TIMESTAMP,'$time')");
                 }
+            }else{
+                echo  "Candidate not updated(query error)";
+            }
+    }
+    function editCandidate2($conn,$candidateid,$firstname,$lastname,$studentid,$heirarchyid,$positionid,$partylist,$platform,$credentials){
+        $updatesql = "UPDATE `candidate` SET `student_id`='$studentid', `position_id` = '$positionid', `party_name` = '$partylist', `platform_info` = '$platform', `credentials`='$credentials' WHERE `candidate_id`='$candidateid'"; 
+        $updateresult = mysqli_query($conn,$updatesql);
+        if($updateresult){
+            //logs
+            $admin_id = $_SESSION['admin_id'];
+            date_default_timezone_set('Asia/Manila');
+            $time = date('H:i:s');
+            $candidatename = $firstname." ".$lastname;
+            $edit_candidatelog = "SELECT `position_name` FROM `candidate_position` WHERE `heirarchy_id` ='$heirarchyid'";
+            $edit_candidatelog_query = mysqli_query($conn, $edit_candidatelog);
+            $row_edit_candidate = mysqli_fetch_assoc($edit_candidatelog_query);
+            if($edit_candidatelog_query){
+                $edited_position = $row_edit_candidate['position_name'];
+                mysqli_query($conn, "INSERT INTO admin_activity_log(activity_log_id,admin_id,activity_description,activity_date,activity_time) VALUES(NULL,'$admin_id','Edited candidate $candidatename to position $edited_position', CURRENT_TIMESTAMP,'$time')");
+            }
+        }else{
+            echo mysqli_error($conn);
+            echo  "Candidate not updated(query error)";
+        }
     }
 
     if(isset($_POST['savebtn'])){
@@ -78,29 +99,66 @@
                         $positionid = $row_pos['position_id'];
                         $position_vote_allow = $row_pos['vote_allow'];
                         $pos_name = $row_pos['position_name'];
-                        if($position_vote_allow != 1){ // checks if position is representative
-                            $pos_name_level = explode(" ", $pos_name);
-                            $pos_grade_level = 0;
-                            for($i = 0; $i < sizeof($pos_name_level); $i++){
-                                if(is_numeric($pos_name_level[$i])){ 
-                                    $pos_grade_level = $pos_name_level[$i];
-                                    break;
-                                }
-                            }
-                            if($pos_grade_level != 0){ // check if representative position name has number
-                                if($studentlevel == $pos_grade_level){ // checks if student level is equal to representative positin name no
-                                    addCandidate($conn, $studentid, $positionid, $partylist, $platform, $credentials, $heirarchyId, $firstname, $lastname);
+
+                        $result_dur = mysqli_query($conn,"SELECT * FROM `vote_event`");
+                        $row_dur = mysqli_fetch_assoc($result_dur);
+                        $string_temp = "Student must be in the same grade representative position.";
+                        if($row_dur['vote_duration']==0){ // if event occurence is end of sem
+                            if($studentlevel!=12){//if candidate is not a grade 12 student
+                                $studentlevel += 1;
+                                $string_temp = "Student must run in a grade representative position one level higher than his/her current grade.";
+                                if($position_vote_allow != 1){ // checks if position is representative
+                                    $pos_name_level = explode(" ", $pos_name);
+                                    $pos_grade_level = 0;
+                                    for($i = 0; $i < sizeof($pos_name_level); $i++){
+                                        if(is_numeric($pos_name_level[$i])){ 
+                                            $pos_grade_level = $pos_name_level[$i];
+                                            break;
+                                        }
+                                    }
+                                    if($pos_grade_level != 0){ // check if representative position name has number
+                                        if($studentlevel == $pos_grade_level){ // checks if student level is equal to representative positin name no
+                                            addCandidate($conn, $studentid, $positionid, $partylist, $platform, $credentials, $heirarchyId, $firstname, $lastname);
+                                        }
+                                        else{
+                                            echo $string_temp; 
+                                        }
+                                    }
+                                    else{
+                                        echo "There is a problem in position name. Please proceed to position editor to fix the problem.";
+                                    }
                                 }
                                 else{
-                                    echo "Student must be in the same grade representative position.";
+                                    addCandidate($conn, $studentid, $positionid, $partylist, $platform, $credentials, $heirarchyId, $firstname, $lastname);
+                                }
+                            }else{
+                                echo "A grade 12 student cannot be a candidate.";
+                            }
+                        }else{// if event occurence is start of sem
+                            if($position_vote_allow != 1){ // checks if position is representative
+                                $pos_name_level = explode(" ", $pos_name);
+                                $pos_grade_level = 0;
+                                for($i = 0; $i < sizeof($pos_name_level); $i++){
+                                    if(is_numeric($pos_name_level[$i])){ 
+                                        $pos_grade_level = $pos_name_level[$i];
+                                        break;
+                                    }
+                                }
+                                if($pos_grade_level != 0){ // check if representative position name has number
+                                    if($studentlevel == $pos_grade_level){ // checks if student level is equal to representative positin name no
+                                        addCandidate($conn, $studentid, $positionid, $partylist, $platform, $credentials, $heirarchyId, $firstname, $lastname);
+                                    }
+                                    else{
+                                        echo $string_temp; 
+                                    }
+                                }
+                                else{
+                                    echo "There is a problem in position name. Please proceed to position editor to fix the problem.";
                                 }
                             }
                             else{
-                                echo "There is a problem in position name. Please proceed to position editor to fix the problem.";
+                                addCandidate($conn, $studentid, $positionid, $partylist, $platform, $credentials, $heirarchyId, $firstname, $lastname);
                             }
-                        }
-                        else{
-                            addCandidate($conn, $studentid, $positionid, $partylist, $platform, $credentials, $heirarchyId, $firstname, $lastname);
                         }
                     }else{
                         echo "Cannot add student as candidate (Either no selected position or student is already a candidate)";
@@ -175,65 +233,146 @@
                 $studentlevel = $rowcand['grade_level'];    
                 $position_vote_allow = $rowpositionid['vote_allow'];
                 $pos_name = $rowpositionid['position_name'];
-                if($position_vote_allow != 1){ // checks if position is representative
-                    $pos_name_level = explode(" ", $pos_name);
-                    $pos_grade_level = 0;
-                    for($i = 0; $i < sizeof($pos_name_level); $i++){
-                        if(is_numeric($pos_name_level[$i])){ 
-                            $pos_grade_level = $pos_name_level[$i];
-                            break;
-                        }
-                    }
-                    if($pos_grade_level != 0){ // check if representative position name has number
-                        if($studentlevel == $pos_grade_level){ // checks if student level is equal to representative positin name no
-                            editCandidate($conn, $candidateid, $positionid, $partylist, $platform, $credentials, $heirarchyid, $firstname, $lastname);
+
+                $result_dur = mysqli_query($conn,"SELECT * FROM `vote_event`");
+                $row_dur = mysqli_fetch_assoc($result_dur);
+                $string_temp = "Student must be in the same grade representative position.";
+                if($row_dur['vote_duration']==0){ // if event occurence is end of sem
+                    if($studentlevel!=12){//if candidate is not a grade 12 student
+                        $studentlevel += 1;
+                        $string_temp = "Student must run in a grade representative position one level higher than his/her current grade.";
+                        if($position_vote_allow != 1){ // checks if position is representative
+                            $pos_name_level = explode(" ", $pos_name);
+                            $pos_grade_level = 0;
+                            for($i = 0; $i < sizeof($pos_name_level); $i++){
+                                if(is_numeric($pos_name_level[$i])){ 
+                                    $pos_grade_level = $pos_name_level[$i];
+                                    break;
+                                }
+                            }
+                            if($pos_grade_level != 0){ // check if representative position name has number
+                                if($studentlevel == $pos_grade_level){ // checks if student level is equal to representative positin name no
+                                    editCandidate($conn, $candidateid, $positionid, $partylist, $platform, $credentials, $heirarchyid, $firstname, $lastname);
+                                }
+                                else{
+                                    echo $string_temp;
+                                }
+                            }
+                            else{
+                                echo "There is a problem in position name. Please proceed to position editor to fix the problem.";
+                            }
                         }
                         else{
-                            echo "Student must be in the same grade representative position.";
+                            //function
+                            editCandidate($conn, $candidateid, $positionid, $partylist, $platform, $credentials, $heirarchyid, $firstname, $lastname);
+                        }
+                    }else{
+                        echo "A grade 12 student cannot be a candidate. Adjust your scheduler or remove the candidate to prevent this issue.";
+                    }
+                }else{//if event occurence is start of sem
+                    if($position_vote_allow != 1){ // checks if position is representative
+                        $pos_name_level = explode(" ", $pos_name);
+                        $pos_grade_level = 0;
+                        for($i = 0; $i < sizeof($pos_name_level); $i++){
+                            if(is_numeric($pos_name_level[$i])){ 
+                                $pos_grade_level = $pos_name_level[$i];
+                                break;
+                            }
+                        }
+                        if($pos_grade_level != 0){ // check if representative position name has number
+                            if($studentlevel == $pos_grade_level){ // checks if student level is equal to representative positin name no
+                                editCandidate($conn, $candidateid, $positionid, $partylist, $platform, $credentials, $heirarchyid, $firstname, $lastname);
+                            }
+                            else{
+                                echo $string_temp;
+                            }
+                        }
+                        else{
+                            echo "There is a problem in position name. Please proceed to position editor to fix the problem.";
                         }
                     }
                     else{
-                        echo "There is a problem in position name. Please proceed to position editor to fix the problem.";
+                        //function
+                        editCandidate($conn, $candidateid, $positionid, $partylist, $platform, $credentials, $heirarchyid, $firstname, $lastname);
                     }
                 }
-                else{
-                    //function
-                    editCandidate($conn, $candidateid, $positionid, $partylist, $platform, $credentials, $heirarchyid, $firstname, $lastname);
-                }
-            }else{
+            }else{//if name is edited 
                 $sqlstudent = "SELECT * FROM ((`candidate` INNER JOIN student ON `candidate`.`student_id` = `student`.`student_id`) INNER JOIN `candidate_position` ON `candidate`.`position_id` = `candidate_position`.`position_id`) WHERE `lname`= '$lastname' AND `fname` = '$firstname'";
                 $resultstudent = mysqli_query($conn,$sqlstudent);
                 if(mysqli_num_rows($resultstudent)==1){// if name is already inside the candidate table
                     echo "That student is already a candidate";
                 }
                 else{
-                    $getstudentid = "SELECT `student_id` FROM `student` WHERE `lname`= '$lastname' AND `fname` = '$firstname' ";
+                    $getstudentid = "SELECT `student_id`,`grade_level` FROM `student` WHERE `lname`= '$lastname' AND `fname` = '$firstname' ";
                     $resultget= mysqli_query($conn,$getstudentid);
                     $rowget = mysqli_fetch_assoc($resultget);
                     $studentid = $rowget['student_id'];
+                    $studentlevel = $rowget['grade_level'];
 
-                    $sqlpositionid = "SELECT `position_id` FROM `candidate_position` WHERE `heirarchy_id` ='$heirarchyid'";
+                    $sqlpositionid = "SELECT `position_id`,`vote_allow`,`position_name` FROM `candidate_position` WHERE `heirarchy_id` ='$heirarchyid'";
                     $resultpositionid = mysqli_query($conn,$sqlpositionid);
                     $rowpositionid = mysqli_fetch_assoc($resultpositionid);
+                    
                     $positionid = $rowpositionid['position_id'];
-                    $updatesql = "UPDATE `candidate` SET `student_id`='$studentid', `position_id` = '$positionid', `party_name` = '$partylist', `platform_info` = '$platform', `credentials`='$credentials' WHERE `candidate_id`='$candidateid'"; 
-                    $updateresult = mysqli_query($conn,$updatesql);
-                    if($updateresult){
-                        //logs
-                        $admin_id = $_SESSION['admin_id'];
-                        date_default_timezone_set('Asia/Manila');
-                        $time = date('H:i:s');
-                        $candidatename = $firstname." ".$lastname;
-                        $edit_candidatelog = "SELECT `position_name` FROM `candidate_position` WHERE `heirarchy_id` ='$heirarchyid'";
-                        $edit_candidatelog_query = mysqli_query($conn, $edit_candidatelog);
-                        $row_edit_candidate = mysqli_fetch_assoc($edit_candidatelog_query);
-                        if($edit_candidatelog_query){
-                            $edited_position = $row_edit_candidate['position_name'];
-                            mysqli_query($conn, "INSERT INTO admin_activity_log(activity_log_id,admin_id,activity_description,activity_date,activity_time) VALUES(NULL,'$admin_id','Edited candidate $candidatename to position $edited_position', CURRENT_TIMESTAMP,'$time')");
+                    $position_vote_allow = $rowpositionid['vote_allow'];
+                    $pos_name = $rowpositionid['position_name'];
+
+                    $result_dur = mysqli_query($conn,"SELECT * FROM `vote_event`");
+                    $row_dur = mysqli_fetch_assoc($result_dur);
+                    $string_temp = "Student must be in the same grade representative position.";
+                    if($row_dur['vote_duration']==0){ // if event occurence is end of sem
+                        if($studentlevel!=12){//if candidate is not a grade 12 student
+                            $studentlevel += 1;
+                            if($position_vote_allow != 1){ // checks if position is representative
+                                $pos_name_level = explode(" ", $pos_name);
+                                $pos_grade_level = 0;
+                                for($i = 0; $i < sizeof($pos_name_level); $i++){
+                                    if(is_numeric($pos_name_level[$i])){ 
+                                        $pos_grade_level = $pos_name_level[$i];
+                                        break;
+                                    }
+                                }
+                                if($pos_grade_level != 0){ // check if representative position name has number
+                                    if($studentlevel == $pos_grade_level){ // checks if student level is equal to representative positin name no
+                                        editCandidate2($conn,$candidateid,$firstname,$lastname,$studentid,$heirarchyid,$positionid,$partylist,$platform,$credentials);
+                                    }
+                                    else{
+                                        echo $string_temp;
+                                    }
+                                }
+                                else{
+                                    echo "There is a problem in position name. Please proceed to position editor to fix the problem.";
+                                }
+                            }else{
+                                editCandidate2($conn,$candidateid,$firstname,$lastname,$studentid,$heirarchyid,$positionid,$partylist,$platform,$credentials);
+                            }
+                        }else{
+                            echo "A grade 12 student cannot be a candidate. Adjust your scheduler or remove the candidate to prevent this issue";
                         }
-                    }else{
-                        echo mysqli_error($conn);
-                        echo  "Candidate not updated(query error)";
+                    }else{// if event occurence is start of sem
+                        if($position_vote_allow != 1){ // checks if position is representative
+                            $pos_name_level = explode(" ", $pos_name);
+                            $pos_grade_level = 0;
+                            for($i = 0; $i < sizeof($pos_name_level); $i++){
+                                if(is_numeric($pos_name_level[$i])){ 
+                                    $pos_grade_level = $pos_name_level[$i];
+                                    break;
+                                }
+                            }
+                            if($pos_grade_level != 0){ // check if representative position name has number
+                                if($studentlevel == $pos_grade_level){ // checks if student level is equal to representative positin name no
+                                    editCandidate2($conn,$candidateid,$firstname,$lastname,$studentid,$heirarchyid,$positionid,$partylist,$platform,$credentials);
+                                }
+                                else{
+                                    echo $string_temp;
+                                }
+                            }
+                            else{
+                                echo "There is a problem in position name. Please proceed to position editor to fix the problem.";
+                            }
+                        }else{
+                            editCandidate2($conn,$candidateid,$firstname,$lastname,$studentid,$heirarchyid,$positionid,$partylist,$platform,$credentials);
+                        } 
                     }
                 } 
             }   
