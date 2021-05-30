@@ -66,7 +66,10 @@ include('db_conn.php');
             // echo "Start: ".(date("Y-m-d h:m:sa", $start_time))."<br>";
             // echo "End: ".(date("Y-m-d h:m:sa", $end_time))."<br>";
             // echo "Now: ".(date("Y-m-d h:m:sa", $access_time))."<br>";
-            
+            if($sched['vote_duration'] == 0 && $_SESSION['grade_level'] == 12){
+                errorMessage("Sorry, your grade level cannot participate in this eleciton.");
+                exit();
+            }
             if($access_time > $end_time){
                 errorMessage("The election is already closed. You can no longer cast your votes.");
                 exit();
