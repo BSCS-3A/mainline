@@ -73,7 +73,7 @@ include('db_conn.php');
               }
               else if($access_time >= $start_time && $access_time <= $end_time){
                 if($sched['vote_duration'] == 0 && $_SESSION['grade_level'] == 12){
-                  errorMessage("Sorry, your grade level cannot participate in this eleciton. Please refrain from trying to submit votes. Your actions are being monitored for further investigation.");
+                  errorMessage("Sorry, your grade level cannot participate in this election. Please refrain from trying to submit votes. Your actions are being monitored for further investigation.");
                   notifyAdmin("Warning: A grade 12 student attempted to access the voting page and submit votes.");
                   exit();
                 }
