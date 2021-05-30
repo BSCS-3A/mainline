@@ -103,7 +103,15 @@
                         $result_dur = mysqli_query($conn,"SELECT * FROM `vote_event`");
                         $row_dur = mysqli_fetch_assoc($result_dur);
                         $string_temp = "Student must be in the same grade representative position.";
-                        if($row_dur['vote_duration']==0){ // if event occurence is end of sem
+                        if(empty($rowdur['vote_duration'])){
+                            if($position_vote_allow != 1){ // checks if position is representative
+                                echo "Please finalize the schedule in the scheduler to add candidates for grade representative positions.";
+                            }
+                            else{
+                                addCandidate($conn, $studentid, $positionid, $partylist, $platform, $credentials, $heirarchyId, $firstname, $lastname);
+                            }
+                        }
+                        elseif($row_dur['vote_duration']==0){ // if event occurence is end of sem
                             if($studentlevel!=12){//if candidate is not a grade 12 student
                                 $studentlevel += 1;
                                 $string_temp = "Student must run in a grade representative position one level higher than his/her current grade.";
@@ -134,7 +142,7 @@
                             }else{
                                 echo "A grade 12 student cannot be a candidate.";
                             }
-                        }else{// if event occurence is start of sem
+                        }elseif($row_dur['vote_duration']==1){// if event occurence is start of sem
                             if($position_vote_allow != 1){ // checks if position is representative
                                 $pos_name_level = explode(" ", $pos_name);
                                 $pos_grade_level = 0;
@@ -237,7 +245,15 @@
                 $result_dur = mysqli_query($conn,"SELECT * FROM `vote_event`");
                 $row_dur = mysqli_fetch_assoc($result_dur);
                 $string_temp = "Student must be in the same grade representative position.";
-                if($row_dur['vote_duration']==0){ // if event occurence is end of sem
+                if(empty($row_dur['vote_duration'])){
+                    if($position_vote_allow != 1){ // checks if position is representative
+                        echo "Please finalize the schedule in the scheduler to edit candidates for grade representative positions.";
+                    }
+                    else{
+                        addCandidate($conn, $studentid, $positionid, $partylist, $platform, $credentials, $heirarchyId, $firstname, $lastname);
+                    }
+                }
+                elseif($row_dur['vote_duration']==0){ // if event occurence is end of sem
                     if($studentlevel!=12){//if candidate is not a grade 12 student
                         $studentlevel += 1;
                         $string_temp = "Student must run in a grade representative position one level higher than his/her current grade.";
@@ -269,7 +285,7 @@
                     }else{
                         echo "A grade 12 student cannot be a candidate. Adjust your scheduler or remove the candidate to prevent this issue.";
                     }
-                }else{//if event occurence is start of sem
+                }elseif($row_dur['vote_duration']==1){//if event occurence is start of sem
                     if($position_vote_allow != 1){ // checks if position is representative
                         $pos_name_level = explode(" ", $pos_name);
                         $pos_grade_level = 0;
@@ -320,9 +336,18 @@
                     $result_dur = mysqli_query($conn,"SELECT * FROM `vote_event`");
                     $row_dur = mysqli_fetch_assoc($result_dur);
                     $string_temp = "Student must be in the same grade representative position.";
-                    if($row_dur['vote_duration']==0){ // if event occurence is end of sem
+                    if(empty($row_dur['vote_duration'])){
+                        if($position_vote_allow != 1){ // checks if position is representative
+                            echo "Please finalize the schedule in the scheduler to edit candidates for grade representative positions.";
+                        }
+                        else{
+                            addCandidate($conn, $studentid, $positionid, $partylist, $platform, $credentials, $heirarchyId, $firstname, $lastname);
+                        }
+                    }
+                    elseif($row_dur['vote_duration']==0){ // if event occurence is end of sem
                         if($studentlevel!=12){//if candidate is not a grade 12 student
                             $studentlevel += 1;
+                            $string_temp = "Student must run in a grade representative position one level higher than his/her current grade.";
                             if($position_vote_allow != 1){ // checks if position is representative
                                 $pos_name_level = explode(" ", $pos_name);
                                 $pos_grade_level = 0;
@@ -349,7 +374,7 @@
                         }else{
                             echo "A grade 12 student cannot be a candidate. Adjust your scheduler or remove the candidate to prevent this issue";
                         }
-                    }else{// if event occurence is start of sem
+                    }elseif($row_dur['vote_duration']==1){// if event occurence is start of sem
                         if($position_vote_allow != 1){ // checks if position is representative
                             $pos_name_level = explode(" ", $pos_name);
                             $pos_grade_level = 0;
