@@ -41,6 +41,59 @@ if (isset($_SESSION['admin_id']) && isset($_SESSION['username'])) {
             <div class="leftdiv">
                 <br>
                 <div>
+                    <label id="DtD"> 
+                <?php
+
+                include "db_conn.php";
+
+
+                    $event = mysqli_query($conn, "SELECT * FROM vote_event");
+                    $row = mysqli_fetch_array($event);
+
+                    if ($row == "") {
+                        echo " NO ELECTION SCHEDULE";
+                    } else {
+    
+                        $event = mysqli_query($conn, "SELECT * FROM vote_event");
+                        while ($row = mysqli_fetch_array($event)) {
+                            $stdate = $row['start_date'];
+                            $endate = $row['end_date'];
+                        }
+                            $startDate = date_create("$stdate");
+                            $endDate = date_create("$endate");
+                            echo $startDate->format('M d, Y (h:ia)');
+                            echo " to ";
+                            echo $endDate->format('M d, Y (h:ia)');
+                    }
+                ?>
+                </label>
+                <br>
+                <label id="Dtd">
+                <?php
+
+                include "db_conn.php";
+
+
+                    $event = mysqli_query($conn, "SELECT * FROM vote_event");
+                    $row = mysqli_fetch_array($event);
+                    
+                    if ($row != "") {
+                        $event = mysqli_query($conn, "SELECT * FROM vote_event");
+                        while ($row = mysqli_fetch_array($event)) {
+                            $occur = $row['vote_duration'];   
+                        }
+
+                        if($occur == 1){
+                            echo "START OF SCHOOL YEAR";
+                        }elseif($occur == 0){
+                            echo "END OF SCHOOL YEAR";
+                        }
+                    } 
+                ?>
+                </label>
+                </div>
+                <br>
+                <div>
                     <label for="date">Date Start:</label>
 
                     <input type="date" id="date" name="date" value="yyyy-mm-dd" placeholder="" required></input>
@@ -54,7 +107,6 @@ if (isset($_SESSION['admin_id']) && isset($_SESSION['username'])) {
                 <br>
                 <div>
                     <label for="date">Date Ends:</label>
-
                     <input type="date" id="date" name="dateEnd" value="yyyy-mm-dd" placeholder="" required></input>
                 </div>
                 <br>
@@ -64,7 +116,7 @@ if (isset($_SESSION['admin_id']) && isset($_SESSION['username'])) {
                 </div>
                 <br>
                 <div>
-                    <label for="election">Election Occurance:</label>
+                    <label for="election">Election Occurrence:</label>
                     <select name="election" id="Elec" required>
                         <option value="">select</option>
                         <option value="1">start of school year</option>
