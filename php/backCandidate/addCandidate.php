@@ -105,10 +105,7 @@
                         $string_temp = "Student must be in the same grade representative position.";
                         if(empty($rowdur['vote_duration'])){
                             if($position_vote_allow != 1){ // checks if position is representative
-                                echo "Please finalize the schedule in the scheduler to add candidates for grade representative positions.";
-                            }
-                            else{
-                                addCandidate($conn, $studentid, $positionid, $partylist, $platform, $credentials, $heirarchyId, $firstname, $lastname);
+                                echo "Please finalize the schedule in the scheduler to add candidates.";
                             }
                         }
                         elseif($row_dur['vote_duration']==0){ // if event occurence is end of sem
@@ -249,9 +246,6 @@
                     if($position_vote_allow != 1){ // checks if position is representative
                         echo "Please finalize the schedule in the scheduler to edit candidates for grade representative positions.";
                     }
-                    else{
-                        addCandidate($conn, $studentid, $positionid, $partylist, $platform, $credentials, $heirarchyId, $firstname, $lastname);
-                    }
                 }
                 elseif($row_dur['vote_duration']==0){ // if event occurence is end of sem
                     if($studentlevel!=12){//if candidate is not a grade 12 student
@@ -339,9 +333,6 @@
                     if(empty($row_dur['vote_duration'])){
                         if($position_vote_allow != 1){ // checks if position is representative
                             echo "Please finalize the schedule in the scheduler to edit candidates for grade representative positions.";
-                        }
-                        else{
-                            addCandidate($conn, $studentid, $positionid, $partylist, $platform, $credentials, $heirarchyId, $firstname, $lastname);
                         }
                     }
                     elseif($row_dur['vote_duration']==0){ // if event occurence is end of sem
