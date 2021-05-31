@@ -70,6 +70,8 @@ if (isset($_SESSION['admin_id']) && isset($_SESSION['username'])) {
                 <br>
                 <label id="Dtd">
                 <?php
+                    $event = mysqli_query($conn, "SELECT * FROM vote_event");
+                    $row = mysqli_fetch_array($event);
                     if ($row != "") {
                         $event = mysqli_query($conn, "SELECT * FROM vote_event");
                         while ($row = mysqli_fetch_array($event)) {
@@ -96,7 +98,25 @@ if (isset($_SESSION['admin_id']) && isset($_SESSION['username'])) {
                 </div>
 
                 <div>
-                    <button class="btn" type="submit" name="editperiod"><span class="fas fa-clock"></span> UPDATE PERIOD</button>
+                    <button class="btn" type="submit" name="editperiod" 
+                    <?php 
+                    
+                    $event = mysqli_query($conn, "SELECT * FROM vote_event");
+                    $row = mysqli_fetch_array($event);
+
+                    if (!empty($row)) {
+
+                        $event = mysqli_query($conn, "SELECT * FROM vote_event");
+                        while ($row = mysqli_fetch_array($event)) {
+                            $stdate = $row['start_date'];
+                            $endate = $row['end_date'];
+                        }
+                        $d=strtotime("now");
+                        $now = date("Y-m-d h:i:sa", $d);
+
+                    
+                    if (($now >= $stdate)&&($now <= $endate)){ 
+                        ?> disabled <?php   }} ?>><span class="fas fa-clock"></span> UPDATE PERIOD</button>
                 </div>
 
         </form>
