@@ -43,7 +43,7 @@ require './backMonitor/fetch_date.php';
     exit();
   }else{
     $trigger = 0;
-    if($current_date_time<=$last_election_date){
+    if($current_date_time < $last_election_date){
       $trigger = 1;
     }else{
       $trigger = 0;
@@ -68,14 +68,24 @@ require './backMonitor/fetch_date.php';
   <div class="Bbtn_post" id="post_b">
     <button formmethod="post" onclick="confirmModal.show('POST ELECTION RESULTS?', postButtonConfirm);" type="submit" id="post_button" name="post_button" class="Bbtn_postresults scs-responsive" <?php if ($current_date_time<$last_election_date){ ?> disabled <?php   } ?>><b>POST RESULT</b></button>
   </div>
-
+  
+  <?php if($trigger == 1):?>
   <div class="Bbtn_reset" id="reset_b">
-    <button formmethod="post" onclick="confirmModal.show('RESET ELECTION RESULTS?', resetButtonConfirm);" type="submit" id="reset_button" name="reset_button" class="Bbtn_resetresults scs-responsive" <?php if ($current_date_time<$last_election_date){ ?> disabled <?php   } ?>><b>RESET ELECTION</b></button>
+    <button formmethod="post" onclick="confirmModal.show('You are about to reset an ongoing election. All votes will be deleted and count will be back to zero. Proceed?', resetButtonConfirm);" type="submit" id="reset_button" name="reset_button" class="Bbtn_resetresults scs-responsive"><b>RESET ELECTION</b></button>
   </div>
+  <?php else: ?>
+  <div class="Bbtn_reset" id="reset_b">
+    <button formmethod="post" onclick="confirmModal.show('RESET ELECTION RESULTS?', resetButtonConfirm);" type="submit" id="reset_button" name="reset_button" class="Bbtn_resetresults scs-responsive"><b>RESET ELECTION</b></button>
+  </div>
+  <?php endif; ?>
   
   <!-- Modal Pop up -->
   <div id="dialogCont" class="dlg-container">
+        <?php if($trigger==1): ?>
+        <div class="dlg-header" style="background: #ab3333;"><center>WARNING!</center></div>
+        <?php else: ?>
         <div class="dlg-header"><center>CONFIRM DIALOG</center></div>
+        <?php endif; ?>
         <div id="dlgBody" class="dlg-body">DO YOU WANT TO CONTINUE?</div>
         <div class="dlg-footer">
             <a onclick="confirmModal.okay();">YES</a>
