@@ -61,7 +61,7 @@ if (isset($_POST['editsched'])) {
       $_SESSION['action'] = 'set Election Countdown.';
       include './backAdmin/backFun_actLogs_v0_1.php';
    }
-    
+} 
     
    if (isset($_POST['editperiod'])) {
    $indicator = $_POST['election'];
