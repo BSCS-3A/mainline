@@ -34,6 +34,14 @@ form {
     margin-bottom: 60px;
 }
 
+#DtD{
+    color: black;
+}
+#Dtd{
+    color: black;
+    font-size: 15px ;
+    margin-left: 127px;
+}
 #Elec{
     font-family: 'Roboto-regular', sans-serif;
     font-size: 3rem;
@@ -130,7 +138,7 @@ input[type="time"] {
     float: left;
     text-align: left;
     /* margin: 25px 0px 80px; */
-    margin: 2% 5% 10%;
+    margin: 0% 5% 10%;
     width: auto;
     position: relative;
     /* width: 560px; */
@@ -139,7 +147,8 @@ input[type="time"] {
 
 .leftdiv {
     float: left;
-    width: 50%;
+    width: 100%;
+
 }
 
 .rightdiv {
@@ -151,6 +160,7 @@ label {
     display: block;
     font: 1rem 'Roboto-regular', sans-serif;
     font-size: 20px;
+    padding: 5px 10px;
 }
 
 input, label {
@@ -174,7 +184,7 @@ textarea {
     }
 
     form{
-        margin-top: 550px;
+        margin-top: 725px;
         width: 90%;
         margin-left: 5%;
     }
@@ -186,6 +196,15 @@ textarea {
     .isog{
         margin: 0% 0% 0% 2%;
         width: 95%;
+    }
+
+    #Dtd{
+        margin-left: 70px;
+    }
+    #DtD{
+        text-align: center;
+        margin-left: 35px;
+        margin-bottom: 13px;
     }
 
 
