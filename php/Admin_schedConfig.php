@@ -37,10 +37,10 @@ if (isset($_SESSION['admin_id']) && isset($_SESSION['username'])) {
         <div class="Dheader" id="Dheader">
             <h3 class="Dheader-txt">Time Scheduler</h3>
         </div>
-        <form class="isog" method="POST" action="backFun_setcountdown.php">
-            <div class="leftdiv">
-                <br>
-                <div>
+
+        <div class="leftContain">
+        <form class="isog2" method="POST" action="backFun_setcountdown.php">        
+        <div>
                     <label id="DtD"> 
                 <?php
 
@@ -70,13 +70,6 @@ if (isset($_SESSION['admin_id']) && isset($_SESSION['username'])) {
                 <br>
                 <label id="Dtd">
                 <?php
-
-                include "db_conn.php";
-
-
-                    $event = mysqli_query($conn, "SELECT * FROM vote_event");
-                    $row = mysqli_fetch_array($event);
-                    
                     if ($row != "") {
                         $event = mysqli_query($conn, "SELECT * FROM vote_event");
                         while ($row = mysqli_fetch_array($event)) {
@@ -92,8 +85,28 @@ if (isset($_SESSION['admin_id']) && isset($_SESSION['username'])) {
                 ?>
                 </label>
                 </div>
-                <br>
+                <hr style="margin-top: 0px;">
                 <div>
+                    <label for="election">ELECTION PERIOD</label>
+                    <select name="election" id="Elec" style="font-size:100%;" required>
+                        <option value="">select</option>
+                        <option value="1">start of school year</option>
+                        <option value="0">end of school year</option>
+                    </select>
+                </div>
+
+                <div>
+                    <button class="btn" type="submit" name="editperiod"><span class="fas fa-clock"></span> UPDATE PERIOD</button>
+                </div>
+
+        </form>
+
+        <form class="isog" method="POST" action="backFun_setcountdown.php">
+            <div class="leftdiv">
+                
+            <hr style="margin-top: 0px;">
+                <div>
+                    <label for="election">ELECTION SCHEDULE</label> <br><br>
                     <label for="date">Date Start:</label>
 
                     <input type="date" id="date" name="date" value="yyyy-mm-dd" placeholder="" required></input>
@@ -115,14 +128,6 @@ if (isset($_SESSION['admin_id']) && isset($_SESSION['username'])) {
                     <input type="time" id="tends" name="tends" placeholder="" required></input>
                 </div>
                 <br>
-                <div>
-                    <label for="election">Election Occurrence:</label>
-                    <select name="election" id="Elec" required>
-                        <option value="">select</option>
-                        <option value="1">start of school year</option>
-                        <option value="0">end of school year</option>
-                    </select>
-                </div>
                 <br>
                 <div>
                     <!-- <script type="text/javascript" src="../assets/js/awaw.js"></script>onclick="passvalues();"-->
@@ -133,6 +138,8 @@ if (isset($_SESSION['admin_id']) && isset($_SESSION['username'])) {
             </div>
 
         </form>
+
+        </div> <?php // end of leftContainer ?>
 
         <form method="post" action="backFun_schedConfig.php">
             <div class="input-group">

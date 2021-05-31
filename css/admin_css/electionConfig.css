@@ -132,6 +132,50 @@ input[type="time"] {
     text-align: center;
 }
 
+
+label{
+    color:white;
+}
+
+input{
+    height: 5vh;
+    width: 25vw;
+}
+select{
+    height: 5vh;
+    width: 25vw;
+}
+
+option{
+    color: #333;
+}
+
+input[type=date]{
+    font-size: 100%;
+}
+
+input[type=time]{
+    font-size: 100%;
+}
+
+.isog2 {
+    color: #333;
+    background-color: transparent;
+    float: left;
+    text-align: left;
+    /* margin: 25px 0px 80px; */
+    margin: 0% 5% 0%;
+    width: auto;
+    position: relative;
+    /* width: 560px; */
+    border: transparent;
+}
+
+.leftContain{
+    width: 50%;
+}
+
+
 .isog {
     color: #333;
     background-color: transparent;
