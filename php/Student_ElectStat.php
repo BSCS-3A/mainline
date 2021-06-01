@@ -42,7 +42,7 @@ include('db_conn.php');
                         require_once 'navStudent.php';
                         require 'Student_ElectRes.php';
                     }else{
-                        errorMessage("Election is already finished");
+                        errorMessage("The results will be released soon.");
                         exit();
                     }
                 }else if($access_time < $start_time){
