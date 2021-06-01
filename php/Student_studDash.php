@@ -58,24 +58,28 @@ include('db_conn.php');
         include "db_conn.php";
 
 
+        $event = mysqli_query($conn, "SELECT * FROM vote_event");
+        $row = mysqli_fetch_array($event);
+
+        if (empty($row)) {
+            echo " NO ELECTION SCHEDULE";
+        } else {
+
             $event = mysqli_query($conn, "SELECT * FROM vote_event");
-            $row=mysqli_fetch_array($event);
-   
-        if($row ==""){
-            echo " No Election Schedule";
-        }else{
-		
-       	    $event = mysqli_query($conn, "SELECT * FROM vote_event");
             while ($row = mysqli_fetch_array($event)) {
                 $stdate = $row['start_date'];
                 $endate = $row['end_date'];
             }
-            $startDate=date_create("$stdate");
-            $endDate=date_create("$endate");
-            echo $startDate->format('M d, Y (h:ia)');
-            echo " to ";
-            echo $endDate->format('M d, Y (h:ia)');
-        } 
+            if(($stdate == "0000-00-00 00:00:00") && ($endate == "0000-00-00 00:00:00")){
+                echo "NO ELECTION SCHEDULE ";
+            }else{
+                $startDate = date_create("$stdate");
+                $endDate = date_create("$endate");
+                echo $startDate->format('M d, Y (h:ia)');
+                echo " to ";
+                echo $endDate->format('M d, Y (h:ia)');
+            } 
+        }
     ?>
     </h5>
         </div>
@@ -91,12 +95,20 @@ include('db_conn.php');
     <?php 
        
        include "db_conn.php";
-       $event = mysqli_query($conn, "SELECT * FROM vote_event WHERE vote_event_id = 1");
-  
-       while ($row = mysqli_fetch_array($event)) { 
-        $stdate = $row['start_date'];
-        $endate = $row['end_date'];
+         $event = mysqli_query($conn, "SELECT * FROM vote_event");
+       $row = mysqli_fetch_array($event);
+       if (empty($row)) {
+       }else{
+        $event = mysqli_query($conn, "SELECT * FROM vote_event");
+       while ($row = mysqli_fetch_array($event)) {
+           $stdate = $row['start_date'];
+           $endate = $row['end_date'];
        }
+       if(($stdate != "0000-00-00 00:00:00") && ($endate != "0000-00-00 00:00:00")){
+          $startSched = $stdate;
+          $endSched = $endate;
+       }
+   }
        ?>
 
     <script>
@@ -105,7 +117,7 @@ include('db_conn.php');
         });
      
      
-        var start ="<?php echo $stdate ?>"; 
+        var start ="<?php echo $startSched ?>"; 
 
 // Set the date we're counting down to
 var countDownStart = new Date(start).getTime();
@@ -140,7 +152,7 @@ var x = setInterval(function() {
     headlines.innerText = "Time before \n election ends";
    //delete the data in vote_event table in database after election ends
 $(document).ready(function(){
- var dend = "<?php echo $endate ?>"; 
+ var dend = "<?php echo $endSched ?>"; 
 // Set the date we're counting down to
  var cdEnd = new Date(dend).getTime();
 
