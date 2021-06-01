@@ -356,9 +356,9 @@ body{
   thead input {
     width: 100%;
   }
-  th {
+  /*th {
   background: url("../../img/sort_both.png") no-repeat center right !important;
-  }
+  }*/
   .row {
     margin: 0;
   }
@@ -805,9 +805,6 @@ body{
   }
   .dataTables_wrapper .dataTables_length select option {
     color: black;
-  }
-  table.dataTable thead .sorting {
-    background-image:url("../../img/sort_both.png") no-repeat center right;
   }
   .switch {
     position: relative;
@@ -2159,4 +2156,16 @@ div.dataTables_wrapper div.dataTables_paginate {
     margin: 0;
     white-space: nowrap;
     text-align: right;
+}
+
+.text-center.sorting{
+  background: url("../../img/sort_both.png") no-repeat center right !important;
+}
+
+.text-center.sorting_asc{
+  background: url("../../img/sort_asc.png") no-repeat center right !important;
+}
+
+.text-center.sorting_desc{
+  background: url("../../img/sort_desc.png") no-repeat center right !important;
 }
