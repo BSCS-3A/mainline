@@ -60,7 +60,7 @@ else
               var download = document.getElementById("msg-ok-button");
               download.onclick = function()
               {
-                location.href = "samp_end.php"; // generate report
+                location.href = "Admin_end_pdf.php"; // generate report
               }
             </script>';
 }
