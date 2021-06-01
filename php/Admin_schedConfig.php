@@ -50,7 +50,7 @@ if (isset($_SESSION['admin_id']) && isset($_SESSION['username'])) {
                     $event = mysqli_query($conn, "SELECT * FROM vote_event");
                     $row = mysqli_fetch_array($event);
 
-                    if ($row == "") {
+                    if (empty($row)) {
                         echo " NO ELECTION SCHEDULE";
                     } else {
     
@@ -59,11 +59,15 @@ if (isset($_SESSION['admin_id']) && isset($_SESSION['username'])) {
                             $stdate = $row['start_date'];
                             $endate = $row['end_date'];
                         }
+                        if(($stdate == "0000-00-00 00:00:00") && ($endate == "0000-00-00 00:00:00")){
+                            echo "NO ELECTION SCHEDULE ";
+                        }else{
                             $startDate = date_create("$stdate");
                             $endDate = date_create("$endate");
                             echo $startDate->format('M d, Y (h:ia)');
                             echo " to ";
                             echo $endDate->format('M d, Y (h:ia)');
+                        } 
                     }
                 ?>
                 </label>
