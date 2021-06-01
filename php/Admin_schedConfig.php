@@ -2,6 +2,7 @@
 session_start();
 include("db_conn.php");
 if (isset($_SESSION['admin_id']) && isset($_SESSION['username'])) {
+     require './backMonitor/fetch_date.php';
 ?>
     <!DOCTYPE html>
     <html>
@@ -104,23 +105,13 @@ if (isset($_SESSION['admin_id']) && isset($_SESSION['username'])) {
                 <div>
                     <button class="btn" type="submit" name="editperiod" 
                     <?php 
-                    
                     $event = mysqli_query($conn, "SELECT * FROM vote_event");
                     $row = mysqli_fetch_array($event);
-
-                    if (!empty($row)) {
-
-                        $event = mysqli_query($conn, "SELECT * FROM vote_event");
-                        while ($row = mysqli_fetch_array($event)) {
-                            $stdate = $row['start_date'];
-                            $endate = $row['end_date'];
-                        }
-                        $d=strtotime("now");
-                        $now = date("Y-m-d h:i:sa", $d);
-
-                    
-                    if (($now >= $stdate)&&($now <= $endate)){ 
-                        ?> disabled <?php   }} ?>><span class="fas fa-clock"></span> UPDATE PERIOD</button>
+                    if(!empty($row)){ 
+                        $stdate = $row['start_date'];
+                        if($stdate != "0000-00-00 00:00:00"){
+                            if ($current_date_time>=$start_date){ 
+                        ?> disabled <?php   } }}?>><span class="fas fa-clock"></span> UPDATE PERIOD</button>
                 </div>
 
         </form>
