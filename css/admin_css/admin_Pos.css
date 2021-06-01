@@ -2158,14 +2158,14 @@ div.dataTables_wrapper div.dataTables_paginate {
     text-align: right;
 }
 
-.text-center.sorting{
+.min-mobile.sorting{
   background: url("../../img/sort_both.png") no-repeat center right !important;
 }
 
-.text-center.sorting_asc{
+.min-mobile.sorting_asc{
   background: url("../../img/sort_asc.png") no-repeat center right !important;
 }
 
-.text-center.sorting_desc{
+.min-mobile.sorting_desc{
   background: url("../../img/sort_desc.png") no-repeat center right !important;
 }
