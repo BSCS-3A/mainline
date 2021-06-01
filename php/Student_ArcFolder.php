@@ -40,15 +40,16 @@ include('db_conn.php');
     //echo "Connected successfully";
 
     $result1 = mysqli_query($conn, "SELECT 
-    DATE_FORMAT(start_date, '%M %Y') AS election_date
-    FROM vote_event
-    ORDER BY election_date");
+    DISTINCT(DATE_FORMAT(school_year, '%M %Y')) AS folder_year
+    FROM archive
+    ORDER BY folder_year"
+    );
 
     while ($row1 = mysqli_fetch_array($result1)) {
-        if (empty($row1['election_date'])) {
+        if (empty($row1['folder_year'])) {
             echo "no content";
         } else {
-            $year = $row1['election_date'];
+            $year = $row1['folder_year'];
             echo '<div class="items">';
             echo '<figure>';
             echo '<b><a href="Student_ArcList.php?year='.$year.'">';
