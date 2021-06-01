@@ -617,34 +617,45 @@
 
     var table ="";
     var globalLname,globalFname, globalHid;
+
+
     function reloadTable(){
-      $.ajax({
-        url:'backCandidate/tableCandidate.php',
-        success: function(response){
-            $("tbody").html(response);
-            if(startDate != 0 && endDate != 0){
-                if((today>=startDate) && (today<=endDate)){//if election is on going 
-                    alert("Election is ongoing. Please proceed with caution. Any changes done during the election may affect the results.");
-                    $(".btn-button1").attr("disabled",true);
-                    $('#icon_add').removeClass('.fas fa-user-plus');
-                    $('#icon_add').addClass('.fa fa-lock');
-                    $(".btn-danger").attr("disabled",true);
-                }
+        var temp=1;
+        $.ajax({
+            url:"backCandidate/checkTable.php",
+            method:"post",
+            data:{table:temp},
+            success:function(response){
+                console.log(response);
             }
-            table = $('#datatable').DataTable({
-                "lengthMenu": [
-                  [ 10, 25, 50, -1],
-                  [ 10, 25, 50, "All"],
-                  //"ordering": false          
-                ],
-                'columnDefs': [ {
-                    'targets': [0,6,7], 
-                    'orderable': false,
-                }],
-                'order': [[3, 'asc']] //data-order
-            });
-        }
-      });
+        });
+        $.ajax({
+            url:'backCandidate/tableCandidate.php',
+            success: function(response){
+                $("tbody").html(response);
+                if(startDate != 0 && endDate != 0){
+                    if((today>=startDate) && (today<=endDate)){//if election is on going 
+                        alert("Election is ongoing. Please proceed with caution. Any changes done during the election may affect the results.");
+                        $(".btn-button1").attr("disabled",true);
+                        $('#icon_add').removeClass('.fas fa-user-plus');
+                        $('#icon_add').addClass('.fa fa-lock');
+                        $(".btn-danger").attr("disabled",true);
+                    }
+                }
+                table = $('#datatable').DataTable({
+                    "lengthMenu": [
+                      [ 10, 25, 50, -1],
+                      [ 10, 25, 50, "All"],
+                      //"ordering": false          
+                    ],
+                    'columnDefs': [ {
+                        'targets': [0,6,7], 
+                        'orderable': false,
+                    }],
+                    'order': [[3, 'asc']] //data-order
+                });
+            }
+        });
     }
     
   function candidateDisplay(ctl){

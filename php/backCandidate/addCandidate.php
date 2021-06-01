@@ -103,7 +103,7 @@
                         $result_dur = mysqli_query($conn,"SELECT * FROM `vote_event`");
                         $row_dur = mysqli_fetch_assoc($result_dur);
                         $string_temp = "Student must be in the same grade representative position.";
-                        if(empty($rowdur['vote_duration'])){
+                        if(strlen($row_dur['vote_duration'])==0){
                             if($position_vote_allow != 1){ // checks if position is representative
                                 echo "Please finalize the schedule in the scheduler to add candidates.";
                             }
@@ -242,9 +242,9 @@
                 $result_dur = mysqli_query($conn,"SELECT * FROM `vote_event`");
                 $row_dur = mysqli_fetch_assoc($result_dur);
                 $string_temp = "Student must be in the same grade representative position.";
-                if(empty($row_dur['vote_duration'])){
+                if(strlen($row_dur['vote_duration'])==0){
                     if($position_vote_allow != 1){ // checks if position is representative
-                        echo "Please finalize the schedule in the scheduler to edit candidates for grade representative positions.";
+                        echo "Please finalize the schedule in the scheduler to edit candidates.";
                     }
                 }
                 elseif($row_dur['vote_duration']==0){ // if event occurence is end of sem
@@ -330,9 +330,9 @@
                     $result_dur = mysqli_query($conn,"SELECT * FROM `vote_event`");
                     $row_dur = mysqli_fetch_assoc($result_dur);
                     $string_temp = "Student must be in the same grade representative position.";
-                    if(empty($row_dur['vote_duration'])){
+                    if(strlen($row_dur['vote_duration'])==0){
                         if($position_vote_allow != 1){ // checks if position is representative
-                            echo "Please finalize the schedule in the scheduler to edit candidates for grade representative positions.";
+                            echo "Please finalize the schedule in the scheduler to edit candidates.";
                         }
                     }
                     elseif($row_dur['vote_duration']==0){ // if event occurence is end of sem
