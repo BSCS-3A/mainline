@@ -36,12 +36,19 @@ form {
 
 #DtD{
     color: black;
+    margin-bottom: -10px;
 }
 #Dtd{
     color: black;
     font-size: 15px ;
-    margin-left: 127px;
+    margin-left: 0px;
+    margin-top: -5px;
 }
+
+.current{
+    margin-bottom: 10px;
+}
+
 #Elec{
     font-family: 'Roboto-regular', sans-serif;
     font-size: 3rem;
@@ -121,6 +128,7 @@ input[type="time"] {
     margin-top: 2px;
 }
 
+
 .msg {
     margin: 30px auto;
     padding: 10px;
@@ -141,9 +149,10 @@ input{
     height: 5vh;
     width: 25vw;
 }
+
 select{
     height: 5vh;
-    width: 25vw;
+    width: 80%;
 }
 
 option{
@@ -172,7 +181,20 @@ input[type=time]{
 }
 
 .leftContain{
-    width: 50%;
+    width: 40%;
+    float:left;
+}
+
+.rightContain{
+    float:left;
+    padding: 0;
+}
+
+.remind{
+    width: 80%;
+    padding: 0;
+    float: left;
+    margin-left:10%;
 }
 
 
@@ -220,8 +242,62 @@ textarea {
     
   }
 
+hr{
+    width: 30vw;
+}
 
-@media (max-width: 968px) {
+.current{
+    padding:0;
+}
+
+@media (max-width: 1300px){
+
+    .remind{
+        width: 50vw;
+        padding: 0;
+        float: left;
+        margin-left:5%;
+    }
+}
+
+
+@media (max-width: 970px) {
+
+
+    .isog2{
+        margin: 0% 0% 0% 2%;
+        width: 85%;
+    }
+
+    
+    hr{
+        width: 80vw;
+    }
+    
+    select{
+        height: 5vh;
+        width: 100%;
+    }
+    
+    .leftContain{
+        width: 100%;
+        float:left;
+    }
+
+    .rightContain{
+        float:left;
+        padding: 0;
+        width: 90%;
+    }
+
+    .remind{
+        margin-top: 0;
+        margin-left: 5%;
+        width: 80vw;
+        padding: 0;
+        float: left;
+    }
+
     .btn, input{
      width: 100%;
      
@@ -243,12 +319,19 @@ textarea {
     }
 
     #Dtd{
-        margin-left: 70px;
+        margin-left: 0px;
+        text-align: left;
     }
     #DtD{
         text-align: center;
-        margin-left: 35px;
-        margin-bottom: 13px;
+        margin-left: 0px;
+        margin-bottom: -5px;
+        text-align: left;
+    }
+
+    .current{
+        color: #fece4b;
+        margin-bottom: 10px;
     }
 
 

@@ -41,7 +41,7 @@ if (isset($_SESSION['admin_id']) && isset($_SESSION['username'])) {
 
         <div class="leftContain">
         <form onsubmit="return showConfirm();" class="isog2" method="POST" action="backFun_addElecPeriod.php">        
-        <div>
+        <div class="current">
                     <label id="DtD"> 
                 <?php
 
@@ -71,8 +71,7 @@ if (isset($_SESSION['admin_id']) && isset($_SESSION['username'])) {
                         } 
                     }
                 ?>
-                </label>
-                <br>
+                </label><br>
                 <label id="Dtd">
                 <?php
                     $event = mysqli_query($conn, "SELECT * FROM vote_event");
@@ -92,7 +91,7 @@ if (isset($_SESSION['admin_id']) && isset($_SESSION['username'])) {
                 ?>
                 </label>
                 </div>
-                <hr style="margin-top: 0px;">
+                <hr style="margin-top: 0px; margin-left: 0px;">
                 <div>
                     <label for="election">ELECTION PERIOD</label>
                     <select name="election" id="Elec" style="font-size:100%;" required>
@@ -156,7 +155,8 @@ if (isset($_SESSION['admin_id']) && isset($_SESSION['username'])) {
 
         </div> <?php // end of leftContainer ?>
 
-        <form method="post" action="backFun_schedConfig.php">
+        <div class="rightContain">
+        <form method="post" action="backFun_schedConfig.php" class="remind">
             <div class="input-group">
                 <label>Vote Reminders:</label>
                 <textarea rows="15" cols="68" name="message" placeholder="" required></textarea>
@@ -165,7 +165,7 @@ if (isset($_SESSION['admin_id']) && isset($_SESSION['username'])) {
                 <button class="btn" type="submit" name="save"><span class="fas fa-bell"></span> SEND REMINDERS</button>
             </div>
         </form>
-
+       </div>
 
         <!-- <div class="footer">
         <p class="footer-txt">BS COMPUTER SCIENCE 3A © 2021</p>
