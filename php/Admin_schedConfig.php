@@ -174,7 +174,7 @@ if (isset($_SESSION['admin_id']) && isset($_SESSION['username'])) {
         <script>
              
         function showConfirm() {
-            if( confirm("WARNING: Updating the election schedule with different vote period from previous schedule may delete existing list of candidates. Do you wish to proceed? " ) == false){
+            if( confirm("WARNING: Updating the election schedule with different vote period from previous schedule may delete existing candidates. Do you wish to proceed? " ) == false){
                 return false;
             }else{
                 return true;
