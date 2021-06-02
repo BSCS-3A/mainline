@@ -40,7 +40,7 @@ if (isset($_SESSION['admin_id']) && isset($_SESSION['username'])) {
         </div>
 
         <div class="leftContain">
-        <form class="isog2" method="POST" action="backFun_setcountdown.php">        
+        <form onsubmit="return showConfirm();" class="isog2" method="POST" action="backFun_addElecPeriod.php">        
         <div>
                     <label id="DtD"> 
                 <?php
@@ -172,6 +172,15 @@ if (isset($_SESSION['admin_id']) && isset($_SESSION['username'])) {
     </div> -->
 
         <script>
+             
+        function showConfirm() {
+            if( confirm("WARNING: Updating the election schedule with different vote period from previous schedule may delete existing list of candidates. Do you wish to proceed? " ) == false){
+                return false;
+            }else{
+                return true;
+            }
+        }
+             
             $('.icon').click(function() {
                 $('span').toggleClass("cancel");
             });
