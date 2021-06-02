@@ -1,0 +1,112 @@
+<html>
+
+<body style="background-image: url('../img/adminBG.png');padding: 20px;">
+    <center>
+        <div class="aboutheader" id="aboutheader" style="position: relative;
+        z-index: -2;
+        width:396px;
+        padding: 2px;
+        background: #0c2933;
+        font-weight: 400;
+        color: #ffc423;
+        text-align: center;
+        font-family: 'Roboto-regular', sans-serif;
+        letter-spacing: 6px;
+        text-transform: uppercase;">
+            <h3>You have found an easter egg!</h3>
+            <h4>Press the arrow keys to move the block</h4>
+        </div>
+        <canvas id="gc" width="400" height="400"></canvas>
+        </div>
+        <script>
+            window.onload = function () {
+                canv = document.getElementById("gc");
+                ctx = canv.getContext("2d");
+                document.addEventListener("keydown", keyPush);
+                setInterval(game, 1500 / 15);
+            }
+            px = py = 10;
+            gs = tc = 20;
+            ax = ay = 15;
+            xv = yv = 0;
+            trail = [];
+            tail = 5;
+            function game() {
+                px += xv;
+                py += yv;
+                if (px < 0) {
+                    px = tc - 1;
+                }
+                if (px > tc - 1) {
+                    px = 0;
+                }
+                if (py < 0) {
+                    py = tc - 1;
+                }
+                if (py > tc - 1) {
+                    py = 0;
+                }
+                ctx.fillStyle = "#124254";
+                ctx.fillRect(0, 0, canv.width, canv.height);
+
+                ctx.fillStyle = "#d4eaf1";
+                for (var i = 0; i < trail.length; i++) {
+                    ctx.fillRect(trail[i].x * gs, trail[i].y * gs, gs - 2, gs - 2);
+                    if (trail[i].x == px && trail[i].y == py) {
+                        alert("You lost.");
+                        tail = 5;
+                    }
+                }
+                trail.push({ x: px, y: py });
+                while (trail.length > tail) {
+                    trail.shift();
+                }
+
+                if (ax == px && ay == py) {
+                    tail++;
+                    ax = Math.floor(Math.random() * tc);
+                    ay = Math.floor(Math.random() * tc);
+                }
+                ctx.fillStyle = "#fece4b";
+                ctx.fillRect(ax * gs, ay * gs, gs - 2, gs - 2);
+            }
+            function keyPush(evt) {
+                switch (evt.keyCode) {
+                    case 37:
+                        xv = -1; yv = 0;
+                        break;
+                    case 38:
+                        xv = 0; yv = -1;
+                        break;
+                    case 39:
+                        xv = 1; yv = 0;
+                        break;
+                    case 40:
+                        xv = 0; yv = 1;
+                        break;
+                }
+            }
+        </script>
+        <div id="error-button" class="error-button">
+            <button type="button" id="msg-ok-button" class="OkBTN-error" style = "font: bold 16px 'Roboto-regular', sans-serif;
+            background-color: #fece4b;
+            color: black;
+            margin: auto;
+            height: 40px;
+            width: 400px;
+            letter-spacing: 1px;
+            cursor: pointer;
+            box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">Go BACK</button>
+        </div>
+        <script>
+            // Get Home button
+            var home = document.getElementById("error-button");
+
+            home.onclick = function() {
+                window.location.href = "../index.php";
+            }
+        </script>
+
+</body>
+
+</html>

@@ -76,6 +76,15 @@ include('db_conn.php');
             }
             else if($access_time < $start_time){
                 errorMessage("Election has not yet started.");
+                echo '<script>
+                    var myVar = setInterval(myTimer, 1000);
+                    function myTimer() {
+                        var d = new Date();
+                        if('.$start_time.' <= parseInt(d.getTime()/1000)){
+                            window.location.reload();
+                        }
+                    }
+                    </script>';
                 exit();
             }
             else if($access_time >= $start_time && $access_time <= $end_time){
