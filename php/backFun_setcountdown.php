@@ -62,26 +62,5 @@ if (isset($_POST['editsched'])) {
       include './backAdmin/backFun_actLogs_v0_1.php';
    }
 } 
-    
- if (isset($_POST['editperiod'])) {
-    $indicator = $_POST['election'];
  
-    $event = mysqli_query($conn, "SELECT * FROM vote_event");
-    $row = mysqli_fetch_array($event);
- 
-    if (empty($row)) {
-      //function_alerts("WARNING: Updating the election schedule with different vote period from previous schedule may delete existing list of candidates. Do you wish to proceed? "); 
-       $vtevent = "INSERT INTO vote_event (`vote_duration`) 
-        VALUES('$indicator')";
-        mysqli_query($conn, $vtevent);
-       function_alert("SAVED");
-       }elseif(!empty($row)){
-       //function_alerts("WARNING: Updating the election schedule with different vote period from previous schedule may delete existing list of candidates. Do you wish to proceed? "); 
-       $query = "UPDATE `vote_event` SET vote_duration='$indicator' WHERE vote_event_id = 1";
-       mysqli_query($conn, $query);
-       function_alert("SAVED");
-    }
-   
- }
-
-   ?>
+?>
