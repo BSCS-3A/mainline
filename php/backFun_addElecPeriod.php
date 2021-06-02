@@ -27,11 +27,17 @@ if (empty($row)) {
     VALUES('$indicator')";
     mysqli_query($conn, $vtevent);
    function_alert("SAVED");
+      //For Logs
+      $_SESSION['action'] = 'added Election Period.';
+      include './backAdmin/backFun_actLogs_v0_1.php';
    }elseif(!empty($row)){
    //function_alerts("WARNING: Updating the election schedule with different vote period from previous schedule may delete existing list of candidates. Do you wish to proceed? "); 
    $query = "UPDATE `vote_event` SET vote_duration='$indicator' WHERE vote_event_id = 1";
    mysqli_query($conn, $query);
    function_alert("SAVED");
+      //For Logs
+      $_SESSION['action'] = 'updated Election Period.';
+      include './backAdmin/backFun_actLogs_v0_1.php';
 }
 
 
