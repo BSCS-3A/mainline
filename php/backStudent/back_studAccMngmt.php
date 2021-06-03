@@ -10,6 +10,7 @@ $sqlImg = "SELECT * FROM candidate";
 $resultImg = mysqli_query($connect, $sqlImg);
 $numrowsImg = mysqli_num_rows($resultImg);
 
+$truncateEvent = "TRUNCATE TABLE vote_event"; // reset election sched - Den 6/3/21
 $deleteVote = "DELETE FROM vote";
 $deleteCandidate = "DELETE FROM candidate";
 $deleteStudentLog = "DELETE FROM student_access_log";
@@ -22,7 +23,12 @@ if(isset($_POST["upload"])){
         $filename = explode(".", $_FILES['info_file']['name']);
         if($filename[1] == "csv"){
             
+            // drop temp_candidate table if exists
+            $val = $conn->query('SELECT 1 from temp_candidate LIMIT 1');
+            if($val != FALSE){ $connect->query('DROP TABLE temp_candidate');}
+            
             // delete data to be replaced by the data in the csv file
+            mysqli_query($connect, $truncateEvent);
             mysqli_query($connect, $deleteVote);
             mysqli_query($connect, $deleteCandidate);
             mysqli_query($connect, $deleteStudentLog);

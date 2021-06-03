@@ -16,6 +16,10 @@ function function_alert($msg) {
    //edit timeframe
 if (isset($_POST['editsched'])) {
     
+    // drop temp_event table if exists
+    $val = $conn->query('SELECT 1 from temp_event LIMIT 1');
+    if($val != FALSE){ $conn->query('DROP TABLE temp_event');}
+    
     $startDate = $_POST['date'];
     $endDate = $_POST['dateEnd'];
     $timeStart = $_POST['tstart'];
@@ -54,7 +58,7 @@ if (isset($_POST['editsched'])) {
     
       //For Logs
       $flagConn = 1;
-      $_SESSION['action'] = 'set Election Countdown.';
+      $_SESSION['action'] = 'set Election Countdown';
       include './backAdmin/backFun_actLogs_v0_1.php';
    }
 
