@@ -42,8 +42,7 @@ include('db_conn.php');
     $result1 = mysqli_query($conn, "SELECT 
     DISTINCT(DATE_FORMAT(school_year, '%M %Y')) AS folder_year
     FROM archive
-    ORDER BY folder_year"
-    );
+    ORDER BY folder_year");
 
     while ($row1 = mysqli_fetch_array($result1)) {
         if (empty($row1['folder_year'])) {

@@ -203,6 +203,9 @@ include "navAdmin.php";
 
         });
         //edit
+                $(function () {
+                 $('[data-toggle="tooltip"]').tooltip()
+                })
     </script>
 </head>
 
@@ -235,7 +238,7 @@ include "navAdmin.php";
                             <table class="center" id="datatable" width="100%" cellspacing="0" cellpadding="2px">
                                 <thead>
                                     <tr>
-                                       <th class="text-center" data-toggle="tooltip" data-placement="top" data-container="body" title="Hierarchical structure of the Election with 1 being the highest position"><i class="fa fa-info-circle" aria-hidden="true"></i> Hierarchy ID
+                                      <th class="text-center" data-toggle="tooltip" data-placement="top" data-container="body" title="Hierarchical structure of the Election with 1 being the highest position"><i class="fa fa-info-circle" aria-hidden="true"></i> Hierarchy ID
                                         </th>
                                         <th class="text-center">Position</th>
                                         <th class="padThisCell">Description</th>
@@ -387,7 +390,7 @@ include "navAdmin.php";
                     },
                     success: function(response) {
                         if (response != "") {
-                            alert(response);
+                            console.log(response);
                         }
                             reloadTable();   
                     }

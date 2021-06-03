@@ -37,7 +37,7 @@ include("db_conn.php");
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <div class="table-responsive-sm">
+                <div class="table-responsive">
                     <table id="ADdataTable" class="table dt-responsive" width="100%">
                         <thead>
                             <tr>
@@ -74,7 +74,7 @@ include("db_conn.php");
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <div class="table-responsive-sm">
+                <div class="table-responsive">
                     <table id="ADdataTable2" class="table-center" style="width:100%">
                         <thead>
                             <tr>

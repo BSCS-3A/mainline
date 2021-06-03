@@ -55,28 +55,23 @@ if (isset($_SESSION['admin_id']) && isset($_SESSION['username'])) {
                     include "db_conn.php";
 
 
-                  
                     $event = mysqli_query($conn, "SELECT * FROM vote_event");
                     $row = mysqli_fetch_array($event);
 
-                    if (empty($row)) {
-                        echo " NO ELECTION SCHEDULE";
+                    if ($row == "") {
+                        echo " No Election Schedule";
                     } else {
-    
+                        
                         $event = mysqli_query($conn, "SELECT * FROM vote_event");
                         while ($row = mysqli_fetch_array($event)) {
                             $stdate = $row['start_date'];
                             $endate = $row['end_date'];
                         }
-                        if(($stdate == "0000-00-00 00:00:00") && ($endate == "0000-00-00 00:00:00")){
-                            echo "NO ELECTION SCHEDULE ";
-                        }else{
-                            $startDate = date_create("$stdate");
-                            $endDate = date_create("$endate");
-                            echo $startDate->format('M d, Y (h:ia)');
-                            echo " to ";
-                            echo $endDate->format('M d, Y (h:ia)');
-                        } 
+                        $startDate = date_create("$stdate");
+                        $endDate = date_create("$endate");
+                        echo $startDate->format('M d, Y (h:ia)');
+                        echo " to ";
+                        echo $endDate->format('M d, Y (h:ia)');
                     }
                     ?>
                 </h5>
@@ -89,21 +84,13 @@ if (isset($_SESSION['admin_id']) && isset($_SESSION['username'])) {
         <?php
 
         include "db_conn.php";
-                                                                   
-        $event = mysqli_query($conn, "SELECT * FROM vote_event");
-        $row = mysqli_fetch_array($event);
-        if (empty($row)) {
-        }else{
-        $event = mysqli_query($conn, "SELECT * FROM vote_event");
+
+        $event = mysqli_query($conn, "SELECT * FROM vote_event WHERE vote_event_id = 1");
+
         while ($row = mysqli_fetch_array($event)) {
             $stdate = $row['start_date'];
             $endate = $row['end_date'];
         }
-        if(($stdate != "0000-00-00 00:00:00") && ($endate != "0000-00-00 00:00:00")){
-           $startSched = $stdate;
-           $endSched = $endate;
-        }
-    }
         ?>
 
         <script>
@@ -112,7 +99,7 @@ if (isset($_SESSION['admin_id']) && isset($_SESSION['username'])) {
             });
 
 
-            var start = "<?php echo $startSched; ?>";
+            var start = "<?php echo $stdate; ?>";
 
             // Set the date we're counting down to
             var countDownStart = new Date(start).getTime();
@@ -147,7 +134,7 @@ if (isset($_SESSION['admin_id']) && isset($_SESSION['username'])) {
                     headlines.innerText = "Time before \n election ends";
                     //delete the data in vote_event table in database after election ends
                     $(document).ready(function() {
-                        var dend = "<?php echo $endSched; ?>";
+                        var dend = "<?php echo $endate; ?>";
                         // Set the date we're counting down to
                         var cdEnd = new Date(dend).getTime();
 

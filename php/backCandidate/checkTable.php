@@ -38,7 +38,7 @@
                     if($row_cand['grade_level']==12){
                         //delete grade 12 candidates
                         $result_del = mysqli_query($conn,"DELETE FROM `candidate` WHERE `candidate_id`='$candidateid'");
-                        echo "Deleted grade 12 student";
+                        //echo "Deleted grade 12 student";
                     }elseif($row_cand['vote_allow']==0){//if representative
                         $pos_name_level = explode(" ",$row_cand['position_name']);
                         $pos_grade_level = 0;
@@ -58,7 +58,7 @@
                                 $row_pos = mysqli_fetch_assoc($result_pos);
                                 $new_position = $row_pos['position_id'];
                                 $result_newp = mysqli_query($conn,"UPDATE `candidate` SET `position_id`= '$new_position' WHERE `candidate_id` = '$candidateid'");
-                                echo "Updated grade representative students";
+                                //echo "Updated grade representative students";
                             }
                         }else{
                             echo "There is a problem in position name. Please proceed to position editor to fix the problem.";
@@ -84,7 +84,7 @@
                                 $row_pos = mysqli_fetch_assoc($result_pos);
                                 $new_position = $row_pos['position_id'];
                                 $result_newp = mysqli_query($conn,"UPDATE `candidate` SET `position_id`= '$new_position' WHERE `candidate_id` = '$candidateid'");
-                                echo "Updated grade representative students";
+                                //echo "Updated grade representative students";
                             }
                         }else{
                             echo "There is a problem in position name. Please proceed to position editor to fix the problem.";

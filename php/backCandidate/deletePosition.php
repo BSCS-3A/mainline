@@ -13,10 +13,12 @@
         $sqlfe ="";
         foreach($array as $posid){
 
-            $sqlfe .=  "UPDATE `candidate_position` SET `heirarchy_id` = `heirarchy_id`-1 WHERE `position_id` = '$posid'".";";
-            
+            $sqlfe =  "UPDATE `candidate_position` SET `heirarchy_id` = `heirarchy_id`-1 WHERE `position_id` = '$posid';";
+            mysqli_query($conn,$sqlfe);
         }
-        mysqli_multi_query($conn,$sqlfe); 
+        /*mysqli_multi_query($conn,$sqlfe); 
+        echo mysqli_error($conn);
+        echo $sqlfe;*/
     }
     
     if(isset($_POST['delete'])){
