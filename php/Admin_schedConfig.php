@@ -45,9 +45,6 @@ if (isset($_SESSION['admin_id']) && isset($_SESSION['username'])) {
                     <label id="DtD"> 
                 <?php
 
-                include "db_conn.php";
-
-
                     $event = mysqli_query($conn, "SELECT * FROM vote_event");
                     $row = mysqli_fetch_array($event);
 
@@ -110,7 +107,12 @@ if (isset($_SESSION['admin_id']) && isset($_SESSION['username'])) {
                         $stdate = $row['start_date'];
                         if($stdate != "0000-00-00 00:00:00"){
                             if ($current_date_time>=$start_date){ 
-                        ?> disabled <?php   } }}?>><span class="fas fa-clock"></span> UPDATE PERIOD</button>
+                        ?> disabled <?php   } }}
+                    else{   // scheduler first before period due to scheduler changes - Den, 6/3/21
+                        ?> disabled <?php   
+                    }    
+                    ?>><span class="fas fa-clock"></span> UPDATE PERIOD</button>
+                    <?php if(empty($row)){ ?> <br><p style="font-size: 80%; color: white; margin-top: -5px;"> SELECT ELECTION SCHEDULE FIRST </p> <?php } ?>
                 </div>
 
         </form>
@@ -166,10 +168,6 @@ if (isset($_SESSION['admin_id']) && isset($_SESSION['username'])) {
             </div>
         </form>
        </div>
-
-        <!-- <div class="footer">
-        <p class="footer-txt">BS COMPUTER SCIENCE 3A © 2021</p>
-    </div> -->
 
         <script>
              
