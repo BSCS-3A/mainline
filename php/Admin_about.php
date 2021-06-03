@@ -31,7 +31,7 @@
             The Bicol University College of Education Integrated Laboratory School High School Department (BUCEILS HS) Online Voting System is a web-based software that allows students to vote electronically anywhere for the annual Student Supreme Government Elections. It also permits administrators, specifically the Commission on Election (COMELEC) of the institution, to conduct the election and manage its process and other necessary information. It benefits users in terms of accessibility, fast data collection, and automatic generation of results and reports.
 
                 <div class="userMan">
-                    <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" class="a-userMan">
+                    <a href="../other/user-manual.pdf" class="a-userMan">
                         To learn how to use the system, you may view and download the user manual by clicking here.
                     </a>
                 </div>
