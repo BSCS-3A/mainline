@@ -2,13 +2,13 @@
 Options -Indexes
 
 # Change display of error pages 
-# Important: change absolute path when added to host (use URL)
-ErrorDocument 403 http://localhost/GitHub/mainline/html/error_codes/403.html
-ErrorDocument 400 http://localhost/GitHub/mainline/html/error_codes/400.html
-ErrorDocument 401 http://localhost/GitHub/mainline/html/error_codes/401.html
-ErrorDocument 404 http://localhost/GitHub/mainline/html/error_codes/404.html
-ErrorDocument 500 http://localhost/GitHub/mainline/html/error_codes/500.html
-ErrorDocument 503 http://localhost/GitHub/mainline/html/error_codes/503.html
+#Important: change absolute path when added to host (use URL)
+ErrorDocument 403 https://buceilsvoting.online/main/html/error_codes/403.html
+ErrorDocument 400 https://buceilsvoting.online/main/html/error_codes/400.html
+ErrorDocument 401 https://buceilsvoting.online/main/html/error_codes/401.html
+ErrorDocument 404 https://buceilsvoting.online/main/html/error_codes/404.html
+ErrorDocument 500 https://buceilsvoting.online/main/html/error_codes/500.html
+ErrorDocument 503 https://buceilsvoting.online/main/html/error_codes/503.html
 
 # Allow user to enter link without file extension
 RewriteEngine on
@@ -19,3 +19,4 @@ RewriteEngine on
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{REQUEST_FILENAME}.html -f
 RewriteRule ^(.*)$ $1.html
+
