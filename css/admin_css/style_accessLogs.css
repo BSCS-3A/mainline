@@ -8,6 +8,10 @@ body {
 }
 /*Datatable*/
 
+.table-responsive{
+    border: none;
+}
+
 .container {
   width: 100%;
   position: relative !important;
@@ -87,7 +91,7 @@ tr:hover {
   letter-spacing: 6px;
 }
 
-h2.aHeader-txt {
+.aHeader-txt {
   color: rgb(255, 196, 35);
   font-size: 24px;
   margin-top: .5%;

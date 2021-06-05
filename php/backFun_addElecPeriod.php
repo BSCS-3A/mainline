@@ -37,7 +37,7 @@ if (empty($row)) {
    function_alert("SAVED");
       //For Logs
       $flagConn = 1;
-      $_SESSION['action'] = 'updated Election Period.';
+      $_SESSION['action'] = 'updated Election Period';
       include './backAdmin/backFun_actLogs_v0_1.php';
 }
 

@@ -39,30 +39,32 @@
                     </div>
                   </div>
           </main>';
-    
-
-   require 'db_conn.php';
-$sql = $conn->query('SELECT vote_duration from vote_event');
-$row = $sql->fetch_assoc();
-if($row['vote_duration']==1)
-{
-   echo '<script>
+          
+          require 'db_conn.php';
+          $sql = $conn->query('SELECT vote_duration from vote_event');
+            $row = $sql->fetch_assoc();
+            if($row['vote_duration']==1)
+            {
+                 echo '<script>
               var download = document.getElementById("msg-ok-button");
               download.onclick = function()
               {
                 location.href = "Admin_generate-pdf.php"; // generate report
               }
             </script>';
-}
-else
-{
-  echo '<script>
+            }
+            else
+            {
+                echo '<script>
               var download = document.getElementById("msg-ok-button");
               download.onclick = function()
               {
                 location.href = "Admin_end_pdf.php"; // generate report
               }
             </script>';
-}
+            }
+          
+
+   
   }//end of function
  ?>

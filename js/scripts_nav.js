@@ -108,11 +108,12 @@ $(document).keydown(function(e){ // for keystrokes
       return false; 
    }
    else if ((e.keyCode == 44))
-      {
+   {
          e.preventDefault();
          window.location.href = url;
          return false; 
    }
+   
 }); 
 
 // When the user clicks on OK button, close the modal

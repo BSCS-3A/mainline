@@ -207,7 +207,7 @@ require './backMonitor/fetch_date.php';
                 type: "POST",
                 url: "./backMonitor/reset.php",
                 success : function() { 
-                    alert("RESET");
+                    alert("The election has been reset.");
                     window.location.href = "../index.php";
                     // window.location.href = "Admin_adminDash.php";
 

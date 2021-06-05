@@ -340,7 +340,7 @@
         
         $("#editfirstnamesearch").keyup(function(){
             var firstname = $(this).val();
-            if(firstname != ''){
+            if(firstname != ''){ 
                 $.ajax({
                     url:'./backCandidate/firstnamesearch.php',
                     method:'post',
@@ -620,13 +620,16 @@
 
 
     function reloadTable(){
+        console.log("reload");
         var temp=1;
         $.ajax({
             url:"backCandidate/checkTable.php",
             method:"post",
             data:{table:temp},
             success:function(response){
-                console.log(response);
+                if(response != ""){    
+                    alert(response);
+                }
             }
         });
         $.ajax({

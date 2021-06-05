@@ -17,7 +17,7 @@
             <h4>Press the arrow keys to move the block</h4>
         </div>
         <canvas id="gc" width="400" height="400"></canvas>
-        </div>
+
         <script>
             window.onload = function () {
                 canv = document.getElementById("gc");
@@ -53,7 +53,6 @@
                 for (var i = 0; i < trail.length; i++) {
                     ctx.fillRect(trail[i].x * gs, trail[i].y * gs, gs - 2, gs - 2);
                     if (trail[i].x == px && trail[i].y == py) {
-                        alert("You lost.");
                         tail = 5;
                     }
                 }

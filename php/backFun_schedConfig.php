@@ -53,7 +53,7 @@ $mail = new PHPMailer(TRUE);
          $mail->SMTPAuth = TRUE;
          $mail->SMTPSecure = 'tls';
          $mail->Username = 'buceilsovs.noreply@gmail.com';
-         $mail->Password = 'mhsyjtryvxhkkfts';
+         $mail->Password = 'glwztqusjeyuwmin';
          $mail->Port = 587;
       
             /* Enable SMTP debug output. */
@@ -86,6 +86,7 @@ $mail = new PHPMailer(TRUE);
      function_alert("Mail Sent"); 
 	
     //For Logs
+      $flagConn = 1;
     $_SESSION['action'] = 'sent Election Reminders.';
     include './backAdmin/backFun_actLogs_v0_1.php';
        

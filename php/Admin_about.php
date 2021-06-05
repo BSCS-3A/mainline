@@ -80,6 +80,12 @@
 
             </div>    
         </div>
+        <script>
+            var easterEgg = document.getElementById("about-title");
+            easterEgg.onclick = function() {
+                window.location.href = "../html/Easter_egg.html";
+            }
+        </script>
     </body>
 </html>
 <?php

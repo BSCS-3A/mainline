@@ -46,13 +46,13 @@ if (isset($_SESSION['student_id']) && isset($_SESSION['bumail'])) {
         }
         //echo "Connected successfully";
 
-        $schoolYear = mysqli_query($conn, "SELECT 
-        DATE_FORMAT(school_year, '%M %Y') AS election_date FROM archive");
-        $archive = mysqli_query($conn, "SELECT * FROM archive");
+        $schoolYear = mysqli_query($conn, "SELECT DATE_FORMAT(school_year, '%M %Y') AS folder_year
+    FROM archive");
+        $archive = mysqli_query($conn, "SELECT * FROM archive order by archive_id");
 
 
         while (($shyear = mysqli_fetch_array($schoolYear)) && ($archRow = mysqli_fetch_array($archive))) {
-            if ($year === $shyear['election_date']) {
+            if ($year === $shyear['folder_year']) {
                 //echo $year;
                 //require('ArchWinnerInfo.php');
                 // echo '<div class="Bpstn">';
