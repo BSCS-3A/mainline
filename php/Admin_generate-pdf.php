@@ -163,6 +163,8 @@ $query=mysqli_query($conn, "SELECT temp_candidate.candidate_id, temp_candidate.s
 
 //----------NUMBER OF VOTES RECEIVED PER CANDIDATE PER GRADE LEVEL
 
+$awaw = $data['heirarchy_id'];
+			if($awaw < 6){
 				$id = $data['candidate_id'];
 				for($i = 7,$j=0; $i <=12;$i++, $j++)
 				{
@@ -187,7 +189,34 @@ $query=mysqli_query($conn, "SELECT temp_candidate.candidate_id, temp_candidate.s
 				$sumGrade12+=$votesReceived[5];
 
 				$temp = $data['heirarchy_id'];
+			}else{
 			
+				$id = $data['candidate_id'];
+			for($i = 6,$j=0; $i <=12;$i++, $j++)
+			{
+				$result = mysqli_query($conn,"SELECT * FROM vote INNER JOIN student ON vote.student_id = student.student_id where candidate_id = '$id' and grade_level = '$i' and status='Voted' ");
+				$votesReceived[$j] = mysqli_num_rows($result);
+			}
+				$votesReceivedTotal= $votesReceived[0]+$votesReceived[1]+$votesReceived[2]+$votesReceived[3]+$votesReceived[4]+$votesReceived[5];
+			
+				$pdf->Cell(14.7,5,$votesReceived[0],1,0,'C',$color);  		//column total grade 7 vote
+				$pdf->Cell(14.7,5,$votesReceived[1],1,0,'C',$color);   		//column total grade 8 vote
+				$pdf->Cell(14.7,5,$votesReceived[2],1,0,'C',$color);  		//column total grade 9 vote
+				$pdf->Cell(14.6,5,$votesReceived[3],1,0,'C',$color);		//column total grade 10 vote
+				$pdf->Cell(14.6,5,$votesReceived[4],1,0,'C',$color);   		//column total grade 11 vote
+				$pdf->Cell(14.7,5,$votesReceived[5],1,0,'C',$color);  		//column total grade 12 vote
+				$pdf->Cell(17,5,$votesReceivedTotal.$string,1,1,'C',$color);
+			
+				$sumGrade7+=$votesReceived[0];
+				$sumGrade8+=$votesReceived[1];
+				$sumGrade9+=$votesReceived[2];
+				$sumGrade10+=$votesReceived[3];
+				$sumGrade11+=$votesReceived[4];
+				$sumGrade12+=$votesReceived[5];
+
+				$temp = $data['heirarchy_id'];
+			}
+
 //----------DISPLAYS ABSTAIN
 $queryGroup=mysqli_query($conn, "SELECT max(candidate_id) as last FROM temp_candidate group by position_id");
 while($lastCandidate = mysqli_fetch_array($queryGroup)){

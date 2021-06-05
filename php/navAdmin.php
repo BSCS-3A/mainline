@@ -123,7 +123,7 @@ if(!(isValidUser($conn))){
                 <a tabindex="0" class="isDisabled">LOGS</a>
                 <input type="checkbox" id="btn-6">
                 <ul>
-                    <li><a href="Admin_AccessLogs.php">Access Log</a></li>
+                    <li><a href="Admin_accessLogs.php">Access Log</a></li>
                     <li><a href="Admin_actLogs.php">Activity Log</a></li>
                 </ul>
             </li>
@@ -172,16 +172,25 @@ if(!(isValidUser($conn))){
         <p class="footer-txt">BS COMPUTER SCIENCE 3A © 2021</p>
     </div>
     <?php
+   $event = mysqli_query($conn, "SELECT * FROM vote_event");
+   $row = mysqli_fetch_array($event);
+   if (empty($row)) {
+   }else{
     $event = mysqli_query($conn, "SELECT * FROM vote_event");
     while ($row = mysqli_fetch_array($event)) {
-        $stdate = $row['start_date'];
-        $endate = $row['end_date'];
-    }
+       $stdate = $row['start_date'];
+       $endate = $row['end_date'];
+   }
+   if(($stdate != "0000-00-00 00:00:00") && ($endate != "0000-00-00 00:00:00")){
+      $startSched = $stdate;
+      $endSched = $endate;
+   }
+}
     ?>
     <script>
         //send reminders 1 hour before election ends
         $(document).ready(function() {
-            var end = "<?php echo $endate ?>";
+            var end = "<?php echo $endSched ?>";
             var countDownEnd = new Date(end).getTime();
 
 

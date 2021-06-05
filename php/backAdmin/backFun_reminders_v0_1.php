@@ -31,7 +31,7 @@ while ($row = mysqli_fetch_array($reminders)) {
        $mail->SMTPAuth = TRUE;
        $mail->SMTPSecure = 'tls';
        $mail->Username = 'buceilsovs.noreply@gmail.com';
-       $mail->Password = 'glwztqusjeyuwmin';
+       $mail->Password = 'mhsyjtryvxhkkfts';
        $mail->Port = 587;
    
           /* Enable SMTP debug output. */

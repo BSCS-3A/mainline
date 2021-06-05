@@ -82,11 +82,11 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
 
 		if(isset($data->success) &&  $data->success === true) {
 		}
-		else {
-		 // die('Your account has been logged as a spammer, you cannot continue!');
-		 header("Location: AdminLogin.php?BOTerror=Oops! It seems like you logged in incorrectly for 3 times. Please verify that you are not a bot by clicking the checkbox before logging in..");	
-		 exit();
-		}
+		// else {
+		//  // die('Your account has been logged as a spammer, you cannot continue!');
+		//  header("Location: AdminLogin.php?BOTerror=Oops! It seems like you logged in incorrectly for 3 times. Please verify that you are not a bot by clicking the checkbox before logging in..");	
+		//  exit();
+		// }
 	}else {
 		// die('Your account has been logged as a spammer, you cannot continue!');
 		header("Location: AdminLogin.php?BOTerror=Oops! It seems like you logged in incorrectly for 3 times. Please verify that you are not a bot by clicking the checkbox before logging in..");	

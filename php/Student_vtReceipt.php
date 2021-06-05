@@ -72,11 +72,11 @@ include('db_conn.php');
                 errorMessage("Suspicious behavior detected! Attempted to submit votes before the start of the elections. Your actions have been reported to the admins.", "Student_studDash.php");
               }
               else if($access_time >= $start_time && $access_time <= $end_time){
-                  if($sched['vote_duration'] == 0 && $_SESSION['grade_level'] == 12){
-                        errorMessage("Sorry, your grade level cannot participate in this election. Please refrain from trying to submit votes. Your actions are being monitored for further investigation.");
-                        notifyAdmin("Warning: A grade 12 student attempted to access the voting page and submit votes.");
-                        exit();
-                    }
+                if($sched['vote_duration'] == 0 && $_SESSION['grade_level'] == 12){
+                  errorMessage("Sorry, your grade level cannot participate in this election. Please refrain from trying to submit votes. Your actions are being monitored for further investigation.");
+                  notifyAdmin("Warning: A grade 12 student attempted to access the voting page and submit votes.");
+                  exit();
+                }
                 // require "Student_vtSubmit.php";
 
                 //----------------Submit Votes

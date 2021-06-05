@@ -19,7 +19,6 @@
   height: 100%;
   float: left;
   display: flex;
-  margin-top: -8px;
 }
 
 table.center {
@@ -99,8 +98,7 @@ table.center {
     .Uright{
     overflow-y: scroll;
     height: 350px;
-    margin-left: 6px !important;
-    margin-top: 5px;
+    margin-left: 0 !important;
     }
     #scrollToTopBtn{
     display: none;
@@ -123,8 +121,7 @@ table.center {
     .Uright{
     overflow-y: scroll;
     height: 350px;
-    margin-left: 6px !important;
-    margin-top: 5px;
+    margin-left: 0 !important;
     }
     #scrollToTopBtn{
     display: none;
@@ -203,7 +200,6 @@ table.center {
     overflow-y: scroll;
     width: 580px;
     margin-left: 10px !important;
-    margin-top: 5px;
     }
     #scrollToTopBtn{
     display: none;
@@ -227,8 +223,6 @@ table.center {
     overflow-y: scroll;
     width: 580px;
     margin-left: 10px !important;
-    overflow-y: hidden;
-    margin-top: 5px;
     }
     #scrollToTopBtn{
     display: none;
@@ -332,7 +326,7 @@ aside p.Aelec-guide-txt {
     text-align: center;
     font-family: 'Roboto-regular', sans-serif;
     letter-spacing: 6px;
-    margin-bottom: 5%;
+    margin-bottom: 10%;
 }
 
 footer {
@@ -402,8 +396,8 @@ footer {
 
 
 #profile p {
-  font-size: 18px;
-  font-family: 'roboto-regular',sans-serif;
+  font-size: 14px;
+  font-family: 'roboto-regular', sans-serif;
 }
 
 #profile button {
@@ -543,3 +537,4 @@ footer {
     font-size: 15px;
     text-align: justify;
 }
+

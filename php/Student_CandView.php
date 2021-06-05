@@ -24,7 +24,7 @@
     <meta charset="utf-8">
     <link rel="icon" href="../img/BUHS LOGO.png" type="image/png">
     <link rel="stylesheet" href="../css/admin_css/bootstrap_Pos.css">
-    <link rel="stylesheet" type="text/css" href="../css/admin_css/font-awesome_Pos.css" >
+    <link rel="stylesheet" href="../css/admin_css/font-awesome_Pos.css">
     <link rel="stylesheet" type="text/css" href="../css/student_css/user_Cand.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
@@ -129,11 +129,9 @@
             </div>
 </div>
         </div>
-        
             <div class = "scroll_Top">
-    <!--<button id = "scrollToTopBtn" >^</button>-->
+    <button id = "scrollToTopBtn" >^</button>
 </div>
-
     
      <div class="modal fade" id="view" tabindex="-1" role="dialog" aria-labelledby="view" aria-hidden="true"> <!--Modal Contains 2 containers 1 container for the platforms and another for the credentials-->
         
@@ -195,4 +193,5 @@
 scrollToTopBtn.addEventListener("click", scrollToTop)
     </script>
 </body>
+
 </html>

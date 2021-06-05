@@ -26,7 +26,7 @@
             $time = date('H:i:s');
             mysqli_query($conn, "INSERT INTO admin_activity_log(activity_log_id,admin_id,activity_description,activity_date,activity_time) VALUES(NULL,$admin_id,'Deleted candidate:$candidatename from position: $candidateposition',CURRENT_TIMESTAMP,'$time')");
         }else{
-            echo "Cannot delete(Query Error).Please delete all votes before deleting this candidate.";
+            echo "Cannot delete(Query Error). Please delete all votes before deleting this candidate.";
         }
     }
 

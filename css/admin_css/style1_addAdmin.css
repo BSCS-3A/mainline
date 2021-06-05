@@ -96,7 +96,7 @@ body {
   div.cropper-container.cropper-bg{
     width:auto !important;
     }
-.btn-cancelcrop {
+  .btn-cancelcrop {
     width: 17% !important;
     margin: 20px 15px 10px 0px!important;
   }

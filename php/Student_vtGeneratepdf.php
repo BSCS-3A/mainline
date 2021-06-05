@@ -18,27 +18,33 @@ require_once('../other/TCPDF-main/tcpdf.php');
 
 class PDF extends TCPDF {
 	public function Header(){
-		if (count($this->pages) === 1){ //displays header on first page only    
-			
-			//BU Seal
-			$this->Image('../../main/img/BU-LOGO.png',20,8,19,'','png','','T',false,300,'',false,false,0,false,false,false);
+		if (count($this->pages) === 1){
 
-			//BUCEILS Seal
-			$this->Image('../../main/img/BUHS LOGO.png',40,8,21,'','png','','T',false,300,'',false,false,0,false,false,false);
+			$imageFile= K_PATH_IMAGES.'Slide11.png';
+			$this->Image($imageFile,20,8,20,'','png','','T',false,300,'',false,false,0,false,false,false);
 			
-			//SSG Seal
-			$this->Image('../../main/img/SSG LOGO.png',62,9,24,'','png','','T',false,300,'',false,false,0,false,false,false);
+
+			$imageFile= K_PATH_IMAGES.'Slide22.png';
+			$this->Image($imageFile,41,8,20,'','png','','T',false,300,'',false,false,0,false,false,false);
+			
+
+			$imageFile= K_PATH_IMAGES.'Slide44.png';
+			$this->Image($imageFile,63,8,20,'','png','','T',false,300,'',false,false,0,false,false,false);
+
 
 			//Header text
 			$this->SetFont('times','B',12);
-			$this->Cell(93.5,3, 'COMMISSION ON ELECTION (COMELEC)',0,1,'R'); 
+			$this->Cell(100,3, 'COMMISSION ON ELECTION (COMELEC)',0,1,'R'); 
 			$this->SetFont('times','',12);
-			$this->Cell(170,3, 'BICOL UNIVERSITY INTEGRATED LABORATORY',0,1,'R'); 
-			$this->Cell(171,3, 'SCHOOL (BUCEILS) HIGH SCHOOL DEPARTMENT',0,1,'R'); 
+			$this->SetTextColor(0,0,150);
+			$this->Cell(174,3, 'BICOL UNIVERSITY INTEGRATED LABORATORY',0,1,'R'); 
+			$this->Cell(175,3, 'SCHOOL (BUCEILS) HIGH SCHOOL DEPARTMENT',0,1,'R'); 
 			$this->SetFont('times','I',12);
-			$this->Cell(149.5,3,'Bicol University Main Campus, Legazpi City',0,1,'R'); 
-	}//end if
-}//end header
+			$this->SetTextColor(0,0,0);
+			$this->Cell(154,3,'Bicol University Main Campus, Legazpi City',0,1,'R');
+	}
+
+}
 
 	public function Footer(){
 			$this->SetY(-20); 	

@@ -36,7 +36,6 @@
                     
                     //For Logs
                     $_SESSION['action'] = 'updated Info of Student : ' . $student_id;
-                    $flagConn = 1;      // fix path error for db_conn
                     include './backAdmin/backFun_actLogs_v0_1.php';
                     
                     header("location: Admin_studAcc.php");

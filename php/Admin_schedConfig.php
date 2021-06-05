@@ -169,7 +169,6 @@ if (isset($_SESSION['admin_id']) && isset($_SESSION['username'])) {
         </form>
        </div>
 
-
         <script>
              
         function showConfirm() {

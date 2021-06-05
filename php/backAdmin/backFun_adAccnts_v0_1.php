@@ -2,14 +2,14 @@
 session_start();
 
 // Create connection
-include '../db_conn.php';
+require '../db_conn.php';
 
 if (isset($_POST['saveAccount'])) {
 
-  $admin_lname = $_POST['admin_lname'];
-  $admin_fname = $_POST['admin_fname'];
-  $admin_mname = $_POST['admin_mname'];
-  $username = $_POST['username'];
+  $admin_lname = cleanOutput($conn, $_POST['admin_lname']);
+  $admin_fname = cleanOutput($conn, $_POST['admin_fname']);
+  $admin_mname = cleanOutput($conn, $_POST['admin_mname']);
+  $username = cleanOutput($conn, $_POST['username']);
   $admin_position = $_POST['admin_position'];
   $comelec_position = $_POST['comelec_position'];
   $password = $_POST['password'];
@@ -35,7 +35,7 @@ if (isset($_POST['saveAccount'])) {
 
           //For Logs
           $_SESSION['action'] = 'created Admin Account : ' . $_POST['username'];
-          include 'backFun_actLogs_v0_1.php';
+          require 'backFun_actLogs_v0_1.php';
 
           header("Location: ../Admin_adAccnt.php");
   }
