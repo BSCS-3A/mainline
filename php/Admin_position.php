@@ -1,13 +1,3 @@
-<!-- Proj mngr notes
-- changed db_conn
-- add navigation bar
-
-Need:
-- load default
-- add pop up confirmation
-
--->
-
 <!DOCTYPE html>
 <?php
     include "db_conn.php";
@@ -50,7 +40,7 @@ include "navAdmin.php";
     <!-- datatable scripts -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <!-- <script src="../js/jQuery.dataTables.min_Pos.js"></script> -->
-    <script src="../js/bootstrap.min_Pos.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
 
     <title>BUCEILS Voting System</title>
@@ -407,120 +397,6 @@ include "navAdmin.php";
             });
         }
 
-
-        //     function positionUpdate() {
-        //       if ($("#updateButton").text() == "Update") {
-        //         positionUpdateInTable();
-        //         document.getElementById("heirarchy_id").disabled = false; /*Re-enables position input field after*/
-        //       }                                                           /*so admins can continue adding*/
-        //       else {
-        //         positionAddToTable();
-        //       }
-
-        //       // Clear form fields
-        //       formClear();
-
-        //       // Focus to product name field
-        //       $("#position_name").focus();
-        //             $("#position_description").focus();
-        //     }
-
-        //     // Add product to <table>
-        //     function positionAddToTable() {
-        //       // First check if a <tbody> tag exists, add one if not
-        //       if ($("#datatable tbody").length == 0) {
-        //         $("#datatable").append("<tbody></tbody>");
-        //       }
-
-        //       // Append product to table
-        //       $("#datatable tbody").append(
-        //         positionBuildTableRow());
-        //     }
-
-        //     // Update product in <table>
-        //     function positionUpdateInTable() {
-        //       // Add changed product to table
-        //       $(editRow).after(positionBuildTableRow());
-
-        //       // Remove original product
-        //       $(editRow).remove();
-
-        //       // Clear form fields
-        //       formClear();
-
-        //       // Change Update Button Text
-        //       $("#updateButton").text("Add");
-        //     }
-
-        //     // Build a <table> row of Product data
-        //     function positionBuildTableRow() {
-        //       var ret =
-        //       "<tr>" +
-        //         "<td>" + $("#heirarchy_id").val() + "</td>" + /*Just change to proper database name*/
-        //         "<td>" + $("#position_name").val() + "</td>" +
-        //         "<td class = 'padThisCell'>" + $("#position_description").val() + "</td>" +
-
-        //         "<td>"  +
-        //           "<button type='button' " +
-        //                   "onclick='positionDisplay(this);' " + 'positionDisplay is for editing"
-        //                   "class='btn btn-primary btn-xs'>" +
-        //                   "EDIT" +
-        //           "</button>" +
-        //           "</td>"+
-
-        //           "<td>"+
-        //           "<button type='button' " +
-        //                   "onclick='positionDelete(this);' " +
-        //                   "class='btn btn-danger btn-xs'>" +
-        //                    "DELETE"+
-        //                    "</button>"+
-        //                    "</td>" 
-        //       "</tr>"
-        //       return ret;
-        //     }
-
-        //     // Delete product from <table>
-        //     function positionDelete(ctl) {
-        //       $(ctl).parents("tr").remove();
-        //     }
-        //     //saving data from data table to database
-        //     function saveToDatabase(){
-        //      $(document).ready(function() {
-        // 	$('#butsave').on('click', function() {
-        // 		var positionname = $('#position_name').val();
-        // 		var position_description = $('#position_description').val();
-        // 		if(position_name!="" && position_description!=""){
-        // 			$.ajax({
-        // 				url: "./backCandidate/save.php",
-        // 				type: "POST",
-        // 				data: {
-        // 					position_name: position_name,
-        // 					position_description: position_description,
-        // 				},
-        // 				cache: false,
-        // 				success: function(dataResult){
-        // 					var dataResult = JSON.parse(dataResult);
-        // 					if(dataResult.statusCode==200){
-        // 						$("#butsave").removeAttr("disabled");
-        // 						$('#fupForm').find('input:text').val('');
-        // 						$("#success").show();
-        // 						$('#success').html('Data added successfully !');
-        // 						alert("Data added successfully !");
-        // 					}
-        // 					else if(dataResult.statusCode==201){
-        // 					   alert("Error occured !");
-        // 					}
-
-        // 				}
-        // 			});
-        // 		}
-        // 		else{
-        // 			alert('Please fill all the field !');
-        // 		}
-        // 	});
-        // });
-        //     }
-        //     // Clear form fields
         function formClear() {
             $("#positionId").attr("posid", "");
             $("#add_Hid").val("");
@@ -532,22 +408,9 @@ include "navAdmin.php";
             $("#edit_Desc").val("");
         }
 
-    /*<!-- <div class="footer">
-        <p class="footer-txt">BS COMPUTER SCIENCE 3A © 2021</p>
-    </div> -->*/
-
-
         $('.icon').click(function() {
             $('span').toggleClass("cancel");
         });
-
-        /**Added this move to edit/add panel function for mobile QoL**/
-        /*$("button").click(function() {
-                    $('html,body').animate({
-                            scrollTop: $(".left").offset().top
-                        },
-                        'slow');
-        });*/
     </script>
 
 </body>

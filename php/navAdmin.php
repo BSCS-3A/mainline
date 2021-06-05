@@ -135,7 +135,7 @@ if(!(isValidUser($conn))){
                                                                         // change path for photo - den
                                                                         $adminPhoto = $_SESSION['photo'];
                                                                         echo str_replace("../../", "../", $adminPhoto);
-                                                                        ?>"></a>
+                                                                        ?>" onerror="if (this.src != '../img/admin_anon.png') this.src = '../img/admin_anon.png';"></a>
                 <input type="checkbox" id="btn-7">
                 <ul>
 

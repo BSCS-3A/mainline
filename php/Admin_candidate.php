@@ -1,19 +1,3 @@
-<!-- 
-    proj mngr notes:
-    - changed navigation barr
-    - changed db_conn
-    - change photo fix
-    - fix responsiveness table
-
-
-   OKE - delete previous photo when changed 
-    - 1:1 ratio requirement of photo size
-    - change echo something
-
-    - den: fix layout candidate view
-
--->
-
 <!DOCTYPE html>
 <?php 
     include "db_conn.php";
@@ -47,15 +31,15 @@
     <link rel="stylesheet" href="../css/admin_css/bootstrap_Pos.css"> 
     <link rel="stylesheet" href="../css/admin_css/font-awesome.css">
     <link rel="stylesheet" href="https://unpkg.com/simplebar@2.0.1/umd/simplebar.css" />
-    <link rel="stylesheet" type="text/css" href="../css/admin_css/jquery.dataTables.min_AdminDash.css">
+    <link rel="stylesheet" type="text/css" href="../css/admin_css/jquery.dataTables.min.css">
     
 
      
     <!-- <script src="assets/js/a076d05399.js"></script> -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="../js/jQuery.dataTables.min_Pos.js"></script>
+    <script src="../js/jQuery.dataTables.min.js"></script>
     <!-- <script src="../js/jquery.dataTables.min_studAcc.js"></script> -->
-    <script src="../js/bootstrap.min_Pos.js"></script> 
+    <script src="../js/bootstrap.min.js"></script> 
     <!-- <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css" crossorigin="anonymous"> -->
     <link href="https://unpkg.com/cropperjs/dist/cropper.css" rel="stylesheet"/>
     <link type="text/javascript" href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.11/cropper.min.js">
@@ -627,9 +611,15 @@
             method:"post",
             data:{table:temp},
             success:function(response){
+<<<<<<< Updated upstream
                 if(response != ""){    
                     alert(response);
                 }
+=======
+                if(response != ""){
+                    alert(response);  
+                }       
+>>>>>>> Stashed changes
             }
         });
         $.ajax({
