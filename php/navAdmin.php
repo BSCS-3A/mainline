@@ -101,7 +101,7 @@ if(!(isValidUser($conn))){
                     <li>
                         <label for="btn-4" class="Ashow2">Configuration</label>
                         <a tabindex="0" class="isDisabled">Configuration</a>
-                        <input type="checkbox" id="btn-4"> <!-- latest button toggle for 3rd ul-->
+                        <input type="checkbox" id="btn-4">
                         <ul>
                             <li><a href="Admin_schedConfig.php">Scheduler</a></li>
                             <li><a href="Admin_signConfig.php">Signatory</a></li>
