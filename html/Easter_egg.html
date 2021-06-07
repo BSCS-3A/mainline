@@ -1,15 +1,15 @@
+<!-- Easter Egg -->
 <script src="../js/bootstrap_vote.js"></script>
 <script src="../js/bootstrap.min_vote.js"></script>
 
 <link rel="stylesheet" type="text/css" href="../css/student_css/vote_ballot.css">
 
-<!-- Easter Egg -->
 <div id="confirmation" class="F-modal" width = "400px;">
     <div class="F-modal-content" style = "background-color: none; width: 400px; max-width: 400px; min-width: 400px; border: none; padding: none;">
             <center>
                 <div class="aboutheader" id="aboutheader" style="position: relative; z-index: 250; width: 400px; background: #0c2933; font-weight: 400; color: #ffc423; text-align: center; font-family: 'Roboto-regular', sans-serif; letter-spacing: 4px; text-transform: uppercase;">
-                    <h4>You have found an easter egg!</h4>
-                    <h5>Press the arrow keys to move the block</h5>
+                    <h4>You found an easter egg!</h4>
+                    <h5 id = "subtitle"></h5>
                 </div>
                 <canvas id="gc" width="400" height="400"></canvas>
                     <button type="button" id="msg-ok-button" class="OkBTN-error" style = "font: bold 16px 'Roboto-regular', sans-serif; background-color: #fece4b; color: black; margin: auto; height: 40px; width: 400px; letter-spacing: 1px; cursor: pointer; box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">Close
@@ -23,11 +23,16 @@
         canv = document.getElementById("gc");
         ctx = canv.getContext("2d");
         document.addEventListener("keydown", keyPush);
-        setInterval(game, 1500 / 15);
+        setInterval(game, 1000 / 10);
     }
-    px = py = 10;
+    
+    gStart = 0;
+    score = 0;
+    hscore = 0;
     gs = tc = 20;
-    ax = ay = 15;
+    px = py = 0;
+    ax = ay = 0;
+
     xv = yv = 0;
     trail = [];
     tail = 5;
@@ -53,7 +58,16 @@
         for (var i = 0; i < trail.length; i++) {
             ctx.fillRect(trail[i].x * gs, trail[i].y * gs, gs - 2, gs - 2);
             if (trail[i].x == px && trail[i].y == py) {
-                tail = 5;
+                tail = 1;
+                xv = yv = 0;
+                if(hscore < score){
+                    hscore = score;
+                }
+                score = 0;
+            }
+            if(gstart == 1){
+                // break();
+                document.getElementById("subtitle").innerHTML = "Score: "+score+"<br>High Score: "+hscore;
             }
         }
         trail.push({ x: px, y: py });
@@ -63,6 +77,7 @@
 
         if (ax == px && ay == py) {
             tail++;
+            score++;
             ax = Math.floor(Math.random() * tc);
             ay = Math.floor(Math.random() * tc);
         }
@@ -70,6 +85,11 @@
         ctx.fillRect(ax * gs, ay * gs, gs - 2, gs - 2);
     }
     function keyPush(evt) {
+        document.getElementById("subtitle").innerHTML = "Score: "+score+"<br>High Score: "+hscore;
+        if(tail == 1){
+            tail = 5;
+        }
+        gstart = 1;
         switch (evt.keyCode) {
             case 37:
                 xv = -1; yv = 0;
@@ -88,13 +108,21 @@
 
 
     document.querySelector("#about-title").addEventListener('click', function(){
+        px = Math.floor(Math.random() * tc);
+        py = Math.floor(Math.random() * tc);
+        ax = Math.floor(Math.random() * tc);
+        ay = Math.floor(Math.random() * tc);
         document.querySelector("#confirmation").style.display = 'block';
         document.querySelector("body").style.overflow = 'hidden';
+        document.getElementById("subtitle").innerHTML = "Press the arrow keys to move the block";
+        gstart = 0;
     })
 
     document.querySelector("#msg-ok-button").addEventListener('click', function(){
         document.querySelector("#confirmation").style.display = 'none';
         document.querySelector("body").style.overflow = 'visible';
         xv = yv = 0;
+        score = 0;
+        gstart = 0;
     })
 </script>

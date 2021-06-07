@@ -2,23 +2,13 @@
 <html>
     <head>
       <meta name="viewport" content="width=device-width, initial-scale=1">
-      <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min">
-      <link rel="stylesheet" type="text/css" href="../css/student_css/student_css/bootstrap_vote.css"> -->
-      <!-- <link rel="stylesheet" type="text/css" href="../css/student_css/bootstrap.min_vote.css"> -->
-      <!-- <link rel="stylesheet" type="text/css" href="../css/student_css/styles_vote.css"> -->
       <script src="../js/bootstrap_vote.js"></script>
       <script src="../js/bootstrap.min_vote.js"></script>
     </head>
 
   
   <body>
-  
-    <!-- Trigger/Open The Modal -->
-    <!-- <button id="vote-button">Submit</button> -->
-
-    <!-- The Modal -->
     <div id="confirmation" class="F-modal">
-    <!-- Modal content -->
     <div class="F-modal-content">
         <div class="F-modal-header">
         <h2>VOTE PREVIEW</h2>

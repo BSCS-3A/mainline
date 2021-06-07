@@ -14,9 +14,6 @@ include('db_conn.php');
     <link rel="stylesheet" href="../css/student_css/bootstrap_vote.css">
     <link rel="stylesheet" href="../css/student_css/font-awesome.css">
     <link rel="stylesheet" type="text/css" href="../css/student_css/vote_message.css">
-    <!-- <link rel="stylesheet" href="../css/bootstrap.css"> -->
-    <!-- <link rel="stylesheet" type="text/css" href="../css/style.css">
-    <link rel="stylesheet" type="text/css" href="../css/messages.css"> -->
     <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
     <script type="text/javascript" src="../js/student_session_timer.js"></script>
@@ -25,16 +22,6 @@ include('db_conn.php');
 
 <body>
     <?php
-        // include 'navstudent.php';
-        // require "db_conn.php";
-	      // require_once "Student_vtValSan.php";
-        // if(!isset($_POST['confirm-button'])){
-        //   header("Location: vtBallot.php");
-        //   exit();
-        // }
-
-
-
         function receiptMsg($message){
           require_once 'navStudent.php';
           echo '<header id="F-header"  style="text-align: center;"><b>VOTE RECEIPT</b></header><br>';
@@ -181,16 +168,12 @@ include('db_conn.php');
           exit();
         }
       ?>
-              <!-- <embed src="PDF/generatepdf.php" width="600px" height="800px" /> -->
       <script>
-            // Get Download Receipt button
             var download = document.getElementById("F-downloadReceiptBTN");
-    
-            // Get Home button
             var home = document.getElementById("F-goToHomeBTN");
     
             download.onclick = function() {
-            location.href = "Student_vtGeneratepdf.php"; // generate reciept & show receipt
+            location.href = "Student_vtGeneratepdf.php";
             }
     
             home.onclick = function() {

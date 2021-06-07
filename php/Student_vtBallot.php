@@ -26,12 +26,8 @@ include('db_conn.php');
 
 <body>
     <?php
-        // include "db_conn.php";
-        // require_once 'Student_vtValSan.php';
         require 'Student_vtFetch.php';
 
-        // Remove this temp session
-        
         if(isValidUser($conn)){
             $sched_row = $conn->query("SELECT * FROM `vote_event` WHERE `vote_event_id` = 1 LIMIT 1");
             $sched = $sched_row->fetch_assoc();
@@ -63,9 +59,6 @@ include('db_conn.php');
             $end_time = strtotime($sched['end_date']);
             $access_time = time();
 
-            // echo "Start: ".(date("Y-m-d h:m:sa", $start_time))."<br>";
-            // echo "End: ".(date("Y-m-d h:m:sa", $end_time))."<br>";
-            // echo "Now: ".(date("Y-m-d h:m:sa", $access_time))."<br>";
             if($sched['vote_duration'] == 0 && $_SESSION['grade_level'] == 12){
                 errorMessage("Sorry, your grade level cannot participate in this election.");
                 exit();
